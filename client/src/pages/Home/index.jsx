@@ -24,7 +24,7 @@ const HomeData = [
               molestias dolorem cupiditate alias at?`,
     image: commonImg,
     shadow: "shadow-custom-orange",
-    buttonName: "About Us",
+    buttonName: "cultural canvas of india",
     buttonLink: null,
   },
 
@@ -98,7 +98,7 @@ const Home = () => {
             key={ind}
             className={`backdrop-blur-lg ${
               content.shadow
-            } bg-opacity-80 p-4 rounded-lg h-[520px] md:h-[450px] lg:h-[500px] xl:h-[500px] w-full max-w-[93.5rem] relative flex items-center ${
+            } bg-opacity-80 p-4 rounded-lg h-[520px] md:h-[450px] lg:h-[500px] xl:h-[500px] w-full max-w-[94rem] relative flex items-center ${
               ind % 2 === 0 ? "justify-start" : "justify-end"
             } `}
           >
@@ -111,7 +111,7 @@ const Home = () => {
                 href={content.buttonLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text px-2 py-1 rounded font-ubuntu"
+                className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-700 transition-transform hover:scale-105 transform-cpu"
               >
                 {content.buttonName}
               </a>
