@@ -8,6 +8,7 @@ export default {
         dark_background1: "#000407",
         dark_background2: "#121212",
         background1: "#FFFAF4",
+        background2: "#fff3e4",
         shadow: "#232222",
         dark_primary_text: "#FFFAF4",
         primary_text: "#000407",

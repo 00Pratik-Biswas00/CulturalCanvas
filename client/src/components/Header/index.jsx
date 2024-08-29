@@ -7,6 +7,7 @@ import { logoutUser } from "../../store/slices/userSlice";
 import { switchLoginModalOpen } from "../../store/slices/loginModalOpenSlice";
 
 import logo from "../../assets/logo/logo.png";
+import headerBG from "../../assets/logo/headerBG.png";
 // import LoginModal from "../modals/login";
 // import SignUpModal from "../modals/signup";
 // import ForgotPasswordModal from "../modals/forgotpassword";
@@ -145,7 +146,12 @@ const Header = ({ open, setOpen }) => {
   };
 
   return (
-    <div className="dark:bg-dark_background1 bg-background1 text-dark_secondary_text dark:text-dark_primary_text font-semibold pt-2 px-5 md:px-5 flex justify-between items-center">
+    <div
+      style={{
+        backgroundImage: `url(${headerBG})`,
+      }}
+      className=" bg-background1 dark:bg-dark_background2  text-dark_secondary_text dark:text-dark_primary_text font-semibold pt-2 px-4 flex justify-between items-center bg-cover bg-center"
+    >
       <div className="text-xl font-bold">
         <NavLink
           to="/"
