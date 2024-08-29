@@ -4,11 +4,20 @@ import { Toaster } from "sonner";
 
 import "./App.css";
 
+// components
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import NotFound from "./components/NotFound";
 
+// pages
 import Home from "./pages/Home";
 import Heritage from "./pages/Heritage";
+import CultureTradition from "./pages/CultureTradition";
+import LearnIndianCulture from "./pages/LearnIndianCulture";
+import TripRecommendation from "./pages/TripRecommendation";
+import BlogsVlogs from "./pages/BlogsVlogs";
+import VirtualStore from "./pages/VirtualStore";
+
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
 
@@ -34,16 +43,15 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/heritage" element={<Heritage />} />
-          {/* <Route path="explore/shows" element={<AllShows />} />
-          <Route path="explore/movies/:slug" element={<SingleMovie />} />
-          <Route path="explore/movies/:slug/watch" element={<WatchMovie />} />
-          <Route path="explore/shows/:slug" element={<SingleShow />} />
-          <Route path="/subscribe" element={<SubscriptionPage />} />
-          {user && <Route path="/myfavourites" element={<MyFavourites />} />}
-          {user && <Route path="/mybookings" element={<MyBookings />} />}
-          {user && <Route path="/myprofile" element={<MyProfile />} />}
-          <Route path="/oauth" element={<OAuthHandler />} />
-          <Route path="*" element={<NotFound />} /> */}
+          <Route path="/culture_tradition" element={<CultureTradition />} />
+          <Route
+            path="/learn_Indian_culture"
+            element={<LearnIndianCulture />}
+          />
+          <Route path="/trip_recommendation" element={<TripRecommendation />} />
+          <Route path="/blogs_vlogs" element={<BlogsVlogs />} />
+          <Route path="/virtual_store" element={<VirtualStore />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </UserLayout>
     </BrowserRouter>

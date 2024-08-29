@@ -1,18 +1,53 @@
 import React, { useState, useEffect, useRef } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 // import { useDispatch, useSelector } from "react-redux";
-import { logoutUser } from "../../store/slices/userSlice";
-
 import { toast } from "sonner";
+
+import { logoutUser } from "../../store/slices/userSlice";
 import { switchLoginModalOpen } from "../../store/slices/loginModalOpenSlice";
 
-import logo from "../../assets/logo/chobimancha_logo3.png";
+import logo from "../../assets/logo/logo.png";
 // import LoginModal from "../modals/login";
 // import SignUpModal from "../modals/signup";
 // import ForgotPasswordModal from "../modals/forgotpassword";
 
 import { CiMenuFries } from "react-icons/ci";
 import { RxCross2 } from "react-icons/rx";
+import { MdLightMode } from "react-icons/md";
+import { MdDarkMode } from "react-icons/md";
+
+// Routes
+
+const RoutesNames = [
+  {
+    route_link: "/",
+    route_name: "Home",
+  },
+  {
+    route_link: "/heritage",
+    route_name: "Heritage",
+  },
+  {
+    route_link: "/culture_tradition",
+    route_name: "Culture & Tradition",
+  },
+  {
+    route_link: "/learn_Indian_culture",
+    route_name: "Learn Indian Culture",
+  },
+  {
+    route_link: "/trip_recommendation",
+    route_name: "Trip Recommendation",
+  },
+  {
+    route_link: "/blogs_vlogs",
+    route_name: "Blogs & Vlogs",
+  },
+  {
+    route_link: "/virtual_store",
+    route_name: "Virtual Store",
+  },
+];
 
 const Header = ({ open, setOpen }) => {
   const navigate = useNavigate();
@@ -95,71 +130,50 @@ const Header = ({ open, setOpen }) => {
     };
   }, [open]);
 
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
-    <div className="bg-background2 text-primary_text font-semibold py-4 px-5 md:px-10 flex justify-between items-center">
+    <div className="dark:bg-dark_background1 bg-background1 text-dark_secondary_text dark:text-dark_primary_text font-semibold pt-2 px-5 md:px-5 flex justify-between items-center">
       <div className="text-xl font-bold">
         <NavLink
           to="/"
-          className="gap-x-2 flex items-center"
+          className="flex flex-col items-center"
           onClick={handleNavLinkClick}
         >
-          <img
-            src={logo}
-            alt="chobimancha_logo"
-            className="rounded-full w-12"
-          />
-          <h2 className="text-3xl sm:text-xl md:text-2xl lg:text-3xl font-logo_text font-bold">
-            Chhobimancha
+          <img src={logo} alt="logo" className=" w-[7rem]" />
+          <h2 className="text-3xl sm:text-xl md:text-2xl lg:text-base font-playfair font-bold">
+            Cultural Canvas
           </h2>
         </NavLink>
       </div>
       <div className="hidden lg:flex items-center justify-center space-x-5">
-        <div className="flex space-x-4 font-ubuntu font-medium">
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              isActive
-                ? "text-primary_text"
-                : "text-highlight hover:text-highlight_hover"
-            }
-            end
-            onClick={handleNavLinkClick}
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/explore/movies"
-            className={({ isActive }) =>
-              isActive
-                ? "text-primary_text"
-                : "text-highlight  hover:text-highlight_hover"
-            }
-            onClick={handleNavLinkClick}
-          >
-            Explore Movies
-          </NavLink>
-          <NavLink
-            to="/explore/shows"
-            className={({ isActive }) =>
-              isActive
-                ? "text-primary_text"
-                : "text-highlight hover:text-highlight_hover"
-            }
-            onClick={handleNavLinkClick}
-          >
-            Book a Show
-          </NavLink>
-          <NavLink
-            to="/subscribe"
-            className={({ isActive }) =>
-              isActive
-                ? "text-primary_text"
-                : "text-highlight hover:text-highlight_hover"
-            }
-            onClick={handleNavLinkClick}
-          >
-            Buy Subscription
-          </NavLink>
+        <div className="flex space-x-4 font-ubuntu font-medium text-sm uppercase">
+          {RoutesNames.map((routes, ind) => (
+            <NavLink
+              to={routes.route_link}
+              className={({ isActive }) =>
+                isActive
+                  ? "text-dark_secondary_text dark:text-dark_primary_text uppercase"
+                  : "text-highlight hover:text-highlight_hover "
+              }
+              end
+              onClick={handleNavLinkClick}
+            >
+              {routes.route_name}
+            </NavLink>
+          ))}
         </div>
 
         {/* <div className="relative flex items-center ">
@@ -221,6 +235,21 @@ const Header = ({ open, setOpen }) => {
             </button>
           )}
         </div> */}
+      </div>
+
+      <div className="hidden lg:flex items-center justify-center space-x-5">
+        <div className="flex space-x-4 font-ubuntu font-medium text-sm ">
+          <button onClick={toggleDarkMode}>
+            {darkMode ? (
+              <MdLightMode className=" w-5 h-5" />
+            ) : (
+              <MdDarkMode className=" w-5 h-5 text-primary_text dark:text-dark_primary_text " />
+            )}
+          </button>
+          <button className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text px-2 py-1 rounded font-ubuntu">
+            Login
+          </button>
+        </div>
       </div>
 
       <div className="lg:hidden flex items-center">

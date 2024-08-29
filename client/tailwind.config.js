@@ -1,18 +1,28 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        background1: "#000407",
-        background2: "#121212",
+        dark_background1: "#000407",
+        dark_background2: "#121212",
+        background1: "#FFFAF4",
         shadow: "#232222",
-        primary_text: "#FFFAF4",
-        secondary_text: "#a3a09d",
-        highlight: "#e1251a",
-        highlight_hover: "#f43a3a77",
+        dark_primary_text: "#FFFAF4",
+        primary_text: "#000407",
+        dark_secondary_text: "#243166",
+        secondary_text: "#121212",
+        // highlight: "#e1251a",
+        // highlight: "#4B70D1",
+        highlight: "#f49738",
+
+        // highlight_hover: "#193c70e9",
+        highlight_hover: "#148938",
+
+        // highlight_hover: "#f43a3a77",
       },
+
       fontFamily: {
         open_sans: ["Open Sans", "sans-serif"], // normal text
         playfair: ["Playfair Display", "serif"],
