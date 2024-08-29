@@ -24,6 +24,12 @@ export default {
         // highlight_hover: "#f43a3a77",
       },
 
+      boxShadow: {
+        "custom-orange": "0 10px 20px #f496386c",
+        "custom-blue": "0 10px 20px #2431666c",
+        "custom-green": "0 10px 20px #1489386c",
+      },
+
       fontFamily: {
         open_sans: ["Open Sans", "sans-serif"], // normal text
         playfair: ["Playfair Display", "serif"],

@@ -5,3 +5,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+@supports (-webkit-scrollbar-track-color: #000) {
+  ::-webkit-scrollbar-track {
+    background: #000;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+  background: transparent;
+}
