@@ -1,0 +1,61 @@
+Register:
+mutation RegisterUser($name: String!, $email: String!, $password: String!, $gender: String!, $phone: String!) {
+  register(name: $name, email: $email, password: $password, gender: $gender, phone: $phone) {
+    ok
+  }
+}
+{
+  "name": "Chandrima Kar",
+  "email": "chandrimakar@gmail.com",
+  "password": "123456",
+  "gender": "female",
+  "phone": "123-456-7890"
+}
+
+Login:
+mutation LoginUser($email: String!, $password: String!) {
+  login(email: $email, password: $password) {
+    token
+    user {
+      _id
+      name
+      email
+      gender
+      phone
+      role
+      photo {
+        url
+        public_id
+      }
+    }
+    error
+  }
+}
+{
+  "email": "chandrimakar@gmail.com",
+  "password": "123456"
+}
+
+Forgot Password:
+mutation ForgotPassword($email: String!) {
+  forgotPassword(email: $email) {
+    ok
+    error
+  }
+}
+{
+  "email": "chandrimakar@gmail.com"
+}
+
+Reset Password:
+mutation ResetPassword($id: ID!, $token: String!, $password: String!) {
+  resetPassword(id: $id, token: $token, password: $password) {
+    ok
+    error
+  }
+}
+{
+  "id": "user_id_here",
+  "token": "your_jwt_token_here",
+  "password": "new_secure_password"
+}

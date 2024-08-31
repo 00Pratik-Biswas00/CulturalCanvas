@@ -1,0 +1,18 @@
+currentUser:
+query {
+  currentUser {
+    _id
+    name
+    email
+    gender
+    phone
+    role
+    photo {
+      url
+      public_id
+    }
+    rewards
+    vlogs
+    blogs
+  }
+}
