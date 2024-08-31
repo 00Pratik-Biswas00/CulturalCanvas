@@ -1,97 +1,99 @@
 import React from "react";
 
-import commonImg from "../../assets/Home/c.jpg";
+import { dummyData } from "../../utils/constants";
 
-const HomeData = [
-  {
-    para: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
-              voluptatum distinctio dolorem eveniet rerum. Obcaecati fugit
-              adipisci, in sint voluptatibus odit accusantium aliquid sit
-              placeat assumenda libero debitis. Consectetur, quibusdam? Lorem
-              ipsum dolor sit amet consectetur adipisicing elit. Ut cupiditate
-              nulla odit, laboriosam eius nostrum! Iure eveniet aspernatur minus
-              nemo, adipisci obcaecati, asperiores itaque, nam quaerat mollitia
-              voluptas quibusdam atque! Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Quas molestiae cum neque. Suscipit laboriosam
-              reprehenderit saepe dignissimos tenetur sunt ullam, exercitationem
-              sit quas eligendi itaque omnis nam perspiciatis eos tempora. Lorem
-              ipsum dolor, sit amet consectetur adipisicing elit. Assumenda vel
-              quasi, nesciunt consequatur sit illum nemo reprehenderit quam
-              ducimus at dicta. Voluptatibus hic expedita nam, sed neque totam
-              autem perferendis! Lorem, ipsum dolor sit amet consectetur
-              adipisicing elit. Impedit maiores veritatis odit nam odio, in
-              ipsam placeat dolor debitis corrupti iure, ullam, nisi ut deleniti
-              molestias dolorem cupiditate alias at?`,
-    image: commonImg,
-    shadow: "shadow-custom-orange",
-    buttonName: "cultural canvas of india",
-    buttonLink: null,
-  },
+// const HomeData = [
+//   {
+//     para: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
+//               voluptatum distinctio dolorem eveniet rerum. Obcaecati fugit
+//               adipisci, in sint voluptatibus odit accusantium aliquid sit
+//               placeat assumenda libero debitis. Consectetur, quibusdam? Lorem
+//               ipsum dolor sit amet consectetur adipisicing elit. Ut cupiditate
+//               nulla odit, laboriosam eius nostrum! Iure eveniet aspernatur minus
+//               nemo, adipisci obcaecati, asperiores itaque, nam quaerat mollitia
+//               voluptas quibusdam atque! Lorem ipsum dolor sit amet consectetur
+//               adipisicing elit. Quas molestiae cum neque. Suscipit laboriosam
+//               reprehenderit saepe dignissimos tenetur sunt ullam, exercitationem
+//               sit quas eligendi itaque omnis nam perspiciatis eos tempora. Lorem
+//               ipsum dolor, sit amet consectetur adipisicing elit. Assumenda vel
+//               quasi, nesciunt consequatur sit illum nemo reprehenderit quam
+//               ducimus at dicta. Voluptatibus hic expedita nam, sed neque totam
+//               autem perferendis! Lorem, ipsum dolor sit amet consectetur
+//               adipisicing elit. Impedit maiores veritatis odit nam odio, in
+//               ipsam placeat dolor debitis corrupti iure, ullam, nisi ut deleniti
+//               molestias dolorem cupiditate alias at?`,
+//     image: commonImg,
+//     shadow: "shadow-custom-orange",
+//     buttonName: "cultural canvas of india",
+//     buttonLink: null,
+//   },
 
-  {
-    para: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
-              voluptatum distinctio dolorem eveniet rerum. Obcaecati fugit
-              adipisci, in sint voluptatibus odit accusantium aliquid sit
-              placeat assumenda libero debitis. Consectetur, quibusdam? Lorem
-              ipsum dolor sit amet consectetur adipisicing elit. Ut cupiditate
-              nulla odit, laboriosam eius nostrum! Iure eveniet aspernatur minus
-              nemo, adipisci obcaecati, asperiores itaque, nam quaerat mollitia
-              voluptas quibusdam atque! Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Quas molestiae cum neque. Suscipit laboriosam
-              reprehenderit saepe dignissimos tenetur sunt ullam, exercitationem
-              sit quas eligendi itaque omnis nam perspiciatis eos tempora. Lorem
-              ipsum dolor, sit amet consectetur adipisicing elit. Assumenda vel
-              quasi, nesciunt consequatur sit illum nemo reprehenderit quam
-              ducimus at dicta. Voluptatibus hic expedita nam, sed neque totam
-              autem perferendis! Lorem, ipsum dolor sit amet consectetur
-              adipisicing elit. Impedit maiores veritatis odit nam odio, in
-              ipsam placeat dolor debitis corrupti iure, ullam, nisi ut deleniti
-              molestias dolorem cupiditate alias at?`,
-    image: commonImg,
-    shadow: "shadow-custom-blue",
-    buttonName: "Explore Heritage",
-    buttonLink: "/heritage",
-  },
-  {
-    para: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero`,
-    image: commonImg,
-    shadow: "shadow-custom-green",
-    buttonName: "Explore Culture & Tradition",
-    buttonLink: "/culture_tradition",
-  },
-  {
-    para: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero`,
-    image: commonImg,
-    shadow: "shadow-custom-orange",
-    buttonName: "Learn Indian Culture",
-    buttonLink: "/learn_Indian_culture",
-  },
-  {
-    para: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero`,
-    image: commonImg,
-    shadow: "shadow-custom-blue",
-    buttonName: "Explore Trip Recommendations",
-    buttonLink: "/trip_recommendation",
-  },
-  {
-    para: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero`,
-    image: commonImg,
-    shadow: "shadow-custom-green",
-    buttonName: "Review Blogs & Vlogs",
-    buttonLink: "/blogs_vlogs",
-  },
+//   {
+//     para: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
+//               voluptatum distinctio dolorem eveniet rerum. Obcaecati fugit
+//               adipisci, in sint voluptatibus odit accusantium aliquid sit
+//               placeat assumenda libero debitis. Consectetur, quibusdam? Lorem
+//               ipsum dolor sit amet consectetur adipisicing elit. Ut cupiditate
+//               nulla odit, laboriosam eius nostrum! Iure eveniet aspernatur minus
+//               nemo, adipisci obcaecati, asperiores itaque, nam quaerat mollitia
+//               voluptas quibusdam atque! Lorem ipsum dolor sit amet consectetur
+//               adipisicing elit. Quas molestiae cum neque. Suscipit laboriosam
+//               reprehenderit saepe dignissimos tenetur sunt ullam, exercitationem
+//               sit quas eligendi itaque omnis nam perspiciatis eos tempora. Lorem
+//               ipsum dolor, sit amet consectetur adipisicing elit. Assumenda vel
+//               quasi, nesciunt consequatur sit illum nemo reprehenderit quam
+//               ducimus at dicta. Voluptatibus hic expedita nam, sed neque totam
+//               autem perferendis! Lorem, ipsum dolor sit amet consectetur
+//               adipisicing elit. Impedit maiores veritatis odit nam odio, in
+//               ipsam placeat dolor debitis corrupti iure, ullam, nisi ut deleniti
+//               molestias dolorem cupiditate alias at?`,
+//     image: commonImg,
+//     shadow: "shadow-custom-blue",
+//     buttonName: "Explore Heritage",
+//     buttonLink: "/heritage",
+//   },
+//   {
+//     para: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero`,
+//     image: commonImg,
+//     shadow: "shadow-custom-green",
+//     buttonName: "Explore Culture & Tradition",
+//     buttonLink: "/culture_tradition",
+//   },
+//   {
+//     para: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero`,
+//     image: commonImg,
+//     shadow: "shadow-custom-orange",
+//     buttonName: "Learn Indian Culture",
+//     buttonLink: "/learn_Indian_culture",
+//   },
+//   {
+//     para: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero`,
+//     image: commonImg,
+//     shadow: "shadow-custom-blue",
+//     buttonName: "Explore Trip Recommendations",
+//     buttonLink: "/trip_recommendation",
+//   },
+//   {
+//     para: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero`,
+//     image: commonImg,
+//     shadow: "shadow-custom-green",
+//     buttonName: "Review Blogs & Vlogs",
+//     buttonLink: "/blogs_vlogs",
+//   },
 
-  {
-    para: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero`,
-    image: commonImg,
-    shadow: "shadow-custom-orange",
-    buttonName: "Explore Virtual Store",
-    buttonLink: "/virtual_store",
-  },
-];
+//   {
+//     para: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero`,
+//     image: commonImg,
+//     shadow: "shadow-custom-orange",
+//     buttonName: "Explore Virtual Store",
+//     buttonLink: "/virtual_store",
+//   },
+// ];
 const Home = () => {
+  const { HomeData } = dummyData;
+
   return (
-    <section className=" bg-background1 dark:bg-dark_background1 px-4 py-10">
+    <section className=" bg-background1 dark:bg-dark_background1 px-4 py-10 ">
       <div className="w-full flex flex-col items-start  gap-16">
         {HomeData.map((content, ind) => (
           <div
@@ -109,7 +111,7 @@ const Home = () => {
 
               <a
                 href={content.buttonLink}
-                className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-700 transition-transform hover:scale-105 transform-cpu"
+                className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-500 transition-transform hover:scale-105 transform-cpu"
               >
                 {content.buttonName}
               </a>
