@@ -22,3 +22,8 @@
   height: 1px;
   background: transparent;
 }
+
+/* Hide download button in the video controls */
+.react-player .controls .controls__button[title="Download"] {
+  display: none;
+}

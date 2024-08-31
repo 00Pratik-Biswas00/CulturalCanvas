@@ -17,6 +17,9 @@ import LearnIndianCulture from "./pages/LearnIndianCulture";
 import TripRecommendation from "./pages/TripRecommendation";
 import BlogsVlogs from "./pages/BlogsVlogs";
 import VirtualStore from "./pages/VirtualStore";
+import SingleHeritage from "./pages/SingleHeritage";
+
+import taj from "./assets/Heritage/taj.jpeg";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -31,6 +34,21 @@ const UserLayout = ({ children }) => {
 };
 
 function App() {
+  const [backgroundStyle, setBackgroundStyle] = useState({});
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setBackgroundStyle({
+        backgroundImage: `url(${taj})`,
+        backgroundAttachment: "fixed",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      });
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <BrowserRouter>
       <Toaster
@@ -40,19 +58,39 @@ function App() {
         closeButton="true"
       />
       <UserLayout>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/heritage" element={<Heritage />} />
-          <Route path="/culture_tradition" element={<CultureTradition />} />
-          <Route
-            path="/learn_Indian_culture"
-            element={<LearnIndianCulture />}
-          />
-          <Route path="/trip_recommendation" element={<TripRecommendation />} />
-          <Route path="/blogs_vlogs" element={<BlogsVlogs />} />
-          <Route path="/virtual_store" element={<VirtualStore />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <div
+          style={backgroundStyle}
+          className={`relative bg-no-repeat ${
+            backgroundStyle.backgroundImage ? "" : "bg-dark_background1"
+          } overflow-hidden`}
+        >
+          <div className="absolute inset-0 bg-dark_background1 opacity-20 z-10"></div>
+          <div className="relative z-20">
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route path="/heritage" element={<Heritage />} />
+              <Route path="/culture_tradition" element={<CultureTradition />} />
+              <Route
+                path="/learn_Indian_culture"
+                element={<LearnIndianCulture />}
+              />
+              <Route
+                path="/trip_recommendation"
+                element={<TripRecommendation />}
+              />
+              <Route path="/blogs_vlogs" element={<BlogsVlogs />} />
+              <Route path="/virtual_store" element={<VirtualStore />} />
+              <Route path="*" element={<NotFound />} />
+
+              {/*  single pages */}
+
+              <Route
+                path="/heritage/single_heritage"
+                element={<SingleHeritage />}
+              />
+            </Routes>
+          </div>
+        </div>
       </UserLayout>
     </BrowserRouter>
   );
