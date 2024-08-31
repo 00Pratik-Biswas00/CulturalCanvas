@@ -90,12 +90,12 @@ import { dummyData } from "../../utils/constants";
 //   },
 // ];
 const Home = () => {
-  const { HomeData } = dummyData;
+  const { Home } = dummyData;
 
   return (
-    <section className=" bg-background1 dark:bg-dark_background1 px-4 py-10 ">
+    <section className=" bg-background1 dark:bg-dark_background1 px-4 py-10  duration-300">
       <div className="w-full flex flex-col items-start  gap-16">
-        {HomeData.map((content, ind) => (
+        {Home.map((content, ind) => (
           <div
             key={ind}
             className={`backdrop-blur-lg ${
