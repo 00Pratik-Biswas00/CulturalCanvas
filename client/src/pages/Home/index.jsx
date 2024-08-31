@@ -109,8 +109,6 @@ const Home = () => {
 
               <a
                 href={content.buttonLink}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-700 transition-transform hover:scale-105 transform-cpu"
               >
                 {content.buttonName}

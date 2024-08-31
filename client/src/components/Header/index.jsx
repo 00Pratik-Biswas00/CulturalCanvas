@@ -171,8 +171,8 @@ const Header = ({ open, setOpen }) => {
               to={routes.route_link}
               className={({ isActive }) =>
                 isActive
-                  ? "text-dark_secondary_text dark:text-dark_primary_text uppercase"
-                  : "text-highlight hover:text-highlight_hover "
+                  ? "text-highlight_hover dark:text-dark_primary_text uppercase underline"
+                  : " text-dark_secondary_text dark:text-highlight hover:text-highlight_hover dark:hover:text-highlight_hover "
               }
               end
               onClick={handleNavLinkClick}
@@ -252,7 +252,7 @@ const Header = ({ open, setOpen }) => {
               <MdDarkMode className=" w-5 h-5 text-primary_text dark:text-dark_primary_text " />
             )}
           </button>
-          <button className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text px-2 py-1 rounded font-ubuntu">
+          <button className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-dark_primary_text px-2 py-1 rounded font-ubuntu duration-700">
             Login
           </button>
         </div>
