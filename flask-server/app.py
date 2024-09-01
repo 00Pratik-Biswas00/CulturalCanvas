@@ -4,11 +4,11 @@ import numpy as np
 import joblib
 
 app = Flask(__name__)
-df=pd.read_csv("heritage_budget.csv")
+df=pd.read_csv("flask-server/heritage_budget.csv")
 # Load the trained model and label encoders
-model = joblib.load('budget_prediction_new.pkl')
-label_encoder_source = joblib.load('label_encoder_source.pkl')
-label_encoder_destination = joblib.load('label_encoder_destination.pkl')
+model = joblib.load('flask-server/budget_prediction_new.pkl')
+label_encoder_source = joblib.load('flask-server/label_encoder_source.pkl')
+label_encoder_destination = joblib.load('flask-server/label_encoder_destination.pkl')
 
 # Unique sources and destinations
 sources = ['Delhi', 'Mumbai', 'Kolkata', 'Jaipur', 'Agra', 'Chennai', 
