@@ -1,6 +1,8 @@
 import React from "react";
 import ReactPlayer from "react-player";
 import bahoMein from "../../assets/Heritage/bais.mp4";
+import { NavLink } from "react-router-dom";
+
 import taj from "../../assets/Heritage/taj.jpeg";
 
 const SingleHeritage = () => {
@@ -190,8 +192,31 @@ const SingleHeritage = () => {
           <h1 className="font-bold font-playfair text-5xl tracking-wider">
             Nearest Attractions
           </h1>
-          <p></p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full">
+            <NavLink
+              to="/"
+              className="flex items-center justify-start gap-3 p-3  border-2 rounded-xl shadow-md shadow-primary_text dark:shadow-dark_primary_text  duration-500 transition-transform hover:scale-105 transform-cpu"
+            >
+              <img src={taj} className="w-32 rounded-xl" />
+              <div className="flex flex-col items-start">
+                <h1 className=" font-semibold text-2xl tracking-wide">
+                  Agra Fort
+                </h1>
+                <div className="flex flex-wrap w-full items-center justify-center gap-5">
+                  <p>
+                    <b> Distance:</b> 50km
+                  </p>
+                  <p>
+                    <b>Entry Fee:</b> Rs.10
+                  </p>
+                </div>
+              </div>
+            </NavLink>
+          </div>
         </div>
+
+        {/* state culture */}
+        <div></div>
       </div>
     </section>
   );
