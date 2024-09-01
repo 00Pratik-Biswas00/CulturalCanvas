@@ -139,15 +139,20 @@ export const dummyData = {
         fire_emergency: "+333333",
         medical_emergency: "+444444",
         state_culture_name: "Bengal",
-        state_culture_linl: "/bengal",
+        state_culture_introduction: "efbuevbhevh v hevebvrhebv",
+        state_culture_link: "/bengal",
         nearest_attraction: [
           {
             name: "Agra Fort",
             link: "/",
+            image: taj,
+            entryFee: "Rs.10",
           },
           {
             name: "Rupal r sosur bari",
             link: "/norok",
+            image: taj,
+            entryFee: "Rs.10",
           },
         ],
       },
@@ -195,15 +200,20 @@ export const dummyData = {
         fire_emergency: "+333333",
         medical_emergency: "+444444",
         state_culture_name: "Bengal",
-        state_culture_linl: "/bengal",
+        state_culture_introduction: "efbuevbhevh v hevebvrhebv",
+        state_culture_link: "/bengal",
         nearest_attraction: [
           {
             name: "Agra Fort",
             link: "/",
+            image: taj,
+            entryFee: "Rs.10",
           },
           {
             name: "Rupal r sosur bari",
             link: "/norok",
+            image: taj,
+            entryFee: "Rs.10",
           },
         ],
       },
@@ -253,15 +263,20 @@ export const dummyData = {
         fire_emergency: "+333333",
         medical_emergency: "+444444",
         state_culture_name: "Bengal",
-        state_culture_linl: "/bengal",
+        state_culture_introduction: "efbuevbhevh v hevebvrhebv",
+        state_culture_link: "/bengal",
         nearest_attraction: [
           {
             name: "Agra Fort",
             link: "/",
+            image: taj,
+            entryFee: "Rs.10",
           },
           {
             name: "Rupal r sosur bari",
             link: "/norok",
+            image: taj,
+            entryFee: "Rs.10",
           },
         ],
       },
@@ -272,7 +287,7 @@ export const dummyData = {
         name: "Taj Mahal",
         introduction:
           "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
-        category: "UNESCO Listed",
+        category: "Local Heritage",
 
         categoryImg: unescoLogo,
         type: "cultural",
@@ -311,18 +326,19 @@ export const dummyData = {
         fire_emergency: "+333333",
         medical_emergency: "+444444",
         state_culture_name: "Bengal",
-        state_culture_linl: "/bengal",
+        state_culture_introduction: "efbuevbhevh v hevebvrhebv",
+        state_culture_link: "/bengal",
         nearest_attraction: [
           {
             name: "Agra Fort",
             link: "/",
-            distance: "50km",
+            image: taj,
             entryFee: "Rs.10",
           },
           {
             name: "Rupal r sosur bari",
             link: "/norok",
-            distance: "50km",
+            image: taj,
             entryFee: "Rs.10",
           },
         ],

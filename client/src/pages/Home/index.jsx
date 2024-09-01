@@ -111,7 +111,7 @@ const Home = () => {
 
               <a
                 href={content.buttonLink}
-                className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-500 transition-transform hover:scale-105 transform-cpu"
+                className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-300 transition-transform hover:scale-105 transform-cpu"
               >
                 {content.buttonName}
               </a>
