@@ -12,7 +12,7 @@ export default {
         shadow: "#232222",
         dark_primary_text: "#fff",
         primary_text: "#000407",
-        dark_secondary_text: "#243166",
+        dark_secondary_text: "#06038D",
         secondary_text: "#121212",
         // highlight: "#e1251a",
         // highlight: "#4B70D1",

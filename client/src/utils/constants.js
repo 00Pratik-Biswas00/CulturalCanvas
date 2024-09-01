@@ -345,5 +345,137 @@ export const dummyData = {
       },
     ],
   },
+
+  LearningDetails: {
+    languages: [
+      {
+        image: taj,
+        name: "Bengali",
+        introduction:
+          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
+        courseCategory: "Learn Different Languages of India",
+        courseLink: "/",
+      },
+      {
+        image: taj,
+        name: "Bengali",
+        introduction:
+          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
+        courseCategory: "Learn Different Languages of India",
+        courseLink: "/",
+      },
+      {
+        image: taj,
+        name: "English",
+        introduction:
+          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
+        courseCategory: "Learn Different Languages of India",
+        courseLink: "/",
+      },
+      {
+        image: taj,
+        name: "Hindi",
+        introduction:
+          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
+        courseCategory: "Learn Different Languages of India",
+        courseLink: "/",
+      },
+    ],
+
+    cuisines: [
+      {
+        image: taj,
+        name: "Bengali",
+        introduction:
+          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
+        courseCategory: "Try Different Cuisines of India",
+        courseLink: "/",
+      },
+      {
+        image: taj,
+        name: "English",
+        introduction:
+          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
+        courseCategory: "Try Different Cuisines of India",
+        courseLink: "/",
+      },
+      {
+        image: taj,
+        name: "Hindi",
+        introduction:
+          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
+        courseCategory: "Try Different Cuisines of India",
+        courseLink: "/",
+      },
+    ],
+
+    clothing: [
+      {
+        image: taj,
+        name: "Bengali",
+        introduction:
+          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
+        courseCategory: "Try Different Cloths of India",
+        courseLink: "/",
+      },
+      {
+        image: taj,
+        name: "English",
+        introduction:
+          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
+        courseCategory: "Try Different Cloths of India",
+        courseLink: "/",
+      },
+      {
+        image: taj,
+        name: "Bengali",
+        introduction:
+          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
+        courseCategory: "Learn Different Languages of India",
+        courseLink: "/",
+      },
+      {
+        image: taj,
+        name: "Hindi",
+        introduction:
+          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
+        courseCategory: "Try Different Cloths of India",
+        courseLink: "/",
+      },
+    ],
+    artCrafts: [
+      {
+        image: taj,
+        name: "Bengali",
+        introduction:
+          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
+        courseCategory: "Try Different Arts & Crafts of India",
+        courseLink: "/",
+      },
+      {
+        image: taj,
+        name: "English",
+        introduction:
+          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
+        courseCategory: "Try Different Arts & Crafts of India",
+        courseLink: "/",
+      },
+      {
+        image: taj,
+        name: "Bengali",
+        introduction:
+          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
+        courseCategory: "Learn Different Languages of India",
+        courseLink: "/",
+      },
+      {
+        image: taj,
+        name: "Hindi",
+        introduction:
+          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
+        courseCategory: "Try Different Arts & Crafts of India",
+        courseLink: "/",
+      },
+    ],
+  },
 };
-// fgefgefgekgnkengkernk
