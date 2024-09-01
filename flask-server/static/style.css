@@ -1,0 +1,79 @@
+/* General body styling */
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Playful font */
+    background-color: #f4f4f9; /* Light gray background */
+    color: #333; /* Dark gray text color */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Container styling */
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #96dae4; /* White background for the form */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Heading styling */
+h1 {
+    color: #ff6f61; /* Coral color */
+    text-align: center;
+    font-size: 2.5em; /* Larger heading */
+    margin-bottom: 20px;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between form elements */
+}
+
+/* Input and select box styling */
+input[type="text"], input[type="number"], select {
+    padding: 10px;
+    border: 2px solid #ff6f61; /* Coral border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1em;
+}
+
+/* Button styling */
+button {
+    background-color: #6df207; /* Coral background */
+    color: #fff; /* White text */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+button:hover {
+    background-color: #04415c; /* Darker coral on hover */
+}
+
+/* Result styling */
+.result {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #e0f7fa; /* Light cyan background */
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #00796b; /* Teal color */
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #004d40; /* Darker teal */
+}

@@ -1,0 +1,760 @@
+from flask import Flask, request, render_template
+import pandas as pd
+import numpy as np
+import joblib
+destination_attractions = {
+    'Taj Mahal': [
+    {'day': 1, 'attraction': 'Taj Mahal', 'description': 'Visit the iconic Taj Mahal.', 'cost': 500},
+    {'day': 2, 'attraction': 'Agra Fort', 'description': 'Explore the historic Agra Fort.', 'cost': 300},
+    {'day': 3, 'attraction': 'Mehtab Bagh', 'description': 'Enjoy a sunset view of the Taj Mahal.', 'cost': 150},
+    {'day': 4, 'attraction': 'Tomb of Itimad-ud-Daulah', 'description': 'Visit the beautiful Tomb of Itimad-ud-Daulah, also known as the Baby Taj.', 'cost': 200},
+    {'day': 5, 'attraction': 'Fatehpur Sikri', 'description': 'Explore the former Mughal capital of Fatehpur Sikri.', 'cost': 350},
+    {'day': 6, 'attraction': 'Sadar Bazaar', 'description': 'Shop for local crafts and souvenirs at Sadar Bazaar.', 'cost': 100},
+    {'day': 7, 'attraction': 'Akbar’s Tomb', 'description': 'Visit the grand tomb of Akbar the Great.', 'cost': 250},
+    {'day': 8, 'attraction': 'Jama Masjid', 'description': 'Explore the Jama Masjid, one of the largest mosques in India.', 'cost': 100},
+    {'day': 9, 'attraction': 'Shilpgram', 'description': 'Experience traditional Indian art and crafts at Shilpgram.', 'cost': 150},
+    {'day': 10, 'attraction': 'Raja Ki Mandi', 'description': 'Visit the local market at Raja Ki Mandi.', 'cost': 80},
+    {'day': 11, 'attraction': 'Chini Ka Rauza', 'description': 'Explore the Chini Ka Rauza, a tomb with Persian inscriptions.', 'cost': 200},
+    {'day': 12, 'attraction': 'Jama Masjid', 'description': 'Visit the Jama Masjid again for a different perspective.', 'cost': 100},
+    {'day': 13, 'attraction': 'Taj Nature Walk', 'description': 'Enjoy a morning walk in the Taj Nature Walk area.', 'cost': 100},
+    {'day': 14, 'attraction': 'Wildlife SOS', 'description': 'Visit Wildlife SOS and learn about conservation efforts.', 'cost': 250},
+    {'day': 15, 'attraction': 'Dayalbagh', 'description': 'Explore the Dayalbagh Temple and its surroundings.', 'cost': 150},
+    {'day': 16, 'attraction': 'Mariam’s Tomb', 'description': 'Visit the tomb of Mariam-uz-Zamani, Akbar’s wife.', 'cost': 200},
+    {'day': 17, 'attraction': 'Sikandra Fort', 'description': 'Explore the beautiful Sikandra Fort, Akbar’s tomb.', 'cost': 200},
+    {'day': 18, 'attraction': 'Taj Mahal at Sunrise', 'description': 'Visit the Taj Mahal at sunrise for a different view.', 'cost': 500},
+    {'day': 19, 'attraction': 'Taj Museum', 'description': 'Visit the museum inside the Taj Mahal complex to learn about its history.', 'cost': 150},
+    {'day': 20, 'attraction': 'Mughal Gardens', 'description': 'Explore the Mughal Gardens around the Taj Mahal.', 'cost': 150},
+    {'day': 21, 'attraction': 'Local Cuisine Tour', 'description': 'Take a tour of local Agra cuisine and taste traditional dishes.', 'cost': 300},
+    {'day': 22, 'attraction': 'Agra Heritage Walk', 'description': 'Enjoy a guided heritage walk through Agra’s historical streets.', 'cost': 250},
+    {'day': 23, 'attraction': 'Khas Mahal', 'description': 'Visit the Khas Mahal in Agra Fort.', 'cost': 200},
+    {'day': 24, 'attraction': 'Jodha Bai Palace', 'description': 'Explore the Jodha Bai Palace in Fatehpur Sikri.', 'cost': 200},
+    {'day': 25, 'attraction': 'Shopping at Kinari Bazaar', 'description': 'Shop for local handicrafts and jewelry at Kinari Bazaar.', 'cost': 150},
+    {'day': 26, 'attraction': 'Taj Mahal at Dusk', 'description': 'Visit the Taj Mahal at dusk for a serene experience.', 'cost': 500},
+    {'day': 27, 'attraction': 'Tomb of Akbar the Great', 'description': 'Explore the grand tomb of Akbar the Great.', 'cost': 250},
+    {'day': 28, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a workshop to learn traditional Agra handicrafts.', 'cost': 200},
+    {'day': 29, 'attraction': 'Agra City Tour', 'description': 'Take a comprehensive tour of Agra city, including all major attractions.', 'cost': 300},
+    {'day': 30, 'attraction': 'Relaxation Day', 'description': 'Enjoy a relaxing day at a local spa or hotel, reflecting on your visit.', 'cost': 400}
+],
+    'Agra Fort': [
+    {'day': 1, 'attraction': 'Agra Fort', 'description': 'Visit the majestic Agra Fort.', 'cost': 300},
+    {'day': 2, 'attraction': 'Jama Masjid', 'description': 'Explore the Jama Masjid, one of the largest mosques in India.', 'cost': 100},
+    {'day': 3, 'attraction': 'Taj Mahal', 'description': 'Visit the iconic Taj Mahal.', 'cost': 500},
+    {'day': 4, 'attraction': 'Itimad-ud-Daulah', 'description': 'Explore the beautiful Tomb of Itimad-ud-Daulah, also known as the Baby Taj.', 'cost': 200},
+    {'day': 5, 'attraction': 'Mehtab Bagh', 'description': 'Enjoy a sunset view of the Taj Mahal from Mehtab Bagh.', 'cost': 150},
+    {'day': 6, 'attraction': 'Fatehpur Sikri', 'description': 'Explore the former Mughal capital of Fatehpur Sikri.', 'cost': 350},
+    {'day': 7, 'attraction': 'Sadar Bazaar', 'description': 'Shop for local crafts and souvenirs at Sadar Bazaar.', 'cost': 100},
+    {'day': 8, 'attraction': 'Dayalbagh', 'description': 'Visit the Dayalbagh Temple and its serene surroundings.', 'cost': 150},
+    {'day': 9, 'attraction': 'Wildlife SOS', 'description': 'Learn about conservation efforts at Wildlife SOS.', 'cost': 250},
+    {'day': 10, 'attraction': 'Akbar’s Tomb', 'description': 'Visit the grand tomb of Akbar the Great.', 'cost': 250},
+    {'day': 11, 'attraction': 'Chini Ka Rauza', 'description': 'Explore the Chini Ka Rauza, a tomb with Persian inscriptions.', 'cost': 200},
+    {'day': 12, 'attraction': 'Taj Nature Walk', 'description': 'Enjoy a morning walk in the Taj Nature Walk area.', 'cost': 100},
+    {'day': 13, 'attraction': 'Jodha Bai Palace', 'description': 'Explore the Jodha Bai Palace in Fatehpur Sikri.', 'cost': 200},
+    {'day': 14, 'attraction': 'Khas Mahal', 'description': 'Visit the Khas Mahal in Agra Fort.', 'cost': 200},
+    {'day': 15, 'attraction': 'Mariam’s Tomb', 'description': 'Visit the tomb of Mariam-uz-Zamani, Akbar’s wife.', 'cost': 200},
+    {'day': 16, 'attraction': 'Shilpgram', 'description': 'Experience traditional Indian art and crafts at Shilpgram.', 'cost': 150},
+    {'day': 17, 'attraction': 'Local Cuisine Tour', 'description': 'Take a tour of local Agra cuisine and taste traditional dishes.', 'cost': 300},
+    {'day': 18, 'attraction': 'Raja Ki Mandi', 'description': 'Visit the local market at Raja Ki Mandi.', 'cost': 80},
+    {'day': 19, 'attraction': 'Shopping at Kinari Bazaar', 'description': 'Shop for local handicrafts and jewelry at Kinari Bazaar.', 'cost': 150},
+    {'day': 20, 'attraction': 'Agra Heritage Walk', 'description': 'Enjoy a guided heritage walk through Agra’s historical streets.', 'cost': 250},
+    {'day': 21, 'attraction': 'Tomb of Akbar the Great', 'description': 'Explore the grand tomb of Akbar the Great.', 'cost': 250},
+    {'day': 22, 'attraction': 'Taj Mahal at Sunrise', 'description': 'Visit the Taj Mahal at sunrise for a different view.', 'cost': 500},
+    {'day': 23, 'attraction': 'Taj Museum', 'description': 'Visit the museum inside the Taj Mahal complex to learn about its history.', 'cost': 150},
+    {'day': 24, 'attraction': 'Mughal Gardens', 'description': 'Explore the Mughal Gardens around the Taj Mahal.', 'cost': 150},
+    {'day': 25, 'attraction': 'Sikandra Fort', 'description': 'Explore the beautiful Sikandra Fort, Akbar’s tomb.', 'cost': 200},
+    {'day': 26, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a workshop to learn traditional Agra handicrafts.', 'cost': 200},
+    {'day': 27, 'attraction': 'Agra City Tour', 'description': 'Take a comprehensive tour of Agra city, including all major attractions.', 'cost': 300},
+    {'day': 28, 'attraction': 'Relaxation Day', 'description': 'Enjoy a relaxing day at a local spa or hotel, reflecting on your visit.', 'cost': 400},
+    {'day': 29, 'attraction': 'Riverside Walk', 'description': 'Enjoy a peaceful walk along the Yamuna River.', 'cost': 100},
+    {'day': 30, 'attraction': 'Evening at Agra Fort', 'description': 'Experience the Agra Fort in the evening with a guided tour.', 'cost': 300}
+],
+    'Ajanta Caves': [
+        {'day': 1, 'attraction': 'Ajanta Caves', 'description': 'Explore the ancient Ajanta Caves.', 'cost': 400},
+        {'day': 2, 'attraction': 'Ajanta Caves', 'description': 'Visit additional caves and murals at Ajanta.', 'cost': 400},
+        {'day': 3, 'attraction': 'Ellora Caves', 'description': 'Travel to and explore the nearby Ellora Caves.', 'cost': 500},
+        {'day': 4, 'attraction': 'Buddhist Monuments at Sanchi', 'description': 'Travel to and explore the Buddhist Monuments at Sanchi.', 'cost': 600},
+        {'day': 5, 'attraction': 'Ajanta Caves', 'description': 'Revisit Ajanta Caves for a deeper understanding.', 'cost': 400},
+        {'day': 6, 'attraction': 'Local Market', 'description': 'Explore the local market for souvenirs.', 'cost': 100},
+        {'day': 7, 'attraction': 'Ajanta Caves', 'description': 'Visit specific caves of interest or less explored areas.', 'cost': 400},
+        {'day': 8, 'attraction': 'Ellora Caves', 'description': 'Revisit the Ellora Caves to explore more sections.', 'cost': 500},
+        {'day': 9, 'attraction': 'Sanchi Stupa', 'description': 'Visit the Sanchi Stupa and nearby monuments.', 'cost': 250},
+        {'day': 10, 'attraction': 'Ajanta Caves', 'description': 'Take a guided tour of the Ajanta Caves.', 'cost': 400},
+        {'day': 11, 'attraction': 'Ellora Caves', 'description': 'Explore the Kailasa Temple at Ellora.', 'cost': 500},
+        {'day': 12, 'attraction': 'Local Cuisine Tour', 'description': 'Sample local cuisine in the Ajanta region.', 'cost': 200},
+        {'day': 13, 'attraction': 'Buddhist Monuments at Sanchi', 'description': 'Explore the Buddhist Monuments in Sanchi more extensively.', 'cost': 600},
+        {'day': 14, 'attraction': 'Ajanta Caves', 'description': 'Visit Ajanta Caves for a different perspective.', 'cost': 400},
+        {'day': 15, 'attraction': 'Ellora Caves', 'description': 'Take a guided tour of Ellora Caves.', 'cost': 500},
+        {'day': 16, 'attraction': 'Sanchi Museum', 'description': 'Visit the museum at Sanchi for insights into the monuments.', 'cost': 250},
+        {'day': 17, 'attraction': 'Ajanta Caves', 'description': 'Revisit Ajanta Caves for final explorations.', 'cost': 400},
+        {'day': 18, 'attraction': 'Ellora Caves', 'description': 'Explore more of the Ellora Caves.', 'cost': 500},
+        {'day': 19, 'attraction': 'Sanchi Stupa', 'description': 'Visit the Sanchi Stupa at different times of day.', 'cost': 250},
+        {'day': 20, 'attraction': 'Ajanta Caves', 'description': 'Explore Ajanta Caves with a focus on specific murals.', 'cost': 400},
+        {'day': 21, 'attraction': 'Ellora Caves', 'description': 'Visit the Buddhist and Jain sections of Ellora.', 'cost': 500},
+        {'day': 22, 'attraction': 'Buddhist Monuments at Sanchi', 'description': 'Take a guided tour of Sanchi Monuments.', 'cost': 600},
+        {'day': 23, 'attraction': 'Ajanta Caves', 'description': 'Final visit to Ajanta Caves.', 'cost': 400},
+        {'day': 24, 'attraction': 'Ellora Caves', 'description': 'Revisit Ellora Caves for a comprehensive exploration.', 'cost': 500},
+        {'day': 25, 'attraction': 'Local Crafts Workshop', 'description': 'Participate in a workshop on local crafts.', 'cost': 200},
+        {'day': 26, 'attraction': 'Buddhist Monuments at Sanchi', 'description': 'Final exploration of Sanchi Monuments.', 'cost': 600},
+        {'day': 27, 'attraction': 'Ajanta Caves', 'description': 'Reflect on your visits to Ajanta Caves.', 'cost': 400},
+        {'day': 28, 'attraction': 'Ellora Caves', 'description': 'Relax and reflect on the Ellora Caves visit.', 'cost': 500},
+        {'day': 29, 'attraction': 'Buddhist Monuments at Sanchi', 'description': 'Explore surrounding areas of Sanchi.', 'cost': 600},
+        {'day': 30, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection on the trip.', 'cost': 400}
+    ],
+    
+    'Ellora Caves': [
+        {'day': 1, 'attraction': 'Ellora Caves', 'description': 'Explore the grand Ellora Caves.', 'cost': 500},
+        {'day': 2, 'attraction': 'Kailasa Temple', 'description': 'Visit the magnificent Kailasa Temple at Ellora.', 'cost': 500},
+        {'day': 3, 'attraction': 'Ajanta Caves', 'description': 'Travel to and explore the Ajanta Caves.', 'cost': 400},
+        {'day': 4, 'attraction': 'Buddhist Monuments at Sanchi', 'description': 'Travel to and explore the Buddhist Monuments at Sanchi.', 'cost': 600},
+        {'day': 5, 'attraction': 'Ellora Caves', 'description': 'Revisit Ellora Caves for deeper exploration.', 'cost': 500},
+        {'day': 6, 'attraction': 'Local Market', 'description': 'Explore the local market for souvenirs.', 'cost': 100},
+        {'day': 7, 'attraction': 'Ajanta Caves', 'description': 'Visit the Ajanta Caves for a different experience.', 'cost': 400},
+        {'day': 8, 'attraction': 'Buddhist Monuments at Sanchi', 'description': 'Explore Sanchi Monuments more extensively.', 'cost': 600},
+        {'day': 9, 'attraction': 'Sanchi Stupa', 'description': 'Visit the Sanchi Stupa and nearby monuments.', 'cost': 250},
+        {'day': 10, 'attraction': 'Ellora Caves', 'description': 'Explore more sections of Ellora Caves.', 'cost': 500},
+        {'day': 11, 'attraction': 'Shivaji Maharaj Museum', 'description': 'Visit the museum dedicated to Shivaji Maharaj.', 'cost': 200},
+        {'day': 12, 'attraction': 'Local Cuisine Tour', 'description': 'Sample local cuisine in the Ellora region.', 'cost': 200},
+        {'day': 13, 'attraction': 'Sanchi Museum', 'description': 'Visit the museum at Sanchi for insights into the monuments.', 'cost': 250},
+        {'day': 14, 'attraction': 'Ellora Caves', 'description': 'Revisit Ellora Caves for specific sections.', 'cost': 500},
+        {'day': 15, 'attraction': 'Ajanta Caves', 'description': 'Explore the Ajanta Caves for murals.', 'cost': 400},
+        {'day': 16, 'attraction': 'Kailasa Temple', 'description': 'Explore Kailasa Temple at Ellora in detail.', 'cost': 500},
+        {'day': 17, 'attraction': 'Buddhist Monuments at Sanchi', 'description': 'Final exploration of Sanchi Monuments.', 'cost': 600},
+        {'day': 18, 'attraction': 'Ellora Caves', 'description': 'Explore more of the Ellora Caves.', 'cost': 500},
+        {'day': 19, 'attraction': 'Sanchi Stupa', 'description': 'Visit the Sanchi Stupa at different times of day.', 'cost': 250},
+        {'day': 20, 'attraction': 'Local Crafts Workshop', 'description': 'Participate in a workshop on local crafts.', 'cost': 200},
+        {'day': 21, 'attraction': 'Ajanta Caves', 'description': 'Revisit Ajanta Caves for a final view.', 'cost': 400},
+        {'day': 22, 'attraction': 'Ellora Caves', 'description': 'Final visit to Ellora Caves.', 'cost': 500},
+        {'day': 23, 'attraction': 'Buddhist Monuments at Sanchi', 'description': 'Explore surrounding areas of Sanchi.', 'cost': 600},
+        {'day': 24, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a workshop on local handicrafts.', 'cost': 200},
+        {'day': 25, 'attraction': 'Ellora Caves', 'description': 'Relax and reflect on the Ellora Caves visit.', 'cost': 500},
+        {'day': 26, 'attraction': 'Sanchi Museum', 'description': 'Visit the Sanchi Museum for final insights.', 'cost': 250},
+        {'day': 27, 'attraction': 'Ajanta Caves', 'description': 'Relax and reflect on the Ajanta Caves visit.', 'cost': 400},
+        {'day': 28, 'attraction': 'Ellora Caves', 'description': 'Take a final tour of Ellora Caves.', 'cost': 500},
+        {'day': 29, 'attraction': 'Sanchi Monuments', 'description': 'Explore any missed monuments at Sanchi.', 'cost': 600},
+        {'day': 30, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection on the trip.', 'cost': 400}
+    ],
+    'Buddhist Monuments at Sanchi': [
+        {'day': 1, 'attraction': 'Sanchi Stupa', 'description': 'Visit the main Sanchi Stupa.', 'cost': 250},
+        {'day': 2, 'attraction': 'Sanchi Stupa', 'description': 'Explore the Sanchi Stupa and its surroundings.', 'cost': 250},
+        {'day': 3, 'attraction': 'Ellora Caves', 'description': 'Travel to and explore the Ellora Caves.', 'cost': 500},
+        {'day': 4, 'attraction': 'Ajanta Caves', 'description': 'Travel to and explore the Ajanta Caves.', 'cost': 400},
+        {'day': 5, 'attraction': 'Sanchi Museum', 'description': 'Visit the museum at Sanchi for insights into the monuments.', 'cost': 250},
+        {'day': 6, 'attraction': 'Local Market', 'description': 'Explore the local market for souvenirs.', 'cost': 100},
+        {'day': 7, 'attraction': 'Sanchi Stupa', 'description': 'Revisit the Sanchi Stupa for a different perspective.', 'cost': 250},
+        {'day': 8, 'attraction': 'Ellora Caves', 'description': 'Revisit the Ellora Caves to explore more sections.', 'cost': 500},
+        {'day': 9, 'attraction': 'Ajanta Caves', 'description': 'Explore the Ajanta Caves more extensively.', 'cost': 400},
+        {'day': 10, 'attraction': 'Sanchi Monuments', 'description': 'Visit additional Buddhist Monuments at Sanchi.', 'cost': 250},
+        {'day': 11, 'attraction': 'Sanchi Stupa', 'description': 'Visit the Sanchi Stupa at different times of day.', 'cost': 250},
+        {'day': 12, 'attraction': 'Local Cuisine Tour', 'description': 'Sample local cuisine in the Sanchi region.', 'cost': 200},
+        {'day': 13, 'attraction': 'Ellora Caves', 'description': 'Explore more of the Ellora Caves.', 'cost': 500},
+        {'day': 14, 'attraction': 'Ajanta Caves', 'description': 'Take a guided tour of the Ajanta Caves.', 'cost': 400},
+        {'day': 15, 'attraction': 'Sanchi Monuments', 'description': 'Revisit the Buddhist Monuments at Sanchi.', 'cost': 250},
+        {'day': 16, 'attraction': 'Ellora Caves', 'description': 'Explore the Kailasa Temple at Ellora.', 'cost': 500},
+        {'day': 17, 'attraction': 'Ajanta Caves', 'description': 'Revisit Ajanta Caves for final explorations.', 'cost': 400},
+        {'day': 18, 'attraction': 'Sanchi Museum', 'description': 'Visit the museum at Sanchi again for additional insights.', 'cost': 250},
+        {'day': 19, 'attraction': 'Ellora Caves', 'description': 'Final visit to Ellora Caves.', 'cost': 500},
+        {'day': 20, 'attraction': 'Ajanta Caves', 'description': 'Explore Ajanta Caves with a focus on specific murals.', 'cost': 400},
+        {'day': 21, 'attraction': 'Sanchi Stupa', 'description': 'Visit the Sanchi Stupa for a serene experience.', 'cost': 250},
+        {'day': 22, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a workshop on local crafts.', 'cost': 200},
+        {'day': 23, 'attraction': 'Ellora Caves', 'description': 'Explore Ellora Caves with a different focus.', 'cost': 500},
+        {'day': 24, 'attraction': 'Ajanta Caves', 'description': 'Relax and reflect on the Ajanta Caves visit.', 'cost': 400},
+        {'day': 25, 'attraction': 'Sanchi Monuments', 'description': 'Final visit to Sanchi Monuments.', 'cost': 250},
+        {'day': 26, 'attraction': 'Sanchi Museum', 'description': 'Visit the Sanchi Museum for final insights.', 'cost': 250},
+        {'day': 27, 'attraction': 'Ellora Caves', 'description': 'Explore any missed sections of Ellora Caves.', 'cost': 500},
+        {'day': 28, 'attraction': 'Ajanta Caves', 'description': 'Final visit to Ajanta Caves.', 'cost': 400},
+        {'day': 29, 'attraction': 'Local Cuisine Tour', 'description': 'Enjoy local cuisine in the area.', 'cost': 200},
+        {'day': 30, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection on the trip.', 'cost': 400}
+    ],
+    'Champaner-Pavagadh': [
+        {'day': 1, 'attraction': 'Champaner Fort', 'description': 'Explore the historic Champaner Fort.', 'cost': 300},
+        {'day': 2, 'attraction': 'Pavagadh Hill', 'description': 'Visit the Pavagadh Hill and its temples.', 'cost': 250},
+        {'day': 3, 'attraction': 'Jama Masjid', 'description': 'Visit the Jama Masjid at Champaner.', 'cost': 200},
+        {'day': 4, 'attraction': 'Vijay Vilas Palace', 'description': 'Explore the Vijay Vilas Palace.', 'cost': 300},
+        {'day': 5, 'attraction': 'Mandvi Gate', 'description': 'Visit the historical Mandvi Gate.', 'cost': 150},
+        {'day': 6, 'attraction': 'Local Market', 'description': 'Explore the local market for souvenirs.', 'cost': 100},
+        {'day': 7, 'attraction': 'Champaner Archaeological Park', 'description': 'Visit the Champaner Archaeological Park.', 'cost': 250},
+        {'day': 8, 'attraction': 'Pavagadh Hill', 'description': 'Revisit Pavagadh Hill for more exploration.', 'cost': 250},
+        {'day': 9, 'attraction': 'Rani Ki Vav', 'description': 'Travel to and explore Rani Ki Vav.', 'cost': 300},
+        {'day': 10, 'attraction': 'Champaner Fort', 'description': 'Revisit Champaner Fort for deeper exploration.', 'cost': 300},
+        {'day': 11, 'attraction': 'Local Cuisine Tour', 'description': 'Sample local cuisine in Champaner.', 'cost': 200},
+        {'day': 12, 'attraction': 'Pavagadh Hill', 'description': 'Visit the Pavagadh Hill for a different perspective.', 'cost': 250},
+        {'day': 13, 'attraction': 'Champaner Fort', 'description': 'Explore specific sections of Champaner Fort.', 'cost': 300},
+        {'day': 14, 'attraction': 'Jama Masjid', 'description': 'Revisit Jama Masjid for detailed exploration.', 'cost': 200},
+        {'day': 15, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a workshop on local crafts.', 'cost': 200},
+        {'day': 16, 'attraction': 'Pavagadh Hill', 'description': 'Final exploration of Pavagadh Hill.', 'cost': 250},
+        {'day': 17, 'attraction': 'Champaner Archaeological Park', 'description': 'Final visit to the Archaeological Park.', 'cost': 250},
+        {'day': 18, 'attraction': 'Local Market', 'description': 'Visit the local market for final shopping.', 'cost': 100},
+        {'day': 19, 'attraction': 'Mandvi Gate', 'description': 'Revisit Mandvi Gate.', 'cost': 150},
+        {'day': 20, 'attraction': 'Champaner Fort', 'description': 'Explore lesser-known parts of Champaner Fort.', 'cost': 300},
+        {'day': 21, 'attraction': 'Local Cuisine Tour', 'description': 'Enjoy more local cuisine in Champaner.', 'cost': 200},
+        {'day': 22, 'attraction': 'Jama Masjid', 'description': 'Final visit to Jama Masjid.', 'cost': 200},
+        {'day': 23, 'attraction': 'Pavagadh Hill', 'description': 'Final visit to Pavagadh Hill.', 'cost': 250},
+        {'day': 24, 'attraction': 'Champaner Archaeological Park', 'description': 'Final exploration of the Archaeological Park.', 'cost': 250},
+        {'day': 25, 'attraction': 'Local Handicrafts Workshop', 'description': 'Join a final workshop on local crafts.', 'cost': 200},
+        {'day': 26, 'attraction': 'Local Cuisine Tour', 'description': 'Sample more local cuisine.', 'cost': 200},
+        {'day': 27, 'attraction': 'Champaner Fort', 'description': 'Reflect on the visit to Champaner Fort.', 'cost': 300},
+        {'day': 28, 'attraction': 'Pavagadh Hill', 'description': 'Enjoy a relaxing day at Pavagadh Hill.', 'cost': 250},
+        {'day': 29, 'attraction': 'Local Market', 'description': 'Final visit to the local market.', 'cost': 100},
+        {'day': 30, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection.', 'cost': 300}
+    ],
+    'Chhatrapati Shivaji Terminus': [
+        {'day': 1, 'attraction': 'Chhatrapati Shivaji Terminus', 'description': 'Explore the historic Chhatrapati Shivaji Terminus.', 'cost': 200},
+        {'day': 2, 'attraction': 'Local Architecture Tour', 'description': 'Discover nearby historic architecture.', 'cost': 300},
+        {'day': 3, 'attraction': 'Gateway of India', 'description': 'Visit the Gateway of India.', 'cost': 150},
+        {'day': 4, 'attraction': 'Marine Drive', 'description': 'Take a stroll along Marine Drive.', 'cost': 100},
+        {'day': 5, 'attraction': 'Colaba Causeway', 'description': 'Explore Colaba Causeway for shopping and local food.', 'cost': 200},
+        {'day': 6, 'attraction': 'Local Market', 'description': 'Visit local markets around CST.', 'cost': 150},
+        {'day': 7, 'attraction': 'Chhatrapati Shivaji Terminus', 'description': 'Revisit the terminus for a different perspective.', 'cost': 200},
+        {'day': 8, 'attraction': 'Elephanta Caves', 'description': 'Travel to and explore the Elephanta Caves.', 'cost': 400},
+        {'day': 9, 'attraction': 'Kala Ghoda Art Precinct', 'description': 'Explore the Kala Ghoda Art Precinct.', 'cost': 250},
+        {'day': 10, 'attraction': 'Chhatrapati Shivaji Terminus', 'description': 'Explore more areas within the terminus.', 'cost': 200},
+        {'day': 11, 'attraction': 'Local Cuisine Tour', 'description': 'Sample local cuisine around CST.', 'cost': 200},
+        {'day': 12, 'attraction': 'Chor Bazaar', 'description': 'Visit the famous Chor Bazaar for antiques.', 'cost': 150},
+        {'day': 13, 'attraction': 'Prince of Wales Museum', 'description': 'Explore the Prince of Wales Museum.', 'cost': 250},
+        {'day': 14, 'attraction': 'Chhatrapati Shivaji Terminus', 'description': 'Revisit the terminus for final observations.', 'cost': 200},
+        {'day': 15, 'attraction': 'Gateway of India', 'description': 'Visit the Gateway of India at sunset.', 'cost': 150},
+        {'day': 16, 'attraction': 'Chor Bazaar', 'description': 'Explore more in Chor Bazaar.', 'cost': 150},
+        {'day': 17, 'attraction': 'Local Crafts Workshop', 'description': 'Participate in a workshop on local crafts.', 'cost': 200},
+        {'day': 18, 'attraction': 'Elephanta Caves', 'description': 'Revisit Elephanta Caves for final exploration.', 'cost': 400},
+        {'day': 19, 'attraction': 'Marine Drive', 'description': 'Relax at Marine Drive.', 'cost': 100},
+        {'day': 20, 'attraction': 'Local Cuisine Tour', 'description': 'Enjoy more local cuisine.', 'cost': 200},
+        {'day': 21, 'attraction': 'Gateway of India', 'description': 'Revisit the Gateway of India.', 'cost': 150},
+        {'day': 22, 'attraction': 'Colaba Causeway', 'description': 'Final exploration of Colaba Causeway.', 'cost': 200},
+        {'day': 23, 'attraction': 'Local Handicrafts Workshop', 'description': 'Join a final workshop on local crafts.', 'cost': 200},
+        {'day': 24, 'attraction': 'Chhatrapati Shivaji Terminus', 'description': 'Final visit to Chhatrapati Shivaji Terminus.', 'cost': 200},
+        {'day': 25, 'attraction': 'Local Market', 'description': 'Visit local markets for last-minute shopping.', 'cost': 150},
+        {'day': 26, 'attraction': 'Marine Drive', 'description': 'Enjoy a relaxing day at Marine Drive.', 'cost': 100},
+        {'day': 27, 'attraction': 'Gateway of India', 'description': 'Relax and reflect at the Gateway of India.', 'cost': 150},
+        {'day': 28, 'attraction': 'Elephanta Caves', 'description': 'Explore any missed sections of Elephanta Caves.', 'cost': 400},
+        {'day': 29, 'attraction': 'Local Cuisine Tour', 'description': 'Final sampling of local cuisine.', 'cost': 200},
+        {'day': 30, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection.', 'cost': 300}
+    ],
+    'Churches and Convents of Goa': [
+        {'day': 1, 'attraction': 'Basilica of Bom Jesus', 'description': 'Visit the Basilica of Bom Jesus.', 'cost': 200},
+        {'day': 2, 'attraction': 'Se Cathedral', 'description': 'Explore the Se Cathedral.', 'cost': 150},
+        {'day': 3, 'attraction': 'Church of St. Cajetan', 'description': 'Visit the Church of St. Cajetan.', 'cost': 200},
+        {'day': 4, 'attraction': 'Convent of St. Monica', 'description': 'Explore the Convent of St. Monica.', 'cost': 150},
+        {'day': 5, 'attraction': 'Church of Our Lady of the Immaculate Conception', 'description': 'Visit the Church of Our Lady of the Immaculate Conception.', 'cost': 200},
+        {'day': 6, 'attraction': 'Local Market', 'description': 'Explore the local market for souvenirs.', 'cost': 100},
+        {'day': 7, 'attraction': 'Basilica of Bom Jesus', 'description': 'Revisit the Basilica for further exploration.', 'cost': 200},
+        {'day': 8, 'attraction': 'Se Cathedral', 'description': 'Revisit Se Cathedral for a different perspective.', 'cost': 150},
+        {'day': 9, 'attraction': 'Church of St. Cajetan', 'description': 'Explore specific areas of the Church of St. Cajetan.', 'cost': 200},
+        {'day': 10, 'attraction': 'Convent of St. Monica', 'description': 'Final visit to the Convent of St. Monica.', 'cost': 150},
+        {'day': 11, 'attraction': 'Local Cuisine Tour', 'description': 'Sample local cuisine in Goa.', 'cost': 200},
+        {'day': 12, 'attraction': 'Church of Our Lady of the Immaculate Conception', 'description': 'Revisit the church for more exploration.', 'cost': 200},
+        {'day': 13, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a workshop on local crafts.', 'cost': 200},
+        {'day': 14, 'attraction': 'Basilica of Bom Jesus', 'description': 'Explore more of the Basilica.', 'cost': 200},
+        {'day': 15, 'attraction': 'Se Cathedral', 'description': 'Visit Se Cathedral at different times of the day.', 'cost': 150},
+        {'day': 16, 'attraction': 'Church of St. Cajetan', 'description': 'Final visit to the Church of St. Cajetan.', 'cost': 200},
+        {'day': 17, 'attraction': 'Convent of St. Monica', 'description': 'Final exploration of the Convent of St. Monica.', 'cost': 150},
+        {'day': 18, 'attraction': 'Church of Our Lady of the Immaculate Conception', 'description': 'Revisit for final insights.', 'cost': 200},
+        {'day': 19, 'attraction': 'Local Cuisine Tour', 'description': 'Enjoy more local cuisine.', 'cost': 200},
+        {'day': 20, 'attraction': 'Basilica of Bom Jesus', 'description': 'Reflect on the visit to the Basilica.', 'cost': 200},
+        {'day': 21, 'attraction': 'Local Handicrafts Workshop', 'description': 'Join a final workshop on local crafts.', 'cost': 200},
+        {'day': 22, 'attraction': 'Se Cathedral', 'description': 'Relax and reflect at Se Cathedral.', 'cost': 150},
+        {'day': 23, 'attraction': 'Church of St. Cajetan', 'description': 'Final visit to the Church of St. Cajetan.', 'cost': 200},
+        {'day': 24, 'attraction': 'Convent of St. Monica', 'description': 'Final visit to the Convent of St. Monica.', 'cost': 150},
+        {'day': 25, 'attraction': 'Local Market', 'description': 'Final shopping at the local market.', 'cost': 100},
+        {'day': 26, 'attraction': 'Local Cuisine Tour', 'description': 'Final sampling of local cuisine.', 'cost': 200},
+        {'day': 27, 'attraction': 'Church of Our Lady of the Immaculate Conception', 'description': 'Enjoy a relaxing visit to the church.', 'cost': 200},
+        {'day': 28, 'attraction': 'Basilica of Bom Jesus', 'description': 'Final reflection at the Basilica.', 'cost': 200},
+        {'day': 29, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a final workshop on local crafts.', 'cost': 200},
+        {'day': 30, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection.', 'cost': 300}
+    ],
+    'Fatehpur Sikri': [
+        {'day': 1, 'attraction': 'Buland Darwaza', 'description': 'Visit the impressive Buland Darwaza.', 'cost': 250},
+        {'day': 2, 'attraction': 'Jama Masjid', 'description': 'Explore the Jama Masjid in Fatehpur Sikri.', 'cost': 200},
+        {'day': 3, 'attraction': 'Panch Mahal', 'description': 'Visit the historical Panch Mahal.', 'cost': 200},
+        {'day': 4, 'attraction': 'Diwan-i-Khas', 'description': 'Explore the Diwan-i-Khas.', 'cost': 200},
+        {'day': 5, 'attraction': 'Tomb of Salim Chishti', 'description': 'Visit the Tomb of Salim Chishti.', 'cost': 150},
+        {'day': 6, 'attraction': 'Local Market', 'description': 'Explore local markets for souvenirs.', 'cost': 100},
+        {'day': 7, 'attraction': 'Fatehpur Sikri Fort', 'description': 'Explore the Fatehpur Sikri Fort in detail.', 'cost': 250},
+        {'day': 8, 'attraction': 'Buland Darwaza', 'description': 'Revisit Buland Darwaza for a different perspective.', 'cost': 250},
+        {'day': 9, 'attraction': 'Panch Mahal', 'description': 'Revisit Panch Mahal for a deeper exploration.', 'cost': 200},
+        {'day': 10, 'attraction': 'Diwan-i-Khas', 'description': 'Explore specific sections of Diwan-i-Khas.', 'cost': 200},
+        {'day': 11, 'attraction': 'Local Cuisine Tour', 'description': 'Sample local cuisine in Fatehpur Sikri.', 'cost': 200},
+        {'day': 12, 'attraction': 'Tomb of Salim Chishti', 'description': 'Final visit to the Tomb of Salim Chishti.', 'cost': 150},
+        {'day': 13, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a workshop on local crafts.', 'cost': 200},
+        {'day': 14, 'attraction': 'Fatehpur Sikri Fort', 'description': 'Explore more of Fatehpur Sikri Fort.', 'cost': 250},
+        {'day': 15, 'attraction': 'Jama Masjid', 'description': 'Visit the Jama Masjid at different times of the day.', 'cost': 200},
+        {'day': 16, 'attraction': 'Buland Darwaza', 'description': 'Final exploration of Buland Darwaza.', 'cost': 250},
+        {'day': 17, 'attraction': 'Panch Mahal', 'description': 'Final visit to Panch Mahal.', 'cost': 200},
+        {'day': 18, 'attraction': 'Diwan-i-Khas', 'description': 'Final exploration of Diwan-i-Khas.', 'cost': 200},
+        {'day': 19, 'attraction': 'Local Market', 'description': 'Final shopping at the local market.', 'cost': 100},
+        {'day': 20, 'attraction': 'Local Cuisine Tour', 'description': 'Enjoy more local cuisine.', 'cost': 200},
+        {'day': 21, 'attraction': 'Tomb of Salim Chishti', 'description': 'Reflect on the visit to the Tomb of Salim Chishti.', 'cost': 150},
+        {'day': 22, 'attraction': 'Local Handicrafts Workshop', 'description': 'Join a final workshop on local crafts.', 'cost': 200},
+        {'day': 23, 'attraction': 'Fatehpur Sikri Fort', 'description': 'Relax and reflect at Fatehpur Sikri Fort.', 'cost': 250},
+        {'day': 24, 'attraction': 'Jama Masjid', 'description': 'Final visit to the Jama Masjid.', 'cost': 200},
+        {'day': 25, 'attraction': 'Local Market', 'description': 'Final shopping at the local market.', 'cost': 100},
+        {'day': 26, 'attraction': 'Local Cuisine Tour', 'description': 'Final sampling of local cuisine.', 'cost': 200},
+        {'day': 27, 'attraction': 'Buland Darwaza', 'description': 'Enjoy a relaxing visit to Buland Darwaza.', 'cost': 250},
+        {'day': 28, 'attraction': 'Fatehpur Sikri Fort', 'description': 'Final reflection at Fatehpur Sikri Fort.', 'cost': 250},
+        {'day': 29, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a final workshop on local crafts.', 'cost': 200},
+        {'day': 30, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection.', 'cost': 300}
+    ],
+    'Great Living Chola Temples': [
+        {'day': 1, 'attraction': 'Brihadeeswarar Temple', 'description': 'Visit the Brihadeeswarar Temple.', 'cost': 200},
+        {'day': 2, 'attraction': 'Airavatesvara Temple', 'description': 'Explore the Airavatesvara Temple.', 'cost': 150},
+        {'day': 3, 'attraction': 'Gangaikonda Cholapuram', 'description': 'Visit the Gangaikonda Cholapuram temple.', 'cost': 200},
+        {'day': 4, 'attraction': 'Brihadeeswarar Temple', 'description': 'Revisit the Brihadeeswarar Temple for further exploration.', 'cost': 200},
+        {'day': 5, 'attraction': 'Airavatesvara Temple', 'description': 'Explore specific sections of Airavatesvara Temple.', 'cost': 150},
+        {'day': 6, 'attraction': 'Local Market', 'description': 'Explore local markets for souvenirs.', 'cost': 100},
+        {'day': 7, 'attraction': 'Gangaikonda Cholapuram', 'description': 'Explore more of Gangaikonda Cholapuram.', 'cost': 200},
+        {'day': 8, 'attraction': 'Brihadeeswarar Temple', 'description': 'Final visit to the Brihadeeswarar Temple.', 'cost': 200},
+        {'day': 9, 'attraction': 'Airavatesvara Temple', 'description': 'Final exploration of Airavatesvara Temple.', 'cost': 150},
+        {'day': 10, 'attraction': 'Local Cuisine Tour', 'description': 'Sample local cuisine.', 'cost': 200},
+        {'day': 11, 'attraction': 'Gangaikonda Cholapuram', 'description': 'Final visit to Gangaikonda Cholapuram.', 'cost': 200},
+        {'day': 12, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a workshop on local crafts.', 'cost': 200},
+        {'day': 13, 'attraction': 'Brihadeeswarar Temple', 'description': 'Reflect on the visit to Brihadeeswarar Temple.', 'cost': 200},
+        {'day': 14, 'attraction': 'Airavatesvara Temple', 'description': 'Final visit to Airavatesvara Temple.', 'cost': 150},
+        {'day': 15, 'attraction': 'Gangaikonda Cholapuram', 'description': 'Final exploration of Gangaikonda Cholapuram.', 'cost': 200},
+        {'day': 16, 'attraction': 'Local Market', 'description': 'Final shopping at the local market.', 'cost': 100},
+        {'day': 17, 'attraction': 'Local Cuisine Tour', 'description': 'Enjoy more local cuisine.', 'cost': 200},
+        {'day': 18, 'attraction': 'Local Handicrafts Workshop', 'description': 'Join a final workshop on local crafts.', 'cost': 200},
+        {'day': 19, 'attraction': 'Brihadeeswarar Temple', 'description': 'Final reflection at Brihadeeswarar Temple.', 'cost': 200},
+        {'day': 20, 'attraction': 'Gangaikonda Cholapuram', 'description': 'Relax and reflect at Gangaikonda Cholapuram.', 'cost': 200},
+        {'day': 21, 'attraction': 'Local Cuisine Tour', 'description': 'Final sampling of local cuisine.', 'cost': 200},
+        {'day': 22, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a final workshop on local crafts.', 'cost': 200},
+        {'day': 23, 'attraction': 'Brihadeeswarar Temple', 'description': 'Enjoy a relaxing visit to Brihadeeswarar Temple.', 'cost': 200},
+        {'day': 24, 'attraction': 'Airavatesvara Temple', 'description': 'Final exploration of Airavatesvara Temple.', 'cost': 150},
+        {'day': 25, 'attraction': 'Local Market', 'description': 'Final shopping at the local market.', 'cost': 100},
+        {'day': 26, 'attraction': 'Local Cuisine Tour', 'description': 'Final sampling of local cuisine.', 'cost': 200},
+        {'day': 27, 'attraction': 'Gangaikonda Cholapuram', 'description': 'Enjoy a relaxing visit to Gangaikonda Cholapuram.', 'cost': 200},
+        {'day': 28, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a final workshop on local crafts.', 'cost': 200},
+        {'day': 29, 'attraction': 'Local Cuisine Tour', 'description': 'Final sampling of local cuisine.', 'cost': 200},
+        {'day': 30, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection.', 'cost': 300}
+    ],
+    'Group of Monuments at Hampi': [
+        {'day': 1, 'attraction': 'Virupaksha Temple', 'description': 'Visit the historic Virupaksha Temple.', 'cost': 200},
+        {'day': 2, 'attraction': 'Vittala Temple', 'description': 'Explore the architectural marvel of Vittala Temple.', 'cost': 250},
+        {'day': 3, 'attraction': 'Hampi Bazaar', 'description': 'Stroll through the ancient Hampi Bazaar.', 'cost': 100},
+        {'day': 4, 'attraction': 'Stone Chariot', 'description': 'Visit the iconic Stone Chariot at Vittala Temple.', 'cost': 200},
+        {'day': 5, 'attraction': 'Elephant Stables', 'description': 'Explore the Elephant Stables.', 'cost': 150},
+        {'day': 6, 'attraction': 'Local Market', 'description': 'Browse local markets for souvenirs.', 'cost': 100},
+        {'day': 7, 'attraction': 'Hampi Ruins Exploration', 'description': 'Explore more of the Hampi ruins.', 'cost': 200},
+        {'day': 8, 'attraction': 'Virupaksha Temple', 'description': 'Revisit Virupaksha Temple for deeper exploration.', 'cost': 200},
+        {'day': 9, 'attraction': 'Vittala Temple', 'description': 'Further explore Vittala Temple.', 'cost': 250},
+        {'day': 10, 'attraction': 'Local Cuisine Tour', 'description': 'Sample local cuisine in Hampi.', 'cost': 200},
+        {'day': 11, 'attraction': 'Stone Chariot', 'description': 'Final visit to the Stone Chariot.', 'cost': 200},
+        {'day': 12, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a workshop on local crafts.', 'cost': 200},
+        {'day': 13, 'attraction': 'Elephant Stables', 'description': 'Final exploration of Elephant Stables.', 'cost': 150},
+        {'day': 14, 'attraction': 'Hampi Bazaar', 'description': 'Revisit Hampi Bazaar for final shopping.', 'cost': 100},
+        {'day': 15, 'attraction': 'Local Cuisine Tour', 'description': 'Enjoy more local cuisine.', 'cost': 200},
+        {'day': 16, 'attraction': 'Hampi Ruins Exploration', 'description': 'Final exploration of Hampi ruins.', 'cost': 200},
+        {'day': 17, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 18, 'attraction': 'Local Handicrafts Workshop', 'description': 'Join a final workshop on local crafts.', 'cost': 200},
+        {'day': 19, 'attraction': 'Virupaksha Temple', 'description': 'Relax and reflect at Virupaksha Temple.', 'cost': 200},
+        {'day': 20, 'attraction': 'Local Cuisine Tour', 'description': 'Final sampling of local cuisine.', 'cost': 200},
+        {'day': 21, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a final workshop on local crafts.', 'cost': 200},
+        {'day': 22, 'attraction': 'Hampi Ruins Exploration', 'description': 'Final exploration and reflection on Hampi ruins.', 'cost': 200},
+        {'day': 23, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 24, 'attraction': 'Local Cuisine Tour', 'description': 'Final sampling of local cuisine.', 'cost': 200},
+        {'day': 25, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection.', 'cost': 300}
+    ],
+    'Group of Monuments at Mahabalipuram': [
+        {'day': 1, 'attraction': 'Shore Temple', 'description': 'Visit the iconic Shore Temple.', 'cost': 200},
+        {'day': 2, 'attraction': 'Pancha Rathas', 'description': 'Explore the Pancha Rathas.', 'cost': 150},
+        {'day': 3, 'attraction': 'Arjuna\'s Penance', 'description': 'Visit Arjuna\'s Penance.', 'cost': 200},
+        {'day': 4, 'attraction': 'Cave Temples', 'description': 'Explore the ancient Cave Temples.', 'cost': 150},
+        {'day': 5, 'attraction': 'Mahabalipuram Beach', 'description': 'Relax at Mahabalipuram Beach.', 'cost': 100},
+        {'day': 6, 'attraction': 'Local Market', 'description': 'Explore local markets for souvenirs.', 'cost': 100},
+        {'day': 7, 'attraction': 'Shore Temple', 'description': 'Revisit the Shore Temple for further exploration.', 'cost': 200},
+        {'day': 8, 'attraction': 'Pancha Rathas', 'description': 'Further explore the Pancha Rathas.', 'cost': 150},
+        {'day': 9, 'attraction': 'Arjuna\'s Penance', 'description': 'Revisit Arjuna\'s Penance for a deeper exploration.', 'cost': 200},
+        {'day': 10, 'attraction': 'Local Cuisine Tour', 'description': 'Sample local cuisine in Mahabalipuram.', 'cost': 200},
+        {'day': 11, 'attraction': 'Cave Temples', 'description': 'Final visit to Cave Temples.', 'cost': 150},
+        {'day': 12, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a workshop on local crafts.', 'cost': 200},
+        {'day': 13, 'attraction': 'Mahabalipuram Beach', 'description': 'Relax and enjoy Mahabalipuram Beach.', 'cost': 100},
+        {'day': 14, 'attraction': 'Local Market', 'description': 'Revisit local markets for final shopping.', 'cost': 100},
+        {'day': 15, 'attraction': 'Local Cuisine Tour', 'description': 'Enjoy more local cuisine.', 'cost': 200},
+        {'day': 16, 'attraction': 'Shore Temple', 'description': 'Final exploration of Shore Temple.', 'cost': 200},
+        {'day': 17, 'attraction': 'Pancha Rathas', 'description': 'Final visit to Pancha Rathas.', 'cost': 150},
+        {'day': 18, 'attraction': 'Arjuna\'s Penance', 'description': 'Final exploration of Arjuna\'s Penance.', 'cost': 200},
+        {'day': 19, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 20, 'attraction': 'Local Handicrafts Workshop', 'description': 'Join a final workshop on local crafts.', 'cost': 200},
+        {'day': 21, 'attraction': 'Local Cuisine Tour', 'description': 'Final sampling of local cuisine.', 'cost': 200},
+        {'day': 22, 'attraction': 'Mahabalipuram Beach', 'description': 'Relax and reflect at Mahabalipuram Beach.', 'cost': 100},
+        {'day': 23, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 24, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a final workshop on local crafts.', 'cost': 200},
+        {'day': 25, 'attraction': 'Local Cuisine Tour', 'description': 'Final sampling of local cuisine.', 'cost': 200},
+        {'day': 26, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection.', 'cost': 300}
+    ],
+    'Group of Monuments at Pattadakal': [
+        {'day': 1, 'attraction': 'Virupaksha Temple', 'description': 'Visit the Virupaksha Temple.', 'cost': 200},
+        {'day': 2, 'attraction': 'Mallikarjuna Temple', 'description': 'Explore the Mallikarjuna Temple.', 'cost': 150},
+        {'day': 3, 'attraction': 'Papanatha Temple', 'description': 'Visit the Papanatha Temple.', 'cost': 200},
+        {'day': 4, 'attraction': 'Jambulinga Temple', 'description': 'Explore the Jambulinga Temple.', 'cost': 150},
+        {'day': 5, 'attraction': 'Local Market', 'description': 'Browse local markets for souvenirs.', 'cost': 100},
+        {'day': 6, 'attraction': 'Virupaksha Temple', 'description': 'Revisit Virupaksha Temple for further exploration.', 'cost': 200},
+        {'day': 7, 'attraction': 'Mallikarjuna Temple', 'description': 'Further exploration of Mallikarjuna Temple.', 'cost': 150},
+        {'day': 8, 'attraction': 'Papanatha Temple', 'description': 'Final visit to Papanatha Temple.', 'cost': 200},
+        {'day': 9, 'attraction': 'Local Cuisine Tour', 'description': 'Sample local cuisine in Pattadakal.', 'cost': 200},
+        {'day': 10, 'attraction': 'Jambulinga Temple', 'description': 'Final visit to Jambulinga Temple.', 'cost': 150},
+        {'day': 11, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a workshop on local crafts.', 'cost': 200},
+        {'day': 12, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 13, 'attraction': 'Local Cuisine Tour', 'description': 'Enjoy more local cuisine.', 'cost': 200},
+        {'day': 14, 'attraction': 'Virupaksha Temple', 'description': 'Relax and reflect at Virupaksha Temple.', 'cost': 200},
+        {'day': 15, 'attraction': 'Mallikarjuna Temple', 'description': 'Final exploration of Mallikarjuna Temple.', 'cost': 150},
+        {'day': 16, 'attraction': 'Papanatha Temple', 'description': 'Final visit to Papanatha Temple.', 'cost': 200},
+        {'day': 17, 'attraction': 'Local Handicrafts Workshop', 'description': 'Join a final workshop on local crafts.', 'cost': 200},
+        {'day': 18, 'attraction': 'Local Cuisine Tour', 'description': 'Final sampling of local cuisine.', 'cost': 200},
+        {'day': 19, 'attraction': 'Jambulinga Temple', 'description': 'Enjoy a relaxing visit to Jambulinga Temple.', 'cost': 150},
+        {'day': 20, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 21, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a final workshop on local crafts.', 'cost': 200},
+        {'day': 22, 'attraction': 'Local Cuisine Tour', 'description': 'Final sampling of local cuisine.', 'cost': 200},
+        {'day': 23, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection.', 'cost': 300}
+    ],
+    'Hill Forts of Rajasthan': [
+        {'day': 1, 'attraction': 'Amber Fort', 'description': 'Visit the Amber Fort.', 'cost': 200},
+        {'day': 2, 'attraction': 'Jaigarh Fort', 'description': 'Explore Jaigarh Fort.', 'cost': 150},
+        {'day': 3, 'attraction': 'Nahargarh Fort', 'description': 'Visit Nahargarh Fort.', 'cost': 200},
+        {'day': 4, 'attraction': 'Kumbhalgarh Fort', 'description': 'Explore Kumbhalgarh Fort.', 'cost': 250},
+        {'day': 5, 'attraction': 'Chittorgarh Fort', 'description': 'Visit Chittorgarh Fort.', 'cost': 250},
+        {'day': 6, 'attraction': 'Local Market', 'description': 'Browse local markets for souvenirs.', 'cost': 100},
+        {'day': 7, 'attraction': 'Amber Fort', 'description': 'Revisit Amber Fort for further exploration.', 'cost': 200},
+        {'day': 8, 'attraction': 'Jaigarh Fort', 'description': 'Further explore Jaigarh Fort.', 'cost': 150},
+        {'day': 9, 'attraction': 'Nahargarh Fort', 'description': 'Final visit to Nahargarh Fort.', 'cost': 200},
+        {'day': 10, 'attraction': 'Local Cuisine Tour', 'description': 'Sample local cuisine in Rajasthan.', 'cost': 200},
+        {'day': 11, 'attraction': 'Kumbhalgarh Fort', 'description': 'Final visit to Kumbhalgarh Fort.', 'cost': 250},
+        {'day': 12, 'attraction': 'Chittorgarh Fort', 'description': 'Final exploration of Chittorgarh Fort.', 'cost': 250},
+        {'day': 13, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a workshop on local crafts.', 'cost': 200},
+        {'day': 14, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 15, 'attraction': 'Local Cuisine Tour', 'description': 'Enjoy more local cuisine.', 'cost': 200},
+        {'day': 16, 'attraction': 'Amber Fort', 'description': 'Relax and reflect at Amber Fort.', 'cost': 200},
+        {'day': 17, 'attraction': 'Jaigarh Fort', 'description': 'Final exploration of Jaigarh Fort.', 'cost': 150},
+        {'day': 18, 'attraction': 'Nahargarh Fort', 'description': 'Final visit to Nahargarh Fort.', 'cost': 200},
+        {'day': 19, 'attraction': 'Local Handicrafts Workshop', 'description': 'Join a final workshop on local crafts.', 'cost': 200},
+        {'day': 20, 'attraction': 'Local Cuisine Tour', 'description': 'Final sampling of local cuisine.', 'cost': 200},
+        {'day': 21, 'attraction': 'Kumbhalgarh Fort', 'description': 'Enjoy a relaxing visit to Kumbhalgarh Fort.', 'cost': 250},
+        {'day': 22, 'attraction': 'Chittorgarh Fort', 'description': 'Relax and reflect at Chittorgarh Fort.', 'cost': 250},
+        {'day': 23, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 24, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a final workshop on local crafts.', 'cost': 200},
+        {'day': 25, 'attraction': 'Local Cuisine Tour', 'description': 'Final sampling of local cuisine.', 'cost': 200},
+        {'day': 26, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection.', 'cost': 300}
+    ],
+     'Historic City of Ahmedabad': [
+        {'day': 1, 'attraction': 'Sabarmati Ashram', 'description': 'Visit the Sabarmati Ashram.', 'cost': 200},
+        {'day': 2, 'attraction': 'Jama Masjid', 'description': 'Explore the Jama Masjid.', 'cost': 150},
+        {'day': 3, 'attraction': 'Sidi Saiyyed Mosque', 'description': 'Visit the Sidi Saiyyed Mosque.', 'cost': 200},
+        {'day': 4, 'attraction': 'Rani Sipri\'s Mosque', 'description': 'Explore Rani Sipri\'s Mosque.', 'cost': 150},
+        {'day': 5, 'attraction': 'Local Market', 'description': 'Browse local markets for souvenirs.', 'cost': 100},
+        {'day': 6, 'attraction': 'Sabarmati Ashram', 'description': 'Revisit the Sabarmati Ashram for deeper exploration.', 'cost': 200},
+        {'day': 7, 'attraction': 'Jama Masjid', 'description': 'Further explore Jama Masjid.', 'cost': 150},
+        {'day': 8, 'attraction': 'Sidi Saiyyed Mosque', 'description': 'Final visit to Sidi Saiyyed Mosque.', 'cost': 200},
+        {'day': 9, 'attraction': 'Local Cuisine Tour', 'description': 'Sample local cuisine in Ahmedabad.', 'cost': 200},
+        {'day': 10, 'attraction': 'Rani Sipri\'s Mosque', 'description': 'Final exploration of Rani Sipri\'s Mosque.', 'cost': 150},
+        {'day': 11, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a workshop on local crafts.', 'cost': 200},
+        {'day': 12, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 13, 'attraction': 'Local Cuisine Tour', 'description': 'Enjoy more local cuisine.', 'cost': 200},
+        {'day': 14, 'attraction': 'Sabarmati Ashram', 'description': 'Relax and reflect at Sabarmati Ashram.', 'cost': 200},
+        {'day': 15, 'attraction': 'Jama Masjid', 'description': 'Final exploration of Jama Masjid.', 'cost': 150},
+        {'day': 16, 'attraction': 'Sidi Saiyyed Mosque', 'description': 'Final visit to Sidi Saiyyed Mosque.', 'cost': 200},
+        {'day': 17, 'attraction': 'Local Handicrafts Workshop', 'description': 'Join a final workshop on local crafts.', 'cost': 200},
+        {'day': 18, 'attraction': 'Local Cuisine Tour', 'description': 'Final sampling of local cuisine.', 'cost': 200},
+        {'day': 19, 'attraction': 'Local Market', 'description': 'Enjoy final shopping at local markets.', 'cost': 100},
+        {'day': 20, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a final workshop on local crafts.', 'cost': 200},
+        {'day': 21, 'attraction': 'Local Cuisine Tour', 'description': 'Final sampling of local cuisine.', 'cost': 200},
+        {'day': 22, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection.', 'cost': 300}
+    ],
+     'Humayun\'s Tomb': [
+        {'day': 1, 'attraction': 'Humayun\'s Tomb', 'description': 'Visit Humayun\'s Tomb.', 'cost': 200},
+        {'day': 2, 'attraction': 'Local Market', 'description': 'Browse local markets for souvenirs.', 'cost': 100},
+        {'day': 3, 'attraction': 'Humayun\'s Tomb', 'description': 'Revisit Humayun\'s Tomb for further exploration.', 'cost': 200},
+        {'day': 4, 'attraction': 'Local Cuisine Tour', 'description': 'Sample local cuisine in Delhi.', 'cost': 200},
+        {'day': 5, 'attraction': 'Humayun\'s Tomb', 'description': 'Final visit to Humayun\'s Tomb.', 'cost': 200},
+        {'day': 6, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a workshop on local crafts.', 'cost': 200},
+        {'day': 7, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 8, 'attraction': 'Local Cuisine Tour', 'description': 'Enjoy more local cuisine.', 'cost': 200},
+        {'day': 9, 'attraction': 'Local Handicrafts Workshop', 'description': 'Join a final workshop on local crafts.', 'cost': 200},
+        {'day': 10, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection.', 'cost': 300}
+    ],
+    'Jaipur City': [
+        {'day': 1, 'attraction': 'Hawa Mahal', 'description': 'Visit the Hawa Mahal.', 'cost': 200},
+        {'day': 2, 'attraction': 'Amber Fort', 'description': 'Explore Amber Fort.', 'cost': 200},
+        {'day': 3, 'attraction': 'City Palace', 'description': 'Visit the City Palace.', 'cost': 250},
+        {'day': 4, 'attraction': 'Jantar Mantar', 'description': 'Explore Jantar Mantar.', 'cost': 150},
+        {'day': 5, 'attraction': 'Local Market', 'description': 'Browse local markets for souvenirs.', 'cost': 100},
+        {'day': 6, 'attraction': 'Hawa Mahal', 'description': 'Revisit Hawa Mahal for further exploration.', 'cost': 200},
+        {'day': 7, 'attraction': 'Amber Fort', 'description': 'Further explore Amber Fort.', 'cost': 200},
+        {'day': 8, 'attraction': 'City Palace', 'description': 'Final visit to City Palace.', 'cost': 250},
+        {'day': 9, 'attraction': 'Local Cuisine Tour', 'description': 'Sample local cuisine in Jaipur.', 'cost': 200},
+        {'day': 10, 'attraction': 'Jantar Mantar', 'description': 'Final exploration of Jantar Mantar.', 'cost': 150},
+        {'day': 11, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a workshop on local crafts.', 'cost': 200},
+        {'day': 12, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 13, 'attraction': 'Local Cuisine Tour', 'description': 'Enjoy more local cuisine.', 'cost': 200},
+        {'day': 14, 'attraction': 'Hawa Mahal', 'description': 'Relax and reflect at Hawa Mahal.', 'cost': 200},
+        {'day': 15, 'attraction': 'Amber Fort', 'description': 'Final exploration of Amber Fort.', 'cost': 200},
+        {'day': 16, 'attraction': 'City Palace', 'description': 'Final visit to City Palace.', 'cost': 250},
+        {'day': 17, 'attraction': 'Local Handicrafts Workshop', 'description': 'Join a final workshop on local crafts.', 'cost': 200},
+        {'day': 18, 'attraction': 'Local Cuisine Tour', 'description': 'Final sampling of local cuisine.', 'cost': 200},
+        {'day': 19, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 20, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a final workshop on local crafts.', 'cost': 200},
+        {'day': 21, 'attraction': 'Local Cuisine Tour', 'description': 'Final sampling of local cuisine.', 'cost': 200},
+        {'day': 22, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection.', 'cost': 300}
+    ],
+    'Kaziranga National Park': [
+        {'day': 1, 'attraction': 'Kaziranga National Park', 'description': 'Visit Kaziranga National Park and embark on an afternoon jeep safari.', 'cost': 300},
+        {'day': 2, 'attraction': 'Kaziranga National Park', 'description': 'Morning elephant safari and explore the park further.', 'cost': 400},
+        {'day': 3, 'attraction': 'Kaziranga National Park', 'description': 'Explore the park’s different zones and enjoy bird watching.', 'cost': 300},
+        {'day': 4, 'attraction': 'Local Market', 'description': 'Browse local markets for souvenirs.', 'cost': 100},
+        {'day': 5, 'attraction': 'Kaziranga National Park', 'description': 'Revisit the park for a different safari experience.', 'cost': 300},
+        {'day': 6, 'attraction': 'Kaziranga National Park', 'description': 'Further exploration of the park and its wildlife.', 'cost': 300},
+        {'day': 7, 'attraction': 'Local Cuisine Tour', 'description': 'Sample local cuisine in the nearby town.', 'cost': 200},
+        {'day': 8, 'attraction': 'Kaziranga National Park', 'description': 'Final safari and park exploration.', 'cost': 300},
+        {'day': 9, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a workshop on local crafts.', 'cost': 200},
+        {'day': 10, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 11, 'attraction': 'Local Cuisine Tour', 'description': 'Enjoy more local cuisine.', 'cost': 200},
+        {'day': 12, 'attraction': 'Kaziranga National Park', 'description': 'Relax and reflect at Kaziranga National Park.', 'cost': 300},
+        {'day': 13, 'attraction': 'Local Handicrafts Workshop', 'description': 'Join a final workshop on local crafts.', 'cost': 200},
+        {'day': 14, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 15, 'attraction': 'Local Cuisine Tour', 'description': 'Final sampling of local cuisine.', 'cost': 200},
+        {'day': 16, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection.', 'cost': 300},
+        {'day': 17, 'attraction': 'Kaziranga National Park', 'description': 'Revisit for a final safari experience.', 'cost': 300},
+        {'day': 18, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a final workshop on local crafts.', 'cost': 200},
+        {'day': 19, 'attraction': 'Local Market', 'description': 'Enjoy final shopping at local markets.', 'cost': 100},
+        {'day': 20, 'attraction': 'Local Cuisine Tour', 'description': 'Enjoy final sampling of local cuisine.', 'cost': 200},
+        {'day': 21, 'attraction': 'Kaziranga National Park', 'description': 'Final exploration of the park.', 'cost': 300},
+        {'day': 22, 'attraction': 'Local Handicrafts Workshop', 'description': 'Join a final workshop on local crafts.', 'cost': 200},
+        {'day': 23, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 24, 'attraction': 'Local Cuisine Tour', 'description': 'Enjoy more local cuisine.', 'cost': 200},
+        {'day': 25, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection.', 'cost': 300},
+        {'day': 26, 'attraction': 'Kaziranga National Park', 'description': 'Final visit to the park.', 'cost': 300},
+        {'day': 27, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a final workshop on local crafts.', 'cost': 200},
+        {'day': 28, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 29, 'attraction': 'Local Cuisine Tour', 'description': 'Final sampling of local cuisine.', 'cost': 200},
+        {'day': 30, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection.', 'cost': 300}
+    ],
+    'Keoladeo National Park': [
+        {'day': 1, 'attraction': 'Keoladeo National Park', 'description': 'Visit Keoladeo National Park and embark on an afternoon cycle rickshaw safari.', 'cost': 200},
+        {'day': 2, 'attraction': 'Keoladeo National Park', 'description': 'Morning bird watching tour.', 'cost': 300},
+        {'day': 3, 'attraction': 'Keoladeo National Park', 'description': 'Explore different trails and enjoy nature walks.', 'cost': 200},
+        {'day': 4, 'attraction': 'Local Market', 'description': 'Browse local markets for souvenirs.', 'cost': 100},
+        {'day': 5, 'attraction': 'Keoladeo National Park', 'description': 'Revisit the park for a different safari experience.', 'cost': 200},
+        {'day': 6, 'attraction': 'Keoladeo National Park', 'description': 'Further exploration of the park’s diverse habitats.', 'cost': 200},
+        {'day': 7, 'attraction': 'Local Cuisine Tour', 'description': 'Sample local cuisine in the nearby town.', 'cost': 200},
+        {'day': 8, 'attraction': 'Keoladeo National Park', 'description': 'Final safari and park exploration.', 'cost': 200},
+        {'day': 9, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a workshop on local crafts.', 'cost': 200},
+        {'day': 10, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 11, 'attraction': 'Local Cuisine Tour', 'description': 'Enjoy more local cuisine.', 'cost': 200},
+        {'day': 12, 'attraction': 'Keoladeo National Park', 'description': 'Relax and reflect at Keoladeo National Park.', 'cost': 200},
+        {'day': 13, 'attraction': 'Local Handicrafts Workshop', 'description': 'Join a final workshop on local crafts.', 'cost': 200},
+        {'day': 14, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 15, 'attraction': 'Local Cuisine Tour', 'description': 'Final sampling of local cuisine.', 'cost': 200},
+        {'day': 16, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection.', 'cost': 300},
+        {'day': 17, 'attraction': 'Keoladeo National Park', 'description': 'Revisit for a final safari experience.', 'cost': 200},
+        {'day': 18, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a final workshop on local crafts.', 'cost': 200},
+        {'day': 19, 'attraction': 'Local Market', 'description': 'Enjoy final shopping at local markets.', 'cost': 100},
+        {'day': 20, 'attraction': 'Local Cuisine Tour', 'description': 'Enjoy final sampling of local cuisine.', 'cost': 200},
+        {'day': 21, 'attraction': 'Keoladeo National Park', 'description': 'Final exploration of the park.', 'cost': 200},
+        {'day': 22, 'attraction': 'Local Handicrafts Workshop', 'description': 'Join a final workshop on local crafts.', 'cost': 200},
+        {'day': 23, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 24, 'attraction': 'Local Cuisine Tour', 'description': 'Enjoy more local cuisine.', 'cost': 200},
+        {'day': 25, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection.', 'cost': 300},
+        {'day': 26, 'attraction': 'Keoladeo National Park', 'description': 'Final visit to the park.', 'cost': 200},
+        {'day': 27, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a final workshop on local crafts.', 'cost': 200},
+        {'day': 28, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 29, 'attraction': 'Local Cuisine Tour', 'description': 'Final sampling of local cuisine.', 'cost': 200},
+        {'day': 30, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection.', 'cost': 300}
+    ],
+    'Khajuraho Group of Monuments': [
+        {'day': 1, 'attraction': 'Khajuraho Group of Monuments', 'description': 'Visit Khajuraho Group of Monuments.', 'cost': 300},
+        {'day': 2, 'attraction': 'Khajuraho Group of Monuments', 'description': 'Explore different temples and structures.', 'cost': 300},
+        {'day': 3, 'attraction': 'Local Market', 'description': 'Browse local markets for souvenirs.', 'cost': 100},
+        {'day': 4, 'attraction': 'Local Cuisine Tour', 'description': 'Sample local cuisine in Khajuraho.', 'cost': 200},
+        {'day': 5, 'attraction': 'Khajuraho Group of Monuments', 'description': 'Revisit Khajuraho for further exploration.', 'cost': 300},
+        {'day': 6, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a workshop on local crafts.', 'cost': 200},
+        {'day': 7, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 8, 'attraction': 'Local Cuisine Tour', 'description': 'Enjoy more local cuisine.', 'cost': 200},
+        {'day': 9, 'attraction': 'Khajuraho Group of Monuments', 'description': 'Final exploration of the monuments.', 'cost': 300},
+        {'day': 10, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection.', 'cost': 300},
+        {'day': 11, 'attraction': 'Khajuraho Group of Monuments', 'description': 'Revisit for a final tour.', 'cost': 300},
+        {'day': 12, 'attraction': 'Local Handicrafts Workshop', 'description': 'Join a final workshop on local crafts.', 'cost': 200},
+        {'day': 13, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 14, 'attraction': 'Local Cuisine Tour', 'description': 'Final sampling of local cuisine.', 'cost': 200},
+        {'day': 15, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection.', 'cost': 300},
+        {'day': 16, 'attraction': 'Khajuraho Group of Monuments', 'description': 'Final visit to the monuments.', 'cost': 300},
+        {'day': 17, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a final workshop on local crafts.', 'cost': 200},
+        {'day': 18, 'attraction': 'Local Market', 'description': 'Enjoy final shopping at local markets.', 'cost': 100},
+        {'day': 19, 'attraction': 'Local Cuisine Tour', 'description': 'Enjoy final sampling of local cuisine.', 'cost': 200},
+        {'day': 20, 'attraction': 'Khajuraho Group of Monuments', 'description': 'Final exploration of Khajuraho.', 'cost': 300},
+        {'day': 21, 'attraction': 'Local Handicrafts Workshop', 'description': 'Join a final workshop on local crafts.', 'cost': 200},
+        {'day': 22, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 23, 'attraction': 'Local Cuisine Tour', 'description': 'Enjoy more local cuisine.', 'cost': 200},
+        {'day': 24, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection.', 'cost': 300},
+        {'day': 25, 'attraction': 'Khajuraho Group of Monuments', 'description': 'Final visit to Khajuraho Group of Monuments.', 'cost': 300},
+        {'day': 26, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a final workshop on local crafts.', 'cost': 200},
+        {'day': 27, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 28, 'attraction': 'Local Cuisine Tour', 'description': 'Final sampling of local cuisine.', 'cost': 200},
+        {'day': 29, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection.', 'cost': 300},
+        {'day': 30, 'attraction': 'Khajuraho Group of Monuments', 'description': 'Final exploration and wrap-up.', 'cost': 300}
+    ],
+    'Mahabodhi Temple Complex at Bodh Gaya': [
+        {'day': 1, 'attraction': 'Mahabodhi Temple Complex', 'description': 'Visit the Mahabodhi Temple Complex.', 'cost': 250},
+        {'day': 2, 'attraction': 'Mahabodhi Temple Complex', 'description': 'Explore the temple and its surroundings.', 'cost': 250},
+        {'day': 3, 'attraction': 'Local Market', 'description': 'Browse local markets for souvenirs.', 'cost': 100},
+        {'day': 4, 'attraction': 'Local Cuisine Tour', 'description': 'Sample local cuisine in Bodh Gaya.', 'cost': 200},
+        {'day': 5, 'attraction': 'Mahabodhi Temple Complex', 'description': 'Revisit the temple for further exploration.', 'cost': 250},
+        {'day': 6, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a workshop on local crafts.', 'cost': 200},
+        {'day': 7, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 8, 'attraction': 'Local Cuisine Tour', 'description': 'Enjoy more local cuisine.', 'cost': 200},
+        {'day': 9, 'attraction': 'Mahabodhi Temple Complex', 'description': 'Final exploration of the temple complex.', 'cost': 250},
+        {'day': 10, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection.', 'cost': 300},
+        {'day': 11, 'attraction': 'Mahabodhi Temple Complex', 'description': 'Revisit for a final tour.', 'cost': 250},
+        {'day': 12, 'attraction': 'Local Handicrafts Workshop', 'description': 'Join a final workshop on local crafts.', 'cost': 200},
+        {'day': 13, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 14, 'attraction': 'Local Cuisine Tour', 'description': 'Final sampling of local cuisine.', 'cost': 200},
+        {'day': 15, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection.', 'cost': 300},
+        {'day': 16, 'attraction': 'Mahabodhi Temple Complex', 'description': 'Final visit to the temple complex.', 'cost': 250},
+        {'day': 17, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a final workshop on local crafts.', 'cost': 200},
+        {'day': 18, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 19, 'attraction': 'Local Cuisine Tour', 'description': 'Enjoy final sampling of local cuisine.', 'cost': 200},
+        {'day': 20, 'attraction': 'Mahabodhi Temple Complex', 'description': 'Final exploration of Bodh Gaya.', 'cost': 250},
+        {'day': 21, 'attraction': 'Local Handicrafts Workshop', 'description': 'Join a final workshop on local crafts.', 'cost': 200},
+        {'day': 22, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 23, 'attraction': 'Local Cuisine Tour', 'description': 'Enjoy more local cuisine.', 'cost': 200},
+        {'day': 24, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection.', 'cost': 300},
+        {'day': 25, 'attraction': 'Mahabodhi Temple Complex', 'description': 'Final visit to the Mahabodhi Temple Complex.', 'cost': 250},
+        {'day': 26, 'attraction': 'Local Handicrafts Workshop', 'description': 'Participate in a final workshop on local crafts.', 'cost': 200},
+        {'day': 27, 'attraction': 'Local Market', 'description': 'Final shopping at local markets.', 'cost': 100},
+        {'day': 28, 'attraction': 'Local Cuisine Tour', 'description': 'Final sampling of local cuisine.', 'cost': 200},
+        {'day': 29, 'attraction': 'Relaxation Day', 'description': 'Enjoy a day of relaxation and reflection.', 'cost': 300},
+        {'day': 30, 'attraction': 'Mahabodhi Temple Complex', 'description': 'Final exploration and wrap-up.', 'cost': 250}
+    ],
+    
+    
+}
+
+app = Flask(__name__)
+df=pd.read_csv("heritage_budget.csv")
+# Load the trained model and label encoders
+model = joblib.load('budget_prediction_new.pkl')
+label_encoder_source = joblib.load('label_encoder_source.pkl')
+label_encoder_destination = joblib.load('label_encoder_destination.pkl')
+
+# Unique sources and destinations
+sources = ['Delhi', 'Mumbai', 'Kolkata', 'Jaipur', 'Agra', 'Chennai', 
+            'Bangalore', 'Hyderabad', 'Pune', 'Ahmedabad', 'Lucknow', 
+            'Patna', 'Indore', 'Vadodara', 'Surat', 'Nagpur', 
+            'Coimbatore', 'Madurai', 'Visakhapatnam', 'Chandigarh', 
+            'Dehradun']
+
+destinations = ['Taj Mahal', 'Agra Fort', 'Ajanta Caves', 'Ellora Caves', 
+                'Buddhist Monuments at Sanchi', 'Champaner-Pavagadh', 
+                'Chhatrapati Shivaji Terminus', 'Churches and Convents of Goa', 
+                'Fatehpur Sikri', 'Great Living Chola Temples', 
+                'Group of Monuments at Hampi', 'Group of Monuments at Mahabalipuram', 
+                'Group of Monuments at Pattadakal', 'Hill Forts of Rajasthan', 
+                'Historic City of Ahmedabad', "Humayun's Tomb", 'Jaipur City', 
+                'Kaziranga National Park', 'Keoladeo National Park', 
+                'Khajuraho Group of Monuments', 'Mahabodhi Temple Complex at Bodh Gaya', 
+                'Mountain Railways of India', 'Qutb Minar', 'Rani ki Vav', 'Red Fort', 
+                'Rock Shelters of Bhimbetka', 'Sun Temple, Konark', 
+                'Sundarbans National Park', 'The Architectural Work of Le Corbusier', 
+                'The Jantar Mantar, Jaipur', 'The Western Ghats', 
+                'Victorian Gothic and Art Deco', 'Great Himalayan National Park', 
+                'Khangchendzonga National Park', 'Bishnupur Temples', 'Golconda Fort', 
+                'Meenakshi Amman Temple', 'Chittorgarh Fort', 'Kumbhalgarh Fort', 
+                'Hawa Mahal', 'Ranthambore Fort', 'Leh Palace', 'Orchha', 
+                'Gwalior Fort', 'Mandu', 'Rajasthan Stepwells', 
+                'Rani Rupmati Pavilion', 'Gingee Fort', 'Panhala Fort', 
+                'Bidar Fort', 'Saraswathi Mahal Library', 'Lucknow Residency', 
+                'Murshidabad', 'Madurai', 'Chettinad', 'Kodaikanal']
+
+def handle_unseen_label(label, label_encoder):
+    if label not in label_encoder.classes_:
+        # Add the new label to the classes
+        new_classes = np.append(label_encoder.classes_, label)
+        label_encoder.classes_ = new_classes
+    return label_encoder.transform([label])[0]
+
+def predict_budget(source, destination, duration, travel_preference):
+    source_encoded = handle_unseen_label(source, label_encoder_source)
+    destination_encoded = handle_unseen_label(destination, label_encoder_destination)
+    
+    # Handling default travel preferences
+    if duration < 5:
+        travel_preference = 'Flight'
+    
+    # Prepare input features
+    local_travel_cost = df['Local Travel Cost (INR)'].mean()
+    hotel_cost = df['Hotel Cost (INR)'].mean()
+    food_cost = df['Food Cost (INR)'].mean()
+
+    input_data = np.array([[source_encoded, destination_encoded, duration, 
+                            local_travel_cost, hotel_cost, food_cost]])
+
+    # Predict the budget
+    predicted_budget = model.predict(input_data)
+    
+    # Adjust budget based on travel preference and duration
+    if travel_preference == 'Train':
+        budget = predicted_budget[0][0]
+    elif travel_preference == 'Flight':
+        budget = predicted_budget[0][1]
+    else:
+        budget = (predicted_budget[0][0] + predicted_budget[0][1]) / 2
+
+    # Increase the budget if the duration is more than 6 days
+    if duration > 6:
+        extra_days = duration - 6
+        # Increase the budget by 10% for each extra day
+        budget += budget * 0.10 * extra_days
+    # Round the budget to 2 decimal places
+    budget = round(budget, 2)
+    return budget
+
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    prediction = None
+    trip_plan = None
+    if request.method == 'POST':
+        source = request.form['source']
+        destination = request.form['destination']
+        duration = int(request.form['duration'])
+        travel_preference = request.form['travel_preference']
+        
+        # Predict the budget
+        prediction = predict_budget(source, destination, duration, travel_preference)
+        
+        # Calculate 20% of the predicted budget for local attractions
+        attractions_budget = prediction * 0.20
+        
+        # Generate a trip plan based on the destination
+        if destination in destination_attractions:
+            trip_plan = []
+            day_budget = attractions_budget / duration  # Approximate daily budget for attractions
+            attractions = destination_attractions[destination]
+            
+            for i in range(duration):
+                day = i + 1
+                # Select the attraction for the day, if available
+                if i < len(attractions):
+                    attraction_info = attractions[i]
+                    attraction_cost = min(attraction_info['cost'], day_budget)
+                    trip_plan.append({
+                        'day': day,
+                        'attraction': attraction_info['attraction'],
+                        'description': attraction_info['description'],
+                        'cost': round(attraction_cost, 2)
+                    })
+                else:
+                    trip_plan.append({
+                        'day': day,
+                        'attraction': 'Free Day',
+                        'description': 'You can explore the city on your own or relax.',
+                        'cost': 0
+                    })
+    
+    return render_template('index1.html', 
+                           sources=sources, 
+                           destinations=destinations, 
+                           prediction=prediction,
+                           trip_plan=trip_plan)
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+
+    
+
+
