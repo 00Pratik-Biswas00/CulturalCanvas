@@ -138,6 +138,8 @@ export const dummyData = {
         child_helpline: "+222222",
         fire_emergency: "+333333",
         medical_emergency: "+444444",
+        state_culture_name: "Bengal",
+        state_culture_linl: "/bengal",
         nearest_attraction: [
           {
             name: "Agra Fort",
@@ -192,6 +194,8 @@ export const dummyData = {
         child_helpline: "+222222",
         fire_emergency: "+333333",
         medical_emergency: "+444444",
+        state_culture_name: "Bengal",
+        state_culture_linl: "/bengal",
         nearest_attraction: [
           {
             name: "Agra Fort",
@@ -248,6 +252,8 @@ export const dummyData = {
         child_helpline: "+222222",
         fire_emergency: "+333333",
         medical_emergency: "+444444",
+        state_culture_name: "Bengal",
+        state_culture_linl: "/bengal",
         nearest_attraction: [
           {
             name: "Agra Fort",
@@ -304,14 +310,20 @@ export const dummyData = {
         child_helpline: "+222222",
         fire_emergency: "+333333",
         medical_emergency: "+444444",
+        state_culture_name: "Bengal",
+        state_culture_linl: "/bengal",
         nearest_attraction: [
           {
             name: "Agra Fort",
             link: "/",
+            distance: "50km",
+            entryFee: "Rs.10",
           },
           {
             name: "Rupal r sosur bari",
             link: "/norok",
+            distance: "50km",
+            entryFee: "Rs.10",
           },
         ],
       },
