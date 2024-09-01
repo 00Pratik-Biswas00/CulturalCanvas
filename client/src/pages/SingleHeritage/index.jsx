@@ -1,11 +1,16 @@
 import React from "react";
 import ReactPlayer from "react-player";
 import bahoMein from "../../assets/Heritage/bais.mp4";
+import taj from "../../assets/Heritage/taj.jpeg";
 
 const SingleHeritage = () => {
   return (
-    <section className="duration-300 text-primary_text dark:text-dark_primary_text">
-      <div className="flex flex-col items-center justify-center">
+    <section className="   duration-300 text-primary_text dark:text-dark_primary_text">
+      <div
+        style={{ backgroundImage: `url(${taj})` }}
+        className=" bg-center bg-cover bg-fixed bg-no-repeat flex flex-col items-center justify-center"
+      >
+        {/* digital art */}
         <div className="bg-background1 dark:bg-dark_background1 p-4  flex flex-col  gap-4 items-center justify-center w-full h-full">
           <h1 className="font-bold font-playfair text-5xl tracking-wider">
             Exploring the Taj Mahal in the Digital Realm
@@ -24,10 +29,13 @@ const SingleHeritage = () => {
             }}
           />
         </div>
+
+        {/* name */}
         <div className=" flex items-center justify-center p-4 py-32 text-[7rem] h-screen leading-9  text-dark_primary_text">
           <p>TAJ MAHAL</p>
         </div>
 
+        {/* description and animated intro */}
         <div className="bg-background1 dark:bg-dark_background1 p-4 text-lg flex flex-col items-center justify-center w-full h-full">
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
@@ -157,6 +165,7 @@ const SingleHeritage = () => {
           </p>
         </div>
 
+        {/* vlog */}
         <div className="bg-background1 dark:bg-dark_background1 p-4 pt-0  flex flex-col gap-4 items-center justify-center w-full h-full">
           <h1 className="font-bold font-playfair text-5xl tracking-wider">
             Sensory Experience of Taj Mahal
@@ -176,10 +185,12 @@ const SingleHeritage = () => {
           />
         </div>
 
+        {/* nearest attractions */}
         <div className="bg-background1 dark:bg-dark_background1 p-4 pt-0  flex flex-col gap-4 items-center justify-center w-full h-full">
           <h1 className="font-bold font-playfair text-5xl tracking-wider">
             Nearest Attractions
           </h1>
+          <p></p>
         </div>
       </div>
     </section>
