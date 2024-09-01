@@ -6,6 +6,31 @@ const descriptionSchema = new Schema({
   description: { type: String, required: true },
 });
 
+const heritageTypeSchema = new Schema({
+  type: {
+    type: String,
+    required: true,
+    enum: ["unesco_listed", "unesco_unlisted", "local_heritage"],
+  },
+  image: {
+    url: String,
+    public_id: String,
+    required: true,
+  },
+});
+
+const stateSchema = new Schema({
+  name: {
+    type: String,
+    required: True,
+  },
+  image: {
+    url: String,
+    public_id: String,
+    required: true,
+  },
+});
+
 const heritageSchema = new Schema(
   {
     name: {
@@ -26,10 +51,7 @@ const heritageSchema = new Schema(
     vlogVideo: {},
     part1: [descriptionSchema],
     part2: [descriptionSchema],
-    type_of_heritage: {
-      type: String,
-      enum: ["unesco_listed", "unesco_unlisted", "local_heritage"],
-    },
+    type_of_heritage: heritageTypeSchema,
     tag: {
       type: String,
       enum: ["cultural", "natural", "tangible", "intangible"],
@@ -59,11 +81,7 @@ const heritageSchema = new Schema(
       trim: true,
       required: true,
     },
-    state_culture_name: {
-      type: String,
-      trim: true,
-      required: true,
-    },
+    state_culture_name: stateSchema,
     state_culture_link: [
       {
         type: Schema.Types.ObjectId,
