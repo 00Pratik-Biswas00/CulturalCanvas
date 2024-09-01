@@ -2,6 +2,8 @@ import taj from "../assets/Heritage/taj.jpeg";
 import unescoLogo from "../assets/Heritage/unescologo.png";
 import commonImg from "../assets/Home/c.jpg";
 
+import bahomein from "../assets/Heritage/bais.mp4";
+
 export const dummyData = {
   Home: [
     {
@@ -99,8 +101,53 @@ export const dummyData = {
         introduction:
           "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
         category: "UNESCO Listed",
+
         categoryImg: unescoLogo,
         type: "cultural",
+        endlessDigitalArt: bahomein,
+
+        // before video blog
+        part1: [
+          {
+            heading1: "loremdsfdssfd",
+            description1: "sdffffffffffffffffsdgsgvesvgerfergveveggerger",
+          },
+          {
+            heading1: "dfffef",
+            description1:
+              "sdccccccccccccccccccccccffffffffffffffffsdgsgvesvgerfergveveggerger",
+          },
+        ],
+        // animated video
+        animatedVideo: bahomein,
+        // after video blog
+        part2: [
+          {
+            heading2: "vrefwefw",
+            description2: "svrwfweweerfwefwfwfwvvvwfwefwfw",
+          },
+          {
+            heading2: "vrevvvvvvfwefw",
+            description2: "svvvvvvvvvvvvvvvvvvvvrwfweweerfwefwfwfwvvvwfwefwfw",
+          },
+        ],
+
+        vlogVideo: bahomein,
+        police_helpline: "+0000000",
+        women_helpline: "+111111",
+        child_helpline: "+222222",
+        fire_emergency: "+333333",
+        medical_emergency: "+444444",
+        nearest_attraction: [
+          {
+            name: "Agra Fort",
+            link: "/",
+          },
+          {
+            name: "Rupal r sosur bari",
+            link: "/norok",
+          },
+        ],
       },
       {
         image: taj,
@@ -108,46 +155,109 @@ export const dummyData = {
         introduction:
           "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
         category: "UNESCO Listed",
+
         categoryImg: unescoLogo,
         type: "cultural",
-      },
-      {
-        image: taj,
-        name: "Taj Mahal",
-        introduction:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
-        category: "UNESCO Listed",
-        categoryImg: unescoLogo,
-        type: "cultural",
-      },
-      {
-        image: taj,
-        name: "Taj Mahal",
-        introduction:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
-        category: "UNESCO Listed",
-        categoryImg: unescoLogo,
-        type: "cultural",
-      },
-      {
-        image: taj,
-        name: "Taj Mahal",
-        introduction:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
-        category: "UNESCO Listed",
-        categoryImg: unescoLogo,
-        type: "cultural",
+        endlessDigitalArt: bahomein,
+
+        // before video blog
+        part1: [
+          {
+            heading1: "loremdsfdssfd",
+            description1: "sdffffffffffffffffsdgsgvesvgerfergveveggerger",
+          },
+          {
+            heading1: "dfffef",
+            description1:
+              "sdccccccccccccccccccccccffffffffffffffffsdgsgvesvgerfergveveggerger",
+          },
+        ],
+        // animated video
+        animatedVideo: bahomein,
+        // after video blog
+        part2: [
+          {
+            heading2: "vrefwefw",
+            description2: "svrwfweweerfwefwfwfwvvvwfwefwfw",
+          },
+          {
+            heading2: "vrevvvvvvfwefw",
+            description2: "svvvvvvvvvvvvvvvvvvvvrwfweweerfwefwfwfwvvvwfwefwfw",
+          },
+        ],
+
+        vlogVideo: bahomein,
+        police_helpline: "+0000000",
+        women_helpline: "+111111",
+        child_helpline: "+222222",
+        fire_emergency: "+333333",
+        medical_emergency: "+444444",
+        nearest_attraction: [
+          {
+            name: "Agra Fort",
+            link: "/",
+          },
+          {
+            name: "Rupal r sosur bari",
+            link: "/norok",
+          },
+        ],
       },
     ],
     unesco_unlisted: [
       {
-        image: unescoLogo,
+        image: taj,
         name: "Taj Mahal",
         introduction:
           "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
-        category: "UNESCO Unlisted",
+        category: "UNESCO Unisted",
+
         categoryImg: unescoLogo,
         type: "cultural",
+        endlessDigitalArt: bahomein,
+
+        // before video blog
+        part1: [
+          {
+            heading1: "loremdsfdssfd",
+            description1: "sdffffffffffffffffsdgsgvesvgerfergveveggerger",
+          },
+          {
+            heading1: "dfffef",
+            description1:
+              "sdccccccccccccccccccccccffffffffffffffffsdgsgvesvgerfergveveggerger",
+          },
+        ],
+        // animated video
+        animatedVideo: bahomein,
+        // after video blog
+        part2: [
+          {
+            heading2: "vrefwefw",
+            description2: "svrwfweweerfwefwfwfwvvvwfwefwfw",
+          },
+          {
+            heading2: "vrevvvvvvfwefw",
+            description2: "svvvvvvvvvvvvvvvvvvvvrwfweweerfwefwfwfwvvvwfwefwfw",
+          },
+        ],
+
+        vlogVideo: bahomein,
+        police_helpline: "+0000000",
+        women_helpline: "+111111",
+        child_helpline: "+222222",
+        fire_emergency: "+333333",
+        medical_emergency: "+444444",
+        nearest_attraction: [
+          {
+            name: "Agra Fort",
+            link: "/",
+          },
+          {
+            name: "Rupal r sosur bari",
+            link: "/norok",
+          },
+        ],
       },
     ],
     local_heritage: [
@@ -156,9 +266,54 @@ export const dummyData = {
         name: "Taj Mahal",
         introduction:
           "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
-        category: "Local Heritage",
+        category: "UNESCO Listed",
+
         categoryImg: unescoLogo,
         type: "cultural",
+        endlessDigitalArt: bahomein,
+
+        // before video blog
+        part1: [
+          {
+            heading1: "loremdsfdssfd",
+            description1: "sdffffffffffffffffsdgsgvesvgerfergveveggerger",
+          },
+          {
+            heading1: "dfffef",
+            description1:
+              "sdccccccccccccccccccccccffffffffffffffffsdgsgvesvgerfergveveggerger",
+          },
+        ],
+        // animated video
+        animatedVideo: bahomein,
+        // after video blog
+        part2: [
+          {
+            heading2: "vrefwefw",
+            description2: "svrwfweweerfwefwfwfwvvvwfwefwfw",
+          },
+          {
+            heading2: "vrevvvvvvfwefw",
+            description2: "svvvvvvvvvvvvvvvvvvvvrwfweweerfwefwfwfwvvvwfwefwfw",
+          },
+        ],
+
+        vlogVideo: bahomein,
+        police_helpline: "+0000000",
+        women_helpline: "+111111",
+        child_helpline: "+222222",
+        fire_emergency: "+333333",
+        medical_emergency: "+444444",
+        nearest_attraction: [
+          {
+            name: "Agra Fort",
+            link: "/",
+          },
+          {
+            name: "Rupal r sosur bari",
+            link: "/norok",
+          },
+        ],
       },
     ],
   },
