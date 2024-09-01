@@ -7,7 +7,7 @@ import { dummyData } from "../../utils/constants";
 const Heritage = () => {
   const { HeritageDetails } = dummyData;
   return (
-    <section className="bg-background1 dark:bg-dark_background1 p-4 duration-300">
+    <section className="bg-background1 dark:bg-dark_background1 py-4 px-10 duration-300">
       <div>
         <img src={commonImg} alt="Common" />
       </div>
@@ -75,7 +75,7 @@ const Heritage = () => {
                 return (
                   <div
                     key={index}
-                    className={`backdrop-blur-lg bg-opacity-80 p-4 rounded-lg flex flex-col items-center ${shadowClass} gap-2`}
+                    className={`backdrop-blur-lg bg-opacity-80 py-4 px-10 rounded-lg flex flex-col items-center ${shadowClass} gap-2`}
                   >
                     <div className="flex flex-col">
                       <img

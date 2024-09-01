@@ -139,6 +139,7 @@ export const dummyData = {
         fire_emergency: "+333333",
         medical_emergency: "+444444",
         state_culture_name: "Bengal",
+        state_culture_introduction: "efbuevbhevh v hevebvrhebv",
         state_culture_link: "/bengal",
         nearest_attraction: [
           {
@@ -199,6 +200,7 @@ export const dummyData = {
         fire_emergency: "+333333",
         medical_emergency: "+444444",
         state_culture_name: "Bengal",
+        state_culture_introduction: "efbuevbhevh v hevebvrhebv",
         state_culture_link: "/bengal",
         nearest_attraction: [
           {
@@ -261,6 +263,7 @@ export const dummyData = {
         fire_emergency: "+333333",
         medical_emergency: "+444444",
         state_culture_name: "Bengal",
+        state_culture_introduction: "efbuevbhevh v hevebvrhebv",
         state_culture_link: "/bengal",
         nearest_attraction: [
           {
@@ -284,7 +287,7 @@ export const dummyData = {
         name: "Taj Mahal",
         introduction:
           "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
-        category: "UNESCO Listed",
+        category: "Local Heritage",
 
         categoryImg: unescoLogo,
         type: "cultural",
@@ -323,6 +326,7 @@ export const dummyData = {
         fire_emergency: "+333333",
         medical_emergency: "+444444",
         state_culture_name: "Bengal",
+        state_culture_introduction: "efbuevbhevh v hevebvrhebv",
         state_culture_link: "/bengal",
         nearest_attraction: [
           {
