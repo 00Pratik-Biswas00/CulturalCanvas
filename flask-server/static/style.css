@@ -1,7 +1,7 @@
 /* General body styling */
 body {
     font-family: 'Comic Sans MS', cursive, sans-serif; /* Playful font */
-    background-color: #f4f4f9; /* Light gray background */
+    background-color: #93e0ee; /* Light gray background */
     color: #333; /* Dark gray text color */
     margin: 0;
     padding: 0;
@@ -21,7 +21,7 @@ body {
 
 /* Heading styling */
 h1 {
-    color: #ff6f61; /* Coral color */
+    color: #18023e; /* Coral color */
     text-align: center;
     font-size: 2.5em; /* Larger heading */
     margin-bottom: 20px;

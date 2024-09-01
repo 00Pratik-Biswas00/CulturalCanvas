@@ -36,11 +36,21 @@
         <button type="submit">Plan Trip</button>
     </form>
     {% if prediction %}
+    <p><strong>Source:</strong> {{ request.form['source'] }}</p>
+    <p><strong>Destination:</strong> {{ request.form['destination'] }}</p>
+    <p><strong>Duration:</strong> {{ request.form['duration'] }} days</p>
+    <p><strong>Travel Preference:</strong> {{ request.form['travel_preference'] }}</p>
+    <p><strong>Predicted Budget:</strong> {{ prediction }} INR</p>
+    <p><strong>The Predicted Budget Includes Travel From Source to Destination Cost, Food Cost, Local Places Travel Cost, and Hotel Stay Cost.</strong></p>
     <h2>Predicted Budget: INR {{ prediction }}</h2>
     {% endif %}
     {% if trip_plan %}
     <h2>Trip Plan:</h2>
-    <p>{{ trip_plan }}</p>
+    <ul>
+        {% for item in trip_plan %}
+            <li><h3>{{ item }}</h3></li>
+        {% endfor %}
+    </ul>
     {% endif %}
 </body>
 </html>
