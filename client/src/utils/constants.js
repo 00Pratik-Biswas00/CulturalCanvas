@@ -1,6 +1,6 @@
 import taj from "../assets/Heritage/taj.jpeg";
 import unescoLogo from "../assets/Heritage/unescologo.png";
-import commonImg from "../assets/Home/c.jpg";
+import commonImg from "../assets/Home/c.png";
 
 import bahomein from "../assets/Heritage/bais.mp4";
 
