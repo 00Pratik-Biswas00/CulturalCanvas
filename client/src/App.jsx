@@ -21,6 +21,7 @@ import SingleHeritage from "./pages/SingleHeritage";
 import SingleCourse from "./pages/SingleCourse";
 import ScrollToTop from "./components/ScrollToTop";
 import GoToTop from "./components/GoToTopButton";
+import Chatbot from "./components/ChatBot";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -30,6 +31,7 @@ const UserLayout = ({ children }) => {
       <Header open={open} setOpen={setOpen} />
       {children}
       <GoToTop />
+      <Chatbot />
       <Footer />
     </>
   );

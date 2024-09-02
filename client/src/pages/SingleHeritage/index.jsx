@@ -25,7 +25,7 @@ const SingleHeritage = () => {
 
         <div className="relative z-20 flex flex-col items-center justify-center">
           {/* Digital Art Section */}
-          <div className="bg-background1 dark:bg-dark_background1 py-4 px-10 flex flex-col gap-4 items-center justify-center w-full h-full">
+          <div className="bg-background1 dark:bg-dark_background1 py-4 px-16 flex flex-col gap-4 items-center justify-center w-full h-full">
             <h1 className="font-bold font-playfair text-5xl tracking-wider">
               Exploring the Taj Mahal in the Digital Realm
             </h1>
@@ -45,7 +45,7 @@ const SingleHeritage = () => {
           </div>
 
           {/* name */}
-          <div className=" flex flex-col gap-20 items-center justify-center  px-10 py-32  h-screen   text-dark_primary_text">
+          <div className=" flex flex-col gap-20 items-center justify-center  px-16 py-32  h-screen   text-dark_primary_text">
             <p className="text-[7rem] leading-9">TAJ MAHAL</p>
             <p className="text-lg ">
               Introduction Lorem, ipsum dolor sit amet consectetur adipisicing
@@ -64,7 +64,7 @@ const SingleHeritage = () => {
           </div>
 
           {/* description and animated intro */}
-          <div className="bg-background1 dark:bg-dark_background1 py-4 px-10 text-lg flex flex-col items-center justify-center w-full h-full">
+          <div className="bg-background1 dark:bg-dark_background1 py-4 px-16 text-lg flex flex-col items-center justify-center w-full h-full">
             <div className="flex flex-col gap-1">
               <h1 className=" font-semibold font-montserrat text-2xl">
                 Heading 1
@@ -216,7 +216,7 @@ const SingleHeritage = () => {
           </div>
 
           {/* vlog */}
-          <div className="bg-background1 dark:bg-dark_background1 py-4 px-10 pt-0  flex flex-col gap-4 items-center justify-center w-full h-full">
+          <div className="bg-background1 dark:bg-dark_background1 py-4 px-16 pt-0  flex flex-col gap-4 items-center justify-center w-full h-full">
             <h1 className="font-bold font-playfair text-5xl tracking-wider">
               Sensory Experience of Taj Mahal
             </h1>
@@ -236,7 +236,7 @@ const SingleHeritage = () => {
           </div>
 
           {/* nearest attractions */}
-          <div className="bg-background1 dark:bg-dark_background1 py-4 px-10 pt-0  flex flex-col gap-4 items-center justify-center w-full h-full">
+          <div className="bg-background1 dark:bg-dark_background1 py-4 px-16 pt-0  flex flex-col gap-4 items-center justify-center w-full h-full">
             <h1 className="font-bold font-playfair text-5xl tracking-wider">
               Nearest Attractions
             </h1>
@@ -332,7 +332,7 @@ const SingleHeritage = () => {
           </div>
 
           {/* state culture */}
-          <div className="bg-background1 dark:bg-dark_background1 py-4 px-10 pt-4  flex flex-col gap-4 items-center justify-center w-full h-full">
+          <div className="bg-background1 dark:bg-dark_background1 py-4 px-16 pt-4  flex flex-col gap-4 items-center justify-center w-full h-full">
             <h1 className="font-bold font-playfair text-5xl tracking-wider">
               A Cultural Odyssey: Exploring Uttar Pradesh
             </h1>
@@ -350,7 +350,7 @@ const SingleHeritage = () => {
           </div>
 
           {/* helplines */}
-          <div className="bg-background1 dark:bg-dark_background1 py-4 px-10 pt-4  flex flex-col gap-10 items-center justify-center w-full h-full">
+          <div className="bg-background1 dark:bg-dark_background1 py-4 px-16 pt-4  flex flex-col gap-10 items-center justify-center w-full h-full">
             <h1 className="font-bold font-playfair text-5xl tracking-wider">
               Helpline numbers of Agra Fort
             </h1>

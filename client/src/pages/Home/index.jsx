@@ -93,7 +93,7 @@ const Home = () => {
   const { Home } = dummyData;
 
   return (
-    <section className=" bg-background1 dark:bg-dark_background1 px-4 py-10  duration-300">
+    <section className=" bg-background1 dark:bg-dark_background1 px-16 py-10  duration-300">
       <div className="w-full flex flex-col items-start  gap-16">
         {Home.map((content, ind) => (
           <div
