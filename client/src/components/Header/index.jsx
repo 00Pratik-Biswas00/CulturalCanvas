@@ -3,8 +3,8 @@ import { NavLink, useNavigate } from "react-router-dom";
 // import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
 
-import { logoutUser } from "../../store/slices/userSlice";
-import { switchLoginModalOpen } from "../../store/slices/loginModalOpenSlice";
+// import { logoutUser } from "../../store/slices/userSlice";
+// import { switchLoginModalOpen } from "../../store/slices/loginModalOpenSlice";
 
 import logo from "../../assets/logo/logo.png";
 import headerBG from "../../assets/logo/headerBG.png";
