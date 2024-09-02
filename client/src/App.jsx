@@ -18,6 +18,9 @@ import TripRecommendation from "./pages/TripRecommendation";
 import BlogsVlogs from "./pages/BlogsVlogs";
 import VirtualStore from "./pages/VirtualStore";
 import SingleHeritage from "./pages/SingleHeritage";
+import SingleCourse from "./pages/SingleCourse";
+import ScrollToTop from "./components/ScrollToTop";
+import GoToTop from "./components/GoToTopButton";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -26,6 +29,7 @@ const UserLayout = ({ children }) => {
     <>
       <Header open={open} setOpen={setOpen} />
       {children}
+      <GoToTop />
       <Footer />
     </>
   );
@@ -41,6 +45,7 @@ function App() {
         closeButton="true"
       />
       <UserLayout>
+        <ScrollToTop />
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/heritage" element={<Heritage />} />
@@ -59,6 +64,10 @@ function App() {
           <Route
             path="/heritage/single_heritage"
             element={<SingleHeritage />}
+          />
+          <Route
+            path="/learn_Indian_culture/single_course"
+            element={<SingleCourse />}
           />
         </Routes>
       </UserLayout>
