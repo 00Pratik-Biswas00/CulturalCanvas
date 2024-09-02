@@ -22,7 +22,7 @@ const heritageTypeDefs = gql`
     vlogVideo: Video
     part1: [Description]
     part2: [Description]
-    type_of_heritage: HeritageType!
+    type_of_heritage: HeritageType
     tag: String
     police_helpline: String!
     women_helpline: String!
@@ -63,21 +63,21 @@ const heritageTypeDefs = gql`
 
   input HeritageInput {
     name: String!
-    image: PhotoInput
+    image: PhotoOutput
     introduction: String!
-    endlessDigitalArt: MediaInput
-    animatedVideo: MediaInput
-    vlogVideo: MediaInput
+    endlessDigitalArt: VideoInput
+    animatedVideo: VideoInput
+    vlogVideo: VideoInput
     part1: [DescriptionInput]
     part2: [DescriptionInput]
-    type_of_heritage: HeritageTypeInput!
+    type_of_heritage: HeritageTypeInput
     tag: String
     police_helpline: String!
     women_helpline: String!
     child_helpline: String!
     fire_emergency: String!
     medical_emergency: String!
-    state_culture_name: StateInput!
+    state_culture_name: StateInput
     state_culture_link: [ID]
     entry_fee: Float
     nearest_attraction: [ID]
@@ -90,17 +90,25 @@ const heritageTypeDefs = gql`
 
   input HeritageTypeInput {
     type: String!
-    image: PhotoInput!
+    image: PhotoOutput!
   }
 
   input StateInput {
     name: String!
-    image: PhotoInput!
+    image: PhotoOutput!
   }
 
-  input PhotoInput {
+  input PhotoOutput {
     url: String
     public_id: String
+  }
+  input VideoInput {
+    ETag: String
+    ServerSideEncryption: String
+    Location: String
+    Key: String
+    key: String
+    Bucket: String
   }
 `;
 

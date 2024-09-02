@@ -2,13 +2,17 @@ import express from "express";
 import "dotenv/config";
 import morgan from "morgan";
 import mongoose from "mongoose";
+import cloudinary from "cloudinary";
 import cors from "cors";
+import uploadRoutes from "./routes/upload.js";
 import { createServer } from "http";
 import { ApolloServer } from "apollo-server-express";
 import { mergeTypeDefs, mergeResolvers } from "@graphql-tools/merge";
 import authResolver from "./resolvers/auth.js";
 import authTypeDefs from "./typedefs/auth.js";
 import { authenticateUser } from "./middlewares/verify.js";
+import heritageTypeDefs from "./typedefs/heritage.js";
+import heritageResolvers from "./resolvers/heritage.js";
 
 const customLoggingPlugin = {
   requestDidStart(requestContext) {
@@ -31,8 +35,8 @@ app.use(
   })
 );
 
-const typeDefs = mergeTypeDefs([authTypeDefs]);
-const resolvers = mergeResolvers([authResolver]);
+const typeDefs = mergeTypeDefs([authTypeDefs, heritageTypeDefs]);
+const resolvers = mergeResolvers([authResolver, heritageResolvers]);
 
 const apolloServer = new ApolloServer({
   typeDefs,
@@ -64,6 +68,8 @@ app.use(express.json({ limit: "5mb" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
+app.use("/api", uploadRoutes);
+
 app.get("/", (req, res) => {
   res.send("Server is running...");
 });
@@ -77,6 +83,14 @@ mongoose
     console.log("Error connecting to database: " + JSON.stringify(error));
     process.exit(1);
   });
+
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET,
+});
+
+// app.use("/api", uploadRoutes);
 
 http.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

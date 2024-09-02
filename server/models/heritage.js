@@ -9,25 +9,21 @@ const descriptionSchema = new Schema({
 const heritageTypeSchema = new Schema({
   type: {
     type: String,
-    required: true,
     enum: ["unesco_listed", "unesco_unlisted", "local_heritage"],
   },
   image: {
     url: String,
     public_id: String,
-    required: true,
   },
 });
 
 const stateSchema = new Schema({
   name: {
     type: String,
-    required: True,
   },
   image: {
     url: String,
     public_id: String,
-    required: true,
   },
 });
 
@@ -90,7 +86,7 @@ const heritageSchema = new Schema(
     ],
     entry_fee: {
       type: Number,
-      required: True,
+      required: true,
       default: 0,
     },
     nearest_attraction: [
