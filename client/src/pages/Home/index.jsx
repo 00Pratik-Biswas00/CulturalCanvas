@@ -98,36 +98,57 @@ const Home = () => {
         {Home.map((content, ind) => (
           <div
             key={ind}
-            className={`backdrop-blur-lg ${
-              content.shadow
-            } bg-opacity-80 p-4 rounded-lg h-[520px] md:h-[450px] lg:h-[500px] xl:h-[500px] w-full max-w-[94rem] relative flex items-center ${
-              ind % 2 === 0 ? "justify-start" : "justify-end"
-            } `}
+            className={`backdrop-blur-lg ${content.shadow} bg-opacity-80 p-4 rounded-lg h-[520px] md:h-[450px] lg:h-[500px] xl:h-[500px] max-w-[94rem] relative flex items-center justify-between gap-10 w-full`}
           >
-            <div className="w-[58rem] flex flex-col items-center justify-center gap-10">
-              <p className="text-lg leading-8 font-medium text-primary_text dark:text-dark_primary_text">
-                {content.para}
-              </p>
+            {ind % 2 === 0 ? (
+              <>
+                {/* Text on the left, image on the right */}
+                <div className="flex flex-col items-center justify-center gap-10 w-[180%]">
+                  <p className="text-lg leading-8 font-medium text-primary_text dark:text-dark_primary_text">
+                    {content.para}
+                  </p>
 
-              <a
-                href={content.buttonLink}
-                className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-300 transition-transform hover:scale-105 transform-cpu"
-              >
-                {content.buttonName}
-              </a>
-            </div>
+                  <a
+                    href={content.buttonLink}
+                    className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-300 transition-transform hover:scale-105 transform-cpu"
+                  >
+                    {content.buttonName}
+                  </a>
+                </div>
 
-            <div
-              className={`absolute w-[35%] ${
-                ind % 2 === 0 ? "-right-0" : "-left-0"
-              }`}
-            >
-              <img
-                src={content.image}
-                alt="common img"
-                className="rounded-lg"
-              />
-            </div>
+                <div className="w-full h-full flex items-center justify-center">
+                  <img
+                    src={content.image}
+                    alt="common img"
+                    className="rounded-lg w-full h-full "
+                  />
+                </div>
+              </>
+            ) : (
+              <>
+                {/* Image on the left, text on the right */}
+                <div className="w-full h-full flex items-center justify-center">
+                  <img
+                    src={content.image}
+                    alt="common img"
+                    className="rounded-lg w-full h-full object-cover"
+                  />
+                </div>
+
+                <div className="flex flex-col items-center justify-center gap-10 w-[180%]">
+                  <p className="text-lg leading-8 font-medium text-primary_text dark:text-dark_primary_text">
+                    {content.para}
+                  </p>
+
+                  <a
+                    href={content.buttonLink}
+                    className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-300 transition-transform hover:scale-105 transform-cpu"
+                  >
+                    {content.buttonName}
+                  </a>
+                </div>
+              </>
+            )}
           </div>
         ))}
       </div>

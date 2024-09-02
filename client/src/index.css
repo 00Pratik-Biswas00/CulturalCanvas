@@ -18,7 +18,7 @@
 }
 
 ::-webkit-scrollbar {
-  width: 1px;
+  width: 0.1px;
   height: 1px;
   background: transparent;
 }
