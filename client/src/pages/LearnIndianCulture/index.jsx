@@ -53,17 +53,17 @@ const LearnIndianCulture = () => {
           scrollRef.current.scrollBy({ left: 500, behavior: "smooth" });
         };
 
-        const handleKeyDown = (e) => {
-          if (e.key === "ArrowLeft") {
-            scrollLeft();
-          } else if (e.key === "ArrowRight") {
-            scrollRight();
-          }
-        };
+        // const handleKeyDown = (e) => {
+        //   if (e.key === "ArrowLeft") {
+        //     scrollLeft();
+        //   } else if (e.key === "ArrowRight") {
+        //     scrollRight();
+        //   }
+        // };
 
-        useEffect(() => {
-          scrollRef.current.focus();
-        }, []);
+        // useEffect(() => {
+        //   scrollRef.current.focus();
+        // }, []);
 
         let textColor,
           textColor2,
@@ -131,8 +131,8 @@ const LearnIndianCulture = () => {
                   onMouseLeave={handleMouseUp}
                   className="flex gap-7 overflow-x-hidden w-full outline-none"
                   style={{ scrollSnapType: "x mandatory" }}
-                  tabIndex="0"
-                  onKeyDown={handleKeyDown}
+                  // tabIndex="0"
+                  // onKeyDown={handleKeyDown}
                 >
                   {values.map((item, index) => (
                     <div
