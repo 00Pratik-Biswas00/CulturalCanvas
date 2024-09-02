@@ -7,7 +7,7 @@ import { dummyData } from "../../utils/constants";
 const Heritage = () => {
   const { HeritageDetails } = dummyData;
   return (
-    <section className="bg-background1 dark:bg-dark_background1 py-4 px-10 duration-300">
+    <section className="bg-background1 dark:bg-dark_background1 py-4 px-16 duration-300">
       <div>
         <img src={commonImg} alt="Common" />
       </div>

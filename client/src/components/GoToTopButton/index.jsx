@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaArrowUp } from "react-icons/fa";
+import { IoIosArrowUp } from "react-icons/io";
 
 const GoToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -10,7 +10,7 @@ const GoToTop = () => {
   };
 
   const listenToScroll = () => {
-    const heightToHidden = 1500;
+    const heightToHidden = 1000;
     const winScroll =
       document.body.scrollTop || document.documentElement.scrollTop;
 
@@ -38,12 +38,12 @@ const GoToTop = () => {
     <div className="fixed bottom-1 left-1 lg:left-2 lg:bottom-2 z-40 mt-8 flex items-center">
       {isVisible && (
         <div
-          className={`text-2xl text-primary_text bg-highlight shadow-lg rounded-full flex justify-center items-center cursor-pointer w-11 h-11 lg:w-12 lg:h-12 ${
+          className={`text-2xl text-primary_text hover:text-dark_primary_text duration-500 bg-highlight hover:bg-[#FF671F]  rounded-full flex justify-center items-center cursor-pointer w-11 h-11 lg:w-12 lg:h-12 ${
             showFooterButton ? "absolute -top-5" : ""
           }`}
           onClick={goToBtn}
         >
-          <FaArrowUp />
+          <IoIosArrowUp />
         </div>
       )}
     </div>
