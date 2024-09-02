@@ -150,7 +150,7 @@ const Header = ({ open, setOpen }) => {
       style={{
         backgroundImage: !darkMode ? `url(${headerBG})` : "none",
       }}
-      className=" bg-background1 dark:bg-dark_background2  text-dark_secondary_text dark:text-dark_primary_text font-semibold pt-2 pb-1 px-10 flex justify-between items-center bg-cover bg-center"
+      className=" bg-background1 dark:bg-dark_background2  text-dark_secondary_text dark:text-dark_primary_text font-semibold pt-2 pb-1 px-16 flex justify-between items-center bg-cover bg-center"
     >
       <div className="text-xl font-bold">
         <NavLink
