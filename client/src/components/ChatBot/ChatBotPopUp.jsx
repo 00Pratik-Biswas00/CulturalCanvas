@@ -1,71 +1,137 @@
-import React from "react";
-
+import React, { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import taj from "../../assets/Heritage/taj.jpeg";
+import ChatBotBg from "../../assets/chatbot/chatbot.png";
+import namaste from "../../assets/chatbot/namaste.png";
+import StartChat from "./StartChat";
+
+const LanguageOptions = [
+  "Bengali",
+  "Hindi",
+  "English",
+  "Tamil",
+  "Assamese",
+  "Bodo",
+  "Dogri",
+  "Gujarati",
+  "Kashmiri",
+  "Kannada",
+  "Konkani",
+  "Maithili",
+  "Malayalam",
+  "Manipuri",
+  "Marathi",
+  "Nepali",
+  "Oriya",
+  "Punjabi",
+  "Sanskrit",
+  "Santali",
+  "Sindhi",
+  "Telugu",
+  "Urdu",
+];
 
 const ChatBotPopUp = ({ onClose }) => {
+  const [selectedLanguage, setSelectedLanguage] = useState("");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
+  const handleInputClick = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const handleLanguageSelect = (language) => {
+    setSelectedLanguage(language);
+    setIsDropdownOpen(false);
+  };
+
+  const sortLanguagesAlphabetically = (languages) => {
+    return languages.slice().sort((a, b) => a.localeCompare(b));
+  };
+
   return (
     <div
-      style={{ backgroundImage: `url(${taj})` }}
-      className="absolute bottom-8 -right-10 z-50 flex items-center justify-end bg-center bg-cover bg-fixed bg-no-repeat rounded-xl duration-500"
+      style={{ backgroundImage: `url(${ChatBotBg})` }}
+      className="absolute bottom-8 -right-10 z-50 flex items-center justify-end bg-center bg-no-repeat rounded-xl duration-500"
     >
-      <div className="absolute inset-0 bg-black opacity-40 z-10 rounded-xl"></div>
+      <div className="absolute inset-0 bg-dark_background1 opacity-50 z-10 rounded-xl"></div>
 
       <div className="relative z-20">
-        <div className="flex justify-between items-center w-full text-2xl">
-          <h1>Cultural Canvas ChatBot</h1>
-          <button onClick={onClose} className="  text-primary_text">
+        <div className="flex justify-between items-center w-full text-2xl px-5 py-3 font-playfair font-bold text-dark_primary_text">
+          <h1 className="tracking-wider">Cultural Canvas ChatBot</h1>
+          <button onClick={onClose}>
             <AiOutlineClose />
           </button>
         </div>
 
-        <div className="flex items-center   rounded-lg max-w-[20rem] md:max-w-full">
-          <div className="flex flex-col md:flex-row w-full items-start justify-between gap-x-5 p-5">
-            <div className="flex w-full flex-col">
-              <div className="flex flex-col items-center">
+        <div className="flex items-center rounded-lg max-w-[20rem] md:max-w-full">
+          <div className="flex w-full flex-col px-5">
+            <div className="flex flex-col items-center">
+              {!isChatOpen ? (
                 <div
-                  className="flex items-center justify-center bg-background rounded-lg overflow-auto
-                  w-[270px] h-[240px]
-                  min-[360px]:w-[280px] min-[360px]:h-[250px]
-                  sm:w-[280px] sm:h-[250px]
-                  md:w-[350px] md:h-[420px]
-                  lg:w-[450px] lg:h-[420px]
-                  xl:w-[550px] xl:h-[550px]
-                  2xl:w-[400px] 2xl:h-[450px]"
+                  className="flex flex-col items-center justify-start gap-5 bg-background rounded-lg overflow-auto py-5
+                    w-[270px] h-[240px]
+                    min-[360px]:w-[280px] min-[360px]:h-[250px]
+                    sm:w-[280px] sm:h-[250px]
+                    md:w-[350px] md:h-[420px]
+                    lg:w-[450px] lg:h-[420px]
+                    xl:w-[400px] xl:h-[450px]"
                 >
-                  hello hello Lorem ipsum dolor sit amet consectetur adipisicing
-                  elit. Illum quos architecto sit voluptas dolores cum
-                  accusamus, sapiente esse fuga dignissimos unde excepturi in
-                  distinctio eaque maxime, dolor officia illo! Incidunt! Lorem
-                  ipsum dolor sit amet, consectetur adipisicing elit. Officiis
-                  at ea cumque ipsum quas, voluptatum, atque commodi eum nostrum
-                  obcaecati laborum. Quis quasi nihil rerum unde cupiditate
-                  veritatis excepturi numquam. Lorem ipsum dolor sit amet
-                  consectetur adipisicing elit. Modi aut vel quod reiciendis
-                  asperiores eius ipsa architecto veritatis voluptates, quis,
-                  itaque obcaecati at excepturi distinctio ut, velit esse
-                  impedit perferendis.lore Lorem ipsum dolor sit amet
-                  consectetur, adipisicing elit. Consectetur ipsum expedita est,
-                  cupiditate distinctio sit labore vitae quam mollitia non
-                  impedit praesentium officiis, totam odio consequuntur unde
-                  quaerat accusamus laudantium. ello Lorem ipsum dolor sit amet
-                  consectetur adipisicing elit. Illum quos architecto sit
-                  voluptas dolores cum accusamus, sapiente esse fuga dignissimos
-                  unde excepturi in distinctio eaque maxime, dolor officia illo!
-                  Incidunt! Lorem ipsum dolor sit amet, consectetur adipisicing
-                  elit. Officiis at ea cumque ipsum quas, voluptatum, atque
-                  commodi eum nostrum obcaecati laborum. Quis quasi nihil rerum
-                  unde cupiditate veritatis excepturi numquam. Lorem ipsum dolor
-                  sit amet consectetur adipisicing elit. Modi aut vel quod
-                  reiciendis asperiores eius ipsa architecto veritatis
-                  voluptates, quis, itaque obcaecati at excepturi distinctio ut,
-                  velit esse impedit perferendis.lore Lorem ipsum dolor sit amet
-                  consectetur, adipisicing elit. Consectetur ipsum expedita est,
-                  cupiditate distinctio sit labore vitae quam mollitia non
-                  impedit praesentium officiis, totam odio consequuntur unde
-                  quaerat accusamus laudantium.
+                  <div>
+                    <img
+                      src={namaste}
+                      alt="Namaste"
+                      className="rounded-xl w-60 h-60"
+                    />
+                  </div>
+
+                  <form>
+                    <div className="relative flex flex-col items-center justify-center gap-3 w-full">
+                      <input
+                        className="text-dark_primary_text py-1 cursor-pointer bg-[#2a3d4c] hover:bg-[#1b2934] rounded-xl focus:outline-none focus:border focus:border-dark_primary_text w-full placeholder:text-dark_primary_text text-center"
+                        placeholder="Choose Your Language"
+                        value={selectedLanguage}
+                        onClick={handleInputClick}
+                        readOnly
+                      />
+
+                      {isDropdownOpen && (
+                        <div className="absolute bottom-full my-1 w-full bg-black rounded-xl max-h-52 overflow-y-auto z-30">
+                          {sortLanguagesAlphabetically(LanguageOptions).map(
+                            (language, index) => (
+                              <div
+                                key={index}
+                                className="px-4 py-2 text-center text-dark_primary_text hover:bg-[#1b2934] cursor-pointer"
+                                onClick={() => handleLanguageSelect(language)}
+                              >
+                                {language}
+                              </div>
+                            )
+                          )}
+                        </div>
+                      )}
+
+                      <div
+                        className="text-center text-dark_primary_text py-1 cursor-pointer bg-[#2a3d4c] hover:bg-[#1b2934] rounded-xl focus:outline-none focus:border focus:border-highlight w-full"
+                        onClick={() => setIsChatOpen(true)}
+                      >
+                        Start Chat
+                      </div>
+                    </div>
+                  </form>
                 </div>
-              </div>
+              ) : (
+                <div
+                  className="flex flex-col items-center justify-end gap-5 bg-background rounded-lg py-5
+                    w-[270px] h-[240px]
+                    min-[360px]:w-[280px] min-[360px]:h-[250px]
+                    sm:w-[280px] sm:h-[250px]
+                    md:w-[350px] md:h-[420px]
+                    lg:w-[450px] lg:h-[420px]
+                    xl:w-[400px] xl:h-[450px]"
+                >
+                  <StartChat onClose={() => setIsChatOpen(false)} />
+                </div>
+              )}
             </div>
           </div>
         </div>
