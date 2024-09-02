@@ -18,6 +18,7 @@ import TripRecommendation from "./pages/TripRecommendation";
 import BlogsVlogs from "./pages/BlogsVlogs";
 import VirtualStore from "./pages/VirtualStore";
 import SingleHeritage from "./pages/SingleHeritage";
+import SingleCourse from "./pages/SingleCourse";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -59,6 +60,10 @@ function App() {
           <Route
             path="/heritage/single_heritage"
             element={<SingleHeritage />}
+          />
+          <Route
+            path="/learn_Indian_culture/single_course"
+            element={<SingleCourse />}
           />
         </Routes>
       </UserLayout>
