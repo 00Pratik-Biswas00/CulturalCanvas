@@ -59,3 +59,140 @@ mutation ResetPassword($id: ID!, $token: String!, $password: String!) {
   "token": "your_jwt_token_here",
   "password": "new_secure_password"
 }
+
+
+Heritage:
+
+Create a Heritage:
+mutation CreateHeritage(
+  $name: String!, 
+  $introduction: String!, 
+  $part1: [DescriptionInput], 
+  $part2: [DescriptionInput],  
+  $tag: String, 
+  $police_helpline: String!, 
+  $women_helpline: String!, 
+  $child_helpline: String!, 
+  $fire_emergency: String!, 
+  $medical_emergency: String!,  
+  $entry_fee: Float, 
+) {
+  createHeritage(
+    input: {
+      name: $name, 
+      introduction: $introduction, 
+      part1: $part1, 
+      part2: $part2,  
+      tag: $tag, 
+      police_helpline: $police_helpline, 
+      women_helpline: $women_helpline, 
+      child_helpline: $child_helpline, 
+      fire_emergency: $fire_emergency, 
+      medical_emergency: $medical_emergency,   
+      entry_fee: $entry_fee,
+    }
+  ) {
+    _id
+    name
+    introduction
+    part1 {
+      heading
+      description
+    }
+    part2 {
+      heading
+      description
+    }
+    type_of_heritage {
+      type
+      image {
+        url
+        public_id
+      }
+    }
+    tag
+    police_helpline
+    women_helpline
+    child_helpline
+    fire_emergency
+    medical_emergency
+    state_culture_name {
+      name
+      image {
+        url
+        public_id
+      }
+    }
+    state_culture_link
+    entry_fee
+    nearest_attraction
+    createdAt
+    updatedAt
+  }
+}
+
+
+{
+  "name": "Historical Monument",
+  "introduction": "A brief introduction about the heritage site.",
+  "part1": [
+    {
+      "heading": "History",
+      "description": "Details about the history of the heritage site."
+    },
+    {
+      "heading": "loremdsfdssfd",
+      "description": "sdffffffffffffffffsdgsgvesvgerfergveveggerger",
+    }
+  ],
+  "part2": [
+    {
+      "heading": "Architecture",
+      "description": "Details about the architecture of the heritage site."
+    },
+    {
+      "heading": "vrevvvvvvfwefw",
+      "description": "svvvvvvvvvvvvvvvvvvvvrwfweweerfwefwfwfwvvvwfwefwfw",
+          },
+  ],
+  "tag": "cultural",
+  "police_helpline": "100",
+  "women_helpline": "1091",
+  "child_helpline": "1098",
+  "fire_emergency": "101",
+  "medical_emergency": "102",
+  "entry_fee": 10.5,
+}
+
+deleteHeritage:
+
+mutation {
+  deleteHeritage(id: "64f2682d15e4da02f3c8c9a4") {
+    ok
+  }
+}
+
+updateHeritage:
+mutation {
+  updateHeritage(
+    id: "66d55839912889f07b5d787f", 
+    input: {
+      name: "Updated Heritage Name",
+      introduction: "Updated introduction text.",
+      entry_fee: 100,
+      police_helpline: "100",
+  women_helpline: "1091",
+  child_helpline: "1098",
+  fire_emergency: "101",
+  medical_emergency: "102",
+    },
+    
+  ) {
+    _id
+    name
+    introduction
+    entry_fee
+  }
+}
+
+

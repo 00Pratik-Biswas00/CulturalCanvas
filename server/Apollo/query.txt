@@ -16,3 +16,56 @@ query {
     blogs
   }
 }
+
+
+GetHeritages:
+query {
+  getHeritages {
+    _id
+    name
+    introduction
+    tag
+    part1 {
+      heading
+      description
+    }
+    part2 {
+      heading
+      description
+    }
+    police_helpline
+    women_helpline
+    child_helpline
+    fire_emergency
+    medical_emergency
+    state_culture_link
+    entry_fee
+    nearest_attraction
+  }
+}
+
+Get heritage by ID:
+query {
+  getHeritage(id: "66d5a36541cd4748865adf19") {
+    _id
+    name
+    introduction
+    part1{
+      heading
+      description
+    }
+    part2{
+      heading
+      description
+    }
+    tag
+    police_helpline
+    women_helpline
+    child_helpline
+    fire_emergency
+    medical_emergency
+    state_culture_link
+    entry_fee
+    nearest_attraction
+  }
+}
