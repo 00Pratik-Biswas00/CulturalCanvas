@@ -16,6 +16,7 @@
     "@apollo/server": "^4.11.0",
     "@graphql-tools/merge": "^9.0.7",
     "apollo-server-express": "^3.13.0",
+    "aws-sdk": "^2.1687.0",
     "bcryptjs": "^2.4.3",
     "cloudinary": "^2.4.0",
     "cors": "^2.8.5",
@@ -27,6 +28,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.6.0",
     "morgan": "^1.10.0",
+    "nanoid": "^5.0.7",
     "nodemailer": "^6.9.14",
     "nodemon": "^3.1.4"
   }
