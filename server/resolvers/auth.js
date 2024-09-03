@@ -66,11 +66,11 @@ const authResolver = {
       try {
         const user = await User.findOne({ email });
         if (!user) return { error: "No User found" };
-
-        const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
-          expiresIn: "180d",
-        });
-
+        const otp = Math.floor(100000 + Math.random() * 900000).toString();
+        const otpExpiry = Date.now() + 10 * 60 * 1000;
+        user.otp = otp;
+        user.otpExpiry = otpExpiry;
+        await user.save();
         var transporter = nodemailer.createTransport({
           service: "gmail",
           auth: {
@@ -82,24 +82,19 @@ const authResolver = {
         var mailOptions = {
           from: process.env.EMAIL_ID,
           to: email,
-          subject: "Reset your password - Cultural Canvas",
+          subject: "Your OTP for Password Reset - Cultural Canvas",
           text: `Dear ${user.name},
-      
-            We received a request to reset your password for your Cultural Canvas account. To proceed with this request, please follow the instructions below:
-            
-              1. Click on the following link to reset your password:
-              ${process.env.FRONTEND}/reset-password/${user.id}/${token}
-            
-              2. If you're unable to click on the link, please copy and paste it into your web browser's address bar.
-            
-              3. Once the link is opened, you will be directed to a page where you can create a new password for your account.
-            
-            If you did not request this password reset, please disregard this email. Your account is still secure, and no changes have been made.
-            
-            Thank you for using Cultural Canvas.
-            
-            Best regards,
-            Cultural Canvas Team`,
+    
+          Your OTP for password reset is: ${otp}
+          
+          This OTP is valid for the next 10 minutes. Please use this code to reset your password.
+          
+          If you did not request this password reset, please disregard this email.
+    
+          Thank you for using Cultural Canvas.
+    
+          Best regards,
+          Cultural Canvas Team`,
         };
 
         await transporter.sendMail(mailOptions);
@@ -109,14 +104,18 @@ const authResolver = {
         throw new Error("Error. Try again.");
       }
     },
-    resetPassword: async (_, { id, token, password }) => {
+
+    resetPassword: async (_, { otp, password }) => {
       try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        if (!decoded) {
-          throw new Error("Invalid token");
+        const user = await User.findOne({ otp });
+        if (!user || user.otp !== otp || user.otpExpiry < Date.now()) {
+          return { ok: false, error: "Invalid or expired OTP" };
         }
         const hashedPassword = await bcrypt.hash(password, 10);
-        await User.findByIdAndUpdate({ _id: id }, { password: hashedPassword });
+        user.password = hashedPassword;
+        user.otp = null;
+        user.otpExpiry = null;
+        await user.save();
         return { ok: true };
       } catch (err) {
         console.error(err);

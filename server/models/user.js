@@ -26,7 +26,7 @@ const userSchema = new Schema(
     },
     gender: {
       type: String,
-      enum: ["male", "female", "non-binary", "other"],
+      enum: ["Male", "Female", "Non-Binary", "Other"],
     },
     role: {
       type: String,
@@ -55,6 +55,12 @@ const userSchema = new Schema(
         ref: "Blog",
       },
     ],
+    otp: {
+      type: String,
+    },
+    otpExpiry: {
+      type: Date,
+    },
   },
   { timestamps: true }
 );
