@@ -15,7 +15,7 @@ const authTypeDefs = gql`
     ): AuthResponse!
     login(email: String!, password: String!): LoginResponse!
     forgotPassword(email: String!): AuthResponse!
-    resetPassword(id: ID!, token: String!, password: String!): AuthResponse!
+    resetPassword(otp: String!, password: String!): AuthResponse!
   }
 
   type User {
@@ -37,7 +37,7 @@ const authTypeDefs = gql`
   }
 
   type AuthResponse {
-    ok: Boolean!
+    ok: Boolean
     error: String
   }
 
