@@ -5,12 +5,20 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { toast } from "sonner";
 import { RESET_PASSWORD_MUTATION } from "../../../../../graphql/mutation";
 import { useMutation } from "@apollo/client";
+import ModalLogin from "../../../LoginModal/ModalLogin";
 
 const ResetPasswordModal = ({ onClose }) => {
+  const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
+
+  const openSignInModal = () => {
+    setIsSignInModalOpen(true);
+  };
+
   const [resetPassword] = useMutation(RESET_PASSWORD_MUTATION, {
     onCompleted: (data) => {
       if (data.resetPassword.ok) {
         toast.success("Password Reset Successful");
+        openSignInModal();
       } else {
         toast.error(data.resetPassword.error);
       }
@@ -102,6 +110,9 @@ const ResetPasswordModal = ({ onClose }) => {
           )}
         </Formik>
       </div>
+      {isSignInModalOpen && (
+        <ModalLogin onClose={() => setIsSignInModalOpen(false)} />
+      )}
     </div>
   );
 };
