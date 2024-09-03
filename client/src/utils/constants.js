@@ -1,4 +1,7 @@
 import taj from "../assets/Heritage/taj.jpeg";
+import bengaliImg from "../assets/courses/bengali.png";
+import pratikImg from "../assets/courses/pratik.jpg";
+
 import unescoLogo from "../assets/Heritage/unescologo.png";
 import commonImg from "../assets/Home/c.png";
 
@@ -349,36 +352,144 @@ export const dummyData = {
   LearningDetails: {
     languages: [
       {
-        image: taj,
+        image: bengaliImg,
         name: "Bengali",
         introduction:
           "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
         courseCategory: "Learn Different Languages of India",
-        courseLink: "/",
+        courseDetails: {
+          courseName: "Bengali",
+          courseHistory: "sdfegrbrbrb",
+          courseIntro: "Introduction",
+          videoDetails: [
+            {
+              videoVideo: bahomein,
+              videoImage: bengaliImg,
+              videoName: "1. Introduction",
+              videoDescription: "Introduction to Bengali Language",
+            },
+          ],
+          teacher: {
+            teacherImg: bengaliImg,
+            teacherName: "Dr. Pratik Biswas",
+            teacherOccupation: "Professor of Jadavpur University",
+            teacherData: [
+              {
+                link: "mailto:04biswaspratik@gmail.com",
+                text: "04biswaspratik@gmail.com",
+              },
+              {
+                link: "/",
+                text: "Pratik Biswas",
+              },
+            ],
+          },
+        },
       },
       {
-        image: taj,
+        image: bengaliImg,
         name: "Bengali",
         introduction:
           "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
         courseCategory: "Learn Different Languages of India",
-        courseLink: "/",
+        courseDetails: {
+          courseName: "Bengali",
+          courseHistory: "sdfegrbrbrb",
+          courseIntro: "Introduction",
+          videoDetails: [
+            {
+              videoVideo: bahomein,
+              videoImage: bengaliImg,
+              videoName: "1. Introduction",
+              videoDescription: "Introduction to Bengali Language",
+            },
+          ],
+          teacher: {
+            teacherImg: bengaliImg,
+            teacherName: "Dr. Pratik Biswas",
+            teacherOccupation: "Professor of Jadavpur University",
+            teacherData: [
+              {
+                link: "mailto:04biswaspratik@gmail.com",
+                text: "04biswaspratik@gmail.com",
+              },
+              {
+                link: "/",
+                text: "Pratik Biswas",
+              },
+            ],
+          },
+        },
       },
       {
-        image: taj,
-        name: "English",
+        image: bengaliImg,
+        name: "Bengali",
         introduction:
           "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
         courseCategory: "Learn Different Languages of India",
-        courseLink: "/",
+        courseDetails: {
+          courseName: "Bengali",
+          courseHistory: "sdfegrbrbrb",
+          courseIntro: "Introduction",
+          videoDetails: [
+            {
+              videoVideo: bahomein,
+              videoImage: bengaliImg,
+              videoName: "1. Introduction",
+              videoDescription: "Introduction to Bengali Language",
+            },
+          ],
+          teacher: {
+            teacherImg: bengaliImg,
+            teacherName: "Dr. Pratik Biswas",
+            teacherOccupation: "Professor of Jadavpur University",
+            teacherData: [
+              {
+                link: "mailto:04biswaspratik@gmail.com",
+                text: "04biswaspratik@gmail.com",
+              },
+              {
+                link: "/",
+                text: "Pratik Biswas",
+              },
+            ],
+          },
+        },
       },
       {
-        image: taj,
-        name: "Hindi",
+        image: bengaliImg,
+        name: "Bengali",
         introduction:
           "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
         courseCategory: "Learn Different Languages of India",
-        courseLink: "/",
+        courseDetails: {
+          courseName: "Bengali",
+          courseHistory: "sdfegrbrbrb",
+          courseIntro: "Introduction",
+          videoDetails: [
+            {
+              videoVideo: bahomein,
+              videoImage: bengaliImg,
+              videoName: "1. Introduction",
+              videoDescription: "Introduction to Bengali Language",
+            },
+          ],
+          teacher: {
+            teacherImg: bengaliImg,
+            teacherName: "Dr. Pratik Biswas",
+            teacherOccupation: "Professor of Jadavpur University",
+            teacherData: [
+              {
+                link: "mailto:04biswaspratik@gmail.com",
+                text: "04biswaspratik@gmail.com",
+              },
+              {
+                link: "/",
+                text: "Pratik Biswas",
+              },
+            ],
+          },
+        },
       },
     ],
 
