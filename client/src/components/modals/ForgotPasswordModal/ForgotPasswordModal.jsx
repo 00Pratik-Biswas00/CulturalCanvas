@@ -8,12 +8,7 @@ import { useMutation } from "@apollo/client";
 import ResetPasswordModal from "../ResetPasswordModal/[id]/token/ResetPasswordModal";
 import { toast } from "sonner";
 
-const ForgotPasswordModal = ({ onClose }) => {
-  const [isResetModalOpen, setIsResetModalOpen] = useState(false);
-
-  const openResetModal = () => {
-    setIsResetModalOpen(true);
-  };
+const ForgotPasswordModal = ({ onClose, openResetModal }) => {
   const [forgotPassword] = useMutation(FORGOT_PASSWORD_MUTATION, {
     onCompleted: (data) => {
       if (data.forgotPassword.ok) {
@@ -71,16 +66,13 @@ const ForgotPasswordModal = ({ onClose }) => {
                   type="submit"
                   className="bg-highlight hover:bg-highlight_hover text-primary_text hover:text-dark_primary_text px-4 py-2 rounded transition-all duration-300"
                 >
-                  Send Mail
+                  Send OTP
                 </button>
               </div>
             </Form>
           )}
         </Formik>
       </div>
-      {isResetModalOpen && (
-        <ResetPasswordModal onClose={() => setIsResetModalOpen(false)} />
-      )}
     </div>
   );
 };

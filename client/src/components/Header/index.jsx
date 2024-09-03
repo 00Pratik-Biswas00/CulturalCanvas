@@ -9,6 +9,9 @@ import { RxCross2 } from "react-icons/rx";
 import { MdLightMode } from "react-icons/md";
 import { MdDarkMode } from "react-icons/md";
 import ModalLogin from "../modals/LoginModal/ModalLogin";
+import SignUpModal from "../modals/SignUpModal/SignUpModal";
+import ForgotPasswordModal from "../modals/ForgotPasswordModal/ForgotPasswordModal";
+import ResetPasswordModal from "../modals/ResetPasswordModal/[id]/token/ResetPasswordModal";
 
 // Routes
 
@@ -48,9 +51,35 @@ const Header = ({ open, setOpen }) => {
   const [darkMode, setDarkMode] = useState(false);
 
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
+  const [isFPModalOpen, setIsFPModalOpen] = useState(false);
+  const [isResetModalOpen, setIsResetModalOpen] = useState(false);
 
+  const openResetModal = () => {
+    setIsResetModalOpen(true);
+    setIsLoginModalOpen(false);
+    setIsSignUpModalOpen(false);
+    setIsFPModalOpen(false);
+  };
   const openLoginModal = () => {
-    setIsLoginModalOpen(!isLoginModalOpen);
+    setIsLoginModalOpen(true);
+    setIsSignUpModalOpen(false);
+    setIsFPModalOpen(false);
+    setIsResetModalOpen(false);
+  };
+
+  const openSignUpModal = () => {
+    setIsSignUpModalOpen(true);
+    setIsLoginModalOpen(false);
+    setIsFPModalOpen(false);
+    setIsResetModalOpen(false);
+  };
+
+  const openFPModal = () => {
+    setIsFPModalOpen(true);
+    setIsLoginModalOpen(false);
+    setIsSignUpModalOpen(false);
+    setIsResetModalOpen(false);
   };
 
   useEffect(() => {
@@ -187,7 +216,43 @@ const Header = ({ open, setOpen }) => {
         </div>
       )}
 
-      {isLoginModalOpen && <ModalLogin onClose={openLoginModal} />}
+      {isLoginModalOpen && (
+        <ModalLogin
+          onClose={() => setIsLoginModalOpen(false)}
+          openFPModal={openFPModal}
+          openSignUpModal={openSignUpModal}
+          isSignUpModalOpen={isSignUpModalOpen}
+          isFPModalOpen={isFPModalOpen}
+        />
+      )}
+      {isSignUpModalOpen && (
+        <SignUpModal
+          onClose={() => setIsSignUpModalOpen(false)}
+          openFPModal={openFPModal}
+          openSignUpModal={openSignUpModal}
+          isSignUpModalOpen={isSignUpModalOpen}
+          isFPModalOpen={isFPModalOpen}
+        />
+      )}
+      {isFPModalOpen && (
+        <ForgotPasswordModal
+          onClose={() => setIsFPModalOpen(false)}
+          openResetModal={openResetModal}
+          // openSignUpModal={openSignUpModal}
+          // openFPModal={openFPModal}
+          isSignUpModalOpen={isSignUpModalOpen}
+          isFPModalOpen={isFPModalOpen}
+        />
+      )}
+      {isResetModalOpen && (
+        <ResetPasswordModal
+          onClose={() => setIsResetModalOpen(false)}
+          // openSignUpModal={openSignUpModal}
+          // openFPModal={openFPModal}
+          isSignUpModalOpen={isSignUpModalOpen}
+          isFPModalOpen={isFPModalOpen}
+        />
+      )}
     </div>
   );
 };

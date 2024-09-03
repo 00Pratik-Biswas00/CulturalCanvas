@@ -94,11 +94,11 @@ const Home = () => {
 
   return (
     <section className=" bg-background1 dark:bg-dark_background1 px-16 py-10  duration-300">
-      <div className="w-full flex flex-col items-start  gap-16">
+      <div className="w-full flex flex-col items-center justify-center  gap-16">
         {Home.map((content, ind) => (
           <div
             key={ind}
-            className={`backdrop-blur-lg ${content.shadow} bg-opacity-80 p-4 rounded-lg h-[520px] md:h-[450px] lg:h-[500px] xl:h-[500px] max-w-[94rem] relative flex items-center justify-between gap-10 w-full`}
+            className={`backdrop-blur-lg ${content.shadow} bg-opacity-80 p-4 rounded-lg h-[520px] md:h-[450px] lg:h-[500px] xl:h-[500px] max-w-full relative flex items-center justify-between gap-10 w-full`}
           >
             {ind % 2 === 0 ? (
               <>
@@ -120,7 +120,7 @@ const Home = () => {
                   <img
                     src={content.image}
                     alt="common img"
-                    className="rounded-lg w-full h-full "
+                    className="rounded-lg w-full h-full object-cover"
                   />
                 </div>
               </>
