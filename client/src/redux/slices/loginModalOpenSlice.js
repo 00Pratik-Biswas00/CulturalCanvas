@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const loginModalOpenSlice = createSlice({
-  name: "user",
+  name: "loginmodal-open",
   initialState: false,
   reducers: {
     switchLoginModalOpen: (state, action) => {

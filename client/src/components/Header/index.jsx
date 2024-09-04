@@ -12,6 +12,9 @@ import ModalLogin from "../modals/LoginModal/ModalLogin";
 import SignUpModal from "../modals/SignUpModal/SignUpModal";
 import ForgotPasswordModal from "../modals/ForgotPasswordModal/ForgotPasswordModal";
 import ResetPasswordModal from "../modals/ResetPasswordModal/[id]/token/ResetPasswordModal";
+import { useDispatch, useSelector } from "react-redux";
+import { switchTheme } from "../../redux/slices/themeSlice";
+import { switchLoginModalOpen } from "../../redux/slices/loginModalOpenSlice";
 
 // Routes
 
@@ -48,21 +51,28 @@ const RoutesNames = [
 
 const Header = ({ open, setOpen }) => {
   const navbarRef = useRef(null);
+  const user = useSelector((state) => state.user.userInfo);
+  //console.log(user);
+  const theme = useSelector((state) => state.theme);
+  const isLoginModalOpen = useSelector((state) => state.loginModalOpen);
+  const dispatch = useDispatch();
   const [darkMode, setDarkMode] = useState(false);
 
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  //const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
   const [isFPModalOpen, setIsFPModalOpen] = useState(false);
   const [isResetModalOpen, setIsResetModalOpen] = useState(false);
 
   const openResetModal = () => {
     setIsResetModalOpen(true);
-    setIsLoginModalOpen(false);
+    //setIsLoginModalOpen(false);
+    dispatch(switchLoginModalOpen(false));
     setIsSignUpModalOpen(false);
     setIsFPModalOpen(false);
   };
   const openLoginModal = () => {
-    setIsLoginModalOpen(true);
+    //setIsLoginModalOpen(true);
+    dispatch(switchLoginModalOpen(true));
     setIsSignUpModalOpen(false);
     setIsFPModalOpen(false);
     setIsResetModalOpen(false);
@@ -70,14 +80,16 @@ const Header = ({ open, setOpen }) => {
 
   const openSignUpModal = () => {
     setIsSignUpModalOpen(true);
-    setIsLoginModalOpen(false);
+    //setIsLoginModalOpen(false);
+    dispatch(switchLoginModalOpen(false));
     setIsFPModalOpen(false);
     setIsResetModalOpen(false);
   };
 
   const openFPModal = () => {
     setIsFPModalOpen(true);
-    setIsLoginModalOpen(false);
+    //setIsLoginModalOpen(false);
+    dispatch(switchLoginModalOpen(false));
     setIsSignUpModalOpen(false);
     setIsResetModalOpen(false);
   };
@@ -108,7 +120,8 @@ const Header = ({ open, setOpen }) => {
   }, [open]);
 
   useEffect(() => {
-    if (darkMode) {
+    if (theme === "dark") {
+      setDarkMode(true);
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
@@ -116,6 +129,11 @@ const Header = ({ open, setOpen }) => {
   }, [darkMode]);
 
   const toggleDarkMode = () => {
+    if (theme === "dark") {
+      dispatch(switchTheme("light"));
+    } else {
+      dispatch(switchTheme("dark"));
+    }
     setDarkMode(!darkMode);
   };
 
@@ -124,14 +142,12 @@ const Header = ({ open, setOpen }) => {
       style={{
         backgroundImage: !darkMode ? `url(${headerBG})` : "none",
       }}
-      className=" bg-background1 dark:bg-dark_background2  text-dark_secondary_text dark:text-dark_primary_text font-semibold pt-2 pb-1 px-16 flex justify-between items-center bg-cover bg-center"
-    >
+      className=" bg-background1 dark:bg-dark_background2  text-dark_secondary_text dark:text-dark_primary_text font-semibold pt-2 pb-1 px-16 flex justify-between items-center bg-cover bg-center">
       <div className="text-xl font-bold">
         <NavLink
           to="/"
           className="flex flex-col items-center"
-          onClick={handleNavLinkClick}
-        >
+          onClick={handleNavLinkClick}>
           <img src={logo} alt="logo" className=" w-[7rem]" />
           <h2 className="text-3xl sm:text-xl md:text-2xl lg:text-base font-playfair font-bold">
             Cultural Canvas
@@ -149,8 +165,7 @@ const Header = ({ open, setOpen }) => {
                   : " text-dark_secondary_text dark:text-highlight hover:text-highlight_hover dark:hover:text-highlight_hover "
               }
               end
-              onClick={handleNavLinkClick}
-            >
+              onClick={handleNavLinkClick}>
               {routes.route_name}
             </NavLink>
           ))}
@@ -169,8 +184,7 @@ const Header = ({ open, setOpen }) => {
           </button>
           <button
             className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-dark_primary_text px-2 py-1 rounded font-ubuntu duration-700"
-            onClick={openLoginModal}
-          >
+            onClick={openLoginModal}>
             Login
           </button>
         </div>
@@ -179,8 +193,7 @@ const Header = ({ open, setOpen }) => {
       <div className="lg:hidden flex items-center">
         <button
           className="text-primary_text focus:outline-none"
-          onClick={() => setOpen(!open)}
-        >
+          onClick={() => setOpen(!open)}>
           {open ? null : <CiMenuFries size={26} />}
         </button>
       </div>
@@ -188,12 +201,10 @@ const Header = ({ open, setOpen }) => {
       {open && (
         <div
           ref={navbarRef}
-          className="lg:hidden fixed top-0 right-0 h-screen duration-700 bg-background1 bg-opacity-90 z-40 flex flex-col items-end space-y-4 p-7 gap-y-3"
-        >
+          className="lg:hidden fixed top-0 right-0 h-screen duration-700 bg-background1 bg-opacity-90 z-40 flex flex-col items-end space-y-4 p-7 gap-y-3">
           <button
             className="self-end text-primary_text focus:outline-none "
-            onClick={() => setOpen(!open)}
-          >
+            onClick={() => setOpen(!open)}>
             <RxCross2 size={24} />
           </button>
 
@@ -207,8 +218,7 @@ const Header = ({ open, setOpen }) => {
                     : " text-dark_secondary_text dark:text-highlight hover:text-highlight_hover dark:hover:text-highlight_hover "
                 }
                 end
-                onClick={handleNavLinkClick}
-              >
+                onClick={handleNavLinkClick}>
                 {routes.route_name}
               </NavLink>
             ))}
@@ -218,7 +228,7 @@ const Header = ({ open, setOpen }) => {
 
       {isLoginModalOpen && (
         <ModalLogin
-          onClose={() => setIsLoginModalOpen(false)}
+          onClose={() => dispatch(switchLoginModalOpen(false))}
           openFPModal={openFPModal}
           openSignUpModal={openSignUpModal}
           isSignUpModalOpen={isSignUpModalOpen}
