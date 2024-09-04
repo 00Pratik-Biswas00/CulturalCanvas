@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-export const CREATE_HeRITAGE_MUTATION = gql`
+export const CREATE_HERITAGE_MUTATION = gql`
   mutation CreateHeritage(
     $name: String!
     $image: ImageInput!

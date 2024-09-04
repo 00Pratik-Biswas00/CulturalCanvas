@@ -161,7 +161,7 @@ const heritageTypeDefs = gql`
 
     removeState(stateId: ID!, heritageId: ID!): HeritageResponse
 
-    deleteHeritage(id: ID!): AuthResponse!
+    deleteHeritage(id: ID!): String!
   }
 `;
 
