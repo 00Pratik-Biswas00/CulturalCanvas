@@ -1,99 +1,73 @@
+// home
+
+import homeImg from "../assets/Home/home.avif";
+import heritageImg from "../assets/Home/heritage.avif";
+import cultureImg from "../assets/Home/culture.avif";
+import learnImg from "../assets/Home/learn.avif";
+import exploreImg from "../assets/Home/exploreDiversity.avif";
+import blogsImg from "../assets/Home/blogs.avif";
+import virtualStoreImg from "../assets/Home/virtual.avif";
+
+//
 import taj from "../assets/Heritage/taj.jpeg";
 import bengaliImg from "../assets/courses/bengali.png";
-import pratikImg from "../assets/courses/pratik.jpg";
 
 import unescoLogo from "../assets/Heritage/unescologo.png";
 
 import upImg from "../assets/Heritage/up.png";
-import commonImg from "../assets/Home/c.png";
 
 import bahomein from "../assets/Heritage/bais.mp4";
 
 export const dummyData = {
+  // updated home page
   Home: [
     {
-      para: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
-                voluptatum distinctio dolorem eveniet rerum. Obcaecati fugit
-                adipisci, in sint voluptatibus odit accusantium aliquid sit
-                placeat assumenda libero debitis. Consectetur, quibusdam? Lorem
-                ipsum dolor sit amet consectetur adipisicing elit. Ut cupiditate
-                nulla odit, laboriosam eius nostrum! Iure eveniet aspernatur minus
-                nemo, adipisci obcaecati, asperiores itaque, nam quaerat mollitia
-                voluptas quibusdam atque! Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Quas molestiae cum neque. Suscipit laboriosam
-                reprehenderit saepe dignissimos tenetur sunt ullam, exercitationem
-                sit quas eligendi itaque omnis nam perspiciatis eos tempora. Lorem
-                ipsum dolor, sit amet consectetur adipisicing elit. Assumenda vel
-                quasi, nesciunt consequatur sit illum nemo reprehenderit quam
-                ducimus at dicta. Voluptatibus hic expedita nam, sed neque totam
-                autem perferendis! Lorem, ipsum dolor sit amet consectetur
-                adipisicing elit. Impedit maiores veritatis odit nam odio, in
-                ipsam placeat dolor debitis corrupti iure, ullam, nisi ut deleniti
-                molestias dolorem cupiditate alias at?`,
-      image: commonImg,
+      para: `Welcome to a captivating voyage through India’s rich cultural landscape. Here, you’re invited to explore a diverse array of historical landmarks and cultural treasures that define this ancient land. From the grandeur of ancient palaces and fortresses to the vibrant hues of traditional festivals, this exploration unveils the essence of India’s unparalleled heritage. Discover the stories behind renowned monuments and immerse yourself in the age-old traditions that continue to shape Indian society. With expertly curated content, you’ll traverse through time, experiencing the marvels and memories that make India a unique and mesmerizing destination. This journey not only highlights the country’s historic and cultural significance but also offers an engaging glimpse into the living traditions that endure in the modern world.`,
+      image: homeImg,
       shadow: "shadow-custom-orange",
-      buttonName: "cultural canvas of india",
+      buttonName: "Embark on a Journey Through the Heart of India",
       buttonLink: null,
     },
-
     {
-      para: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
-                voluptatum distinctio dolorem eveniet rerum. Obcaecati fugit
-                adipisci, in sint voluptatibus odit accusantium aliquid sit
-                placeat assumenda libero debitis. Consectetur, quibusdam? Lorem
-                ipsum dolor sit amet consectetur adipisicing elit. Ut cupiditate
-                nulla odit, laboriosam eius nostrum! Iure eveniet aspernatur minus
-                nemo, adipisci obcaecati, asperiores itaque, nam quaerat mollitia
-                voluptas quibusdam atque! Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Quas molestiae cum neque. Suscipit laboriosam
-                reprehenderit saepe dignissimos tenetur sunt ullam, exercitationem
-                sit quas eligendi itaque omnis nam perspiciatis eos tempora. Lorem
-                ipsum dolor, sit amet consectetur adipisicing elit. Assumenda vel
-                quasi, nesciunt consequatur sit illum nemo reprehenderit quam
-                ducimus at dicta. Voluptatibus hic expedita nam, sed neque totam
-                autem perferendis! Lorem, ipsum dolor sit amet consectetur
-                adipisicing elit. Impedit maiores veritatis odit nam odio, in
-                ipsam placeat dolor debitis corrupti iure, ullam, nisi ut deleniti
-                molestias dolorem cupiditate alias at?`,
-      image: commonImg,
+      para: `Dive deep into India’s historical and cultural wealth by exploring its most celebrated World Heritage Sites. This section is dedicated to the architectural and natural marvels that have stood the test of time, each narrating a story of its own. From the majestic forts that once guarded kingdoms to the sacred temples that echo with ancient prayers, you’ll uncover the profound legacy embedded in these sites. Explore high-resolution images, detailed histories, and interactive elements that bring these monumental treasures to life. Through comprehensive narratives and visual splendor, gain a profound understanding of India’s past and appreciate the craftsmanship and cultural significance that make these sites globally revered.`,
+      image: heritageImg,
       shadow: "shadow-custom-blue",
-      buttonName: "Explore Heritage",
+      buttonName: "Unveiling India’s Timeless Treasures",
       buttonLink: "/heritage",
     },
     {
-      para: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero`,
-      image: commonImg,
+      para: `India’s culture is a vibrant mosaic of traditions that reflect the country’s diverse heritage and spiritual depth. Each region, with its unique customs, festivals, and rituals, contributes to the rich tapestry that is Indian culture. This section celebrates the living traditions that have been passed down through generations, offering insight into the practices that define Indian life. From the joyous celebrations of Diwali and Holi to the solemn rituals of a Hindu wedding, every cultural expression is a reflection of the values, beliefs, and history of its people. Traditional attire like the saree, kurta-pajama, and lehenga-choli are more than just clothing; they are symbols of identity, steeped in cultural significance. As you explore this section, you will gain a deeper appreciation for the traditions that continue to thrive in India, preserving the essence of a civilization that has influenced the world for centuries.`,
+      image: cultureImg,
       shadow: "shadow-custom-green",
-      buttonName: "Explore Culture & Tradition",
+      buttonName: "Experience the Living Tapestry of India’s Culture",
       buttonLink: "/culture-tradition",
     },
     {
-      para: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero`,
-      image: commonImg,
+      para: `Discover the essence of India’s vibrant culture with a comprehensive educational experience. This section invites you to explore various facets of Indian traditions, from culinary arts to linguistic diversity and traditional attire. Engage in interactive tutorials on authentic Indian cooking, where you can master traditional recipes from different regions. Learn about the rich tapestry of India’s languages through engaging articles and language lessons that highlight the country's linguistic heritage. Explore traditional attire, including the saree, lehenga, and kurta-pajama, with style guides and historical insights. This immersive experience allows you to not only learn about India’s culture but to live it, offering a deeper connection to its diverse traditions.`,
+      image: learnImg,
       shadow: "shadow-custom-orange",
-      buttonName: "Learn Indian Culture",
+      buttonName: "Dive Deep into the Rich Tapestry of Indian Traditions",
       buttonLink: "/learn-Indian-culture",
     },
     {
-      para: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero`,
-      image: commonImg,
+      para: `Plan an unforgettable journey through India with a personalized travel guide tailored to your interests. This section helps you design a customized itinerary based on your starting point, desired destinations, and trip duration. Discover essential sites, from historic landmarks and cultural hotspots to scenic nature trails. Receive recommendations for local experiences, including culinary tours and cultural performances, as well as practical advice on accommodation and dining. This comprehensive guide ensures a well-rounded adventure, with every detail thoughtfully considered to enhance your travel experience and create lasting memories across India's diverse landscapes.`,
+      image: exploreImg,
       shadow: "shadow-custom-blue",
-      buttonName: "Explore Trip Recommendations",
+      buttonName: "Craft Your Perfect Indian Adventure",
       buttonLink: "/explore-diversity",
     },
     {
-      para: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero`,
-      image: commonImg,
+      para: `Immerse yourself in the vibrant stories and insights of fellow travelers who have explored India’s diverse landscapes. This section features a rich collection of blogs, vlogs, and personal narratives that provide firsthand accounts of Indian adventures. Gain inspiration from detailed travel diaries, engaging video logs, and cultural reflections that showcase the country’s vibrant experiences. Share your own travel stories and connect with a community passionate about India. This interactive space allows you to gather practical advice, discover hidden gems, and enjoy a dynamic exchange of travel experiences, enriching your understanding and appreciation of India.`,
+      image: blogsImg,
       shadow: "shadow-custom-green",
-      buttonName: "Review Blogs & Vlogs",
+      buttonName: "Explore India Through the Eyes of Fellow Travelers",
       buttonLink: "/blogs-vlogs",
     },
-
     {
-      para: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero`,
-      image: commonImg,
+      para: `Connect with India’s artistic legacy through a curated selection of traditional arts and crafts. This section offers authentic products sourced from local artisans, including handwoven textiles, intricate jewelry, and unique crafts. Each item represents a piece of India’s rich cultural heritage, crafted with traditional techniques passed down through generations. By purchasing from this section, you support the preservation of these ancient crafts and the livelihoods of artisans. Enjoy a meaningful shopping experience that not only brings a piece of India into your home but also contributes to the ongoing celebration and preservation of its artistic traditions. `,
+      image: virtualStoreImg,
       shadow: "shadow-custom-orange",
-      buttonName: "Explore Virtual Store",
+      buttonName: "Bring a Piece of India’s Heritage Home",
       buttonLink: "/virtual-store",
     },
   ],

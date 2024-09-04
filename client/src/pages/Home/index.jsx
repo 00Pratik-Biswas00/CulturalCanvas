@@ -93,7 +93,7 @@ const Home = () => {
   const { Home } = dummyData;
 
   return (
-    <section className=" bg-background1 dark:bg-dark_background1 px-16 py-10  duration-300">
+    <section className=" bg-background1 dark:bg-dark_background1 px-16 py-10  duration-500 ">
       <div className="w-full flex flex-col items-center justify-center  gap-16">
         {Home.map((content, ind) => (
           <div
@@ -110,7 +110,7 @@ const Home = () => {
 
                   <a
                     href={content.buttonLink}
-                    className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-300 transition-transform hover:scale-105 transform-cpu"
+                    className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-500 transition-transform hover:scale-105 transform-cpu"
                   >
                     {content.buttonName}
                   </a>
@@ -142,7 +142,7 @@ const Home = () => {
 
                   <a
                     href={content.buttonLink}
-                    className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-300 transition-transform hover:scale-105 transform-cpu"
+                    className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-500 transition-transform hover:scale-105 transform-cpu"
                   >
                     {content.buttonName}
                   </a>
