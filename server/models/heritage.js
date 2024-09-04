@@ -35,16 +35,85 @@ const heritageSchema = new Schema(
       required: true,
     },
     image: {
-      url: String,
-      public_id: String,
+      url: {
+        type: String,
+        required: true,
+      },
+      public_id: {
+        type: String,
+        required: true,
+      },
     },
     introduction: {
       type: String,
       required: true,
     },
-    endlessDigitalArt: {},
-    animatedVideo: {},
-    vlogVideo: {},
+    endlessDigitalArt: {
+      ETag: {
+        type: String,
+        required: true,
+      },
+      ServerSideEncryption: {
+        type: String,
+        required: true,
+      },
+      Location: {
+        type: String,
+        required: true,
+      },
+      Key: {
+        type: String,
+        required: true,
+      },
+      Bucket: {
+        type: String,
+        required: true,
+      },
+    },
+    animatedVideo: {
+      ETag: {
+        type: String,
+        required: true,
+      },
+      ServerSideEncryption: {
+        type: String,
+        required: true,
+      },
+      Location: {
+        type: String,
+        required: true,
+      },
+      Key: {
+        type: String,
+        required: true,
+      },
+      Bucket: {
+        type: String,
+        required: true,
+      },
+    },
+    vlogVideo: {
+      ETag: {
+        type: String,
+        required: true,
+      },
+      ServerSideEncryption: {
+        type: String,
+        required: true,
+      },
+      Location: {
+        type: String,
+        required: true,
+      },
+      Key: {
+        type: String,
+        required: true,
+      },
+      Bucket: {
+        type: String,
+        required: true,
+      },
+    },
     part1: [descriptionSchema],
     part2: [descriptionSchema],
     type_of_heritage: heritageTypeSchema,

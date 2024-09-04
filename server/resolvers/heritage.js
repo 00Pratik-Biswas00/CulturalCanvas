@@ -1,101 +1,109 @@
 import Heritage from "../models/heritage.js";
-import cloudinary from "cloudinary";
-
-// const uploadImageToCloudinary = async (filePath) => {
-//   const result = await cloudinary.uploader.upload(filePath);
-//   return {
-//     url: result.secure_url,
-//     public_id: result.public_id,
-//   };
-// };
 
 const heritageResolvers = {
   Query: {
     getHeritages: async () => {
       try {
-        return await Heritage.find();
+        const heritages = await Heritage.find();
+        return heritages;
       } catch (error) {
+        console.log("Error fetching heritages: ", error);
         throw new Error("Error fetching heritages");
       }
     },
+
     getHeritage: async (_, { id }) => {
       try {
-        return await Heritage.findById(id);
+        const heritage = await Heritage.findById(id);
+        if (!heritage) {
+          throw new Error("Heritage not found");
+        }
+        return heritage;
       } catch (error) {
+        console.log("Error fetching heritage: ", error);
         throw new Error("Error fetching heritage");
       }
     },
   },
-  //   Mutation: {
-  //     createHeritage: async (_, { input }) => {
-  //       try {
-  //         // Upload the main image to Cloudinary
-  //         // const imageUploadResult = await cloudinary.uploader.upload(
-  //         //   input.image.url
-  //         // );
-  //         // const uploadedImage = {
-  //         //   url: imageUploadResult.secure_url,
-  //         //   public_id: imageUploadResult.public_id,
-  //         // };
 
-  //         // Upload the image for type_of_heritage
-  //         // const heritageTypeImageUploadResult = await cloudinary.uploader.upload(
-  //         //   input.type_of_heritage.image.url
-  //         // );
-  //         // const uploadedHeritageTypeImage = {
-  //         //   url: heritageTypeImageUploadResult.secure_url,
-  //         //   public_id: heritageTypeImageUploadResult.public_id,
-  //         // };
-
-  //         // Upload the image for state_culture_name
-  //         // const stateCultureImageUploadResult = await cloudinary.uploader.upload(
-  //         //   input.state_culture_name.image.url
-  //         // );
-  //         // const uploadedStateCultureImage = {
-  //         //   url: stateCultureImageUploadResult.secure_url,
-  //         //   public_id: stateCultureImageUploadResult.public_id,
-  //         // };
-
-  //         // Construct the new heritage object with the uploaded images
-  //         const newHeritage = new Heritage({
-  //           ...input,
-  //         });
-
-  //         // Save the heritage object to MongoDB
-  //         const savedHeritage = await newHeritage.save();
-
-  //         // Populate necessary fields and return the saved object
-  //         return savedHeritage;
-  //         // .populate({
-  //         //   path: "state_culture_link",
-  //         //   select: "name image",
-  //         // })
-  //         // .populate({
-  //         //   path: "nearest_attraction",
-  //         //   select: "name image entry_fee",
-  //       } catch (error) {
-  //         throw new Error("Error creating heritage: " + error.message);
-  //       }
-  //     },
-  //   },
-  // };
   Mutation: {
-    createHeritage: async (_, { input, image }, { req }) => {
+    createHeritage: async (
+      _,
+      {
+        name,
+        image,
+        introduction,
+        endlessDigitalArt,
+        animatedVideo,
+        vlogVideo,
+        part1,
+        part2,
+        type_of_heritage,
+        tag,
+        police_helpline,
+        women_helpline,
+        child_helpline,
+        fire_emergency,
+        medical_emergency,
+        state_culture_name,
+        entry_fee,
+      },
+      { userId }
+    ) => {
       try {
-        const heritage = new Heritage({
-          ...input,
+        const newHeritage = new Heritage({
+          name,
           image,
+          introduction,
+          endlessDigitalArt,
+          animatedVideo,
+          vlogVideo,
+          part1,
+          part2,
+          type_of_heritage,
+          tag,
+          police_helpline,
+          women_helpline,
+          child_helpline,
+          fire_emergency,
+          medical_emergency,
+          state_culture_name,
+          entry_fee,
+          createdBy: userId, // Assuming you want to track who created the heritage
         });
 
-        const savedHeritage = await heritage.save();
+        await newHeritage.save();
 
-        return savedHeritage;
+        return newHeritage;
       } catch (error) {
-        throw new Error("Error creating heritage: " + error.message);
+        console.log("Error creating heritage: ", error);
+        throw new Error("Error creating heritage");
       }
     },
 
-    updateHeritage: async (_, { id, input, image }, { req }) => {
+    updateHeritage: async (
+      _,
+      {
+        id,
+        name,
+        image,
+        introduction,
+        endlessDigitalArt,
+        animatedVideo,
+        vlogVideo,
+        part1,
+        part2,
+        type_of_heritage,
+        tag,
+        police_helpline,
+        women_helpline,
+        child_helpline,
+        fire_emergency,
+        medical_emergency,
+        state_culture_name,
+        entry_fee,
+      }
+    ) => {
       try {
         const heritage = await Heritage.findById(id);
 
@@ -104,22 +112,35 @@ const heritageResolvers = {
         }
 
         // Update fields
-        if (input) {
-          Object.assign(heritage, input);
-        }
-        if (image) {
-          heritage.image = image;
-        }
+        if (name) heritage.name = name;
+        if (image) heritage.image = image;
+        if (introduction) heritage.introduction = introduction;
+        if (endlessDigitalArt) heritage.endlessDigitalArt = endlessDigitalArt;
+        if (animatedVideo) heritage.animatedVideo = animatedVideo;
+        if (vlogVideo) heritage.vlogVideo = vlogVideo;
+        if (part1) heritage.part1 = part1;
+        if (part2) heritage.part2 = part2;
+        if (type_of_heritage) heritage.type_of_heritage = type_of_heritage;
+        if (tag) heritage.tag = tag;
+        if (police_helpline) heritage.police_helpline = police_helpline;
+        if (women_helpline) heritage.women_helpline = women_helpline;
+        if (child_helpline) heritage.child_helpline = child_helpline;
+        if (fire_emergency) heritage.fire_emergency = fire_emergency;
+        if (medical_emergency) heritage.medical_emergency = medical_emergency;
+        if (state_culture_name)
+          heritage.state_culture_name = state_culture_name;
+        if (entry_fee) heritage.entry_fee = entry_fee;
 
         const updatedHeritage = await heritage.save();
 
         return updatedHeritage;
       } catch (error) {
-        throw new Error("Error updating heritage: " + error.message);
+        console.log("Error updating heritage: ", error);
+        throw new Error("Error updating heritage");
       }
     },
 
-    deleteHeritage: async (_, { id }, { req }) => {
+    deleteHeritage: async (_, { id }) => {
       try {
         const heritage = await Heritage.findById(id);
 
@@ -129,13 +150,64 @@ const heritageResolvers = {
 
         await heritage.deleteOne();
 
-        return {
-          ok: true,
-        };
+        return "Heritage deleted successfully";
       } catch (error) {
-        throw new Error("Error deleting heritage: " + error.message);
+        console.log("Error deleting heritage: ", error);
+        throw new Error("Error deleting heritage");
+      }
+    },
+
+    addState: async (_, { id, state_culture_name }) => {
+      try {
+        const heritage = await Heritage.findById(id);
+
+        if (!heritage) {
+          throw new Error("Heritage not found");
+        }
+
+        const newState = {
+          name: state_culture_name.name,
+          image: state_culture_name.image,
+        };
+
+        heritage.state_culture_name.push(newState);
+
+        await heritage.save();
+
+        return newState;
+      } catch (error) {
+        console.log("Error adding state: ", error);
+        throw new Error("Error adding state");
+      }
+    },
+
+    removeState: async (_, { stateId, heritageId }) => {
+      try {
+        const heritage = await Heritage.findById(heritageId);
+
+        if (!heritage) {
+          throw new Error("Heritage not found");
+        }
+
+        const stateIndex = heritage.state_culture_name.findIndex(
+          (state) => state._id.toString() === stateId
+        );
+
+        if (stateIndex === -1) {
+          throw new Error("State not found in heritage");
+        }
+
+        heritage.state_culture_name.splice(stateIndex, 1);
+
+        const updatedHeritage = await heritage.save();
+
+        return updatedHeritage;
+      } catch (error) {
+        console.log("Error removing state: ", error);
+        throw new Error("Error removing state");
       }
     },
   },
 };
+
 export default heritageResolvers;
