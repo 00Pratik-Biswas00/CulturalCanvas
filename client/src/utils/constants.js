@@ -65,28 +65,28 @@ export const dummyData = {
       image: commonImg,
       shadow: "shadow-custom-green",
       buttonName: "Explore Culture & Tradition",
-      buttonLink: "/culture_tradition",
+      buttonLink: "/culture-tradition",
     },
     {
       para: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero`,
       image: commonImg,
       shadow: "shadow-custom-orange",
       buttonName: "Learn Indian Culture",
-      buttonLink: "/learn_Indian_culture",
+      buttonLink: "/learn-Indian-culture",
     },
     {
       para: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero`,
       image: commonImg,
       shadow: "shadow-custom-blue",
       buttonName: "Explore Trip Recommendations",
-      buttonLink: "/trip_recommendation",
+      buttonLink: "/explore-diversity",
     },
     {
       para: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero`,
       image: commonImg,
       shadow: "shadow-custom-green",
       buttonName: "Review Blogs & Vlogs",
-      buttonLink: "/blogs_vlogs",
+      buttonLink: "/blogs-vlogs",
     },
 
     {
@@ -94,7 +94,7 @@ export const dummyData = {
       image: commonImg,
       shadow: "shadow-custom-orange",
       buttonName: "Explore Virtual Store",
-      buttonLink: "/virtual_store",
+      buttonLink: "/virtual-store",
     },
   ],
 
@@ -597,26 +597,26 @@ export const dummyData = {
       cultureImg: taj,
       cultureIntro: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis accusamus, fugiat perferendis esse libero hic deserunt dolores oditplaceat veniam, deleniti ullam sed voluptates ab alias, unde debitisofficia soluta. Lorem ipsum dolor sit amet consectetur adipisicingelit. Ex sit similique eos necessitatibus repellendus vel quosrepellat sunt fuga obcaecati officiis quaerat saepe, animi sintipsam porro quibusdam suscipit fugiat!`,
       cultureName: "Religious",
-      individualPage: "/culture_tradition/id",
+      individualPage: "/culture-tradition/id",
     },
 
     {
       cultureImg: taj,
       cultureIntro: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis accusamus, fugiat perferendis esse libero hic deserunt dolores oditplaceat veniam, deleniti ullam sed voluptates ab alias, unde debitisofficia soluta. Lorem ipsum dolor sit amet consectetur adipisicingelit. Ex sit similique eos necessitatibus repellendus vel quosrepellat sunt fuga obcaecati officiis quaerat saepe, animi sintipsam porro quibusdam suscipit fugiat!`,
       cultureName: "Philosophy",
-      individualPage: "/culture_tradition/id",
+      individualPage: "/culture-tradition/id",
     },
     {
       cultureImg: taj,
       cultureIntro: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis accusamus, fugiat perferendis esse libero hic deserunt dolores oditplaceat veniam, deleniti ullam sed voluptates ab alias, unde debitisofficia soluta. Lorem ipsum dolor sit amet consectetur adipisicingelit. Ex sit similique eos necessitatibus repellendus vel quosrepellat sunt fuga obcaecati officiis quaerat saepe, animi sintipsam porro quibusdam suscipit fugiat!`,
       cultureName: "Arts & Crafts",
-      individualPage: "/culture_tradition/id",
+      individualPage: "/culture-tradition/id",
     },
     {
       cultureImg: taj,
       cultureIntro: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis accusamus, fugiat perferendis esse libero hic deserunt dolores oditplaceat veniam, deleniti ullam sed voluptates ab alias, unde debitisofficia soluta. Lorem ipsum dolor sit amet consectetur adipisicingelit. Ex sit similique eos necessitatibus repellendus vel quosrepellat sunt fuga obcaecati officiis quaerat saepe, animi sintipsam porro quibusdam suscipit fugiat!`,
       cultureName: "Family Structures & Weddings",
-      individualPage: "/culture_tradition/id",
+      individualPage: "/culture-tradition/id",
     },
   ],
 
@@ -624,28 +624,28 @@ export const dummyData = {
     {
       stateImg: upImg,
       stateName: "1. Assam",
-      individualPage: "/culture_tradition/id",
+      individualPage: "/culture-tradition/id",
     },
     {
       stateImg: upImg,
       stateName: "1. Assam",
-      individualPage: "/culture_tradition/id",
+      individualPage: "/culture-tradition/id",
     },
 
     {
       stateImg: upImg,
       stateName: "1. Assam",
-      individualPage: "/culture_tradition/id",
+      individualPage: "/culture-tradition/id",
     },
     {
       stateImg: upImg,
       stateName: "1. Assam",
-      individualPage: "/culture_tradition/id",
+      individualPage: "/culture-tradition/id",
     },
     {
       stateImg: upImg,
       stateName: "1. Assam",
-      individualPage: "/culture_tradition/id",
+      individualPage: "/culture-tradition/id",
     },
   ],
 };

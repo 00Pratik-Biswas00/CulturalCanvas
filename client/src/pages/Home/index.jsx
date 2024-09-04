@@ -57,28 +57,28 @@ import { dummyData } from "../../utils/constants";
 //     image: commonImg,
 //     shadow: "shadow-custom-green",
 //     buttonName: "Explore Culture & Tradition",
-//     buttonLink: "/culture_tradition",
+//     buttonLink: "/culture-tradition",
 //   },
 //   {
 //     para: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero`,
 //     image: commonImg,
 //     shadow: "shadow-custom-orange",
 //     buttonName: "Learn Indian Culture",
-//     buttonLink: "/learn_Indian_culture",
+//     buttonLink: "/learn-Indian-culture",
 //   },
 //   {
 //     para: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero`,
 //     image: commonImg,
 //     shadow: "shadow-custom-blue",
 //     buttonName: "Explore Trip Recommendations",
-//     buttonLink: "/trip_recommendation",
+//     buttonLink: "/explore-diversity",
 //   },
 //   {
 //     para: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero`,
 //     image: commonImg,
 //     shadow: "shadow-custom-green",
 //     buttonName: "Review Blogs & Vlogs",
-//     buttonLink: "/blogs_vlogs",
+//     buttonLink: "/blogs-vlogs",
 //   },
 
 //   {
@@ -86,7 +86,7 @@ import { dummyData } from "../../utils/constants";
 //     image: commonImg,
 //     shadow: "shadow-custom-orange",
 //     buttonName: "Explore Virtual Store",
-//     buttonLink: "/virtual_store",
+//     buttonLink: "/virtual-store",
 //   },
 // ];
 const Home = () => {
