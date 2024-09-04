@@ -3,6 +3,8 @@ import bengaliImg from "../assets/courses/bengali.png";
 import pratikImg from "../assets/courses/pratik.jpg";
 
 import unescoLogo from "../assets/Heritage/unescologo.png";
+
+import upImg from "../assets/Heritage/up.png";
 import commonImg from "../assets/Home/c.png";
 
 import bahomein from "../assets/Heritage/bais.mp4";
@@ -589,4 +591,61 @@ export const dummyData = {
       },
     ],
   },
+
+  AllCulturesData: [
+    {
+      cultureImg: taj,
+      cultureIntro: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis accusamus, fugiat perferendis esse libero hic deserunt dolores oditplaceat veniam, deleniti ullam sed voluptates ab alias, unde debitisofficia soluta. Lorem ipsum dolor sit amet consectetur adipisicingelit. Ex sit similique eos necessitatibus repellendus vel quosrepellat sunt fuga obcaecati officiis quaerat saepe, animi sintipsam porro quibusdam suscipit fugiat!`,
+      cultureName: "Religious",
+      individualPage: "/culture_tradition/id",
+    },
+
+    {
+      cultureImg: taj,
+      cultureIntro: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis accusamus, fugiat perferendis esse libero hic deserunt dolores oditplaceat veniam, deleniti ullam sed voluptates ab alias, unde debitisofficia soluta. Lorem ipsum dolor sit amet consectetur adipisicingelit. Ex sit similique eos necessitatibus repellendus vel quosrepellat sunt fuga obcaecati officiis quaerat saepe, animi sintipsam porro quibusdam suscipit fugiat!`,
+      cultureName: "Philosophy",
+      individualPage: "/culture_tradition/id",
+    },
+    {
+      cultureImg: taj,
+      cultureIntro: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis accusamus, fugiat perferendis esse libero hic deserunt dolores oditplaceat veniam, deleniti ullam sed voluptates ab alias, unde debitisofficia soluta. Lorem ipsum dolor sit amet consectetur adipisicingelit. Ex sit similique eos necessitatibus repellendus vel quosrepellat sunt fuga obcaecati officiis quaerat saepe, animi sintipsam porro quibusdam suscipit fugiat!`,
+      cultureName: "Arts & Crafts",
+      individualPage: "/culture_tradition/id",
+    },
+    {
+      cultureImg: taj,
+      cultureIntro: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis accusamus, fugiat perferendis esse libero hic deserunt dolores oditplaceat veniam, deleniti ullam sed voluptates ab alias, unde debitisofficia soluta. Lorem ipsum dolor sit amet consectetur adipisicingelit. Ex sit similique eos necessitatibus repellendus vel quosrepellat sunt fuga obcaecati officiis quaerat saepe, animi sintipsam porro quibusdam suscipit fugiat!`,
+      cultureName: "Family Structures & Weddings",
+      individualPage: "/culture_tradition/id",
+    },
+  ],
+
+  StateCulturesData: [
+    {
+      stateImg: upImg,
+      stateName: "1. Assam",
+      individualPage: "/culture_tradition/id",
+    },
+    {
+      stateImg: upImg,
+      stateName: "1. Assam",
+      individualPage: "/culture_tradition/id",
+    },
+
+    {
+      stateImg: upImg,
+      stateName: "1. Assam",
+      individualPage: "/culture_tradition/id",
+    },
+    {
+      stateImg: upImg,
+      stateName: "1. Assam",
+      individualPage: "/culture_tradition/id",
+    },
+    {
+      stateImg: upImg,
+      stateName: "1. Assam",
+      individualPage: "/culture_tradition/id",
+    },
+  ],
 };
