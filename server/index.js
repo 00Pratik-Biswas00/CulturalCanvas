@@ -12,6 +12,8 @@ import authTypeDefs from "./typedefs/auth.js";
 import { authenticateUser } from "./middlewares/verify.js";
 import heritageTypeDefs from "./typedefs/heritage.js";
 import heritageResolvers from "./resolvers/heritage.js";
+import courseTypeDefs from "./typedefs/course.js";
+import courseResolvers from "./resolvers/course.js";
 
 const customLoggingPlugin = {
   requestDidStart(requestContext) {
@@ -34,8 +36,8 @@ app.use(
   })
 );
 
-const typeDefs = mergeTypeDefs([authTypeDefs, heritageTypeDefs]);
-const resolvers = mergeResolvers([authResolver, heritageResolvers]);
+const typeDefs = mergeTypeDefs([authTypeDefs, heritageTypeDefs, courseTypeDefs]);
+const resolvers = mergeResolvers([authResolver, heritageResolvers, courseResolvers]);
 
 const apolloServer = new ApolloServer({
   typeDefs,
