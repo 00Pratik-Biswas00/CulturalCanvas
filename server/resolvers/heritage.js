@@ -1,4 +1,6 @@
 import Heritage from "../models/heritage.js";
+import slugify from "slugify";
+import { nanoid } from "nanoid";
 
 const heritageResolvers = {
   Query: {
@@ -12,9 +14,9 @@ const heritageResolvers = {
       }
     },
 
-    getHeritage: async (_, { id }) => {
+    getHeritage: async (_, { slug }) => {
       try {
-        const heritage = await Heritage.findById(id);
+        const heritage = await Heritage.findOne({ slug: slug });
         if (!heritage) {
           throw new Error("Heritage not found");
         }
@@ -50,10 +52,17 @@ const heritageResolvers = {
       },
       { userId }
     ) => {
+      let slug;
+      if (name) {
+        slug = slugify(`${name}-${nanoid()}`, {
+          remove: /[*+/~.()'"!:@]/g,
+        }).toLowerCase();
+      }
       try {
         const newHeritage = new Heritage({
           name,
           image,
+          slug,
           introduction,
           endlessDigitalArt,
           animatedVideo,
@@ -110,10 +119,17 @@ const heritageResolvers = {
         if (!heritage) {
           throw new Error("Heritage not found");
         }
+        let slug;
+        if (name) {
+          slug = slugify(`${name}-${nanoid()}`, {
+            remove: /[*+/~.()'"!:@]/g,
+          }).toLowerCase();
+        }
 
         // Update fields
         if (name) heritage.name = name;
         if (image) heritage.image = image;
+        if (slug) heritage.slug = slug;
         if (introduction) heritage.introduction = introduction;
         if (endlessDigitalArt) heritage.endlessDigitalArt = endlessDigitalArt;
         if (animatedVideo) heritage.animatedVideo = animatedVideo;

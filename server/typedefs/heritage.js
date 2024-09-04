@@ -33,6 +33,7 @@ const heritageTypeDefs = gql`
   type Heritage {
     _id: ID!
     name: String!
+    slug: String!
     image: Image
     introduction: String!
     endlessDigitalArt: Video
@@ -87,6 +88,7 @@ const heritageTypeDefs = gql`
   type HeritageResponse {
     id: ID!
     name: String!
+    slug: String!
     image: Image
     introduction: String!
     endlessDigitalArt: Video
@@ -111,7 +113,7 @@ const heritageTypeDefs = gql`
 
   # Queries and Mutations
   type Query {
-    getHeritage(id: ID!): Heritage
+    getHeritage(slug: String!): Heritage
     getHeritages: [Heritage]
   }
 

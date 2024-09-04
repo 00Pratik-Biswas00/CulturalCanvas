@@ -22,6 +22,7 @@ $vlogVideo:VideoInput,$type_of_heritage:HeritageTypeInput!,$part2: [DescriptionI
   ) {
     id
     name
+    slug
     image {
       public_id
       url
@@ -180,6 +181,7 @@ $vlogVideo:VideoInput,$type_of_heritage:HeritageTypeInput!,$part2: [DescriptionI
   ) {
     id
     name
+    slug
     image {
       public_id
       url
