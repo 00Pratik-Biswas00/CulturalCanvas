@@ -82,6 +82,8 @@ const courseResolvers = {
         course.courseHistory = courseHistory || course.courseHistory;
         course.courseIntro = courseIntro || course.courseIntro;
 
+        await course.save();
+
         return course;
       } catch (error) {
         console.log("Error updating course: ", error);

@@ -19,7 +19,7 @@ const LearnIndianCulture = () => {
     }
   }, [data]);
 
-  // console.log(courses);
+  console.log(courses);
 
   const openSingleCourse = (slug) => {
     navigate(`${slug}`);
