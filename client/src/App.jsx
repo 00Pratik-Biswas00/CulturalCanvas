@@ -22,6 +22,8 @@ import SingleCourse from "./pages/SingleCourse";
 import ScrollToTop from "./components/ScrollToTop";
 import GoToTop from "./components/GoToTopButton";
 import Chatbot from "./components/ChatBot";
+import CreateTrip from "./pages/TripRecommendation/CreateTrip";
+import PredictAmount from "./pages/TripRecommendation/PredictAmount";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -70,6 +72,15 @@ function App() {
           <Route
             path="/learn_Indian_culture/single_course"
             element={<SingleCourse />}
+          />
+
+          <Route
+            path="/trip_recommendation/predict_amount"
+            element={<PredictAmount />}
+          />
+          <Route
+            path="/trip_recommendation/create_trip"
+            element={<CreateTrip />}
           />
         </Routes>
       </UserLayout>
