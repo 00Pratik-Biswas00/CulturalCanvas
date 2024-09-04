@@ -1,0 +1,319 @@
+mutation CreateHeritage($name: String!, $image: ImageInput!, , $introduction: String!,$part1: [DescriptionInput], 
+$animatedVideo:VideoInput,$endlessDigitalArt:VideoInput,
+$vlogVideo:VideoInput,$type_of_heritage:HeritageTypeInput!,$part2: [DescriptionInput],$tag: String! $police_helpline: String!,$state_culture_name:StateInput!,$women_helpline: String!,$child_helpline: String!,$fire_emergency: String!,$medical_emergency: String!,$entry_fee:Float!){
+  createHeritage(
+    name: $name,
+    image: $image,
+    introduction:$introduction,
+    police_helpline:$police_helpline,
+    women_helpline:$women_helpline,
+    child_helpline:$child_helpline,
+    fire_emergency:$fire_emergency,
+    tag:$tag,
+    state_culture_name:$state_culture_name,
+    medical_emergency:$medical_emergency,
+    endlessDigitalArt:$endlessDigitalArt,
+    vlogVideo:$vlogVideo,
+    animatedVideo:$animatedVideo,
+    type_of_heritage:$type_of_heritage,
+    part1:$part1,
+    part2:$part2,
+    entry_fee:$entry_fee,
+  ) {
+    id
+    name
+    slug
+    image {
+      public_id
+      url
+    }
+    introduction
+    endlessDigitalArt {
+      ETag
+      Bucket
+      ServerSideEncryption
+      Location
+      Key
+    }
+    vlogVideo {
+      ETag
+      Bucket
+      ServerSideEncryption
+      Location
+      Key
+    }
+    animatedVideo {
+      ETag
+      Bucket
+      ServerSideEncryption
+      Location
+      Key
+    }
+    part1 {
+      heading
+      description
+    }
+    part2 {
+      heading
+      description
+    }
+    type_of_heritage {
+      image {
+        public_id
+        url
+      }
+      type
+    }
+    tag
+    police_helpline
+    women_helpline
+    fire_emergency
+    medical_emergency
+    child_helpline
+    state_culture_name {
+      image {
+        public_id
+        url
+      }
+      name
+    }
+    entry_fee
+    nearest_attraction
+    state_culture_link
+  }
+}
+
+Apollo variables--------------->
+
+{
+      "name": "Agra Fort",
+      "image": {
+        "public_id": "d2p6edoq6zngtlzifbpm",
+        "url": "https://res.cloudinary.com/dqyqqysgx/image/upload/v1725474616/d2p6edoq6zngtlzifbpm.jpg"
+      },
+      "introduction": "The Agra Fort is a 16th century red sandstone fortress in Agra, India, that was the main residence of the Mughal emperors until 1638",
+      "endlessDigitalArt": {
+        "ETag": "\"0cebe90e79f133819c94d33549ace93f\"",
+        "Bucket": "culturalcanvas",
+        "ServerSideEncryption": "AES256",
+        "Location": "https://culturalcanvas.s3.ap-south-1.amazonaws.com/UMIUTgxdbmZOPn5FBZ3Th.mp4",
+        "Key": "UMIUTgxdbmZOPn5FBZ3Th.mp4"
+      },
+      "vlogVideo": {
+        "ETag": "\"0cebe90e79f133819c94d33549ace93f\"",
+        "Bucket": "culturalcanvas",
+        "ServerSideEncryption": "AES256",
+        "Location": "https://culturalcanvas.s3.ap-south-1.amazonaws.com/UMIUTgxdbmZOPn5FBZ3Th.mp4",
+        "Key": "UMIUTgxdbmZOPn5FBZ3Th.mp4"
+      },
+      "animatedVideo": {
+        "ETag": "\"0cebe90e79f133819c94d33549ace93f\"",
+        "Bucket": "culturalcanvas",
+        "ServerSideEncryption": "AES256",
+        "Location": "https://culturalcanvas.s3.ap-south-1.amazonaws.com/UMIUTgxdbmZOPn5FBZ3Th.mp4",
+        "Key": "UMIUTgxdbmZOPn5FBZ3Th.mp4"
+      },
+      "part1": [
+        {
+          "heading": "dummy heading1",
+          "description": "dummy description1"
+        }
+      ],
+      "part2": [
+        {
+          "heading": "dummy heading2",
+          "description": "dummy description2"
+        }
+      ],
+      "type_of_heritage": {
+        "image": {
+          "public_id": "zekbysa3qjzn19wsqama",
+          "url": "https://res.cloudinary.com/dqyqqysgx/image/upload/v1725475045/zekbysa3qjzn19wsqama.png"
+        },
+        "type": "unesco_listed"
+      },
+      "tag": "cultural",
+      "police_helpline": "100",
+      "women_helpline": "1091",
+      "fire_emergency": "101",
+      "medical_emergency": "102",
+      "child_helpline": "1098",
+      "state_culture_name": {
+        "image": {
+          "public_id": "aobc6uqiqrj96m2xfygp",
+          "url": "https://res.cloudinary.com/dqyqqysgx/image/upload/v1725475217/aobc6uqiqrj96m2xfygp.jpg"
+        },
+        "name": "Uttar Pradesh"
+      },
+      "entry_fee": 10.5,
+      "nearest_attraction": [],
+      "state_culture_link": []
+    }
+  }
+}
+
+
+
+ updateHeritage:
+
+ mutation updateHeritage($id:ID!,$name: String!, $image: ImageInput!, , $introduction: String!,$part1: [DescriptionInput], 
+$animatedVideo:VideoInput,$endlessDigitalArt:VideoInput,
+$vlogVideo:VideoInput,$type_of_heritage:HeritageTypeInput!,$part2: [DescriptionInput],$tag: String! $police_helpline: String!,$state_culture_name:StateInput!,$women_helpline: String!,$child_helpline: String!,$fire_emergency: String!,$medical_emergency: String!,$entry_fee:Float!){
+  updateHeritage(
+    id:$id,
+    name: $name,
+    image: $image,
+    introduction:$introduction,
+    police_helpline:$police_helpline,
+    women_helpline:$women_helpline,
+    child_helpline:$child_helpline,
+    fire_emergency:$fire_emergency,
+    tag:$tag,
+    state_culture_name:$state_culture_name,
+    medical_emergency:$medical_emergency,
+    endlessDigitalArt:$endlessDigitalArt,
+    vlogVideo:$vlogVideo,
+    animatedVideo:$animatedVideo,
+    type_of_heritage:$type_of_heritage,
+    part1:$part1,
+    part2:$part2,
+    entry_fee:$entry_fee,
+  ) {
+    id
+    name
+    slug
+    image {
+      public_id
+      url
+    }
+    introduction
+    endlessDigitalArt {
+      ETag
+      Bucket
+      ServerSideEncryption
+      Location
+      Key
+    }
+    vlogVideo {
+      ETag
+      Bucket
+      ServerSideEncryption
+      Location
+      Key
+    }
+    animatedVideo {
+      ETag
+      Bucket
+      ServerSideEncryption
+      Location
+      Key
+    }
+    part1 {
+      heading
+      description
+    }
+    part2 {
+      heading
+      description
+    }
+    type_of_heritage {
+      image {
+        public_id
+        url
+      }
+      type
+    }
+    tag
+    police_helpline
+    women_helpline
+    fire_emergency
+    medical_emergency
+    child_helpline
+    state_culture_name {
+      image {
+        public_id
+        url
+      }
+      name
+    }
+    entry_fee
+    nearest_attraction
+    state_culture_link
+  }
+}
+
+APOLLO VARIABLES:----------------------------->
+
+{
+  "id": "66d8b266b6eb6fb45a5dca68",
+      "name": "Taj Mahal",
+      "image": {
+        "public_id": "d2p6edoq6zngtlzifbpm",
+        "url": "https://res.cloudinary.com/dqyqqysgx/image/upload/v1725474616/d2p6edoq6zngtlzifbpm.jpg"
+      },
+      "introduction": "The Agra Fort is a 16th century red sandstone fortress in Agra, India, that was the main residence of the Mughal emperors until 1638",
+      "endlessDigitalArt": {
+        "ETag": "\"0cebe90e79f133819c94d33549ace93f\"",
+        "Bucket": "culturalcanvas",
+        "ServerSideEncryption": "AES256",
+        "Location": "https://culturalcanvas.s3.ap-south-1.amazonaws.com/UMIUTgxdbmZOPn5FBZ3Th.mp4",
+        "Key": "UMIUTgxdbmZOPn5FBZ3Th.mp4"
+      },
+      "vlogVideo": {
+        "ETag": "\"0cebe90e79f133819c94d33549ace93f\"",
+        "Bucket": "culturalcanvas",
+        "ServerSideEncryption": "AES256",
+        "Location": "https://culturalcanvas.s3.ap-south-1.amazonaws.com/UMIUTgxdbmZOPn5FBZ3Th.mp4",
+        "Key": "UMIUTgxdbmZOPn5FBZ3Th.mp4"
+      },
+      "animatedVideo": {
+        "ETag": "\"0cebe90e79f133819c94d33549ace93f\"",
+        "Bucket": "culturalcanvas",
+        "ServerSideEncryption": "AES256",
+        "Location": "https://culturalcanvas.s3.ap-south-1.amazonaws.com/UMIUTgxdbmZOPn5FBZ3Th.mp4",
+        "Key": "UMIUTgxdbmZOPn5FBZ3Th.mp4"
+      },
+      "part1": [
+        {
+          "heading": "dummy heading1",
+          "description": "dummy description1"
+        }
+      ],
+      "part2": [
+        {
+          "heading": "dummy heading2",
+          "description": "dummy description2"
+        }
+      ],
+      "type_of_heritage": {
+        "image": {
+          "public_id": "zekbysa3qjzn19wsqama",
+          "url": "https://res.cloudinary.com/dqyqqysgx/image/upload/v1725475045/zekbysa3qjzn19wsqama.png"
+        },
+        "type": "unesco_listed"
+      },
+      "tag": "cultural",
+      "police_helpline": "100",
+      "women_helpline": "1091",
+      "fire_emergency": "101",
+      "medical_emergency": "102",
+      "child_helpline": "1098",
+      "state_culture_name": {
+        "image": {
+          "public_id": "aobc6uqiqrj96m2xfygp",
+          "url": "https://res.cloudinary.com/dqyqqysgx/image/upload/v1725475217/aobc6uqiqrj96m2xfygp.jpg"
+        },
+        "name": "Uttar Pradesh"
+      },
+      "entry_fee": 10.5,
+      "nearest_attraction": [],
+      "state_culture_link": []
+    }
+  }
+}
+
+mutation deleteHeritage($id: ID!) {
+  deleteHeritage(
+    id: $id
+  ) 
+}

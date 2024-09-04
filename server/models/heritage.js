@@ -34,6 +34,10 @@ const heritageSchema = new Schema(
       trim: true,
       required: true,
     },
+    slug: {
+      type: String,
+      required: true,
+    },
     image: {
       url: {
         type: String,

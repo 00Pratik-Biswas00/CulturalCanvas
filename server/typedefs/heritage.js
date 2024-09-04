@@ -33,6 +33,7 @@ const heritageTypeDefs = gql`
   type Heritage {
     _id: ID!
     name: String!
+    slug: String!
     image: Image
     introduction: String!
     endlessDigitalArt: Video
@@ -87,6 +88,7 @@ const heritageTypeDefs = gql`
   type HeritageResponse {
     id: ID!
     name: String!
+    slug: String!
     image: Image
     introduction: String!
     endlessDigitalArt: Video
@@ -111,14 +113,14 @@ const heritageTypeDefs = gql`
 
   # Queries and Mutations
   type Query {
-    getHeritage(id: ID!): Heritage
+    getHeritage(slug: String!): Heritage
     getHeritages: [Heritage]
   }
 
   type Mutation {
     createHeritage(
       name: String!
-      image: ImageInput
+      image: ImageInput!
       introduction: String!
       endlessDigitalArt: VideoInput
       animatedVideo: VideoInput
@@ -133,7 +135,7 @@ const heritageTypeDefs = gql`
       fire_emergency: String!
       medical_emergency: String!
       state_culture_name: StateInput!
-      entry_fee: Float
+      entry_fee: Float!
     ): HeritageResponse
 
     updateHeritage(
@@ -161,7 +163,7 @@ const heritageTypeDefs = gql`
 
     removeState(stateId: ID!, heritageId: ID!): HeritageResponse
 
-    deleteHeritage(id: ID!): AuthResponse!
+    deleteHeritage(id: ID!): String!
   }
 `;
 
