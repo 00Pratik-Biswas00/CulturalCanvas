@@ -7,16 +7,17 @@ import { LOGIN_MUTATION } from "../../../graphql/mutation";
 import { resetClient } from "../../../config/graphql";
 import { useMutation } from "@apollo/client";
 import { toast } from "sonner";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../../../redux/slices/authSlice";
 
 const ModalLogin = ({ onClose, openFPModal, openSignUpModal }) => {
+  const dispatch = useDispatch();
   const [login, { loading, error }] = useMutation(LOGIN_MUTATION, {
     onCompleted: (data) => {
       if (data.login.error) {
         toast.error(data.login.error);
       } else {
-        const { token, user } = data.login;
-        window.localStorage.setItem("token", token);
-        window.localStorage.setItem("user", JSON.stringify(user));
+        dispatch(loginUser(data.login));
         resetClient();
         toast.success("Welcome Back!!");
         onClose();
