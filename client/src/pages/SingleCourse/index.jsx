@@ -1,17 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
+import ReactPlayer from "react-player";
+import { GET_COURSE_QUERY } from "../../graphql/courseQuery";
+
 import bengaliImg from "../../assets/courses/bengali.png";
 import pratikImg from "../../assets/courses/pratik.jpg";
 import MailImg from "../../assets/courses/mail.avif";
 import LinkedInImg from "../../assets/courses/linkedin.jpeg";
 
-import ReactPlayer from "react-player";
-import bahoMein from "../../assets/Heritage/bais.mp4";
-import bbVideo from "../../assets/Heritage/baho.mp4";
-
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
-import { GET_COURSE_QUERY } from "../../graphql/courseQuery";
 
 const SingleCourse = () => {
   const { slug } = useParams();
@@ -30,7 +28,7 @@ const SingleCourse = () => {
     }
   }, [data]);
 
-  console.log(course);
+  // console.log(course);
 
   const handleMouseDown = (e) => {
     isDragging.current = true;
@@ -56,7 +54,6 @@ const SingleCourse = () => {
     scrollRef.current.scrollBy({ left: 500, behavior: "smooth" });
   };
 
-  // State to track the currently playing video
   const [currentVideo, setCurrentVideo] = useState("");
   const [currentHeading, setCurrentHeading] = useState("");
 
@@ -71,7 +68,7 @@ const SingleCourse = () => {
   }
 
   if (error) {
-    return <div>Error fetching course!</div>
+    return <div>Error fetching course!</div>;
   }
 
   return (
@@ -79,7 +76,8 @@ const SingleCourse = () => {
       {course && (
         <div
           style={{ backgroundImage: `url(${course.image.url})` }}
-          className="relative bg-center bg-contain bg-fixed bg-no-repeat">
+          className="relative bg-center bg-contain bg-fixed bg-no-repeat"
+        >
           {/* Black overlay */}
           <div className="absolute inset-0 bg-background1 dark:bg-dark_background1 opacity-80 z-10"></div>
           <div className="relative z-20 flex flex-col items-center justify-center">
@@ -94,8 +92,8 @@ const SingleCourse = () => {
 
             {/* description */}
 
-            <div className="py-4 px-16">
-              <div className="  text-lg flex flex-col items-start justify-center gap-3 w-full h-full">
+            <div className="">
+              <div className=" py-4 px-16 text-lg flex flex-col items-start justify-center gap-3 w-full h-full">
                 <div className="flex flex-col gap-3">
                   <h1 className=" font-semibold font-montserrat text-2xl">
                     Brief History of {course.name}
@@ -134,7 +132,8 @@ const SingleCourse = () => {
                           href="mailto:messi10.pratikbiswas@gmail.com"
                           target="blank"
                           rel="noopener"
-                          className="flex items-center justify-center gap-2 font-medium duration-500 transition-transform hover:scale-105 transform-cpu">
+                          className="flex items-center justify-center gap-2 font-medium duration-500 transition-transform hover:scale-105 transform-cpu"
+                        >
                           <img
                             src={MailImg}
                             alt="Mail"
@@ -147,7 +146,8 @@ const SingleCourse = () => {
                           href="/"
                           target="blank"
                           rel="noopener"
-                          className="flex items-center justify-center gap-2 font-medium duration-500 transition-transform hover:scale-105 transform-cpu">
+                          className="flex items-center justify-center gap-2 font-medium duration-500 transition-transform hover:scale-105 transform-cpu"
+                        >
                           <img
                             src={LinkedInImg}
                             alt="Linkedin"
@@ -163,7 +163,7 @@ const SingleCourse = () => {
 
               {/* videos */}
 
-              <div className="bg-background1 dark:bg-dark_background1">
+              <div className=" py-4 px-16 bg-background1 dark:bg-dark_background1">
                 <div className="py-4 flex flex-col gap-4 items-center justify-center w-full h-full">
                   <h1 className="font-bold font-playfair text-5xl tracking-wider">
                     {currentHeading || "Select a video to start learning"}
@@ -185,7 +185,8 @@ const SingleCourse = () => {
                 <div className="relative w-full">
                   <button
                     onClick={scrollLeft}
-                    className="absolute -left-11 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 text-highlight_hover hover:bg-highlight_hover hover:text-dark_primary_text border border-highlight_hover p-2 duration-300 rounded-full z-10">
+                    className="absolute -left-11 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 text-highlight_hover hover:bg-highlight_hover hover:text-dark_primary_text border border-highlight_hover p-2 duration-300 rounded-full z-10"
+                  >
                     <FaLongArrowAltLeft className="w-5 h-5" />
                   </button>
                   {course.modules.map((content, ind) => (
@@ -197,8 +198,9 @@ const SingleCourse = () => {
                       onMouseUp={handleMouseUp}
                       onMouseLeave={handleMouseUp}
                       className="flex gap-7 overflow-x-hidden w-full outline-none"
-                      style={{ scrollSnapType: "x mandatory" }}>
-                      <div className="flex flex-col items-center justify-start gap-3 border-2 border-highlight_hover rounded-xl p-4 min-w-[32%] cursor-pointer">
+                      style={{ scrollSnapType: "x mandatory" }}
+                    >
+                      <div className="flex flex-col items-center justify-start gap-3 border-2 border-highlight_hover rounded-xl p-4 max-w-[32%] ">
                         <img
                           src={bengaliImg}
                           className="rounded-xl"
@@ -215,7 +217,8 @@ const SingleCourse = () => {
                               content.name
                             )
                           }
-                          className="bg-background1 dark:bg-dark_background1 text-highlight_hover hover:bg-highlight_hover hover:text-dark_primary_text border-2 border-highlight_hover p-2 duration-300 rounded-xl font-bold cursor-pointer">
+                          className="bg-background1 dark:bg-dark_background1 text-highlight_hover hover:bg-highlight_hover hover:text-dark_primary_text border-2 border-highlight_hover p-2 duration-300 rounded-xl font-bold cursor-pointer"
+                        >
                           Start Learning
                         </div>
                       </div>
@@ -224,14 +227,14 @@ const SingleCourse = () => {
 
                   <button
                     onClick={scrollRight}
-                    className="absolute -right-11 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 text-highlight_hover hover:bg-highlight_hover hover:text-dark_primary_text border border-highlight_hover p-2 duration-300 rounded-full z-10">
+                    className="absolute -right-11 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 text-highlight_hover hover:bg-highlight_hover hover:text-dark_primary_text border border-highlight_hover p-2 duration-300 rounded-full z-10"
+                  >
                     <FaLongArrowAltRight className="w-5 h-5" />
                   </button>
                 </div>
               </div>
             </div>
           </div>
-          ;
         </div>
       )}
     </section>
