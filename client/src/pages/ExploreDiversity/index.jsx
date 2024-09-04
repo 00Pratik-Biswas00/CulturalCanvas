@@ -7,7 +7,7 @@ import { FaPlus } from "react-icons/fa6";
 import trip from "../../assets/explorePlaces/createTrip.jpg";
 import money from "../../assets/explorePlaces/paisa.jpg";
 
-const TripRecommendation = () => {
+const ExploreDiversity = () => {
   return (
     <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-4 px-16 duration-300">
       <div className="flex flex-col items-center justify-center gap-3 py-3">
@@ -40,7 +40,7 @@ const TripRecommendation = () => {
               </b>
             </p>
             <a
-              href="/trip_recommendation/predict_amount"
+              href="/explore-diversity/predict-amount"
               className={`flex items-center gap-2 uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-500 transition-transform hover:scale-105 transform-cpu`}
             >
               {" "}
@@ -75,7 +75,7 @@ const TripRecommendation = () => {
               </b>
             </p>
             <a
-              href="/trip_recommendation/create_trip"
+              href="/explore-diversity/create-trip"
               className={`flex items-center gap-2 uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-500 transition-transform hover:scale-105 transform-cpu`}
             >
               {" "}
@@ -89,4 +89,4 @@ const TripRecommendation = () => {
   );
 };
 
-export default TripRecommendation;
+export default ExploreDiversity;

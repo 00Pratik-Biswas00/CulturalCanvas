@@ -28,23 +28,23 @@ const RoutesNames = [
     route_name: "Heritage",
   },
   {
-    route_link: "/culture_tradition",
+    route_link: "/culture-tradition",
     route_name: "Culture & Tradition",
   },
   {
-    route_link: "/learn_Indian_culture",
+    route_link: "/learn-Indian-culture",
     route_name: "Learn Indian Culture",
   },
   {
-    route_link: "/trip_recommendation",
-    route_name: "Trip Recommendation",
+    route_link: "/explore-diversity",
+    route_name: "Explore Diversity",
   },
   {
-    route_link: "/blogs_vlogs",
+    route_link: "/blogs-vlogs",
     route_name: "Blogs & Vlogs",
   },
   {
-    route_link: "/virtual_store",
+    route_link: "/virtual-store",
     route_name: "Virtual Store",
   },
 ];
@@ -142,12 +142,14 @@ const Header = ({ open, setOpen }) => {
       style={{
         backgroundImage: !darkMode ? `url(${headerBG})` : "none",
       }}
-      className=" bg-background1 dark:bg-dark_background2  text-dark_secondary_text dark:text-dark_primary_text font-semibold pt-2 pb-1 px-16 flex justify-between items-center bg-cover bg-center">
+      className=" bg-background1 dark:bg-dark_background2  text-dark_secondary_text dark:text-dark_primary_text font-semibold pt-2 pb-1 px-16 flex justify-between items-center bg-cover bg-center"
+    >
       <div className="text-xl font-bold">
         <NavLink
           to="/"
           className="flex flex-col items-center"
-          onClick={handleNavLinkClick}>
+          onClick={handleNavLinkClick}
+        >
           <img src={logo} alt="logo" className=" w-[7rem]" />
           <h2 className="text-3xl sm:text-xl md:text-2xl lg:text-base font-playfair font-bold">
             Cultural Canvas
@@ -165,7 +167,8 @@ const Header = ({ open, setOpen }) => {
                   : " text-dark_secondary_text dark:text-highlight hover:text-highlight_hover dark:hover:text-highlight_hover "
               }
               end
-              onClick={handleNavLinkClick}>
+              onClick={handleNavLinkClick}
+            >
               {routes.route_name}
             </NavLink>
           ))}
@@ -184,7 +187,8 @@ const Header = ({ open, setOpen }) => {
           </button>
           <button
             className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-dark_primary_text px-2 py-1 rounded font-ubuntu duration-700"
-            onClick={openLoginModal}>
+            onClick={openLoginModal}
+          >
             Login
           </button>
         </div>
@@ -193,7 +197,8 @@ const Header = ({ open, setOpen }) => {
       <div className="lg:hidden flex items-center">
         <button
           className="text-primary_text focus:outline-none"
-          onClick={() => setOpen(!open)}>
+          onClick={() => setOpen(!open)}
+        >
           {open ? null : <CiMenuFries size={26} />}
         </button>
       </div>
@@ -201,10 +206,12 @@ const Header = ({ open, setOpen }) => {
       {open && (
         <div
           ref={navbarRef}
-          className="lg:hidden fixed top-0 right-0 h-screen duration-700 bg-background1 bg-opacity-90 z-40 flex flex-col items-end space-y-4 p-7 gap-y-3">
+          className="lg:hidden fixed top-0 right-0 h-screen duration-700 bg-background1 bg-opacity-90 z-40 flex flex-col items-end space-y-4 p-7 gap-y-3"
+        >
           <button
             className="self-end text-primary_text focus:outline-none "
-            onClick={() => setOpen(!open)}>
+            onClick={() => setOpen(!open)}
+          >
             <RxCross2 size={24} />
           </button>
 
@@ -218,7 +225,8 @@ const Header = ({ open, setOpen }) => {
                     : " text-dark_secondary_text dark:text-highlight hover:text-highlight_hover dark:hover:text-highlight_hover "
                 }
                 end
-                onClick={handleNavLinkClick}>
+                onClick={handleNavLinkClick}
+              >
                 {routes.route_name}
               </NavLink>
             ))}

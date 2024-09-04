@@ -189,18 +189,21 @@ const SingleCourse = () => {
                   >
                     <FaLongArrowAltLeft className="w-5 h-5" />
                   </button>
-                  {course.modules.map((content, ind) => (
-                    <div
-                      key={ind}
-                      ref={scrollRef}
-                      onMouseDown={handleMouseDown}
-                      onMouseMove={handleMouseMove}
-                      onMouseUp={handleMouseUp}
-                      onMouseLeave={handleMouseUp}
-                      className="flex gap-7 overflow-x-hidden w-full outline-none"
-                      style={{ scrollSnapType: "x mandatory" }}
-                    >
-                      <div className="flex flex-col items-center justify-start gap-3 border-2 border-highlight_hover rounded-xl p-4 max-w-[32%] ">
+                  <div
+                    ref={scrollRef}
+                    onMouseDown={handleMouseDown}
+                    onMouseMove={handleMouseMove}
+                    onMouseUp={handleMouseUp}
+                    onMouseLeave={handleMouseUp}
+                    className="flex gap-7 w-full overflow-x-hidden outline-none"
+                    style={{ scrollSnapType: "x mandatory" }}
+                  >
+                    {" "}
+                    {course.modules.map((content, ind) => (
+                      <div
+                        key={ind}
+                        className="flex flex-col   items-center justify-start gap-3 border-2 border-highlight_hover rounded-xl p-4 max-w-[32%] "
+                      >
                         <img
                           src={bengaliImg}
                           className="rounded-xl"
@@ -222,8 +225,8 @@ const SingleCourse = () => {
                           Start Learning
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
 
                   <button
                     onClick={scrollRight}

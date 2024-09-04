@@ -14,7 +14,7 @@ import Home from "./pages/Home";
 import Heritage from "./pages/Heritage";
 import CultureTradition from "./pages/CultureTradition";
 import LearnIndianCulture from "./pages/LearnIndianCulture";
-import TripRecommendation from "./pages/TripRecommendation";
+import ExploreDiversity from "./pages/ExploreDiversity";
 import BlogsVlogs from "./pages/BlogsVlogs";
 import VirtualStore from "./pages/VirtualStore";
 import SingleHeritage from "./pages/SingleHeritage";
@@ -22,8 +22,11 @@ import SingleCourse from "./pages/SingleCourse";
 import ScrollToTop from "./components/ScrollToTop";
 import GoToTop from "./components/GoToTopButton";
 import Chatbot from "./components/ChatBot";
-import CreateTrip from "./pages/TripRecommendation/CreateTrip";
-import PredictAmount from "./pages/TripRecommendation/PredictAmount";
+import CreateTrip from "./pages/ExploreDiversity/CreateTrip";
+import PredictAmount from "./pages/ExploreDiversity/PredictAmount";
+import TripCreation from "./pages/ExploreDiversity/TripCreation";
+import ViewTrip from "./pages/ExploreDiversity/ViewTrip/[tripId]/index";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -41,6 +44,7 @@ const UserLayout = ({ children }) => {
 
 function App() {
   return (
+    // <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_AUTH_CLIENT_ID}>
     <BrowserRouter>
       <Toaster
         richColors
@@ -53,38 +57,48 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/heritage" element={<Heritage />} />
-          <Route path="/culture_tradition" element={<CultureTradition />} />
+          <Route path="/culture-tradition" element={<CultureTradition />} />
           <Route
-            path="/learn_Indian_culture"
+            path="/learn-Indian-culture"
             element={<LearnIndianCulture />}
           />
-          <Route path="/trip_recommendation" element={<TripRecommendation />} />
-          <Route path="/blogs_vlogs" element={<BlogsVlogs />} />
-          <Route path="/virtual_store" element={<VirtualStore />} />
+          <Route path="/explore-diversity" element={<ExploreDiversity />} />
+          <Route path="/blogs-vlogs" element={<BlogsVlogs />} />
+          <Route path="/virtual-store" element={<VirtualStore />} />
+          <Route
+            path="/explore-diversity/predict-amount"
+            element={<PredictAmount />}
+          />
+          <Route
+            path="/explore-diversity/create-trip"
+            element={<CreateTrip />}
+          />
+
+          <Route
+            path="/explore-diversity/create-trip/own-trip"
+            element={<TripCreation />}
+          />
+          <Route
+            path="/explore-diversity/create-trip/own-trip/view-trip/:tripId"
+            element={<ViewTrip />}
+          />
+
           <Route path="*" element={<NotFound />} />
 
           {/*  single pages */}
 
           <Route
-            path="/heritage/single_heritage"
+            path="/heritage/single-heritage"
             element={<SingleHeritage />}
           />
           <Route
-            path="/learn_Indian_culture/:slug"
+            path="/learn-Indian-culture/:slug"
             element={<SingleCourse />}
-          />
-
-          <Route
-            path="/trip_recommendation/predict_amount"
-            element={<PredictAmount />}
-          />
-          <Route
-            path="/trip_recommendation/create_trip"
-            element={<CreateTrip />}
           />
         </Routes>
       </UserLayout>
     </BrowserRouter>
+    // {/* </GoogleOAuthProvider> */}
   );
 }
 
