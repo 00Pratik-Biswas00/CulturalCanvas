@@ -1,0 +1,190 @@
+
+Apollo Mutations: CREATE A COURSE
+----------------------------------
+
+mutation CreateCourse($name: String!, $image: ImageInput!, $courseCategory: String!, $courseHistory: String!, $courseIntro: String!, $modules: [ModuleInput], $instructor: ID!) {
+  createCourse(
+    name: $name,
+    image: $image,
+    courseCategory: $courseCategory,
+    courseHistory: $courseHistory,
+    courseIntro: $courseIntro,
+    modules: $modules,
+    instructor: $instructor
+  ) {
+    id
+    name
+    slug
+    image {
+      url
+      public_id
+    }
+    courseHistory
+    courseIntro
+    modules {
+      name
+      description
+      image {
+        url
+        public_id
+      }
+      video 
+      {
+        ETag
+        ServerSideEncryption
+        Location
+        Key
+        Bucket
+      }
+    }
+    instructor 
+  }
+}
+
+Apollo Variables:
+-----------------
+
+{
+  "name": "Bengali Programming for Beginners",
+  "image": {
+    "url": "https://res.cloudinary.com/dqyqqysgx/image/upload/v1725427336/lhenkcnshyo7ljbdz649.webp",
+    "public_id": "lhenkcnshyo7ljbdz649"
+  },
+  "courseCategory": "Learn Indian language",
+  "courseHistory": "A brief introduction to the history and popularity of Bengali programming language.",
+  "courseIntro": "Learn the fundamentals of Bengali programming with this beginner-friendly course. No prior coding experience required.",
+  "modules": [
+    {
+      "name": "Introduction to Bengali",
+      "description": "Learn the basics of Bengali syntax, data types, and variables.",
+      "image": {
+        "url": "https://res.cloudinary.com/dqyqqysgx/image/upload/v1725428046/wmxt5swh4xocxjxhiory.jpg",
+        "public_id": "wmxt5swh4xocxjxhiory"
+      },
+      "video": {
+        "ServerSideEncryption": "AES256",
+        "Location": "https://culturalcanvas.s3.ap-south-1.amazonaws.com/53wcxPll66iP6Jhp0v9-L.mp4",
+        "Bucket": "culturalcanvas",
+        "Key": "53wcxPll66iP6Jhp0v9-L.mp4",
+        "ETag": "\"48e823204250b115d4c84342cec33e54-2\""
+      }
+    }
+  ],
+  "instructor": "66d3607b07a4d4da640a1955"
+}
+
+
+
+Apollo Mutations: UPDATE A COURSE
+-------------------------------------
+
+mutation UpdateCourse($id: ID!, $image: ImageInput, $name: String, $courseCategory: String, $courseHistory: String, $courseIntro: String) {
+  updateCourse(id: $id, image: $image, name: $name, courseCategory: $courseCategory, courseHistory: $courseHistory, courseIntro: $courseIntro) {
+    name
+    image {
+      public_id
+      url
+    }
+    courseCategory
+    courseIntro
+    courseHistory
+  }
+}
+
+Apollo variables:
+-----------------
+{
+  "id": "66d6f16c17e79824224432ba",
+  "name": "Introduction to Modern Art"
+}
+
+
+
+Apollo Mutations: ADD A COURSE MODULE
+-------------------------------------
+
+mutation AddCourseModule($id: ID!, $module: ModuleInput!) {
+    addCourseModule(id: $id, module: $module) {
+      name
+      description
+      image {
+        url
+        public_id
+      }
+      video 
+      {
+        ETag
+        ServerSideEncryption
+        Location
+        Key
+        Bucket
+      }
+    }
+  }
+
+Apollo variables:
+-----------------
+
+{
+  "id": "66d7f17d9ba10080fb1ecfc8",
+  "module": {
+    "name": "Module : Expressionism",
+    "description": "An in-depth look into the Expressionism movement.",
+    "image": {
+        "url": "https://res.cloudinary.com/dqyqqysgx/image/upload/v1725428046/wmxt5swh4xocxjxhiory.jpg",
+        "public_id": "wmxt5swh4xocxjxhiory"
+    },
+    "video": {
+      "ServerSideEncryption": "AES256",
+      "Location": "https://culturalcanvas.s3.ap-south-1.amazonaws.com/53wcxPll66iP6Jhp0v9-L.mp4",
+      "Bucket": "culturalcanvas",
+      "Key": "53wcxPll66iP6Jhp0v9-L.mp4",
+      "ETag": "\"48e823204250b115d4c84342cec33e54-2\""
+    },
+  },
+}
+
+
+Apollo Mutations: REMOVE A COURSE MODULE
+----------------------------------------
+
+mutation RemoveCourseModule($courseId: ID!, $moduleId: ID!) {
+    removeCourseModule(courseId: $courseId, moduleId: $moduleId) {
+      name
+      description
+      image {
+        url
+        public_id
+      }
+      video {
+        ETag
+        ServerSideEncryption
+        Location
+        Key
+        Bucket
+      }
+    }
+  }
+
+Apollo variables:
+-----------------
+{
+  "courseId": "66d7f17d9ba10080fb1ecfc8",
+  "moduleId": "66d7f3399ba10080fb1ed155"
+}
+
+
+
+Apollo Mutations: DELETE A COURSE
+----------------------------------------
+mutation deleteCourse($id: ID!) {
+  deleteCourse(
+    id: $id
+  ) 
+}
+
+Apollo variables:
+-----------------
+{
+  "id": "66d7f1b89ba10080fb1ecfeb"
+}
