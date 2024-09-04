@@ -5,29 +5,9 @@ import namaste from "../../assets/chatbot/namaste.png";
 import StartChat from "./StartChat";
 
 const LanguageOptions = [
-  "Bengali",
-  "Hindi",
-  "English",
-  "Tamil",
-  "Assamese",
-  "Bodo",
-  "Dogri",
-  "Gujarati",
-  "Kashmiri",
-  "Kannada",
-  "Konkani",
-  "Maithili",
-  "Malayalam",
-  "Manipuri",
-  "Marathi",
-  "Nepali",
-  "Oriya",
-  "Punjabi",
-  "Sanskrit",
-  "Santali",
-  "Sindhi",
-  "Telugu",
-  "Urdu",
+  "Bengali", "Hindi", "English", "Tamil", "Assamese", "Bodo", "Dogri", "Gujarati",
+  "Kashmiri", "Kannada", "Konkani", "Maithili", "Malayalam", "Manipuri", "Marathi",
+  "Nepali", "Oriya", "Punjabi", "Sanskrit", "Santali", "Sindhi", "Telugu", "Urdu",
 ];
 
 const ChatBotPopUp = ({ onClose }) => {
@@ -129,7 +109,7 @@ const ChatBotPopUp = ({ onClose }) => {
                     lg:w-[450px] lg:h-[420px]
                     xl:w-[400px] xl:h-[450px]"
                 >
-                  <StartChat onClose={() => setIsChatOpen(false)} />
+                  <StartChat selectedLanguage={selectedLanguage} onClose={() => setIsChatOpen(false)} />
                 </div>
               )}
             </div>
