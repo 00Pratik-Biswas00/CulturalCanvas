@@ -118,7 +118,7 @@ const heritageTypeDefs = gql`
   type Mutation {
     createHeritage(
       name: String!
-      image: ImageInput
+      image: ImageInput!
       introduction: String!
       endlessDigitalArt: VideoInput
       animatedVideo: VideoInput
@@ -133,7 +133,7 @@ const heritageTypeDefs = gql`
       fire_emergency: String!
       medical_emergency: String!
       state_culture_name: StateInput!
-      entry_fee: Float
+      entry_fee: Float!
     ): HeritageResponse
 
     updateHeritage(
