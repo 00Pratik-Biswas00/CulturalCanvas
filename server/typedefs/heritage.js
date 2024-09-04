@@ -1,21 +1,39 @@
 import { gql } from "apollo-server-express";
 
 const heritageTypeDefs = gql`
-  type Query {
-    getHeritage(id: ID!): Heritage
-    getHeritages: [Heritage]
+  type Image {
+    url: String!
+    public_id: String!
   }
 
-  type Mutation {
-    createHeritage(input: HeritageInput!): Heritage!
-    updateHeritage(id: ID!, input: HeritageInput!): Heritage!
-    deleteHeritage(id: ID!): AuthResponse!
+  type Video {
+    ETag: String
+    ServerSideEncryption: String
+    Location: String
+    Key: String
+    Bucket: String
   }
 
+  type HeritageType {
+    type: String!
+    image: Image!
+  }
+
+  type Description {
+    heading: String!
+    description: String!
+  }
+
+  type State {
+    name: String!
+    image: Image!
+  }
+
+  # Output types for queries
   type Heritage {
     _id: ID!
     name: String!
-    image: Photo
+    image: Image
     introduction: String!
     endlessDigitalArt: Video
     animatedVideo: Video
@@ -29,58 +47,25 @@ const heritageTypeDefs = gql`
     child_helpline: String!
     fire_emergency: String!
     medical_emergency: String!
-    state_culture_name: State
-    state_culture_link: [ID]
+    state_culture_link: ID!
     entry_fee: Float
     nearest_attraction: [ID]
     createdAt: String
     updatedAt: String
   }
 
-  type Description {
-    heading: String!
-    description: String!
+  # Input types for mutation
+  input ImageInput {
+    url: String!
+    public_id: String!
   }
 
-  type HeritageType {
-    type: String!
-    image: Photo!
-  }
-
-  type State {
-    name: String!
-    image: Photo!
-  }
-
-  type Video {
+  input VideoInput {
     ETag: String
     ServerSideEncryption: String
     Location: String
     Key: String
-    key: String
     Bucket: String
-  }
-
-  input HeritageInput {
-    name: String!
-    image: PhotoOutput
-    introduction: String!
-    endlessDigitalArt: VideoInput
-    animatedVideo: VideoInput
-    vlogVideo: VideoInput
-    part1: [DescriptionInput]
-    part2: [DescriptionInput]
-    type_of_heritage: HeritageTypeInput
-    tag: String
-    police_helpline: String!
-    women_helpline: String!
-    child_helpline: String!
-    fire_emergency: String!
-    medical_emergency: String!
-    state_culture_name: StateInput
-    state_culture_link: [ID]
-    entry_fee: Float
-    nearest_attraction: [ID]
   }
 
   input DescriptionInput {
@@ -90,25 +75,93 @@ const heritageTypeDefs = gql`
 
   input HeritageTypeInput {
     type: String!
-    image: PhotoOutput!
+    image: ImageInput!
   }
 
   input StateInput {
     name: String!
-    image: PhotoOutput!
+    image: ImageInput!
   }
 
-  input PhotoOutput {
-    url: String
-    public_id: String
+  # Output types for mutations
+  type HeritageResponse {
+    id: ID!
+    name: String!
+    image: Image
+    introduction: String!
+    endlessDigitalArt: Video
+    animatedVideo: Video
+    vlogVideo: Video
+    part1: [Description]
+    part2: [Description]
+    type_of_heritage: HeritageType
+    tag: String
+    police_helpline: String!
+    women_helpline: String!
+    child_helpline: String!
+    fire_emergency: String!
+    medical_emergency: String!
+    state_culture_name: State!
+    state_culture_link: [ID]
+    entry_fee: Float
+    nearest_attraction: [ID]
+    createdAt: String
+    updatedAt: String
   }
-  input VideoInput {
-    ETag: String
-    ServerSideEncryption: String
-    Location: String
-    Key: String
-    key: String
-    Bucket: String
+
+  # Queries and Mutations
+  type Query {
+    getHeritage(id: ID!): Heritage
+    getHeritages: [Heritage]
+  }
+
+  type Mutation {
+    createHeritage(
+      name: String!
+      image: ImageInput
+      introduction: String!
+      endlessDigitalArt: VideoInput
+      animatedVideo: VideoInput
+      vlogVideo: VideoInput
+      part1: [DescriptionInput]
+      part2: [DescriptionInput]
+      type_of_heritage: HeritageTypeInput!
+      tag: String!
+      police_helpline: String!
+      women_helpline: String!
+      child_helpline: String!
+      fire_emergency: String!
+      medical_emergency: String!
+      state_culture_name: StateInput!
+      entry_fee: Float
+    ): HeritageResponse
+
+    updateHeritage(
+      id: ID!
+      name: String
+      image: ImageInput
+      introduction: String
+      endlessDigitalArt: VideoInput
+      animatedVideo: VideoInput
+      vlogVideo: VideoInput
+      part1: [DescriptionInput]
+      part2: [DescriptionInput]
+      type_of_heritage: HeritageTypeInput
+      tag: String
+      police_helpline: String
+      women_helpline: String
+      child_helpline: String
+      fire_emergency: String
+      medical_emergency: String
+      state_culture_name: StateInput
+      entry_fee: Float
+    ): HeritageResponse
+
+    addState(id: ID!, state_culture_name: StateInput!): State
+
+    removeState(stateId: ID!, heritageId: ID!): HeritageResponse
+
+    deleteHeritage(id: ID!): AuthResponse!
   }
 `;
 
