@@ -2,7 +2,7 @@
 Apollo Mutations: CREATE A COURSE
 ----------------------------------
 
-mutation CreateCourse($name: String!, $image: ImageInput!, $courseCategory: String!, $courseHistory: String!, $courseIntro: String!, $modules: [ModuleInput], $instructor: ID!) {
+mutation CreateCourse($name: String!, $image: ImageInput!, $courseCategory: String!, $courseHistory: String!, $courseIntro: String!, $modules: [ModuleInput]) {
   createCourse(
     name: $name,
     image: $image,
@@ -10,7 +10,6 @@ mutation CreateCourse($name: String!, $image: ImageInput!, $courseCategory: Stri
     courseHistory: $courseHistory,
     courseIntro: $courseIntro,
     modules: $modules,
-    instructor: $instructor
   ) {
     id
     name

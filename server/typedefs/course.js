@@ -84,7 +84,7 @@ const courseTypeDefs = gql`
   # Queries and Mutations
   type Query {
     getCourses: [Course]
-    getCourse(id: ID!): Course
+    getCourse(slug: String!): Course
   }
 
   type Mutation {
@@ -95,7 +95,6 @@ const courseTypeDefs = gql`
       courseHistory: String!
       courseIntro: String!
       modules: [ModuleInput]
-      instructor: ID!
     ): CourseMutationResponse
 
     updateCourse(

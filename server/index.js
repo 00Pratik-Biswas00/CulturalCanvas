@@ -45,7 +45,12 @@ const apolloServer = new ApolloServer({
   context: async ({ req }) => {
     try {
       const authContext = await authenticateUser(req);
-      const publicOperations = ["Login", "Register"];
+      const publicOperations = [
+        "Login",
+        "Register",
+        "getCourses",
+        "getCourse",
+      ];
       const operationName = req.body.operationName;
       if (!authContext && !publicOperations.includes(operationName)) {
         throw new Error("Unauthorized");
