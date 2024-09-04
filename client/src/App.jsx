@@ -70,7 +70,7 @@ function App() {
             element={<SingleHeritage />}
           />
           <Route
-            path="/learn_Indian_culture/single_course"
+            path="/learn_Indian_culture/:slug"
             element={<SingleCourse />}
           />
 
