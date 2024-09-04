@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-export const GET_ALL_COURSES = gql`
+export const GET_ALL_COURSES_QUERY = gql`
   query GetCourses {
     getCourses {
       id
@@ -36,9 +36,9 @@ export const GET_ALL_COURSES = gql`
   }
 `;
 
-export const GET_COURSE = gql`
-  query GetCourse {
-    getCourse(id: "66d6f16c17e79824224432ba") {
+export const GET_COURSE_QUERY = gql`
+  query GetCourse($slug: String!) {
+    getCourse(slug: $slug) {
       id
       name
       slug

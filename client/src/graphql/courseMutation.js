@@ -77,7 +77,7 @@ export const UPDATE_COURSE_MUTATION = gql`
   }
 `;
 
-export const ADD_COURSE_MODULE = gql`
+export const ADD_COURSE_MODULE_MUTATION = gql`
   mutation AddCourseModule($id: ID!, $module: ModuleInput!) {
     addCourseModule(id: $id, module: $module) {
       name
@@ -97,7 +97,7 @@ export const ADD_COURSE_MODULE = gql`
   }
 `;
 
-export const REMOVE_COURSE_MODULE = gql`
+export const REMOVE_COURSE_MODULE_MUTATION = gql`
   mutation RemoveCourseModule($courseId: ID!, $moduleId: ID!) {
     removeCourseModule(courseId: $courseId, moduleId: $moduleId) {
       name
@@ -117,7 +117,7 @@ export const REMOVE_COURSE_MODULE = gql`
   }
 `;
 
-export const DELETE_COURSE = gql`
+export const DELETE_COURSE_MUTATION = gql`
   mutation deleteCourse($id: ID!) {
     deleteCourse(id: $id)
   }

@@ -1,4 +1,6 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useQuery } from "@apollo/client";
 import bengaliImg from "../../assets/courses/bengali.png";
 import pratikImg from "../../assets/courses/pratik.jpg";
 import MailImg from "../../assets/courses/mail.avif";
@@ -9,12 +11,26 @@ import bahoMein from "../../assets/Heritage/bais.mp4";
 import bbVideo from "../../assets/Heritage/baho.mp4";
 
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
+import { GET_COURSE_QUERY } from "../../graphql/courseQuery";
 
 const SingleCourse = () => {
+  //const { slug } = useParams();
   const scrollRef = useRef(null);
   const isDragging = useRef(false);
   const startPosition = useRef(0);
   const scrollLeftValue = useRef(0);
+  const [course, setCourse] = useState(null);
+  const { loading, error, data } = useQuery(GET_COURSE_QUERY, {
+    variables: { slug: "introduction-to-modern-art-2qgxn8krpi7bmfgz9lpul" },
+  });
+
+  useEffect(() => {
+    if (data && data.getCourse) {
+      setCourse(data.getCourse);
+    }
+  }, [data]);
+
+  console.log(course);
 
   const handleMouseDown = (e) => {
     isDragging.current = true;

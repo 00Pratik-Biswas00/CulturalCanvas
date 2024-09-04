@@ -68,6 +68,7 @@ const courseSchema = new mongoose.Schema({
   },
   courseHistory: {
     type: String,
+    enum: ["Language", "Cuisine", "Clothing", "Art&Culture"],
     required: true,
   },
   courseIntro: {

@@ -1,13 +1,24 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import commonImg from "../../assets/Heritage/a.png";
 import taj from "../../assets/Heritage/taj.jpeg";
 import { FaAnglesRight } from "react-icons/fa6";
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
-
+import { useQuery } from "@apollo/client";
+import { useNavigate } from "react-router-dom";
 import { dummyData } from "../../utils/constants";
+import { GET_ALL_COURSES_QUERY } from "../../graphql/courseQuery";
 
 const LearnIndianCulture = () => {
   const { LearningDetails } = dummyData;
+  const [courses, setCourses] = useState([]);
+  const { loading, error, data } = useQuery(GET_ALL_COURSES_QUERY);
+  const navigate = useNavigate();
+  //navigate(`${course.slug}`);
+  useEffect(() => {
+    if (data && data.getCourses) {
+      setCourses(data.getCourses);
+    }
+  }, [data]);
 
   return (
     <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-4 px-16 duration-300">
@@ -108,8 +119,7 @@ const LearnIndianCulture = () => {
             <div className="flex flex-col gap-5">
               <div className="flex items-center gap-3">
                 <h1
-                  className={`text-4xl leading-7 font-medium font-open_sans p-3 rounded-xl ${headingColor} ${headingBgColor} `}
-                >
+                  className={`text-4xl leading-7 font-medium font-open_sans p-3 rounded-xl ${headingColor} ${headingBgColor} `}>
                   {values[0].courseCategory}
                 </h1>
                 <FaAnglesRight className={`w-8 h-8 font-medium ${textColor}`} />
@@ -118,8 +128,7 @@ const LearnIndianCulture = () => {
               <div className="relative w-full">
                 <button
                   onClick={scrollLeft}
-                  className={`absolute -left-11 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 ${textColor2} ${hoverBgColor} hover:text-dark_primary_text border ${borderColor} p-2 duration-300 rounded-full z-10`}
-                >
+                  className={`absolute -left-11 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 ${textColor2} ${hoverBgColor} hover:text-dark_primary_text border ${borderColor} p-2 duration-300 rounded-full z-10`}>
                   <FaLongArrowAltLeft className="w-5 h-5" />
                 </button>
 
@@ -137,8 +146,7 @@ const LearnIndianCulture = () => {
                   {values.map((item, index) => (
                     <div
                       key={index}
-                      className={`flex flex-col items-center justify-start gap-3 border-2 ${borderColor} rounded-xl p-4 min-w-[32%]`}
-                    >
+                      className={`flex flex-col items-center justify-start gap-3 border-2 ${borderColor} rounded-xl p-4 min-w-[32%]`}>
                       <img
                         src={item.image}
                         className="rounded-xl"
@@ -148,8 +156,7 @@ const LearnIndianCulture = () => {
                       <p>{item.introduction}</p>
                       <a
                         href={item.courseLink}
-                        className={`bg-background1 dark:bg-dark_background1 ${textColor2} ${hoverBgColor} hover:text-dark_primary_text border-2 ${borderColor} p-2 duration-300 rounded-xl font-bold `}
-                      >
+                        className={`bg-background1 dark:bg-dark_background1 ${textColor2} ${hoverBgColor} hover:text-dark_primary_text border-2 ${borderColor} p-2 duration-300 rounded-xl font-bold `}>
                         Go to the course
                       </a>
                     </div>
@@ -158,8 +165,7 @@ const LearnIndianCulture = () => {
 
                 <button
                   onClick={scrollRight}
-                  className={`absolute -right-11 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 ${textColor2} ${hoverBgColor} hover:text-dark_primary_text border ${borderColor} p-2 duration-300 rounded-full z-10`}
-                >
+                  className={`absolute -right-11 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 ${textColor2} ${hoverBgColor} hover:text-dark_primary_text border ${borderColor} p-2 duration-300 rounded-full z-10`}>
                   <FaLongArrowAltRight className="w-5 h-5" />
                 </button>
               </div>

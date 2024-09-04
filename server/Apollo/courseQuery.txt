@@ -41,8 +41,8 @@ query GetCourses {
 Apollo Query: GET ONE COURSE
 -----------------------------
 
-query GetCourse {
-    getCourse(id: "66d6f16c17e79824224432ba") {
+query GetCourse($slug: String!) {
+    getCourse(slug: $slug) {
         id
         name
         slug
@@ -82,3 +82,8 @@ query GetCourse {
     }
 }
 
+Apollo Variables
+----------------
+{
+  "slug": "introduction-to-modern-art-2qgxn8krpi7bmfgz9lpul"
+}
