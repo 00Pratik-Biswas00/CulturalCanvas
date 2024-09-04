@@ -46,7 +46,7 @@ query {
 
 Get heritage by ID:
 query {
-  getHeritage(id: "66d5a36541cd4748865adf19") {
+  getHeritage(id: "666d8b1fab6eb6fb45a5dca62") {
     _id
     name
     introduction
