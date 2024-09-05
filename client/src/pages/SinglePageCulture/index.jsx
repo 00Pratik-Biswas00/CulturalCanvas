@@ -86,17 +86,17 @@ const SinglePageCulture = () => {
         className="relative bg-center bg-cover bg-fixed bg-no-repeat"
       >
         {/* Black overlay */}
-        <div className="absolute inset-0 bg-background1 dark:bg-dark_background1 opacity-80 z-10"></div>
+        <div className="absolute inset-0 bg-background1 dark:bg-dark_background1 opacity-60 z-10"></div>
 
         <div className="relative z-20 flex flex-col items-center justify-center">
           {languagesContent.map((language, index) => (
             <div
               key={index}
-              className={`flex flex-col items-start justify-center px-16 py-5 ${
+              className={`flex backdrop-blur-md flex-col items-start justify-center px-16 py-5 ${
                 index % 2 === 1 ? "bg-background1 dark:bg-dark_background1" : ""
               }`}
             >
-              <p className="text-[5rem] font-extrabold tracking-wide pb-8">
+              <p className="text-[4rem] font-extrabold tracking-wide pb-8">
                 {language.name}
               </p>
               <div className="flex items-center justify-center gap-10 pb-7">
@@ -106,13 +106,13 @@ const SinglePageCulture = () => {
                   className="h-[20rem] rounded-xl"
                 />
                 <div className="flex flex-col items-start gap-7 font-medium text-lg">
-                  <h1 className="text-[3rem] font-bold font-playfair">
+                  <h1 className="text-[2.5rem] font-bold font-playfair">
                     Historical Overview:
                   </h1>
                   <p>{language.historicalOverview}</p>
                   <a
                     href="http://localhost:5173/learn-Indian-culture/english-tccd5e1q7uunlfee0qsce"
-                    className="duration-500 py-1 px-3 rounded-xl bg-highlight hover:bg-[#FF671F]"
+                    className="hover:text-dark_primary_text py-1 px-3 rounded-xl bg-highlight hover:bg-highlight_hover"
                   >
                     Want to learn {language.name}?
                   </a>

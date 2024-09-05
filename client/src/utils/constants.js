@@ -10,7 +10,8 @@ import virtualStoreImg from "../assets/Home/virtual.avif";
 
 // culture
 
-import langImg from "../assets/culture/language.png";
+import langImg from "../assets/culture/lang.jpg";
+import religiousImg from "../assets/culture/religious.png";
 
 import taj from "../assets/Heritage/taj.jpeg";
 import bengaliImg from "../assets/courses/bengali.png";
@@ -571,10 +572,10 @@ export const dummyData = {
 
   AllCulturesData: [
     {
-      cultureImg: taj,
+      cultureImg: religiousImg,
       cultureIntro: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis accusamus, fugiat perferendis esse libero hic deserunt dolores oditplaceat veniam, deleniti ullam sed voluptates ab alias, unde debitisofficia soluta. Lorem ipsum dolor sit amet consectetur adipisicingelit. Ex sit similique eos necessitatibus repellendus vel quosrepellat sunt fuga obcaecati officiis quaerat saepe, animi sintipsam porro quibusdam suscipit fugiat!`,
       cultureName: "Religious",
-      individualPage: "/culture-tradition/double-page",
+      individualPage: "/culture-tradition/multiple-pages",
     },
 
     {

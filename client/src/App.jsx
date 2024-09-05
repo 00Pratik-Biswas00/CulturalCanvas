@@ -28,6 +28,7 @@ import TripCreation from "./pages/ExploreDiversity/TripCreation";
 import ViewTrip from "./pages/ExploreDiversity/ViewTrip/[tripId]/index";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import SinglePageCulture from "./pages/SinglePageCulture";
+import MultiplePagesCulture from "./pages/MultiplePagesCulture";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -96,6 +97,10 @@ function App() {
           <Route
             path="/culture-tradition/single-page"
             element={<SinglePageCulture />}
+          />
+          <Route
+            path="/culture-tradition/multiple-pages"
+            element={<MultiplePagesCulture />}
           />
         </Routes>
       </UserLayout>
