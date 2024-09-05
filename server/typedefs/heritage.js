@@ -49,6 +49,7 @@ const heritageTypeDefs = gql`
     fire_emergency: String!
     medical_emergency: String!
     state_culture_link: ID!
+    state_culture_name: State!
     entry_fee: Float
     nearest_attraction: [ID]
     createdAt: String

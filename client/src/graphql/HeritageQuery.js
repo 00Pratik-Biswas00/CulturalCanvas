@@ -77,6 +77,13 @@ export const GET_HERITAGE_QUERY = gql`
         }
         type
       }
+      state_culture_name {
+        name
+        image {
+          public_id
+          url
+        }
+      }
       tag
       part1 {
         heading
