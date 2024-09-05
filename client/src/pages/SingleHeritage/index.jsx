@@ -79,139 +79,57 @@ const SingleHeritage = () => {
 
             {/* description and animated intro */}
             <div className="bg-background1 dark:bg-dark_background1 py-4 px-16 text-lg flex flex-col items-center justify-center w-full h-full">
+              {/* Map the part1 content before the video */}
               <div className="flex flex-col gap-1">
-                <h1 className=" font-semibold font-montserrat text-2xl">
-                  {heritage?.part1?.heading}
-                </h1>
-                <p>{heritage?.part1?.description}</p>
-                <h1 className=" font-semibold font-montserrat text-2xl">
-                  Heading 2
-                </h1>
-                <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Reiciendis eum neque eius sed veritatis libero velit placeat
-                  perferendis minima accusamus, iure, debitis ducimus est
-                  sapiente molestias rem omnis enim ad. Lorem ipsum dolor sit
-                  amet consectetur adipisicing elit. Ab impedit deleniti unde
-                  perspiciatis ad nostrum ipsa mollitia sunt architecto
-                  accusantium enim, fugiat, maiores dolor magni saepe quos id
-                  neque voluptas? Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Aspernatur unde aliquid mollitia similique
-                  voluptatibus voluptatem sequi dolores id dolorum labore a sunt
-                  hic, blanditiis in velit! Totam quia itaque quam. Lorem, ipsum
-                  dolor sit amet consectetur adipisicing elit. Temporibus
-                  dolorum animi veritatis adipisci saepe qui possimus eligendi
-                  atque ab iste! Facere corporis ipsa quia earum accusantium
-                  officiis maiores, mollitia excepturi! Lorem, ipsum dolor sit
-                  amet consectetur adipisicing elit. Reiciendis eum neque eius
-                  sed veritatis libero velit placeat perferendis minima
-                  accusamus, iure, debitis ducimus est sapiente molestias rem
-                  omnis enim ad. Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Ab impedit deleniti unde perspiciatis ad
-                  nostrum ipsa mollitia sunt architecto accusantium enim,
-                  fugiat, maiores dolor magni saepe quos id neque voluptas?
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Aspernatur unde aliquid mollitia similique voluptatibus
-                  voluptatem sequi dolores id dolorum labore a sunt hic,
-                  blanditiis in velit! Totam quia itaque quam. Lorem, ipsum
-                  dolor sit amet consectetur adipisicing elit. Temporibus
-                  dolorum
-                </p>
+                {heritage?.part1?.map((section, index) => (
+                  <div key={index} className="mb-4">
+                    <h1 className="font-semibold font-montserrat text-2xl">
+                      {section.heading}
+                    </h1>
+                    <p>{section.description}</p>
+                  </div>
+                ))}
               </div>
 
+              {/* Video Section */}
               <div className="my-4 w-full flex flex-col gap-4 justify-center">
-                <h1 className=" font-bold font-montserrat text-2xl tracking-wider ">
-                  A Journey Through Time: The Taj Mahal Animated
+                <h1 className="font-bold font-montserrat text-2xl tracking-wider">
+                  A Journey Through Time: The {heritage.name} Animated
                 </h1>
-                <ReactPlayer
-                  url={heritage.animatedVideo.Location}
-                  width="100%"
-                  height="100%"
-                  className="max-w-full max-h-full m-auto"
-                  playing
-                  controls
-                  config={{
-                    file: {
-                      attributes: { controlsList: "nodownload" },
-                    },
-                  }}
-                />
+                {heritage?.animatedVideo?.Location && (
+                  <ReactPlayer
+                    url={heritage.animatedVideo.Location}
+                    width="100%"
+                    height="100%"
+                    className="max-w-full max-h-full m-auto"
+                    playing
+                    controls
+                    config={{
+                      file: {
+                        attributes: { controlsList: "nodownload" },
+                      },
+                    }}
+                  />
+                )}
               </div>
 
+              {/* Map the part2 content after the video */}
               <div className="flex flex-col gap-1">
-                <h1 className=" font-semibold font-montserrat text-2xl">
-                  Heading 3
-                </h1>
-                <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Reiciendis eum neque eius sed veritatis libero velit placeat
-                  perferendis minima accusamus, iure, debitis ducimus est
-                  sapiente molestias rem omnis enim ad. Lorem ipsum dolor sit
-                  amet consectetur adipisicing elit. Ab impedit deleniti unde
-                  perspiciatis ad nostrum ipsa mollitia sunt architecto
-                  accusantium enim, fugiat, maiores dolor magni saepe quos id
-                  neque voluptas? Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Aspernatur unde aliquid mollitia similique
-                  voluptatibus voluptatem sequi dolores id dolorum labore a sunt
-                  hic, blanditiis in velit! Totam quia itaque quam. Lorem, ipsum
-                  dolor sit amet consectetur adipisicing elit. Temporibus
-                  dolorum animi veritatis adipisci saepe qui possimus eligendi
-                  atque ab iste! Facere corporis ipsa quia earum accusantium
-                  officiis maiores, mollitia excepturi! Lorem, ipsum dolor sit
-                  amet consectetur adipisicing elit. Reiciendis eum neque eius
-                  sed veritatis libero velit placeat perferendis minima
-                  accusamus, iure, debitis ducimus est sapiente molestias rem
-                  omnis enim ad. Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Ab impedit deleniti unde perspiciatis ad
-                  nostrum ipsa mollitia sunt architecto accusantium enim,
-                  fugiat, maiores dolor magni saepe quos id neque voluptas?
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Aspernatur unde aliquid mollitia similique voluptatibus
-                  voluptatem sequi dolores id dolorum labore a sunt hic,
-                  blanditiis in velit! Totam quia itaque quam. Lorem, ipsum
-                  dolor sit amet consectetur adipisicing elit. Temporibus
-                  dolorum
-                </p>
-                <h1 className=" font-semibold font-montserrat text-2xl">
-                  Heading 4
-                </h1>
-                <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Reiciendis eum neque eius sed veritatis libero velit placeat
-                  perferendis minima accusamus, iure, debitis ducimus est
-                  sapiente molestias rem omnis enim ad. Lorem ipsum dolor sit
-                  amet consectetur adipisicing elit. Ab impedit deleniti unde
-                  perspiciatis ad nostrum ipsa mollitia sunt architecto
-                  accusantium enim, fugiat, maiores dolor magni saepe quos id
-                  neque voluptas? Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Aspernatur unde aliquid mollitia similique
-                  voluptatibus voluptatem sequi dolores id dolorum labore a sunt
-                  hic, blanditiis in velit! Totam quia itaque quam. Lorem, ipsum
-                  dolor sit amet consectetur adipisicing elit. Temporibus
-                  dolorum animi veritatis adipisci saepe qui possimus eligendi
-                  atque ab iste! Facere corporis ipsa quia earum accusantium
-                  officiis maiores, mollitia excepturi! Lorem, ipsum dolor sit
-                  amet consectetur adipisicing elit. Reiciendis eum neque eius
-                  sed veritatis libero velit placeat perferendis minima
-                  accusamus, iure, debitis ducimus est sapiente molestias rem
-                  omnis enim ad. Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Ab impedit deleniti unde perspiciatis ad
-                  nostrum ipsa mollitia sunt architecto accusantium enim,
-                  fugiat, maiores dolor magni saepe quos id neque voluptas?
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Aspernatur unde aliquid mollitia similique voluptatibus
-                  voluptatem sequi dolores id dolorum labore a sunt hic,
-                  blanditiis in velit! Totam quia itaque quam. Lorem, ipsum
-                  dolor sit amet consectetur adipisicing elit. Temporibus
-                  dolorum
-                </p>
+                {heritage?.part2?.map((section, index) => (
+                  <div key={index} className="mb-4">
+                    <h1 className="font-semibold font-montserrat text-2xl">
+                      {section.heading}
+                    </h1>
+                    <p>{section.description}</p>
+                  </div>
+                ))}
               </div>
             </div>
 
             {/* vlog */}
             <div className="bg-background1 dark:bg-dark_background1 py-4 px-16 pt-0  flex flex-col gap-4 items-center justify-center w-full h-full">
               <h1 className="font-bold font-playfair text-5xl tracking-wider">
-                Sensory Experience of Taj Mahal
+                Sensory Experience of {heritage.name}
               </h1>
               <ReactPlayer
                 url={heritage.vlogVideo.Location}
@@ -327,7 +245,7 @@ const SingleHeritage = () => {
             {/* state culture */}
             <div className="bg-background1 dark:bg-dark_background1 py-4 px-16 pt-4  flex flex-col gap-4 items-center justify-center w-full h-full">
               <h1 className="font-bold font-playfair text-5xl tracking-wider">
-                A Cultural Odyssey: Exploring Uttar Pradesh
+                A Cultural Odyssey: Exploring {heritage.state_culture_name.name}
               </h1>
               <a
                 href="/"
@@ -336,7 +254,7 @@ const SingleHeritage = () => {
                 className="flex items-center justify-center "
               >
                 <img
-                  src={upMap}
+                  src={heritage.state_culture_name.image.url}
                   className="w-full h-full duration-500 transition-transform hover:scale-105 transform-cpu  "
                 />
               </a>
@@ -345,15 +263,15 @@ const SingleHeritage = () => {
             {/* helplines */}
             <div className="bg-background1 dark:bg-dark_background1 py-4 px-16 pt-4  flex flex-col gap-10 items-center justify-center w-full h-full">
               <h1 className="font-bold font-playfair text-5xl tracking-wider">
-                Helpline numbers of Agra Fort
+                Helpline numbers of {heritage.name}
               </h1>
               <div className="grid grid-cols-3  items-center justify-center text-xl gap-5">
                 <div className="flex items-center justify-center gap-1 border-2 p-2 rounded-xl">
                   <MdLocalPolice className=" text-highlight" />
                   <p>
                     {" "}
-                    <b className=" text-highlight"> Police Control Room: </b>+91
-                    0000000000
+                    <b className=" text-highlight"> Police Control Room: </b>
+                    {heritage.police_helpline}
                   </p>
                 </div>
                 <div className="flex items-center justify-center gap-1 border-2 p-2 rounded-xl">
@@ -361,15 +279,15 @@ const SingleHeritage = () => {
                   <p>
                     {" "}
                     <b className=" text-highlight_hover"> Women's Helpline: </b>
-                    +91 0000000000
+                    {heritage.women_helpline}
                   </p>
                 </div>
                 <div className="flex items-center justify-center gap-1 border-2 p-2 rounded-xl">
                   <FaHandsHoldingChild className=" text-highlight" />
                   <p>
                     {" "}
-                    <b className=" text-highlight"> Child Helpline: </b>+91
-                    0000000000
+                    <b className=" text-highlight"> Child Helpline: </b>
+                    {heritage.child_helpline}
                   </p>
                 </div>
                 <div className="flex items-center justify-center gap-1 border-2 p-2 rounded-xl">
@@ -380,7 +298,7 @@ const SingleHeritage = () => {
                       {" "}
                       Ambulance Helpline:{" "}
                     </b>
-                    +91 0000000000
+                    {heritage.medical_emergency}
                   </p>
                 </div>
 
@@ -388,8 +306,8 @@ const SingleHeritage = () => {
                   <FaBriefcaseMedical className=" text-highlight" />
                   <p>
                     {" "}
-                    <b className=" text-highlight"> Hospital Helpline: </b>+91
-                    0000000000
+                    <b className=" text-highlight"> Hospital Helpline: </b>
+                    {heritage.medical_emergency}
                   </p>
                 </div>
 
@@ -397,8 +315,8 @@ const SingleHeritage = () => {
                   <MdFireTruck className=" text-highlight_hover" />
                   <p>
                     {" "}
-                    <b className=" text-highlight_hover"> Fire Brigade: </b>+91
-                    0000000000
+                    <b className=" text-highlight_hover"> Fire Brigade: </b>
+                    {heritage.fire_emergency}
                   </p>
                 </div>
               </div>
