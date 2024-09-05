@@ -46,10 +46,12 @@ const religionResolvers = {
       { userId }
     ) => {
       let slug;
-      if (name) {
+      if (name && typeof name === "string") {
         slug = slugify(`${name}-${nanoid()}`, {
           remove: /[*+/~.()'"!:@]/g,
         }).toLowerCase();
+      } else {
+        throw new Error("Valid name is required to create a religion");
       }
       try {
         const newReligion = new Religion({
@@ -70,7 +72,7 @@ const religionResolvers = {
 
         return newReligion;
       } catch (error) {
-        console.log("Error creating religion: ", error);
+        console.log("Error creating religion: ", error.message);
         throw new Error("Error creating religion");
       }
     },
