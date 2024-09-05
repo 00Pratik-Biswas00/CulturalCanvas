@@ -47,11 +47,11 @@ const SingleCourse = () => {
   };
 
   const scrollLeft = () => {
-    scrollRef.current.scrollBy({ left: -500, behavior: "smooth" });
+    scrollRef.current.scrollBy({ left: -478, behavior: "smooth" });
   };
 
   const scrollRight = () => {
-    scrollRef.current.scrollBy({ left: 500, behavior: "smooth" });
+    scrollRef.current.scrollBy({ left: 479, behavior: "smooth" });
   };
 
   const [currentVideo, setCurrentVideo] = useState("");
@@ -189,20 +189,20 @@ const SingleCourse = () => {
                   >
                     <FaLongArrowAltLeft className="w-5 h-5" />
                   </button>
+
                   <div
                     ref={scrollRef}
                     onMouseDown={handleMouseDown}
                     onMouseMove={handleMouseMove}
                     onMouseUp={handleMouseUp}
                     onMouseLeave={handleMouseUp}
-                    className="flex gap-7 w-full overflow-x-hidden outline-none"
+                    className="flex gap-7 w-full overflow-x-auto scroll-smooth outline-none"
                     style={{ scrollSnapType: "x mandatory" }}
                   >
-                    {" "}
                     {course.modules.map((content, ind) => (
                       <div
                         key={ind}
-                        className="flex flex-col   items-center justify-start gap-3 border-2 border-highlight_hover rounded-xl p-4 max-w-[32%] "
+                        className="flex-shrink-0 w-[32%] max-w-[32%] flex flex-col items-center justify-start gap-3 border-2 border-highlight_hover rounded-xl p-4"
                       >
                         <img
                           src={bengaliImg}

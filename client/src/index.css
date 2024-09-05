@@ -19,7 +19,7 @@
 
 ::-webkit-scrollbar {
   width: 0.1px;
-  height: 1px;
+  height: 0.1px;
   background: transparent;
 }
 
