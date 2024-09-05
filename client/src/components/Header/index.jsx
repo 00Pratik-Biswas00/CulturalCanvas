@@ -195,7 +195,7 @@ const Header = ({ open, setOpen }) => {
 
           <div className=" flex items-center">
             {user ? (
-              <>
+              <a href="/my-profile">
                 {user.image ? (
                   <img
                     src={user.image}
@@ -207,7 +207,7 @@ const Header = ({ open, setOpen }) => {
                     {getInitials(user.name)}
                   </div>
                 )}
-              </>
+              </a>
             ) : (
               <button
                 className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-dark_primary_text px-2 py-1 rounded font-ubuntu duration-700"
