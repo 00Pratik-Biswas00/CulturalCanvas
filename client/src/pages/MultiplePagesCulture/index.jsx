@@ -1,5 +1,5 @@
 import React from "react";
-import hinduismImg from "../../assets/culture/hinduism.png";
+import hinduismImg from "../../assets/culture/hinduism.jpg";
 import religiousImg from "../../assets/culture/religious.png";
 
 const ReligiousData = [
@@ -67,7 +67,7 @@ const MultiplePagesCulture = () => {
                     </h1>
                     <p>{content.intro}</p>
                     <a
-                      href="/"
+                      href="/culture-tradition/multiple-pages/hinduismID"
                       className={` duration-500 py-1 px-3 rounded-xl bg-highlight hover:bg-[#FF671F] `}
                     >
                       <p>Want to know more about {content.name}? </p>
