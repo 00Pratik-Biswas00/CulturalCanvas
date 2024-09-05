@@ -87,10 +87,7 @@ function App() {
 
           {/*  single pages */}
 
-          <Route
-            path="/heritage/single-heritage"
-            element={<SingleHeritage />}
-          />
+          <Route path="/heritage/:slug" element={<SingleHeritage />} />
           <Route
             path="/learn-Indian-culture/:slug"
             element={<SingleCourse />}

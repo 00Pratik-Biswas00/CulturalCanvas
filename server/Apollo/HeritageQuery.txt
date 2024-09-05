@@ -60,7 +60,7 @@ query {
 }
 
 query GetHeritage($slug: String!) {
-    GetHeritage(slug: $slug) {
+    getHeritage(slug: $slug) {
     _id
     name
     slug
