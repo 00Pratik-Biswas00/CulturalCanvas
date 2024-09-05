@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 import { GET_ALL_HERITAGES_QUERY } from "../../graphql/HeritageQuery";
-import commonImg from "../../assets/Heritage/a.png";
 import { Link } from "react-scroll";
+
+import commonImg from "../../assets/Heritage/a.png";
+
 import { FaAnglesRight } from "react-icons/fa6";
-import { dummyData } from "../../utils/constants";
 
 const Heritage = () => {
   const [heritages, setHeritages] = useState([]);
@@ -40,8 +41,6 @@ const Heritage = () => {
   const openSingleHeritage = (slug) => {
     navigate(`${slug}`);
   };
-
-  //const { HeritageDetails } = dummyData;
 
   const renderHeritageGroup = (group, groupName, categoryImg) => (
     <div
@@ -127,25 +126,25 @@ const Heritage = () => {
 
       <div className="flex items-center justify-center gap-10">
         <Link
-          to="unesco_listed"
+          to="Unesco_listed"
           smooth={true}
           className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-300 transition-transform hover:scale-105 transform-cpu cursor-pointer"
         >
           UNESCO Listed
         </Link>
         <Link
-          to="unesco_unlisted"
+          to="Unesco_unlisted"
           smooth={true}
           className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-300 transition-transform hover:scale-105 transform-cpu cursor-pointer"
         >
           UNESCO Unlisted
         </Link>
         <Link
-          to="local"
+          to="Local_Heritage"
           smooth={true}
           className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-300 transition-transform hover:scale-105 transform-cpu cursor-pointer"
         >
-          Local
+          Local Heritage
         </Link>
       </div>
 
