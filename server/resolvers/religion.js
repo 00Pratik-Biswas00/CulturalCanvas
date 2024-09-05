@@ -1,4 +1,4 @@
-import Religion from "../models/religion";
+import Religion from "../models/religion.js";
 import slugify from "slugify";
 import { nanoid } from "nanoid";
 
@@ -7,6 +7,7 @@ const religionResolvers = {
     getReligions: async () => {
       try {
         const religions = await Religion.find();
+
         return religions;
       } catch (error) {
         console.log("Error fetching religions: ", error);
@@ -141,3 +142,4 @@ const religionResolvers = {
     },
   },
 };
+export default religionResolvers;

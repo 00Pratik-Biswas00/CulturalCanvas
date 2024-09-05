@@ -4,7 +4,6 @@ const { Schema } = mongoose;
 const contentSchema = new Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
-  required:true;
 });
 
 const religionSchema = new Schema(

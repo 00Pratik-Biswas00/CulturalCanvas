@@ -56,8 +56,8 @@ const religionTypeDefs = gql`
 
   # Queries and Mutations
   type Query {
-    getReligion(slug: String!): Religion
-    getReligion: [Religion]
+    getReligions(slug: String!): Religion
+    getReligion: Religion
   }
 
   type Mutation {
@@ -89,4 +89,4 @@ const religionTypeDefs = gql`
   }
 `;
 
-export default heritageTypeDefs;
+export default religionTypeDefs;

@@ -14,6 +14,8 @@ import heritageTypeDefs from "./typedefs/heritage.js";
 import heritageResolvers from "./resolvers/heritage.js";
 import courseTypeDefs from "./typedefs/course.js";
 import courseResolvers from "./resolvers/course.js";
+import religionResolvers from "./resolvers/religion.js";
+import religionTypeDefs from "./typedefs/religion.js";
 
 const customLoggingPlugin = {
   requestDidStart(requestContext) {
@@ -36,8 +38,18 @@ app.use(
   })
 );
 
-const typeDefs = mergeTypeDefs([authTypeDefs, heritageTypeDefs, courseTypeDefs]);
-const resolvers = mergeResolvers([authResolver, heritageResolvers, courseResolvers]);
+const typeDefs = mergeTypeDefs([
+  authTypeDefs,
+  heritageTypeDefs,
+  courseTypeDefs,
+  religionTypeDefs,
+]);
+const resolvers = mergeResolvers([
+  authResolver,
+  heritageResolvers,
+  courseResolvers,
+  religionResolvers,
+]);
 
 const apolloServer = new ApolloServer({
   typeDefs,
@@ -45,12 +57,7 @@ const apolloServer = new ApolloServer({
   context: async ({ req }) => {
     try {
       const authContext = await authenticateUser(req);
-      const publicOperations = [
-        "Login",
-        "Register",
-        "getCourses",
-        "getCourse",
-      ];
+      const publicOperations = ["Login", "Register", "getCourses", "getCourse"];
       const operationName = req.body.operationName;
       if (!authContext && !publicOperations.includes(operationName)) {
         throw new Error("Unauthorized");
