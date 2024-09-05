@@ -1,5 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
+import ModalLogin from "../modals/LoginModal/ModalLogin";
+import SignUpModal from "../modals/SignUpModal/SignUpModal";
+import ForgotPasswordModal from "../modals/ForgotPasswordModal/ForgotPasswordModal";
+import ResetPasswordModal from "../modals/ResetPasswordModal/[id]/token/ResetPasswordModal";
+import { switchTheme } from "../../redux/slices/themeSlice";
+import { switchLoginModalOpen } from "../../redux/slices/loginModalOpenSlice";
 
 import logo from "../../assets/logo/logo.png";
 import headerBG from "../../assets/logo/headerBG.png";
@@ -8,13 +16,6 @@ import { CiMenuFries } from "react-icons/ci";
 import { RxCross2 } from "react-icons/rx";
 import { MdLightMode } from "react-icons/md";
 import { MdDarkMode } from "react-icons/md";
-import ModalLogin from "../modals/LoginModal/ModalLogin";
-import SignUpModal from "../modals/SignUpModal/SignUpModal";
-import ForgotPasswordModal from "../modals/ForgotPasswordModal/ForgotPasswordModal";
-import ResetPasswordModal from "../modals/ResetPasswordModal/[id]/token/ResetPasswordModal";
-import { useDispatch, useSelector } from "react-redux";
-import { switchTheme } from "../../redux/slices/themeSlice";
-import { switchLoginModalOpen } from "../../redux/slices/loginModalOpenSlice";
 
 // Routes
 
@@ -137,6 +138,12 @@ const Header = ({ open, setOpen }) => {
     setDarkMode(!darkMode);
   };
 
+  const getInitials = (name) => {
+    const names = name.split(" ");
+    const initials = names.map((n) => n[0]).join("");
+    return initials.toUpperCase();
+  };
+
   return (
     <div
       style={{
@@ -185,12 +192,31 @@ const Header = ({ open, setOpen }) => {
               <MdDarkMode className=" w-5 h-5 text-primary_text dark:text-dark_primary_text " />
             )}
           </button>
-          <button
-            className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-dark_primary_text px-2 py-1 rounded font-ubuntu duration-700"
-            onClick={openLoginModal}
-          >
-            Login
-          </button>
+
+          <div className=" flex items-center">
+            {user ? (
+              <a href="/my-profile">
+                {user.image ? (
+                  <img
+                    src={user.image}
+                    alt="Profile"
+                    className="w-14 h-14 rounded-full cursor-pointer "
+                  />
+                ) : (
+                  <div className="bg-background1 dark:bg-dark_background1 w-14 h-14 rounded-full border border-dark_background1 dark:border-background1 flex items-center justify-center text-lg cursor-pointer">
+                    {getInitials(user.name)}
+                  </div>
+                )}
+              </a>
+            ) : (
+              <button
+                className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-dark_primary_text px-2 py-1 rounded font-ubuntu duration-700"
+                onClick={openLoginModal}
+              >
+                Login
+              </button>
+            )}
+          </div>
         </div>
       </div>
 

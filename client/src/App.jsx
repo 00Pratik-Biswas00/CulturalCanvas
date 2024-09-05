@@ -30,6 +30,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import SinglePageCulture from "./pages/SinglePageCulture";
 import MultiplePagesCulture from "./pages/MultiplePagesCulture";
 import MultipleSingleCulture from "./pages/MultiplePagesCulture/MultipleSingleCulture";
+import MyProfile from "./pages/MyProfile";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -68,6 +69,7 @@ function App() {
           <Route path="/explore-diversity" element={<ExploreDiversity />} />
           <Route path="/blogs-vlogs" element={<BlogsVlogs />} />
           <Route path="/virtual-store" element={<VirtualStore />} />
+          <Route path="/my-profile" element={<MyProfile />} />
           <Route
             path="/explore-diversity/predict-amount"
             element={<PredictAmount />}
@@ -76,7 +78,6 @@ function App() {
             path="/explore-diversity/create-trip"
             element={<CreateTrip />}
           />
-
           <Route
             path="/explore-diversity/create-trip/own-trip"
             element={<TripCreation />}
