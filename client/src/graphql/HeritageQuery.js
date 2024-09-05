@@ -48,6 +48,7 @@ export const GET_ALL_HERITAGES_QUERY = gql`
         Key
         Bucket
       }
+
       police_helpline
       women_helpline
       child_helpline
@@ -60,7 +61,7 @@ export const GET_ALL_HERITAGES_QUERY = gql`
 
 export const GET_HERITAGE_QUERY = gql`
   query GetHeritage($slug: String!) {
-    GetHeritage(slug: $slug) {
+    getHeritage(slug: $slug) {
       _id
       name
       slug
