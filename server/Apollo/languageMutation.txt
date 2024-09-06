@@ -1,0 +1,47 @@
+mutation CreateLanguage($name: String!, $image: ImageInput!, $description: String!,$content:[ContentInput]!) {
+  createLanguage(name: $name, image: $image, description: $description,content:$content) {
+    id
+    name
+    image {
+      public_id
+      url
+    }
+    slug
+    description
+    content {
+      title
+      description
+    }
+  }
+}
+
+APOLLO VARIABLES
+---------------->
+{
+  "name": "Sanskrit (संस्कृत)",
+  "description": "Sanskrit, one of the oldest languages in the world, has been a crucial part of South Asian culture and spirituality for thousands of years. It originated around 1500 BCE with the composition of the Vedas, the earliest sacred texts of Hinduism. Over time, it evolved through various stages, including the Upanishads, which introduced philosophical and metaphysical concepts, and the epics such as the Mahabharata and Ramayana. These texts not only narrate epic tales but also convey moral and philosophical teachings. Sanskrit's influence extends to classical literature, including plays and poetry, making it a cornerstone of ancient Indian intellectual and spiritual traditions.",
+  "image": {
+    "url": "https://res.cloudinary.com/dqyqqysgx/image/upload/v1725605583/rji89sob5bupmgsgeo3v.png",
+    "public_id": "rji89sob5bupmgsgeo3v"
+},
+
+"content":[
+  {
+    "title": "Vedas (वेद)",
+    "description": "Study the foundational texts of Hinduism, which include hymns, rituals, and philosophical discussions."
+  },
+  {
+    "title": "Upanishads (उपनिषद)",
+    "description": "Explore the profound philosophical texts that delve into concepts of the self (Atman) and the ultimate reality (Brahman)."
+  },
+  {
+    "title": "Mahabharata (महाभारत)",
+    "description": "Engage with one of the longest epic narratives that includes the Bhagavad Gita, a dialogue on duty and righteousness."
+  },
+  {
+    "title": "Ramayana (रामायण)",
+    "description": "Discover the epic story of Rama, focusing on themes of virtue, duty, and heroism."
+  }
+]
+}
+
