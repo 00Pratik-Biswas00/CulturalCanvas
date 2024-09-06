@@ -32,6 +32,7 @@ import MultiplePagesCulture from "./pages/MultiplePagesCulture";
 import MultipleSingleCulture from "./pages/MultiplePagesCulture/MultipleSingleCulture";
 import MyProfile from "./pages/MyProfile";
 import MyTrips from "./components/ExplorePlacesComponents/MyTrips";
+import BudgetPredictor from "./pages/BudgetPrediction";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -86,6 +87,10 @@ function App() {
           <Route
             path="/explore-diversity/create-trip/own-trip/view-trip/:tripId"
             element={<ViewTrip />}
+          />
+          <Route
+            path="/explore-diversity/predict-budget"
+            element={<BudgetPredictor />}
           />
 
           <Route path="*" element={<NotFound />} />
