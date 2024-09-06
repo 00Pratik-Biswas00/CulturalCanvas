@@ -9,13 +9,12 @@ function InfoSection({ trip }) {
   useEffect(() => {
     trip && GetPlaceImg();
   }, [trip]);
-
+  console.log(trip);
   const GetPlaceImg = async () => {
     const data = {
-      textQuery: trip?.userSelection?.location,
+      textQuery: trip?.location,
     };
-    const result = await GetPlaceDetails(data).then((resp) => {
-      // console.log(resp.data.places[0].photos[3].name)
+    await GetPlaceDetails(data).then((resp) => {
       const PhotoUrl = PHOTO_REF_URL.replace(
         "{NAME}",
         resp.data.places[0].photos[3].name
@@ -31,18 +30,16 @@ function InfoSection({ trip }) {
       />
       <div className="flex justify-between items-center">
         <div className="my-6 flex flex-col gap-2">
-          <h2 className="font-bold text-2xl">
-            {trip?.userSelection?.location}
-          </h2>
+          <h2 className="font-bold text-2xl">{trip?.location}</h2>
           <div className="flex gap-6 mt-4">
             <h2 className="bg-gray-200 font-medium text-gray-600 rounded-full p-1 px-4 md:text-md">
-              🗓️ {trip?.userSelection?.totalDays} Day
+              🗓️ {trip?.totalDays} Day
             </h2>
             <h2 className="bg-gray-200 font-medium text-gray-600 rounded-full p-1 px-4 md:text-md">
-              👩‍👧‍👦 Number of Traveler : {trip?.userSelection?.traveler} People
+              👩‍👧‍👦 Number of Traveler : {trip?.traveler} People
             </h2>
             <h2 className="bg-gray-200 font-medium text-gray-600 rounded-full p-1 px-4 md:text-md">
-              💵 {trip?.userSelection?.budget} Budget{" "}
+              💵 {trip?.budget} Budget{" "}
             </h2>
           </div>
         </div>

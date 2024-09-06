@@ -25,3 +25,19 @@ export const authenticateUser = async (req) => {
     throw new Error("Unauthorized");
   }
 };
+
+export const requireSignin = async (req, res, next) => {
+  try {
+    const token = req.headers.authorization.split(" ")[1];
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const user = await User.findById(decoded._id);
+
+    if (!user) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+    req.userID = decoded._id;
+    next();
+  } catch (error) {
+    console.error(error);
+  }
+};

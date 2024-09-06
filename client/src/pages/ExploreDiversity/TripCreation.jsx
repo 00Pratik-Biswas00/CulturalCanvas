@@ -9,10 +9,9 @@ import {
 import { Button } from "../../components/ExplorePlacesComponents/ui/button";
 import { toast } from "sonner";
 import { chatSession } from "../../components/ExplorePlacesComponents/service/AIModel";
-import { doc, setDoc } from "firebase/firestore";
-import { db } from "../../components/ExplorePlacesComponents/service/firebaseConfig";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import api from "../../config/axios";
 
 function CreateTrip() {
   const [place, setPlace] = useState();
@@ -27,10 +26,6 @@ function CreateTrip() {
     });
   };
 
-  useEffect(() => {
-    console.log(formData);
-  }, [formData]);
-
   const OnGenerateTrip = async () => {
     if (
       !formData?.totalDays ||
@@ -38,10 +33,10 @@ function CreateTrip() {
       !formData?.budget ||
       !formData?.traveler
     ) {
-      toast("Please fill all details!");
+      toast.dismiss("Please fill all details!");
       return;
     }
-    toast("Form generated.");
+    toast.success("Form generated.");
     setLoading(true);
     const FINAL_PROMPT = AI_PROMPT.replace("{location}", formData?.location)
       .replace("{totalDays}", formData?.totalDays)
@@ -49,20 +44,34 @@ function CreateTrip() {
       .replace("{budget}", formData?.budget);
 
     const result = await chatSession.sendMessage(FINAL_PROMPT);
-    setLoading(false);
-    SaveAiTrip(result?.response?.text());
+    setLoading(true);
+    const plan = JSON.parse(result?.response.text());
+    SaveAiTrip(plan);
   };
 
   const SaveAiTrip = async (TripData) => {
-    setLoading(true);
-    const docId = Date.now().toString();
-    await setDoc(doc(db, "AiTrips", docId), {
-      userSelection: formData,
-      tripData: JSON.parse(TripData),
-      id: docId,
-    });
-    setLoading(false);
-    navigate("/explore-diversity/create-trip/own-trip/view-trip/" + docId);
+    try {
+      const response = await api.post("/create", {
+        location: formData.location,
+        totalDays: formData.totalDays,
+        budget: formData.budget,
+        traveler: formData.traveler,
+        plan: TripData,
+      });
+
+      if (response.status === 201) {
+        toast.success("Trip created successfully!");
+        navigate(
+          "/explore-diversity/create-trip/own-trip/view-trip/" + response.data
+        );
+      } else {
+        toast.error("Error creating trip!");
+      }
+    } catch (error) {
+      toast.error("Error creating trip: " + error.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
