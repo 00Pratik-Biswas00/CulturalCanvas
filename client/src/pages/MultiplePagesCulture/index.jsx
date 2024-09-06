@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useQuery } from "@apollo/client";
+import { useNavigate } from "react-router-dom";
+import { GET__ALL_RELIGIONS_QUERY } from "../../graphql/religionQuery";
 import hinduismImg from "../../assets/culture/hinduism.jpg";
 import religiousImg from "../../assets/culture/religious.png";
 
@@ -18,6 +21,19 @@ const ReligiousData = [
 ];
 
 const MultiplePagesCulture = () => {
+  const [religions, setReligions] = useState([]);
+  const { loading, error, data } = useQuery(GET__ALL_RELIGIONS_QUERY);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (data && data.getReligions) {
+      setReligions(data.getReligions);
+    }
+  }, [data]);
+  console.log(religions);
+  const openSingleReligion = (slug) => {
+    navigate(`${slug}`);
+  };
   return (
     <section className="duration-300 text-primary_text dark:text-dark_primary_text">
       <div
@@ -29,7 +45,7 @@ const MultiplePagesCulture = () => {
 
         <div className="relative z-20 flex flex-col items-center justify-center">
           <div className="flex flex-col px-16 py-5 gap-10">
-            {ReligiousData.map((content, index) => {
+            {religions.map((content, index) => {
               let shadowClass;
               let hoverClass;
               let borderClass;
@@ -56,7 +72,7 @@ const MultiplePagesCulture = () => {
                   className={`backdrop-blur-lg bg-opacity-80 p-5 rounded-lg flex items-center justify-center gap-5 ${shadowClass}`}
                 >
                   <img
-                    src={content.image}
+                    src={content.image.url}
                     alt=".."
                     className=" h-[20rem] rounded-xl"
                   />
@@ -65,13 +81,13 @@ const MultiplePagesCulture = () => {
                     <h1 className="text-[3rem] font-extrabold tracking-wide ">
                       {content.name}{" "}
                     </h1>
-                    <p>{content.intro}</p>
-                    <a
-                      href="/culture-tradition/multiple-pages/hinduismID"
+                    <p>{content.description}</p>
+                    <button
+                      onClick={() => openSingleReligion(content.slug)}
                       className={` duration-500 py-1 px-3 rounded-xl bg-highlight hover:bg-[#FF671F] `}
                     >
                       <p>Want to know more about {content.name}? </p>
-                    </a>
+                    </button>
                   </div>
                 </div>
               );
