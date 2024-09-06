@@ -56,8 +56,8 @@ const religionTypeDefs = gql`
 
   # Queries and Mutations
   type Query {
-    getReligions(slug: String!): Religion
-    getReligion: Religion
+    getReligion(slug: String!): Religion
+    getReligions: [Religion]
   }
 
   type Mutation {
@@ -77,11 +77,12 @@ const religionTypeDefs = gql`
       id: ID!
       name: String
       image: ImageInput
-      description: String!
-      overview: String!
-      history: String!
-      regions: String!
-      practices: String!
+      introduction: String
+      description: String
+      overview: String
+      history: String
+      regions: String
+      practices: String
       core_beliefs: [ContentInput]
     ): ReligionResponse
 

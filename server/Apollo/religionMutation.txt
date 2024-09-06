@@ -1,84 +1,112 @@
-mutation CreateHeritage($name: String!, $image: ImageInput!, , $introduction: String!,$part1: [DescriptionInput], 
-$animatedVideo:VideoInput,$endlessDigitalArt:VideoInput,
-$vlogVideo:VideoInput,$type_of_heritage:HeritageTypeInput!,$part2: [DescriptionInput],$tag: String! $police_helpline: String!,$state_culture_name:StateInput!,$women_helpline: String!,$child_helpline: String!,$fire_emergency: String!,$medical_emergency: String!,$entry_fee:Float!){
-  createHeritage(
+mutation CreateReligion($name: String!, $image: ImageInput!,$introduction: String!,$description: String!, 
+$overview:String!,$practices:String!,$regions:String!,$history:String!,$core_beliefs:[ContentInput]
+){
+  createReligion(
     name: $name,
     image: $image,
     introduction:$introduction,
-    police_helpline:$police_helpline,
-    women_helpline:$women_helpline,
-    child_helpline:$child_helpline,
-    fire_emergency:$fire_emergency,
-    tag:$tag,
-    state_culture_name:$state_culture_name,
-    medical_emergency:$medical_emergency,
-    endlessDigitalArt:$endlessDigitalArt,
-    vlogVideo:$vlogVideo,
-    animatedVideo:$animatedVideo,
-    type_of_heritage:$type_of_heritage,
-    part1:$part1,
-    part2:$part2,
-    entry_fee:$entry_fee,
+    description:$description,
+    overview:$overview,
+    practices:$practices,
+    history:$history,
+    regions:$regions,
+    core_beliefs:$core_beliefs,
   ) {
     id
     name
-    slug
-    image {
-      public_id
+    image{
       url
+      public_id
     }
+    slug
     introduction
-    endlessDigitalArt {
-      ETag
-      Bucket
-      ServerSideEncryption
-      Location
-      Key
-    }
-    vlogVideo {
-      ETag
-      Bucket
-      ServerSideEncryption
-      Location
-      Key
-    }
-    animatedVideo {
-      ETag
-      Bucket
-      ServerSideEncryption
-      Location
-      Key
-    }
-    part1 {
-      heading
+    description
+    overview
+    practices
+    history
+    regions
+    core_beliefs {
+      title
       description
     }
-    part2 {
-      heading
-      description
-    }
-    type_of_heritage {
-      image {
-        public_id
-        url
-      }
-      type
-    }
-    tag
-    police_helpline
-    women_helpline
-    fire_emergency
-    medical_emergency
-    child_helpline
-    state_culture_name {
-      image {
-        public_id
-        url
-      }
-      name
-    }
-    entry_fee
-    nearest_attraction
-    state_culture_link
   }
+}
+
+APOLLO VARIABLES:
+-------------------------------------------->
+
+
+{
+  "name": "Hinduism",
+  "introduction": "A Timeless Tradition of Spiritual Diversity",
+  "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, vel fugit. Veniam odio quas expedita, omnis ipsa autem reiciendis officiis ullam quasi dolore, possimus laborum fuga in totam consectetur rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, vel fugit. Veniam odio quas expedita, omnis ipsa autem reiciendis officiis ullam quasi dolore, possimus laborum fuga in totam consectetur rem.Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, vel fugit. Veniam odio quas expedita, omnis ipsa autem reiciendis officiis ullam quasi dolore, possimus laborum fuga in totam consectetur rem.",
+  "overview": "Hinduism is one of the world's oldest and most diverse religions, characterized by a rich tapestry of beliefs, rituals, and philosophies. It is the predominant religion in India and Nepal and has millions of followers worldwide. Hinduism is not a monolithic religion but a complex, pluralistic tradition with numerous deities, practices, and schools of thought.",
+  "history": "Hinduism's origins trace back over 4,000 years to the ancient Indus Valley Civilization and the Vedic period (1500-500 BCE). The Vedas, a collection of sacred texts, are among the earliest religious writings in Hinduism. Over centuries, Hinduism evolved through various philosophical and devotional movements, including the Upanishads, which introduced the concepts of karma and moksha (liberation). The epics, Mahabharata and Ramayana, and the Puranas further shaped Hindu beliefs and practices. The emergence of devotional (bhakti) movements between the 7th and 12th centuries CE emphasized personal devotion to deities such as Vishnu, Shiva, and Shakti, leading to a rich tradition of temple worship and pilgrimage.",
+  "regions": "Hinduism is primarily practiced in India, where it influences daily life, culture, and politics. It also has significant communities in Nepal, Bangladesh, Sri Lanka, and among the Indian diaspora worldwide. Temples and festivals related to Hinduism are prominent in countries with large Indian communities, including the United States, Canada, and the United Kingdom.",
+  "core_beliefs":[{
+    "title": "Dharma",
+    "description": "The moral and ethical duties or responsibilities of an individual.",
+  },
+  {
+    "title": "Karma",
+    "description": "The principle of cause and effect, where a person's actions influence their future."
+  },
+  {
+    "title": "Moksha",
+    "description": "The ultimate goal of liberation from the cycle of birth, death, and rebirth (samsara)."
+  },
+  {
+    "title": "Dieties",
+    "description": "Hinduism encompasses a vast pantheon, including Brahma (the creator), Vishnu (the preserver), and Shiva (the destroyer), among others."
+  }
+  ],
+  "image": {
+    "url": "https://res.cloudinary.com/dqyqqysgx/image/upload/v1725563566/oljoqxhfpfmu0wlj5kj5.jpg",
+    "public_id": "oljoqxhfpfmu0wlj5kj5"
+},
+  "practices": "Hindu practices include rituals, meditation, yoga, and pilgrimage to sacred sites. Festivals like Diwali, Holi, and Navaratri are celebrated with fervor, reflecting the vibrant and diverse nature of Hindu worship and community life."
+} 
+
+
+UpdateReligion:
+
+mutation updateReligion($id:ID!, $name: String, $image: ImageInput,$introduction: String,$description: String, 
+$overview:String,$practices:String,$regions:String,$history:String,$core_beliefs:[ContentInput])
+{ updateReligion(
+    name: $name,
+    id:$id,
+    image: $image,
+    introduction:$introduction,
+    description:$description,
+    overview:$overview,
+    practices:$practices,
+    history:$history,
+    regions:$regions,
+    core_beliefs:$core_beliefs,
+){
+    id
+    name
+    image{
+      url
+      public_id
+    }
+    slug
+    introduction
+    description
+    overview
+    practices
+    history
+    regions
+    core_beliefs {
+      title
+      description
+    }
+  }
+}
+
+APOLLO VARIABLES
+--------------------->
+{
+  "id": "66da74372af1e3e80a3e1207",
+  "description": "Buddhism is a spiritual and philosophical tradition founded by Siddhartha Gautama, known as the Buddha, in the 5th century BCE in ancient India. It emphasizes the path to enlightenment through the Four Noble Truths and the Eightfold Path, aiming to alleviate suffering and attain Nirvana (liberation from the cycle of rebirth)."
 }
