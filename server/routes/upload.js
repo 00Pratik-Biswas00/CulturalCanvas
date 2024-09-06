@@ -1,27 +1,12 @@
 import express from "express";
 import formidable from "express-formidable";
-import cloudinary from "cloudinary";
 import "dotenv/config";
-import AWS from "aws-sdk";
 import { nanoid } from "nanoid";
 import { readFileSync } from "fs";
-
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
+import { S3 } from "../config.js";
+import cloudinary from "cloudinary";
 
 const router = express.Router();
-
-const awsConfig = {
-  accessKeyId: process.env.AWS_ACCESS_KEY,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-  region: process.env.AWS_REGION,
-  apiVersion: process.env.AWS_API_VERSION,
-};
-
-const S3 = new AWS.S3(awsConfig);
 
 router.post(
   "/upload-image",

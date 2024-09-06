@@ -31,6 +31,7 @@ import SinglePageCulture from "./pages/SinglePageCulture";
 import MultiplePagesCulture from "./pages/MultiplePagesCulture";
 import MultipleSingleCulture from "./pages/MultiplePagesCulture/MultipleSingleCulture";
 import MyProfile from "./pages/MyProfile";
+import MyTrips from "./components/ExplorePlacesComponents/MyTrips";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -109,6 +110,7 @@ function App() {
             path="/culture-tradition/multiple-pages/:slug"
             element={<MultipleSingleCulture />}
           />
+          <Route path="/mytrips" element={<MyTrips />} />
         </Routes>
       </UserLayout>
     </BrowserRouter>
