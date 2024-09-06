@@ -1,14 +1,23 @@
-from flask import Flask, request, render_template
+import os
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 import pandas as pd
 import numpy as np
 import joblib
+from dotenv import load_dotenv
+
+load_dotenv()
+
+cors_origin = os.getenv("FLASK_CORS_ORIGIN", "*")  # Fallback to '*' if not set
 
 app = Flask(__name__)
-df=pd.read_csv("flask-server/heritage_budget.csv")
+CORS(app, origins=[cors_origin])
+
+df=pd.read_csv("heritage_budget.csv")
 # Load the trained model and label encoders
-model = joblib.load('flask-server/budget_prediction_new.pkl')
-label_encoder_source = joblib.load('flask-server/label_encoder_source.pkl')
-label_encoder_destination = joblib.load('flask-server/label_encoder_destination.pkl')
+model = joblib.load('budget_prediction_new.pkl')
+label_encoder_source = joblib.load('label_encoder_source.pkl')
+label_encoder_destination = joblib.load('label_encoder_destination.pkl')
 
 # Unique sources and destinations
 sources = ['Delhi', 'Mumbai', 'Kolkata', 'Jaipur', 'Agra', 'Chennai', 
@@ -82,21 +91,19 @@ def predict_budget(source, destination, duration, travel_preference):
     budget = round(budget, 2)
     return budget
 
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    prediction = None
-    if request.method == 'POST':
-        source = request.form['source']
-        destination = request.form['destination']
-        duration = int(request.form['duration'])
-        travel_preference = request.form['travel_preference']
-        
-        prediction = predict_budget(source, destination, duration, travel_preference)
+@app.route('/api/predict-budget', methods=['GET','POST'])
+def predict():
+    data = request.json
+    source = data['source']
+    destination = data['destination']
+    duration = int(data['duration'])
+    travel_preference = data['travel_preference']
     
-    return render_template('index.html', 
-                           sources=sources, 
-                           destinations=destinations, 
-                           prediction=prediction)
+    # Get prediction
+    prediction = predict_budget(source, destination, duration, travel_preference)
+    
+    # Return the prediction as JSON
+    return jsonify({'budget': prediction})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=8000)

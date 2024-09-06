@@ -18,8 +18,7 @@ const ExploreDiversity = () => {
         </h1>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div
-            className={`backdrop-blur-lg bg-opacity-80 p-5 rounded-lg flex flex-col items-center shadow-custom-orange gap-5`}
-          >
+            className={`backdrop-blur-lg bg-opacity-80 p-5 rounded-lg flex flex-col items-center shadow-custom-orange gap-5`}>
             <div className="flex flex-col">
               <img src={money} alt=".." className="w-full h-full rounded-md" />
             </div>
@@ -40,9 +39,8 @@ const ExploreDiversity = () => {
               </b>
             </p>
             <a
-              href="/explore-diversity/predict-amount"
-              className={`flex items-center gap-2 uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-500 transition-transform hover:scale-105 transform-cpu`}
-            >
+              href="/explore-diversity/predict-budget"
+              className={`flex items-center gap-2 uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-500 transition-transform hover:scale-105 transform-cpu`}>
               {" "}
               <RiMoneyRupeeCircleFill className=" w-5 h-5" />
               <p className="">Predict Amount</p>
@@ -52,8 +50,7 @@ const ExploreDiversity = () => {
           {/* 2 */}
 
           <div
-            className={`backdrop-blur-lg bg-opacity-80 p-5 rounded-lg flex flex-col items-center shadow-custom-orange gap-5`}
-          >
+            className={`backdrop-blur-lg bg-opacity-80 p-5 rounded-lg flex flex-col items-center shadow-custom-orange gap-5`}>
             <div className="flex flex-col">
               <img src={trip} alt=".." className="w-full h-full rounded-md" />
             </div>
@@ -76,8 +73,7 @@ const ExploreDiversity = () => {
             </p>
             <a
               href="/explore-diversity/create-trip"
-              className={`flex items-center gap-2 uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-500 transition-transform hover:scale-105 transform-cpu`}
-            >
+              className={`flex items-center gap-2 uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-500 transition-transform hover:scale-105 transform-cpu`}>
               {" "}
               <p className="">Create Trip</p>
               <FaPlus className=" w-5 h-5" />
