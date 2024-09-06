@@ -66,3 +66,47 @@ APOLLO VARIABLES:
 },
   "practices": "Hindu practices include rituals, meditation, yoga, and pilgrimage to sacred sites. Festivals like Diwali, Holi, and Navaratri are celebrated with fervor, reflecting the vibrant and diverse nature of Hindu worship and community life."
 } 
+
+
+UpdateReligion:
+
+mutation updateReligion($id:ID!, $name: String, $image: ImageInput,$introduction: String,$description: String, 
+$overview:String,$practices:String,$regions:String,$history:String,$core_beliefs:[ContentInput])
+{ updateReligion(
+    name: $name,
+    id:$id,
+    image: $image,
+    introduction:$introduction,
+    description:$description,
+    overview:$overview,
+    practices:$practices,
+    history:$history,
+    regions:$regions,
+    core_beliefs:$core_beliefs,
+){
+    id
+    name
+    image{
+      url
+      public_id
+    }
+    slug
+    introduction
+    description
+    overview
+    practices
+    history
+    regions
+    core_beliefs {
+      title
+      description
+    }
+  }
+}
+
+APOLLO VARIABLES
+--------------------->
+{
+  "id": "66da74372af1e3e80a3e1207",
+  "description": "Buddhism is a spiritual and philosophical tradition founded by Siddhartha Gautama, known as the Buddha, in the 5th century BCE in ancient India. It emphasizes the path to enlightenment through the Four Noble Truths and the Eightfold Path, aiming to alleviate suffering and attain Nirvana (liberation from the cycle of rebirth)."
+}

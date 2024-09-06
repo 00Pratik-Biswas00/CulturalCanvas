@@ -1,0 +1,55 @@
+GET A SINGLE RELIGION: 
+---------------------------------
+
+query GetReligion($slug: String!)  {
+  getReligion(slug:$slug) {
+    _id
+    name
+    image{
+      url
+      public_id
+    }
+    slug
+    introduction
+    description
+    overview
+    practices
+    history
+    regions
+    core_beliefs {
+      title
+      description
+    }
+  }
+}
+
+VARIABLES
+---------------->
+{
+  "slug": "buddhism-01mej9ztboenm5eny7i0o"
+}
+
+
+GET ALL RELIGIONS 
+--------------------->
+query GetReligions{
+  getReligions {
+    _id
+    name
+    image{
+      url
+      public_id
+    }
+    slug
+    introduction
+    description
+    overview
+    practices
+    history
+    regions
+    core_beliefs {
+      title
+      description
+    }
+  }
+}

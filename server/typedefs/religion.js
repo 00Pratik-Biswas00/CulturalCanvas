@@ -77,6 +77,7 @@ const religionTypeDefs = gql`
       id: ID!
       name: String
       image: ImageInput
+      introduction: String
       description: String
       overview: String
       history: String
