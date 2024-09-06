@@ -1,30 +1,29 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
+import { FaRobot } from "react-icons/fa6";
 import ChatBotPopUp from "./ChatBotPopUp";  // Correct path if it's in the same folder 
 
-const Index = () => {
-  const [isChatOpen, setIsChatOpen] = useState(false);  // Controls chat visibility
-
-  const openChat = () => {
-    setIsChatOpen(true);  // Opens the chat popup
-  };
-
-  const closeChat = () => {
-    setIsChatOpen(false);  // Closes the chat popup
+const Chatbot = () => {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const togglePopup = () => {
+    setIsPopupOpen(!isPopupOpen);
   };
 
   return (
-    <div className="app">
-      {/* This button triggers the chatbot popup */}
-      <button onClick={openChat} className="open-chat-button">
-        Chat with Us
-      </button>
+    <div className="fixed bottom-1 right-1 lg:right-14 lg:bottom-8 z-40 mt-8 flex items-center">
+      <div
+        className={`text-2xl text-primary_text hover:text-dark_primary_text duration-500 bg-highlight hover:bg-[#FF671F]  rounded-full flex justify-center items-center cursor-pointer w-11 h-11 lg:w-12 lg:h-12
+        absolute `}
+        onClick={togglePopup}
+      >
+        <FaRobot />
+      </div>
 
-      {/* Render the ChatBotPopUp component when chat is open */}
-      {isChatOpen && <ChatBotPopUp onClose={closeChat} />}
+      {isPopupOpen && <ChatBotPopUp onClose={togglePopup} />}
     </div>
   );
 };
 
 // Render the Index component to the root element
-ReactDOM.render(<Index />, document.getElementById("root"));
+//ReactDOM.render(<Index />, document.getElementById("root"));
+
+export default Chatbot;
