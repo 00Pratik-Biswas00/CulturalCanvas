@@ -2,8 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ReactPlayer from "react-player";
 import { useQuery } from "@apollo/client";
-import bahoMein from "../../assets/Heritage/bais.mp4";
-import { NavLink } from "react-router-dom";
 import { GET_HERITAGE_QUERY } from "../../graphql/HeritageQuery";
 import upMap from "../../assets/Heritage/up.png";
 

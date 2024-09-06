@@ -106,7 +106,7 @@ function App() {
           />
 
           <Route
-            path="/culture-tradition/multiple-pages/hinduismID"
+            path="/culture-tradition/multiple-pages/:slug"
             element={<MultipleSingleCulture />}
           />
         </Routes>
