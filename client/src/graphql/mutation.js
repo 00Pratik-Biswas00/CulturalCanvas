@@ -57,3 +57,24 @@ export const RESET_PASSWORD_MUTATION = gql`
     }
   }
 `;
+
+export const UPDATE_PROFILE_MUTATION = gql`
+  mutation UpdateProfile(
+    $name: String
+    $photo: PhotoInput
+    $phoneNumber: String
+    $password: String
+    $newPassword: String
+  ) {
+    updateProfile(
+      name: $name
+      photo: $photo
+      phoneNumber: $phoneNumber
+      password: $password
+      newPassword: $newPassword
+    ) {
+      ok
+      error
+    }
+  }
+`;

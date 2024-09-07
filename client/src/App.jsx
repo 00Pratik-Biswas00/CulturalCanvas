@@ -26,7 +26,6 @@ import CreateTrip from "./pages/ExploreDiversity/CreateTrip";
 import PredictAmount from "./pages/ExploreDiversity/PredictAmount";
 import TripCreation from "./pages/ExploreDiversity/TripCreation";
 import ViewTrip from "./pages/ExploreDiversity/ViewTrip/[tripId]/index";
-import { GoogleOAuthProvider } from "@react-oauth/google";
 import SinglePageCulture from "./pages/SinglePageCulture";
 import MultiplePagesCulture from "./pages/MultiplePagesCulture";
 import MultipleSingleCulture from "./pages/MultiplePagesCulture/MultipleSingleCulture";

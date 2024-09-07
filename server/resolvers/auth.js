@@ -122,6 +122,53 @@ const authResolver = {
         throw new Error("Error. Try again.");
       }
     },
+    updateProfile: async (
+      _,
+      { name, photo, phoneNumber, password, newPassword },
+      { userId }
+    ) => {
+      if (!userId) {
+        throw new Error("You must be logged in to update your profile.");
+      }
+      const user = await User.findById(userId);
+      const updateData = {};
+      if (name) {
+        updateData.name = name;
+      }
+      if (phoneNumber) {
+        updateData.phone = phoneNumber;
+      }
+      if (password) {
+        const match = await comparePassword(password, user.password);
+        if (match && newPassword) {
+          const salt = await bcrypt.genSalt(10);
+          updateData.password = await bcrypt.hash(newPassword, salt);
+        }
+      }
+      if (photo) {
+        updateData.photo = photo;
+      }
+
+      try {
+        const updatedUser = await User.findByIdAndUpdate(userId, updateData, {
+          new: true,
+        });
+
+        if (!updatedUser) {
+          throw new Error("User not found");
+        }
+
+        return {
+          ok: true,
+          error: null,
+        };
+      } catch (error) {
+        return {
+          ok: false,
+          error: error.message,
+        };
+      }
+    },
   },
 };
 
