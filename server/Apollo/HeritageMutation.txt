@@ -1,24 +1,34 @@
-mutation CreateHeritage($name: String!, $image: ImageInput!, , $introduction: String!,$part1: [DescriptionInput], 
-$animatedVideo:VideoInput,$endlessDigitalArt:VideoInput,
-$vlogVideo:VideoInput,$type_of_heritage:HeritageTypeInput!,$part2: [DescriptionInput],$tag: String! $police_helpline: String!,$state_culture_name:StateInput!,$women_helpline: String!,$child_helpline: String!,$fire_emergency: String!,$medical_emergency: String!,$entry_fee:Float!){
+mutation CreateHeritage(
+  $name: String!, 
+  $image: ImageInput!, 
+  $introduction: String!, 
+  $part1: [DescriptionInput], 
+  $animatedVideo: VideoInput, 
+  $endlessDigitalArt: VideoInput, 
+  $vlogVideo: VideoInput, 
+  $nearest_attractions: [ID],
+  $type_of_heritage: HeritageTypeInput!, 
+  $tag: String!, 
+  $distance: String!, 
+  $state_culture_name: StateInput!, 
+  $helpline_numbers: [helpLineInput], 
+  $entry_fee: Float!
+) {
   createHeritage(
     name: $name,
     image: $image,
-    introduction:$introduction,
-    police_helpline:$police_helpline,
-    women_helpline:$women_helpline,
-    child_helpline:$child_helpline,
-    fire_emergency:$fire_emergency,
-    tag:$tag,
-    state_culture_name:$state_culture_name,
-    medical_emergency:$medical_emergency,
-    endlessDigitalArt:$endlessDigitalArt,
-    vlogVideo:$vlogVideo,
-    animatedVideo:$animatedVideo,
-    type_of_heritage:$type_of_heritage,
-    part1:$part1,
-    part2:$part2,
-    entry_fee:$entry_fee,
+    introduction: $introduction,
+    tag: $tag,
+    state_culture_name: $state_culture_name,
+    helpline_numbers: $helpline_numbers,
+    endlessDigitalArt: $endlessDigitalArt,
+    vlogVideo: $vlogVideo,
+    animatedVideo: $animatedVideo,
+    type_of_heritage: $type_of_heritage,
+    part1: $part1,
+    entry_fee: $entry_fee,
+    distance: $distance,
+    nearest_attractions: $nearest_attractions, # Corrected variable name
   ) {
     id
     name
@@ -53,10 +63,6 @@ $vlogVideo:VideoInput,$type_of_heritage:HeritageTypeInput!,$part2: [DescriptionI
       heading
       description
     }
-    part2 {
-      heading
-      description
-    }
     type_of_heritage {
       image {
         public_id
@@ -65,11 +71,14 @@ $vlogVideo:VideoInput,$type_of_heritage:HeritageTypeInput!,$part2: [DescriptionI
       type
     }
     tag
-    police_helpline
-    women_helpline
-    fire_emergency
-    medical_emergency
-    child_helpline
+    helpline_numbers {
+      women_helpline
+      child_helpline
+      fire_brigade
+      police_helpline
+      ambulance_helpline
+      hospital_helpline
+    }
     state_culture_name {
       image {
         public_id
@@ -78,15 +87,22 @@ $vlogVideo:VideoInput,$type_of_heritage:HeritageTypeInput!,$part2: [DescriptionI
       name
     }
     entry_fee
-    nearest_attraction
+    nearest_attractions{
+      image {
+        url
+      }
+      _id
+    }
+    distance
     state_culture_link
   }
 }
 
+
 Apollo variables--------------->
 
 {
-      "name": "Agra Fort",
+      "name": "TAJ MAHAL",
       "image": {
         "public_id": "d2p6edoq6zngtlzifbpm",
         "url": "https://res.cloudinary.com/dqyqqysgx/image/upload/v1725474616/d2p6edoq6zngtlzifbpm.jpg"
@@ -119,12 +135,6 @@ Apollo variables--------------->
           "description": "dummy description1"
         }
       ],
-      "part2": [
-        {
-          "heading": "dummy heading2",
-          "description": "dummy description2"
-        }
-      ],
       "type_of_heritage": {
         "image": {
           "public_id": "zekbysa3qjzn19wsqama",
@@ -133,11 +143,16 @@ Apollo variables--------------->
         "type": "unesco_listed"
       },
       "tag": "cultural",
-      "police_helpline": "100",
+      "helpline_numbers":[
+        {
+          "police_helpline": "100",
       "women_helpline": "1091",
-      "fire_emergency": "101",
-      "medical_emergency": "102",
-      "child_helpline": "1098",
+       "child_helpline": "1098",
+       "hospital_helpline":"12345",
+       "ambulance_helpline":"0090", 
+       "fire_brigade":"5678"
+        }
+      ],
       "state_culture_name": {
         "image": {
           "public_id": "aobc6uqiqrj96m2xfygp",
@@ -146,38 +161,36 @@ Apollo variables--------------->
         "name": "Uttar Pradesh"
       },
       "entry_fee": 10.5,
-      "nearest_attraction": [],
-      "state_culture_link": []
+      "distance": "50",
+      "nearest_attractions":[
+        "66db56aeb91c9a5793718c43"
+      ],
     }
-  }
 }
 
 
 
  updateHeritage:
 
- mutation updateHeritage($id:ID!,$name: String!, $image: ImageInput!, , $introduction: String!,$part1: [DescriptionInput], 
+ mutation updateHeritage($name: String, $image: ImageInput,$id:ID!, $introduction: String,$part1: [DescriptionInput], 
 $animatedVideo:VideoInput,$endlessDigitalArt:VideoInput,
-$vlogVideo:VideoInput,$type_of_heritage:HeritageTypeInput!,$part2: [DescriptionInput],$tag: String! $police_helpline: String!,$state_culture_name:StateInput!,$women_helpline: String!,$child_helpline: String!,$fire_emergency: String!,$medical_emergency: String!,$entry_fee:Float!){
+$vlogVideo:VideoInput,$nearest_attraction:[ID],$type_of_heritage:HeritageTypeInput,$tag: String,$distance:String,$state_culture_name:StateInput,$helpline_numbers:[helpLineInput],$entry_fee:Float){
   updateHeritage(
     id:$id,
     name: $name,
     image: $image,
     introduction:$introduction,
-    police_helpline:$police_helpline,
-    women_helpline:$women_helpline,
-    child_helpline:$child_helpline,
-    fire_emergency:$fire_emergency,
     tag:$tag,
     state_culture_name:$state_culture_name,
-    medical_emergency:$medical_emergency,
+    helpline_numbers:$helpline_numbers,
     endlessDigitalArt:$endlessDigitalArt,
     vlogVideo:$vlogVideo,
     animatedVideo:$animatedVideo,
     type_of_heritage:$type_of_heritage,
     part1:$part1,
-    part2:$part2,
     entry_fee:$entry_fee,
+    distance:$distance,
+    nearest_attractions:$nearest_attraction,
   ) {
     id
     name
@@ -212,10 +225,6 @@ $vlogVideo:VideoInput,$type_of_heritage:HeritageTypeInput!,$part2: [DescriptionI
       heading
       description
     }
-    part2 {
-      heading
-      description
-    }
     type_of_heritage {
       image {
         public_id
@@ -224,11 +233,14 @@ $vlogVideo:VideoInput,$type_of_heritage:HeritageTypeInput!,$part2: [DescriptionI
       type
     }
     tag
-    police_helpline
-    women_helpline
-    fire_emergency
-    medical_emergency
-    child_helpline
+    helpline_numbers{
+      women_helpline
+      child_helpline
+      fire_brigade
+      police_helpline
+      ambulance_helpline
+      hospital_helpline
+    }
     state_culture_name {
       image {
         public_id
@@ -237,7 +249,8 @@ $vlogVideo:VideoInput,$type_of_heritage:HeritageTypeInput!,$part2: [DescriptionI
       name
     }
     entry_fee
-    nearest_attraction
+    nearest_attractions
+    distance
     state_culture_link
   }
 }
@@ -277,12 +290,6 @@ APOLLO VARIABLES:----------------------------->
         {
           "heading": "dummy heading1",
           "description": "dummy description1"
-        }
-      ],
-      "part2": [
-        {
-          "heading": "dummy heading2",
-          "description": "dummy description2"
         }
       ],
       "type_of_heritage": {

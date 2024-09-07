@@ -4,58 +4,31 @@ Apollo Query: GET ALL HERITAGES
 
 GetHeritages:
 query {
-  getHeritages {
+  getHeritages 
+  {
     _id
     name
     slug
-    introduction
-    image{
+    image {
       public_id
       url
     }
-    type_of_heritage{
-        image{
-            public_id
-            url
-        }
-        type
+    introduction
+    type_of_heritage {
+      image {
+        public_id
+        url
+      }
+      type
     }
     tag
-    part1 {
-      heading
-      description
+    state_culture_name {
+      image {
+        public_id
+        url
+      }
+      name
     }
-    part2 {
-      heading
-      description
-    }
-    vlogVideo {
-      ETag
-      ServerSideEncryption
-      Location
-      Key
-      Bucket
-    }
-    animatedVideo {
-      ETag
-                ServerSideEncryption
-                Location
-                Key
-                Bucket
-    }
-    endlessDigitalArt {
-      ETag
-                ServerSideEncryption
-                Location
-                Key
-                Bucket
-    }
-    police_helpline
-    women_helpline
-    child_helpline
-    fire_emergency
-    medical_emergency   
-    entry_fee
   }
 }
 
@@ -78,10 +51,6 @@ query GetHeritage($slug: String!) {
     }
     tag
     part1 {
-      heading
-      description
-    }
-    part2 {
       heading
       description
     }

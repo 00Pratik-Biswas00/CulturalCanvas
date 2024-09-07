@@ -10,7 +10,6 @@ export const CREATE_HERITAGE_MUTATION = gql`
     $endlessDigitalArt: VideoInput
     $vlogVideo: VideoInput
     $type_of_heritage: HeritageTypeInput!
-    $part2: [DescriptionInput]
     $tag: String!
     $police_helpline: String!
     $state_culture_name: StateInput!
@@ -71,10 +70,6 @@ export const CREATE_HERITAGE_MUTATION = gql`
         heading
         description
       }
-      part2 {
-        heading
-        description
-      }
       type_of_heritage {
         image {
           public_id
@@ -113,7 +108,6 @@ export const UPDATE_HERITAGE_MUTATION = gql`
     $endlessDigitalArt: VideoInput
     $vlogVideo: VideoInput
     $type_of_heritage: HeritageTypeInput!
-    $part2: [DescriptionInput]
     $tag: String!
     $police_helpline: String!
     $state_culture_name: StateInput!
@@ -140,7 +134,6 @@ export const UPDATE_HERITAGE_MUTATION = gql`
       animatedVideo: $animatedVideo
       type_of_heritage: $type_of_heritage
       part1: $part1
-      part2: $part2
       entry_fee: $entry_fee
     ) {
       id
@@ -172,10 +165,6 @@ export const UPDATE_HERITAGE_MUTATION = gql`
         Key
       }
       part1 {
-        heading
-        description
-      }
-      part2 {
         heading
         description
       }

@@ -16,7 +16,9 @@ const courseResolvers = {
 
     getCourse: async (_, { slug }) => {
       try {
-        const course = await Course.findOne({slug: slug}).populate("instructor");
+        const course = await Course.findOne({ slug: slug }).populate(
+          "instructor"
+        );
         return course;
       } catch (error) {
         console.log("Error fetching courses: ", error);
