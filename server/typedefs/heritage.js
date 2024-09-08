@@ -19,6 +19,15 @@ const heritageTypeDefs = gql`
     image: Image!
   }
 
+  type helpLine {
+    police_helpline: String!
+    women_helpline: String!
+    child_helpline: String!
+    ambulance_helpline: String!
+    hospital_helpline: String!
+    fire_brigade: String!
+  }
+
   type Description {
     heading: String!
     description: String!
@@ -27,6 +36,16 @@ const heritageTypeDefs = gql`
   type State {
     name: String!
     image: Image!
+  }
+
+  # New type for nearest attractions
+  type NearestAttraction {
+    _id: ID!
+    name: String!
+    image: Image
+    distance: String!
+    entry_fee: Float!
+    slug: String! # Slug for linking to the single heritage page
   }
 
   # Output types for queries
@@ -40,18 +59,14 @@ const heritageTypeDefs = gql`
     animatedVideo: Video
     vlogVideo: Video
     part1: [Description]
-    part2: [Description]
     type_of_heritage: HeritageType
     tag: String
-    police_helpline: String!
-    women_helpline: String!
-    child_helpline: String!
-    fire_emergency: String!
-    medical_emergency: String!
+    helpline_numbers: [helpLine]
     state_culture_link: ID!
     state_culture_name: State!
     entry_fee: Float
-    nearest_attraction: [ID]
+    #nearest_attractions: [NearestAttraction] # Changed to return full details
+    distance: String!
     createdAt: String
     updatedAt: String
   }
@@ -60,6 +75,15 @@ const heritageTypeDefs = gql`
   input ImageInput {
     url: String!
     public_id: String!
+  }
+
+  input helpLineInput {
+    police_helpline: String!
+    women_helpline: String!
+    child_helpline: String!
+    ambulance_helpline: String!
+    hospital_helpline: String!
+    fire_brigade: String!
   }
 
   input VideoInput {
@@ -96,18 +120,14 @@ const heritageTypeDefs = gql`
     animatedVideo: Video
     vlogVideo: Video
     part1: [Description]
-    part2: [Description]
     type_of_heritage: HeritageType
     tag: String
-    police_helpline: String!
-    women_helpline: String!
-    child_helpline: String!
-    fire_emergency: String!
-    medical_emergency: String!
+    helpline_numbers: [helpLine]
     state_culture_name: State!
     state_culture_link: [ID]
     entry_fee: Float
-    nearest_attraction: [ID]
+    nearest_attractions: [NearestAttraction] # Return full nearest attraction details
+    distance: String!
     createdAt: String
     updatedAt: String
   }
@@ -127,16 +147,13 @@ const heritageTypeDefs = gql`
       animatedVideo: VideoInput
       vlogVideo: VideoInput
       part1: [DescriptionInput]
-      part2: [DescriptionInput]
       type_of_heritage: HeritageTypeInput!
       tag: String!
-      police_helpline: String!
-      women_helpline: String!
-      child_helpline: String!
-      fire_emergency: String!
-      medical_emergency: String!
+      helpline_numbers: [helpLineInput]
       state_culture_name: StateInput!
       entry_fee: Float!
+      distance: String!
+      nearest_attractions: [ID] # Input is still an array of IDs
     ): HeritageResponse
 
     updateHeritage(
@@ -148,21 +165,14 @@ const heritageTypeDefs = gql`
       animatedVideo: VideoInput
       vlogVideo: VideoInput
       part1: [DescriptionInput]
-      part2: [DescriptionInput]
       type_of_heritage: HeritageTypeInput
       tag: String
-      police_helpline: String
-      women_helpline: String
-      child_helpline: String
-      fire_emergency: String
-      medical_emergency: String
+      helpline_numbers: [helpLineInput]
       state_culture_name: StateInput
       entry_fee: Float
+      distance: String
+      nearest_attractions: [ID] # Still an array of IDs for input
     ): HeritageResponse
-
-    addState(id: ID!, state_culture_name: StateInput!): State
-
-    removeState(stateId: ID!, heritageId: ID!): HeritageResponse
 
     deleteHeritage(id: ID!): String!
   }

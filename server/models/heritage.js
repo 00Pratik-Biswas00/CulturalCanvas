@@ -27,6 +27,39 @@ const stateSchema = new Schema({
   },
 });
 
+const helpLineSchema = new Schema({
+  police_helpline: {
+    type: String,
+    trim: true,
+    required: true,
+  },
+  women_helpline: {
+    type: String,
+    trim: true,
+    required: true,
+  },
+  child_helpline: {
+    type: String,
+    trim: true,
+    required: true,
+  },
+  ambulance_helpline: {
+    type: String,
+    trim: true,
+    required: true,
+  },
+  hospital_helpline: {
+    type: String,
+    trim: true,
+    required: true,
+  },
+  fire_brigade: {
+    type: String,
+    trim: true,
+    required: true,
+  },
+});
+
 const heritageSchema = new Schema(
   {
     name: {
@@ -119,37 +152,12 @@ const heritageSchema = new Schema(
       },
     },
     part1: [descriptionSchema],
-    part2: [descriptionSchema],
     type_of_heritage: heritageTypeSchema,
     tag: {
       type: String,
       enum: ["cultural", "natural", "tangible", "intangible"],
     },
-    police_helpline: {
-      type: String,
-      trim: true,
-      required: true,
-    },
-    women_helpline: {
-      type: String,
-      trim: true,
-      required: true,
-    },
-    child_helpline: {
-      type: String,
-      trim: true,
-      required: true,
-    },
-    fire_emergency: {
-      type: String,
-      trim: true,
-      required: true,
-    },
-    medical_emergency: {
-      type: String,
-      trim: true,
-      required: true,
-    },
+    helpline_numbers: [helpLineSchema],
     state_culture_name: stateSchema,
     state_culture_link: [
       {
@@ -162,12 +170,17 @@ const heritageSchema = new Schema(
       required: true,
       default: 0,
     },
-    nearest_attraction: [
+    nearest_attractions: [
       {
         type: Schema.Types.ObjectId,
         ref: "Heritage",
       },
     ],
+    distance: {
+      type: String,
+      trim: true,
+      required: true,
+    },
   },
   { timestamps: true }
 );

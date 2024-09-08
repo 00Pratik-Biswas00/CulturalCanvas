@@ -77,17 +77,24 @@ const SingleHeritage = () => {
 
             {/* description and animated intro */}
             <div className="bg-background1 dark:bg-dark_background1 py-4 px-16 text-lg flex flex-col items-center justify-center w-full h-full">
-              {/* Map the part1 content before the video */}
-              <div className="flex flex-col gap-1">
-                {heritage?.part1?.map((section, index) => (
-                  <div key={index} className="mb-4">
-                    <h1 className="font-semibold font-montserrat text-2xl">
-                      {section.heading}
-                    </h1>
-                    <p>{section.description}</p>
+              {/* Check if part1 exists */}
+              {heritage?.part1?.length > 0 && (
+                <>
+                  {/* Map the first half of part1 before the video */}
+                  <div className="flex flex-col gap-1">
+                    {heritage.part1
+                      .slice(0, Math.ceil(heritage.part1.length / 2))
+                      .map((section, index) => (
+                        <div key={index} className="mb-4">
+                          <h1 className="font-semibold font-montserrat text-2xl">
+                            {section.heading}
+                          </h1>
+                          <p>{section.description}</p>
+                        </div>
+                      ))}
                   </div>
-                ))}
-              </div>
+                </>
+              )}
 
               {/* Video Section */}
               <div className="my-4 w-full flex flex-col gap-4 justify-center">
@@ -111,17 +118,23 @@ const SingleHeritage = () => {
                 )}
               </div>
 
-              {/* Map the part2 content after the video */}
-              <div className="flex flex-col gap-1">
-                {heritage?.part2?.map((section, index) => (
-                  <div key={index} className="mb-4">
-                    <h1 className="font-semibold font-montserrat text-2xl">
-                      {section.heading}
-                    </h1>
-                    <p>{section.description}</p>
+              {/* Map the second half of part1 after the video */}
+              {heritage?.part1?.length > 0 && (
+                <>
+                  <div className="flex flex-col gap-1">
+                    {heritage.part1
+                      .slice(Math.ceil(heritage.part1.length / 2))
+                      .map((section, index) => (
+                        <div key={index} className="mb-4">
+                          <h1 className="font-semibold font-montserrat text-2xl">
+                            {section.heading}
+                          </h1>
+                          <p>{section.description}</p>
+                        </div>
+                      ))}
                   </div>
-                ))}
-              </div>
+                </>
+              )}
             </div>
 
             {/* vlog */}
