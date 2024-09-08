@@ -1,0 +1,44 @@
+query getLanguages {
+   getLanguages {
+    _id
+    name
+    image {
+      public_id
+      url
+    }
+    slug
+    description
+    content {
+      title
+      description
+    }
+   }
+}
+
+
+
+getLanguage:
+---------------------->
+
+query getLanguage($slug:String!) {
+   getLanguage(slug:$slug){
+    _id
+    name
+    image {
+      public_id
+      url
+    }
+    slug
+    description
+    content {
+      title
+      description
+    }
+   }
+}
+
+APOLLO VARIABLES:
+---------------------->
+{
+  "slug": "bengali-বাংলা-imq35ume6cmqrofk67-ij"
+}
