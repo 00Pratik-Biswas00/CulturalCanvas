@@ -17,6 +17,8 @@ import courseTypeDefs from "./typedefs/course.js";
 import courseResolvers from "./resolvers/course.js";
 import religionResolvers from "./resolvers/religion.js";
 import religionTypeDefs from "./typedefs/religion.js";
+import languageResolvers from "./resolvers/language.js";
+import languageTypeDefs from "./typedefs/language.js";
 import connect from "./config.js";
 
 const customLoggingPlugin = {
@@ -45,12 +47,14 @@ const typeDefs = mergeTypeDefs([
   heritageTypeDefs,
   courseTypeDefs,
   religionTypeDefs,
+  languageTypeDefs,
 ]);
 const resolvers = mergeResolvers([
   authResolver,
   heritageResolvers,
   courseResolvers,
   religionResolvers,
+  languageResolvers,
 ]);
 
 const apolloServer = new ApolloServer({
