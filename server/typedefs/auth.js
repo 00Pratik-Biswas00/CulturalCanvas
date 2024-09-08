@@ -16,6 +16,13 @@ const authTypeDefs = gql`
     login(email: String!, password: String!): LoginResponse!
     forgotPassword(email: String!): AuthResponse!
     resetPassword(otp: String!, password: String!): AuthResponse!
+    updateProfile(
+      name: String
+      photo: PhotoInput
+      phoneNumber: String
+      password: String
+      newPassword: String
+    ): AuthResponse!
   }
 
   type User {
@@ -32,6 +39,10 @@ const authTypeDefs = gql`
   }
 
   type Photo {
+    url: String
+    public_id: String
+  }
+  input PhotoInput {
     url: String
     public_id: String
   }

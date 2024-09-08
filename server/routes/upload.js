@@ -26,7 +26,7 @@ router.post(
 );
 
 router.post("/remove-image", async (req, res) => {
-  const { image } = req.body;
+  const { public_id } = req.body;
   const deletePhoto = (publicId) => {
     return new Promise((resolve) => {
       cloudinary.uploader.destroy(publicId, (result) => {
@@ -34,7 +34,7 @@ router.post("/remove-image", async (req, res) => {
       });
     });
   };
-  const photoPublicId = image.public_id;
+  const photoPublicId = public_id;
   try {
     await deletePhoto(photoPublicId);
     res.status(200).json({ status: true });
