@@ -6,17 +6,6 @@ const descriptionSchema = new Schema({
   description: { type: String, required: true },
 });
 
-const heritageTypeSchema = new Schema({
-  type: {
-    type: String,
-    enum: ["unesco_listed", "unesco_unlisted", "local_heritage"],
-  },
-  image: {
-    url: String,
-    public_id: String,
-  },
-});
-
 const stateSchema = new Schema({
   name: {
     type: String,
@@ -152,30 +141,21 @@ const heritageSchema = new Schema(
       },
     },
     part1: [descriptionSchema],
-    type_of_heritage: heritageTypeSchema,
+    type_of_heritage: {
+      type: String,
+      enum: ["unesco_listed", "unesco_unlisted", "local_heritage"],
+    },
     tag: {
       type: String,
       enum: ["cultural", "natural", "tangible", "intangible"],
     },
     helpline_numbers: [helpLineSchema],
     state_culture_name: stateSchema,
-    state_culture_link: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Culture",
-      },
-    ],
     entry_fee: {
       type: Number,
       required: true,
       default: 0,
     },
-    nearest_attractions: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Heritage",
-      },
-    ],
     distance: {
       type: String,
       trim: true,
