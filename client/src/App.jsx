@@ -22,7 +22,7 @@ import SingleCourse from "./pages/SingleCourse";
 import ScrollToTop from "./components/ScrollToTop";
 import GoToTop from "./components/GoToTopButton";
 import Chatbot from "./components/ChatBot";
-import CreateTrip from "./pages/ExploreDiversity/CreateTrip";
+// import CreateTrip from "./pages/ExploreDiversity/CreateTrip";
 import PredictAmount from "./pages/ExploreDiversity/PredictAmount";
 import TripCreation from "./pages/ExploreDiversity/TripCreation";
 import ViewTrip from "./pages/ExploreDiversity/ViewTrip/[tripId]/index";
@@ -78,14 +78,11 @@ function App() {
           />
           <Route
             path="/explore-diversity/create-trip"
-            element={<CreateTrip />}
-          />
-          <Route
-            path="/explore-diversity/create-trip/own-trip"
             element={<TripCreation />}
           />
+
           <Route
-            path="/explore-diversity/create-trip/own-trip/view-trip/:tripId"
+            path="/explore-diversity/create-trip/view-trip/:tripId"
             element={<ViewTrip />}
           />
           <Route

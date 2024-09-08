@@ -1,4 +1,3 @@
-import { Button } from "../../../../components/ExplorePlacesComponents/ui/button";
 import {
   GetPlaceDetails,
   PHOTO_REF_URL,
@@ -37,26 +36,24 @@ function PlaceCardItem({ place }) {
         }
         target="_blank"
       >
-        <div className="my-4 bg-gray-50 p-2 gap-2 border rounded-lg flex flex-cols-2 hover:scale-105 transition-all hover:shadow-md cursor-pointer ">
-          <div className="py-2 mx-3">
+        <div className="my-4  px-3 py-1 gap-3 border rounded-lg flex flex-cols-2 hover:scale-105 transition-all hover:shadow-md cursor-pointer duration-500 ">
+          <div className="py-2 ">
             <img
               src={photoUrl ? photoUrl : "/public/road-trip-vacation.jpg"}
-              className="w-[140px] h-[140px] rounded-xl object-cover"
+              className="w-[320px] h-[180px] rounded-xl object-cover"
             />
           </div>
-          <div>
+          <div className="py-2 flex flex-col gap-1">
             <h2 className="font-medium text-sm text-orange-600">
               {place.time}
             </h2>
             <h2 className="font-bold">{place.placeName}</h2>
-            <p className="text-sm text-gray-500">{place.placeDetails}</p>
-            <h2 className="text-blue-700 text-sm">{place.ticketPricing}</h2>
+            <p className="text-sm ">{place.placeDetails}</p>
+            <h2 className="text-highlight text-sm">{place.ticketPricing}</h2>
             <h2 className="text-sm text-yellow-500">⭐{place.rating}</h2>
           </div>
-          <div className="mt-36">
-            <Button>
-              <FaLocationDot />
-            </Button>
+          <div className=" py-2">
+            <FaLocationDot />
           </div>
         </div>
       </Link>
