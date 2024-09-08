@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import taj from "../../assets/Heritage/unescologo.png";
+import React, { useState, useEffect } from "react";
+import defaultAvatar from "../../assets/logo/defaultAvatar.png";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { UpdateProfileValidationSchema } from "../../utils/schemas";
 import { UPDATE_PROFILE_MUTATION } from "../../graphql/mutation";
@@ -9,6 +9,14 @@ import api from "./../../config/axios";
 
 const MyProfile = () => {
   const [imagePreview, setImagePreview] = useState(null);
+
+  useEffect(() => {
+    const savedImage = localStorage.getItem("profileImage");
+    if (savedImage) {
+      setImagePreview(savedImage);
+    }
+  }, []);
+
   const handleImageUpload = async (file, setFieldValue) => {
     const formData = new FormData();
     formData.append("image", file);
@@ -20,15 +28,17 @@ const MyProfile = () => {
       const { url, public_id } = data;
 
       setFieldValue("photo", { url, public_id });
-      setImagePreview(data);
+      setImagePreview(url);
     } catch (error) {
       console.error("Error uploading image:", error);
     }
   };
+
   const [updateProfile] = useMutation(UPDATE_PROFILE_MUTATION, {
     onCompleted: (data) => {
       if (data.updateProfile.ok) {
         toast.success("Profile Updated!!");
+        localStorage.setItem("profileImage", imagePreview);
       }
     },
     onError: (error) => {
@@ -36,6 +46,7 @@ const MyProfile = () => {
       console.error(error);
     },
   });
+
   return (
     <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-4 px-16 duration-300 flex flex-col items-center justify-center">
       <Formik
@@ -57,17 +68,18 @@ const MyProfile = () => {
         {({ isSubmitting, setFieldValue }) => (
           <Form className="flex flex-col items-center w-full justify-center gap-5 px-36 py-10">
             <div className="flex flex-col gap-5">
+              {/* Display the image preview or default avatar */}
               {imagePreview ? (
                 <img
                   src={imagePreview}
                   alt="Uploaded Preview"
-                  className="rounded-full w-[22rem] h-[22rem]"
+                  className="rounded-full border-4 w-[22rem] h-[22rem]"
                 />
               ) : (
                 <img
-                  src="default-avatar.jpg"
+                  src={defaultAvatar}
                   alt="Default Avatar"
-                  className="rounded-full w-[22rem] h-[22rem]"
+                  className="rounded-full border-4 w-[22rem] h-[22rem]"
                 />
               )}
               <div className="flex items-center justify-center gap-10">
@@ -101,8 +113,9 @@ const MyProfile = () => {
                           }/remove-image`,
                           imagePreview
                         );
-                        setImagePreview(null);
+                        setImagePreview(null); // Reset image preview to null
                         setFieldValue("photo", null);
+                        localStorage.removeItem("profileImage"); // Remove image from localStorage
                       } catch (error) {
                         console.error("Image delete failed:", error);
                       }
@@ -113,6 +126,7 @@ const MyProfile = () => {
                 </button>
               </div>
             </div>
+
             <div className="flex items-center justify-center gap-10">
               <div className="text-xl font-semibold font-montserrat">
                 Total Vlogs: 0
@@ -216,6 +230,7 @@ const MyProfile = () => {
                 className="text-red-500 text-sm"
               />
             </div>
+
             <div className="flex items-center justify-between w-full gap-10">
               <button
                 type="submit"

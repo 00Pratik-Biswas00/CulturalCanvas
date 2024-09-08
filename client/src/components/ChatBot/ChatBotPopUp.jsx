@@ -1,17 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import ChatBotBg from "../../assets/chatbot/chatbot.png";
 import namaste from "../../assets/chatbot/namaste.png";
 import StartChat from "./StartChat";
 
 const LanguageOptions = [
-  "Bengali", "Hindi", "English", "Tamil", "Assamese", "Bodo", "Dogri", "Gujarati",
-  "Kashmiri", "Kannada", "Konkani", "Maithili", "Malayalam", "Manipuri", "Marathi",
-  "Nepali", "Oriya", "Punjabi", "Sanskrit", "Santali", "Sindhi", "Telugu", "Urdu",
+  "Bengali",
+  "Hindi",
+  "English",
+  "Tamil",
+  "Assamese",
+  "Bodo",
+  "Dogri",
+  "Gujarati",
+  "Kashmiri",
+  "Kannada",
+  "Konkani",
+  "Maithili",
+  "Malayalam",
+  "Manipuri",
+  "Marathi",
+  "Nepali",
+  "Oriya",
+  "Punjabi",
+  "Sanskrit",
+  "Santali",
+  "Sindhi",
+  "Telugu",
+  "Urdu",
 ];
 
 const ChatBotPopUp = ({ onClose }) => {
-  const [selectedLanguage, setSelectedLanguage] = useState("");
+  const [selectedLanguage, setSelectedLanguage] = useState("English"); // Default to English
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
 
@@ -22,6 +42,13 @@ const ChatBotPopUp = ({ onClose }) => {
   const handleLanguageSelect = (language) => {
     setSelectedLanguage(language);
     setIsDropdownOpen(false);
+  };
+
+  const handleStartChat = () => {
+    if (!selectedLanguage) {
+      setSelectedLanguage("English"); // Ensure English is set if no language is chosen
+    }
+    setIsChatOpen(true);
   };
 
   const sortLanguagesAlphabetically = (languages) => {
@@ -92,7 +119,7 @@ const ChatBotPopUp = ({ onClose }) => {
 
                       <div
                         className="text-center text-dark_primary_text py-1 cursor-pointer bg-[#2a3d4c] hover:bg-[#1b2934] rounded-xl focus:outline-none focus:border focus:border-highlight w-full"
-                        onClick={() => setIsChatOpen(true)}
+                        onClick={handleStartChat}
                       >
                         Start Chat
                       </div>
@@ -109,7 +136,10 @@ const ChatBotPopUp = ({ onClose }) => {
                     lg:w-[450px] lg:h-[420px]
                     xl:w-[400px] xl:h-[450px]"
                 >
-                  <StartChat selectedLanguage={selectedLanguage} onClose={() => setIsChatOpen(false)} />
+                  <StartChat
+                    selectedLanguage={selectedLanguage}
+                    onClose={() => setIsChatOpen(false)}
+                  />
                 </div>
               )}
             </div>
