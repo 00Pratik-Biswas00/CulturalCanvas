@@ -6,10 +6,16 @@ import { UPDATE_PROFILE_MUTATION } from "../../graphql/mutation";
 import { toast } from "sonner";
 import { useMutation } from "@apollo/client";
 import api from "./../../config/axios";
+import { useDispatch } from "react-redux";
+import { logoutUser } from "../../redux/slices/authSlice";
 
 const MyProfile = () => {
   const [imagePreview, setImagePreview] = useState(null);
-
+  const dispatch = useDispatch();
+  const logout = () => {
+    dispatch(logoutUser());
+    window.location.href = "/";
+  };
   useEffect(() => {
     const savedImage = localStorage.getItem("profileImage");
     if (savedImage) {
@@ -242,7 +248,7 @@ const MyProfile = () => {
               <button
                 type="button"
                 className="bg-red-600 hover:bg-red-900 text-dark_primary_text px-4 py-1 rounded-xl text-lg transition-all font-semibold duration-300"
-                onClick={() => console.log("Log Out")}
+                onClick={logout}
               >
                 Log Out
               </button>

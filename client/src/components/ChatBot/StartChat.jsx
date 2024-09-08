@@ -23,26 +23,19 @@ const StartChat = ({ selectedLanguage, onClose }) => {
     setConversation((prev) => [...prev, userMessage]);
 
     try {
-      // Construct the payload based on Gemini API's expected structure
+      // Construct the payload based on the correct Gemini API structure
       const payload = {
-        input: {
-          messages: [
-            {
-              role: "system",
-              content: `You are an expert in heritage and culture. Respond to all questions in ${selectedLanguage}. Keep the responses precise. If something is irrelevant, respond that it's irrelevant.`,
-            },
-            {
-              role: "user",
-              content: question,
-            },
-          ],
-        },
-        parameters: {
-          maxTokens: 100, // Adjust field name if different in Gemini API
-        },
+        contents: [
+          {
+            role: "user",
+            parts: [
+              {
+                text: `You are an expert in heritage and culture. Act as an expert in ${selectedLanguage} and answer all the questions in the same language. Keep information precise, and if someone asks something irrelevant, respond that it's irrelevant. ${question}`,
+              },
+            ],
+          },
+        ],
       };
-
-      console.log("Request Payload:", payload); // Debugging the payload
 
       const response = await axios.post(
         `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${
@@ -56,11 +49,10 @@ const StartChat = ({ selectedLanguage, onClose }) => {
         }
       );
 
-      // Adjust based on the actual response structure from Gemini API
+      // Extract the response from the API. Adjust based on actual response structure.
       const newAnswer =
-        response?.data?.candidates?.[0]?.content?.parts?.[0]?.text ||
+        response?.data?.candidates[0]?.content?.parts[0]?.text ||
         "No response received.";
-
       // Add the AI's response to the conversation
       const aiMessage = {
         answer: newAnswer,
