@@ -32,6 +32,7 @@ import MultipleSingleCulture from "./pages/MultiplePagesCulture/MultipleSingleCu
 import MyProfile from "./pages/MyProfile";
 import MyTrips from "./components/ExplorePlacesComponents/MyTrips";
 import BudgetPredictor from "./pages/BudgetPrediction";
+import SingleStateCulture from "./pages/SingleStateCulture";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -108,6 +109,10 @@ function App() {
           <Route
             path="/culture-tradition/multiple-pages"
             element={<MultiplePagesCulture />}
+          />
+          <Route
+            path="/culture-tradition/single-state"
+            element={<SingleStateCulture />}
           />
 
           <Route

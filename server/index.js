@@ -20,6 +20,8 @@ import religionTypeDefs from "./typedefs/religion.js";
 import languageResolvers from "./resolvers/language.js";
 import languageTypeDefs from "./typedefs/language.js";
 import connect from "./config.js";
+import stateCultureResolvers from "./resolvers/stateculture.js";
+import stateCultureTypeDefs from "./typedefs/stateculture.js";
 
 const customLoggingPlugin = {
   requestDidStart(requestContext) {
@@ -48,6 +50,7 @@ const typeDefs = mergeTypeDefs([
   courseTypeDefs,
   religionTypeDefs,
   languageTypeDefs,
+  stateCultureTypeDefs,
 ]);
 const resolvers = mergeResolvers([
   authResolver,
@@ -55,6 +58,7 @@ const resolvers = mergeResolvers([
   courseResolvers,
   religionResolvers,
   languageResolvers,
+  stateCultureResolvers,
 ]);
 
 const apolloServer = new ApolloServer({
