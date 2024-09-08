@@ -1,9 +1,15 @@
 import React from "react";
 import upImg from "../../assets/Heritage/up.png";
 import { dummyData } from "../../utils/constants";
+import { useNavigate } from "react-router-dom";
 
 const StateCultures = () => {
   const { StateCulturesData } = dummyData;
+  const navigate = useNavigate();
+
+  const openSingleState = () => {
+    navigate(`/culture-tradition/single-state`);
+  };
 
   return (
     <div className="text-primary_text dark:text-dark_primary_text flex flex-col py-5 ">
@@ -27,15 +33,17 @@ const StateCultures = () => {
             <div
               className={`backdrop-blur-lg bg-opacity-80  rounded-lg flex flex-col items-center gap-1`}
             >
-              <a
-                href={content.individualPage}
+              <button
+                onClick={() => {
+                  openSingleState();
+                }}
                 className="flex items-center justify-center "
               >
                 <img
                   src={content.stateImg}
                   className="w-full h-full duration-500 transition-transform hover:scale-105 transform-cpu  "
                 />
-              </a>
+              </button>
 
               <div
                 className={` ${borderClass} ${shadowClass} border-x-2 border-t-2 font-bold font-ubuntu px-5 py-2 relative flex items-center justify-center rounded-xl -bottom-5 `}
