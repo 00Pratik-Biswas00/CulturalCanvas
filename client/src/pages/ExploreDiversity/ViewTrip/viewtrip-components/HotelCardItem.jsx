@@ -36,14 +36,16 @@ function HotelCardItem({ item }) {
         }
         target="_blank"
       >
-        <div className="hover:scale-105 transition-all cursor-pointer">
+        <div className="hover:scale-105 transition-all cursor-pointer duration-500">
           <img
             src={photoUrl ? photoUrl : "/public/road-trip-vacation.jpg"}
             className="rounded-xl h-[180px] w-full object-cover"
           />
           <div className="my-3 py-2">
             <h2 className="font-medium">{item?.hotelName}</h2>
-            <h2 className="text-xs text-gray-500">📍{item?.hotelAddress} </h2>
+            <h2 className="text-xs text-secondary_text dark:text-background2">
+              📍{item?.hotelAddress}{" "}
+            </h2>
             <h2 className="text-sm">💰{item?.price}</h2>
             <h2 className="text-sm">⭐{item?.rating} </h2>
           </div>

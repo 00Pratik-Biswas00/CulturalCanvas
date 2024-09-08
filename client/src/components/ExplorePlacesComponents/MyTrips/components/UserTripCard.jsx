@@ -22,7 +22,7 @@ function UserTripCard({ trip }) {
     });
   };
   return (
-    <Link to={`/explore-diversity/create-trip/own-trip/view-trip/${trip._id}`}>
+    <Link to={`/explore-diversity/create-trip/view-trip/${trip._id}`}>
       <div className="hover:scale-105 transition-all hover:shadow-sm">
         <img
           src={photoUrl}

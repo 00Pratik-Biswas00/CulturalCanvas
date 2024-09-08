@@ -26,19 +26,19 @@ function InfoSection({ trip }) {
     <div>
       <img
         src={photoUrl ? photoUrl : "/public/road-trip-vacation.jpg"}
-        className="h-[330px] w-full object-cover rounded-xl"
+        className="h-[500px] w-full object-cover rounded-xl"
       />
       <div className="flex justify-between items-center">
-        <div className="my-6 flex flex-col gap-2">
-          <h2 className="font-bold text-2xl">{trip?.location}</h2>
-          <div className="flex gap-6 mt-4">
-            <h2 className="bg-gray-200 font-medium text-gray-600 rounded-full p-1 px-4 md:text-md">
+        <div className="my-4 flex flex-col gap-4">
+          <h2 className="font-bold text-3xl">{trip?.location}</h2>
+          <div className="flex gap-6 ">
+            <h2 className="bg-gray-200 font-medium text-gray-600 rounded-xl p-1 px-4 md:text-md">
               🗓️ {trip?.totalDays} Day
             </h2>
-            <h2 className="bg-gray-200 font-medium text-gray-600 rounded-full p-1 px-4 md:text-md">
+            <h2 className="bg-gray-200 font-medium text-gray-600 rounded-xl p-1 px-4 md:text-md">
               👩‍👧‍👦 Number of Traveler : {trip?.traveler} People
             </h2>
-            <h2 className="bg-gray-200 font-medium text-gray-600 rounded-full p-1 px-4 md:text-md">
+            <h2 className="bg-gray-200 font-medium text-gray-600 rounded-xl p-1 px-4 md:text-md">
               💵 {trip?.budget} Budget{" "}
             </h2>
           </div>
