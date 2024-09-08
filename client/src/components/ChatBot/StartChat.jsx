@@ -37,6 +37,7 @@ const StartChat = ({ selectedLanguage, onClose }) => {
         ],
       };
 
+
       const response = await axios.post(
         `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${
           import.meta.env.VITE_GOOGLE_GEMINI_AI_API_KEY
@@ -53,6 +54,7 @@ const StartChat = ({ selectedLanguage, onClose }) => {
       const newAnswer =
         response?.data?.candidates[0]?.content?.parts[0]?.text ||
         "No response received.";
+
       // Add the AI's response to the conversation
       const aiMessage = {
         answer: newAnswer,

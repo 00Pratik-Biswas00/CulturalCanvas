@@ -6,10 +6,7 @@ const heritageResolvers = {
   Query: {
     getHeritages: async () => {
       try {
-        const heritages = await Heritage.find().populate({
-          path: "nearest_attractions",
-          select: "name image distance entry_fee slug",
-        });
+        const heritages = await Heritage.find();
         return heritages;
       } catch (error) {
         console.error("Error fetching heritages: ", error);
@@ -59,7 +56,6 @@ const heritageResolvers = {
         state_culture_name,
         entry_fee,
         distance,
-        nearest_attractions,
       },
       { userId }
     ) => {
@@ -85,7 +81,6 @@ const heritageResolvers = {
           state_culture_name,
           entry_fee,
           distance,
-          nearest_attractions,
           createdBy: userId, // Assuming you want to track who created the heritage
         });
 
@@ -115,7 +110,6 @@ const heritageResolvers = {
         state_culture_name,
         entry_fee,
         distance,
-        nearest_attractions,
       }
     ) => {
       try {
@@ -147,8 +141,6 @@ const heritageResolvers = {
           heritage.state_culture_name = state_culture_name;
         if (entry_fee) heritage.entry_fee = entry_fee;
         if (distance) heritage.distance = distance;
-        if (nearest_attractions)
-          heritage.nearest_attractions = nearest_attractions;
 
         const updatedHeritage = await heritage.save();
 

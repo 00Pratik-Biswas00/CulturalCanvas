@@ -22,6 +22,11 @@ const stateCultureSchema = new Schema(
       type: String,
       required: true,
     },
+    stateHistory: {
+      type: String,
+      trim: true,
+      required: true,
+    },
   },
   {
     timestamps: true,

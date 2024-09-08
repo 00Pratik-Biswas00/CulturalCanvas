@@ -17,6 +17,7 @@ const stateCultureTypeDefs = gql`
     name: String!
     image: Image
     slug: String!
+    stateHistory: String!
   }
 
   # Output types for mutations
@@ -25,6 +26,7 @@ const stateCultureTypeDefs = gql`
     name: String!
     image: Image
     slug: String!
+    stateHistory: String!
     createdAt: String
     updatedAt: String
   }
@@ -35,12 +37,17 @@ const stateCultureTypeDefs = gql`
   }
 
   type Mutation {
-    createStateCulture(name: String!, image: ImageInput!): StateCultureResponse
+    createStateCulture(
+      name: String!
+      image: ImageInput!
+      stateHistory: String!
+    ): StateCultureResponse
 
     updateStateCulture(
       id: ID!
       name: String
       image: ImageInput
+      stateHistory: String!
     ): StateCultureResponse
 
     deleteStateCulture(id: ID!): String!
