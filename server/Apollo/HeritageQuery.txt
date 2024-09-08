@@ -3,9 +3,8 @@ Apollo Query: GET ALL HERITAGES
 
 
 GetHeritages:
-query {
-  getHeritages 
-  {
+query GetHeritages {
+  getHeritages {
     _id
     name
     slug
@@ -14,14 +13,41 @@ query {
       url
     }
     introduction
-    type_of_heritage {
-      image {
-        public_id
-        url
-      }
-      type
+    endlessDigitalArt {
+      ETag
+      Bucket
+      ServerSideEncryption
+      Location
+      Key
     }
+    vlogVideo {
+      ETag
+      Bucket
+      ServerSideEncryption
+      Location
+      Key
+    }
+    animatedVideo {
+      ETag
+      Bucket
+      ServerSideEncryption
+      Location
+      Key
+    }
+    part1 {
+      heading
+      description
+    }
+    type_of_heritage
     tag
+    helpline_numbers {
+      women_helpline
+      child_helpline
+      fire_brigade
+      police_helpline
+      ambulance_helpline
+      hospital_helpline
+    }
     state_culture_name {
       image {
         public_id
@@ -29,6 +55,9 @@ query {
       }
       name
     }
+    entry_fee
+    distance
+  }  
   }
 }
 
@@ -37,49 +66,55 @@ query GetHeritage($slug: String!) {
     _id
     name
     slug
-    introduction
-    image{
+    image {
       public_id
       url
     }
-    type_of_heritage{
-        image{
-            public_id
-            url
-        }
-        type
+    introduction
+    endlessDigitalArt {
+      ETag
+      Bucket
+      ServerSideEncryption
+      Location
+      Key
     }
-    tag
+    vlogVideo {
+      ETag
+      Bucket
+      ServerSideEncryption
+      Location
+      Key
+    }
+    animatedVideo {
+      ETag
+      Bucket
+      ServerSideEncryption
+      Location
+      Key
+    }
     part1 {
       heading
       description
     }
-    vlogVideo {
-      ETag
-      ServerSideEncryption
-      Location
-      Key
-      Bucket
+    type_of_heritage
+    tag
+    helpline_numbers {
+      women_helpline
+      child_helpline
+      fire_brigade
+      police_helpline
+      ambulance_helpline
+      hospital_helpline
     }
-    animatedVideo {
-      ETag
-                ServerSideEncryption
-                Location
-                Key
-                Bucket
+    state_culture_name {
+      image {
+        public_id
+        url
+      }
+      name
     }
-    endlessDigitalArt {
-      ETag
-                ServerSideEncryption
-                Location
-                Key
-                Bucket
-    }
-    police_helpline
-    women_helpline
-    child_helpline
-    fire_emergency
-    medical_emergency   
     entry_fee
+    distance
+  }  
   }
 }

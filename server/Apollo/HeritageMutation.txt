@@ -6,8 +6,7 @@ mutation CreateHeritage(
   $animatedVideo: VideoInput, 
   $endlessDigitalArt: VideoInput, 
   $vlogVideo: VideoInput, 
-  $nearest_attractions: [ID],
-  $type_of_heritage: HeritageTypeInput!, 
+  $type_of_heritage: String!, 
   $tag: String!, 
   $distance: String!, 
   $state_culture_name: StateInput!, 
@@ -28,7 +27,6 @@ mutation CreateHeritage(
     part1: $part1,
     entry_fee: $entry_fee,
     distance: $distance,
-    nearest_attractions: $nearest_attractions, # Corrected variable name
   ) {
     id
     name
@@ -63,13 +61,7 @@ mutation CreateHeritage(
       heading
       description
     }
-    type_of_heritage {
-      image {
-        public_id
-        url
-      }
-      type
-    }
+    type_of_heritage
     tag
     helpline_numbers {
       women_helpline
@@ -87,14 +79,7 @@ mutation CreateHeritage(
       name
     }
     entry_fee
-    nearest_attractions{
-      image {
-        url
-      }
-      _id
-    }
     distance
-    state_culture_link
   }
 }
 
@@ -102,14 +87,32 @@ mutation CreateHeritage(
 Apollo variables--------------->
 
 {
-      "name": "TAJ MAHAL",
-      "image": {
-        "public_id": "d2p6edoq6zngtlzifbpm",
-        "url": "https://res.cloudinary.com/dqyqqysgx/image/upload/v1725474616/d2p6edoq6zngtlzifbpm.jpg"
-      },
-      "introduction": "The Agra Fort is a 16th century red sandstone fortress in Agra, India, that was the main residence of the Mughal emperors until 1638",
-      "endlessDigitalArt": {
-        "ETag": "\"0cebe90e79f133819c94d33549ace93f\"",
+  "name": "Taj Mahal,Agra",
+  "introduction": "The Eternal Symbol of Love and Architectural Marvel",
+  "part1":[
+    {
+      "heading": "A Love Story Carved in Marble",
+      "description": "The story behind the Taj Mahal is as captivating as the monument itself. Shah Jahan’s deep love for Mumtaz Mahal, his third wife, was immortalized in the construction of this breathtaking mausoleum. After her untimely death during childbirth in 1631, Shah Jahan vowed to build a monument that would symbolize their love for eternity. The result is the Taj Mahal, a structure that took over 20 years and 20,000 artisans to complete, standing as a beacon of love and devotion.",
+    },{
+      "heading": "Architectural Splendor: A Fusion of Cultures",
+      "description": "The Taj Mahal’s architecture is a brilliant fusion of Persian, Islamic, and Indian styles. The white marble structure, inlaid with precious and semi-precious stones, is renowned for its symmetry and intricate detailing. The central dome, which rises 240 feet above the ground, is flanked by four smaller domes and four minarets that delicately tilt outwards to protect the main tomb in case of an earthquake. The exquisite marble inlay work, known as 'pietra dura,' features intricate floral patterns and calligraphy, adding to the monument's allure."
+    },{
+      "heading": "The Changing Moods of the Taj Mahal",
+      "description": "One of the most fascinating aspects of the Taj Mahal is how it changes color throughout the day. At dawn, the marble structure takes on a soft pinkish hue, which shifts to dazzling white in the midday sun, and finally, a golden tint under the moonlight. This transformation is not just a visual treat but also symbolizes the different moods of a woman, believed to represent Mumtaz Mahal’s changing emotions."
+    },
+    {
+      "heading": "The Gardens: A Reflection of Paradise",
+      "description": "The Taj Mahal is set within a sprawling Charbagh (four-fold) garden, a symbol of paradise in Islamic culture. The garden is divided by walkways and water channels, with a reflecting pool that perfectly mirrors the Taj Mahal, enhancing its ethereal beauty. The lush greenery and the serene water bodies offer a tranquil environment, creating a stark contrast with the white marble mausoleum, making the Taj Mahal a true symbol of peace and eternity."
+    }
+  ],
+  "tag": "cultural",
+  "type_of_heritage": "unesco_listed",
+  "image": {
+    "url": "https://res.cloudinary.com/dqyqqysgx/image/upload/v1725819636/dsexyy0moa1w5cb9wppk.avif",
+    "public_id": "dsexyy0moa1w5cb9wppk"
+},
+"endlessDigitalArt":{
+  "ETag": "\"0cebe90e79f133819c94d33549ace93f\"",
         "Bucket": "culturalcanvas",
         "ServerSideEncryption": "AES256",
         "Location": "https://culturalcanvas.s3.ap-south-1.amazonaws.com/UMIUTgxdbmZOPn5FBZ3Th.mp4",
@@ -129,43 +132,23 @@ Apollo variables--------------->
         "Location": "https://culturalcanvas.s3.ap-south-1.amazonaws.com/UMIUTgxdbmZOPn5FBZ3Th.mp4",
         "Key": "UMIUTgxdbmZOPn5FBZ3Th.mp4"
       },
-      "part1": [
-        {
-          "heading": "dummy heading1",
-          "description": "dummy description1"
-        }
-      ],
-      "type_of_heritage": {
-        "image": {
-          "public_id": "zekbysa3qjzn19wsqama",
-          "url": "https://res.cloudinary.com/dqyqqysgx/image/upload/v1725475045/zekbysa3qjzn19wsqama.png"
-        },
-        "type": "unesco_listed"
+      "helpline_numbers":{
+        "police_helpline": "07060668744",
+        "women_helpline": "09639964748",
+        "child_helpline": "09639964748",
+        "fire_brigade": "09454418448",
+        "ambulance_helpline": " 09084178181",
+        "hospital_helpline": "09837023595"
       },
-      "tag": "cultural",
-      "helpline_numbers":[
-        {
-          "police_helpline": "100",
-      "women_helpline": "1091",
-       "child_helpline": "1098",
-       "hospital_helpline":"12345",
-       "ambulance_helpline":"0090", 
-       "fire_brigade":"5678"
-        }
-      ],
+      "distance": "500km",
+      "entry_fee": 500,
       "state_culture_name": {
+        "name": "Uttar Pradesh",
         "image": {
-          "public_id": "aobc6uqiqrj96m2xfygp",
-          "url": "https://res.cloudinary.com/dqyqqysgx/image/upload/v1725475217/aobc6uqiqrj96m2xfygp.jpg"
-        },
-        "name": "Uttar Pradesh"
-      },
-      "entry_fee": 10.5,
-      "distance": "50",
-      "nearest_attractions":[
-        "66db56aeb91c9a5793718c43"
-      ],
-    }
+    "url": "https://res.cloudinary.com/dqyqqysgx/image/upload/v1725819974/egkhg1edtffvcq0emusl.avif",
+    "public_id": "egkhg1edtffvcq0emusl"
+}
+      }
 }
 
 
