@@ -626,4 +626,45 @@ export const dummyData = {
       individualPage: "/culture-tradition/id",
     },
   ],
+
+  SingleState: {
+    stateHistory: [
+      {
+        stateName: "West Bengal",
+        stateHistory: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis,
+              minima? Cumque ducimus magnam, illum voluptatibus enim ratione
+              recusandae, in est officiis veritatis doloremque! Quasi ducimus
+              hic ea recusandae eius perspiciatis. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Repellat sapiente ratione sit
+              adipisci veritatis explicabo, facere est nam aliquam ab aliquid
+              odit architecto recusandae asperiores natus eius molestiae?
+              Ratione, tenetur? Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Officiis, minima? Cumque ducimus magnam, illum
+              voluptatibus enim ratione recusandae, in est officiis veritatis
+              doloremque! Quasi ducimus hic ea recusandae eius perspiciatis.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
+              sapiente ratione sit adipisci veritatis explicabo, facere est nam
+              aliquam ab aliquid odit architecto recusandae asperiores natus
+              eius molestiae? Ratione, tenetur?`,
+        stateImg: upImg,
+      },
+    ],
+    languageModel: [
+      {
+        heading: "Language & Architecture",
+        courseHistory:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        image: bengaliImg,
+      },
+    ],
+    cuisineModel: [
+      {
+        heading: "Famous Cuisines",
+
+        cuisineDescription:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        image: bengaliImg,
+      },
+    ],
+  },
 };
