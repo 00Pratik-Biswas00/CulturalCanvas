@@ -15,7 +15,11 @@ const stateCultureResolvers = {
     },
   },
   Mutation: {
-    createStateCulture: async (_, { name, image }, { userId }) => {
+    createStateCulture: async (
+      _,
+      { name, image, stateHistory },
+      { userId }
+    ) => {
       let slug;
       if (name && typeof name === "string") {
         slug = slugify(`${name}-${nanoid()}`, {
@@ -29,6 +33,7 @@ const stateCultureResolvers = {
           name,
           image,
           slug,
+          stateHistory,
           createdBy: userId, // Assuming you want to track who created the heritage
         });
 
@@ -40,7 +45,11 @@ const stateCultureResolvers = {
         throw new Error("Error creating stateCulture");
       }
     },
-    updateStateCulture: async (_, { id, name, image }, { userId }) => {
+    updateStateCulture: async (
+      _,
+      { id, name, image, stateHistory },
+      { userId }
+    ) => {
       try {
         const stateCulture = await StateCulture.findById(id);
 
@@ -59,6 +68,7 @@ const stateCultureResolvers = {
         if (name) stateCulture.name = name;
         if (image) stateCulture.image = image;
         if (slug) stateCulture.slug = slug;
+        if (stateHistory) stateCulture.stateHistory = stateHistory;
 
         const updatedStateCulture = await stateCulture.save();
 

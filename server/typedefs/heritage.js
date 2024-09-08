@@ -14,11 +14,6 @@ const heritageTypeDefs = gql`
     Bucket: String
   }
 
-  type HeritageType {
-    type: String!
-    image: Image!
-  }
-
   type helpLine {
     police_helpline: String!
     women_helpline: String!
@@ -59,13 +54,11 @@ const heritageTypeDefs = gql`
     animatedVideo: Video
     vlogVideo: Video
     part1: [Description]
-    type_of_heritage: HeritageType
+    type_of_heritage: String!
     tag: String
     helpline_numbers: [helpLine]
-    state_culture_link: ID!
     state_culture_name: State!
     entry_fee: Float
-    #nearest_attractions: [NearestAttraction] # Changed to return full details
     distance: String!
     createdAt: String
     updatedAt: String
@@ -99,11 +92,6 @@ const heritageTypeDefs = gql`
     description: String!
   }
 
-  input HeritageTypeInput {
-    type: String!
-    image: ImageInput!
-  }
-
   input StateInput {
     name: String!
     image: ImageInput!
@@ -120,13 +108,11 @@ const heritageTypeDefs = gql`
     animatedVideo: Video
     vlogVideo: Video
     part1: [Description]
-    type_of_heritage: HeritageType
+    type_of_heritage: String!
     tag: String
     helpline_numbers: [helpLine]
     state_culture_name: State!
-    state_culture_link: [ID]
     entry_fee: Float
-    nearest_attractions: [NearestAttraction] # Return full nearest attraction details
     distance: String!
     createdAt: String
     updatedAt: String
@@ -147,13 +133,12 @@ const heritageTypeDefs = gql`
       animatedVideo: VideoInput
       vlogVideo: VideoInput
       part1: [DescriptionInput]
-      type_of_heritage: HeritageTypeInput!
+      type_of_heritage: String!
       tag: String!
       helpline_numbers: [helpLineInput]
       state_culture_name: StateInput!
       entry_fee: Float!
       distance: String!
-      nearest_attractions: [ID] # Input is still an array of IDs
     ): HeritageResponse
 
     updateHeritage(
@@ -165,13 +150,12 @@ const heritageTypeDefs = gql`
       animatedVideo: VideoInput
       vlogVideo: VideoInput
       part1: [DescriptionInput]
-      type_of_heritage: HeritageTypeInput
+      type_of_heritage: String
       tag: String
       helpline_numbers: [helpLineInput]
       state_culture_name: StateInput
       entry_fee: Float
       distance: String
-      nearest_attractions: [ID] # Still an array of IDs for input
     ): HeritageResponse
 
     deleteHeritage(id: ID!): String!
