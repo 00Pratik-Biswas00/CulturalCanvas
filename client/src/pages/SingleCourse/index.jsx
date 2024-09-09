@@ -76,8 +76,7 @@ const SingleCourse = () => {
       {course && (
         <div
           style={{ backgroundImage: `url(${course.image.url})` }}
-          className="relative bg-center bg-contain bg-fixed bg-no-repeat"
-        >
+          className="relative bg-center bg-contain bg-fixed bg-no-repeat">
           {/* Black overlay */}
           <div className="absolute inset-0 bg-background1 dark:bg-dark_background1 opacity-80 z-10"></div>
           <div className="relative z-20 flex flex-col items-center justify-center">
@@ -112,7 +111,7 @@ const SingleCourse = () => {
                   </h1>
                   <div className="flex items-center gap-3 ">
                     <img
-                      src={pratikImg}
+                      src={course.instructor.photo?.url}
                       alt="teacher"
                       className=" rounded-full w-32 h-32"
                     />
@@ -120,41 +119,43 @@ const SingleCourse = () => {
                     <div className="flex flex-col justify-center gap-3">
                       <div className=" flex items-center gap-3">
                         <p className="text-4xl leading-7 font-bold font-playfair">
-                          Dr. Pratik Biswas
+                          {course.instructor.name}
                         </p>
-                        <p className=" text-xl font-lato pt-1">
-                          {" "}
-                          - Professor of Jadavpur University
-                        </p>
+                        {course.instructor.occupation && (
+                          <p className=" text-xl font-lato pt-1">
+                            {" "}
+                            {course.instructor.occupation}
+                          </p>
+                        )}
                       </div>
                       <div className="flex items-center justify-start gap-4">
                         <a
-                          href="mailto:messi10.pratikbiswas@gmail.com"
+                          href={`mailto:${course.instructor.email}`}
                           target="blank"
                           rel="noopener"
-                          className="flex items-center justify-center gap-2 font-medium duration-500 transition-transform hover:scale-105 transform-cpu"
-                        >
+                          className="flex items-center justify-center gap-2 font-medium duration-500 transition-transform hover:scale-105 transform-cpu">
                           <img
                             src={MailImg}
                             alt="Mail"
                             className=" rounded-full w-8 h-8"
                           />
-                          <p>messi10.pratikbiswas@gmail.com</p>
+                          <p>{course.instructor.email}</p>
                         </a>
 
-                        <a
-                          href="/"
-                          target="blank"
-                          rel="noopener"
-                          className="flex items-center justify-center gap-2 font-medium duration-500 transition-transform hover:scale-105 transform-cpu"
-                        >
-                          <img
-                            src={LinkedInImg}
-                            alt="Linkedin"
-                            className=" rounded-full w-8 h-8"
-                          />
-                          <p>Pratik Biswas</p>
-                        </a>
+                        {course.instructor.linkedin && (
+                          <a
+                            href={course.instructor.linkedin}
+                            target="blank"
+                            rel="noopener"
+                            className="flex items-center justify-center gap-2 font-medium duration-500 transition-transform hover:scale-105 transform-cpu">
+                            <img
+                              src={LinkedInImg}
+                              alt="Linkedin"
+                              className=" rounded-full w-8 h-8"
+                            />
+                            <p>{course.instructor.name}</p>
+                          </a>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -185,8 +186,7 @@ const SingleCourse = () => {
                 <div className="relative w-full">
                   <button
                     onClick={scrollLeft}
-                    className="absolute -left-11 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 text-highlight_hover hover:bg-highlight_hover hover:text-dark_primary_text border border-highlight_hover p-2 duration-300 rounded-full z-10"
-                  >
+                    className="absolute -left-11 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 text-highlight_hover hover:bg-highlight_hover hover:text-dark_primary_text border border-highlight_hover p-2 duration-300 rounded-full z-10">
                     <FaLongArrowAltLeft className="w-5 h-5" />
                   </button>
 
@@ -197,13 +197,11 @@ const SingleCourse = () => {
                     onMouseUp={handleMouseUp}
                     onMouseLeave={handleMouseUp}
                     className="flex gap-7 w-full overflow-x-auto scroll-smooth outline-none"
-                    style={{ scrollSnapType: "x mandatory" }}
-                  >
+                    style={{ scrollSnapType: "x mandatory" }}>
                     {course.modules.map((content, ind) => (
                       <div
                         key={ind}
-                        className="flex-shrink-0 w-[32%] max-w-[32%] flex flex-col items-center justify-start gap-3 border-2 border-highlight_hover rounded-xl p-4"
-                      >
+                        className="flex-shrink-0 w-[32%] max-w-[32%] flex flex-col items-center justify-start gap-3 border-2 border-highlight_hover rounded-xl p-4">
                         <img
                           src={bengaliImg}
                           className="rounded-xl"
@@ -220,8 +218,7 @@ const SingleCourse = () => {
                               content.name
                             )
                           }
-                          className="bg-background1 dark:bg-dark_background1 text-highlight_hover hover:bg-highlight_hover hover:text-dark_primary_text border-2 border-highlight_hover p-2 duration-300 rounded-xl font-bold cursor-pointer"
-                        >
+                          className="bg-background1 dark:bg-dark_background1 text-highlight_hover hover:bg-highlight_hover hover:text-dark_primary_text border-2 border-highlight_hover p-2 duration-300 rounded-xl font-bold cursor-pointer">
                           Start Learning
                         </div>
                       </div>
@@ -230,8 +227,7 @@ const SingleCourse = () => {
 
                   <button
                     onClick={scrollRight}
-                    className="absolute -right-11 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 text-highlight_hover hover:bg-highlight_hover hover:text-dark_primary_text border border-highlight_hover p-2 duration-300 rounded-full z-10"
-                  >
+                    className="absolute -right-11 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 text-highlight_hover hover:bg-highlight_hover hover:text-dark_primary_text border border-highlight_hover p-2 duration-300 rounded-full z-10">
                     <FaLongArrowAltRight className="w-5 h-5" />
                   </button>
                 </div>

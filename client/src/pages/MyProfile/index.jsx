@@ -129,7 +129,7 @@ const MyProfile = () => {
                         );
                         setImagePreview(null); // Reset image preview to null
                         setFieldValue("photo", null);
-                        localStorage.removeItem("profileImage"); // Remove image from localStorage
+                        //localStorage.removeItem("profileImage"); // Remove image from localStorage
                       } catch (error) {
                         console.error("Image delete failed:", error);
                       }

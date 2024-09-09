@@ -177,7 +177,6 @@ const LearnIndianCulture = () => {
                           onClick={() => {
                             openSingleCourse(course.slug);
                           }}
-                          // href={`/course/${course.slug}`}
                           className={`bg-background1 dark:bg-dark_background1 ${textColor2} ${hoverBgColor} hover:text-dark_primary_text border-2 ${borderColor} p-2 duration-300 rounded-xl font-bold `}
                         >
                           Go to the course

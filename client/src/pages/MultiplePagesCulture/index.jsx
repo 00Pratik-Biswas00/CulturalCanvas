@@ -30,7 +30,7 @@ const MultiplePagesCulture = () => {
       setReligions(data.getReligions);
     }
   }, [data]);
-  console.log(religions);
+  //console.log(religions);
   const openSingleReligion = (slug) => {
     navigate(`${slug}`);
   };
