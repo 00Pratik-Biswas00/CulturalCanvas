@@ -58,7 +58,7 @@ const ChatBotPopUp = ({ onClose }) => {
   return (
     <div
       style={{ backgroundImage: `url(${ChatBotBg})` }}
-      className="absolute bottom-8 -right-10 z-50 flex items-center justify-end bg-center bg-contain bg-no-repeat rounded-xl duration-500"
+      className="absolute bottom-8 -right-10 z-50 flex items-center justify-end bg-center bg-cover bg-no-repeat rounded-xl duration-500"
     >
       <div className="absolute inset-0 bg-dark_background1 opacity-50 z-10 rounded-xl"></div>
 
