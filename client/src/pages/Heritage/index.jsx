@@ -6,9 +6,7 @@ import { Link } from "react-scroll";
 import listed_pic from "../../assets/Heritage/ZListed(avif).avif";
 import unlisted_pic from "../../assets/Heritage/ZUnlisted(avif).avif";
 import local_pic from "../../assets/Heritage/ZLocal(avif).avif";
-
 import commonImg from "../../assets/Heritage/a.png";
-
 import { FaAnglesRight } from "react-icons/fa6";
 
 const Heritage = () => {
@@ -22,7 +20,6 @@ const Heritage = () => {
       setHeritages(data.getHeritages);
     }
   }, [data]);
-  console.log(heritages);
 
   // Group heritages by their categories: unesco_listed, unesco_unlisted, and local
   const groupedHeritages = heritages.reduce(
@@ -54,7 +51,7 @@ const Heritage = () => {
         <div className="flex items-center gap-3">
           <img
             src={categoryImg}
-            alt="unesco"
+            alt={groupName}
             className="rounded-full w-14 h-14"
           />
           <h1 className="text-5xl leading-7 font-medium font-open_sans">
@@ -151,18 +148,27 @@ const Heritage = () => {
         </Link>
       </div>
 
-      {/* Render each heritage group */}
+      {/* Conditionally render local heritages if available */}
+      {groupedHeritages.local.length > 0 &&
+        renderHeritageGroup(
+          groupedHeritages.local,
+          "Local_Heritage",
+          local_pic
+        )}
+
+      {/* Render UNESCO Listed heritages */}
       {renderHeritageGroup(
         groupedHeritages.unesco_listed,
         "Unesco_listed",
         listed_pic
       )}
+
+      {/* Render UNESCO Unlisted heritages */}
       {renderHeritageGroup(
         groupedHeritages.unesco_unlisted,
         "Unesco_unlisted",
         unlisted_pic
       )}
-      {renderHeritageGroup(groupedHeritages.local, "Local_Heritage", local_pic)}
     </section>
   );
 };
