@@ -3,7 +3,7 @@ import UserTripCard from "./components/UserTripCard";
 import { toast } from "sonner";
 import api from "../../../config/axios";
 
-function MyTrips() {
+function SavedTrips() {
   const [userTrips, setUserTrips] = useState([]);
   useEffect(() => {
     GetUserTrips();
@@ -22,9 +22,9 @@ function MyTrips() {
     }
   };
   return (
-    <div className='px-5 mt-12 sm:px-10 md:px-32 lg:px-56 xl:px-72"'>
-      <h2 className="font-bold text-3xl mb-10">My Trips</h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-5 my-3">
+    <div className="relative px-5  sm:px-10 md:px-32 lg:px-56 duration-300 bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-6 flex flex-col gap-2">
+      <h2 className="font-bold text-3xl">Saved Trips 🗺️</h2>{" "}
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-7 gap-y-10 my-3">
         {userTrips?.length > 0
           ? userTrips.map((trip, index) => (
               <UserTripCard trip={trip} key={index} />
@@ -40,4 +40,4 @@ function MyTrips() {
   );
 }
 
-export default MyTrips;
+export default SavedTrips;
