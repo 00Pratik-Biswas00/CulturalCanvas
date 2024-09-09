@@ -27,3 +27,27 @@
 .react-player .controls .controls__button[title="Download"] {
   display: none;
 }
+
+.underline-animation {
+  position: relative;
+}
+
+/* .underline-animation:hover {
+  color: #FFFAF4;
+} */
+
+.underline-animation::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 1.5px;
+  background-color: #a3a59e;
+  transition: all 0.5s;
+}
+
+
+.underline-animation:hover::before {
+  width: 100%;
+}
