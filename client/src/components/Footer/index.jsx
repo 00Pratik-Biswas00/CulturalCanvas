@@ -53,14 +53,14 @@ const Footer = () => {
         </div>
 
         <div className="flex relative  justify-center  pl-[5.2rem] ">
-          <p className="flex text-sm gap-2  items-end  ">
+          <p className="flex text-sm gap-2  items-end pb-1  ">
             {" "}
             <strong>Connect with us:</strong> Join Our Community online
           </p>
           <div className=" absolute flex items-center justify-center bottom-14  ">
             {/* Visitors Count:{visitorCount} */}
             <p className=" px-5 py-1 rounded-xl border border-highlight">
-              Visitors Count: 6
+              Total Users: 6
             </p>
           </div>
         </div>
