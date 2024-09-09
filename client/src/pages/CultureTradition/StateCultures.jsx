@@ -1,5 +1,4 @@
 import React from "react";
-import upImg from "../../assets/Heritage/up.png";
 import { dummyData } from "../../utils/constants";
 import { useNavigate } from "react-router-dom";
 

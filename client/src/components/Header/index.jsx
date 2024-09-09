@@ -196,9 +196,9 @@ const Header = ({ open, setOpen }) => {
           <div className=" flex items-center">
             {user ? (
               <a href="/my-profile">
-                {user.image ? (
+                {user.photo ? (
                   <img
-                    src={user.image}
+                    src={user.photo.url}
                     alt="Profile"
                     className="w-14 h-14 rounded-full cursor-pointer "
                   />

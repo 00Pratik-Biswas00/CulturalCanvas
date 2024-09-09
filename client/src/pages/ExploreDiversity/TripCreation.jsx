@@ -12,12 +12,17 @@ import { chatSession } from "../../components/ExplorePlacesComponents/service/AI
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import api from "../../config/axios";
+import { CiBoxList } from "react-icons/ci";
 
 function CreateTrip() {
   const [place, setPlace] = useState();
   const [formData, setFormData] = useState([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  const openSavedTrips = () => {
+    navigate(`/explore-diversity/saved-trips`);
+  };
 
   const handleInputChange = (name, value) => {
     setFormData({
@@ -73,7 +78,21 @@ function CreateTrip() {
   };
 
   return (
-    <div className="px-5 sm:px-10 md:px-32 lg:px-56 xl:px-72 duration-300 bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-6 flex flex-col gap-10">
+    <div className="relative px-5  sm:px-10 md:px-32 lg:px-56 xl:px-72 duration-300 bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-6 flex flex-col gap-10">
+      <div onClick={openSavedTrips} className="absolute right-[4.3rem] group">
+        <CiBoxList className="w-10 h-10 cursor-pointer" />
+
+        <div className="absolute -right-7 top-12 hidden group-hover:flex ">
+          <div className="shadow-custom-orange px-4 py-1 bg-highlight rounded-lg">
+            <div className="relative flex flex-col items-center text-xs text-dark_primary_text">
+              <div className="font-medium  whitespace-nowrap">Saved Trips</div>
+              {/* Arrow pointing to the image */}
+              <div className="border-solid border-b-highlight border-b-8 border-x-transparent border-x-[8px] absolute -top-3"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div>
         <h2 className="font-bold text-3xl">
           Tell us your travel preferences 🌍✈️🌴
@@ -100,30 +119,30 @@ function CreateTrip() {
               styles: {
                 control: (provided) => ({
                   ...provided,
-                  backgroundColor: "#f5f5f5", // Background color of the input field
-                  borderRadius: "0.5rem", // Rounded corners
-                  padding: "0.1rem", // Padding inside the input
-                  borderColor: "#ccc", // Border color
-                  boxShadow: "none", // Remove default box-shadow
+                  backgroundColor: "#f5f5f5",
+                  borderRadius: "0.5rem",
+                  padding: "0.1rem",
+                  borderColor: "#ccc",
+                  boxShadow: "none",
                   "&:hover": {
-                    borderColor: "#888", // Border color on hover
+                    borderColor: "#888",
                   },
                 }),
                 option: (provided, state) => ({
                   ...provided,
-                  backgroundColor: state.isFocused ? "#eee" : "#fff", // Background color of the options
-                  color: state.isFocused ? "#333" : "#000", // Text color when option is focused
-                  padding: "10px", // Padding inside the dropdown options
+                  backgroundColor: state.isFocused ? "#eee" : "#fff",
+                  color: state.isFocused ? "#333" : "#000",
+                  padding: "10px",
                 }),
                 menu: (provided) => ({
                   ...provided,
-                  backgroundColor: "#fff", // Dropdown menu background color
-                  borderRadius: "0.5rem", // Rounded corners for the dropdown
-                  zIndex: 999, // Ensures the dropdown is above other elements
+                  backgroundColor: "#fff",
+                  borderRadius: "0.5rem",
+                  zIndex: 999,
                 }),
                 placeholder: (provided) => ({
                   ...provided,
-                  color: "#999", // Placeholder text color
+                  color: "#999",
                 }),
               },
             }}

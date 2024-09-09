@@ -22,7 +22,6 @@ import SingleCourse from "./pages/SingleCourse";
 import ScrollToTop from "./components/ScrollToTop";
 import GoToTop from "./components/GoToTopButton";
 import Chatbot from "./components/ChatBot";
-// import CreateTrip from "./pages/ExploreDiversity/CreateTrip";
 import PredictAmount from "./pages/ExploreDiversity/PredictAmount";
 import TripCreation from "./pages/ExploreDiversity/TripCreation";
 import ViewTrip from "./pages/ExploreDiversity/ViewTrip/[tripId]/index";
@@ -30,9 +29,9 @@ import SinglePageCulture from "./pages/SinglePageCulture";
 import MultiplePagesCulture from "./pages/MultiplePagesCulture";
 import MultipleSingleCulture from "./pages/MultiplePagesCulture/MultipleSingleCulture";
 import MyProfile from "./pages/MyProfile";
-import MyTrips from "./components/ExplorePlacesComponents/MyTrips";
 import BudgetPredictor from "./pages/BudgetPrediction";
 import SingleStateCulture from "./pages/SingleStateCulture";
+import SavedTrips from "./pages/ExploreDiversity/SavedTrips";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -116,7 +115,10 @@ function App() {
             path="/culture-tradition/multiple-pages/:slug"
             element={<MultipleSingleCulture />}
           />
-          <Route path="/mytrips" element={<MyTrips />} />
+          <Route
+            path="/explore-diversity/saved-trips"
+            element={<SavedTrips />}
+          />
         </Routes>
       </UserLayout>
     </BrowserRouter>

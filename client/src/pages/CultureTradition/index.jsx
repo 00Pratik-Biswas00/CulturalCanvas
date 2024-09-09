@@ -10,20 +10,14 @@ const CultureTradition = () => {
         <img src={commonImg} alt="Common" />
       </div>
 
-      <div className="flex items-center justify-center py-4 text-7xl gap-12 font-bold font-playfair uppercase ">
-        <p className="tracking-wider">Cultural</p>
-        <p className="tracking-wider">Richness</p>
-        <p className="tracking-wider">of</p>
-        <p className="tracking-wider">India</p>
+      <div className="flex items-center tracking-wide justify-center py-4 text-7xl gap-12 font-bold font-playfair uppercase [word-spacing:25px]">
+        Cultural Richness of India
       </div>
 
       <AllCultures />
 
-      <div className="flex items-center justify-center py-4 text-6xl gap-5 font-bold font-playfair uppercase ">
-        <p className="tracking-wider">India's</p>
-        <p className="tracking-wider">Cultural</p>
-        <p className="tracking-wider">Odyssey:</p>
-        <p className="tracking-wider">State-Wise</p>
+      <div className="flex items-center tracking-wide justify-center py-4 text-6xl gap-12 font-bold font-playfair uppercase [word-spacing:20px]">
+        India's Cultural Odyssey: State-Wise
       </div>
 
       <StateCultures />

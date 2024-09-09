@@ -160,11 +160,13 @@ const authResolver = {
 
         return {
           ok: true,
+          user: updatedUser,
           error: null,
         };
       } catch (error) {
         return {
           ok: false,
+          user: null,
           error: error.message,
         };
       }

@@ -34,6 +34,7 @@ export const LOGIN_MUTATION = gql`
         role
         photo {
           url
+          public_id
         }
       }
     }
@@ -74,6 +75,18 @@ export const UPDATE_PROFILE_MUTATION = gql`
       newPassword: $newPassword
     ) {
       ok
+      user {
+        _id
+        name
+        email
+        gender
+        phone
+        role
+        photo {
+          url
+          public_id
+        }
+      }
       error
     }
   }
