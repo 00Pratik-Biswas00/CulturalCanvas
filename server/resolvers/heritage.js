@@ -14,27 +14,29 @@ const heritageResolvers = {
       }
     },
 
-    getHeritage: async (parent, { slug }, { models }) => {
+    getHeritage: async (_, { slug }) => {
       try {
         console.log("Fetching heritage for slug:", slug);
 
-        const heritage = await Heritage.findOne({ slug });
+        // Find heritage by slug
+        const heritage = await Heritage.findOne({ slug: slug });
+        // Uncomment and adjust if you need to populate related fields
         // .populate({
         //   path: "nearest_attractions",
         //   select: "name image distance entry_fee slug",
         // })
         // .exec();
 
-        console.log("Heritage found:", heritage);
-
         if (!heritage) {
-          throw new Error("Heritage not found");
+          console.warn(`Heritage with slug "${slug}" not found`);
+          throw new Error(`Heritage with slug "${slug}" not found`);
         }
 
+        console.log("Heritage found:", heritage);
         return heritage;
       } catch (error) {
-        console.error("Error fetching heritage data:", error);
-        throw new Error("Error fetching heritage data");
+        console.error("Error fetching heritage data:", error.message);
+        throw new Error(`Error fetching heritage data: ${error.message}`);
       }
     },
   },

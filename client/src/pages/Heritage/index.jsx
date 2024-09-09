@@ -3,6 +3,9 @@ import { useQuery } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 import { GET_ALL_HERITAGES_QUERY } from "../../graphql/HeritageQuery";
 import { Link } from "react-scroll";
+import listed_pic from "../../assets/Heritage/ZListed(avif).avif";
+import unlisted_pic from "../../assets/Heritage/ZUnlisted(avif).avif";
+import local_pic from "../../assets/Heritage/ZLocal(avif).avif";
 
 import commonImg from "../../assets/Heritage/a.png";
 
@@ -26,9 +29,9 @@ const Heritage = () => {
     (acc, heritage) => {
       const { type_of_heritage } = heritage;
 
-      if (type_of_heritage.type === "unesco_listed") {
+      if (type_of_heritage === "unesco_listed") {
         acc.unesco_listed.push(heritage);
-      } else if (type_of_heritage.type === "unesco_unlisted") {
+      } else if (type_of_heritage === "unesco_unlisted") {
         acc.unesco_unlisted.push(heritage);
       } else {
         acc.local.push(heritage);
@@ -126,6 +129,13 @@ const Heritage = () => {
 
       <div className="flex items-center justify-center gap-10">
         <Link
+          to="Local_Heritage"
+          smooth={true}
+          className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-300 transition-transform hover:scale-105 transform-cpu cursor-pointer"
+        >
+          Local Heritage
+        </Link>
+        <Link
           to="Unesco_listed"
           smooth={true}
           className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-300 transition-transform hover:scale-105 transform-cpu cursor-pointer"
@@ -139,31 +149,20 @@ const Heritage = () => {
         >
           UNESCO Unlisted
         </Link>
-        <Link
-          to="Local_Heritage"
-          smooth={true}
-          className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-300 transition-transform hover:scale-105 transform-cpu cursor-pointer"
-        >
-          Local Heritage
-        </Link>
       </div>
 
       {/* Render each heritage group */}
       {renderHeritageGroup(
         groupedHeritages.unesco_listed,
         "Unesco_listed",
-        groupedHeritages.unesco_listed?.[0]?.type_of_heritage?.image.url
+        listed_pic
       )}
       {renderHeritageGroup(
         groupedHeritages.unesco_unlisted,
         "Unesco_unlisted",
-        groupedHeritages.unesco_unlisted?.[0]?.type_of_heritage?.image.url
+        unlisted_pic
       )}
-      {renderHeritageGroup(
-        groupedHeritages.local,
-        "Local_Heritage",
-        groupedHeritages.local?.[0]?.type_of_heritage?.image.url
-      )}
+      {renderHeritageGroup(groupedHeritages.local, "Local_Heritage", local_pic)}
     </section>
   );
 };
