@@ -1,13 +1,28 @@
 import React from "react";
-import travelling from "../../assets/explorePlaces/travel.jpg";
-
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { RiMoneyRupeeCircleFill } from "react-icons/ri";
 import { FaPlus } from "react-icons/fa6";
-
+import travelling from "../../assets/explorePlaces/travel.jpg";
 import trip from "../../assets/explorePlaces/createTrip.jpg";
 import money from "../../assets/explorePlaces/paisa.jpg";
+import { switchLoginModalOpen } from "../../redux/slices/loginModalOpenSlice";
 
 const ExploreDiversity = () => {
+  const user = useSelector((state) => state.user.userInfo);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const handlePredictionRedirect = () => {
+    navigate("predict-budget");
+  };
+  const handleCreateTripRedirect = () => {
+    if (user) {
+      navigate("create-trip");
+    } else {
+      dispatch(switchLoginModalOpen(true));
+    }
+  };
+
   return (
     <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-4 px-16 duration-300">
       <div className="flex flex-col items-center justify-center gap-3 py-3">
@@ -38,13 +53,13 @@ const ExploreDiversity = () => {
                 confidence!
               </b>
             </p>
-            <a
-              href="/explore-diversity/predict-budget"
+            <button
+              onClick={handlePredictionRedirect}
               className={`flex items-center gap-2 uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-500 transition-transform hover:scale-105 transform-cpu`}>
               {" "}
               <RiMoneyRupeeCircleFill className=" w-5 h-5" />
               <p className="">Predict Amount</p>
-            </a>
+            </button>
           </div>
 
           {/* 2 */}
@@ -71,13 +86,13 @@ const ExploreDiversity = () => {
                 designed just for you.
               </b>
             </p>
-            <a
-              href="/explore-diversity/create-trip"
+            <button
+              onClick={handleCreateTripRedirect}
               className={`flex items-center gap-2 uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-500 transition-transform hover:scale-105 transform-cpu`}>
               {" "}
               <p className="">Create Trip</p>
               <FaPlus className=" w-5 h-5" />
-            </a>
+            </button>
           </div>
         </div>
       </div>

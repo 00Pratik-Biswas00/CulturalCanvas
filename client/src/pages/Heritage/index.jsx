@@ -45,8 +45,7 @@ const Heritage = () => {
   const renderHeritageGroup = (group, groupName, categoryImg) => (
     <div
       id={groupName}
-      className="text-primary_text dark:text-dark_primary_text flex flex-col py-10 pb-10"
-    >
+      className="text-primary_text dark:text-dark_primary_text flex flex-col py-10 pb-10">
       <div className="flex flex-col gap-5">
         <div className="flex items-center gap-3">
           <img
@@ -79,8 +78,7 @@ const Heritage = () => {
             return (
               <div
                 key={index}
-                className={`backdrop-blur-lg bg-opacity-80 py-4 px-10 rounded-lg flex flex-col items-center ${shadowClass} gap-2`}
-              >
+                className={`backdrop-blur-lg bg-opacity-80 py-4 px-10 rounded-lg flex flex-col items-center ${shadowClass} gap-2`}>
                 <div className="flex flex-col">
                   <img
                     src={content.image.url}
@@ -95,8 +93,7 @@ const Heritage = () => {
                 <div className="absolute bottom-0">
                   <button
                     className={` ${shadowClass} bg-background1 dark:bg-dark_background1  hover:text-dark_primary_text duration-300 font-bold font-ubuntu p-12 relative flex items-center justify-center rounded-full -bottom-10 ${hoverClass}`}
-                    onClick={() => openSingleHeritage(content.slug)}
-                  >
+                    onClick={() => openSingleHeritage(content.slug)}>
                     <p className="absolute text-xl">
                       Know <br /> More
                     </p>
@@ -110,6 +107,8 @@ const Heritage = () => {
     </div>
   );
 
+  if (loading) return <p>Loading..</p>;
+  if(error) return <p>Error fetching Heritages!</p>
   return (
     <section className="bg-background1 dark:bg-dark_background1 py-4 px-16 duration-300">
       <div>
@@ -128,22 +127,19 @@ const Heritage = () => {
         <Link
           to="Local_Heritage"
           smooth={true}
-          className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-300 transition-transform hover:scale-105 transform-cpu cursor-pointer"
-        >
+          className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-300 transition-transform hover:scale-105 transform-cpu cursor-pointer">
           Local Heritage
         </Link>
         <Link
           to="Unesco_listed"
           smooth={true}
-          className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-300 transition-transform hover:scale-105 transform-cpu cursor-pointer"
-        >
+          className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-300 transition-transform hover:scale-105 transform-cpu cursor-pointer">
           UNESCO Listed
         </Link>
         <Link
           to="Unesco_unlisted"
           smooth={true}
-          className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-300 transition-transform hover:scale-105 transform-cpu cursor-pointer"
-        >
+          className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-300 transition-transform hover:scale-105 transform-cpu cursor-pointer">
           UNESCO Unlisted
         </Link>
       </div>
