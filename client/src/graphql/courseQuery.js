@@ -51,6 +51,10 @@ export const GET_COURSE_QUERY = gql`
       }
       modules {
         name
+        image {
+          url
+          public_id
+        }
         description
         video {
           ETag

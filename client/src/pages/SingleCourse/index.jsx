@@ -61,7 +61,7 @@ const SingleCourse = () => {
     setCurrentVideo(videoUrl);
     setCurrentHeading(heading);
   };
-  console.log(course);
+  //console.log(course);
 
   if (loading) {
     return <h1>Loading...</h1>;
@@ -203,7 +203,7 @@ const SingleCourse = () => {
                         key={ind}
                         className="flex-shrink-0 w-[32%] max-w-[32%] flex flex-col items-center justify-start gap-3 border-2 border-highlight_hover rounded-xl p-4">
                         <img
-                          src={bengaliImg}
+                          src={content.image.url}
                           className="rounded-xl"
                           alt="bengali"
                         />
