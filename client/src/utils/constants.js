@@ -10,8 +10,21 @@ import virtualStoreImg from "../assets/Home/virtual.avif";
 
 // culture
 
-import langImg from "../assets/culture/lang.jpg";
-import religiousImg from "../assets/culture/religious.png";
+import langImg from "../assets/culture/language.avif";
+import religiousImg from "../assets/culture/religious.avif";
+import cuisineImg from "../assets/culture/cuisine.avif";
+import festivalImg from "../assets/culture/festival.avif";
+import greetingImg from "../assets/culture/greeting.avif";
+import weddingImg from "../assets/culture/wedding.avif";
+
+// states
+
+import assamImg from "../assets/states/assam.png";
+import jkImg from "../assets/states/jk.png";
+import karnatakaImg from "../assets/states/karnataka.png";
+import meghalayaImg from "../assets/states/meghalaya.png";
+import uPradeshImg from "../assets/states/up.png";
+import wbImg from "../assets/states/wb.png";
 
 import taj from "../assets/Heritage/taj.jpeg";
 import bengaliImg from "../assets/courses/bengali.png";
@@ -573,26 +586,38 @@ export const dummyData = {
   AllCulturesData: [
     {
       cultureImg: religiousImg,
-      cultureIntro: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis accusamus, fugiat perferendis esse libero hic deserunt dolores oditplaceat veniam, deleniti ullam sed voluptates ab alias, unde debitisofficia soluta. Lorem ipsum dolor sit amet consectetur adipisicingelit. Ex sit similique eos necessitatibus repellendus vel quosrepellat sunt fuga obcaecati officiis quaerat saepe, animi sintipsam porro quibusdam suscipit fugiat!`,
+      cultureIntro: `India, a land of diverse cultures, is also a treasure trove of religious beliefs. From the ancient wisdom of Hinduism and Buddhism to the vibrant traditions of Sikhism, Islam, Christianity, and Jainism, India's religious landscape is a tapestry woven with threads of faith and devotion. This rich tapestry is reflected in the country's numerous temples, mosques, churches, gurudwaras, and other places of worship, each offering a glimpse into the diverse spiritual journeys of its people.`,
       cultureName: "Religious",
       individualPage: "/culture-tradition/multiple-pages",
     },
 
     {
       cultureImg: langImg,
-      cultureIntro: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis accusamus, fugiat perferendis esse libero hic deserunt dolores oditplaceat veniam, deleniti ullam sed voluptates ab alias, unde debitisofficia soluta. Lorem ipsum dolor sit amet consectetur adipisicingelit. Ex sit similique eos necessitatibus repellendus vel quosrepellat sunt fuga obcaecati officiis quaerat saepe, animi sintipsam porro quibusdam suscipit fugiat!`,
+      cultureIntro: `India, a land of diverse cultures, is also a linguistic melting pot. With over 22 official languages and countless dialects, India's linguistic landscape is a testament to its rich and varied history. From the ancient Sanskrit to the modern Hindi, and from the Dravidian languages of the south to the Indo-Aryan languages of the north, India's linguistic diversity is a source of both pride and challenge.`,
       cultureName: "Languages",
       individualPage: "/culture-tradition/single-page",
     },
     {
-      cultureImg: taj,
-      cultureIntro: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis accusamus, fugiat perferendis esse libero hic deserunt dolores oditplaceat veniam, deleniti ullam sed voluptates ab alias, unde debitisofficia soluta. Lorem ipsum dolor sit amet consectetur adipisicingelit. Ex sit similique eos necessitatibus repellendus vel quosrepellat sunt fuga obcaecati officiis quaerat saepe, animi sintipsam porro quibusdam suscipit fugiat!`,
-      cultureName: "Arts & Crafts",
+      cultureImg: cuisineImg,
+      cultureIntro: `India, a land of diverse cultures, is also a culinary paradise. With its rich and varied history, India has developed a diverse range of cuisines that reflect the country's diverse geography, climate, and traditions. From the fiery flavors of Punjabi cuisine to the delicate aromas of Bengali cuisine, and from the vegetarian delights of Gujarati cuisine to the seafood specialties of coastal cuisine, India's culinary landscape is a feast for the senses.`,
+      cultureName: "Cuisines",
       individualPage: "/culture-tradition/id",
     },
     {
-      cultureImg: taj,
-      cultureIntro: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis accusamus, fugiat perferendis esse libero hic deserunt dolores oditplaceat veniam, deleniti ullam sed voluptates ab alias, unde debitisofficia soluta. Lorem ipsum dolor sit amet consectetur adipisicingelit. Ex sit similique eos necessitatibus repellendus vel quosrepellat sunt fuga obcaecati officiis quaerat saepe, animi sintipsam porro quibusdam suscipit fugiat!`,
+      cultureImg: festivalImg,
+      cultureIntro: `India, a land of diverse cultures, is also a festival paradise. With its rich and varied history, India has developed a diverse range of festivals that celebrate different aspects of life, from religious and cultural events to harvest festivals and seasonal celebrations. From the grandeur of Diwali to the vibrant colors of Holi, and from the serene atmosphere of Kumbh Mela to the festive spirit of Ganesh Chaturthi, India's festival landscape is a kaleidoscope of colors, sounds, and traditions.`,
+      cultureName: "Festivals",
+      individualPage: "/culture-tradition/id",
+    },
+    {
+      cultureImg: greetingImg,
+      cultureIntro: `India, a land of diverse cultures, is also a land of diverse greetings. With its rich and varied history, India has developed a diverse range of greetings that reflect the country's diverse geography, religion, and customs. From the formal "Namaste" to the affectionate "Aadaab," and from the regional variations of "Kya Haal Hai" to the simple "Hello," India's greeting culture is a warm and welcoming reflection of its diverse people.`,
+      cultureName: "Greetings",
+      individualPage: "/culture-tradition/id",
+    },
+    {
+      cultureImg: weddingImg,
+      cultureIntro: `India, a land of diverse cultures, is also a wedding paradise. With its rich and varied history, India has developed a diverse range of wedding traditions that reflect the country's diverse geography, religion, and customs. From the elaborate rituals of Hindu weddings to the vibrant celebrations of Sikh weddings, and from the traditional customs of Muslim weddings to the unique traditions of Christian weddings, India's wedding landscape is a colorful tapestry of joy, love, and family.`,
       cultureName: "Family Structures & Weddings",
       individualPage: "/culture-tradition/id",
     },
@@ -600,29 +625,34 @@ export const dummyData = {
 
   StateCulturesData: [
     {
-      stateImg: upImg,
+      stateImg: assamImg,
       stateName: "1. Assam",
       individualPage: "/culture-tradition/id",
     },
     {
-      stateImg: upImg,
-      stateName: "1. Assam",
+      stateImg: jkImg,
+      stateName: "2. Jammu & Kashmir",
       individualPage: "/culture-tradition/id",
     },
 
     {
-      stateImg: upImg,
-      stateName: "1. Assam",
+      stateImg: karnatakaImg,
+      stateName: "3. Karnataka",
       individualPage: "/culture-tradition/id",
     },
     {
-      stateImg: upImg,
-      stateName: "1. Assam",
+      stateImg: meghalayaImg,
+      stateName: "4. Meghalaya",
       individualPage: "/culture-tradition/id",
     },
     {
-      stateImg: upImg,
-      stateName: "1. Assam",
+      stateImg: uPradeshImg,
+      stateName: "5. Uttar Pradesh",
+      individualPage: "/culture-tradition/id",
+    },
+    {
+      stateImg: wbImg,
+      stateName: "6. West Bengal",
       individualPage: "/culture-tradition/id",
     },
   ],
