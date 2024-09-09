@@ -6,20 +6,27 @@ import { UPDATE_PROFILE_MUTATION } from "../../graphql/mutation";
 import { toast } from "sonner";
 import { useMutation } from "@apollo/client";
 import api from "./../../config/axios";
-import { useDispatch } from "react-redux";
-import { logoutUser } from "../../redux/slices/authSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUser, updateUser } from "../../redux/slices/authSlice";
 
 const MyProfile = () => {
   const [imagePreview, setImagePreview] = useState(null);
+  const user = useSelector((state) => state.user.userInfo);
   const dispatch = useDispatch();
   const logout = () => {
     dispatch(logoutUser());
     window.location.href = "/";
   };
-  useEffect(() => {
+/*   useEffect(() => {
     const savedImage = localStorage.getItem("profileImage");
     if (savedImage) {
       setImagePreview(savedImage);
+    }
+  }, []); */
+
+  useEffect(() => {
+    if (user) {
+      setImagePreview(user.photo.url);
     }
   }, []);
 
@@ -44,7 +51,8 @@ const MyProfile = () => {
     onCompleted: (data) => {
       if (data.updateProfile.ok) {
         toast.success("Profile Updated!!");
-        localStorage.setItem("profileImage", imagePreview);
+        dispatch(updateUser(data.updateProfile.user));
+        console.log(data.updateProfile);
       }
     },
     onError: (error) => {

@@ -22,7 +22,7 @@ const authTypeDefs = gql`
       phoneNumber: String
       password: String
       newPassword: String
-    ): AuthResponse!
+    ): UpdateProfileResponse!
   }
 
   type User {
@@ -49,6 +49,12 @@ const authTypeDefs = gql`
 
   type AuthResponse {
     ok: Boolean
+    error: String
+  }
+
+  type UpdateProfileResponse {
+    ok: Boolean
+    user: User
     error: String
   }
 
