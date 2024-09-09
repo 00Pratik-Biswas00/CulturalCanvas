@@ -1,10 +1,24 @@
-import React from "react";
-import mailImg from "../../assets/courses/mail.avif";
-import callImg from "../../assets/courses/linkedin.jpeg";
+import React, { useEffect, useState } from "react";
+import mailImg from "../../assets/footer/mail.avif";
+import linkedInImg from "../../assets/footer/linkedin.jpeg";
+import callImg from "../../assets/footer/call.png";
+import fbImg from "../../assets/footer/fb.png";
+import instaImg from "../../assets/footer/insta.png";
+import xImg from "../../assets/footer/x.png";
+import ytImg from "../../assets/footer/yt.avif";
 
 const Footer = () => {
+  // const [visitorCount, setVisitorCount] = useState(0);
+
+  // useEffect(() => {
+  //   fetch('http://localhost:5000/api/visitor-count')
+  //     .then(response => response.json())
+  //     .then(data => setVisitorCount(data.visitorCount))
+  //     .catch(err => console.error('Error fetching visitor count:', err));
+  // }, []);
+
   return (
-    <section className="bg-[#fff3e4] dark:bg-shadow text-primary_text dark:text-dark_primary_text py-10 px-16 duration-300 flex flex-col items-center relative overflow-hidden">
+    <section className="bg-[#fff3e4] dark:bg-shadow text-primary_text dark:text-dark_primary_text pt-10 px-16 duration-300 flex flex-col items-center relative overflow-hidden">
       {/* Background SVG */}
       <div className="absolute top-0 left-0 right-0 ">
         <svg
@@ -19,7 +33,7 @@ const Footer = () => {
 
       <div className="flex w-full justify-between gap-5 z-10">
         <div>
-          <ul className="font-secondary flex flex-col gap-y-2">
+          <ul className=" font-semibold flex flex-col gap-y-2">
             <li className="cursor-pointer underline-animation h-fit w-fit">
               Terms & Conditions
             </li>
@@ -38,32 +52,17 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="flex relative gap-2  items-end ">
-          <a
-            href="/"
-            target="_blank"
-            rel="noreferrer"
-            className=" flex gap-2 justify-start items-center  cursor-pointer transition-transform hover:scale-110 duration-1000  transform-cpu"
-          >
-            <img
-              src={mailImg}
-              alt="mail"
-              className=" rounded-full border p-1  w-12 h-12"
-            />
-          </a>
-
-          <a
-            href="/"
-            target="_blank"
-            rel="noreferrer"
-            className=" flex gap-2 justify-start items-center  cursor-pointer transition-transform hover:scale-110 duration-1000  transform-cpu"
-          >
-            <img
-              src={mailImg}
-              alt="mail"
-              className=" rounded-full border p-1  w-12 h-12"
-            />
-          </a>
+        <div className="flex relative  justify-center  pl-[5.2rem] ">
+          <p className="flex text-sm gap-2  items-end pb-1  ">
+            {" "}
+            <strong>Connect with us:</strong> Join Our Community online
+          </p>
+          <div className=" absolute flex items-center justify-center bottom-14  ">
+            {/* Visitors Count:{visitorCount} */}
+            <p className=" px-5 py-1 rounded-xl border border-highlight">
+              Total Users: 6
+            </p>
+          </div>
         </div>
 
         {/*  */}
@@ -74,12 +73,12 @@ const Footer = () => {
             rel="noreferrer"
             className=" flex gap-2 justify-start items-center  cursor-pointer transition-transform hover:scale-110 duration-1000  transform-cpu"
           >
+            <span className="  font-medium  ">+91 700131656</span>
             <img
-              src={mailImg}
+              src={callImg}
               alt="mail"
               className=" rounded-full border p-1  w-12 h-12"
             />
-            <span className="  font-medium  ">culturalcanvas@gmail.com</span>
           </a>
 
           <a
@@ -88,14 +87,85 @@ const Footer = () => {
             rel="noreferrer"
             className=" flex gap-2 justify-start items-center  cursor-pointer transition-transform hover:scale-110 duration-1000  transform-cpu"
           >
+            <span className="  font-medium  ">culturalcanvas@gmail.com</span>
             <img
               src={mailImg}
               alt="mail"
               className=" rounded-full border p-1  w-12 h-12"
             />
-            <span className="  font-medium  ">culturalcanvas@gmail.com</span>
           </a>
         </div>
+      </div>
+
+      <div className="flex  gap-2  items-end pb-2 ">
+        <a
+          href="/"
+          target="_blank"
+          rel="noreferrer"
+          className=" flex gap-2 justify-start items-center  cursor-pointer transition-transform hover:scale-110 duration-1000  transform-cpu"
+        >
+          <img
+            src={fbImg}
+            alt="mail"
+            className=" rounded-full border p-1  w-12 h-12"
+          />
+        </a>
+
+        <a
+          href="/"
+          target="_blank"
+          rel="noreferrer"
+          className=" flex gap-2 justify-start items-center  cursor-pointer transition-transform hover:scale-110 duration-1000  transform-cpu"
+        >
+          <img
+            src={instaImg}
+            alt="mail"
+            className=" rounded-full border p-1  w-12 h-12"
+          />
+        </a>
+
+        <a
+          href="/"
+          target="_blank"
+          rel="noreferrer"
+          className=" flex gap-2 justify-start items-center  cursor-pointer transition-transform hover:scale-110 duration-1000  transform-cpu"
+        >
+          <img
+            src={linkedInImg}
+            alt="mail"
+            className=" rounded-full border p-1  w-12 h-12"
+          />
+        </a>
+
+        <a
+          href="/"
+          target="_blank"
+          rel="noreferrer"
+          className=" flex gap-2 justify-start items-center  cursor-pointer transition-transform hover:scale-110 duration-1000  transform-cpu"
+        >
+          <img
+            src={xImg}
+            alt="mail"
+            className=" rounded-full border p-1  w-12 h-12"
+          />
+        </a>
+
+        <a
+          href="/"
+          target="_blank"
+          rel="noreferrer"
+          className=" flex gap-2 justify-start items-center  cursor-pointer transition-transform hover:scale-110 duration-1000  transform-cpu"
+        >
+          <img
+            src={ytImg}
+            alt="mail"
+            className=" rounded-full border p-1  w-12 h-12"
+          />
+        </a>
+      </div>
+
+      <div className=" absolute bottom-3 left-16 font-semibold">
+        ⓒ 2024 || Cultural Canvas, All rights reserved.
       </div>
     </section>
   );
