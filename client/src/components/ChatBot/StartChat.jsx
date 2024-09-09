@@ -37,7 +37,6 @@ const StartChat = ({ selectedLanguage, onClose }) => {
         ],
       };
 
-
       const response = await axios.post(
         `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${
           import.meta.env.VITE_GOOGLE_GEMINI_AI_API_KEY
@@ -85,12 +84,12 @@ const StartChat = ({ selectedLanguage, onClose }) => {
 
   return (
     <div className="flex flex-col items-start gap-2 w-full">
-      <div className="text-lg font-semibold">
+      <div className="text-xs absolute top-12 px-2 bg-background1 text-primary_text rounded-md font-semibold">
         Chatting in: {selectedLanguage}
       </div>
 
       {/* Conversation Section */}
-      <div className="w-full bg-gray-100 p-3 rounded-lg overflow-auto max-h-60">
+      <div className="w-full bg-transparent py-2 rounded-lg overflow-auto max-h-[420px]">
         {conversation.length > 0 ? (
           <ul className="space-y-4">
             {conversation.map((item, index) => (
@@ -103,14 +102,20 @@ const StartChat = ({ selectedLanguage, onClose }) => {
                 <div
                   className={`${
                     item.type === "user"
-                      ? "bg-blue-500 text-white"
-                      : "bg-gray-300 text-black"
+                      ? "bg-[#2a3d4c] text-dark_primary_text"
+                      : "bg-dark_primary_text text-[#2a3d4c]"
                   } p-3 rounded-lg shadow-md max-w-xs`}
                 >
                   <ReactMarkdown>
                     {item.type === "user" ? item.question : item.answer}
                   </ReactMarkdown>
-                  <p className="text-xs text-right text-gray-500 mt-1">
+                  <p
+                    className={`${
+                      item.type === "user"
+                        ? " text-[#c1d2df]"
+                        : "text-[#113551]"
+                    } text-xs text-right mt-1`}
+                  >
                     {new Date(item.timestamp).toLocaleTimeString()}
                   </p>
                 </div>
@@ -118,8 +123,8 @@ const StartChat = ({ selectedLanguage, onClose }) => {
             ))}
           </ul>
         ) : (
-          <p className="text-center text-gray-500">
-            Start the chat by asking a question!
+          <p className="text-center text-3xl text-dark_primary_text font-bold tracking-wider">
+            Start the chat by asking a question! 🙏
           </p>
         )}
       </div>

@@ -58,7 +58,7 @@ const ChatBotPopUp = ({ onClose }) => {
   return (
     <div
       style={{ backgroundImage: `url(${ChatBotBg})` }}
-      className="absolute bottom-8 -right-10 z-50 flex items-center justify-end bg-center bg-no-repeat rounded-xl duration-500"
+      className="absolute bottom-8 -right-10 z-50 flex items-center justify-end bg-center bg-contain bg-no-repeat rounded-xl duration-500"
     >
       <div className="absolute inset-0 bg-dark_background1 opacity-50 z-10 rounded-xl"></div>
 
@@ -81,7 +81,7 @@ const ChatBotPopUp = ({ onClose }) => {
                     sm:w-[280px] sm:h-[250px]
                     md:w-[350px] md:h-[420px]
                     lg:w-[450px] lg:h-[420px]
-                    xl:w-[400px] xl:h-[450px]"
+                    xl:w-[420px] xl:h-[520px]"
                 >
                   <div>
                     <img
@@ -134,7 +134,7 @@ const ChatBotPopUp = ({ onClose }) => {
                     sm:w-[280px] sm:h-[250px]
                     md:w-[350px] md:h-[420px]
                     lg:w-[450px] lg:h-[420px]
-                    xl:w-[400px] xl:h-[450px]"
+                    xl:w-[420px] xl:h-[520px]"
                 >
                   <StartChat
                     selectedLanguage={selectedLanguage}
