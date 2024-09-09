@@ -12,7 +12,6 @@ const LearnIndianCulture = () => {
   const [courses, setCourses] = useState([]);
   const { loading, error, data } = useQuery(GET_ALL_COURSES_QUERY);
   const navigate = useNavigate();
-  //navigate(`${course.slug}`);
   useEffect(() => {
     if (data && data.getCourses) {
       setCourses(data.getCourses);
@@ -64,6 +63,8 @@ const LearnIndianCulture = () => {
     scrollRefs.current[index].scrollBy({ left: 500, behavior: "smooth" });
   };
 
+  if(loading) return <p>Loading...</p>;
+  if(error) return <p>Error fetching courses!</p>
   return (
     <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-4 px-16 duration-300">
       <div>

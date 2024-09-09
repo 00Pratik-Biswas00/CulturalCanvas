@@ -34,6 +34,8 @@ const MultiplePagesCulture = () => {
   const openSingleReligion = (slug) => {
     navigate(`${slug}`);
   };
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error fetching religions!</p>;
   return (
     <section className="duration-300 text-primary_text dark:text-dark_primary_text">
       <div
