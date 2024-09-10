@@ -14,8 +14,6 @@ import headerBG from "../../assets/logo/headerBG.png";
 import { CiMenuFries } from "react-icons/ci";
 import { RxCross2 } from "react-icons/rx";
 import { MdLightMode, MdDarkMode, MdOutlineTranslate } from "react-icons/md";
-import TranslatePopup from "./TranslatePopup";
-import { AiOutlineClose } from "react-icons/ai";
 
 // Routes
 
@@ -277,22 +275,6 @@ const Header = ({ open, setOpen }) => {
               }`}
             ></div>
           </div>
-
-          {/* <div className="flex flex-col items-start">
-            <button
-              onClick={() => setShowTranslate(!showTranslate)}
-              className="p-2 bg-blue-500 text-white rounded-full"
-            >
-              <MdOutlineTranslate className="w-5 h-5" />
-            </button>
-
-            <div
-              id="google_translate_element"
-              className={`mt-4 transition-opacity duration-300 ${
-                showTranslate ? "opacity-100 visible" : "opacity-0 invisible"
-              }`}
-            ></div>
-          </div> */}
 
           <button onClick={toggleDarkMode}>
             {darkMode ? (
