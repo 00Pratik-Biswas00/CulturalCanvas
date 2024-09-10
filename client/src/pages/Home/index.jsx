@@ -25,10 +25,10 @@ const Home = () => {
   return (
     <section className="bg-background1 dark:bg-dark_background1 px-16 py-10 duration-500">
       <div className="w-full flex flex-col items-center justify-center gap-16">
-        <div>
+        {/* <div>
           <button onClick={() => changeLanguage("en")}>English</button>
           <button onClick={() => changeLanguage("hi")}>Hindi</button>
-        </div>
+        </div> */}
         {homeContent.map((content, ind) => (
           <div
             key={ind}

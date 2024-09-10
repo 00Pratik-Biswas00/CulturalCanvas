@@ -1,3 +1,5 @@
+/* Common CSS  */
+
 @import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@700&family=Open+Sans&family=Roboto&family=Ubuntu:wght@400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
@@ -23,31 +25,48 @@
   background: transparent;
 }
 
-/* Hide download button in the video controls */
-.react-player .controls .controls__button[title="Download"] {
-  display: none;
+
+
+
+/* Target the outer container of the Google Translate widget */
+#google_translate_element .goog-te-gadget {
+  font-family: 'Arial', sans-serif !important;
+  font-size: 14px !important;
+  color: #333 !important;
+  /* Change text color */
+  background-color: #f5f5f5 !important;
+  /* Change background color */
+  padding: 10px !important;
+  border-radius: 8px;
+  border: 1px solid #ccc !important;
 }
 
-.underline-animation {
-  position: relative;
+/* Customize the dropdown button */
+#google_translate_element .goog-te-gadget .goog-te-gadget-simple a.VIpgJd-ZVi9od-xl07Ob-lTBxed {
+  /* background-color: #4CAF50 !important; */
+  /* Change button background */
+  color: black !important;
+  /* Change button text color */
+  padding: 5px 10px !important;
+  border-radius: 5px !important;
+  border: none !important;
+  font-weight: bold !important;
 }
 
-/* .underline-animation:hover {
-  color: #FFFAF4;
-} */
-
-.underline-animation::before {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 0%;
-  height: 1.5px;
-  background-color: #a3a59e;
-  transition: all 0.5s;
+/* Customize the arrow icon */
+#google_translate_element .goog-te-gadget .goog-te-gadget-simple span[aria-hidden="true"] {
+  color: black !important;
+  padding-left: 8px !important;
+  /* Change the arrow icon color */
 }
 
+/* Remove the unwanted borders and icons */
+#google_translate_element .goog-te-gadget .goog-te-gadget-simple img {
+  display: none !important;
+  /* Hide default icons */
+}
 
-.underline-animation:hover::before {
-  width: 100%;
+#google_translate_element .goog-te-gadget .goog-te-gadget-simple span[style*="border-left"] {
+  display: none !important;
+  /* Hide default border */
 }
