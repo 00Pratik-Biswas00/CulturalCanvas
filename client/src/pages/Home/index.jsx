@@ -38,14 +38,14 @@ const Home = () => {
               <>
                 {/* Text on the left, image on the right */}
                 <div className="flex flex-col items-center justify-center gap-10 w-[180%]">
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4 relative">
                     <p className="text-lg leading-8 font-medium text-primary_text dark:text-dark_primary_text">
                       {content.para}
                     </p>
                     <button
                       onClick={() => speakText(content.para)}
                       aria-label="Speak Text"
-                      className="text-2xl"
+                      className="text-2xl absolute -left-14"
                     >
                       🔊
                     </button>
@@ -79,14 +79,14 @@ const Home = () => {
                 </div>
 
                 <div className="flex flex-col items-center justify-center gap-10 w-[180%]">
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4 relative">
                     <p className="text-lg leading-8 font-medium text-primary_text dark:text-dark_primary_text">
                       {content.para}
                     </p>
                     <button
                       onClick={() => speakText(content.para)}
                       aria-label="Speak Text"
-                      className="text-2xl"
+                      className="text-2xl absolute -right-14"
                     >
                       🔊
                     </button>

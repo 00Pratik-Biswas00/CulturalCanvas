@@ -110,7 +110,6 @@ function App() {
             path="/culture-tradition/single-state"
             element={<SingleStateCulture />}
           />
-
           <Route
             path="/culture-tradition/multiple-pages/:slug"
             element={<MultipleSingleCulture />}

@@ -24,7 +24,6 @@ const MultipleSingleCulture = () => {
 
   if (error) {
     return <div>Error fetching religion!</div>;
-    console.log(error);
   }
 
   return (
@@ -44,8 +43,14 @@ const MultipleSingleCulture = () => {
               <p className="text-2xl font-lato ">{religion.introduction}</p>
             </div>
 
-            <div className="bg-background1 dark:bg-dark_background1 py-4 px-16 text-lg flex flex-col items-start justify-center w-full h-full">
-              <div className="flex flex-col gap-4">
+            <div className="bg-background1 dark:bg-dark_background1 py-4 px-16 text-lg flex flex-col items-start justify-center w-full h-full ">
+              <div className="flex flex-col gap-4 relative">
+                <button
+                  aria-label="Speak Text"
+                  className="text-2xl  absolute -left-12 top-3 "
+                >
+                  🔊
+                </button>
                 <h1 className="font-semibold font-montserrat text-2xl pt-3">
                   Overview:
                 </h1>
