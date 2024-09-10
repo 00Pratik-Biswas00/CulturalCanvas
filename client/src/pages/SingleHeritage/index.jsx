@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import ReactPlayer from "react-player";
 import { useQuery } from "@apollo/client";
 import { GET_HERITAGE_QUERY } from "../../graphql/HeritageQuery";
-import taj from "../../assets/Heritage/taj.jpeg";
 import Agra from "../../assets/Heritage/Agra fort(avif).avif";
 import Fateh from "../../assets/Heritage/Fateh(avif).avif";
 import RedFort from "../../assets/Heritage/Red fort (avif).avif";
@@ -57,7 +56,7 @@ const SingleHeritage = () => {
                 width="100%"
                 height="100%"
                 className="max-w-full max-h-full m-auto"
-                playing
+                playing={false}
                 controls
                 config={{
                   file: {
@@ -80,11 +79,20 @@ const SingleHeritage = () => {
                   {heritage.part1
                     .slice(0, Math.ceil(heritage.part1.length / 2))
                     .map((section, index) => (
-                      <div key={index} className="mb-4">
+                      <div
+                        key={index}
+                        className="mb-4 flex items-start flex-col justify-center relative"
+                      >
                         <h1 className="font-semibold font-montserrat text-2xl">
                           {section.heading}
                         </h1>
                         <p>{section.description}</p>
+                        <button
+                          aria-label="Speak Text"
+                          className="text-2xl absolute -left-12 "
+                        >
+                          🔊
+                        </button>
                       </div>
                     ))}
                 </div>
@@ -100,7 +108,7 @@ const SingleHeritage = () => {
                     width="100%"
                     height="100%"
                     className="max-w-full max-h-full m-auto"
-                    playing
+                    playing={false}
                     controls
                     config={{
                       file: {
@@ -116,11 +124,20 @@ const SingleHeritage = () => {
                   {heritage.part1
                     .slice(Math.ceil(heritage.part1.length / 2))
                     .map((section, index) => (
-                      <div key={index} className="mb-4">
+                      <div
+                        key={index}
+                        className="mb-4 flex items-start flex-col justify-center relative"
+                      >
                         <h1 className="font-semibold font-montserrat text-2xl">
                           {section.heading}
                         </h1>
                         <p>{section.description}</p>
+                        <button
+                          aria-label="Speak Text"
+                          className="text-2xl absolute -left-12 "
+                        >
+                          🔊
+                        </button>
                       </div>
                     ))}
                 </div>
@@ -136,7 +153,7 @@ const SingleHeritage = () => {
                 width="100%"
                 height="100%"
                 className="max-w-full max-h-full m-auto"
-                playing
+                playing={false}
                 controls
                 config={{
                   file: {

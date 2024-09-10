@@ -76,7 +76,8 @@ const SingleCourse = () => {
       {course && (
         <div
           style={{ backgroundImage: `url(${course.image.url})` }}
-          className="relative bg-center bg-contain bg-fixed bg-no-repeat">
+          className="relative bg-center bg-contain bg-fixed bg-no-repeat"
+        >
           {/* Black overlay */}
           <div className="absolute inset-0 bg-background1 dark:bg-dark_background1 opacity-80 z-10"></div>
           <div className="relative z-20 flex flex-col items-center justify-center">
@@ -93,7 +94,7 @@ const SingleCourse = () => {
 
             <div className="">
               <div className=" py-4 px-16 text-lg flex flex-col items-start justify-center gap-3 w-full h-full">
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col  relative gap-3">
                   <h1 className=" font-semibold font-montserrat text-2xl">
                     Brief History of {course.name}
                   </h1>
@@ -103,6 +104,12 @@ const SingleCourse = () => {
                     Course Introduction
                   </h1>
                   <p className="">{course.courseIntro}</p>
+                  <button
+                    aria-label="Speak Text"
+                    className="text-2xl  absolute -left-12 "
+                  >
+                    🔊
+                  </button>
                 </div>
 
                 <div className="flex flex-col gap-3">
@@ -133,7 +140,8 @@ const SingleCourse = () => {
                           href={`mailto:${course.instructor.email}`}
                           target="blank"
                           rel="noopener"
-                          className="flex items-center justify-center gap-2 font-medium duration-500 transition-transform hover:scale-105 transform-cpu">
+                          className="flex items-center justify-center gap-2 font-medium duration-500 transition-transform hover:scale-105 transform-cpu"
+                        >
                           <img
                             src={MailImg}
                             alt="Mail"
@@ -147,7 +155,8 @@ const SingleCourse = () => {
                             href={course.instructor.linkedin}
                             target="blank"
                             rel="noopener"
-                            className="flex items-center justify-center gap-2 font-medium duration-500 transition-transform hover:scale-105 transform-cpu">
+                            className="flex items-center justify-center gap-2 font-medium duration-500 transition-transform hover:scale-105 transform-cpu"
+                          >
                             <img
                               src={LinkedInImg}
                               alt="Linkedin"
@@ -186,7 +195,8 @@ const SingleCourse = () => {
                 <div className="relative w-full">
                   <button
                     onClick={scrollLeft}
-                    className="absolute -left-11 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 text-highlight_hover hover:bg-highlight_hover hover:text-dark_primary_text border border-highlight_hover p-2 duration-300 rounded-full z-10">
+                    className="absolute -left-11 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 text-highlight_hover hover:bg-highlight_hover hover:text-dark_primary_text border border-highlight_hover p-2 duration-300 rounded-full z-10"
+                  >
                     <FaLongArrowAltLeft className="w-5 h-5" />
                   </button>
 
@@ -197,11 +207,13 @@ const SingleCourse = () => {
                     onMouseUp={handleMouseUp}
                     onMouseLeave={handleMouseUp}
                     className="flex gap-7 w-full overflow-x-auto scroll-smooth outline-none"
-                    style={{ scrollSnapType: "x mandatory" }}>
+                    style={{ scrollSnapType: "x mandatory" }}
+                  >
                     {course.modules.map((content, ind) => (
                       <div
                         key={ind}
-                        className="flex-shrink-0 w-[32%] max-w-[32%] flex flex-col items-center justify-start gap-3 border-2 border-highlight_hover rounded-xl p-4">
+                        className="flex-shrink-0 w-[32%] max-w-[32%] flex flex-col items-center justify-start gap-3 border-2 border-highlight_hover rounded-xl p-4"
+                      >
                         <img
                           src={content.image.url}
                           className="rounded-xl"
@@ -218,7 +230,8 @@ const SingleCourse = () => {
                               content.name
                             )
                           }
-                          className="bg-background1 dark:bg-dark_background1 text-highlight_hover hover:bg-highlight_hover hover:text-dark_primary_text border-2 border-highlight_hover p-2 duration-300 rounded-xl font-bold cursor-pointer">
+                          className="bg-background1 dark:bg-dark_background1 text-highlight_hover hover:bg-highlight_hover hover:text-dark_primary_text border-2 border-highlight_hover p-2 duration-300 rounded-xl font-bold cursor-pointer"
+                        >
                           Start Learning
                         </div>
                       </div>
@@ -227,7 +240,8 @@ const SingleCourse = () => {
 
                   <button
                     onClick={scrollRight}
-                    className="absolute -right-11 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 text-highlight_hover hover:bg-highlight_hover hover:text-dark_primary_text border border-highlight_hover p-2 duration-300 rounded-full z-10">
+                    className="absolute -right-11 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 text-highlight_hover hover:bg-highlight_hover hover:text-dark_primary_text border border-highlight_hover p-2 duration-300 rounded-full z-10"
+                  >
                     <FaLongArrowAltRight className="w-5 h-5" />
                   </button>
                 </div>
