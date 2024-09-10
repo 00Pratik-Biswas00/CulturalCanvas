@@ -1,3 +1,5 @@
+/* Common CSS  */
+
 @import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@700&family=Open+Sans&family=Roboto&family=Ubuntu:wght@400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
@@ -23,30 +25,7 @@
   background: transparent;
 }
 
-/* Hide download button in the video controls */
-.react-player .controls .controls__button[title="Download"] {
-  display: none;
-}
 
-.underline-animation {
-  position: relative;
-}
-
-.underline-animation::before {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 0%;
-  height: 1.5px;
-  background-color: #a3a59e;
-  transition: all 0.5s;
-}
-
-
-.underline-animation:hover::before {
-  width: 100%;
-}
 
 
 /* Target the outer container of the Google Translate widget */
@@ -90,9 +69,4 @@
 #google_translate_element .goog-te-gadget .goog-te-gadget-simple span[style*="border-left"] {
   display: none !important;
   /* Hide default border */
-}
-
-
-.VIpgJd-ZVi9od-vH1Gmf-ibnC6b {
-  margin-top: 20px !important;
 }

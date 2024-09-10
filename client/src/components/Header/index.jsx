@@ -15,6 +15,7 @@ import { CiMenuFries } from "react-icons/ci";
 import { RxCross2 } from "react-icons/rx";
 import { MdLightMode, MdDarkMode, MdOutlineTranslate } from "react-icons/md";
 import TranslatePopup from "./TranslatePopup";
+import { AiOutlineClose } from "react-icons/ai";
 
 // Routes
 
@@ -60,11 +61,12 @@ const Header = ({ open, setOpen }) => {
   const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
   const [isFPModalOpen, setIsFPModalOpen] = useState(false);
   const [isResetModalOpen, setIsResetModalOpen] = useState(false);
+  const [showTranslate, setShowTranslate] = useState(false);
 
-  const [isTranslatePopupOpen, setIsTranslatePopupOpen] = useState(false);
-  const translatePopup = () => {
-    setIsTranslatePopupOpen(!isTranslatePopupOpen);
-  };
+  // const [isTranslatePopupOpen, setIsTranslatePopupOpen] = useState(false);
+  // const translatePopup = () => {
+  //   setIsTranslatePopupOpen(!isTranslatePopupOpen);
+  // };
 
   const openResetModal = () => {
     setIsResetModalOpen(true);
@@ -181,6 +183,40 @@ const Header = ({ open, setOpen }) => {
   //   addGoogleTranslateScript();
   // }, []);
 
+  useEffect(() => {
+    const addGoogleTranslateScript = () => {
+      // Ensure the script is not added multiple times
+      if (
+        !document.querySelector(
+          "script[src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit']"
+        )
+      ) {
+        const script = document.createElement("script");
+        script.src =
+          "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+        document.body.appendChild(script);
+      }
+    };
+
+    // Initialize Google Translate Element
+    window.googleTranslateElementInit = () => {
+      if (window.google && window.google.translate) {
+        new window.google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages:
+              "as,bn,en,gu,hi,kn,ml,mr,or,pa,ta,te,ur,ks,ne,sd,si,sa,brx,doi,dv,mni,mrj,sat,bh,lep,mai,kok,ks",
+            layout:
+              window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+          },
+          "google_translate_element"
+        );
+      }
+    };
+
+    addGoogleTranslateScript();
+  }, []);
+
   return (
     <div
       style={{
@@ -226,9 +262,37 @@ const Header = ({ open, setOpen }) => {
       {/* theme change, login, and Google */}
       <div className="hidden lg:flex items-center justify-center space-x-5">
         <div className="flex items-center justify-center gap-x-4 font-ubuntu font-medium text-sm ">
-          <button onClick={translatePopup}>
-            <MdOutlineTranslate className=" w-5 h-5" />
-          </button>
+          <div className="flex flex-col items-center justify-center ">
+            <button
+              onClick={() => setShowTranslate(!showTranslate)}
+              // className="p-2 bg-blue-500 text-white rounded-full"
+            >
+              <MdOutlineTranslate className="w-5 h-5" />
+            </button>
+
+            <div
+              id="google_translate_element"
+              className={` absolute top-14 transition-opacity duration-300 ${
+                showTranslate ? "opacity-100 visible" : "opacity-0 invisible"
+              }`}
+            ></div>
+          </div>
+
+          {/* <div className="flex flex-col items-start">
+            <button
+              onClick={() => setShowTranslate(!showTranslate)}
+              className="p-2 bg-blue-500 text-white rounded-full"
+            >
+              <MdOutlineTranslate className="w-5 h-5" />
+            </button>
+
+            <div
+              id="google_translate_element"
+              className={`mt-4 transition-opacity duration-300 ${
+                showTranslate ? "opacity-100 visible" : "opacity-0 invisible"
+              }`}
+            ></div>
+          </div> */}
 
           <button onClick={toggleDarkMode}>
             {darkMode ? (
@@ -340,8 +404,6 @@ const Header = ({ open, setOpen }) => {
           isFPModalOpen={isFPModalOpen}
         />
       )}
-
-      {isTranslatePopupOpen && <TranslatePopup onClose={translatePopup} />}
     </div>
   );
 };

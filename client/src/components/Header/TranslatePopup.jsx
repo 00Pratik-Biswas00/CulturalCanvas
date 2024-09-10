@@ -3,7 +3,6 @@ import { AiOutlineClose } from "react-icons/ai";
 import ChatBotBg from "../../assets/chatbot/chatbot.png";
 
 const TranslatePopup = ({ onClose }) => {
-  // Load Google Translate and restrict languages
   useEffect(() => {
     const addGoogleTranslateScript = () => {
       // Check if the script is already added
@@ -21,30 +20,24 @@ const TranslatePopup = ({ onClose }) => {
 
     // Initialize Google Translate Element
     window.googleTranslateElementInit = () => {
-      // Remove the existing widget and re-initialize it when opening the popup
-      if (document.getElementById("google_translate_element")) {
-        document.getElementById("google_translate_element").innerHTML = "";
+      if (!document.getElementById("google_translate_element_initialized")) {
+        new window.google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages:
+              "as,bn,en,gu,hi,kn,ml,mr,or,pa,ta,te,ur,ks,ne,sd,si,sa,brx,doi,dv,mni,mrj,sat,bh,lep,mai,kok,ks", // 28 Indian languages
+            layout:
+              window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+          },
+          "google_translate_element"
+        );
+        const marker = document.createElement("div");
+        marker.id = "google_translate_element_initialized";
+        document.body.appendChild(marker);
       }
-
-      new window.google.translate.TranslateElement(
-        {
-          pageLanguage: "en",
-          includedLanguages:
-            "as,bn,en,gu,hi,kn,ml,mr,or,pa,ta,te,ur,ks,ne,sd,si,sa,brx,doi,dv,mni,mrj,sat,bh,lep,mai,kok,ks", // 28 Indian languages
-          layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-        },
-        "google_translate_element"
-      );
     };
 
     addGoogleTranslateScript();
-
-    // Clean up the widget when closing the popup
-    return () => {
-      if (document.getElementById("google_translate_element")) {
-        document.getElementById("google_translate_element").innerHTML = "";
-      }
-    };
   }, []);
 
   return (
@@ -61,7 +54,7 @@ const TranslatePopup = ({ onClose }) => {
           </button>
         </div>
 
-        <div className="flex items-center rounded-lg  md:max-w-full">
+        <div className="flex items-center rounded-lg md:max-w-full">
           <div
             className="flex flex-col items-center justify-start gap-5 bg-background rounded-lg overflow-auto py-5
                 w-[270px] h-[240px]
