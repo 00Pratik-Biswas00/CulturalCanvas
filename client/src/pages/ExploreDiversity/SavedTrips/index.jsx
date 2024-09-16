@@ -27,7 +27,11 @@ function SavedTrips() {
       <div className="grid grid-cols-2 md:grid-cols-3 gap-7 gap-y-10 my-3">
         {userTrips?.length > 0
           ? userTrips.map((trip, index) => (
-              <UserTripCard trip={trip} key={index} />
+              <UserTripCard
+                trip={trip}
+                key={index}
+                getUserTrips={GetUserTrips}
+              />
             ))
           : [1, 2, 3, 4, 5, 6].map((item, index) => (
               <div

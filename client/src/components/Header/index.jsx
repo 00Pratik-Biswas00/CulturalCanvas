@@ -14,39 +14,9 @@ import headerBG from "../../assets/logo/headerBG.png";
 import { CiMenuFries } from "react-icons/ci";
 import { RxCross2 } from "react-icons/rx";
 import { MdLightMode, MdDarkMode, MdOutlineTranslate } from "react-icons/md";
+import { RoutesNames } from "../../utils/constants";
 
 // Routes
-
-const RoutesNames = [
-  {
-    route_link: "/",
-    route_name: "Home",
-  },
-  {
-    route_link: "/heritage",
-    route_name: "Heritage",
-  },
-  {
-    route_link: "/culture-tradition",
-    route_name: "Culture & Tradition",
-  },
-  {
-    route_link: "/learn-Indian-culture",
-    route_name: "Learn Indian Culture",
-  },
-  {
-    route_link: "/explore-diversity",
-    route_name: "Explore Diversity",
-  },
-  {
-    route_link: "/blogs-vlogs",
-    route_name: "Blogs & Vlogs",
-  },
-  {
-    route_link: "/virtual-store",
-    route_name: "Virtual Store",
-  },
-];
 
 const Header = ({ open, setOpen }) => {
   const navbarRef = useRef(null);
@@ -142,44 +112,6 @@ const Header = ({ open, setOpen }) => {
     const initials = names.map((n) => n[0]).join("");
     return initials.toUpperCase();
   };
-
-  // Load Google Translate and restrict languages
-  // useEffect(() => {
-  //   const addGoogleTranslateScript = () => {
-  //     // Check if the script is already added
-  //     if (
-  //       !document.querySelector(
-  //         "script[src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit']"
-  //       )
-  //     ) {
-  //       const script = document.createElement("script");
-  //       script.src =
-  //         "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-  //       document.body.appendChild(script);
-  //     }
-  //   };
-
-  //   // Initialize Google Translate Element
-  //   window.googleTranslateElementInit = () => {
-  //     if (!document.getElementById("google_translate_element_initialized")) {
-  //       new window.google.translate.TranslateElement(
-  //         {
-  //           pageLanguage: "en",
-  //           includedLanguages:
-  //             "as,bn,en,gu,hi,kn,ml,mr,or,pa,ta,te,ur,ks,ne,sd,si,sa,brx,doi,dv,mni,mrj,sat,bh,lep,mai,kok,ks", // 28 Indian languages
-  //           layout:
-  //             window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-  //         },
-  //         "google_translate_element"
-  //       );
-  //       const marker = document.createElement("div");
-  //       marker.id = "google_translate_element_initialized";
-  //       document.body.appendChild(marker);
-  //     }
-  //   };
-
-  //   addGoogleTranslateScript();
-  // }, []);
 
   useEffect(() => {
     const addGoogleTranslateScript = () => {
