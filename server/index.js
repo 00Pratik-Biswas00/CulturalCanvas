@@ -1,10 +1,10 @@
 import express from "express";
 import "dotenv/config";
 import morgan from "morgan";
-import mongoose from "mongoose";
 import cors from "cors";
 import uploadRoutes from "./routes/upload.js";
 import tripRoutes from "./routes/trip.js";
+import userCount from "./routes/count.js";
 import { createServer } from "http";
 import { ApolloServer } from "apollo-server-express";
 import { mergeTypeDefs, mergeResolvers } from "@graphql-tools/merge";
@@ -94,6 +94,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use("/api", uploadRoutes);
 app.use("/api", tripRoutes);
+app.use("/api", userCount);
 
 http.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

@@ -6,16 +6,31 @@ import fbImg from "../../assets/footer/fb.png";
 import instaImg from "../../assets/footer/insta.png";
 import xImg from "../../assets/footer/x.png";
 import ytImg from "../../assets/footer/yt.avif";
+import api from "./../../config/axios.js";
 
 const Footer = () => {
-  // const [visitorCount, setVisitorCount] = useState(0);
+  const [totalUsers, setTotalUsers] = useState(0);
 
-  // useEffect(() => {
-  //   fetch('http://localhost:5000/api/visitor-count')
-  //     .then(response => response.json())
-  //     .then(data => setVisitorCount(data.visitorCount))
-  //     .catch(err => console.error('Error fetching visitor count:', err));
-  // }, []);
+  const getTotalUsers = async () => {
+    try {
+      const response = await api.get("/total-users");
+      return response.data.totalUsers;
+    } catch (error) {
+      console.error("Error fetching total users:", error);
+      return null;
+    }
+  };
+  useEffect(() => {
+    const fetchTotalUsers = async () => {
+      try {
+        const result = await getTotalUsers();
+        setTotalUsers(result);
+      } catch (err) {
+        setError("Failed to fetch total users.");
+      }
+    };
+    fetchTotalUsers();
+  }, []);
 
   return (
     <section className="bg-[#fff3e4] dark:bg-shadow text-primary_text dark:text-dark_primary_text pt-10 px-16 duration-300 flex flex-col items-center relative overflow-hidden">
@@ -60,7 +75,7 @@ const Footer = () => {
           <div className=" absolute flex items-center justify-center bottom-14  ">
             {/* Visitors Count:{visitorCount} */}
             <p className=" px-5 py-1 rounded-xl border border-highlight">
-              Total Users: 6
+              {`Total Users: ${totalUsers}`}
             </p>
           </div>
         </div>

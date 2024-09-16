@@ -48,4 +48,15 @@ router.get("/history", requireSignin, async (req, res) => {
   }
 });
 
+router.delete("/delete-trip", requireSignin, async (req, res) => {
+  try {
+    await Trip.findByIdAndDelete(req.body._id);
+    res.sendStatus(200);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error retrieving trips", error: error.message });
+  }
+});
+
 export default router;

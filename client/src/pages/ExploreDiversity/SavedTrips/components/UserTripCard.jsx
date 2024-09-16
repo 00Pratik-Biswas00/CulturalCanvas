@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import {
   GetPlaceDetails,
   PHOTO_REF_URL,
@@ -7,15 +6,25 @@ import {
 import { MdDelete } from "react-icons/md";
 import { GoLink } from "react-icons/go";
 import { useNavigate } from "react-router-dom";
+import api from "../../../../config/axios";
 
-function UserTripCard({ trip }) {
+function UserTripCard({ trip, getUserTrips }) {
   const [photoUrl, setPhotoUrl] = useState();
   const navigate = useNavigate();
 
   const openSingleSavedTrips = () => {
     navigate(`/explore-diversity/create-trip/view-trip/${trip._id}`);
   };
-
+  const handDelete = async (id) => {
+    try {
+      await api.delete("/delete-trip", {
+        data: { _id: id },
+      });
+      getUserTrips();
+    } catch (error) {
+      console.error("Error deleting trip:", error);
+    }
+  };
   useEffect(() => {
     trip && GetPlaceImg();
   }, [trip]);
@@ -48,14 +57,7 @@ function UserTripCard({ trip }) {
 
         <button
           className="absolute right-2 -bottom-6"
-          onClick={() => {
-            if (window.confirm("Are you sure to delete the trip?")) {
-              // Add your delete logic here
-              console.log("Trip deleted");
-            } else {
-              console.log("Trip not deleted");
-            }
-          }}
+          onClick={() => handDelete(trip._id)}
         >
           <MdDelete className="w-5 h-5 text-red-500 hover:text-red-700 duration-500" />
         </button>

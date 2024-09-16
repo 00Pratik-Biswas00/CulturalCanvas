@@ -698,3 +698,34 @@ export const dummyData = {
     ],
   },
 };
+
+export const RoutesNames = [
+  {
+    route_link: "/",
+    route_name: "Home",
+  },
+  {
+    route_link: "/heritage",
+    route_name: "Heritage",
+  },
+  {
+    route_link: "/culture-tradition",
+    route_name: "Culture & Tradition",
+  },
+  {
+    route_link: "/learn-Indian-culture",
+    route_name: "Learn Indian Culture",
+  },
+  {
+    route_link: "/explore-diversity",
+    route_name: "Explore Diversity",
+  },
+  {
+    route_link: "/blogs-vlogs",
+    route_name: "Blogs & Vlogs",
+  },
+  {
+    route_link: "/virtual-store",
+    route_name: "Virtual Store",
+  },
+];
