@@ -20,6 +20,7 @@
     "axios": "^1.7.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
     "firebase": "^10.12.4",
     "formik": "^2.4.6",
     "graphql": "^16.9.0",
