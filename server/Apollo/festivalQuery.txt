@@ -1,0 +1,70 @@
+Apollo QUERY: GET ALL FESTIVALS
+------------------------------
+
+query GetFestivals {
+  getFestivals {
+    name
+    slug
+    date
+    location {
+      city
+      state
+      lat
+      lng
+    }
+  }
+}
+
+Apollo QUERY: GET FESTIVALS BY DATE
+------------------------------------
+
+query GetFestivalsByDate($date: String!) {
+  getFestivalsByDate(date: $date) {
+    name
+    slug
+    date
+    location {
+      city
+      state
+      lat
+      lng
+    }
+  }
+}
+
+Apollo VARIABLES
+----------------
+
+{
+  "date": "2024-11-01"
+}
+
+Apollo QUERY: GET FESTIVAL BY SLUG
+----------------------------------
+
+query GetFestivalBySlug($slug: String!) {
+  getFestivalBySlug(slug: $slug) {
+    id
+    name
+    slug
+    date
+    image {
+      url
+      public_id
+    }
+    location {
+      city
+      lat
+    }
+    detail {
+      heading
+      description
+    }
+  }
+}
+
+Apollo VARIABLES
+----------------
+{
+  "slug": "diwali-dou-8tdxkbula1zgptzlo"
+}

@@ -1,0 +1,120 @@
+Apollo Mutations: CREATE A FESTIVAL
+-----------------------------------
+
+mutation CreateFestival(
+  $name: String!,
+  $date: String!,
+  $image: ImageInput!,
+  $city: String,
+  $state: String,
+  $lat: Float,
+  $lng: Float,
+  $detail: [DetailInput]
+) {
+  createFestival(
+    name: $name,
+    date: $date,
+    image: $image,
+    city: $city,
+    state: $state,
+    lat: $lat,
+    lng: $lng,
+    detail: $detail
+  ) {
+    id
+    name
+    slug
+    date
+    image {
+      url
+      public_id
+    }
+    location {
+      city
+      state
+      lat
+      lng
+    }
+    detail {
+      heading
+      description
+    }
+  }
+}
+
+APOLLO VARIABLES
+----------------
+
+{
+    "name": "Lakshmi Puja",
+    "date": "2024-11-01",
+    "image": {
+      "url": "https://example.com/lakshmi_puja.jpg",
+      "public_id": "lakshmi_puja_image_001"
+    },
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "lat": 19.0760,
+    "lng": 72.8777,
+    "detail": [
+      {
+        "heading": "Worship of Goddess Lakshmi",
+        "description": "Lakshmi Puja is celebrated during Diwali to honor Goddess Lakshmi, the deity of wealth and prosperity. People clean and decorate their homes, light lamps, and perform rituals for blessings."
+      }
+    ]
+}
+
+
+
+Apollo Mutations: UPDATE A FESTIVAL
+-----------------------------------
+
+mutation UpdateFestival($id: ID!, $name: String, $date: String, $image: ImageInput, $city: String, $state: String, $lat: Float, $lng: Float, $detail: [DetailInput]) {
+  updateFestival(id: $id, name: $name, date: $date, image: $image, city: $city, state: $state, lat: $lat, lng: $lng, detail: $detail) {
+    id
+    name
+    slug
+    date
+    image {
+      url
+      public_id
+    }
+    location {
+      city
+      state
+      lat
+      lng
+    }
+    detail {
+      heading
+      description
+    }
+  }
+}
+
+APOLLO VARIABLES
+----------------
+
+{
+  "id": "66e850a87fbd85cd06d14d0f",
+  "city": "Mumbai"
+}
+
+
+
+Apollo Mutations: DELETE A FESTIVAL
+-----------------------------------
+
+mutation DeleteFestival($deleteFestivalId: ID!) {
+  deleteFestival(id: $deleteFestivalId) {
+    error
+    ok
+  }
+}
+
+APOLLO VARIABLES
+----------------
+
+{
+  "deleteFestivalId": "66e850a87fbd85cd06d14d0f"
+}

@@ -9,10 +9,10 @@ const AutoZoom = ({ festivals }) => {
     if (festivals.length > 0) {
       // Get the first festival's location
       const { lat, lng } = festivals[0].location;
-      map.setView([lat, lng], 10);
+      map.setView([lat, lng], 10); // Centered on the location with zoom level 10
     } else {
       // If no festivals are selected, zoom out to the default view (center of India)
-      map.setView([20.5937, 78.9629], 4); // Centered on India with zoom level 5
+      map.setView([20.5937, 78.9629], 4); // Centered on India with zoom level 4
     }
   }, [festivals, map]);
 

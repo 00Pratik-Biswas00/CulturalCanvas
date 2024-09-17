@@ -74,14 +74,17 @@ const CulturalCalendar = () => {
 
       if (allFestivalsData.getFestivals.length > 0) {
         // Find the closest upcoming festival
-        const upcomingFestival = allFestivalsData.getFestivals.reduce(
-          (prev, current) => {
-            const now = new Date();
+        const upcomingFestival = allFestivalsData.getFestivals
+          .filter((festival) => new Date(festival.date) > new Date()) // Only future festivals
+          .reduce((prev, current) => {
             const prevDate = new Date(prev.date);
             const currentDate = new Date(current.date);
-            return currentDate < prevDate && currentDate > now ? current : prev;
-          }
-        );
+
+            // Return the festival that is closest to today
+            return currentDate < prevDate ? current : prev;
+          });
+
+        console.log("UPCOMING: ", upcomingFestival);
         setClosestFestival(upcomingFestival);
       } else {
         setClosestFestival(null);
@@ -94,6 +97,12 @@ const CulturalCalendar = () => {
     setDate(formattedDate);
 
     console.log(formattedDate);
+  };
+
+  // Function to check if a festival exists on the given date
+  const isFestivalOnDate = (date) => {
+    const dateStr = date.toISOString().split("T")[0];
+    return festivals.some((festival) => festival.date === dateStr);
   };
 
   return (
@@ -129,7 +138,23 @@ const CulturalCalendar = () => {
           </div>
         )}
 
-        <Calendar onChange={handleDateChange} value={date} />
+        <Calendar
+          onChange={handleDateChange}
+          value={date}
+          tileContent={({ date, view }) =>
+            view === "month" && isFestivalOnDate(date) ? (
+              <div
+                className="dot"
+                style={{
+                  backgroundColor: "red",
+                  height: "8px",
+                  width: "8px",
+                  borderRadius: "50%",
+                  margin: "auto",
+                }}></div>
+            ) : null
+          }
+        />
 
         {/* Show festivals for the selected date */}
         {dateSpecificFestivalLoading ? (
