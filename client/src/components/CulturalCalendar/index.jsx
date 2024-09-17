@@ -61,6 +61,13 @@ const CulturalCalendar = () => {
     }
   }, [closestFestival, festivals]);
 
+  useEffect(() => {
+    if (!dateSpecificFestivalLoading && dateSpecificFestivalData) {
+      console.log(dateSpecificFestivalData);
+      setFestival(dateSpecificFestivalData.getFestivalsByDate || []);
+    }
+  }, [dateSpecificFestivalData, dateSpecificFestivalLoading]);
+
   const fetchFestivals = () => {
     if (allFestivalsData && allFestivalsData.getFestivals) {
       setFestivals(allFestivalsData.getFestivals);
@@ -83,14 +90,10 @@ const CulturalCalendar = () => {
   };
 
   const handleDateChange = (newDate) => {
-    console.log(date);
     const formattedDate = newDate.toISOString().split("T")[0]; // Format as YYYY-MM-DD
     setDate(formattedDate);
 
-    if (!dateSpecificFestivalLoading && dateSpecificFestivalData) {
-      console.log(dateSpecificFestivalData);
-      setFestival(dateSpecificFestivalData.getFestivalByDate || []);
-    }
+    console.log(formattedDate);
   };
 
   return (
