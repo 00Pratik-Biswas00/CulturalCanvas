@@ -150,21 +150,21 @@ const Heritage = () => {
       {groupedHeritages.local.length > 0 &&
         renderHeritageGroup(
           groupedHeritages.local,
-          "Local_Heritage",
+          "LOCAL_Heritage",
           local_pic
         )}
 
       {/* Render UNESCO Listed heritages */}
       {renderHeritageGroup(
         groupedHeritages.unesco_listed,
-        "Unesco_listed",
+        "UNESCO_Listed",
         listed_pic
       )}
 
       {/* Render UNESCO Unlisted heritages */}
       {renderHeritageGroup(
         groupedHeritages.unesco_unlisted,
-        "Unesco_unlisted",
+        "UNESCO_Unlisted",
         unlisted_pic
       )}
     </section>
