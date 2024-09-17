@@ -7,6 +7,7 @@ import Agra from "../../assets/Heritage/Agra fort(avif).avif";
 import Fateh from "../../assets/Heritage/Fateh(avif).avif";
 import RedFort from "../../assets/Heritage/Red fort (avif).avif";
 import Suntemple from "../../assets/Heritage/Sun(avif).avif";
+import upImg from "../../assets/states/up.png";
 
 import { MdLocalPolice } from "react-icons/md";
 import { IoWoman } from "react-icons/io5";
@@ -270,8 +271,12 @@ const SingleHeritage = () => {
                 rel=" noopener"
                 className="flex items-center justify-center "
               >
-                <img
+                {/* <img
                   src={heritage.state_culture_name.image.url}
+                  className="w-full h-full duration-500 transition-transform hover:scale-105 transform-cpu"
+                /> */}
+                <img
+                  src={upImg}
                   className="w-full h-full duration-500 transition-transform hover:scale-105 transform-cpu"
                 />
               </a>
