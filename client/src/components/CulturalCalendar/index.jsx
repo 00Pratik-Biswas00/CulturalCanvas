@@ -7,6 +7,7 @@ import {
   GET_ALL_FESTIVALS_QUERY,
   GET_FESTIVAL_BY_DATE,
 } from "../../graphql/festivalQuery";
+import { format } from "date-fns";
 
 const CulturalCalendar = () => {
   const [date, setDate] = useState(new Date());
@@ -92,18 +93,25 @@ const CulturalCalendar = () => {
     }
   };
 
-  const handleDateChange = (newDate) => {
-    const formattedDate = newDate.toISOString().split("T")[0]; // Format as YYYY-MM-DD
-    setDate(formattedDate);
+  // const handleDateChange = (newDate) => {
+  //   const formattedDate = newDate.toISOString().split("T")[0]; // Format as YYYY-MM-DD
+  //   setDate(formattedDate);
 
-    console.log(formattedDate);
+  //   // console.log(formattedDate);
+  // };
+
+  const handleDateChange = (newDate) => {
+    const formattedDate = format(newDate, "yyyy-MM-dd"); // Use local date format
+    setDate(formattedDate);
   };
 
   // Function to check if a festival exists on the given date
   const isFestivalOnDate = (date) => {
-    const dateStr = date.toISOString().split("T")[0];
+    const dateStr = format(date, "yyyy-MM-dd"); // Use local date format here as well
     return festivals.some((festival) => festival.date === dateStr);
   };
+
+  console.log(date);
 
   return (
     <div className="flex">
@@ -151,7 +159,8 @@ const CulturalCalendar = () => {
                   width: "8px",
                   borderRadius: "50%",
                   margin: "auto",
-                }}></div>
+                }}
+              ></div>
             ) : null
           }
         />
