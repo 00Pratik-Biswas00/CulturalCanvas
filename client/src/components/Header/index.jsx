@@ -219,7 +219,7 @@ const Header = ({ open, setOpen }) => {
           <div className=" flex items-center">
             {user ? (
               <a href="/my-profile">
-                {user.photo ? (
+                {user.photo?.url? (
                   <img
                     src={user.photo.url}
                     alt="Profile"
