@@ -63,21 +63,25 @@ const LearnIndianCulture = () => {
     scrollRefs.current[index].scrollBy({ left: 500, behavior: "smooth" });
   };
 
-  if(loading) return <p>Loading...</p>;
-  if(error) return <p>Error fetching courses!</p>
+  const [expandedCourses, setExpandedCourses] = useState({});
+
+  const toggleShowMore = (courseId) => {
+    setExpandedCourses((prev) => ({
+      ...prev,
+      [courseId]: !prev[courseId], // Toggle the specific course
+    }));
+  };
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error fetching courses!</p>;
   return (
     <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-4 px-16 duration-300">
       <div>
         <img src={commonImg} alt="Common" />
       </div>
 
-      <div className="flex items-center justify-center py-4 text-5xl gap-8 font-bold font-playfair uppercase ">
-        <p className="tracking-wider">Learning</p>
-        <p className="tracking-wider">the</p>
-        <p className="tracking-wider">Nuances</p>
-        <p className="tracking-wider">of</p>
-        <p className="tracking-wider">Indian</p>
-        <p className="tracking-wider">Culture</p>
+      <div className="flex items-center tracking-wide justify-center py-4 text-[3.5rem] gap-12 font-bold font-playfair uppercase [word-spacing:15px] ">
+        Learning the Nuances of Indian Culture
       </div>
 
       {Object.entries(groupedCourses).map(
@@ -124,6 +128,7 @@ const LearnIndianCulture = () => {
               "hover:bg-highlight_hover dark:hover:bg-highlight_hover";
           }
           // console.log(category);
+
           return (
             <div key={category} className="flex flex-col py-5">
               <div className="flex flex-col gap-5">
@@ -162,28 +167,52 @@ const LearnIndianCulture = () => {
                     className="flex gap-7 overflow-x-hidden w-full outline-none"
                     style={{ scrollSnapType: "x mandatory" }}
                   >
-                    {categoryCourses.map((course) => (
-                      <div
-                        key={course.id}
-                        className={`flex flex-col items-center justify-start gap-3 border-2 ${borderColor} rounded-xl p-4 min-w-[32%]`}
-                      >
-                        <img
-                          src={course.image.url}
-                          className="rounded-xl"
-                          alt={course.name}
-                        />
-                        <h1>{course.name}</h1>
-                        <p>{course.courseIntro}</p>
-                        <button
-                          onClick={() => {
-                            openSingleCourse(course.slug);
-                          }}
-                          className={`bg-background1 dark:bg-dark_background1 ${textColor2} ${hoverBgColor} hover:text-dark_primary_text border-2 ${borderColor} p-2 duration-300 rounded-xl font-bold `}
+                    {categoryCourses.map((course) => {
+                      // Split the course intro into an array of words
+                      const words = course.courseIntro.split(" ");
+                      const showFullText = expandedCourses[course.id];
+
+                      return (
+                        <div
+                          key={course.id}
+                          className={`flex flex-col items-center justify-start gap-3 border-2 ${borderColor} rounded-xl p-4 min-w-[32%]`}
                         >
-                          Go to the course
-                        </button>
-                      </div>
-                    ))}
+                          <img
+                            src={course.image.url}
+                            className="rounded-xl"
+                            alt={course.name}
+                          />
+                          <h1>{course.name}</h1>
+
+                          <p>
+                            {/* Show the first 30 words, and the rest if "Read More" is clicked */}
+                            {showFullText
+                              ? course.courseIntro
+                              : words.slice(0, 30).join(" ") +
+                                (words.length > 30 ? "..." : "")}
+                          </p>
+
+                          {/* Add "Read More" or "Show Less" button conditionally */}
+                          {words.length > 30 && (
+                            <button
+                              onClick={() => toggleShowMore(course.id)}
+                              className="text-blue-500 font-bold"
+                            >
+                              {showFullText ? "Show Less" : "Read More"}
+                            </button>
+                          )}
+
+                          <button
+                            onClick={() => {
+                              openSingleCourse(course.slug);
+                            }}
+                            className={`bg-background1 dark:bg-dark_background1 ${textColor2} ${hoverBgColor} hover:text-dark_primary_text border-2 ${borderColor} p-2 duration-300 rounded-xl font-bold `}
+                          >
+                            Go to the course
+                          </button>
+                        </div>
+                      );
+                    })}
                   </div>
 
                   <button
