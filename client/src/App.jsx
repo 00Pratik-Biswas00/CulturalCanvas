@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "sonner";
+import { useSelector } from "react-redux";
 
 import "./App.css";
+
+// icons
+import { RiMenuFold2Line, RiMenuUnfold2Line } from "react-icons/ri";
 
 // components
 import Header from "./components/Header";
@@ -33,6 +37,10 @@ import BudgetPredictor from "./pages/BudgetPrediction";
 import SingleStateCulture from "./pages/SingleStateCulture";
 import SavedTrips from "./pages/ExploreDiversity/SavedTrips";
 
+// Admin pages
+import AdminNavSidebar from "./admin-pages/AdminNavbar";
+import AdminDashboard from "./admin-pages/AdminDashboard";
+
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
 
@@ -47,10 +55,69 @@ const UserLayout = ({ children }) => {
   );
 };
 
-function App() {
+const AdminLayout = ({ children }) => {
+  const [open, setOpen] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.matchMedia("(min-width: 768px)").matches) {
+        setOpen(true);
+      } else {
+        setOpen(false);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    // <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_AUTH_CLIENT_ID}>
+    <div className="flex">
+      <AdminNavSidebar open={open} setOpen={setOpen} />
+      <div
+        className={`flex-1  transition-all duration-700 ${
+          open ? "lg:ml-[200px]" : "ml-0"
+        }`}
+      >
+        <div
+          className={`lg:hidden fixed z-50 bottom-0 transition-all duration-700 ${
+            open ? "left-[12.5rem] px-2 py-1" : "left-0 p-1"
+          }`}
+        >
+          {" "}
+          <h1
+            className="text-2xl bg-gray-50 p-2 rounded-xl font-semibold cursor-pointer transition-transform duration-700"
+            onClick={() => {
+              setOpen(!open);
+            }}
+          >
+            {open ? <RiMenuUnfold2Line /> : <RiMenuFold2Line />}
+          </h1>
+        </div>
+        <div className="p-4 bg-background1">{children}</div>
+      </div>
+    </div>
+  );
+};
+
+function App() {
+  const user = useSelector((state) => state.user.userInfo);
+
+  return (
     <BrowserRouter>
+      {/* user admin hole ei part ta cholbe nahole nicher ta*/}
+
+      {/* <Toaster richColors position="top-right" closeButton="true" />
+      <AdminLayout>
+        <ScrollToTop />
+        <Routes>
+          <Route exact path="/admin-dashboard" element={<AdminDashboard />} />
+          
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </AdminLayout> */}
+
+      {/*  */}
       <Toaster
         richColors
         position="top-right"
@@ -121,7 +188,6 @@ function App() {
         </Routes>
       </UserLayout>
     </BrowserRouter>
-    // {/* </GoogleOAuthProvider> */}
   );
 }
 
