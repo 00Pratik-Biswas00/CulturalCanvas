@@ -4,6 +4,9 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { toast } from "sonner";
 import { IoIosLogOut } from "react-icons/io";
+import { MdLightMode, MdDarkMode } from "react-icons/md";
+
+import { switchTheme } from "../../redux/slices/themeSlice";
 
 export const adminNavData = [
   {
@@ -11,36 +14,64 @@ export const adminNavData = [
     path: "/",
   },
   {
+    name: "Manage Admins",
+    path: "/admins-acdprsIndia24",
+  },
+  {
+    name: "Manage Sellers",
+    path: "/sellers-acdprsIndia24",
+  },
+  {
     name: "Manage Users",
-    path: "/users",
+    path: "/users-acdprsIndia24",
   },
   {
-    name: "Manage Movies",
-    path: "/movies",
+    name: "Manage States",
+    path: "/states-acdprsIndia24",
   },
   {
-    name: "Manage Cineasts",
-    path: "/cineasts",
+    name: "Manage Courses",
+    path: "/courses-acdprsIndia24",
   },
   {
-    name: "Manage Shows",
-    path: "/shows",
+    name: "Manage Heritage",
+    path: "/heritage-acdprsIndia24",
   },
   {
-    name: "Manage Theatres",
-    path: "/theatres",
+    name: "Manage Culture",
+    path: "/culture-acdprsIndia24",
   },
+
   {
-    name: "Profile Settings",
-    path: "/settings",
+    name: "Manage Market ",
+    path: "/market-place-acdprsIndia24",
   },
 ];
 
 const AdminNavSidebar = ({ open }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  const theme = useSelector((state) => state.theme);
   const user = useSelector((state) => state.user.userInfo);
+
+  const [darkMode, setDarkMode] = useState(false);
+  useEffect(() => {
+    if (theme === "dark") {
+      setDarkMode(true);
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
+
+  const toggleDarkMode = () => {
+    if (theme === "dark") {
+      dispatch(switchTheme("light"));
+    } else {
+      dispatch(switchTheme("dark"));
+    }
+    setDarkMode(!darkMode);
+  };
 
   const getInitials = (name) => {
     const names = name.split(" ");
@@ -64,12 +95,19 @@ const AdminNavSidebar = ({ open }) => {
     <div
       className={`fixed z-50 lg:flex inset-y-0 left-0 transform ${
         open ? "w-[200px]" : "w-[0px]"
-      } overflow-auto transition-width duration-700 bg-background2 text-primary_text flex flex-col justify-between items-center`}
+      } overflow-auto transition-width duration-300 flex flex-col justify-between items-center bg-background2 dark:bg-shadow text-dark_secondary_text dark:text-dark_primary_text`}
     >
       {/* Top section */}
       <div className="flex flex-col items-center">
         {/* admin/owner name and photo */}
         <div className="p-4 flex flex-col justify-center items-center">
+          <button onClick={toggleDarkMode} className=" absolute left-2 top-2">
+            {darkMode ? (
+              <MdLightMode className=" w-5 h-5" />
+            ) : (
+              <MdDarkMode className=" w-5 h-5 text-primary_text dark:text-dark_primary_text " />
+            )}
+          </button>
           <div className="flex-shrink-0 mb-2">
             {user ? (
               user.image ? (
@@ -79,7 +117,7 @@ const AdminNavSidebar = ({ open }) => {
                   alt="User avatar"
                 />
               ) : (
-                <div className="w-24 h-24 flex items-center justify-center bg-shadow rounded-full text-4xl font-semibold">
+                <div className="w-24 h-24 flex items-center justify-center  border-y border-dark_secondary_text dark:border-dark_primary_text rounded-full text-4xl font-semibold">
                   {getInitials(user.name)}
                 </div>
               )
@@ -91,8 +129,10 @@ const AdminNavSidebar = ({ open }) => {
               />
             )}
           </div>
-          <p className="text-2xl font-semibold text-center font-logo_text">
-            {user?.name}
+          <p className="text-2xl font-semibold text-center ">{user?.name}</p>
+
+          <p className="text-xs underline font-semibold text-center uppercase ">
+            ({user?.role})
           </p>
         </div>
 
@@ -103,7 +143,7 @@ const AdminNavSidebar = ({ open }) => {
               <li key={i}>
                 <NavLink
                   to={links.path}
-                  className="block px-4 py-2 hover:bg-shadow hover:font-bold font-medium rounded font-lato text-base text-center"
+                  className="block px-4 py-2  hover:font-bold font-medium rounded font-lato text-base text-center"
                 >
                   {links.name}
                 </NavLink>
@@ -116,7 +156,7 @@ const AdminNavSidebar = ({ open }) => {
       {/* Logout button at the bottom */}
       <div className="mb-4">
         <button>
-          <span className="flex flex-row  px-4 py-2 text-md hover:bg-shadow font-medium hover:font-bold justify-center items-center gap-2">
+          <span className="flex flex-row  px-4 py-2 text-md  font-medium hover:font-bold justify-center items-center gap-2">
             Logout
             <IoIosLogOut className="mt-1" />
           </span>
