@@ -38,8 +38,9 @@ import SingleStateCulture from "./pages/SingleStateCulture";
 import SavedTrips from "./pages/ExploreDiversity/SavedTrips";
 
 // Admin pages
-import AdminNavSidebar from "./admin-pages/AdminNavbar";
+import AdminNavSidebar from "./admin-components/AdminNavbar";
 import AdminDashboard from "./admin-pages/AdminDashboard";
+import AdminUsers from "./admin-pages/AdminUsers";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -94,99 +95,104 @@ const AdminLayout = ({ children }) => {
             {open ? <RiMenuUnfold2Line /> : <RiMenuFold2Line />}
           </h1>
         </div>
-        <div className="p-4 bg-background1">{children}</div>
+        <div>{children}</div>
       </div>
     </div>
   );
 };
 
 function App() {
-  const user = useSelector((state) => state.user.userInfo);
+  const user = useSelector((state) => state?.user?.userInfo);
+  console.log(user);
 
   return (
     <BrowserRouter>
-      {/* user admin hole ei part ta cholbe nahole nicher ta*/}
+      {user?.role === "admin" ? (
+        <>
+          <Toaster richColors position="top-right" closeButton="true" />
+          <AdminLayout>
+            <ScrollToTop />
+            <Routes>
+              <Route exact path="/" element={<AdminDashboard />} />
+              <Route
+                exact
+                path="/users-acdprsIndia24"
+                element={<AdminUsers />}
+              />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </AdminLayout>
+        </>
+      ) : (
+        <>
+          <Toaster
+            richColors
+            position="top-right"
+            className="mt-10"
+            closeButton="true"
+          />
+          <UserLayout>
+            <ScrollToTop />
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route path="/heritage" element={<Heritage />} />
+              <Route path="/culture-tradition" element={<CultureTradition />} />
+              <Route
+                path="/learn-Indian-culture"
+                element={<LearnIndianCulture />}
+              />
+              <Route path="/explore-diversity" element={<ExploreDiversity />} />
+              <Route path="/blogs-vlogs" element={<BlogsVlogs />} />
+              <Route path="/virtual-store" element={<VirtualStore />} />
+              <Route path="/my-profile" element={<MyProfile />} />
+              <Route
+                path="/explore-diversity/predict-amount"
+                element={<PredictAmount />}
+              />
+              <Route
+                path="/explore-diversity/create-trip"
+                element={<TripCreation />}
+              />
+              <Route
+                path="/explore-diversity/create-trip/view-trip/:tripId"
+                element={<ViewTrip />}
+              />
+              <Route
+                path="/explore-diversity/predict-budget"
+                element={<BudgetPredictor />}
+              />
+              <Route path="*" element={<NotFound />} />
 
-      {/* <Toaster richColors position="top-right" closeButton="true" />
-      <AdminLayout>
-        <ScrollToTop />
-        <Routes>
-          <Route exact path="/admin-dashboard" element={<AdminDashboard />} />
-          
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </AdminLayout> */}
-
-      {/*  */}
-      <Toaster
-        richColors
-        position="top-right"
-        className="mt-10"
-        closeButton="true"
-      />
-      <UserLayout>
-        <ScrollToTop />
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/heritage" element={<Heritage />} />
-          <Route path="/culture-tradition" element={<CultureTradition />} />
-          <Route
-            path="/learn-Indian-culture"
-            element={<LearnIndianCulture />}
-          />
-          <Route path="/explore-diversity" element={<ExploreDiversity />} />
-          <Route path="/blogs-vlogs" element={<BlogsVlogs />} />
-          <Route path="/virtual-store" element={<VirtualStore />} />
-          <Route path="/my-profile" element={<MyProfile />} />
-          <Route
-            path="/explore-diversity/predict-amount"
-            element={<PredictAmount />}
-          />
-          <Route
-            path="/explore-diversity/create-trip"
-            element={<TripCreation />}
-          />
-
-          <Route
-            path="/explore-diversity/create-trip/view-trip/:tripId"
-            element={<ViewTrip />}
-          />
-          <Route
-            path="/explore-diversity/predict-budget"
-            element={<BudgetPredictor />}
-          />
-
-          <Route path="*" element={<NotFound />} />
-
-          {/*  single pages */}
-
-          <Route path="/heritage/:slug" element={<SingleHeritage />} />
-          <Route
-            path="/learn-Indian-culture/:slug"
-            element={<SingleCourse />}
-          />
-          <Route
-            path="/culture-tradition/single-page"
-            element={<SinglePageCulture />}
-          />
-          <Route
-            path="/culture-tradition/multiple-pages"
-            element={<MultiplePagesCulture />}
-          />
-          <Route
-            path="/culture-tradition/single-state"
-            element={<SingleStateCulture />}
-          />
-          <Route
-            path="/culture-tradition/multiple-pages/:slug"
-            element={<MultipleSingleCulture />}
-          />
-          <Route
-            path="/explore-diversity/saved-trips"
-            element={<SavedTrips />}
-          />
-        </Routes>
-      </UserLayout>
+              {/* Single pages */}
+              <Route path="/heritage/:slug" element={<SingleHeritage />} />
+              <Route
+                path="/learn-Indian-culture/:slug"
+                element={<SingleCourse />}
+              />
+              <Route
+                path="/culture-tradition/single-page"
+                element={<SinglePageCulture />}
+              />
+              <Route
+                path="/culture-tradition/multiple-pages"
+                element={<MultiplePagesCulture />}
+              />
+              <Route
+                path="/culture-tradition/single-state"
+                element={<SingleStateCulture />}
+              />
+              <Route
+                path="/culture-tradition/multiple-pages/:slug"
+                element={<MultipleSingleCulture />}
+              />
+              <Route
+                path="/explore-diversity/saved-trips"
+                element={<SavedTrips />}
+              />
+            </Routes>
+          </UserLayout>
+        </>
+      )}
     </BrowserRouter>
   );
 }
