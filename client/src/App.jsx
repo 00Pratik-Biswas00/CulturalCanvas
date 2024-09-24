@@ -41,6 +41,13 @@ import SavedTrips from "./pages/ExploreDiversity/SavedTrips";
 import AdminNavSidebar from "./admin-components/AdminNavbar";
 import AdminDashboard from "./admin-pages/AdminDashboard";
 import AdminUsers from "./admin-pages/AdminUsers";
+import AdminAdmins from "./admin-pages/AdminAdmins";
+import AdminSellers from "./admin-pages/AdminSellers";
+import AdminStates from "./admin-pages/AdminStates";
+import AdminCourses from "./admin-pages/AdminCourses";
+import AdminHeritage from "./admin-pages/AdminHeritage";
+import AdminCulture from "./admin-pages/AdminCulture";
+import AdminMarket from "./admin-pages/AdminMarket";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -76,7 +83,7 @@ const AdminLayout = ({ children }) => {
     <div className="flex">
       <AdminNavSidebar open={open} setOpen={setOpen} />
       <div
-        className={`flex-1  transition-all duration-700 ${
+        className={`flex-1 overflow-y-auto transition-all duration-700 ${
           open ? "lg:ml-[200px]" : "ml-0"
         }`}
       >
@@ -95,7 +102,8 @@ const AdminLayout = ({ children }) => {
             {open ? <RiMenuUnfold2Line /> : <RiMenuFold2Line />}
           </h1>
         </div>
-        <div>{children}</div>
+        {children}
+        <GoToTop />
       </div>
     </div>
   );
@@ -103,7 +111,6 @@ const AdminLayout = ({ children }) => {
 
 function App() {
   const user = useSelector((state) => state?.user?.userInfo);
-  console.log(user);
 
   return (
     <BrowserRouter>
@@ -119,6 +126,42 @@ function App() {
                 path="/users-acdprsIndia24"
                 element={<AdminUsers />}
               />
+              <Route
+                exact
+                path="/admins-acdprsIndia24"
+                element={<AdminAdmins />}
+              />
+              <Route
+                exact
+                path="/sellers-acdprsIndia24"
+                element={<AdminSellers />}
+              />
+              <Route
+                exact
+                path="/states-acdprsIndia24"
+                element={<AdminStates />}
+              />
+              <Route
+                exact
+                path="/courses-acdprsIndia24"
+                element={<AdminCourses />}
+              />
+              <Route
+                exact
+                path="/heritage-acdprsIndia24"
+                element={<AdminHeritage />}
+              />
+              <Route
+                exact
+                path="/culture-acdprsIndia24"
+                element={<AdminCulture />}
+              />
+              <Route
+                exact
+                path="/market-place-acdprsIndia24"
+                element={<AdminMarket />}
+              />
+
               <Route path="*" element={<NotFound />} />
             </Routes>
           </AdminLayout>

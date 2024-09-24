@@ -132,7 +132,7 @@ const AdminNavSidebar = ({ open }) => {
           <p className="text-2xl font-semibold text-center ">{user?.name}</p>
 
           <p className="text-xs underline font-semibold text-center uppercase ">
-            ({user?.role})
+            ({user?.role}){/* (Owner) */}
           </p>
         </div>
 

@@ -14,7 +14,9 @@ const CultureTradition = () => {
       <div className="flex items-center tracking-wide justify-center py-4 text-7xl gap-12 font-bold font-playfair uppercase [word-spacing:25px] text-primary_text dark:text-dark_primary_text">
         Cultural Richness of India
       </div>
+
       <CulturalCalendar />
+
       <AllCultures />
 
       <div className="flex items-center tracking-wide justify-center py-4 text-6xl gap-12 font-bold font-playfair uppercase [word-spacing:20px]">

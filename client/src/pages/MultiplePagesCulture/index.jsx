@@ -86,7 +86,7 @@ const MultiplePagesCulture = () => {
                     <p>{content.description}</p>
                     <button
                       onClick={() => openSingleReligion(content.slug)}
-                      className={` duration-500 py-1 px-3 rounded-xl bg-highlight hover:bg-[#FF671F] `}
+                      className={` duration-500 py-1 px-3 rounded-xl bg-highlight hover:bg-highlight_dark `}
                     >
                       <p>Want to know more about {content.name}? </p>
                     </button>

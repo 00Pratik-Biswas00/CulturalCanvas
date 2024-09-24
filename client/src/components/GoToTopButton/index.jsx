@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { IoIosArrowUp } from "react-icons/io";
+import { useSelector } from "react-redux";
 
 const GoToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showFooterButton, setShowFooterButton] = useState(false);
+  const user = useSelector((state) => state?.user?.userInfo);
 
   const goToBtn = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -35,10 +37,14 @@ const GoToTop = () => {
   }, []);
 
   return (
-    <div className="fixed bottom-1 left-1 lg:left-2 lg:bottom-2 z-40 mt-8 flex items-center">
+    <div
+      className={`fixed bottom-1 ${
+        user?.role === "admin" ? "right-1 lg:right-2" : "left-1 lg:left-2"
+      }  lg:bottom-2 z-40 mt-8 flex items-center`}
+    >
       {isVisible && (
         <div
-          className={`text-2xl text-primary_text hover:text-dark_primary_text duration-500 bg-highlight hover:bg-[#FF671F]  rounded-full flex justify-center items-center cursor-pointer w-11 h-11 lg:w-12 lg:h-12 ${
+          className={`text-2xl text-primary_text hover:text-dark_primary_text duration-500 bg-highlight hover:bg-highlight_dark  rounded-full flex justify-center items-center cursor-pointer w-11 h-11 lg:w-12 lg:h-12 ${
             showFooterButton ? "absolute -top-5" : ""
           }`}
           onClick={goToBtn}

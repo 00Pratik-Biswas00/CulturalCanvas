@@ -17,9 +17,11 @@ export default {
         // highlight: "#e1251a",
         // highlight: "#4B70D1",
         highlight: "#f49738",
+        highlight_dark: "#FF671F",
 
         // highlight_hover: "#193c70e9",
         highlight_hover: "#148938",
+        highlight_hover_dark: "#174926",
 
         // highlight_hover: "#f43a3a77",
       },
