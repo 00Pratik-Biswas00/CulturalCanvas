@@ -31,7 +31,7 @@ const SignUpModal = ({ onClose }) => {
   });
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-background1 dark:bg-dark_background1 dark:bg-opacity-50  bg-opacity-50 backdrop-blur-sm transition-opacity duration-300 text-primary_text dark:text-dark_primary_text">
-      <div className="relative bg-background2 dark:bg-shadow  p-6 rounded-lg shadow-lg w-full max-w-[20rem] sm:max-w-3xl transform transition-transform duration-300 scale-105">
+      <div className="relative bg-background2 dark:bg-shadow  p-4 rounded-lg shadow-lg w-full max-w-[20rem] sm:max-w-3xl transform transition-transform duration-300 scale-105">
         <h2 className="text-3xl font-montserrat font-bold mb-4">
           {user?.role === "admin" ? "Sign Up For Admin" : "Sign Up"}
         </h2>
@@ -59,9 +59,13 @@ const SignUpModal = ({ onClose }) => {
           }}
         >
           {({ handleSubmit }) => (
-            <Form onSubmit={handleSubmit} className="space-y-4">
+            <Form onSubmit={handleSubmit} className="space-y-2">
               <div className="mb-2">
-                <label className="block ">Name</label>
+                <label className="block ">
+                  {user?.role === "admin"
+                    ? "Shortlisted Candidate's Name"
+                    : "Name"}
+                </label>
                 <Field
                   name="name"
                   type="text"
@@ -75,8 +79,31 @@ const SignUpModal = ({ onClose }) => {
                 />
               </div>
 
+              {user?.role === "admin" ? (
+                <div className="mb-2">
+                  <label className="block ">
+                    {user?.role === "admin"
+                      ? "Shortlisted Candidate's Email"
+                      : "Email"}
+                  </label>
+                  <Field
+                    name="email"
+                    type="email"
+                    className="w-full px-4 py-2 border rounded-lg bg-background1 dark:bg-dark_background1 focus:outline-none focus:ring-2 focus:ring-highlight"
+                    autoComplete="email"
+                  />
+                  <ErrorMessage
+                    name="email"
+                    component="div"
+                    className="text-red-500"
+                  />
+                </div>
+              ) : (
+                ""
+              )}
+
               <div className="mb-2">
-                <label className="block ">Email</label>
+                <label className="block ">Admin's New Email</label>
                 <Field
                   name="email"
                   type="email"
@@ -92,7 +119,11 @@ const SignUpModal = ({ onClose }) => {
 
               <div className="flex items-start w-full justify-between gap-5">
                 <div className="flex flex-col items-start justify-start w-full">
-                  <label className="  mb-2">Gender</label>
+                  <label className="  mb-2">
+                    {user?.role === "admin"
+                      ? "Shortlisted Candidate's Gender"
+                      : "Gender"}
+                  </label>
                   <div className="flex items-center justify-center gap-3">
                     <div className="flex items-center">
                       <Field
@@ -139,7 +170,11 @@ const SignUpModal = ({ onClose }) => {
                 </div>
 
                 <div className=" w-[98%]">
-                  <label className="block ">Phone Number</label>
+                  <label className="block ">
+                    {user?.role === "admin"
+                      ? "Shortlisted Candidate's Phone Number"
+                      : "Phone Number"}
+                  </label>
                   <Field
                     name="phone"
                     type="tel"
@@ -185,7 +220,7 @@ const SignUpModal = ({ onClose }) => {
               <div className="flex justify-end my-4">
                 <button
                   type="button"
-                  className="bg-gray-400 hover:bg-gray-700  hover:text-dark_primary_text px-4 py-2 rounded mr-2 transition-all duration-300"
+                  className="bg-gray-400 hover:bg-gray-700  hover:text-dark_primary_text px-4 py-1 rounded mr-2 transition-all duration-300"
                   onClick={onClose}
                 >
                   Cancel
@@ -193,7 +228,7 @@ const SignUpModal = ({ onClose }) => {
 
                 <button
                   type="submit"
-                  className="bg-highlight hover:bg-highlight_hover  hover:text-dark_primary_text px-4 py-2 rounded transition-all duration-300"
+                  className="bg-highlight hover:bg-highlight_hover  hover:text-dark_primary_text px-4 py-1 rounded transition-all duration-300"
                 >
                   Sign Up
                 </button>
