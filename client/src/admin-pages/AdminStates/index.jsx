@@ -33,7 +33,7 @@ const AdminStates = () => {
 
           <FaSearch className="absolute left-3  w-4 h-4" />
         </div>
-        <button className="bg-highlight_hover hover:bg-[#174926] text-dark_primary_text font-medium font-ubuntu sm:text-base py-1 px-4 rounded  transition-transform hover:scale-110 duration-1000  transform-cpu">
+        <button className="bg-highlight_hover hover:bg-highlight_hover_dark text-dark_primary_text font-medium font-ubuntu sm:text-base py-1 px-4 rounded  transition-transform hover:scale-110 duration-1000  transform-cpu">
           Add New State
         </button>
       </div>
@@ -63,7 +63,7 @@ const AdminStates = () => {
                 </div>
 
                 <div className="flex items-center  justify-center pt-5 gap-x-3">
-                  <RiEditFill className="w-7 h-7  cursor-pointer text-highlight_hover hover:text-[#174926]" />
+                  <RiEditFill className="w-7 h-7  cursor-pointer text-highlight_hover hover:text-highlight_hover_dark" />
 
                   <div
                     className={` ${borderClass} ${shadowClass} border-x-2 border-t-2 font-bold font-ubuntu px-5 py-2  flex items-center justify-center rounded-xl  `}

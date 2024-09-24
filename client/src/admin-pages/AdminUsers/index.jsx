@@ -7,7 +7,6 @@ import { IoStorefront } from "react-icons/io5";
 import FilterUser from "../../admin-components/AdminModals/FilterModals/FilterUser";
 
 import { dummyData } from "../../utils/constants";
-import GoToTop from "../../components/GoToTopButton";
 
 const AdminUsers = () => {
   const { dummyUser } = dummyData;
@@ -75,8 +74,8 @@ const AdminUsers = () => {
                 </p>
               </div>
               <div className=" cursor-pointer">
-                <GrUserAdmin className="w-5 h-5 absolute bottom-2 right-8 text-highlight hover:text-[#FF671F]" />
-                {/* <IoStorefront className="w-5 h-5 absolute bottom-2 right-8 text-highlight_hover hover:text-[#174926]" /> */}
+                <GrUserAdmin className="w-5 h-5 absolute bottom-2 right-8 text-highlight hover:text-highlight_dark" />
+                {/* <IoStorefront className="w-5 h-5 absolute bottom-2 right-8 text-highlight_hover hover:text-highlight_hover_dark" /> */}
 
                 <MdDelete className="w-5 h-5 absolute bottom-2 right-2 text-red-600 hover:text-red-800" />
               </div>

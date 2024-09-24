@@ -44,7 +44,7 @@ const GoToTop = () => {
     >
       {isVisible && (
         <div
-          className={`text-2xl text-primary_text hover:text-dark_primary_text duration-500 bg-highlight hover:bg-[#FF671F]  rounded-full flex justify-center items-center cursor-pointer w-11 h-11 lg:w-12 lg:h-12 ${
+          className={`text-2xl text-primary_text hover:text-dark_primary_text duration-500 bg-highlight hover:bg-highlight_dark  rounded-full flex justify-center items-center cursor-pointer w-11 h-11 lg:w-12 lg:h-12 ${
             showFooterButton ? "absolute -top-5" : ""
           }`}
           onClick={goToBtn}

@@ -29,7 +29,7 @@ const FilterCommon = ({
             Reset
           </button>
           <button
-            className="bg-highlight hover:bg-[#FF671F] text-dark_primary_text font-medium py-1 px-3 rounded-lg"
+            className="bg-highlight hover:bg-highlight_dark text-dark_primary_text font-medium py-1 px-3 rounded-lg"
             onClick={handleApplyFilters}
           >
             Apply
