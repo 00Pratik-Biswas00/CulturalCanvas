@@ -4,40 +4,14 @@ import { MdDelete } from "react-icons/md";
 import { GrUserAdmin } from "react-icons/gr";
 import { IoStorefront } from "react-icons/io5";
 
-import Fateh from "../../assets/Heritage/aichat.png";
 import FilterUser from "../../admin-components/AdminModals/FilterModals/FilterUser";
 
-const dummyUser = [
-  {
-    userImg: Fateh,
-    userName: "Arka Biswas",
-    userEmail: "messi10.pratikbiswas@gmail.com",
-    userGender: "Male",
-    userPhone: "7001316356",
-  },
-  {
-    userImg: Fateh,
-    userName: "Chandrima Kar",
-    userEmail: "chandrimakar16@gmail.com",
-    userGender: "Female",
-    userPhone: "9163145748",
-  },
-  {
-    userImg: Fateh,
-    userName: "Rupal Paul",
-    userEmail: "ganjakhor@gmail.com",
-    userGender: "Male",
-    userPhone: "986537415",
-  },
-  {
-    userImg: Fateh,
-    userName: "Sattwikee Ghosh",
-    userEmail: "sattwikeeghosh@gmail.com",
-    userGender: "Female",
-    userPhone: "9387456245",
-  },
-];
+import { dummyData } from "../../utils/constants";
+import GoToTop from "../../components/GoToTopButton";
+
 const AdminUsers = () => {
+  const { dummyUser } = dummyData;
+
   const [searchQuery, setSearchQuery] = useState("");
   const [filterUsersModalOpen, setFilterUsersModalOpen] = useState(false);
 
@@ -46,11 +20,11 @@ const AdminUsers = () => {
   };
 
   return (
-    <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-6 px-4 duration-300 min-h-screen">
-      <div className="flex flex-col  gap-10">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-y-3 ">
-          <h1 className="text-4xl font-semibold   tracking-tighter font-playfair">
-            Admin User Management
+    <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-3 sm:py-6 px-4 duration-300 min-h-screen">
+      <div className="flex flex-col  gap-5 sm:gap-10">
+        <div className="flex flex-col sm:flex-row justify-between  w-full items-center sm:items-center gap-y-3 ">
+          <h1 className="text-4xl font-semibold text-center   tracking-tighter font-playfair">
+            Manage Your Users
           </h1>
           <div className="flex items-center justify-center gap-3">
             <FaFilter
@@ -58,10 +32,10 @@ const AdminUsers = () => {
               onClick={() => setFilterUsersModalOpen(true)}
             />
 
-            <div className="relative w-full sm:w-fit flex items-center">
+            <div className="relative w-full  flex items-center">
               <input
                 type="text"
-                placeholder="Search for users..."
+                placeholder="Search for Users..."
                 className=" w-full  bg-background2 dark:bg-shadow rounded-lg focus:outline-none focus:border focus:border-highlight 
             
                   text-base sm:text-base 
@@ -78,12 +52,15 @@ const AdminUsers = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {dummyUser.map((content, ind) => (
+          {dummyData.dummyUser.map((content, ind) => (
             <div className=" relative flex items-start justify-start gap-5 p-3  border rounded-xl shadow-md shadow-primary_text dark:shadow-dark_primary_text  ">
-              <div>
-                <img src={content.userImg} className="w-24 h-24 rounded-xl" />
+              <div className="w-1/3 ">
+                <img
+                  src={content.userImg}
+                  className=" w-full h-full rounded-xl"
+                />
               </div>
-              <div className="flex flex-col items-start">
+              <div className="flex flex-col items-start text-xs lg:text-base justify-evenly h-full w-2/3">
                 <p>
                   <b>Name:</b> {content.userName}
                 </p>

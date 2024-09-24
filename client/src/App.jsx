@@ -83,7 +83,7 @@ const AdminLayout = ({ children }) => {
     <div className="flex">
       <AdminNavSidebar open={open} setOpen={setOpen} />
       <div
-        className={`flex-1  transition-all duration-700 ${
+        className={`flex-1 overflow-y-auto transition-all duration-700 ${
           open ? "lg:ml-[200px]" : "ml-0"
         }`}
       >
@@ -102,7 +102,8 @@ const AdminLayout = ({ children }) => {
             {open ? <RiMenuUnfold2Line /> : <RiMenuFold2Line />}
           </h1>
         </div>
-        <div>{children}</div>
+        {children}
+        <GoToTop />
       </div>
     </div>
   );
@@ -110,7 +111,6 @@ const AdminLayout = ({ children }) => {
 
 function App() {
   const user = useSelector((state) => state?.user?.userInfo);
-  console.log(user);
 
   return (
     <BrowserRouter>

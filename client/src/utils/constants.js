@@ -655,6 +655,66 @@ export const dummyData = {
       stateName: "6. West Bengal",
       individualPage: "/culture-tradition/id",
     },
+    {
+      stateImg: meghalayaImg,
+      stateName: "4. Meghalaya",
+      individualPage: "/culture-tradition/id",
+    },
+    {
+      stateImg: uPradeshImg,
+      stateName: "5. Uttar Pradesh",
+      individualPage: "/culture-tradition/id",
+    },
+    {
+      stateImg: wbImg,
+      stateName: "6. West Bengal",
+      individualPage: "/culture-tradition/id",
+    },
+    {
+      stateImg: meghalayaImg,
+      stateName: "4. Meghalaya",
+      individualPage: "/culture-tradition/id",
+    },
+    {
+      stateImg: uPradeshImg,
+      stateName: "5. Uttar Pradesh",
+      individualPage: "/culture-tradition/id",
+    },
+    {
+      stateImg: wbImg,
+      stateName: "6. West Bengal",
+      individualPage: "/culture-tradition/id",
+    },
+    {
+      stateImg: meghalayaImg,
+      stateName: "4. Meghalaya",
+      individualPage: "/culture-tradition/id",
+    },
+    {
+      stateImg: uPradeshImg,
+      stateName: "5. Uttar Pradesh",
+      individualPage: "/culture-tradition/id",
+    },
+    {
+      stateImg: wbImg,
+      stateName: "6. West Bengal",
+      individualPage: "/culture-tradition/id",
+    },
+    {
+      stateImg: meghalayaImg,
+      stateName: "4. Meghalaya",
+      individualPage: "/culture-tradition/id",
+    },
+    {
+      stateImg: uPradeshImg,
+      stateName: "5. Uttar Pradesh",
+      individualPage: "/culture-tradition/id",
+    },
+    {
+      stateImg: wbImg,
+      stateName: "6. West Bengal",
+      individualPage: "/culture-tradition/id",
+    },
   ],
 
   SingleState: {
@@ -697,6 +757,37 @@ export const dummyData = {
       },
     ],
   },
+
+  dummyUser: [
+    {
+      userImg: taj,
+      userName: "Arka Biswas",
+      userEmail: "messi10.pratikbiswas@gmail.com",
+      userGender: "Male",
+      userPhone: "7001316356",
+    },
+    {
+      userImg: taj,
+      userName: "Chandrima Kar",
+      userEmail: "chandrimakar16@gmail.com",
+      userGender: "Female",
+      userPhone: "9163145748",
+    },
+    // {
+    //   userImg: taj,
+    //   userName: "Rupal Paul",
+    //   userEmail: "ganjakhor@gmail.com",
+    //   userGender: "Male",
+    //   userPhone: "986537415",
+    // },
+    // {
+    //   userImg: taj,
+    //   userName: "Sattwikee Ghosh",
+    //   userEmail: "sattwikeeghosh@gmail.com",
+    //   userGender: "Female",
+    //   userPhone: "9387456245",
+    // },
+  ],
 };
 
 export const RoutesNames = [
