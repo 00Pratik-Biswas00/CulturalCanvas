@@ -28,14 +28,14 @@ const ResetPasswordModal = ({ onClose }) => {
     },
   });
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-background1 bg-opacity-50 backdrop-blur-sm transition-opacity duration-300">
-      <div className="relative bg-background2 text-primary_text p-6 rounded-lg shadow-lg w-full max-w-[20rem] sm:max-w-md transform transition-transform duration-300 scale-105">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-background1 dark:bg-dark_background1 dark:bg-opacity-50  bg-opacity-50 backdrop-blur-sm transition-opacity duration-300 text-primary_text dark:text-dark_primary_text">
+      <div className="relative bg-background2 dark:bg-shadow  p-6 rounded-lg shadow-lg w-full max-w-[20rem] sm:max-w-3xl transform transition-transform duration-300 scale-105">
         <h2 className="text-3xl font-montserrat font-bold mb-4">
           Reset Password
         </h2>
 
         <div className="flex  absolute top-2 right-2 justify-between items-center text-2xl">
-          <button onClick={onClose} className="  text-primary_text">
+          <button onClick={onClose} className=" ">
             <AiOutlineClose />
           </button>
         </div>
@@ -52,11 +52,11 @@ const ResetPasswordModal = ({ onClose }) => {
           {({ handleSubmit }) => (
             <Form onSubmit={handleSubmit} className="space-y-4">
               <div className="mb-4">
-                <label className="block text-secondary_text">OTP</label>
+                <label className="block ">OTP</label>
                 <Field
                   name="otp"
                   type="text"
-                  className="w-full px-4 py-2 border rounded-lg bg-background1 text-primary_text focus:outline-none focus:ring-2 focus:ring-highlight"
+                  className="w-full px-4 py-2 border rounded-lg bg-background1 dark:bg-dark_background1 focus:outline-none focus:ring-2 focus:ring-highlight"
                   autoComplete="otp"
                 />
                 <ErrorMessage
@@ -66,13 +66,11 @@ const ResetPasswordModal = ({ onClose }) => {
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-secondary_text">
-                  New Password
-                </label>
+                <label className="block ">New Password</label>
                 <Field
                   name="password"
                   type="password"
-                  className="w-full px-4 py-2 border rounded-lg bg-background1 text-primary_text focus:outline-none focus:ring-2 focus:ring-highlight"
+                  className="w-full px-4 py-2 border rounded-lg bg-background1 dark:bg-dark_background1 focus:outline-none focus:ring-2 focus:ring-highlight"
                   autoComplete="new-password"
                 />
                 <ErrorMessage
@@ -82,13 +80,11 @@ const ResetPasswordModal = ({ onClose }) => {
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-secondary_text">
-                  Confirm Password
-                </label>
+                <label className="block ">Confirm Password</label>
                 <Field
                   name="confirmPassword"
                   type="password"
-                  className="w-full px-4 py-2 border rounded-lg bg-background1 text-primary_text focus:outline-none focus:ring-2 focus:ring-highlight"
+                  className="w-full px-4 py-2 border rounded-lg bg-background1 dark:bg-dark_background1 focus:outline-none focus:ring-2 focus:ring-highlight"
                   autoComplete="confirm-password"
                 />
                 <ErrorMessage

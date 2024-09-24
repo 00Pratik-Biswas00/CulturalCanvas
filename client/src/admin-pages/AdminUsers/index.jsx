@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { FaSearch, FaFilter, FaTimes } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-import { GrUserAdmin } from "react-icons/gr";
 import { IoStorefront } from "react-icons/io5";
 
 import FilterUser from "../../admin-components/AdminModals/FilterModals/FilterUser";
@@ -74,8 +73,7 @@ const AdminUsers = () => {
                 </p>
               </div>
               <div className=" cursor-pointer">
-                <GrUserAdmin className="w-5 h-5 absolute bottom-2 right-8 text-highlight hover:text-highlight_dark" />
-                {/* <IoStorefront className="w-5 h-5 absolute bottom-2 right-8 text-highlight_hover hover:text-highlight_hover_dark" /> */}
+                <IoStorefront className="w-5 h-5 absolute bottom-2 right-8 text-highlight_hover hover:text-highlight_hover_dark" />
 
                 <MdDelete className="w-5 h-5 absolute bottom-2 right-2 text-red-600 hover:text-red-800" />
               </div>

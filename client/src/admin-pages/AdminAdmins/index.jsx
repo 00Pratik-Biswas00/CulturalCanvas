@@ -1,40 +1,79 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 
 import { dummyData } from "../../utils/constants";
+import SignUpModal from "../../components/modals/SignUpModal/SignUpModal";
 
 const AdminAdmins = () => {
   const { dummyUser } = dummyData;
 
   const [searchQuery, setSearchQuery] = useState("");
 
+  const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
+
+  // const openResetModal = () => {
+  //   setIsResetModalOpen(true);
+  //   dispatch(switchLoginModalOpen(false));
+  //   setIsSignUpModalOpen(false);
+  //   setIsFPModalOpen(false);
+  // };
+
+  // const openLoginModal = () => {
+  //   dispatch(switchLoginModalOpen(true));
+  //   setIsSignUpModalOpen(false);
+  //   setIsFPModalOpen(false);
+  //   setIsResetModalOpen(false);
+  // };
+
+  const openSignUpModal = () => {
+    setIsSignUpModalOpen(true);
+    dispatch(switchLoginModalOpen(false));
+    setIsFPModalOpen(false);
+    setIsResetModalOpen(false);
+  };
+
+  // const openFPModal = () => {
+  //   setIsFPModalOpen(true);
+  //   dispatch(switchLoginModalOpen(false));
+  //   setIsSignUpModalOpen(false);
+  //   setIsResetModalOpen(false);
+  // };
+
   return (
     <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-3 sm:py-6 px-4 duration-300 min-h-screen">
       <div className="flex flex-col  gap-5 sm:gap-10">
-        <div className="flex flex-col sm:flex-row justify-between items-center sm:items-center gap-y-3 ">
-          <h1 className="text-4xl font-semibold text-center   tracking-tighter font-playfair">
-            Manage Your Admins
-          </h1>
+        <div className="flex flex-col  gap-5 ">
+          <div className="flex flex-col sm:flex-row justify-between items-center sm:items-center gap-y-3 ">
+            <h1 className="text-4xl font-semibold text-center   tracking-tighter font-playfair">
+              Manage Your Admins
+            </h1>
 
-          <div className="relative w-full sm:w-1/3  flex items-center">
-            <input
-              type="text"
-              placeholder="Search for Admins..."
-              className=" w-full  bg-background2 dark:bg-shadow rounded-lg focus:outline-none focus:border focus:border-highlight 
+            <div className="relative w-full sm:w-1/3  flex items-center">
+              <input
+                type="text"
+                placeholder="Search for Admins..."
+                className=" w-full  bg-background2 dark:bg-shadow rounded-lg focus:outline-none focus:border focus:border-highlight 
             
                   text-base sm:text-base 
                   pl-10 sm:pl-10  
                   py-2
                   sm:px-4"
-              // value={searchQuery}
-              // onChange={(e) => setSearchQuery(e.target.value)}
-            />
+                // value={searchQuery}
+                // onChange={(e) => setSearchQuery(e.target.value)}
+              />
 
-            <FaSearch className="absolute left-3  w-4 h-4" />
+              <FaSearch className="absolute left-3  w-4 h-4" />
+            </div>
           </div>
-        </div>
 
+          <button
+            onClick={openSignUpModal}
+            className="bg-highlight_hover hover:bg-highlight_hover_dark text-dark_primary_text font-medium font-ubuntu  w-1/3 py-1 px-4 rounded  "
+          >
+            Add New Admins
+          </button>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {dummyData.dummyUser.map((content, ind) => (
             <div className=" relative flex items-start justify-start gap-5 p-3  border rounded-xl shadow-md shadow-primary_text dark:shadow-dark_primary_text  ">
@@ -67,6 +106,10 @@ const AdminAdmins = () => {
           ))}
         </div>
       </div>
+
+      {isSignUpModalOpen && (
+        <SignUpModal onClose={() => setIsSignUpModalOpen(false)} />
+      )}
     </section>
   );
 };
