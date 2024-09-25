@@ -1,31 +1,27 @@
 import React, { useState } from "react";
 import LayoutCulture from "../../admin-components/LayoutCulture/LayoutCulture";
+import AddCourses from "../../admin-components/AdminModals/AddCourses/AddCourses";
 
 const AdminCourses = () => {
-  const [religionModal, setReligionModal] = useState(false);
-  const [languageModal, setLanguageModal] = useState(false);
-  const [cuisineModal, setCuisineModal] = useState(false);
-  const [clothingModal, setClothingModal] = useState(false);
-  const [artCraftModal, setArtCraftModal] = useState(false);
+  const [languageCourseModal, setLanguageCourseModal] = useState(false);
+  const [cuisineCourseModal, setCuisineCourseModal] = useState(false);
+  const [clothingCourseModal, setClothingCourseModal] = useState(false);
+  const [artCraftCourseModal, setArtCraftCourseModal] = useState(false);
 
-  const handleApplyReligionModal = () => {
-    setReligionModal(false);
+  const handleApplyLanguageCourseModal = () => {
+    setLanguageCourseModal(false);
   };
 
-  const handleApplyLanguageModal = () => {
-    setLanguageModal(false);
+  const handleApplyCuisineCourseModal = () => {
+    setCuisineCourseModal(false);
   };
 
-  const handleApplyCuisineModal = () => {
-    setCuisineModal(false);
+  const handleApplyClothingCourseModal = () => {
+    setClothingCourseModal(false);
   };
 
-  const handleApplyFestivalModal = () => {
-    setClothingModal(false);
-  };
-
-  const handleApplyGreetingModal = () => {
-    setArtCraftModal(false);
+  const handleApplyArtCraftCourseModal = () => {
+    setArtCraftCourseModal(false);
   };
 
   return (
@@ -33,47 +29,59 @@ const AdminCourses = () => {
       <div className="flex flex-col gap-5 sm:gap-10">
         <div className="flex flex-col sm:flex-row justify-between items-center sm:items-center gap-y-3 ">
           <h1 className="text-4xl font-semibold text-center tracking-tighter font-playfair">
-            Manage Your Cultures
+            Manage Your Courses
           </h1>
         </div>
 
-        {/* Pass the correct props */}
-        <LayoutCulture cultureName="Language" setModalOpen={setLanguageModal} />
-        <LayoutCulture cultureName="Cuisine" setModalOpen={setCuisineModal} />
-        <LayoutCulture cultureName="Clothing" setModalOpen={setClothingModal} />
         <LayoutCulture
-          cultureName="Art & Craft"
-          setModalOpen={setArtCraftModal}
+          cultureName="Language Course"
+          setModalOpen={setLanguageCourseModal}
+        />
+        <LayoutCulture
+          cultureName="Cuisine Course"
+          setModalOpen={setCuisineCourseModal}
+        />
+        <LayoutCulture
+          cultureName="Clothing Course"
+          setModalOpen={setClothingCourseModal}
+        />
+        <LayoutCulture
+          cultureName="Art & Craft Course"
+          setModalOpen={setArtCraftCourseModal}
         />
       </div>
 
-      {/* {languageModal && (
-        <AddLanguageModal
-          setLanguageModal={setLanguageModal}
-          handleApplyLanguageModal={handleApplyLanguageModal}
+      {languageCourseModal && (
+        <AddCourses
+          setCourseModal={setLanguageCourseModal}
+          handleApplyCourseModal={handleApplyLanguageCourseModal}
+          courseTopic="Language"
         />
       )}
 
-      {cuisineModal && (
-        <AddCuisineModal
-          setCuisineModal={setCuisineModal}
-          handleApplyCuisineModal={handleApplyCuisineModal}
+      {cuisineCourseModal && (
+        <AddCourses
+          setCourseModal={setCuisineCourseModal}
+          handleApplyCourseModal={handleApplyCuisineCourseModal}
+          courseTopic="Cuisine"
         />
       )}
 
-      {clothingModal && (
-        <AddFestivalModal
-          setClothingModal={setClothingModal}
-          handleApplyFestivalModal={handleApplyFestivalModal}
+      {clothingCourseModal && (
+        <AddCourses
+          setCourseModal={setClothingCourseModal}
+          handleApplyCourseModal={handleApplyClothingCourseModal}
+          courseTopic="Clothing"
         />
       )}
 
-      {artCraftModal && (
-        <AddGreetingModal
-          setArtCraftModal={setArtCraftModal}
-          handleApplyGreetingModal={handleApplyGreetingModal}
+      {artCraftCourseModal && (
+        <AddCourses
+          setCourseModal={setArtCraftCourseModal}
+          handleApplyCourseModal={handleApplyArtCraftCourseModal}
+          courseTopic="Art & Craft"
         />
-      )} */}
+      )}
     </section>
   );
 };
