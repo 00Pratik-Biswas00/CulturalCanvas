@@ -72,7 +72,7 @@ const LayoutCulture = ({ cultureName, setModalOpen }) => {
         {/* Scroll Left Button */}
         <button
           onClick={scrollLeft}
-          className="absolute -left-2 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 hover:text-dark_primary_text border p-2 duration-300 rounded-full z-10"
+          className="absolute -left-2 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 hover:text-dark_primary_text border p-2 duration-300 rounded-full "
         >
           <FaLongArrowAltLeft className="w-5 h-5" />
         </button>
@@ -111,7 +111,7 @@ const LayoutCulture = ({ cultureName, setModalOpen }) => {
 
         <button
           onClick={scrollRight}
-          className="absolute -right-2 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 hover:text-dark_primary_text border p-2 duration-300 rounded-full z-10"
+          className="absolute -right-2 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 hover:text-dark_primary_text border p-2 duration-300 rounded-full "
         >
           <FaLongArrowAltRight className="w-5 h-5" />
         </button>
