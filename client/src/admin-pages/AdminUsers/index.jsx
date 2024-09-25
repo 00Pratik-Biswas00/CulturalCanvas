@@ -1,16 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaSearch, FaFilter, FaTimes } from "react-icons/fa";
-import { MdDelete } from "react-icons/md";
-import { IoStorefront } from "react-icons/io5";
 
 import FilterUser from "../../admin-components/AdminModals/FilterModals/FilterUser";
 
-import { dummyData } from "../../utils/constants";
+import MalePng from "./../../assets/logo/male.png";
+import FemalePng from "./../../assets/logo/female.png";
+import { GET_USERS } from "../../graphql/roleQuery";
+import { useQuery } from "@apollo/client";
+import DeleteUserButton from "../../components/UserDeleteButton";
 
 const AdminUsers = () => {
-  const { dummyUser } = dummyData;
-
+  const { data, loading, error, refetch } = useQuery(GET_USERS, {
+    fetchPolicy: "network-only",
+  });
+  const [users, setUsers] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+
+  const loadUsers = async () => {
+    await refetch();
+  };
+
+  useEffect(() => {
+    if (data) {
+      setUsers(data.getUsers);
+      loadUsers();
+    }
+  }, [data]);
+
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const filteredUser = users.filter((user) =>
+    user.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
   const [filterUsersModalOpen, setFilterUsersModalOpen] = useState(false);
 
   const handleApplyFilters = () => {
@@ -40,8 +63,8 @@ const AdminUsers = () => {
                   pl-10 sm:pl-10  
                   py-2
                   sm:px-4"
-                // value={searchQuery}
-                // onChange={(e) => setSearchQuery(e.target.value)}
+                value={searchQuery}
+                onChange={handleSearch}
               />
 
               <FaSearch className="absolute left-3  w-4 h-4" />
@@ -50,35 +73,38 @@ const AdminUsers = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {dummyData.dummyUser.map((content, ind) => (
-            <div className=" relative flex items-start justify-start gap-5 p-3  border rounded-xl shadow-md shadow-primary_text dark:shadow-dark_primary_text  ">
-              <div className="w-1/3 ">
-                <img
-                  src={content.userImg}
-                  className=" w-full h-full rounded-xl"
-                />
+          {filteredUser.length > 0 &&
+            filteredUser.map((user, ind) => (
+              <div className=" relative flex items-start justify-start gap-5 p-3  border rounded-xl shadow-md shadow-primary_text dark:shadow-dark_primary_text  ">
+                <div className="w-1/3 ">
+                  <img
+                    src={
+                      user.photo?.url ||
+                      (user.gender === "Male" ? MalePng : FemalePng)
+                    }
+                    alt={user.name}
+                    className="w-full h-full rounded-xl object-cover"
+                  />
+                </div>
+                <div className="flex flex-col items-start text-xs lg:text-base justify-evenly h-full w-2/3">
+                  <p>
+                    <b>Name:</b> {user.name}
+                  </p>
+                  <p>
+                    <b>Email:</b> {user.email}
+                  </p>
+                  <p>
+                    <b>Gender:</b> {user.gender}
+                  </p>
+                  <p>
+                    <b>Ph No.:</b> {user.phone}
+                  </p>
+                </div>
+                <div className=" cursor-pointer">
+                  <DeleteUserButton userId={user.id} reload={loadUsers} />
+                </div>
               </div>
-              <div className="flex flex-col items-start text-xs lg:text-base justify-evenly h-full w-2/3">
-                <p>
-                  <b>Name:</b> {content.userName}
-                </p>
-                <p>
-                  <b>Email:</b> {content.userEmail}
-                </p>
-                <p>
-                  <b>Gender:</b> {content.userGender}
-                </p>
-                <p>
-                  <b>Ph No.:</b> {content.userPhone}
-                </p>
-              </div>
-              <div className=" cursor-pointer">
-                <IoStorefront className="w-5 h-5 absolute bottom-2 right-8 text-highlight_hover hover:text-highlight_hover_dark" />
-
-                <MdDelete className="w-5 h-5 absolute bottom-2 right-2 text-red-600 hover:text-red-800" />
-              </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
 

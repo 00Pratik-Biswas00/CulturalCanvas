@@ -33,7 +33,7 @@ const SignUpModal = ({ onClose }) => {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-background1 dark:bg-dark_background1 dark:bg-opacity-50  bg-opacity-50 backdrop-blur-sm transition-opacity duration-300 text-primary_text dark:text-dark_primary_text">
       <div className="relative bg-background2 dark:bg-shadow  p-4 rounded-lg shadow-lg w-full max-w-[20rem] sm:max-w-3xl transform transition-transform duration-300 scale-105">
         <h2 className="text-3xl font-montserrat font-bold mb-4">
-          {user?.role === "admin" ? "Sign Up For Admin" : "Sign Up"}
+          {user?.role === "owner" ? "Sign Up For Admin" : "Sign Up"}
         </h2>
 
         <div className="flex  absolute top-2 right-2 justify-between items-center text-2xl">
@@ -62,7 +62,7 @@ const SignUpModal = ({ onClose }) => {
             <Form onSubmit={handleSubmit} className="space-y-2">
               <div className="mb-2">
                 <label className="block ">
-                  {user?.role === "admin"
+                  {user?.role === "owner"
                     ? "Shortlisted Candidate's Name"
                     : "Name"}
                 </label>
@@ -79,10 +79,10 @@ const SignUpModal = ({ onClose }) => {
                 />
               </div>
 
-              {user?.role === "admin" ? (
+              {user?.role === "owner" ? (
                 <div className="mb-2">
                   <label className="block ">
-                    {user?.role === "admin"
+                    {user?.role === "owner"
                       ? "Shortlisted Candidate's Email"
                       : "Email"}
                   </label>
@@ -120,7 +120,7 @@ const SignUpModal = ({ onClose }) => {
               <div className="flex items-start w-full justify-between gap-5">
                 <div className="flex flex-col items-start justify-start w-full">
                   <label className="  mb-2">
-                    {user?.role === "admin"
+                    {user?.role === "owner"
                       ? "Shortlisted Candidate's Gender"
                       : "Gender"}
                   </label>
@@ -171,7 +171,7 @@ const SignUpModal = ({ onClose }) => {
 
                 <div className=" w-[98%]">
                   <label className="block ">
-                    {user?.role === "admin"
+                    {user?.role === "owner"
                       ? "Shortlisted Candidate's Phone Number"
                       : "Phone Number"}
                   </label>

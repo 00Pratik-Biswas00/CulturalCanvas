@@ -820,3 +820,43 @@ export const RoutesNames = [
     route_name: "Virtual Store",
   },
 ];
+
+export const adminNavData = [
+  {
+    name: "Dashboard",
+    path: "/",
+  },
+  {
+    name: "Manage Admins",
+    path: "/admins-acdprsIndia24",
+  },
+  {
+    name: "Manage Sellers",
+    path: "/sellers-acdprsIndia24",
+  },
+  {
+    name: "Manage Users",
+    path: "/users-acdprsIndia24",
+  },
+  {
+    name: "Manage States",
+    path: "/states-acdprsIndia24",
+  },
+  {
+    name: "Manage Courses",
+    path: "/courses-acdprsIndia24",
+  },
+  {
+    name: "Manage Heritage",
+    path: "/heritage-acdprsIndia24",
+  },
+  {
+    name: "Manage Culture",
+    path: "/culture-acdprsIndia24",
+  },
+
+  {
+    name: "Manage Market ",
+    path: "/market-place-acdprsIndia24",
+  },
+];

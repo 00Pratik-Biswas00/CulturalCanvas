@@ -114,7 +114,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      {user?.role === "admin" ? (
+      {user?.role === "admin" || user?.role === "owner" ? (
         <>
           <Toaster richColors position="top-right" closeButton="true" />
           <AdminLayout>

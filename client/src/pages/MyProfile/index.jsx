@@ -17,7 +17,7 @@ const MyProfile = () => {
     dispatch(logoutUser());
     window.location.href = "/";
   };
-/*   useEffect(() => {
+  /*   useEffect(() => {
     const savedImage = localStorage.getItem("profileImage");
     if (savedImage) {
       setImagePreview(savedImage);
@@ -127,9 +127,8 @@ const MyProfile = () => {
                           }/remove-image`,
                           imagePreview
                         );
-                        setImagePreview(null); // Reset image preview to null
+                        setImagePreview(null);
                         setFieldValue("photo", null);
-                        //localStorage.removeItem("profileImage"); // Remove image from localStorage
                       } catch (error) {
                         console.error("Image delete failed:", error);
                       }

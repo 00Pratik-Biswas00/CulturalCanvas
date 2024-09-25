@@ -7,52 +7,18 @@ import { IoIosLogOut } from "react-icons/io";
 import { MdLightMode, MdDarkMode } from "react-icons/md";
 
 import { switchTheme } from "../../redux/slices/themeSlice";
-
-export const adminNavData = [
-  {
-    name: "Dashboard",
-    path: "/",
-  },
-  {
-    name: "Manage Admins",
-    path: "/admins-acdprsIndia24",
-  },
-  {
-    name: "Manage Sellers",
-    path: "/sellers-acdprsIndia24",
-  },
-  {
-    name: "Manage Users",
-    path: "/users-acdprsIndia24",
-  },
-  {
-    name: "Manage States",
-    path: "/states-acdprsIndia24",
-  },
-  {
-    name: "Manage Courses",
-    path: "/courses-acdprsIndia24",
-  },
-  {
-    name: "Manage Heritage",
-    path: "/heritage-acdprsIndia24",
-  },
-  {
-    name: "Manage Culture",
-    path: "/culture-acdprsIndia24",
-  },
-
-  {
-    name: "Manage Market ",
-    path: "/market-place-acdprsIndia24",
-  },
-];
+import { adminNavData } from "../../utils/constants";
+import { logoutUser } from "../../redux/slices/authSlice";
 
 const AdminNavSidebar = ({ open }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const theme = useSelector((state) => state.theme);
-  const user = useSelector((state) => state.user.userInfo);
+  const user = useSelector((state) => state.user?.userInfo);
+  const logout = () => {
+    dispatch(logoutUser());
+    navigate("/");
+  };
 
   const [darkMode, setDarkMode] = useState(false);
   useEffect(() => {
@@ -79,18 +45,6 @@ const AdminNavSidebar = ({ open }) => {
     return initials.toUpperCase();
   };
 
-  // const handleLogout = () => {
-  //   try {
-  //     dispatch(logoutUser());
-
-  //     navigate("/");
-  //     window.location.reload();
-  //     toast.success("Please visit again!");
-  //   } catch (e) {
-  //     toast.error("Failed logging out! Please try again.");
-  //   }
-  // };
-
   return (
     <div
       className={`fixed z-50 lg:flex inset-y-0 left-0 transform ${
@@ -110,10 +64,10 @@ const AdminNavSidebar = ({ open }) => {
           </button>
           <div className="flex-shrink-0 mb-2">
             {user ? (
-              user.image ? (
+              user.photo ? (
                 <img
                   className="w-24 h-24 rounded-full"
-                  src={user.image}
+                  src={user.photo?.url}
                   alt="User avatar"
                 />
               ) : (
@@ -155,7 +109,7 @@ const AdminNavSidebar = ({ open }) => {
 
       {/* Logout button at the bottom */}
       <div className="mb-4">
-        <button>
+        <button onClick={logout}>
           <span className="flex flex-row  px-4 py-2 text-md  font-medium hover:font-bold justify-center items-center gap-2">
             Logout
             <IoIosLogOut className="mt-1" />

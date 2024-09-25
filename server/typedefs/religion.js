@@ -26,7 +26,6 @@ const religionTypeDefs = gql`
     core_beliefs: [Content]
   }
 
-  # Input types for mutation
   input ImageInput {
     url: String!
     public_id: String!
