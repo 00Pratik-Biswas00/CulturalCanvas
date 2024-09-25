@@ -3,25 +3,25 @@ import LayoutCulture from "../../admin-components/LayoutCulture/LayoutCulture";
 import AddCourses from "../../admin-components/AdminModals/AddCourses/AddCourses";
 
 const AdminCourses = () => {
-  const [languageCourseModal, setCourseModal] = useState(false);
-  const [cuisineCourseModal, setCuisineModal] = useState(false);
-  const [clothingModal, setClothingModal] = useState(false);
-  const [artCraftModal, setArtCraftModal] = useState(false);
+  const [languageCourseModal, setLanguageCourseModal] = useState(false);
+  const [cuisineCourseModal, setCuisineCourseModal] = useState(false);
+  const [clothingCourseModal, setClothingCourseModal] = useState(false);
+  const [artCraftCourseModal, setArtCraftCourseModal] = useState(false);
 
-  const handleApplyCourseModal = () => {
-    setCourseModal(false);
+  const handleApplyLanguageCourseModal = () => {
+    setLanguageCourseModal(false);
   };
 
-  const handleApplyCuisineModal = () => {
-    setCuisineModal(false);
+  const handleApplyCuisineCourseModal = () => {
+    setCuisineCourseModal(false);
   };
 
-  const handleApplyFestivalModal = () => {
-    setClothingModal(false);
+  const handleApplyClothingCourseModal = () => {
+    setClothingCourseModal(false);
   };
 
-  const handleApplyGreetingModal = () => {
-    setArtCraftModal(false);
+  const handleApplyArtCraftCourseModal = () => {
+    setArtCraftCourseModal(false);
   };
 
   return (
@@ -35,33 +35,51 @@ const AdminCourses = () => {
 
         <LayoutCulture
           cultureName="Language Course"
-          setModalOpen={setCourseModal}
+          setModalOpen={setLanguageCourseModal}
         />
         <LayoutCulture
           cultureName="Cuisine Course"
-          setModalOpen={setCourseModal}
+          setModalOpen={setCuisineCourseModal}
         />
         <LayoutCulture
           cultureName="Clothing Course"
-          setModalOpen={setCourseModal}
+          setModalOpen={setClothingCourseModal}
         />
         <LayoutCulture
           cultureName="Art & Craft Course"
-          setModalOpen={setCourseModal}
+          setModalOpen={setArtCraftCourseModal}
         />
       </div>
 
       {languageCourseModal && (
         <AddCourses
-          setCourseModal={setCourseModal}
-          handleApplyCourseModal={handleApplyCourseModal}
+          setCourseModal={setLanguageCourseModal}
+          handleApplyCourseModal={handleApplyLanguageCourseModal}
+          courseTopic="Language"
         />
       )}
 
       {cuisineCourseModal && (
         <AddCourses
-          setCourseModal={setCourseModal}
-          handleApplyCourseModal={handleApplyCourseModal}
+          setCourseModal={setCuisineCourseModal}
+          handleApplyCourseModal={handleApplyCuisineCourseModal}
+          courseTopic="Cuisine"
+        />
+      )}
+
+      {clothingCourseModal && (
+        <AddCourses
+          setCourseModal={setClothingCourseModal}
+          handleApplyCourseModal={handleApplyClothingCourseModal}
+          courseTopic="Clothing"
+        />
+      )}
+
+      {artCraftCourseModal && (
+        <AddCourses
+          setCourseModal={setArtCraftCourseModal}
+          handleApplyCourseModal={handleApplyArtCraftCourseModal}
+          courseTopic="Art & Craft"
         />
       )}
     </section>

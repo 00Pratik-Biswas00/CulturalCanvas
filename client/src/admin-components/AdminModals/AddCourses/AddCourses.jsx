@@ -4,7 +4,11 @@ import InputComponent from "../../../components/Input/InputComponent";
 import TextareaComponent from "../../../components/Textarea/TextareaComponent";
 import InputImageVideo from "../../../components/Input/InputImageVideo";
 
-const AddCourses = ({ setCourseModal, handleApplyCourseModal }) => {
+const AddCourses = ({
+  setCourseModal,
+  handleApplyCourseModal,
+  courseTopic,
+}) => {
   return (
     <div>
       <AddNewModal
@@ -12,22 +16,25 @@ const AddCourses = ({ setCourseModal, handleApplyCourseModal }) => {
         handleApply={handleApplyCourseModal}
       >
         <h2 className="text-2xl lg:text-3xl font-bold mb-2">
-          Add New Language Course
+          Add a New {courseTopic} Course
         </h2>
 
         <div className="flex flex-col gap-2  py-2">
           <div className="flex items-start w-full justify-between gap-5">
             <div className="w-full">
-              <label className="block font-bold ">Language Name</label>
+              <label className="block font-bold ">{courseTopic} Name</label>
               <InputComponent iName="name" iType="text" />
             </div>
 
-            <InputImageVideo imageName="Language Image" fileType="image" />
+            <InputImageVideo
+              imageName={`${courseTopic} Image`}
+              fileType="image"
+            />
           </div>
 
           <div className="flex items-start w-full justify-between gap-5">
             <div className=" w-full">
-              <label className="block font-bold ">Language History</label>
+              <label className="block font-bold ">{courseTopic} History</label>
               <TextareaComponent />
             </div>
 
@@ -56,7 +63,7 @@ const AddCourses = ({ setCourseModal, handleApplyCourseModal }) => {
 
             <div className="flex items-center w-full justify-between gap-5 mb-2">
               <div className=" w-full">
-                <div className="flex items-center w-full justify-between gap-2 pt-2 text-sm ">
+                <div className="flex items-center w-full justify-between gap-5 pt-2 text-sm ">
                   <div className=" w-full">
                     <label className="block  ">Module Name</label>
                     <InputComponent iName="module_name" iType="text" />
@@ -80,7 +87,7 @@ const AddCourses = ({ setCourseModal, handleApplyCourseModal }) => {
               <button
                 type="button"
                 // onClick={removeArrayItem(index, casts, setCasts)}
-                className=" px-2 py-1 bg-red-500 hover:bg-red-800 rounded"
+                className=" p-1 bg-red-500 hover:bg-red-800 rounded"
               >
                 🗑
               </button>
