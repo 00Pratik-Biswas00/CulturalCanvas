@@ -1,26 +1,20 @@
 import React, { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { useSelector } from "react-redux";
 
 import { SignupValidationSchema } from "../../../utils/schemas";
 import { REGISTER_MUTATION } from "../../../graphql/mutation";
 import { useMutation } from "@apollo/client";
 import { toast } from "sonner";
-import ModalLogin from "../LoginModal/ModalLogin";
 
-const SignUpModal = ({ onClose }) => {
-  const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
-
-  const openSignInModal = () => {
-    setIsSignInModalOpen(true);
-  };
+const AdminSignUpModal = ({ onClose }) => {
+  const user = useSelector((state) => state?.user?.userInfo);
 
   const [register] = useMutation(REGISTER_MUTATION, {
     onCompleted: (data) => {
       if (data.register.ok) {
         toast.success("Registration Success!!");
-        onClose(); // Close the SignUpModal here
-        openSignInModal(); // Open the LoginModal
       }
     },
     onError: (error) => {
@@ -28,11 +22,12 @@ const SignUpModal = ({ onClose }) => {
       console.error(error);
     },
   });
-
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-background1 dark:bg-dark_background1 dark:bg-opacity-50  bg-opacity-50 backdrop-blur-sm transition-opacity duration-300 text-primary_text dark:text-dark_primary_text">
       <div className="relative bg-background2 dark:bg-shadow  p-4 rounded-lg shadow-lg w-full max-w-[20rem] sm:max-w-3xl transform transition-transform duration-300 scale-105">
-        <h2 className="text-3xl font-montserrat font-bold mb-4">Sign Up</h2>
+        <h2 className="text-3xl font-montserrat font-bold mb-4">
+          {user?.role === "owner" ? "Sign Up For Admin" : "Sign Up"}
+        </h2>
 
         <div className="flex  absolute top-2 right-2 justify-between items-center text-2xl">
           <button onClick={onClose} className="  ">
@@ -59,7 +54,7 @@ const SignUpModal = ({ onClose }) => {
           {({ handleSubmit }) => (
             <Form onSubmit={handleSubmit} className="space-y-2">
               <div className="mb-2">
-                <label className="block ">Name</label>
+                <label className="block ">Shortlisted Candidate's Name</label>
                 <Field
                   name="name"
                   type="text"
@@ -74,7 +69,7 @@ const SignUpModal = ({ onClose }) => {
               </div>
 
               <div className="mb-2">
-                <label className="block ">Email</label>
+                <label className="block ">Shortlisted Candidate's Email</label>
                 <Field
                   name="email"
                   type="email"
@@ -90,7 +85,9 @@ const SignUpModal = ({ onClose }) => {
 
               <div className="flex items-start w-full justify-between gap-5">
                 <div className="flex flex-col items-start justify-start w-full">
-                  <label className="  mb-2">Gender</label>
+                  <label className="  mb-2">
+                    Shortlisted Candidate's Gender
+                  </label>
                   <div className="flex items-center justify-center gap-3">
                     <div className="flex items-center">
                       <Field
@@ -137,7 +134,9 @@ const SignUpModal = ({ onClose }) => {
                 </div>
 
                 <div className=" w-[98%]">
-                  <label className="block ">Phone Number</label>
+                  <label className="block ">
+                    Shortlisted Candidate's Phone Number
+                  </label>
                   <Field
                     name="phone"
                     type="tel"
@@ -149,6 +148,21 @@ const SignUpModal = ({ onClose }) => {
                     className="text-red-500"
                   />
                 </div>
+              </div>
+
+              <div className="mb-2">
+                <label className="block ">Admin's New Email</label>
+                <Field
+                  name="email"
+                  type="email"
+                  className="w-full px-4 py-2 border rounded-lg bg-background1 dark:bg-dark_background1 focus:outline-none focus:ring-2 focus:ring-highlight"
+                  autoComplete="email"
+                />
+                <ErrorMessage
+                  name="email"
+                  component="div"
+                  className="text-red-500"
+                />
               </div>
 
               <div className="flex items-start w-full justify-between gap-7">
@@ -200,11 +214,8 @@ const SignUpModal = ({ onClose }) => {
           )}
         </Formik>
       </div>
-      {isSignInModalOpen && (
-        <ModalLogin onClose={() => setIsSignInModalOpen(false)} />
-      )}
     </div>
   );
 };
 
-export default SignUpModal;
+export default AdminSignUpModal;

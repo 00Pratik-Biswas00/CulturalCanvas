@@ -63,30 +63,28 @@ const AdminNavSidebar = ({ open }) => {
             )}
           </button>
           <div className="flex-shrink-0 mb-2">
-            {user ? (
+            {/* {user ? (
               user.photo ? (
                 <img
                   className="w-24 h-24 rounded-full"
-                  src={user.photo?.url}
+                  src={user?.photo?.url}
                   alt="User avatar"
                 />
-              ) : (
-                <div className="w-24 h-24 flex items-center justify-center  border-y border-dark_secondary_text dark:border-dark_primary_text rounded-full text-4xl font-semibold">
-                  {getInitials(user.name)}
-                </div>
-              )
+              ) : ( */}
+            <div className="w-24 h-24 flex items-center justify-center  border-y border-dark_secondary_text dark:border-dark_primary_text rounded-full text-4xl font-semibold">
+              {getInitials(user.name)}
+            </div>
+            {/* )
             ) : (
-              <img
-                className="w-24 h-24 rounded-full"
-                src="\avatar.jpg"
-                alt="User avatar"
-              />
-            )}
+              <div className="w-24 h-24 flex items-center justify-center  border-y border-dark_secondary_text dark:border-dark_primary_text rounded-full text-4xl font-semibold">
+                {getInitials(user.name)}
+              </div>
+            )} */}
           </div>
           <p className="text-2xl font-semibold text-center ">{user?.name}</p>
 
           <p className="text-xs underline font-semibold text-center uppercase ">
-            ({user?.role}){/* (Owner) */}
+            ({user?.role})
           </p>
         </div>
 

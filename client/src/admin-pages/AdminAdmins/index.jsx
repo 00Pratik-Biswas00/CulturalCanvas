@@ -8,6 +8,7 @@ import { GET_ADMINS } from "../../graphql/roleQuery";
 import MalePng from "./../../assets/logo/male.png";
 import FemalePng from "./../../assets/logo/female.png";
 import DeleteUserButton from "../../components/UserDeleteButton";
+import AdminSignUpModal from "../../admin-components/AdminModals/AdminSignUpModal/AdminSignUpModal";
 
 const AdminAdmins = () => {
   const user = useSelector((state) => state?.user?.userInfo);
@@ -15,13 +16,10 @@ const AdminAdmins = () => {
 
   const [searchQuery, setSearchQuery] = useState("");
 
-  const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
+  const [isAdminSignUpModalOpen, setIsAdminSignUpModalOpen] = useState(false);
 
   const openSignUpModal = () => {
-    setIsSignUpModalOpen(true);
-    dispatch(switchLoginModalOpen(false));
-    setIsFPModalOpen(false);
-    setIsResetModalOpen(false);
+    setIsAdminSignUpModalOpen(true);
   };
 
   const { data, loading, error, refetch } = useQuery(GET_ADMINS, {
@@ -121,8 +119,8 @@ const AdminAdmins = () => {
         </div>
       </div>
 
-      {isSignUpModalOpen && (
-        <SignUpModal onClose={() => setIsSignUpModalOpen(false)} />
+      {isAdminSignUpModalOpen && (
+        <AdminSignUpModal onClose={() => setIsAdminSignUpModalOpen(false)} />
       )}
     </section>
   );
