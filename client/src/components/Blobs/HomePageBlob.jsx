@@ -2,7 +2,7 @@ import React from "react";
 
 const HomePageBlob = ({ diffImages }) => {
   return (
-    <div className="w-full h-full relative flex items-center justify-center">
+    <div className=" order-2 lg:order-1 w-full h-full lg:w-[150%] xl:w-full relative flex items-center justify-center">
       {/*  */}
       <svg
         id="sw-js-blob-svg"
@@ -63,7 +63,7 @@ const HomePageBlob = ({ diffImages }) => {
         </path>{" "}
       </svg>
       <img
-        className="absolute w-[24rem]  z-10 object-cover rounded-full"
+        className="absolute w-[13rem] sm:w-[24rem] lg:w-[15rem] xl:w-[18rem] 2xl:w-[24rem]  z-10 object-cover rounded-full"
         src={diffImages}
         alt="diffImages"
       />

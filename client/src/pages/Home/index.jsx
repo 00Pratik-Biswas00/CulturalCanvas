@@ -34,16 +34,16 @@ const Home = () => {
         {homeContent.map((content, ind) => (
           <div
             key={ind}
-            className={`backdrop-blur-lg shadow-md ${content.shadow} bg-opacity-80    rounded-b-[3rem]  relative flex flex-col lg:flex-row  lg:justify-between px-16 py-10   `}
+            className={`backdrop-blur-lg shadow-md ${content.shadow} bg-opacity-80    rounded-b-[3rem]  relative flex flex-col lg:flex-row  lg:justify-between px-5 sm:px-16 lg:py-10   `}
           >
             {ind % 2 === 0 ? (
               <>
                 {/* Text on the left, image on the right */}
                 <div className="flex flex-col z-10 items-start justify-center gap-5 ">
-                  <div className=" text-7xl font-extrabold  ">
+                  <div className=" text-5xl xl:text-7xl font-extrabold  ">
                     {content.headingName}
                   </div>
-                  <div className="flex items-center gap-4 relative">
+                  <div className="flex items-center relative">
                     <p className="  font-lato">{content.para}</p>
                     {/* <button
                       onClick={() => speakText(content.para)}
@@ -59,7 +59,14 @@ const Home = () => {
                     buttonName="VISIT"
                   />
                 </div>
-                <div className=" w-[48rem] h-[48rem] absolute left-32  -bottom-10 flex items-center justify-center opacity-20">
+                <div
+                  className=" absolute   flex items-center justify-center opacity-20 dark:opacity-70
+                
+                w-[18rem] md:w-[28rem] xl:w-[33rem] 2xl:w-[48rem] h-[48rem] 
+                bottom-[3rem] md:bottom-[20rem] lg:-bottom-32 xl:-bottom-20 2xl:-bottom-10 
+                md:left-72 lg:left-32  
+                "
+                >
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#148938"
@@ -69,7 +76,14 @@ const Home = () => {
                   </svg>
                 </div>
 
-                <div className=" w-[15rem] h-[15rem] absolute right-[30rem]  -top-10 flex items-center justify-center opacity-50">
+                <div
+                  className=" absolute flex items-center justify-center opacity-50 dark:opacity-100
+                
+                w-[15rem] h-[15rem] 
+                md:right-[28rem] lg:right-[18rem] xl:right-[23rem] 2xl:right-[30rem]  
+                -top-10 
+                "
+                >
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#f49738"
@@ -83,10 +97,15 @@ const Home = () => {
               </>
             ) : (
               <>
-                {/* Image on the left, text on the right */}
                 <HomePageBlob diffImages={content.image} />
 
-                <div className=" w-[48rem] h-[48rem] absolute right-32  bottom-0 flex items-center justify-center opacity-20">
+                <div
+                  className=" absolute flex items-center justify-center opacity-20  dark:opacity-70  
+                  w-[20rem] sm:w-[28rem] lg:w-[32rem] xl:w-[35rem] 2xl:w-[42rem] h-[48rem]
+                 right-10 sm:right-[20rem] lg:right-20  
+                 bottom-24 sm:bottom-[20rem] lg:-bottom-[7rem] xl:-bottom-[2rem]
+ "
+                >
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#f49738"
@@ -96,7 +115,15 @@ const Home = () => {
                   </svg>
                 </div>
 
-                <div className=" w-[15rem] h-[15rem] absolute left-[30rem]   -top-10 flex items-center justify-center opacity-50">
+                <div
+                  className="absolute  flex items-center justify-center opacity-50 dark:opacity-100
+                
+                 w-[15rem] h-[15rem] 
+                 md:left-[28rem] lg:left-[18rem] xl:left-[23rem] 2xl:left-[30rem]
+                
+                 -top-10
+                 "
+                >
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#148938"
@@ -106,8 +133,8 @@ const Home = () => {
                   </svg>
                 </div>
 
-                <div className="flex flex-col z-10 items-end justify-center gap-5 ">
-                  <div className=" text-7xl font-extrabold text-right  ">
+                <div className=" order-1 lg:order-2 flex flex-col z-10 items-end justify-center gap-5 ">
+                  <div className=" text-5xl xl:text-7xl font-extrabold text-right  ">
                     {content.headingName}
                   </div>
                   <div className="flex items-center gap-4 relative">
