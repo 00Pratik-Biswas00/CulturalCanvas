@@ -2,26 +2,7 @@ import React from "react";
 
 const HomePageBlob = ({ diffImages }) => {
   return (
-    <div className="w-full h-full relative flex items-center justify-center">
-      <div className=" w-48 h-48 absolute -left-20 bottom-40 flex items-center justify-center opacity-30">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <path
-            fill="#F49738"
-            d="M29.8,-54C29.9,-51.5,15.4,-26,20,-13.2C24.7,-0.3,48.5,-0.2,54.5,3.5C60.5,7.1,48.7,14.2,37.2,15.1C25.7,16,14.4,10.7,8.2,23.3C2,36,1,66.6,0.4,66C-0.3,65.4,-0.6,33.5,-7.2,21.1C-13.9,8.7,-26.9,15.9,-26.9,15.6C-27,15.3,-14.1,7.7,-12.6,0.9C-11,-5.9,-20.7,-11.7,-26.2,-21.5C-31.6,-31.4,-32.9,-45.2,-27.8,-44.9C-22.7,-44.6,-11.4,-30.1,1.7,-33.1C14.8,-36.1,29.6,-56.6,29.8,-54Z"
-            transform="translate(100 100)"
-          />
-        </svg>
-      </div>
-
-      <div className=" w-60 h-60 absolute -left-20 -top-10 flex items-center justify-center">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <path
-            fill="#148938"
-            d="M40.8,-61.9C52.7,-63.8,62,-52.5,68.7,-40C75.3,-27.4,79.4,-13.7,80.8,0.8C82.2,15.4,81,30.7,74.9,44.3C68.9,57.9,58,69.8,44.7,75.2C31.5,80.7,15.7,79.6,1.1,77.8C-13.6,75.9,-27.2,73.3,-29.1,61.3C-31,49.3,-21.3,28,-24.3,16.2C-27.3,4.4,-43.1,2.2,-50.5,-4.3C-57.9,-10.8,-57,-21.6,-49.7,-25.9C-42.3,-30.2,-28.6,-28,-19.3,-27.6C-10,-27.2,-5,-28.5,4.7,-36.7C14.5,-44.9,28.9,-60,40.8,-61.9Z"
-            transform="translate(100 100)"
-          />
-        </svg>
-      </div>
+    <div className=" order-2 lg:order-1 w-full h-full lg:w-[150%] xl:w-full relative flex items-center justify-center">
       {/*  */}
       <svg
         id="sw-js-blob-svg"
@@ -82,7 +63,7 @@ const HomePageBlob = ({ diffImages }) => {
         </path>{" "}
       </svg>
       <img
-        className="absolute w-[24rem]  z-10 object-cover rounded-full"
+        className="absolute w-[13rem] sm:w-[24rem] lg:w-[15rem] xl:w-[18rem] 2xl:w-[24rem]  z-10 object-cover rounded-full"
         src={diffImages}
         alt="diffImages"
       />

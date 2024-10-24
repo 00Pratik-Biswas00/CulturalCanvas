@@ -10,7 +10,7 @@ const MyButton1 = ({ buttonLink, buttonName }) => {
         onClick={() => {
           navigate(`${buttonLink}`);
         }}
-        className="relative group overflow-hidden px-6 h-12 rounded-full flex space-x-2 items-center bg-gradient-to-r from-[#193c70e9] to-[#148938] hover:to-[#174926]"
+        className="relative group overflow-hidden px-6 h-12 rounded-full flex space-x-2 items-center bg-gradient-to-r from-[#193c70e9] to-[#1489386c] hover:to-[#174926]"
       >
         <span className="relative text-sm text-white">{buttonName} </span>
         <div className="flex items-center -space-x-3 translate-x-3">
