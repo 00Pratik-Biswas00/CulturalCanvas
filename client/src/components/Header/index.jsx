@@ -152,20 +152,22 @@ const Header = ({ open, setOpen }) => {
       style={{
         backgroundImage: !darkMode ? `url(${headerBG})` : "none",
       }}
-      className=" bg-background1 dark:bg-dark_background2 text-dark_secondary_text dark:text-dark_primary_text font-semibold pt-2 pb-1 px-16 flex justify-between items-center bg-cover bg-center"
+      className=" bg-background1 dark:bg-dark_background2 text-dark_secondary_text dark:text-dark_primary_text font-semibold  px-16 flex justify-between items-center bg-cover bg-center"
     >
-      <div className="text-xl font-bold">
+      <div className="">
         <NavLink
           to="/"
-          className="flex flex-col items-center"
+          className="flex  items-center"
           onClick={handleNavLinkClick}
         >
-          <img src={logo} alt="logo" className=" w-[7rem]" />
-          <h2 className="text-3xl sm:text-xl md:text-2xl lg:text-base font-playfair font-bold">
-            Cultural Canvas
-          </h2>
+          <h1 className="logo-name text-[5rem]   ">C</h1>
+          <div>
+            <h1 className="logo-name leading-5 text-xl">ultural </h1>
+            <h1 className="logo-name leading-5 text-xl">anvas</h1>
+          </div>
         </NavLink>
       </div>
+
       <div className="hidden lg:flex items-center justify-center space-x-5">
         <div className="flex space-x-4 font-ubuntu font-medium text-sm uppercase">
           {RoutesNames.map((routes, ind) => (
@@ -219,7 +221,7 @@ const Header = ({ open, setOpen }) => {
           <div className=" flex items-center">
             {user ? (
               <a href="/my-profile">
-                {user.photo?.url? (
+                {user.photo?.url ? (
                   <img
                     src={user.photo.url}
                     alt="Profile"

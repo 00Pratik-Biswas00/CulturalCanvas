@@ -1,10 +1,32 @@
 /* Individual CSS Files */
 
 
-/* Hide download button in the video controls */
-.react-player .controls .controls__button[title="Download"] {
-  display: none;
+/* Header */
+
+.logo-name {
+  color: rgba(255, 255, 255, 0.2);
+  background-image: url("assets/logo/india.jpg");
+  background-repeat: repeat-x;
+  -webkit-background-clip: text;
+  animation: animate 12s linear infinite;
+  -webkit-text-stroke: 0.5px #000;
+  font-family: "poppins";
+  text-transform: uppercase;
+  line-height: 5vw;
 }
+
+@keyframes animate {
+  0% {
+    background-position: left 0 top 0px;
+  }
+
+  100% {
+    background-position: left 1000px top 10px;
+  }
+}
+
+
+/* Footer */
 
 .underline-animation {
   position: relative;

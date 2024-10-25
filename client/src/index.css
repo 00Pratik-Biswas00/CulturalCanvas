@@ -26,7 +26,10 @@
 }
 
 
-
+/* Hide download button in the video controls */
+.react-player .controls .controls__button[title="Download"] {
+  display: none;
+}
 
 /* Target the outer container of the Google Translate widget */
 #google_translate_element .goog-te-gadget {
