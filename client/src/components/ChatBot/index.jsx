@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaRobot } from "react-icons/fa6";
 import ChatBotPopUp from "./ChatBotPopUp";
+import MyButton2 from "../Buttons/MyButton2";
 
 const Chatbot = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -11,11 +12,14 @@ const Chatbot = () => {
   return (
     <div className="fixed bottom-1 right-1 lg:right-14 lg:bottom-8 z-40 mt-8 flex items-center">
       <div
-        className={`text-2xl text-primary_text hover:text-dark_primary_text duration-500 bg-highlight hover:bg-highlight_dark  rounded-full flex justify-center items-center cursor-pointer w-11 h-11 lg:w-12 lg:h-12
+        className={`
         absolute `}
-        onClick={togglePopup}
       >
-        <FaRobot />
+        <MyButton2
+          buttonLink={togglePopup}
+          buttonName1={<FaRobot />}
+          buttonName2={"Chat"}
+        />
       </div>
 
       {isPopupOpen && <ChatBotPopUp onClose={togglePopup} />}
