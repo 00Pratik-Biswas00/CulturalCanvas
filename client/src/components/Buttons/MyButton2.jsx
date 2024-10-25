@@ -1,5 +1,4 @@
 import React from "react";
-import { IoIosArrowUp } from "react-icons/io";
 
 const MyButton2 = ({ buttonLink, buttonName1, buttonName2 }) => {
   return (
