@@ -62,8 +62,8 @@ const Home = () => {
                 <div
                   className=" absolute   flex items-center justify-center opacity-20 dark:opacity-70
                 
-                w-[18rem] md:w-[28rem] xl:w-[33rem] 2xl:w-[48rem] h-[48rem] 
-                bottom-[3rem] md:bottom-[20rem] lg:-bottom-32 xl:-bottom-20 2xl:-bottom-10 
+                w-[18rem] md:w-[28rem] xl:w-[33rem] 2xl:w-[42rem]  
+                bottom-[3rem] md:bottom-[20rem] lg:-bottom-5 xl:-bottom-2 2xl:-bottom-5 
                 md:left-72 lg:left-32  
                 "
                 >
@@ -79,9 +79,9 @@ const Home = () => {
                 <div
                   className=" absolute flex items-center justify-center opacity-50 dark:opacity-100
                 
-                w-[15rem] h-[15rem] 
+                w-[15rem] 
                 md:right-[28rem] lg:right-[18rem] xl:right-[23rem] 2xl:right-[30rem]  
-                -top-10 
+                -top-5 
                 "
                 >
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -101,9 +101,9 @@ const Home = () => {
 
                 <div
                   className=" absolute flex items-center justify-center opacity-20  dark:opacity-70  
-                  w-[20rem] sm:w-[28rem] lg:w-[32rem] xl:w-[35rem] 2xl:w-[42rem] h-[48rem]
+                  w-[20rem] sm:w-[28rem]  xl:w-[30rem] 2xl:w-[42rem] 
                  right-10 sm:right-[20rem] lg:right-20  
-                 bottom-24 sm:bottom-[20rem] lg:-bottom-[7rem] xl:-bottom-[2rem]
+                 bottom-24 sm:bottom-[20rem] lg:bottom-[1rem] xl:bottom-[1rem]
  "
                 >
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -118,7 +118,7 @@ const Home = () => {
                 <div
                   className="absolute  flex items-center justify-center opacity-50 dark:opacity-100
                 
-                 w-[15rem] h-[15rem] 
+                 w-[15rem]  
                  md:left-[28rem] lg:left-[18rem] xl:left-[23rem] 2xl:left-[30rem]
                 
                  -top-10

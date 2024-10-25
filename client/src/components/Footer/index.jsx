@@ -73,10 +73,11 @@ const Footer = () => {
             <strong>Connect with us:</strong> Join Our Community online
           </p>
           <div className=" absolute flex items-center justify-center bottom-14  ">
-            {/* Visitors Count:{visitorCount} */}
-            <p className=" px-5 py-1 rounded-xl border border-highlight">
-              {`Total Users: ${totalUsers}`}
-            </p>
+            <p
+              className="hollowBorder 
+            
+            px-5 py-1 rounded-xl font-medium"
+            >{`Total Users: ${totalUsers}`}</p>
           </div>
         </div>
 

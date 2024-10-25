@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { IoIosArrowUp } from "react-icons/io";
 import { useSelector } from "react-redux";
+import MyButton2 from "../Buttons/MyButton2";
 
 const GoToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -40,16 +41,15 @@ const GoToTop = () => {
     <div
       className={`fixed bottom-1 ${
         user?.role === "admin" ? "right-1 lg:right-2" : "left-1 lg:left-2"
-      }  lg:bottom-2 z-40 mt-8 flex items-center`}
+      }  lg:bottom-2 z-40 mt-8 flex items-center `}
     >
       {isVisible && (
-        <div
-          className={`text-2xl text-primary_text hover:text-dark_primary_text duration-500 bg-highlight hover:bg-highlight_dark  rounded-full flex justify-center items-center cursor-pointer w-11 h-11 lg:w-12 lg:h-12 ${
-            showFooterButton ? "absolute -top-5" : ""
-          }`}
-          onClick={goToBtn}
-        >
-          <IoIosArrowUp />
+        <div className={` ${showFooterButton ? "absolute -top-5" : ""}`}>
+          <MyButton2
+            buttonLink={goToBtn}
+            buttonName1={<IoIosArrowUp />}
+            buttonName2={"TOP"}
+          />
         </div>
       )}
     </div>

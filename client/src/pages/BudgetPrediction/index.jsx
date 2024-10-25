@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { destinations, sources } from "../../utils/budget-prediction-options";
+import MyButton4 from "../../components/Buttons/MyButton4";
 
 const BudgetPredictor = () => {
   const [formData, setFormData] = useState({
@@ -128,12 +129,13 @@ const BudgetPredictor = () => {
             </div>
 
             {/* Submit Button */}
-            <button
+            {/* <button
               type="submit"
               className="w-full bg-highlight text-dark_primary_text font-bold py-2 px-4 rounded-md hover:bg-highlight_hover duration-500"
             >
               Predict
-            </button>
+            </button> */}
+            <MyButton4 buttonName={"Predict"} bType="submit" />
           </form>
         </div>
 
