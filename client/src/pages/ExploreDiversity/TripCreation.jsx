@@ -13,6 +13,7 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import api from "../../config/axios";
 import { CiBoxList } from "react-icons/ci";
+import MyButton4 from "../../components/Buttons/MyButton4";
 
 function CreateTrip() {
   const [place, setPlace] = useState();
@@ -211,17 +212,11 @@ function CreateTrip() {
         </div>
       </div>
       <div className=" flex justify-end">
-        <button
-          className="border border-highlight hover:bg-highlight text-primary_text dark:text-dark_primary_text hover:text-dark_primary_text px-4 py-1 rounded-xl font-semibold text-lg transition-all duration-300"
-          onClick={OnGenerateTrip}
-          disabled={loading}
-        >
-          {loading ? (
-            <AiOutlineLoading3Quarters className="h-7 w-7 animate-spin" />
-          ) : (
-            "Generate Trip 🤖"
-          )}
-        </button>
+        {loading ? (
+          <AiOutlineLoading3Quarters className="h-7 w-7 animate-spin" />
+        ) : (
+          <MyButton4 buttonName={"Generate Trip"} buttonLink={OnGenerateTrip} />
+        )}
       </div>
     </div>
   );

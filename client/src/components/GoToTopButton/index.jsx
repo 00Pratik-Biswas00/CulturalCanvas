@@ -41,7 +41,7 @@ const GoToTop = () => {
     <div
       className={`fixed bottom-1 ${
         user?.role === "admin" ? "right-1 lg:right-2" : "left-1 lg:left-2"
-      }  lg:bottom-2 z-40 mt-8 flex items-center`}
+      }  lg:bottom-2 z-40 mt-8 flex items-center `}
     >
       {isVisible && (
         <div className={` ${showFooterButton ? "absolute -top-5" : ""}`}>

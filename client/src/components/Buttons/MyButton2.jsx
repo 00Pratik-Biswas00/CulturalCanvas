@@ -5,7 +5,9 @@ const MyButton2 = ({ buttonLink, buttonName1, buttonName2 }) => {
     <div>
       <button
         onClick={buttonLink}
-        class="relative group overflow-hidden  cursor-pointer w-11 h-11 lg:w-12 lg:h-12 bg-highlight hover:bg-highlight_dark  rounded-full text-2xl text-primary_text hover:text-dark_primary_text"
+        class="relative group overflow-hidden  cursor-pointer w-11 h-11 lg:w-12 lg:h-12  rounded-full text-2xl  
+        text-primary_text  dark:text-dark_primary_text
+        hollowBorder"
       >
         <div
           aria-hidden="true"

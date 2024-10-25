@@ -11,14 +11,6 @@ const BlogsVlogs = () => {
       </div>
 
       <div className="flex flex-col sm:flex-row justify-between  w-full items-center sm:items-center gap-y-3 ">
-        {/* <button
-          className={`flex items-center gap-2 uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-500 transition-transform hover:scale-105 transform-cpu`}
-        >
-          {" "}
-          <p className="">Upload your blog</p>
-          <FaPlus className=" w-5 h-5" />
-        </button> */}
-
         <MyButton4 buttonName={"Upload Your Blog"} buttonIcon={<FaPlus />} />
 
         <div className="flex items-center justify-center gap-3">

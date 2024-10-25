@@ -17,7 +17,7 @@ const Chatbot = () => {
       >
         <MyButton2
           buttonLink={togglePopup}
-          buttonName1={<FaRobot />}
+          buttonName1={"🤖"}
           buttonName2={"Chat"}
         />
       </div>
