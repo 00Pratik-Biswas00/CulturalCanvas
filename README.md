@@ -4,7 +4,7 @@ CulturalCanvas is a platform which aims to enhance global awareness of India’s
 
 ## Demo Images
 
-![Screenshot 2024-10-24 224926](https://github.com/user-attachments/assets/838c3162-96f4-4c96-9965-3ebba898bdff)
+![Screenshot 2024-10-25 153455](https://github.com/user-attachments/assets/0d97abcd-d999-40d3-8b9d-4976cc7df535)
 
 
 ## Features
