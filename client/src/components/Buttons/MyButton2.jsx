@@ -5,13 +5,13 @@ const MyButton2 = ({ buttonLink, buttonName1, buttonName2 }) => {
     <div>
       <button
         onClick={buttonLink}
-        class="relative group overflow-hidden  cursor-pointer w-11 h-11 lg:w-12 lg:h-12  rounded-full text-2xl  
-        text-primary_text  dark:text-dark_primary_text
+        className="relative group overflow-hidden  cursor-pointer w-11 h-11 lg:w-12 lg:h-12  rounded-full text-2xl  
+        text-highlight_dark hover:text-dark_primary_text  dark:text-dark_primary_text  flex flex-col items-center
         hollowBorder"
       >
         <div
           aria-hidden="true"
-          class="transition duration-300 group-hover:-translate-y-12"
+          class="transition duration-500 group-hover:-translate-y-12"
         >
           <div class="h-12 flex items-center justify-center">
             <span class="">{buttonName1}</span>

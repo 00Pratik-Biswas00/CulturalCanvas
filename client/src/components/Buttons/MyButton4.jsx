@@ -6,7 +6,7 @@ const MyButton4 = ({ bType, buttonLink, buttonName, buttonIcon }) => {
       <button
         type={`${bType}`}
         onClick={buttonLink}
-        class="relative w-full flex items-center justify-center font-bold gap-2  group overflow-hidden px-5 h-9 rounded-md bg-highlight_dark
+        class="relative w-full flex items-center justify-center  gap-2  font-medium group overflow-hidden px-5 py-3  rounded-md bg-highlight_dark text-dark_primary_text   font-pangaia
         before:absolute 
         before:inset-0 
         before:bg-highlight 
@@ -15,11 +15,9 @@ const MyButton4 = ({ bType, buttonLink, buttonName, buttonIcon }) => {
         before:transition
         before:duration-300
         hover:before:scale-x-100
-        hover:before:origin-left
-
-        text-dark_primary_text  "
+        hover:before:origin-left"
       >
-        <span class="relative  text-lg ">{buttonName}</span>
+        <span class="relative  text-xl ">{buttonName}</span>
         <span class="relative  text-lg ">{buttonIcon}</span>
       </button>
     </div>

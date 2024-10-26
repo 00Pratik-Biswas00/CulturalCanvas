@@ -41,6 +41,8 @@ export default {
         ubuntu: ["Ubuntu", "sans-serif"], // buttons
         logo_text: ["Macondo", "cursive"],
         gallient: ["Gallient", "sans-serif"],
+        pangaia: ["Diphylleia", "sans-serif"],
+        searchBars: ["Future Straw", "sans-serif"],
       },
     },
   },

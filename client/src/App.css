@@ -67,3 +67,7 @@
   transform: translateY(0px);
   opacity: 1;
 }
+
+.gallery {
+  columns: 3 320px;
+}
