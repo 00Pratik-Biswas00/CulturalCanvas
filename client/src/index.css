@@ -4,6 +4,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@700&family=Open+Sans&family=Roboto&family=Ubuntu:wght@400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
+
+@import url('https://fonts.cdnfonts.com/css/gallient');
+@import url('https://fonts.cdnfonts.com/css/future-straw');
+@import url('https://fonts.cdnfonts.com/css/diphylleia');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -34,7 +39,7 @@
   position: relative;
   overflow: hidden;
   text-align: center;
-  display: inline-block;
+  /* display: inline-block; */
   z-index: 0;
   border: 2px solid #f49738;
   text-decoration: none;

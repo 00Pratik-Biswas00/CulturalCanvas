@@ -29,7 +29,7 @@ const ExploreDiversity = () => {
       <div className="flex flex-col items-center justify-center gap-3 py-3">
         <img src={travelling} className="h-[25rem]" />
 
-        <h1 className="text-5xl tracking-wider font-bold font-playfair py-5 text-center ">
+        <h1 className="text-5xl tracking-wider font-extrabold font-gallient py-5 text-center ">
           Explore Rich Cultural Heritages and Traditions of India
         </h1>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
