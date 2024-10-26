@@ -135,7 +135,13 @@ const BudgetPredictor = () => {
             >
               Predict
             </button> */}
-            <MyButton4 buttonName={"Predict"} bType="submit" />
+            <MyButton4
+              classDesign={
+                "bg-highlight_dark before:bg-highlight  text-dark_primary_text "
+              }
+              buttonName={"Predict"}
+              bType="submit"
+            />
           </form>
         </div>
 

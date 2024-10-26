@@ -46,6 +46,9 @@ const GoToTop = () => {
       {isVisible && (
         <div className={` ${showFooterButton ? "absolute -top-5" : ""}`}>
           <MyButton2
+            classDesign={
+              "text-highlight_dark hover:text-dark_primary_text  dark:text-dark_primary_text"
+            }
             buttonLink={goToBtn}
             buttonName1={<IoIosArrowUp />}
             buttonName2={"TOP"}

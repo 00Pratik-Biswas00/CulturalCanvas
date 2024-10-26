@@ -1,13 +1,13 @@
 import React from "react";
 
-const MyButton2 = ({ buttonLink, buttonName1, buttonName2 }) => {
+const MyButton2 = ({ classDesign, buttonLink, buttonName1, buttonName2 }) => {
   return (
     <div>
       <button
         onClick={buttonLink}
-        className="relative group overflow-hidden  cursor-pointer w-11 h-11 lg:w-12 lg:h-12  rounded-full text-2xl  
-        text-highlight_dark hover:text-dark_primary_text  dark:text-dark_primary_text  flex flex-col items-center
-        hollowBorder"
+        className={`relative group overflow-hidden  cursor-pointer w-11 h-11 lg:w-12 lg:h-12  rounded-full text-2xl   ${classDesign}
+          flex flex-col items-center
+        hollowBorder`}
       >
         <div
           aria-hidden="true"

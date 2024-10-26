@@ -7,7 +7,7 @@ import travelling from "../../assets/explorePlaces/travel.jpg";
 import trip from "../../assets/explorePlaces/createTrip.jpg";
 import money from "../../assets/explorePlaces/paisa.jpg";
 import { switchLoginModalOpen } from "../../redux/slices/loginModalOpenSlice";
-import MyButtons3 from "../../components/Buttons/MyButtons3";
+import MyButton3 from "../../components/Buttons/MyButton3";
 
 const ExploreDiversity = () => {
   const user = useSelector((state) => state.user.userInfo);
@@ -56,7 +56,10 @@ const ExploreDiversity = () => {
               </b>
             </p>
 
-            <MyButtons3
+            <MyButton3
+              classDesign={
+                "before:bg-highlight_hover_dark bg-highlight_hover text-dark_primary_text "
+              }
               buttonLink={handlePredictionRedirect}
               buttonName={"Predict Amount"}
               buttonIcon={<RiMoneyRupeeCircleFill />}
@@ -89,7 +92,10 @@ const ExploreDiversity = () => {
               </b>
             </p>
 
-            <MyButtons3
+            <MyButton3
+              classDesign={
+                "before:bg-highlight_hover_dark bg-highlight_hover text-dark_primary_text "
+              }
               buttonLink={handleCreateTripRedirect}
               buttonName={"Create Trip"}
               buttonIcon={<FaPlus />}

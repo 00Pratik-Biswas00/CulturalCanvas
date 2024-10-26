@@ -1,39 +1,44 @@
 import React from "react";
-import { FaTimes } from "react-icons/fa";
+import { RxCross1 } from "react-icons/rx";
+import MyButton3 from "../../../components/Buttons/MyButton3";
+import MyButton4 from "../../../components/Buttons/MyButton4";
 
 const FilterCommon = ({
-  filterUsersModalOpen,
-  setFilterUsersModalOpen,
+  filterModalOpen,
+  handleReverseFilters,
   handleApplyFilters,
   handleResetFilters,
   children,
 }) => {
-  if (!filterUsersModalOpen) return null;
+  if (!filterModalOpen) return null;
 
   return (
     <div className="fixed inset-0 bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text bg-opacity-50 dark:bg-opacity-50 flex items-center justify-center">
-      <div className="bg-background2 dark:bg-shadow sm:w-[40%] px-4 py-2 rounded-lg relative">
-        <FaTimes
-          className="absolute top-2 right-2 text-red-600 hover:text-red-800 text-xl cursor-pointer"
-          onClick={() => setFilterUsersModalOpen(false)}
+      <div className="bg-background2 dark:bg-shadow sm:w-[40%] p-4 rounded-lg relative flex flex-col gap-4">
+        <RxCross1
+          className="absolute top-2 right-4 text-red-600 hover:text-red-800 text-2xl font-bold cursor-pointer"
+          onClick={handleReverseFilters}
         />
         {/* Constant layout */}
         {children}
 
         {/* Button Section */}
         <div className="flex justify-end gap-x-4">
-          <button
-            className="bg-red-600 hover:bg-red-800 text-dark_primary_text font-medium py-1 px-3 rounded-lg"
-            onClick={handleResetFilters}
-          >
-            Reset
-          </button>
-          <button
-            className="bg-highlight hover:bg-highlight_dark text-dark_primary_text font-medium py-1 px-3 rounded-lg"
-            onClick={handleApplyFilters}
-          >
-            Apply
-          </button>
+          <MyButton4
+            buttonLink={handleResetFilters}
+            classDesign={
+              "bg-red-600 before:bg-red-800  text-dark_primary_text py-1 "
+            }
+            buttonName={"Reset"}
+          />
+
+          <MyButton3
+            buttonLink={handleApplyFilters}
+            buttonName={"Apply"}
+            classDesign={
+              "before:bg-highlight_hover_dark bg-highlight_hover text-dark_primary_text "
+            }
+          />
         </div>
       </div>
     </div>

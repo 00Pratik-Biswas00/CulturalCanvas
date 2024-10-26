@@ -215,7 +215,13 @@ function CreateTrip() {
         {loading ? (
           <AiOutlineLoading3Quarters className="h-7 w-7 animate-spin" />
         ) : (
-          <MyButton4 buttonName={"Generate Trip"} buttonLink={OnGenerateTrip} />
+          <MyButton4
+            classDesign={
+              "bg-highlight_dark before:bg-highlight  text-dark_primary_text "
+            }
+            buttonName={"Generate Trip"}
+            buttonLink={OnGenerateTrip}
+          />
         )}
       </div>
     </div>

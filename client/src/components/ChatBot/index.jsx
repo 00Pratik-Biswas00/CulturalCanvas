@@ -16,6 +16,9 @@ const Chatbot = () => {
         absolute `}
       >
         <MyButton2
+          classDesign={
+            "text-highlight_dark hover:text-dark_primary_text  dark:text-dark_primary_text"
+          }
           buttonLink={togglePopup}
           buttonName1={"🤖"}
           buttonName2={"Chat"}
