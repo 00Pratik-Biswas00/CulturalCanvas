@@ -1,4 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import VanillaTilt from "vanilla-tilt";
+
 import { CiSearch, CiFilter } from "react-icons/ci";
 
 import img1 from "../../assets/blogs/pic1.jpg";
@@ -10,7 +13,6 @@ import img6 from "../../assets/explorePlaces/createTrip.jpg";
 import pratikImg from "../../assets/courses/pratik.jpg";
 
 import MyButton4 from "../../components/Buttons/MyButton4";
-import VanillaTilt from "vanilla-tilt";
 import MyButton2 from "../../components/Buttons/MyButton2";
 import FilterBlogsVlogs from "../../components/Filters/FilterBlogsVlogs";
 
@@ -19,14 +21,14 @@ const blogsVlogs = [
     blogImage: img1,
     blogName: "Unraveling Hawa Mahal's Historical Treasures",
     type: "Blog",
-    author: "Pratik Biswas",
+    author: "Debopriya Lahiri",
     authorImg: pratikImg,
   },
   {
     blogImage: img4,
     blogName: "Unraveling Rupal er Barir 14 puruser Treasures",
     type: "Vlog",
-    author: "Debopriya Lahiri",
+    author: "Pratik Biswas",
     authorImg: pratikImg,
   },
   {
@@ -103,6 +105,7 @@ const BlogsVlogs = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [BlogsVlogsModalOpen, setBlogsVlogsModalOpen] = useState(false);
   const [selectedContentType, setSelectedContentType] = useState("");
+  const navigate = useNavigate();
 
   const handleApplyFilters = () => {
     setBlogsVlogsModalOpen(false);
@@ -115,7 +118,6 @@ const BlogsVlogs = () => {
 
   const handleResetFilters = () => {
     setSelectedContentType("");
-    // setBlogsVlogsModalOpen(false);
   };
 
   const handleSearch = (e) => {
@@ -130,7 +132,6 @@ const BlogsVlogs = () => {
 
   return (
     <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-4 px-16 duration-300 min-h-screen">
-      {/* Content */}
       <div className="flex items-center tracking-wide justify-center pb-4 text-[4rem] font-extrabold font-gallient">
         (◔◡◔) India: Through the Eyes of Creators 📸
       </div>
@@ -176,7 +177,12 @@ const BlogsVlogs = () => {
               <h3 className="text-center font-bold text-3xl">
                 {content.blogName}
               </h3>
-              <button className="bg-background2 hover:bg-lime-200 duration-500 text-primary_text px-5 py-2 text-base rounded-3xl mb-5 font-open_sans">
+              <button
+                onClick={() => {
+                  navigate(`/blogs-vlogs/slugLagabiEkhane`);
+                }}
+                className="bg-background2 hover:bg-lime-200 duration-500 text-primary_text px-5 py-2 text-base rounded-3xl mb-5 font-open_sans"
+              >
                 Read More
               </button>
               <div className="absolute bottom-5 right-5 italic text-sm tracking-wider font-playfair">
