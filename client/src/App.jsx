@@ -48,6 +48,7 @@ import AdminCourses from "./admin-pages/AdminCourses";
 import AdminHeritage from "./admin-pages/AdminHeritage";
 import AdminCulture from "./admin-pages/AdminCulture";
 import AdminMarket from "./admin-pages/AdminMarket";
+import SingleBlogVlog from "./pages/SingleBlogVlog";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -231,6 +232,11 @@ function App() {
               <Route
                 path="/explore-diversity/saved-trips"
                 element={<SavedTrips />}
+              />
+
+              <Route
+                path="/blogs-vlogs/slugLagabiEkhane"
+                element={<SingleBlogVlog />}
               />
             </Routes>
           </UserLayout>
