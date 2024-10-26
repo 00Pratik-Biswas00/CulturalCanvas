@@ -1,26 +1,29 @@
 import React, { useRef, useEffect } from "react";
 import { FaPlus } from "react-icons/fa6";
 import { FaSearch, FaFilter, FaTimes } from "react-icons/fa";
-import stateImg from "../../assets/courses/pratik.jpg";
+import img1 from "../../assets/blogs/pic1.jpg";
+import img2 from "../../assets/blogs/pic2.jpeg";
+import img3 from "../../assets/blogs/pic3.png";
+
 import MyButton4 from "../../components/Buttons/MyButton4";
 import VanillaTilt from "vanilla-tilt";
 
 const blogsVlogs = [
   {
-    blogImage: stateImg,
+    blogImage: img1,
     nblogName: "Unraveling Hawa Mahal's Historical Treasures",
   },
   {
-    blogImage: stateImg,
-    nblogName: "Unraveling Hawa Mahal's Historical Treasures",
+    blogImage: img2,
+    nblogName: "Unraveling Rupal er Barir 14 puruser Treasures",
   },
   {
-    blogImage: stateImg,
-    nblogName: "Unraveling Hawa Mahal's Historical Treasures",
+    blogImage: img3,
+    nblogName: "Unraveling Taj Mahal's Historical Treasures",
   },
   {
-    blogImage: stateImg,
-    nblogName: "Unraveling Hawa Mahal's Historical Treasures",
+    blogImage: img2,
+    nblogName: "Unraveling Victoria Memorial's Historical Treasures",
   },
 ];
 
@@ -62,9 +65,15 @@ const BlogsVlogs = () => {
   };
 
   return (
-    <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-4 px-16 duration-300 min-h-screen">
-      <div className="flex items-center tracking-wide justify-center pb-4 text-[2.5rem] font-bold font-playfair uppercase [word-spacing:5px] ">
-        India's Cultural Tapestry: Through the Eyes of Creators
+    <section
+      className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-4 px-16 duration-300 min-h-screen
+    
+    
+    
+    "
+    >
+      <div className="flex items-center tracking-wide justify-center pb-4 text-[4rem] font-extrabold font-gallient  [word-spacing:10px]  ">
+        India: Through the Eyes of Creators
       </div>
 
       <div className="flex flex-col sm:flex-row justify-between  w-full items-center sm:items-center gap-y-3 ">
@@ -100,7 +109,7 @@ const BlogsVlogs = () => {
           >
             <img
               src={content.blogImage}
-              className="w-full h-full rounded-2xl "
+              className="w-full h-full rounded-2xl  "
             />
 
             <div
