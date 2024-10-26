@@ -55,6 +55,9 @@ const Home = () => {
                   </div>
 
                   <MyButton1
+                    classDesign={
+                      "bg-gradient-to-r from-[#193c70e9] to-[#1489386c] hover:to-[#174926]"
+                    }
                     buttonLink={content.buttonLink}
                     buttonName="VISIT"
                   />
@@ -141,6 +144,9 @@ const Home = () => {
                     <p className=" text-right  font-lato">{content.para}</p>
                   </div>
                   <MyButton1
+                    classDesign={
+                      "bg-gradient-to-r from-[#193c70e9] to-[#1489386c] hover:to-[#174926]"
+                    }
                     buttonLink={content.buttonLink}
                     buttonName="VISIT"
                   />

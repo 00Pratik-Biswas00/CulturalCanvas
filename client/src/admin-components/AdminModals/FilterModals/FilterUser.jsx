@@ -9,8 +9,8 @@ const FilterUser = ({
 }) => {
   return (
     <FilterCommon
-      filterUsersModalOpen={filterUsersModalOpen}
-      setFilterUsersModalOpen={setFilterUsersModalOpen}
+      filterModalOpen={filterUsersModalOpen}
+      setFilterModalOpen={setFilterUsersModalOpen}
       handleApplyFilters={handleApplyFilters}
       // handleResetFilters={handleResetFilters}
     >
