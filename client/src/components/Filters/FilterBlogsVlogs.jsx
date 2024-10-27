@@ -28,7 +28,7 @@ const FilterBlogsVlogs = ({
               onClick={() => setSelectedContentType("Blog")}
               className={`hollowBorder h-12 w-32 text-2xl rounded ${
                 selectedContentType === "Blog"
-                  ? "bg-highlight_dark text-primary_text"
+                  ? "bg-highlight_dark text-dark_primary_text dark:text-primary_text"
                   : " "
               }`}
             >
@@ -38,7 +38,7 @@ const FilterBlogsVlogs = ({
               onClick={() => setSelectedContentType("Vlog")}
               className={`hollowBorder h-12 w-32 text-2xl rounded ${
                 selectedContentType === "Vlog"
-                  ? "bg-highlight_dark text-primary_text"
+                  ? "bg-highlight_dark text-dark_primary_text dark:text-primary_text"
                   : ""
               }`}
             >
