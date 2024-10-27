@@ -24,6 +24,7 @@ const blogsVlogs = [
     author: "Debopriya Lahiri",
     authorImg: pratikImg,
   },
+
   {
     blogImage: img4,
     blogName: "Unraveling Rupal er Barir 14 puruser Treasures",
@@ -138,7 +139,10 @@ const BlogsVlogs = () => {
 
       <div className="flex flex-col sm:flex-row justify-between w-full items-center sm:items-center">
         <MyButton4
-          classDesign="bg-highlight_dark before:bg-highlight text-dark_primary_text"
+          buttonLink={() => {
+            navigate(`/blogs-vlogs/upload-blog-vlog`);
+          }}
+          classDesign="bg-highlight_dark before:bg-highlight text-dark_primary_text transition-transform hover:scale-105 duration-1000 transform-cpu"
           buttonName="Upload Your Blog📝 / Vlog🎬"
         />
 

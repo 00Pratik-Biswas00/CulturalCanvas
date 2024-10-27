@@ -118,78 +118,77 @@
 
 /* square bg animation */
 
-
 .squareAnimatedBox div:nth-child(1) {
   position: fixed;
   top: 28%;
   left: 30%;
-  animation: Animate 10s linear infinite;
+  animation: AnimateBlogVlog 10s linear infinite;
 }
 
 .squareAnimatedBox div:nth-child(2) {
   position: fixed;
   top: 32%;
   left: 70%;
-  animation: Animate 7s linear infinite;
+  animation: AnimateBlogVlog 7s linear infinite;
 }
 
 .squareAnimatedBox div:nth-child(3) {
   position: fixed;
   top: 35%;
   left: 6%;
-  animation: Animate 9s linear infinite;
+  animation: AnimateBlogVlog 9s linear infinite;
 }
 
 .squareAnimatedBox div:nth-child(4) {
   position: fixed;
   top: 37%;
   left: 90%;
-  animation: Animate 10s linear infinite;
+  animation: AnimateBlogVlog 10s linear infinite;
 }
 
 .squareAnimatedBox div:nth-child(5) {
   position: fixed;
   top: 45%;
   left: 50%;
-  animation: Animate 6s linear infinite;
+  animation: AnimateBlogVlog 6s linear infinite;
 }
 
 .squareAnimatedBox div:nth-child(6) {
   position: fixed;
   top: 80%;
   left: 70%;
-  animation: Animate 12s linear infinite;
+  animation: AnimateBlogVlog 12s linear infinite;
 }
 
 .squareAnimatedBox div:nth-child(7) {
   position: fixed;
   top: 60%;
   left: 80%;
-  animation: Animate 15s linear infinite;
+  animation: AnimateBlogVlog 15s linear infinite;
 }
 
 .squareAnimatedBox div:nth-child(8) {
   position: fixed;
   top: 52%;
   left: 25%;
-  animation: Animate 16s linear infinite;
+  animation: AnimateBlogVlog 16s linear infinite;
 }
 
 .squareAnimatedBox div:nth-child(9) {
   position: fixed;
   top: 82%;
   left: 10%;
-  animation: Animate 9s linear infinite;
+  animation: AnimateBlogVlog 9s linear infinite;
 }
 
 .squareAnimatedBox div:nth-child(10) {
   position: fixed;
   top: 70%;
   left: 39%;
-  animation: Animate 5s linear infinite;
+  animation: AnimateBlogVlog 5s linear infinite;
 }
 
-@keyframes Animate {
+@keyframes AnimateBlogVlog {
   0% {
     transform: scale(0) translateY(0) rotate(0);
     opacity: 1;

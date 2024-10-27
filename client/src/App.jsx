@@ -49,6 +49,7 @@ import AdminHeritage from "./admin-pages/AdminHeritage";
 import AdminCulture from "./admin-pages/AdminCulture";
 import AdminMarket from "./admin-pages/AdminMarket";
 import SingleBlogVlog from "./pages/SingleBlogVlog";
+import UploadBlogVlog from "./pages/UploadBlogVlog/UploadBlogVlog";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -237,6 +238,10 @@ function App() {
               <Route
                 path="/blogs-vlogs/slugLagabiEkhane"
                 element={<SingleBlogVlog />}
+              />
+              <Route
+                path="/blogs-vlogs/upload-blog-vlog"
+                element={<UploadBlogVlog />}
               />
             </Routes>
           </UserLayout>
