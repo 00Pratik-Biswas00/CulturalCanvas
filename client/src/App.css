@@ -52,8 +52,8 @@
 /* blogs and vlogs */
 
 .blogCards {
-  box-shadow: 20px 20px 50px rgb(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px);
+  box-shadow: 20px 5px 50px rgb(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
 }
 
 .blogCards .blogCardsContents {
@@ -70,4 +70,75 @@
 
 .gallery {
   columns: 3 320px;
+}
+
+.quill>* {
+  border-color: inherit !important;
+  color: inherit !important;
+}
+
+.quill>.ql-toolbar {
+  /* border radius of the toolbar */
+  border-radius: 10px 10px 0 0;
+}
+
+.quill>.ql-container {
+  /* border radius of the container and for font size*/
+  font-size: inherit;
+  border-radius: 0 0 10px 10px;
+}
+
+.ql-toolbar.ql-snow .ql-picker-label {
+  font-family: cursive;
+  color: inherit !important;
+  opacity: 1;
+}
+
+.ql-toolbar.ql-snow .ql-picker-options {
+  background-color: transparent;
+  padding: 2px;
+}
+
+.ql-snow .ql-picker.ql-expanded .ql-picker-options {
+  border: none;
+  box-shadow: none;
+}
+
+.ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-label {
+  border: none;
+}
+
+.ql-snow .ql-picker {
+  color: inherit !important;
+}
+
+.quill>.ql-container>.ql-editor.ql-blank::before {
+  /* for placeholder */
+  color: inherit;
+}
+
+.ql-snow.ql-toolbar button svg {
+  opacity: 1;
+  color: currentColor;
+}
+
+.ql-snow .ql-stroke {
+  /* for the border of the editor */
+  stroke: currentColor !important;
+}
+
+.ql-snow .ql-fill {
+  /* for the bg color */
+  fill: currentColor !important;
+}
+
+.ql-picker-item {
+  /* for dropdown */
+  color: black !important;
+  background-color: #dcdddd;
+  padding: 10px;
+  margin-bottom: 5px;
+  font-family: cursive;
+  border-radius: 5px;
+  font-size: 10px;
 }
