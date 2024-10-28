@@ -4,15 +4,16 @@ import "react-quill/dist/quill.snow.css";
 import InputComponent from "../../components/Input/InputComponent";
 import blogBG from "../../assets/blogs/ab.png";
 import InputImageVideo from "../../components/Input/InputImageVideo";
+import Editor from "../../components/Editor/Editor";
 const UploadBlogVlog = () => {
   return (
     <section
       style={{ backgroundImage: `url(${blogBG})` }}
-      className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-10 px-16 duration-300 min-h-screen relative w-full bg-cover bg-no-repeat bg-center
+      className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-10 px-16 duration-300 min-h-screen relative w-full bg-contain bg-fixed  bg-no-repeat bg-center
     flex flex-col items-center
       "
     >
-      <div className="flex flex-col p-5 w-[90%]   rounded-xl   blogCards">
+      <div className="flex flex-col p-5 w-[90%]   rounded-xl  shadow-custom-black  dark:shadow-custom-white   blogCards">
         <div className="flex items-center tracking-wide justify-center pb-4 text-[3rem] font-extrabold font-gallient">
           Upload Your Blog📝 / Vlog🎬
         </div>
@@ -60,6 +61,7 @@ const UploadBlogVlog = () => {
 
         <div className="flex justify-between ">
           <InputImageVideo
+            required={true}
             fileType={"image"}
             imageName={"Upload Your Blog's Poster:"}
           />
@@ -69,7 +71,10 @@ const UploadBlogVlog = () => {
           />
         </div>
 
-        <ReactQuill />
+        <Editor
+          className="my-3 dark:border-secondary-40 border-dark_background2 dark:border-background2 rounded-md text-primary_text dark:text-dark_primary_text  "
+          placeholder={"Write something here..."}
+        />
       </div>
     </section>
   );

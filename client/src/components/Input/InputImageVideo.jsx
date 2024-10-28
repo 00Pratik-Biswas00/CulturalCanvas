@@ -1,7 +1,7 @@
 import React from "react";
 import MyButton4 from "../Buttons/MyButton4";
 
-const InputImageVideo = ({ imageName, fileType }) => {
+const InputImageVideo = ({ imageName, fileType, required = false }) => {
   return (
     <div className="w-full flex items-center  my-3 gap-5">
       <label className="font-bold font-pangaia text-xl"> {imageName}</label>
@@ -11,6 +11,7 @@ const InputImageVideo = ({ imageName, fileType }) => {
         accept={`"${fileType}/*"`}
         id={fileType}
         name={fileType}
+        required={required}
         // ref={imageInputRef}
         className="hidden"
       />
