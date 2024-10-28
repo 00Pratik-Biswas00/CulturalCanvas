@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 import api from "../../config/axios";
 import { CiBoxList } from "react-icons/ci";
 import MyButton4 from "../../components/Buttons/MyButton4";
+import SquareAnimation from "../../components/Blobs/SquareAnimation";
 
 function CreateTrip() {
   const [place, setPlace] = useState();
@@ -104,7 +105,7 @@ function CreateTrip() {
         </p>
       </div>
 
-      <div className=" flex flex-col gap-5">
+      <div className=" z-10 flex flex-col gap-5">
         <div className="mb-5 flex flex-col gap-2">
           <label className="text-xl font-medium">
             What is your destination of choice?
@@ -171,7 +172,7 @@ function CreateTrip() {
             The budget is exclusively allocated for activities and dining
             purposes.
           </p>
-          <div className="grid grid-cols-3 gap-5 mt-5 mb-5">
+          <div className="grid grid-cols-3 gap-5 mt-5 mb-5 bg-background1 dark:bg-dark_background1">
             {SelectBudgetOptions.map((item, index) => (
               <div
                 key={index}
@@ -193,7 +194,7 @@ function CreateTrip() {
           <label className="text-xl font-medium my-3">
             Who do you plan on traveling with on your next adventure?
           </label>
-          <div className="grid grid-cols-3 gap-5 mt-5">
+          <div className="grid grid-cols-3 gap-5 mt-5 bg-background1 dark:bg-dark_background1">
             {SelectTravelList.map((item, index) => (
               <div
                 key={index}
@@ -211,7 +212,7 @@ function CreateTrip() {
           </div>
         </div>
       </div>
-      <div className=" flex justify-end">
+      <div className=" z-10 flex justify-end">
         {loading ? (
           <AiOutlineLoading3Quarters className="h-7 w-7 animate-spin" />
         ) : (
@@ -224,6 +225,7 @@ function CreateTrip() {
           />
         )}
       </div>
+      {/* <SquareAnimation /> */}
     </div>
   );
 }

@@ -10,7 +10,7 @@ const UploadBlogVlog = () => {
     <section
       style={{ backgroundImage: `url(${blogBG})` }}
       className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-10 pb-14 px-16 duration-300 min-h-screen relative w-full bg-contain bg-fixed  bg-no-repeat bg-center
-    flex flex-col items-center
+      flex flex-col items-center
       "
     >
       <div className="flex flex-col p-5 w-[90%]   rounded-xl  shadow-custom-black  dark:shadow-custom-white   blogCards">

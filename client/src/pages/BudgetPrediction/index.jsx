@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { destinations, sources } from "../../utils/budget-prediction-options";
 import MyButton4 from "../../components/Buttons/MyButton4";
+import bgImg from "../../assets/explorePlaces/bgImg.png";
 
 const BudgetPredictor = () => {
   const [formData, setFormData] = useState({
@@ -34,17 +35,24 @@ const BudgetPredictor = () => {
   };
 
   return (
-    <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-4 px-16 duration-300 flex flex-col items-center ">
+    <section
+      style={{ backgroundImage: `url(${bgImg})` }}
+      className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-4 px-16 duration-300 flex flex-col items-center bg-contain bg-no-repeat bg-center"
+    >
       {" "}
-      <div className="flex items-start justify-center gap-20 p-8 my-8 shadow-custom-green  ">
+      <div className="flex items-start justify-center gap-20 p-8 my-8 rounded-xl  shadow-custom-black  dark:shadow-custom-white   blogCards ">
         <div>
-          <h1 className="text-4xl font-bold mb-6 text-center">
-            ₹🇮🇳 Travel Budget Prediction 🌍✈️
+          <h1 className="text-4xl font-extrabold mb-6 text-center ">
+            Travel Budget Prediction 🌍✈️
           </h1>
-          <form onSubmit={handleSubmit} method="POST" className="space-y-4">
+          <form
+            onSubmit={handleSubmit}
+            method="POST"
+            className="space-y-4 font-pangaia"
+          >
             {/* Source Dropdown */}
-            <div className="flex flex-col gap-2">
-              <label htmlFor="source" className="block text-sm font-medium ">
+            <div className="flex flex-col gap-2 ">
+              <label htmlFor="source" className="block text-lg font-bold">
                 Source (City):
               </label>
               <select
@@ -66,10 +74,7 @@ const BudgetPredictor = () => {
 
             {/* Destination Dropdown */}
             <div className="flex flex-col gap-2">
-              <label
-                htmlFor="destination"
-                className="block text-sm font-medium "
-              >
+              <label htmlFor="destination" className="block text-lg font-bold ">
                 Destination (Heritage Site):
               </label>
               <select
@@ -91,7 +96,7 @@ const BudgetPredictor = () => {
 
             {/* Duration Input */}
             <div className="flex flex-col gap-2">
-              <label htmlFor="duration" className="block text-sm font-medium ">
+              <label htmlFor="duration" className="block text-lg font-bold ">
                 Duration (days):
               </label>
               <input
@@ -110,7 +115,7 @@ const BudgetPredictor = () => {
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="travel_preference"
-                className="block text-sm font-medium"
+                className="block text-lg font-bold"
               >
                 Travel Preference:
               </label>
@@ -147,8 +152,8 @@ const BudgetPredictor = () => {
 
         {/* Prediction Result */}
         {prediction !== null && (
-          <div className=" flex flex-col gap-5 p-4 rounded-md shadow-sm">
-            <h2 className="text-4xl text-center font-bold mb-2">
+          <div className=" flex flex-col gap-5  rounded-md shadow-sm">
+            <h2 className="text-4xl text-center font-extrabold mb-2">
               Estimated Budget For Your Journey:
             </h2>
             <div className="flex flex-col gap-1 text-lg">
@@ -165,10 +170,10 @@ const BudgetPredictor = () => {
                 <strong>Travel Preference:</strong> {formData.travel_preference}
               </p>
             </div>
-            <p className="text-2xl font-bold ">
+            <p className="text-2xl font-extrabold flex items-center justify-center ">
               Predicted Budget: {prediction} INR
             </p>
-            <p className=" text-secondary_text dark:text-background2">
+            <p className=" italic text-secondary_text dark:text-background2">
               The Predicted Budget Includes Travel From Source to Destination
               Cost, Food Cost, Local Travel Cost, and Hotel Stay Cost.
             </p>
