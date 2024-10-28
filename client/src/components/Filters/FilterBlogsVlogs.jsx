@@ -1,5 +1,6 @@
 import React from "react";
 import FilterCommon from "../../admin-components/AdminModals/FilterModals/FilterCommon";
+import InputComponent from "../Input/InputComponent";
 
 const FilterBlogsVlogs = ({
   BlogsVlogsModalOpen,
@@ -22,7 +23,7 @@ const FilterBlogsVlogs = ({
         <h2 className="text-2xl lg:text-3xl font-bold font-searchBars">
           Filter Blogs and Vlogs
         </h2>
-        <div className="flex justify-center gap-5 items-center font-playfair">
+        <div className="flex mt-4 justify-center gap-5 items-center font-playfair">
           <div className="flex justify-center gap-5 items-center font-playfair">
             <button
               onClick={() => setSelectedContentType("Blog")}
@@ -45,6 +46,11 @@ const FilterBlogsVlogs = ({
               Vlog
             </button>
           </div>
+        </div>
+
+        <div className="flex gap-7">
+          <InputComponent iName={"State-wise Filter"} />
+          <InputComponent iName={"City-wise Filter"} />
         </div>
       </FilterCommon>
     </div>
