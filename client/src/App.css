@@ -142,3 +142,7 @@
   border-radius: 5px;
   font-size: 10px;
 }
+
+.ql-picker-item:hover {
+  background-color: #b2acac;
+}

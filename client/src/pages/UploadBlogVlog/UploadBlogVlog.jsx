@@ -9,7 +9,7 @@ const UploadBlogVlog = () => {
   return (
     <section
       style={{ backgroundImage: `url(${blogBG})` }}
-      className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-10 px-16 duration-300 min-h-screen relative w-full bg-contain bg-fixed  bg-no-repeat bg-center
+      className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-10 pb-14 px-16 duration-300 min-h-screen relative w-full bg-contain bg-fixed  bg-no-repeat bg-center
     flex flex-col items-center
       "
     >
@@ -71,10 +71,15 @@ const UploadBlogVlog = () => {
           />
         </div>
 
-        <Editor
-          className="my-3 dark:border-secondary-40 border-dark_background2 dark:border-background2 rounded-md text-primary_text dark:text-dark_primary_text  "
-          placeholder={"Write something here..."}
-        />
+        <div className="flex flex-col my-3">
+          <div className="font-bold font-pangaia text-xl">
+            Write Your Blog Content / Vlog Caption:
+          </div>
+          <Editor
+            className="mt-3 dark:border-secondary-40 border-dark_background2 dark:border-background2 rounded-md text-primary_text dark:text-dark_primary_text  "
+            placeholder={"Write something here..."}
+          />
+        </div>
       </div>
     </section>
   );
