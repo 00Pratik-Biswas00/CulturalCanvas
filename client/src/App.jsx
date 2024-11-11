@@ -50,6 +50,7 @@ import AdminCulture from "./admin-pages/AdminCulture";
 import AdminMarket from "./admin-pages/AdminMarket";
 import SingleBlogVlog from "./pages/SingleBlogVlog";
 import UploadBlogVlog from "./pages/UploadBlogVlog/UploadBlogVlog";
+import AdminContents from "./admin-pages/AdminContents";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -162,6 +163,12 @@ function App() {
                 exact
                 path="/market-place-acdprsIndia24"
                 element={<AdminMarket />}
+              />
+
+              <Route
+                exact
+                path="/contents-acdprsIndia24"
+                element={<AdminContents />}
               />
 
               <Route path="*" element={<NotFound />} />
