@@ -859,4 +859,9 @@ export const adminNavData = [
     name: "Manage Market ",
     path: "/market-place-acdprsIndia24",
   },
+
+  {
+    name: "Manage Contents ",
+    path: "/contents-acdprsIndia24",
+  },
 ];
