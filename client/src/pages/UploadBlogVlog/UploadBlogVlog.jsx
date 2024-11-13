@@ -5,6 +5,8 @@ import InputComponent from "../../components/Input/InputComponent";
 import blogBG from "../../assets/blogs/ab.png";
 import InputImageVideo from "../../components/Input/InputImageVideo";
 import Editor from "../../components/Editor/Editor";
+import MyButton4 from "../../components/Buttons/MyButton4";
+import MyButton3 from "../../components/Buttons/MyButton3";
 const UploadBlogVlog = () => {
   return (
     <section
@@ -78,6 +80,21 @@ const UploadBlogVlog = () => {
           <Editor
             className="mt-3 dark:border-secondary-40 border-dark_background2 dark:border-background2 rounded-md text-primary_text dark:text-dark_primary_text  "
             placeholder={"Write something here..."}
+          />
+        </div>
+
+        <div className="flex items-center justify-center gap-5">
+          <MyButton4
+            classDesign={
+              "bg-highlight_hover before:bg-highlight_hover_dark  text-dark_primary_text py-1 mt-4"
+            }
+            buttonName={"Verify"}
+          />
+          <MyButton4
+            classDesign={
+              "bg-highlight before:bg-highlight_dark  text-dark_primary_text py-1 mt-4"
+            }
+            buttonName={"Submit"}
           />
         </div>
       </div>
