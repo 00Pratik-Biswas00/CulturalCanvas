@@ -176,7 +176,7 @@ const Header = ({ open, setOpen }) => {
               to={routes.route_link}
               className={({ isActive }) =>
                 isActive
-                  ? "text-highlight_hover dark:text-dark_primary_text uppercase underline"
+                  ? "text-highlight_hover dark:text-dark_primary_text uppercase "
                   : " text-dark_secondary_text dark:text-highlight hover:text-highlight_hover dark:hover:text-highlight_hover "
               }
               end
@@ -274,7 +274,7 @@ const Header = ({ open, setOpen }) => {
                 to={routes.route_link}
                 className={({ isActive }) =>
                   isActive
-                    ? "text-highlight_hover dark:text-dark_primary_text uppercase underline"
+                    ? "text-highlight_hover dark:text-dark_primary_text uppercase "
                     : " text-dark_secondary_text dark:text-highlight hover:text-highlight_hover dark:hover:text-highlight_hover "
                 }
                 end
