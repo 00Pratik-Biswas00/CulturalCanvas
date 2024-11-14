@@ -45,7 +45,6 @@ const AddCourses = ({
         <div className="flex flex-col gap-2  py-2">
           <div className="flex items-start w-full justify-between gap-5">
             <div className="w-full">
-              <label className="block font-bold ">{courseTopic} Name</label>
               <InputComponent iName={`${courseTopic} Name`} iType="text" />
             </div>
 
@@ -85,7 +84,7 @@ const AddCourses = ({
             {courseModule.map((module, index) => (
               <div
                 key={index}
-                className="flex flex-col w-full justify-between gap-5 mb-2 border-2 border-t-0 rounded-xl rounded-t-none px-4 pb-2 mt-3"
+                className="flex flex-col w-full justify-between gap-1 mb-2 border-2 border-t-0 rounded-xl rounded-t-none px-4 pb-2 mt-3"
               >
                 <div className="w-full">
                   <div className="flex items-center w-full justify-between gap-5 pt-2 text-sm ">
@@ -120,7 +119,7 @@ const AddCourses = ({
                   </div>
 
                   <InputImageVideo
-                    imageName="Video Thumbnail"
+                    imageName="Video Thumbnail:"
                     fileType="video"
                     value={module.moduleThumbnail}
                     onChange={(e) =>
@@ -148,16 +147,7 @@ const AddCourses = ({
                     />
                   </div>
                 </div>
-
-                <div className="flex items-center justify-between w-full mt-2">
-                  <button
-                    type="button"
-                    onClick={handleAddCourseModule}
-                    className="bg-highlight hover:bg-highlight_hover text-primary_text px-4 py-1 rounded font-medium transition-all duration-300 w-fit uppercase"
-                  >
-                    Add Module
-                  </button>
-
+                <div className="flex justify-end w-full ">
                   <button
                     type="button"
                     onClick={() => handleRemoveCourseModule(index)}
@@ -168,6 +158,15 @@ const AddCourses = ({
                 </div>
               </div>
             ))}
+            <div className="flex items-center justify-between w-full mt-2">
+              <button
+                type="button"
+                onClick={handleAddCourseModule}
+                className="bg-highlight hover:bg-highlight_hover text-primary_text px-4 py-1 rounded font-medium transition-all duration-300 w-fit uppercase"
+              >
+                Add Module
+              </button>
+            </div>
           </div>
         </div>
       </AddNewModal>
