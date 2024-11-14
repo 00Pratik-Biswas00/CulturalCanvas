@@ -80,9 +80,9 @@ const LearnIndianCulture = () => {
         <img src={commonImg} alt="Common" />
       </div>
 
-      <div className="flex items-center tracking-wide justify-center py-4 text-[3.5rem] gap-12 font-bold font-playfair uppercase [word-spacing:15px] ">
+      <h1 className="text-7xl tracking-wider font-extrabold font-gallient pt-7 pb-2 text-center ">
         Learning the Nuances of Indian Culture
-      </div>
+      </h1>
 
       {Object.entries(groupedCourses).map(
         ([category, categoryCourses], index) => {

@@ -586,39 +586,57 @@ export const dummyData = {
   AllCulturesData: [
     {
       cultureImg: religiousImg,
-      cultureIntro: `India, a land of diverse cultures, is also a treasure trove of religious beliefs. From the ancient wisdom of Hinduism and Buddhism to the vibrant traditions of Sikhism, Islam, Christianity, and Jainism, India's religious landscape is a tapestry woven with threads of faith and devotion. This rich tapestry is reflected in the country's numerous temples, mosques, churches, gurudwaras, and other places of worship, each offering a glimpse into the diverse spiritual journeys of its people.`,
-      cultureName: "Religious",
+      cultureIntro: `Planning a heritage tour in India can be exciting, but the cost can sometimes be a mystery. With our easy-to-use tool, you can quickly estimate the potential`,
+      cultureName: "Religion",
       individualPage: "/culture-tradition/multiple-pages",
     },
 
     {
       cultureImg: langImg,
-      cultureIntro: `India, a land of diverse cultures, is also a linguistic melting pot. With over 22 official languages and countless dialects, India's linguistic landscape is a testament to its rich and varied history. From the ancient Sanskrit to the modern Hindi, and from the Dravidian languages of the south to the Indo-Aryan languages of the north, India's linguistic diversity is a source of both pride and challenge.`,
+      cultureIntro: `Planning a heritage tour in India can be exciting, but the cost can sometimes be a mystery. With our easy-to-use tool, you can quickly estimate the potential.`,
       cultureName: "Languages",
       individualPage: "/culture-tradition/single-page",
     },
     {
       cultureImg: cuisineImg,
-      cultureIntro: `India, a land of diverse cultures, is also a culinary paradise. With its rich and varied history, India has developed a diverse range of cuisines that reflect the country's diverse geography, climate, and traditions. From the fiery flavors of Punjabi cuisine to the delicate aromas of Bengali cuisine, and from the vegetarian delights of Gujarati cuisine to the seafood specialties of coastal cuisine, India's culinary landscape is a feast for the senses.`,
+      cultureIntro: `Planning a heritage tour in India can be exciting, but the cost can sometimes be a mystery. With our easy-to-use tool, you can quickly estimate the potential.`,
       cultureName: "Cuisines",
       individualPage: "/culture-tradition/id",
     },
     {
       cultureImg: festivalImg,
-      cultureIntro: `India, a land of diverse cultures, is also a festival paradise. With its rich and varied history, India has developed a diverse range of festivals that celebrate different aspects of life, from religious and cultural events to harvest festivals and seasonal celebrations. From the grandeur of Diwali to the vibrant colors of Holi, and from the serene atmosphere of Kumbh Mela to the festive spirit of Ganesh Chaturthi, India's festival landscape is a kaleidoscope of colors, sounds, and traditions.`,
+      cultureIntro: `Planning a heritage tour in India can be exciting, but the cost can sometimes be a mystery. With our easy-to-use tool, you can quickly estimate the potential.`,
       cultureName: "Festivals",
       individualPage: "/culture-tradition/id",
     },
     {
       cultureImg: greetingImg,
-      cultureIntro: `India, a land of diverse cultures, is also a land of diverse greetings. With its rich and varied history, India has developed a diverse range of greetings that reflect the country's diverse geography, religion, and customs. From the formal "Namaste" to the affectionate "Aadaab," and from the regional variations of "Kya Haal Hai" to the simple "Hello," India's greeting culture is a warm and welcoming reflection of its diverse people.`,
+      cultureIntro: `Planning a heritage tour in India can be exciting, but the cost can sometimes be a mystery. With our easy-to-use tool, you can quickly estimate the potential.`,
       cultureName: "Greetings",
       individualPage: "/culture-tradition/id",
     },
     {
       cultureImg: weddingImg,
-      cultureIntro: `India, a land of diverse cultures, is also a wedding paradise. With its rich and varied history, India has developed a diverse range of wedding traditions that reflect the country's diverse geography, religion, and customs. From the elaborate rituals of Hindu weddings to the vibrant celebrations of Sikh weddings, and from the traditional customs of Muslim weddings to the unique traditions of Christian weddings, India's wedding landscape is a colorful tapestry of joy, love, and family.`,
+      cultureIntro: `Planning a heritage tour in India can be exciting, but the cost can sometimes be a mystery. With our easy-to-use tool, you can quickly estimate the potential.`,
       cultureName: "Family Structures & Weddings",
+      individualPage: "/culture-tradition/id",
+    },
+    {
+      cultureImg: weddingImg,
+      cultureIntro: `Planning a heritage tour in India can be exciting, but the cost can sometimes be a mystery. With our easy-to-use tool, you can quickly estimate the potential.`,
+      cultureName: "Clothing",
+      individualPage: "/culture-tradition/id",
+    },
+    {
+      cultureImg: weddingImg,
+      cultureIntro: `Planning a heritage tour in India can be exciting, but the cost can sometimes be a mystery. With our easy-to-use tool, you can quickly estimate the potential.`,
+      cultureName: "Arts",
+      individualPage: "/culture-tradition/id",
+    },
+    {
+      cultureImg: weddingImg,
+      cultureIntro: `Planning a heritage tour in India can be exciting, but the cost can sometimes be a mystery. With our easy-to-use tool, you can quickly estimate the potential.`,
+      cultureName: "Sports",
       individualPage: "/culture-tradition/id",
     },
   ],
@@ -838,10 +856,10 @@ export const adminNavData = [
     name: "Manage Users",
     path: "/users-acdprsIndia24",
   },
-  {
-    name: "Manage States",
-    path: "/states-acdprsIndia24",
-  },
+  // {
+  //   name: "Manage States",
+  //   path: "/states-acdprsIndia24",
+  // },
   {
     name: "Manage Courses",
     path: "/courses-acdprsIndia24",
@@ -850,10 +868,10 @@ export const adminNavData = [
     name: "Manage Heritage",
     path: "/heritage-acdprsIndia24",
   },
-  {
-    name: "Manage Culture",
-    path: "/culture-acdprsIndia24",
-  },
+  // {
+  //   name: "Manage Culture",
+  //   path: "/culture-acdprsIndia24",
+  // },
 
   {
     name: "Manage Market ",

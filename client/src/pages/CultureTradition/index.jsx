@@ -11,17 +11,17 @@ const CultureTradition = () => {
         <img src={commonImg} alt="Common" />
       </div>
 
-      <div className="flex items-center tracking-wide justify-center py-4 text-7xl gap-12 font-bold font-playfair uppercase [word-spacing:25px] text-primary_text dark:text-dark_primary_text">
+      <h1 className="text-7xl tracking-wider font-extrabold font-gallient pt-7 pb-2 text-center ">
         Cultural Richness of India
-      </div>
+      </h1>
 
       <CulturalCalendar />
 
       <AllCultures />
 
-      <div className="flex items-center tracking-wide justify-center py-4 text-6xl gap-12 font-bold font-playfair uppercase [word-spacing:20px]">
+      <h1 className="text-7xl tracking-wider font-extrabold font-gallient pt-7 pb-2 text-center ">
         India's Cultural Odyssey: State-Wise
-      </div>
+      </h1>
 
       <StateCultures />
     </section>

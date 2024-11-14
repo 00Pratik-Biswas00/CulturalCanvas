@@ -10,13 +10,6 @@ export const Hindi_Home = {
   en: {
     translation: {
       Home: [
-        // {
-        //   para: `Welcome to a captivating voyage through India’s rich cultural landscape. Here, you’re invited to explore a diverse array of historical landmarks and cultural treasures that define this ancient land. From the grandeur of ancient palaces and fortresses to the vibrant hues of traditional festivals, this exploration unveils the essence of India’s unparalleled heritage. Discover the stories behind renowned monuments and immerse yourself in the age-old traditions that continue to shape Indian society. With expertly curated content, you’ll traverse through time, experiencing the marvels and memories that make India a unique and mesmerizing destination. This journey not only highlights the country’s historic and cultural significance but also offers an engaging glimpse into the living traditions that endure in the modern world.`,
-        //   image: homeImg,
-        //   shadow: "shadow-custom-orange",
-        //   headingName: "Embark on a Journey Through the Heart of India",
-        //   buttonLink: null,
-        // },
         {
           para: `Dive deep into India’s historical and cultural wealth by exploring its most celebrated World Heritage Sites. This section is dedicated to the architectural and natural marvels that have stood the test of time, each narrating a story of its own. From the majestic forts that once guarded kingdoms to the sacred temp`,
           image: heritageImg,

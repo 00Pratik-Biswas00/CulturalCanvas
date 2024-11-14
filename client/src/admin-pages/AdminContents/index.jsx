@@ -135,7 +135,7 @@ const AdminContents = () => {
               </h3>
               <button
                 onClick={() => {
-                  navigate(`/blogs-vlogs/slugLagabiEkhane`);
+                  navigate(`/contents-acdprsIndia24/slugLagabiEkhane`);
                 }}
                 className="bg-background2 hover:bg-lime-200 duration-500 text-primary_text px-5 py-2 text-base rounded-3xl mb-5 font-open_sans"
               >
