@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import cloudinary from "cloudinary";
 import AWS from "aws-sdk";
+import nodemailer from "nodemailer";
 import "dotenv/config";
 
 const connect = async () => {
@@ -34,4 +35,11 @@ const awsConfig = {
 };
 
 export const S3 = new AWS.S3(awsConfig);
+export var transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL_ID,
+    pass: process.env.EMAIL_PASSWORD,
+  },
+});
 export default connect;

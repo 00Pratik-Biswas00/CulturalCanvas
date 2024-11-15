@@ -2,20 +2,19 @@ import React, { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useSelector } from "react-redux";
-
-import { SignupValidationSchema } from "../../../utils/schemas";
-import { REGISTER_MUTATION } from "../../../graphql/mutation";
+import { AddAdminValidationSchema } from "../../../utils/schemas";
 import { useMutation } from "@apollo/client";
 import { toast } from "sonner";
+import { ADD_ADMIN } from "../../../graphql/roleMutation";
 
-const AdminSignUpModal = ({ onClose }) => {
+const AdminSignUpModal = ({ onClose, loadAdmins }) => {
   const user = useSelector((state) => state?.user?.userInfo);
 
-  const [register] = useMutation(REGISTER_MUTATION, {
-    onCompleted: (data) => {
-      if (data.register.ok) {
-        toast.success("Registration Success!!");
-      }
+  const [addAdmin] = useMutation(ADD_ADMIN, {
+    onCompleted: () => {
+      onClose();
+      loadAdmins();
+      toast.success("Registration Success!!");
     },
     onError: (error) => {
       toast.error("Failure");
@@ -41,13 +40,11 @@ const AdminSignUpModal = ({ onClose }) => {
             email: "",
             gender: "",
             phone: "",
-            password: "",
-            confirmPassword: "",
+            newEmail: "",
           }}
-          validationSchema={SignupValidationSchema}
+          validationSchema={AddAdminValidationSchema}
           onSubmit={(values, actions) => {
-            const { confirmPassword, ...userData } = values;
-            register({ variables: userData });
+            addAdmin({ variables: values });
             actions.resetForm();
           }}
         >
@@ -153,46 +150,16 @@ const AdminSignUpModal = ({ onClose }) => {
               <div className="mb-2">
                 <label className="block ">Admin's New Email</label>
                 <Field
-                  name="email"
+                  name="newEmail"
                   type="email"
                   className="w-full px-4 py-2 border rounded-lg bg-background1 dark:bg-dark_background1 focus:outline-none focus:ring-2 focus:ring-highlight"
                   autoComplete="email"
                 />
                 <ErrorMessage
-                  name="email"
+                  name="newEmail"
                   component="div"
                   className="text-red-500"
                 />
-              </div>
-
-              <div className="flex items-start w-full justify-between gap-7">
-                <div className="w-full">
-                  <label className="block ">Create Password</label>
-                  <Field
-                    name="password"
-                    type="password"
-                    className="w-full px-4 py-2 border rounded-lg bg-background1 dark:bg-dark_background1 focus:outline-none focus:ring-2 focus:ring-highlight"
-                  />
-                  <ErrorMessage
-                    name="password"
-                    component="div"
-                    className="text-red-500"
-                  />
-                </div>
-
-                <div className="w-full">
-                  <label className="block ">Confirm Password</label>
-                  <Field
-                    name="confirmPassword"
-                    type="password"
-                    className="w-full px-4 py-2 border rounded-lg bg-background1 dark:bg-dark_background1 focus:outline-none focus:ring-2 focus:ring-highlight"
-                  />
-                  <ErrorMessage
-                    name="confirmPassword"
-                    component="div"
-                    className="text-red-500"
-                  />
-                </div>
               </div>
               <div className="flex justify-end my-4">
                 <button

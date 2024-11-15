@@ -120,7 +120,10 @@ const AdminAdmins = () => {
       </div>
 
       {isAdminSignUpModalOpen && (
-        <AdminSignUpModal onClose={() => setIsAdminSignUpModalOpen(false)} />
+        <AdminSignUpModal
+          onClose={() => setIsAdminSignUpModalOpen(false)}
+          loadAdmins={loadAdmins}
+        />
       )}
     </section>
   );
