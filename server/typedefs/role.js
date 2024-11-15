@@ -18,6 +18,13 @@ const roleTypeDefs = gql`
 
   type Mutation {
     deleteUser(id: ID!): Boolean!
+    addAdmin(
+      name: String!
+      email: String!
+      gender: String!
+      phone: String
+      newEmail: String!
+    ): Boolean!
   }
 `;
 

@@ -35,6 +35,24 @@ export const SignupValidationSchema = Yup.object().shape({
     .required("Phone number is required"),
 });
 
+export const AddAdminValidationSchema = Yup.object().shape({
+  name: Yup.string()
+    .matches(/^[a-zA-Z0-9_ ]*$/, "Name should not contain special characters")
+    .min(3, "Name must be at least 3 characters")
+    .required("Username is required"),
+  email: emailSchema,
+  newEmail: emailSchema,
+  gender: Yup.string()
+    .oneOf(
+      ["Male", "Female", "Non-Binary", "Other"],
+      "Please select a valid gender"
+    )
+    .required("Gender is required"),
+  phone: Yup.string()
+    .matches(/^\d{10}$/, "Phone number must be exactly 10 digits")
+    .required("Phone number is required"),
+});
+
 export const SigninSchema = Yup.object().shape({
   email: emailSchema,
   password: Yup.string().required("Password is required"),

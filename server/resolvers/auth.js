@@ -1,8 +1,8 @@
 import { comparePassword, hashPassword } from "./../helpers/auth.js";
 import User from "./../models/user.js";
 import jwt from "jsonwebtoken";
-import nodemailer from "nodemailer";
 import bcrypt from "bcryptjs";
+import { transporter } from "../config.js";
 
 const authResolver = {
   Query: {
@@ -71,14 +71,6 @@ const authResolver = {
         user.otp = otp;
         user.otpExpiry = otpExpiry;
         await user.save();
-        var transporter = nodemailer.createTransport({
-          service: "gmail",
-          auth: {
-            user: process.env.EMAIL_ID,
-            pass: process.env.EMAIL_PASSWORD,
-          },
-        });
-
         var mailOptions = {
           from: process.env.EMAIL_ID,
           to: email,
