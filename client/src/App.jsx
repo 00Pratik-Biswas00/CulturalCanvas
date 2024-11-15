@@ -17,7 +17,6 @@ import NotFound from "./components/NotFound";
 import Home from "./pages/Home";
 import Heritage from "./pages/Heritage";
 import CultureTradition from "./pages/CultureTradition";
-import LearnIndianCulture from "./pages/LearnIndianCulture";
 import ExploreDiversity from "./pages/ExploreDiversity";
 import BlogsVlogs from "./pages/BlogsVlogs";
 import VirtualStore from "./pages/VirtualStore";
@@ -51,6 +50,8 @@ import AdminMarket from "./admin-pages/AdminMarket";
 import SingleBlogVlog from "./pages/SingleBlogVlog";
 import UploadBlogVlog from "./pages/UploadBlogVlog/UploadBlogVlog";
 import AdminContents from "./admin-pages/AdminContents";
+import AdminSingleBlogVerification from "./admin-pages/AdminContents/AdminSingleBlogVerification";
+import LearnIndianCultureCourses from "./pages/LearnIndianCulture/LearnIndianCultureCourses";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -139,11 +140,11 @@ function App() {
                 path="/sellers-acdprsIndia24"
                 element={<AdminSellers />}
               />
-              <Route
+              {/* <Route
                 exact
                 path="/states-acdprsIndia24"
                 element={<AdminStates />}
-              />
+              /> */}
               <Route
                 exact
                 path="/courses-acdprsIndia24"
@@ -154,11 +155,11 @@ function App() {
                 path="/heritage-acdprsIndia24"
                 element={<AdminHeritage />}
               />
-              <Route
+              {/* <Route
                 exact
                 path="/culture-acdprsIndia24"
                 element={<AdminCulture />}
-              />
+              /> */}
               <Route
                 exact
                 path="/market-place-acdprsIndia24"
@@ -169,6 +170,11 @@ function App() {
                 exact
                 path="/contents-acdprsIndia24"
                 element={<AdminContents />}
+              />
+              <Route
+                exact
+                path="/contents-acdprsIndia24/slugLagabiEkhane"
+                element={<AdminSingleBlogVerification />}
               />
 
               <Route path="*" element={<NotFound />} />
@@ -186,41 +192,15 @@ function App() {
           <UserLayout>
             <ScrollToTop />
             <Routes>
+              {/*  ---------------- Home  ---------------- */}
               <Route exact path="/" element={<Home />} />
-              <Route path="/heritage" element={<Heritage />} />
-              <Route path="/culture-tradition" element={<CultureTradition />} />
-              <Route
-                path="/learn-Indian-culture"
-                element={<LearnIndianCulture />}
-              />
-              <Route path="/explore-diversity" element={<ExploreDiversity />} />
-              <Route path="/blogs-vlogs" element={<BlogsVlogs />} />
-              <Route path="/virtual-store" element={<VirtualStore />} />
-              <Route path="/my-profile" element={<MyProfile />} />
-              <Route
-                path="/explore-diversity/predict-amount"
-                element={<PredictAmount />}
-              />
-              <Route
-                path="/explore-diversity/create-trip"
-                element={<TripCreation />}
-              />
-              <Route
-                path="/explore-diversity/create-trip/view-trip/:tripId"
-                element={<ViewTrip />}
-              />
-              <Route
-                path="/explore-diversity/predict-budget"
-                element={<BudgetPredictor />}
-              />
-              <Route path="*" element={<NotFound />} />
 
-              {/* Single pages */}
+              {/*  ---------------- Heritage  ---------------- */}
+              <Route path="/heritage" element={<Heritage />} />
               <Route path="/heritage/:slug" element={<SingleHeritage />} />
-              <Route
-                path="/learn-Indian-culture/:slug"
-                element={<SingleCourse />}
-              />
+
+              {/*  ---------------- Culture and Tradition  ---------------- */}
+              <Route path="/culture-tradition" element={<CultureTradition />} />
               <Route
                 path="/culture-tradition/single-page"
                 element={<SinglePageCulture />}
@@ -237,11 +217,42 @@ function App() {
                 path="/culture-tradition/multiple-pages/:slug"
                 element={<MultipleSingleCulture />}
               />
+
+              {/*  ---------------- Learning Courses  ---------------- */}
+              <Route
+                path="/learn-Indian-culture"
+                element={<LearnIndianCultureCourses />}
+              />
+              <Route
+                path="/learn-Indian-culture/:slug"
+                element={<SingleCourse />}
+              />
+
+              {/*  ---------------- Explore Diversity  ---------------- */}
+              <Route path="/explore-diversity" element={<ExploreDiversity />} />
+              <Route
+                path="/explore-diversity/predict-amount"
+                element={<PredictAmount />}
+              />
+              <Route
+                path="/explore-diversity/create-trip"
+                element={<TripCreation />}
+              />
+              <Route
+                path="/explore-diversity/create-trip/view-trip/:tripId"
+                element={<ViewTrip />}
+              />
+              <Route
+                path="/explore-diversity/predict-budget"
+                element={<BudgetPredictor />}
+              />
               <Route
                 path="/explore-diversity/saved-trips"
                 element={<SavedTrips />}
               />
 
+              {/*  ----------------  Blogs and Vlogs ---------------- */}
+              <Route path="/blogs-vlogs" element={<BlogsVlogs />} />
               <Route
                 path="/blogs-vlogs/slugLagabiEkhane"
                 element={<SingleBlogVlog />}
@@ -250,6 +261,15 @@ function App() {
                 path="/blogs-vlogs/upload-blog-vlog"
                 element={<UploadBlogVlog />}
               />
+
+              {/*  ---------------- Virtual Store  ---------------- */}
+              <Route path="/virtual-store" element={<VirtualStore />} />
+
+              {/*  ---------------- My Profile  ---------------- */}
+              <Route path="/my-profile" element={<MyProfile />} />
+
+              {/*  ---------------- Not Found  ---------------- */}
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </UserLayout>
         </>

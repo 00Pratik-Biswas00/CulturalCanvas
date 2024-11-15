@@ -4,39 +4,28 @@ import AddReligionModal from "../../admin-components/AdminModals/AddReligionModa
 import AddLanguageModal from "../../admin-components/AdminModals/AddLanguageModal/AddLanguageModal";
 import AddCuisineModal from "../../admin-components/AdminModals/AddCuisineModal/AddCuisineModal";
 import AddFestivalModal from "../../admin-components/AdminModals/AddFestivalModal/AddFestivalModal";
-import AddGreetingModal from "../../admin-components/AdminModals/AddGreetingModal/AddGreetingModal";
-import AddFamilyWeddingModal from "../../admin-components/AdminModals/AddFamilyWeddingModal/AddFamilyWeddingModal";
 
 const AdminCulture = () => {
-  const [religionModal, setReligionModal] = useState(false);
-  const [languageModal, setLanguageModal] = useState(false);
+  // const [religionModal, setReligionModal] = useState(false);
+  // const [languageModal, setLanguageModal] = useState(false);
+
+  // const handleApplyReligionModal = () => {
+  //   setReligionModal(false);
+  // };
+
+  // const handleApplyLanguageModal = () => {
+  //   setLanguageModal(false);
+  // };
+
   const [cuisineModal, setCuisineModal] = useState(false);
-  const [festivalModal, setFestivalModal] = useState(false);
-  const [greetingModal, setGreetingModal] = useState(false);
-  const [familyWeddingModal, setFamilyWeddingModal] = useState(false);
-
-  const handleApplyReligionModal = () => {
-    setReligionModal(false);
-  };
-
-  const handleApplyLanguageModal = () => {
-    setLanguageModal(false);
-  };
+  const [artModal, setArtModal] = useState(false);
 
   const handleApplyCuisineModal = () => {
     setCuisineModal(false);
   };
 
-  const handleApplyFestivalModal = () => {
-    setFestivalModal(false);
-  };
-
-  const handleApplyGreetingModal = () => {
-    setGreetingModal(false);
-  };
-
-  const handleApplyFamilyWeddingModal = () => {
-    setFamilyWeddingModal(false);
+  const handleApplyArtModal = () => {
+    setArtModal(false);
   };
 
   return (
@@ -48,19 +37,13 @@ const AdminCulture = () => {
           </h1>
         </div>
 
-        {/* Pass the correct props */}
-        <LayoutCulture cultureName="Religion" setModalOpen={setReligionModal} />
-        <LayoutCulture cultureName="Language" setModalOpen={setLanguageModal} />
+        {/* <LayoutCulture cultureName="Religion" setModalOpen={setReligionModal} />
+        <LayoutCulture cultureName="Language" setModalOpen={setLanguageModal} />*/}
         <LayoutCulture cultureName="Cuisine" setModalOpen={setCuisineModal} />
-        <LayoutCulture cultureName="Festival" setModalOpen={setFestivalModal} />
-        <LayoutCulture cultureName="Greeting" setModalOpen={setGreetingModal} />
-        <LayoutCulture
-          cultureName="Family Wedding"
-          setModalOpen={setFamilyWeddingModal}
-        />
+        <LayoutCulture cultureName="Art" setModalOpen={setArtModal} />
       </div>
 
-      {religionModal && (
+      {/* {religionModal && (
         <AddReligionModal
           setReligionModal={setReligionModal}
           handleApplyReligionModal={handleApplyReligionModal}
@@ -72,7 +55,7 @@ const AdminCulture = () => {
           setLanguageModal={setLanguageModal}
           handleApplyLanguageModal={handleApplyLanguageModal}
         />
-      )}
+      )} */}
 
       {cuisineModal && (
         <AddCuisineModal
@@ -81,24 +64,10 @@ const AdminCulture = () => {
         />
       )}
 
-      {festivalModal && (
+      {artModal && (
         <AddFestivalModal
-          setFestivalModal={setFestivalModal}
-          handleApplyFestivalModal={handleApplyFestivalModal}
-        />
-      )}
-
-      {greetingModal && (
-        <AddGreetingModal
-          setGreetingModal={setGreetingModal}
-          handleApplyGreetingModal={handleApplyGreetingModal}
-        />
-      )}
-
-      {familyWeddingModal && (
-        <AddFamilyWeddingModal
-          setFamilyWeddingModal={setFamilyWeddingModal}
-          handleApplyFamilyWeddingModal={handleApplyFamilyWeddingModal}
+          setArtModal={setArtModal}
+          handleApplyArtModal={handleApplyArtModal}
         />
       )}
     </section>

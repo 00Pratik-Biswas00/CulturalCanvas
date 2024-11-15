@@ -41,10 +41,7 @@ const AdminCourses = () => {
           cultureName="Cuisine Course"
           setModalOpen={setCuisineCourseModal}
         />
-        <LayoutCulture
-          cultureName="Clothing Course"
-          setModalOpen={setClothingCourseModal}
-        />
+
         <LayoutCulture
           cultureName="Art & Craft Course"
           setModalOpen={setArtCraftCourseModal}
@@ -64,14 +61,6 @@ const AdminCourses = () => {
           setCourseModal={setCuisineCourseModal}
           handleApplyCourseModal={handleApplyCuisineCourseModal}
           courseTopic="Cuisine"
-        />
-      )}
-
-      {clothingCourseModal && (
-        <AddCourses
-          setCourseModal={setClothingCourseModal}
-          handleApplyCourseModal={handleApplyClothingCourseModal}
-          courseTopic="Clothing"
         />
       )}
 

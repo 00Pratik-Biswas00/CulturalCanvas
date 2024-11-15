@@ -1,6 +1,5 @@
 import React from "react";
 import { dummyData } from "../../utils/constants";
-
 const AllCultures = () => {
   const { AllCulturesData } = dummyData;
 
@@ -41,8 +40,12 @@ const AllCultures = () => {
                 />
               </div>
 
-              <p className="mb-4">{content.cultureIntro}</p>
-              <div className="absolute bottom-0">
+              <p>{content.cultureIntro}</p>
+              <div className=" pb-12">
+                {" "}
+                <p className=" text-left">Want to know more? Check below</p>
+              </div>
+              <div className="absolute bottom-0 ">
                 <a
                   href={content.individualPage}
                   className={` border-b-2 ${borderClass} ${shadowClass} ${hoverClass}  hover:text-dark_primary_text font-bold font-ubuntu px-5 py-2 relative flex items-center justify-center rounded-xl -bottom-5 duration-500 transition-transform hover:scale-105 transform-cpu`}
