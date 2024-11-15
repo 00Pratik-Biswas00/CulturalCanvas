@@ -52,6 +52,11 @@ import UploadBlogVlog from "./pages/UploadBlogVlog/UploadBlogVlog";
 import AdminContents from "./admin-pages/AdminContents";
 import AdminSingleBlogVerification from "./admin-pages/AdminContents/AdminSingleBlogVerification";
 import LearnIndianCultureCourses from "./pages/LearnIndianCulture/LearnIndianCultureCourses";
+import BengaliCourse from "./pages/IndividualCoursesPage/BengaliCourse";
+import EnglishCourse from "./pages/IndividualCoursesPage/EnglishCourse";
+import HindiCourse from "./pages/IndividualCoursesPage/HindiCourse";
+import GujaratiCourse from "./pages/IndividualCoursesPage/GujaratiCourse";
+import UrduCourse from "./pages/IndividualCoursesPage/UrduCourse";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -222,6 +227,26 @@ function App() {
               <Route
                 path="/learn-Indian-culture"
                 element={<LearnIndianCultureCourses />}
+              />
+              <Route
+                path="/learn-Indian-culture/bengali-course"
+                element={<BengaliCourse />}
+              />
+              <Route
+                path="/learn-Indian-culture/english-course"
+                element={<EnglishCourse />}
+              />
+              <Route
+                path="/learn-Indian-culture/hindi-course"
+                element={<HindiCourse />}
+              />
+              <Route
+                path="/learn-Indian-culture/gujarati-course"
+                element={<GujaratiCourse />}
+              />
+              <Route
+                path="/learn-Indian-culture/urdu-course"
+                element={<UrduCourse />}
               />
               <Route
                 path="/learn-Indian-culture/:slug"
