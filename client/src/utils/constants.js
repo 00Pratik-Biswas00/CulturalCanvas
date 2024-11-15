@@ -17,6 +17,10 @@ import festivalImg from "../assets/culture/festival.avif";
 import greetingImg from "../assets/culture/greeting.avif";
 import weddingImg from "../assets/culture/wedding.avif";
 
+// courses
+
+import BengaliLangImg from "../assets/courses/BengaliLang.png";
+
 // states
 
 import assamImg from "../assets/states/assam.png";
@@ -800,36 +804,136 @@ export const dummyData = {
     // },
   ],
 
+  // COURSES ----------------------------------------------
   LanguagesTypes: [
     {
-      image: blogsImg,
+      image: BengaliLangImg,
       description: "Want to learn more about Bengali? Check Below",
       name: "BENGALI (বাংলা)",
       buttonLink: "/learn-Indian-culture/bengali-course",
     },
     {
-      image: blogsImg,
+      image: BengaliLangImg,
       description: "Want to learn more about this Language? Check Below",
       name: "ENGLISH",
       buttonLink: "/learn-Indian-culture/english-course",
     },
     {
-      image: blogsImg,
+      image: BengaliLangImg,
       description: "Want to learn more about this Language? Check Below",
       name: "HINDI (हिंदी)",
       buttonLink: "/learn-Indian-culture/hindi-course",
     },
     {
-      image: blogsImg,
+      image: BengaliLangImg,
       description: "Want to learn more about this Language? Check Below",
       name: "GUJARATI (ગુજરાતી)",
       buttonLink: "/learn-Indian-culture/gujarati-course",
     },
     {
-      image: blogsImg,
+      image: BengaliLangImg,
       description: "Want to learn more about this Language? Check Below",
       name: "URDU (اردو)",
       buttonLink: "/learn-Indian-culture/urdu-course",
+    },
+  ],
+
+  CuisinesTypes: [
+    {
+      image: greetingImg,
+      description: "Want to learn more about Bengali? Check Below",
+      name: "Bengali Cuisines",
+      buttonLink: "/learn-Indian-culture/bengali-cuisine-course",
+    },
+    {
+      image: greetingImg,
+      description: "Want to learn more about this Language? Check Below",
+      name: "Pahari Cuisines",
+      buttonLink: "/learn-Indian-culture/pahari-cuisine-course",
+    },
+    {
+      image: greetingImg,
+      description: "Want to learn more about this Language? Check Below",
+      name: "Punjabi Cuisines",
+      buttonLink: "/learn-Indian-culture/punjabi-cuisine-course",
+    },
+    {
+      image: greetingImg,
+      description: "Want to learn more about this Language? Check Below",
+      name: "Parsi Cuisines",
+      buttonLink: "/learn-Indian-culture/parsi-cuisine-course",
+    },
+    {
+      image: greetingImg,
+      description: "Want to learn more about this Language? Check Below",
+      name: "Himachali Cuisines",
+      buttonLink: "/learn-Indian-culture/himachali-cuisine-course",
+    },
+  ],
+
+  ArtsCraftsTypes: [
+    {
+      image: greetingImg,
+      description: "Want to learn more about Bengali? Check Below",
+      name: "Music",
+      buttonLink: "/learn-Indian-culture/music-course",
+    },
+    {
+      image: greetingImg,
+      description: "Want to learn more about this Language? Check Below",
+      name: "Dance",
+      buttonLink: "/learn-Indian-culture/dance-course",
+    },
+    {
+      image: greetingImg,
+      description: "Want to learn more about this Language? Check Below",
+      name: "Drama",
+      buttonLink: "/learn-Indian-culture/drama-course",
+    },
+    {
+      image: greetingImg,
+      description: "Want to learn more about this Language? Check Below",
+      name: "Puppetry",
+      buttonLink: "/learn-Indian-culture/puppetry-course",
+    },
+    {
+      image: greetingImg,
+      description: "Want to learn more about this Language? Check Below",
+      name: "Martial Art",
+      buttonLink: "/learn-Indian-culture/martial-art-course",
+    },
+  ],
+
+  SportsTypes: [
+    {
+      image: greetingImg,
+      description: "Want to learn more about Bengali? Check Below",
+      name: "Cricket",
+      buttonLink: "/learn-Indian-culture/bengali-course",
+    },
+    {
+      image: greetingImg,
+      description: "Want to learn more about this Language? Check Below",
+      name: "Football",
+      buttonLink: "/learn-Indian-culture/pahari-cuisine-course",
+    },
+    {
+      image: greetingImg,
+      description: "Want to learn more about this Language? Check Below",
+      name: "Hockey",
+      buttonLink: "/learn-Indian-culture/punjabi-cuisine-course",
+    },
+    {
+      image: greetingImg,
+      description: "Want to learn more about this Language? Check Below",
+      name: "Chess",
+      buttonLink: "/learn-Indian-culture/parsi-cuisine-course",
+    },
+    {
+      image: greetingImg,
+      description: "Want to learn more about this Language? Check Below",
+      name: "Long Tenis",
+      buttonLink: "/learn-Indian-culture/himachali-cuisine-course",
     },
   ],
 };
