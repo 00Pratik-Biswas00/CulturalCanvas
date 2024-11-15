@@ -15,6 +15,8 @@ import pratikImg from "../../assets/courses/pratik.jpg";
 import MyButton4 from "../../components/Buttons/MyButton4";
 import MyButton2 from "../../components/Buttons/MyButton2";
 import FilterBlogsVlogs from "../../components/Filters/FilterBlogsVlogs";
+import { useSelector } from "react-redux";
+import { use } from "i18next";
 
 const blogsVlogs = [
   {
@@ -103,6 +105,8 @@ function Tilt(props) {
 }
 
 const BlogsVlogs = () => {
+  const user = useSelector((state) => state.user?.userInfo);
+
   const [searchQuery, setSearchQuery] = useState("");
   const [BlogsVlogsModalOpen, setBlogsVlogsModalOpen] = useState(false);
   const [selectedContentType, setSelectedContentType] = useState("");
@@ -132,19 +136,39 @@ const BlogsVlogs = () => {
   );
 
   return (
-    <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-4 px-16 duration-300 min-h-screen">
-      <div className="flex items-center tracking-wide justify-center pb-4 text-[4rem] font-extrabold font-gallient">
-        (◔◡◔) India: Through the Eyes of Creators 📸
-      </div>
+    <section
+      className={`bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-4  ${
+        user?.role === "admin" ? "px-4" : "px-16"
+      } duration-300 min-h-screen`}
+    >
+      {user?.role === "user" ? (
+        <div className="flex items-center tracking-wide justify-center pb-4 text-[4rem] font-extrabold font-gallient">
+          (◔◡◔) India: Through the Eyes of Creators 📸
+        </div>
+      ) : (
+        ""
+      )}
 
       <div className="flex flex-col sm:flex-row justify-between w-full items-center sm:items-center">
-        <MyButton4
-          buttonLink={() => {
-            navigate(`/blogs-vlogs/upload-blog-vlog`);
-          }}
-          classDesign="bg-highlight_dark before:bg-highlight text-dark_primary_text transition-transform hover:scale-105 duration-1000 transform-cpu"
-          buttonName="Upload Your Blog📝 / Vlog🎬"
-        />
+        {user?.role === "user" ? (
+          <MyButton4
+            buttonLink={() => {
+              navigate(`/blogs-vlogs/upload-blog-vlog`);
+            }}
+            classDesign="bg-highlight_dark before:bg-highlight text-dark_primary_text transition-transform hover:scale-105 duration-1000 transform-cpu"
+            buttonName="Upload Your Blog📝 / Vlog🎬"
+          />
+        ) : (
+          ""
+        )}
+
+        {user?.role === "admin" ? (
+          <h1 className="text-4xl font-semibold text-center tracking-tighter font-playfair">
+            Manage Others' Contents
+          </h1>
+        ) : (
+          ""
+        )}
 
         <div className="flex items-center justify-center gap-x-5">
           <MyButton2
