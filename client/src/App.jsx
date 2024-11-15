@@ -17,7 +17,6 @@ import NotFound from "./components/NotFound";
 import Home from "./pages/Home";
 import Heritage from "./pages/Heritage";
 import CultureTradition from "./pages/CultureTradition";
-import LearnIndianCulture from "./pages/LearnIndianCulture";
 import ExploreDiversity from "./pages/ExploreDiversity";
 import BlogsVlogs from "./pages/BlogsVlogs";
 import VirtualStore from "./pages/VirtualStore";
@@ -52,6 +51,7 @@ import SingleBlogVlog from "./pages/SingleBlogVlog";
 import UploadBlogVlog from "./pages/UploadBlogVlog/UploadBlogVlog";
 import AdminContents from "./admin-pages/AdminContents";
 import AdminSingleBlogVerification from "./admin-pages/AdminContents/AdminSingleBlogVerification";
+import LearnIndianCultureCourses from "./pages/LearnIndianCulture/LearnIndianCultureCourses";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -221,7 +221,7 @@ function App() {
               {/*  ---------------- Learning Courses  ---------------- */}
               <Route
                 path="/learn-Indian-culture"
-                element={<LearnIndianCulture />}
+                element={<LearnIndianCultureCourses />}
               />
               <Route
                 path="/learn-Indian-culture/:slug"
