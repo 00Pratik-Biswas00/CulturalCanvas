@@ -178,7 +178,7 @@ function App() {
               />
               <Route
                 exact
-                path="/contents-acdprsIndia24/slugLagabiEkhane"
+                path="/blogs-vlogs/slugLagabiEkhane"
                 element={<AdminSingleBlogVerification />}
               />
 

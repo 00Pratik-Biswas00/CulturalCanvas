@@ -1,17 +1,17 @@
 import React from "react";
 import { CiEdit, CiLocationOn } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import MyButton4 from "../../components/Buttons/MyButton4";
 import img1 from "../../assets/blogs/pic3.png";
 import ReactPlayer from "react-player";
 import demovid from "../../assets/Heritage/bais.mp4";
 import SquareAnimation from "../../components/Blobs/SquareAnimation";
-import MyButton2 from "../../components/Buttons/MyButton2";
-import MyButton1 from "../../components/Buttons/MyButton1";
 
 const SingleBlogVlog = () => {
   const navigate = useNavigate();
+  const user = useSelector((state) => state.user?.userInfo);
 
   return (
     <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-4 px-16 duration-300 min-h-screen flex flex-col items-center gap-5">
@@ -23,13 +23,17 @@ const SingleBlogVlog = () => {
           <p className=" italic font-medium font-pangaia">by Pratik Biswas</p>
         </div>
 
-        <MyButton4
-          buttonName={"Edit Post"}
-          buttonIcon={<CiEdit className="w-6 h-6" />}
-          classDesign={
-            "before:bg-highlight_hover_dark bg-highlight_hover text-dark_primary_text z-10"
-          }
-        />
+        {user?.role === "user" ? (
+          <MyButton4
+            buttonName={"Edit Post"}
+            buttonIcon={<CiEdit className="w-6 h-6" />}
+            classDesign={
+              "before:bg-highlight_hover_dark bg-highlight_hover text-dark_primary_text z-10"
+            }
+          />
+        ) : (
+          ""
+        )}
       </div>
 
       {/* blog image */}
