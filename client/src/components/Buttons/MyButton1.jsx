@@ -12,7 +12,7 @@ const MyButton1 = ({ classDesign, buttonLink, buttonName }) => {
         }}
         className={`relative group overflow-hidden px-6 h-12 rounded-full flex space-x-2 items-center ${classDesign} `}
       >
-        <span className="relative text-sm text-white">{buttonName} </span>
+        <span className="relative text-base text-white">{buttonName} </span>
         <div className="flex items-center -space-x-3 translate-x-3">
           <div className="w-2.5 h-[1.6px] rounded bg-white origin-left scale-x-0 transition duration-300 group-hover:scale-x-100"></div>
           <svg

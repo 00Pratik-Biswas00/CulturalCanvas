@@ -799,6 +799,39 @@ export const dummyData = {
     //   userPhone: "9387456245",
     // },
   ],
+
+  LanguagesTypes: [
+    {
+      image: blogsImg,
+      description: "Want to learn more about Bengali? Check Below",
+      name: "BENGALI (বাংলা)",
+      buttonLink: "/learn-Indian-culture/bengali-course",
+    },
+    {
+      image: blogsImg,
+      description: "Want to learn more about this Language? Check Below",
+      name: "ENGLISH",
+      buttonLink: "/learn-Indian-culture/english-course",
+    },
+    {
+      image: blogsImg,
+      description: "Want to learn more about this Language? Check Below",
+      name: "HINDI (हिंदी)",
+      buttonLink: "/learn-Indian-culture/hindi-course",
+    },
+    {
+      image: blogsImg,
+      description: "Want to learn more about this Language? Check Below",
+      name: "GUJARATI (ગુજરાતી)",
+      buttonLink: "/learn-Indian-culture/gujarati-course",
+    },
+    {
+      image: blogsImg,
+      description: "Want to learn more about this Language? Check Below",
+      name: "URDU (اردو)",
+      buttonLink: "/learn-Indian-culture/urdu-course",
+    },
+  ],
 };
 
 export const RoutesNames = [

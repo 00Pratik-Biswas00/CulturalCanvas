@@ -1,8 +1,8 @@
 // LanguageCourse.js
 import React from "react";
 import MyButton2 from "../../components/Buttons/MyButton2";
-import MyButton3 from "../../components/Buttons/MyButton3";
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
+import MyButton1 from "../../components/Buttons/MyButton1";
 
 const LanguageCourse = ({
   scrollLeft,
@@ -44,10 +44,13 @@ const LanguageCourse = ({
               <h2 className="text-2xl font-extrabold text-center uppercase">
                 {course.description}
               </h2>
-              <MyButton3
-                classDesign="before:bg-highlight_hover_dark bg-highlight_hover text-dark_primary_text"
+
+              <MyButton1
+                classDesign={
+                  "bg-gradient-to-r from-[#193c70e9] to-[#1489386c] hover:to-[#174926] font-bold"
+                }
+                buttonLink={course.buttonLink}
                 buttonName={course.name}
-                buttonIcon={<course.icon className="w-7 h-7" />}
               />
             </div>
           ))}
