@@ -40,7 +40,7 @@ const UploadBlogVlog = () => {
     }
     form.append("blogContent", formData.blogContent);
 
-    // Sending to backend
+    // TODO: Sending to backend
   };
 
   return (
@@ -130,12 +130,18 @@ const UploadBlogVlog = () => {
               "bg-highlight_hover before:bg-highlight_hover_dark  text-dark_primary_text py-1 mt-4"
             }
             buttonName={"Verify"}
+            onClick={() => {
+              // TODO:
+            }}
           />
           <MyButton4
             classDesign={
               "bg-highlight before:bg-highlight_dark  text-dark_primary_text py-1 mt-4"
             }
             buttonName={"Submit"}
+            onClick={() => {
+              // TODO:
+            }}
           />
         </div>
       </div>

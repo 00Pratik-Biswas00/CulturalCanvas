@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useRef } from "react";
 import MyButton4 from "../Buttons/MyButton4";
 
-const InputImageVideo = ({ imageName, fileType, required = false }) => {
+const InputImageVideo = ({ imageName, fileType, onChange, required = false }) => {
+  const fileInputRef = useRef(null);
+
+  const handleButtonClick = () => {
+    fileInputRef.current.click();
+  };
+
+
   return (
     <div className="w-full flex items-center  my-3 gap-5">
       <label className="font-bold font-pangaia text-xl"> {imageName}</label>
@@ -12,8 +19,9 @@ const InputImageVideo = ({ imageName, fileType, required = false }) => {
         id={fileType}
         name={fileType}
         required={required}
-        // ref={imageInputRef}
+        ref={fileInputRef}
         className="hidden"
+        onChange={onChange}
       />
 
       <MyButton4
@@ -22,6 +30,7 @@ const InputImageVideo = ({ imageName, fileType, required = false }) => {
         classDesign={
           "bg-transparent blogCards border-2 border-highlight before:bg-highlight  text-primary_text dark:text-dark_primary_text py-1  "
         }
+        onClick={handleButtonClick}
       />
       {/* <button
         type="submit"
