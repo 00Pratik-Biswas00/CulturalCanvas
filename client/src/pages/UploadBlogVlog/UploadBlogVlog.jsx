@@ -1,12 +1,10 @@
 import React from "react";
-import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import InputComponent from "../../components/Input/InputComponent";
 import blogBG from "../../assets/blogs/ab.png";
 import InputImageVideo from "../../components/Input/InputImageVideo";
 import Editor from "../../components/Editor/Editor";
 import MyButton4 from "../../components/Buttons/MyButton4";
-import MyButton3 from "../../components/Buttons/MyButton3";
 const UploadBlogVlog = () => {
   return (
     <section
