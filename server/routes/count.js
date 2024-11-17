@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/total-users", async (req, res) => {
   try {
-    const totalUsers = await User.countDocuments();
+    const totalUsers = await User.countDocuments({ role: "user" });
     res.status(200).json({
       success: true,
       totalUsers,
