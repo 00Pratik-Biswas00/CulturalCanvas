@@ -2,11 +2,11 @@ import { gql } from "apollo-server-express";
 
 const blogTypeDefs = gql`
   type Video {
-    ETag: String!
-    ServerSideEncryption: String!
-    Location: String!
-    Key: String!
-    Bucket: String!
+    ETag: String
+    ServerSideEncryption: String
+    Location: String
+    Key: String
+    Bucket: String
   }
 
   type Image {
@@ -32,11 +32,11 @@ const blogTypeDefs = gql`
   }
 
   input VideoInput {
-    ETag: String!
-    ServerSideEncryption: String!
-    Location: String!
-    Key: String!
-    Bucket: String!
+    ETag: String
+    ServerSideEncryption: String
+    Location: String
+    Key: String
+    Bucket: String
   }
 
   input ImageInput {
@@ -58,13 +58,13 @@ const blogTypeDefs = gql`
   type Query {
     getBlogs: [Blog!]!
     getBlog(id: ID!): Blog
+    getUnverifiedBlogs: [Blog!]!
   }
 
   type Mutation {
-    createBlog(input: BlogInput!): Blog!
-    verifyBlog(id: ID!): Blog!
+    createBlog(input: BlogInput!): Boolean!
+    verifyBlog(id: ID!): Boolean!
     deleteBlog(id: ID!): Boolean!
-    getUnverifiedBlogs: [Blog!]!
   }
 `;
 

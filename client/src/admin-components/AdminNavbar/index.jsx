@@ -9,6 +9,7 @@ import { MdLightMode, MdDarkMode } from "react-icons/md";
 import { switchTheme } from "../../redux/slices/themeSlice";
 import { adminNavData } from "../../utils/constants";
 import { logoutUser } from "../../redux/slices/authSlice";
+import { getInitials } from "../../utils/util";
 
 const AdminNavSidebar = ({ open }) => {
   const navigate = useNavigate();
@@ -37,12 +38,6 @@ const AdminNavSidebar = ({ open }) => {
       dispatch(switchTheme("dark"));
     }
     setDarkMode(!darkMode);
-  };
-
-  const getInitials = (name) => {
-    const names = name.split(" ");
-    const initials = names.map((name) => name[0]).join("");
-    return initials.toUpperCase();
   };
 
   return (

@@ -27,45 +27,29 @@ const blogSchema = new Schema(
       public_id: String,
     },
     video: {
-        ETag: {
-          type: String,
-          required: true,
-        },
-        ServerSideEncryption: {
-          type: String,
-          required: true,
-        },
-        Location: {
-          type: String,
-          required: true,
-        },
-        Key: {
-          type: String,
-          required: true,
-        },
-        Bucket: {
-          type: String,
-          required: true,
-        },
-      },
+      ETag: String,
+      ServerSideEncryption: String,
+      Location: String,
+      Key: String,
+      Bucket: String,
+    },
     state: {
-      type: String, 
+      type: String,
       required: true,
     },
     city: {
-      type: String, 
+      type: String,
       required: true,
     },
     originLocation: {
-      type: String, 
+      type: String,
       required: true,
     },
     contentType: {
-      type: String, 
-      enum: ["blog", "vlog"], 
+      type: String,
+      enum: ["Blog", "Vlog"],
       required: true,
     },
-    tags: [String], 
     createdAt: {
       type: Date,
       default: Date.now,

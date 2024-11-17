@@ -1,96 +1,13 @@
-import React, { useRef, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
 import VanillaTilt from "vanilla-tilt";
-
 import { CiSearch, CiFilter } from "react-icons/ci";
-
-import img1 from "../../assets/blogs/pic1.jpg";
-import img2 from "../../assets/blogs/pic2.jpeg";
-import img3 from "../../assets/blogs/pic3.png";
-import img4 from "../../assets/Heritage/taj.jpeg";
-import img5 from "../../assets/explorePlaces/travel.jpg";
-import img6 from "../../assets/explorePlaces/createTrip.jpg";
-import pratikImg from "../../assets/courses/pratik.jpg";
-
+import { use } from "i18next";
 import MyButton4 from "../../components/Buttons/MyButton4";
 import MyButton2 from "../../components/Buttons/MyButton2";
 import FilterBlogsVlogs from "../../components/Filters/FilterBlogsVlogs";
-import { useSelector } from "react-redux";
-import { use } from "i18next";
 
-const blogsVlogs = [
-  {
-    blogImage: img1,
-    blogName: "Unraveling Hawa Mahal's Historical Treasures",
-    type: "Blog",
-    author: "Debopriya Lahiri",
-    authorImg: pratikImg,
-  },
-
-  {
-    blogImage: img4,
-    blogName: "Unraveling Rupal er Barir 14 puruser Treasures",
-    type: "Vlog",
-    author: "Pratik Biswas",
-    authorImg: pratikImg,
-  },
-  {
-    blogImage: img3,
-    blogName: "Unraveling Taj Mahal's Historical Treasures",
-    type: "Vlog",
-    author: "Pratik Biswas",
-    authorImg: pratikImg,
-  },
-  {
-    blogImage: img4,
-    blogName: "Unraveling Taj Mahal's Historical Treasures",
-    type: "Vlog",
-    author: "Rupal Paul",
-    authorImg: pratikImg,
-  },
-  {
-    blogImage: img2,
-    blogName: "Unraveling Victoria Memorial's Historical Treasures",
-    type: "Blog",
-    author: "Sattwikee Ghosh",
-    authorImg: pratikImg,
-  },
-  {
-    blogImage: img4,
-    blogName: "Unraveling Taj Mahal's Historical Treasures",
-    type: "Vlog",
-    author: "Ayaan Ahmed",
-    authorImg: pratikImg,
-  },
-  {
-    blogImage: img2,
-    blogName: "Unraveling Victoria Memorial's Historical Treasures",
-    type: "Blog",
-    author: "Chandrima Kar",
-    authorImg: pratikImg,
-  },
-  {
-    blogImage: img5,
-    blogName: "Unraveling Rupal er Barir 14 puruser Treasures",
-    type: "Vlog",
-    author: "Pratik Biswas",
-    authorImg: pratikImg,
-  },
-  {
-    blogImage: img3,
-    blogName: "Unraveling Taj Mahal's Historical Treasures",
-    type: "Vlog",
-    author: "Pratik Biswas",
-    authorImg: pratikImg,
-  },
-  {
-    blogImage: img6,
-    blogName: "Unraveling Victoria Memorial's Historical Treasures",
-    type: "Blog",
-    author: "Pratik Biswas",
-    authorImg: pratikImg,
-  },
-];
+import { getInitials } from "../../utils/util";
+import { useNavigate } from "react-router-dom";
 
 // vanilla-tilt
 function Tilt(props) {
@@ -104,14 +21,11 @@ function Tilt(props) {
   return <div ref={tilt} {...rest} />;
 }
 
-const BlogsVlogs = () => {
-  const user = useSelector((state) => state.user?.userInfo);
-
+const BlogsVlogs = ({ blogsVlogs, loading, user, handleDelete }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [BlogsVlogsModalOpen, setBlogsVlogsModalOpen] = useState(false);
   const [selectedContentType, setSelectedContentType] = useState("");
   const navigate = useNavigate();
-
   const handleApplyFilters = () => {
     setBlogsVlogsModalOpen(false);
   };
@@ -128,13 +42,6 @@ const BlogsVlogs = () => {
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
   };
-
-  const filteredBlogsVlogs = blogsVlogs.filter(
-    (content) =>
-      content.blogName.toLowerCase().includes(searchQuery.toLowerCase()) &&
-      (selectedContentType ? content.type === selectedContentType : true)
-  );
-
   return (
     <section
       className={`bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-4  ${
@@ -152,7 +59,7 @@ const BlogsVlogs = () => {
       <div className="flex flex-col sm:flex-row justify-between w-full items-center sm:items-center">
         {user?.role === "user" ? (
           <MyButton4
-            buttonLink={() => {
+            onClick={() => {
               navigate(`/blogs-vlogs/upload-blog-vlog`);
             }}
             classDesign="bg-highlight_dark before:bg-highlight text-dark_primary_text transition-transform hover:scale-105 duration-1000 transform-cpu"
@@ -190,43 +97,72 @@ const BlogsVlogs = () => {
           </div>
         </div>
       </div>
+      {loading ? (
+        <div className="flex justify-center items-center h-full w-full">
+          <div className="loader"></div>
+        </div>
+      ) : (
+        <div className="gallery mt-5 gap-7">
+          {blogsVlogs.map((content, i) => (
+            <Tilt
+              key={i}
+              className="relative w-full mb-7 h-auto rounded-2xl overflow-hidden shadow-lg blogCards"
+            >
+              <img
+                src={content.image?.url || "/default-image.jpg"}
+                alt={content.title || "Blog Image"}
+                className="w-full h-full rounded-2xl object-cover"
+              />
+              <div className="text-dark_primary_text flex flex-col items-center justify-end gap-3 overflow-hidden left-0 bottom-0 absolute h-full w-full rounded-2xl p-7 blogCardsContents">
+                <h3 className="text-center font-bold text-3xl">
+                  {content.title}
+                </h3>
+                <button
+                  onClick={() => {
+                    const path =
+                      user?.role === "admin"
+                        ? `/blogs-vlogs/verify/${content.id}`
+                        : `/blogs-vlogs/${content.id}`;
+                    navigate(path);
+                  }}
+                  className="bg-background2 hover:bg-lime-200 duration-500 text-primary_text px-5 py-2 text-base rounded-3xl mb-5 font-open_sans"
+                >
+                  {user?.role === "admin" ? "Verify" : "Read More"}
+                </button>
+                <div className="absolute bottom-5 right-5 italic text-sm tracking-wider font-playfair">
+                  {content.contentType}{" "}
+                  {content.contentType === "Blog" ? "📝" : "🎬"}
+                </div>
+                <div className="absolute flex gap-2 items-center justify-center bottom-2 left-5 italic text-sm tracking-wider font-playfair">
+                  {content.author?.photo?.url ? (
+                    <img
+                      src={content.author.photo.url}
+                      alt={content.author?.name || "Author"}
+                      className="w-9 h-9 rounded-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-9 h-9 flex items-center justify-center border-y border-dark_secondary_text dark:border-dark_primary_text rounded-full text-sm font-semibold">
+                      {getInitials(content.author?.name || "Unknown")}
+                    </div>
+                  )}
+                  <span>{content.author?.name || "Unknown Author"}</span>
+                </div>
 
-      <div className="gallery mt-5 gap-7">
-        {filteredBlogsVlogs.map((content, i) => (
-          <Tilt
-            key={i}
-            className="relative w-full mb-7 h-auto rounded-2xl overflow-hidden shadow-lg blogCards"
-          >
-            <img
-              src={content.blogImage}
-              className="w-full h-full rounded-2xl object-cover"
-            />
-            <div className="text-dark_primary_text flex flex-col items-center justify-end gap-3 overflow-hidden left-0 bottom-0 absolute h-full w-full rounded-2xl p-7 blogCardsContents">
-              <h3 className="text-center font-bold text-3xl">
-                {content.blogName}
-              </h3>
-              <button
-                onClick={() => {
-                  navigate(`/blogs-vlogs/slugLagabiEkhane`);
-                }}
-                className="bg-background2 hover:bg-lime-200 duration-500 text-primary_text px-5 py-2 text-base rounded-3xl mb-5 font-open_sans"
-              >
-                Read More
-              </button>
-              <div className="absolute bottom-5 right-5 italic text-sm tracking-wider font-playfair">
-                {content.type} {content.type === "Blog" ? "📝" : "🎬"}
+                {/* Delete Icon: Only visible if user._id matches content.author.id */}
+                {handleDelete && user._id === content.author?.id && (
+                  <button
+                    onClick={() => handleDelete(content.id)}
+                    className="absolute top-3 right-3 bg-red-600 text-white p-2 rounded-full hover:bg-red-700"
+                    title="Delete"
+                  >
+                    🗑️
+                  </button>
+                )}
               </div>
-              <div className="absolute flex gap-2 items-center justify-center bottom-2 left-5 italic text-sm tracking-wider font-playfair">
-                <img
-                  src={content.authorImg}
-                  className="w-9 h-9 rounded-full object-cover"
-                />
-                {content.author}
-              </div>
-            </div>
-          </Tilt>
-        ))}
-      </div>
+            </Tilt>
+          ))}
+        </div>
+      )}
 
       {BlogsVlogsModalOpen && (
         <FilterBlogsVlogs

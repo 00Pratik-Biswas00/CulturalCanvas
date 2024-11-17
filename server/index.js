@@ -26,6 +26,8 @@ import { festivalTypeDefs } from "./typedefs/festival.js";
 import festivalResolvers from "./resolvers/festival.js";
 import roleResolvers from "./resolvers/role.js";
 import roleTypeDefs from "./typedefs/role.js";
+import blogResolvers from "./resolvers/blog.js";
+import blogTypeDefs from "./typedefs/blog.js";
 
 const customLoggingPlugin = {
   requestDidStart(requestContext) {
@@ -57,6 +59,7 @@ const typeDefs = mergeTypeDefs([
   stateCultureTypeDefs,
   festivalTypeDefs,
   roleTypeDefs,
+  blogTypeDefs,
 ]);
 const resolvers = mergeResolvers([
   authResolver,
@@ -67,6 +70,7 @@ const resolvers = mergeResolvers([
   stateCultureResolvers,
   festivalResolvers,
   roleResolvers,
+  blogResolvers,
 ]);
 
 const apolloServer = new ApolloServer({

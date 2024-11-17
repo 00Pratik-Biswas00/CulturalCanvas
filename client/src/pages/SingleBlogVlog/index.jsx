@@ -1,26 +1,49 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { CiEdit, CiLocationOn } from "react-icons/ci";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import MyButton4 from "../../components/Buttons/MyButton4";
-import img1 from "../../assets/blogs/pic3.png";
 import ReactPlayer from "react-player";
-import demovid from "../../assets/Heritage/bais.mp4";
 import SquareAnimation from "../../components/Blobs/SquareAnimation";
+import { GET_BLOG } from "../../graphql/blog";
+import { useQuery } from "@apollo/client";
+import { use } from "i18next";
 
 const SingleBlogVlog = () => {
+  const { id } = useParams();
+  const [blog, setBlog] = useState(null);
   const navigate = useNavigate();
   const user = useSelector((state) => state.user?.userInfo);
+  const { loading, error, data } = useQuery(GET_BLOG, { variables: { id } });
 
+  useEffect(() => {
+    if (data && data.getBlog) {
+      setBlog(data.getBlog);
+    }
+  }, [data]);
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  if (!blog) {
+    return <div>No blog found.</div>;
+  }
+  if (loading)
+    return (
+      <div className="flex justify-center items-center h-full w-full">
+        <div className="loader"></div>
+      </div>
+    );
   return (
     <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-4 px-16 duration-300 min-h-screen flex flex-col items-center gap-5">
       <div className="flex flex-col justify-center items-center gap-4 ">
-        <h1 className=" text-5xl  font-pangaia">
-          Unraveling Hawa Mahal's Historical Treasures
-        </h1>
+        <h1 className=" text-5xl  font-pangaia">{blog?.title}</h1>
         <div>
-          <p className=" italic font-medium font-pangaia">by Pratik Biswas</p>
+          <p className=" italic font-medium font-pangaia">
+            by {blog?.author?.name}
+          </p>
         </div>
 
         {user?.role === "user" ? (
@@ -39,7 +62,7 @@ const SingleBlogVlog = () => {
       {/* blog image */}
       <div className=" z-10">
         <img
-          src={img1}
+          src={blog?.image?.url}
           alt="blog cover image"
           className=" outline-double outline-8 -outline-offset-[20px] outline-white rounded-xl "
         />
@@ -47,10 +70,12 @@ const SingleBlogVlog = () => {
 
       {/* state details */}
       <div className="flex items-center w-full justify-evenly">
-        <h1 className=" font-pangaia text-xl font-bold">State: West Bengal</h1>
-        <h1 className=" font-pangaia text-xl font-bold">City: Kolkata</h1>
+        <h1 className=" font-pangaia text-xl font-bold">
+          State: {blog?.state}
+        </h1>
+        <h1 className=" font-pangaia text-xl font-bold">City: {blog?.city}</h1>
         <a
-          href="https://maps.app.goo.gl/Vu6YMT5cNhP39wkT9"
+          href={blog?.originLocation}
           target="_blank"
           className={`hollowBorder blogCards font-searchBars  text-lg p-2 rounded-full bg-transparent text-primary_text dark:text-dark_primary_text `}
         >
@@ -59,80 +84,29 @@ const SingleBlogVlog = () => {
       </div>
 
       {/* blog content / vlog caption */}
-      <div className="bg-background1 dark:bg-dark_background1 z-10">
-        Ekhane React Quill Editor er output ta display korabi <br />
-        <br />
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
-        minima, nemo error sequi accusantium consequuntur cum sint ullam
-        incidunt nisi minus vitae quis debitis, repudiandae exercitationem,
-        eaque iusto aperiam voluptas? Lorem ipsum dolor, sit amet consectetur
-        adipisicing elit. Ullam alias quisquam natus. Similique nam est eveniet!
-        Ad expedita harum accusamus error reprehenderit dolorem, cumque atque
-        maxime adipisci, quisquam, possimus dolores? Lorem ipsum dolor sit amet
-        consectetur adipisicing elit. Deleniti magni natus incidunt vero
-        perferendis inventore delectus possimus eaque maxime eveniet eligendi
-        fugiat provident, illo, quo maiores quasi libero iure rem! Lorem ipsum
-        dolor sit amet consectetur adipisicing elit. Ad nostrum quo eligendi
-        beatae, totam perspiciatis et cum molestiae consequuntur rerum fugit.
-        Consequuntur odit, velit culpa quisquam dolor illo eius! Et? Lorem ipsum
-        dolor sit amet consectetur adipisicing elit. Inventore minima, nemo
-        error sequi accusantium consequuntur cum sint ullam incidunt nisi minus
-        vitae quis debitis, repudiandae exercitationem, eaque iusto aperiam
-        voluptas? Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-        Ullam alias quisquam natus. Similique nam est eveniet! Ad expedita harum
-        accusamus error reprehenderit dolorem, cumque atque maxime adipisci,
-        quisquam, possimus dolores? Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Deleniti magni natus incidunt vero perferendis
-        inventore delectus possimus eaque maxime eveniet eligendi fugiat
-        provident, illo, quo maiores quasi libero iure rem! Lorem ipsum dolor
-        sit amet consectetur adipisicing elit. Ad nostrum quo eligendi beatae,
-        totam perspiciatis et cum molestiae consequuntur rerum fugit.
-        Consequuntur odit, velit culpa quisquam dolor illo eius! Et? ipsum dolor
-        sit amet consectetur adipisicing elit. Inventore minima, nemo error
-        sequi accusantium consequuntur cum sint ullam incidunt nisi minus vitae
-        quis debitis, repudiandae exercitationem, eaque iusto aperiam voluptas?
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam alias
-        quisquam natus. Similique nam est eveniet! Ad expedita harum accusamus
-        error reprehenderit dolorem, cumque atque maxime adipisci, quisquam,
-        possimus dolores? Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Deleniti magni natus incidunt vero perferendis inventore delectus
-        possimus eaque maxime eveniet eligendi fugiat provident, illo, quo
-        maiores quasi libero iure rem! Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Ad nostrum quo eligendi beatae, totam perspiciatis et
-        cum molestiae consequuntur rerum fugit. Consequuntur odit, velit culpa
-        quisquam dolor illo eius! Et? Lorem ipsum dolor sit amet con ipsum dolor
-        sit amet consectetur adipisicing elit. Inventore minima, nemo error
-        sequi accusantium consequuntur cum sint ullam incidunt nisi minus vitae
-        quis debitis, repudiandae exercitationem, eaque iusto aperiam voluptas?
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam alias
-        quisquam natus. Similique nam est eveniet! Ad expedita harum accusamus
-        error reprehenderit dolorem, cumque atque maxime adipisci, quisquam,
-        possimus dolores? Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Deleniti magni natus incidunt vero perferendis inventore delectus
-        possimus eaque maxime eveniet eligendi fugiat provident, illo, quo
-        maiores quasi libero iure rem! Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Ad nostrum quo eligendi beatae, totam perspiciatis et
-        cum molestiae consequuntur rerum fugit. Consequuntur odit, velit culpa
-        quisquam dolor illo eius! Et? Lorem ipsum dolor sit amet con
-      </div>
+      <div
+        className="bg-background1 dark:bg-dark_background1 z-10"
+        dangerouslySetInnerHTML={{ __html: blog?.content }}
+      />
 
       {/* vlog content (if available) */}
-
-      <div className=" z-10">
-        <ReactPlayer
-          url={demovid}
-          width="100%"
-          height="100%"
-          className="max-w-full max-h-full m-auto"
-          playing={false}
-          controls
-          config={{
-            file: {
-              attributes: { controlsList: "nodownload" },
-            },
-          }}
-        />
-      </div>
+      {blog && blog.video && blog.video.Location && (
+        <div className=" z-10">
+          <ReactPlayer
+            url={blog.video.Location}
+            width="100%"
+            height="100%"
+            className="max-w-full max-h-full m-auto"
+            playing={false}
+            controls
+            config={{
+              file: {
+                attributes: { controlsList: "nodownload" },
+              },
+            }}
+          />
+        </div>
+      )}
 
       <SquareAnimation />
     </section>

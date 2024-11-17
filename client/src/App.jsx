@@ -57,6 +57,7 @@ import EnglishCourse from "./pages/IndividualCoursesPage/EnglishCourse";
 import HindiCourse from "./pages/IndividualCoursesPage/HindiCourse";
 import GujaratiCourse from "./pages/IndividualCoursesPage/GujaratiCourse";
 import UrduCourse from "./pages/IndividualCoursesPage/UrduCourse";
+import UserBlogsVLogs from "./pages/UserBlogsVLogs";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -178,7 +179,7 @@ function App() {
               />
               <Route
                 exact
-                path="/blogs-vlogs/slugLagabiEkhane"
+                path="/blogs-vlogs/verify/:id"
                 element={<AdminSingleBlogVerification />}
               />
 
@@ -277,11 +278,8 @@ function App() {
               />
 
               {/*  ----------------  Blogs and Vlogs ---------------- */}
-              <Route path="/blogs-vlogs" element={<BlogsVlogs />} />
-              <Route
-                path="/blogs-vlogs/slugLagabiEkhane"
-                element={<SingleBlogVlog />}
-              />
+              <Route path="/blogs-vlogs" element={<UserBlogsVLogs />} />
+              <Route path="/blogs-vlogs/:id" element={<SingleBlogVlog />} />
               <Route
                 path="/blogs-vlogs/upload-blog-vlog"
                 element={<UploadBlogVlog />}
