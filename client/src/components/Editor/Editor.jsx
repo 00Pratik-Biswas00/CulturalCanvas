@@ -31,9 +31,11 @@ const formats = [
   "image",
 ];
 
-const Editor = ({ placeholder, className }) => {
+const Editor = ({ value, onChange, placeholder, className }) => {
   return (
     <ReactQuill
+      value={value}
+      onChange={onChange}
       className={className}
       placeholder={placeholder}
       modules={modules}

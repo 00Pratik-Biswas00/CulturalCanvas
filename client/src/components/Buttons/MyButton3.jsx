@@ -1,10 +1,10 @@
 import React from "react";
 
-const MyButton3 = ({ classDesign, buttonLink, buttonName, buttonIcon }) => {
+const MyButton3 = ({ classDesign, onClick, buttonName, buttonIcon }) => {
   return (
     <div>
       <button
-        onClick={buttonLink}
+        onClick={onClick}
         class={`relative flex items-center justify-center font-bold gap-2  group overflow-hidden px-8 py-2 rounded-md 
         before:absolute 
         before:inset-0 

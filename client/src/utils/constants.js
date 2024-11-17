@@ -39,6 +39,16 @@ import upImg from "../assets/Heritage/up.png";
 
 import bahomein from "../assets/Heritage/bais.mp4";
 
+import img1 from "../assets/blogs/pic1.jpg";
+import img2 from "../assets/blogs/pic2.jpeg";
+import img3 from "../assets/blogs/pic3.png";
+import img4 from "../assets/Heritage/taj.jpeg";
+import img5 from "../assets/explorePlaces/travel.jpg";
+import img6 from "../assets/explorePlaces/createTrip.jpg";
+import pratikImg from "../assets/courses/pratik.jpg";
+
+
+
 export const dummyData = {
   // updated home page
   Home: [
@@ -1011,5 +1021,79 @@ export const adminNavData = [
   {
     name: "Manage Contents ",
     path: "/contents-acdprsIndia24",
+  },
+];
+
+export const blogsVlogs = [
+  {
+    blogImage: img1,
+    blogName: "Unraveling Hawa Mahal's Historical Treasures",
+    type: "Blog",
+    author: "Debopriya Lahiri",
+    authorImg: pratikImg,
+  },
+
+  {
+    blogImage: img4,
+    blogName: "Unraveling Rupal er Barir 14 puruser Treasures",
+    type: "Vlog",
+    author: "Pratik Biswas",
+    authorImg: pratikImg,
+  },
+  {
+    blogImage: img3,
+    blogName: "Unraveling Taj Mahal's Historical Treasures",
+    type: "Vlog",
+    author: "Pratik Biswas",
+    authorImg: pratikImg,
+  },
+  {
+    blogImage: img4,
+    blogName: "Unraveling Taj Mahal's Historical Treasures",
+    type: "Vlog",
+    author: "Rupal Paul",
+    authorImg: pratikImg,
+  },
+  {
+    blogImage: img2,
+    blogName: "Unraveling Victoria Memorial's Historical Treasures",
+    type: "Blog",
+    author: "Sattwikee Ghosh",
+    authorImg: pratikImg,
+  },
+  {
+    blogImage: img4,
+    blogName: "Unraveling Taj Mahal's Historical Treasures",
+    type: "Vlog",
+    author: "Ayaan Ahmed",
+    authorImg: pratikImg,
+  },
+  {
+    blogImage: img2,
+    blogName: "Unraveling Victoria Memorial's Historical Treasures",
+    type: "Blog",
+    author: "Chandrima Kar",
+    authorImg: pratikImg,
+  },
+  {
+    blogImage: img5,
+    blogName: "Unraveling Rupal er Barir 14 puruser Treasures",
+    type: "Vlog",
+    author: "Pratik Biswas",
+    authorImg: pratikImg,
+  },
+  {
+    blogImage: img3,
+    blogName: "Unraveling Taj Mahal's Historical Treasures",
+    type: "Vlog",
+    author: "Pratik Biswas",
+    authorImg: pratikImg,
+  },
+  {
+    blogImage: img6,
+    blogName: "Unraveling Victoria Memorial's Historical Treasures",
+    type: "Blog",
+    author: "Pratik Biswas",
+    authorImg: pratikImg,
   },
 ];

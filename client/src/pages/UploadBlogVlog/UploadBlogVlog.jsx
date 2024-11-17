@@ -5,6 +5,10 @@ import blogBG from "../../assets/blogs/ab.png";
 import InputImageVideo from "../../components/Input/InputImageVideo";
 import Editor from "../../components/Editor/Editor";
 import MyButton4 from "../../components/Buttons/MyButton4";
+import api from "../../config/axios";
+import { CREATE_BLOG } from "../../graphql/blog";
+import { useMutation } from "@apollo/client";
+import { toast } from "sonner";
 
 const UploadBlogVlog = () => {
   const [formData, setFormData] = useState({
@@ -21,26 +25,68 @@ const UploadBlogVlog = () => {
   const handleInputChange = (name, value) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+  const handleImageUpload = async (file) => {
+    const formData = new FormData();
+    formData.append("image", file);
 
-  const handleFileChange = (name, file) => {
-    setFormData((prev) => ({ ...prev, [name]: file }));
+    try {
+      const { data } = await api.post(
+        `${import.meta.env.VITE_API_KEY_RESTAPI}/upload-image`,
+        formData
+      );
+      setFormData((prev) => ({ ...prev, blogPoster: data }));
+    } catch (e) {
+      console.error(e);
+      toast.error("Image upload failed!");
+    }
   };
 
-  const handleSubmit = async () => {
-    const form = new FormData();
-    
-    form.append("contentName", formData.contentName);
-    form.append("originState", formData.originState);
-    form.append("originCity", formData.originCity);
-    form.append("gMapLocation", formData.gMapLocation);
-    form.append("contentType", formData.contentType);
-    form.append("blogPoster", formData.blogPoster);
-    if (formData.blogVideo) {
-      form.append("blogVideo", formData.blogVideo);
-    }
-    form.append("blogContent", formData.blogContent);
+  const handleVideoUpload = async (file) => {
+    try {
+      const videoData = new FormData();
+      videoData.append("video", file);
+      const { data } = await api.post(
+        `${import.meta.env.VITE_API_KEY_RESTAPI}/video-upload`,
+        videoData
+      );
 
-    // TODO: Sending to backend
+      setFormData((prev) => ({ ...prev, blogVideo: data }));
+    } catch (err) {
+      console.log(err);
+      toast.error("Video upload failed!");
+    }
+  };
+
+  const [createBlog] = useMutation(CREATE_BLOG, {
+    onCompleted: () => {
+      toast.success("Blog Created Successfully!");
+    },
+    onError: (error) => {
+      console.error("Error creating blog:", error);
+      toast.error("Failed to create the blog.");
+    },
+  });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await createBlog({
+        variables: {
+          input: {
+            title: formData.contentName,
+            content: formData.blogContent,
+            image: formData.blogPoster,
+            video: formData.blogVideo ? formData.blogVideo : null,
+            state: formData.originState,
+            city: formData.originCity,
+            originLocation: formData.gMapLocation,
+            contentType: formData.contentType,
+          },
+        },
+      });
+    } catch (err) {
+      console.error("Error submitting blog:", err);
+      toast.error("Failed to create the blog.");
+    }
   };
 
   return (
@@ -48,7 +94,8 @@ const UploadBlogVlog = () => {
       style={{ backgroundImage: `url(${blogBG})` }}
       className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-10 pb-14 px-16 duration-300 min-h-screen relative w-full bg-contain bg-fixed  bg-no-repeat bg-center
       flex flex-col items-center
-      ">
+      "
+    >
       <div className="flex flex-col p-5 w-[90%]   rounded-xl  shadow-custom-black  dark:shadow-custom-white   blogCards">
         <div className="flex items-center tracking-wide justify-center pb-4 text-[3rem] font-extrabold font-gallient">
           Upload Your Blog📝 / Vlog🎬
@@ -88,12 +135,14 @@ const UploadBlogVlog = () => {
           <div className="flex  justify-center gap-5 items-center my-3 font-playfair">
             <button
               className={`hollowBorder blogCards font-searchBars  text-lg px-6 py-1 rounded bg-transparent text-primary_text dark:text-dark_primary_text `}
-              onClick={() => handleInputChange("contentType", "Blog")}>
+              onClick={() => handleInputChange("contentType", "Blog")}
+            >
               Blog
             </button>
             <button
               className={`hollowBorder blogCards font-searchBars  text-lg px-6 py-1 rounded bg-transparent text-primary_text dark:text-dark_primary_text`}
-              onClick={() => handleInputChange("contentType", "Vlog")}>
+              onClick={() => handleInputChange("contentType", "Vlog")}
+            >
               Vlog
             </button>
           </div>
@@ -104,12 +153,12 @@ const UploadBlogVlog = () => {
             required={true}
             fileType={"image"}
             imageName={"Upload Your Blog's Poster:"}
-            onChange={(e) => handleFileChange("blogPoster", e.target.files[0])}
+            onChange={(e) => handleImageUpload(e.currentTarget.files[0])}
           />
           <InputImageVideo
             fileType={"video"}
             imageName={"Upload Your Blog's Video:"}
-            onChange={(e) => handleFileChange("blogVideo", e.target.files[0])}
+            onChange={(e) => handleVideoUpload(e.currentTarget.files[0])}
           />
         </div>
 
@@ -118,6 +167,7 @@ const UploadBlogVlog = () => {
             Write Your Blog Content / Vlog Caption:
           </div>
           <Editor
+            value={formData.blogContent}
             className="mt-3 dark:border-secondary-40 border-dark_background2 dark:border-background2 rounded-md text-primary_text dark:text-dark_primary_text  "
             placeholder={"Write something here..."}
             onChange={(value) => handleInputChange("blogContent", value)}
@@ -139,9 +189,7 @@ const UploadBlogVlog = () => {
               "bg-highlight before:bg-highlight_dark  text-dark_primary_text py-1 mt-4"
             }
             buttonName={"Submit"}
-            onClick={() => {
-              // TODO:
-            }}
+            onClick={handleSubmit}
           />
         </div>
       </div>

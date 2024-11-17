@@ -8,6 +8,25 @@ import cloudinary from "cloudinary";
 
 const router = express.Router();
 
+export const deletePhoto = (publicId) => {
+  return new Promise((resolve) => {
+    cloudinary.uploader.destroy(publicId, (result) => {
+      resolve(result);
+    });
+  });
+};
+
+export const videoDelete = (params) => {
+  S3.deleteObject(params, (err, data) => {
+    if (err) {
+      console.log(err);
+      res.sendStatus(400);
+    }
+    console.log(data);
+    res.send({ ok: true });
+  });
+};
+
 router.post(
   "/upload-image",
   formidable({ maxFileSize: 5 * 1024 * 1024 }),
@@ -27,13 +46,6 @@ router.post(
 
 router.post("/remove-image", async (req, res) => {
   const { public_id } = req.body;
-  const deletePhoto = (publicId) => {
-    return new Promise((resolve) => {
-      cloudinary.uploader.destroy(publicId, (result) => {
-        resolve(result);
-      });
-    });
-  };
   const photoPublicId = public_id;
   try {
     await deletePhoto(photoPublicId);
@@ -81,14 +93,7 @@ router.post("/video-remove", async (req, res) => {
       Key,
     };
 
-    S3.deleteObject(params, (err, data) => {
-      if (err) {
-        console.log(err);
-        res.sendStatus(400);
-      }
-      console.log(data);
-      res.send({ ok: true });
-    });
+    videoDelete(params);
   } catch (err) {
     console.log(err);
   }
