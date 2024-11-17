@@ -5,7 +5,7 @@ import AddCourses from "../../admin-components/AdminModals/AddCourses/AddCourses
 const AdminCourses = () => {
   const [languageCourseModal, setLanguageCourseModal] = useState(false);
   const [cuisineCourseModal, setCuisineCourseModal] = useState(false);
-  const [clothingCourseModal, setClothingCourseModal] = useState(false);
+  const [sportsCourseModal, setSportsCourseModal] = useState(false);
   const [artCraftCourseModal, setArtCraftCourseModal] = useState(false);
 
   const handleApplyLanguageCourseModal = () => {
@@ -16,12 +16,12 @@ const AdminCourses = () => {
     setCuisineCourseModal(false);
   };
 
-  const handleApplyClothingCourseModal = () => {
-    setClothingCourseModal(false);
-  };
-
   const handleApplyArtCraftCourseModal = () => {
     setArtCraftCourseModal(false);
+  };
+
+  const handleApplySportsCourseModal = () => {
+    setSportsCourseModal(false);
   };
 
   return (
@@ -46,6 +46,11 @@ const AdminCourses = () => {
           cultureName="Art & Craft Course"
           setModalOpen={setArtCraftCourseModal}
         />
+
+        <LayoutCulture
+          cultureName="Sports Course"
+          setModalOpen={setSportsCourseModal}
+        />
       </div>
 
       {languageCourseModal && (
@@ -69,6 +74,14 @@ const AdminCourses = () => {
           setCourseModal={setArtCraftCourseModal}
           handleApplyCourseModal={handleApplyArtCraftCourseModal}
           courseTopic="Art & Craft"
+        />
+      )}
+
+      {sportsCourseModal && (
+        <AddCourses
+          setCourseModal={setSportsCourseModal}
+          handleApplyCourseModal={handleApplySportsCourseModal}
+          courseTopic="Sports"
         />
       )}
     </section>

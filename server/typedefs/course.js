@@ -22,12 +22,19 @@ const courseTypeDefs = gql`
     video: Video!
   }
 
+  type CourseCategory {
+    language: String!
+    cuisine: String!
+    arts: String!
+    sports: String!
+  }
+
   type Course {
     id: ID!
     name: String!
     slug: String!
     image: Image!
-    courseCategory: String!
+    courseCategory: CourseCategory!
     courseHistory: String!
     courseIntro: String!
     modules: [Module]
@@ -68,13 +75,20 @@ const courseTypeDefs = gql`
     video: CourseVideoInput!
   }
 
+  input CourseCategoryInput {
+    language: String!
+    cuisine: String!
+    arts: String!
+    sports: String!
+  }
+
   # Output types for mutations
   type CourseMutationResponse {
     id: ID!
     name: String!
     slug: String!
     image: Image!
-    courseCategory: String!
+    courseCategory: CourseCategory!
     courseHistory: String!
     courseIntro: String!
     modules: [Module]

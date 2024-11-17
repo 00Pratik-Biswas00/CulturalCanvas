@@ -4,7 +4,7 @@ export const CREATE_COURSE_MUTATION = gql`
   mutation CreateCourse(
     $name: String!
     $image: ImageInput!
-    $courseCategory: String!
+    $courseCategory: CourseCategoryInput!
     $courseHistory: String!
     $courseIntro: String!
     $modules: [ModuleInput]
@@ -28,6 +28,12 @@ export const CREATE_COURSE_MUTATION = gql`
       }
       courseHistory
       courseIntro
+      courseCategory {
+        language
+        cuisine
+        arts
+        sports
+      }
       modules {
         name
         description

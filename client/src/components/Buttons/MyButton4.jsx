@@ -25,8 +25,8 @@ const MyButton4 = ({
         ${classDesign}
         
         `}>
-        <span class="relative  text-xl ">{buttonName}</span>
-        <span class="relative  text-lg ">{buttonIcon}</span>
+        <span className="relative  text-xl ">{buttonName}</span>
+        <span className="relative  text-lg ">{buttonIcon}</span>
       </button>
     </div>
   );
