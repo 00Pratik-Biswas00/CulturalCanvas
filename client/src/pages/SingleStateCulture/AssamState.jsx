@@ -25,21 +25,22 @@ const AssamCuisines = [
 const AssamArts = [
   {
     cuisineImage: tajImg,
-    cuisineName: "Drawing",
+    cuisineName: "Bihu Dance",
   },
   {
     cuisineImage: tajImg,
-    cuisineName: "Bhaat + Daal",
+    cuisineName: "Sattriya Dance",
   },
   {
     cuisineImage: tajImg,
-    cuisineName: "Luchi + Mangso",
+    cuisineName: "Japi Craft",
   },
   {
     cuisineImage: tajImg,
-    cuisineName: "Khichuri",
+    cuisineName: "Assamese Pottery",
   },
 ];
+
 const AssamState = () => {
   return (
     <div>
@@ -48,101 +49,14 @@ const AssamState = () => {
         greetingImg={tajImg}
         greetingName={"Nomoskar"}
         stateImg={wbImg}
-        stateHistory={`Quas incidunt omnis rerum quos inventore deserunt non. Lorem ipsum
-              dolor, sit amet consectetur adipisicing elit. Explicabo corporis
-              earum, laborum facilis ipsum iusto molestias totam commodi eos
-              obcaecati consequatur voluptates sint dolores quisquam voluptate
-              autem fugiat iste excepturi? Lorem, ipsum dolor sit amet
-              consectetur adipisicing elit. Provident quaerat optio labore ut,
-              animi maiores. Facilis cum natus sit neque expedita, quisquam,
-              laboriosam alias commodi aperiam eius eveniet eum aliquid! Lorem
-              ipsum dolor sit amet consectetur adipisicing elit. Inventore
-              repellendus nam nisi reprehenderit laboriosam eveniet,
-              perspiciatis, architecto alias asperiores vero beatae omnis at
-              necessitatibus? Facere ut optio molestiae enim soluta. Lorem ipsum
-              dolor sit amet consectetur adipisicing elit. Obcaecati, minus at
-              quasi veritatis vero eveniet, praesentium magni tenetur rem itaque
-              quidem aliquam? Quas incidunt omnis rerum quos inventore deserunt
-              non. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Explicabo corporis earum, laborum facilis ipsum iusto molestias
-              totam commodi eos obcaecati consequatur voluptates sint dolores
-              quisquam voluptate autem fugiat iste excepturi? Lorem, ipsum dolor
-              sit amet consectetur adipisicing elit. Provident quaerat optio
-              labore ut, animi maiores. Facilis cum natus sit neque expedita,
-              quisquam, laboriosam alias commodi aperiam eius eveniet eum
-              aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Inventore repellendus nam nisi reprehenderit laboriosam eveniet,
-              perspiciatis, architecto alias asperiores vero beatae omnis at
-              necessitatibus? Facere ut optio molestiae enim soluta. Lorem ipsum
-              dolor sit amet consectetur adipisicing elit. Obcaecati, minus at
-              quasi veritatis vero eveniet, praesentium magni tenetur rem itaque
-              quidem aliquam? Quas incidunt omnis rerum quos inventore deserunt
-              non.`}
+        stateHistory={`Assam, located in the lush northeastern region of India, is a state rich in history and culture. It is best known for its vast tea gardens, which produce some of the world’s finest teas, and its fertile land enriched by the mighty Brahmaputra River. Historically, Assam was ruled by the Ahom Dynasty for over 600 years, contributing to the state's strong cultural identity. The state's vibrant festivals, such as Bihu, highlight the importance of agriculture and the cycles of nature. Assam is also known for its contributions to literature, arts, and traditional crafts.`}
         stateHistoryVideo={"https://youtu.be/CkZyrYfofHc"}
         cuisineDetails={AssamCuisines}
         cuisineCourse={"/learn-Indian-culture/assam-cuisine-course"}
         clothingImg={wbImg}
-        clothingDetails={`Quas incidunt omnis rerum quos inventore deserunt non. Lorem ipsum
-              dolor, sit amet consectetur adipisicing elit. Explicabo corporis
-              earum, laborum facilis ipsum iusto molestias totam commodi eos
-              obcaecati consequatur voluptates sint dolores quisquam voluptate
-              autem fugiat iste excepturi? Lorem, ipsum dolor sit amet
-              consectetur adipisicing elit. Provident quaerat optio labore ut,
-              animi maiores. Facilis cum natus sit neque expedita, quisquam,
-              laboriosam alias commodi aperiam eius eveniet eum aliquid! Lorem
-              ipsum dolor sit amet consectetur adipisicing elit. Inventore
-              repellendus nam nisi reprehenderit laboriosam eveniet,
-              perspiciatis, architecto alias asperiores vero beatae omnis at
-              necessitatibus? Facere ut optio molestiae enim soluta. Lorem ipsum
-              dolor sit amet consectetur adipisicing elit. Obcaecati, minus at
-              quasi veritatis vero eveniet, praesentium magni tenetur rem itaque
-              quidem aliquam? Quas incidunt omnis rerum quos inventore deserunt
-              non. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Explicabo corporis earum, laborum facilis ipsum iusto molestias
-              totam commodi eos obcaecati consequatur voluptates sint dolores
-              quisquam voluptate autem fugiat iste excepturi? Lorem, ipsum dolor
-              sit amet consectetur adipisicing elit. Provident quaerat optio
-              labore ut, animi maiores. Facilis cum natus sit neque expedita,
-              quisquam, laboriosam alias commodi aperiam eius eveniet eum
-              aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Inventore repellendus nam nisi reprehenderit laboriosam eveniet,
-              perspiciatis, architecto alias asperiores vero beatae omnis at
-              necessitatibus? Facere ut optio molestiae enim soluta. Lorem ipsum
-              dolor sit amet consectetur adipisicing elit. Obcaecati, minus at
-              quasi veritatis vero eveniet, praesentium magni tenetur rem itaque
-              quidem aliquam? Quas incidunt omnis rerum quos inventore deserunt
-              non.`}
+        clothingDetails={`The traditional attire of Assam reflects its rich heritage. Women often wear the Mekhela Chador, a two-piece garment known for its elegance and typically woven from indigenous silks like Muga, Pat, and Eri. The Mekhela Chador is adorned with intricate handwoven designs that depict folklore, flora, and fauna. Men usually don traditional dhotis paired with Gamosas, a versatile piece of cloth that signifies respect and is used in various ceremonies. The textiles of Assam are deeply woven into its cultural fabric, representing the artistry and skills passed down through generations.`}
         languageImg={wbImg}
-        languageDetails={`Quas incidunt omnis rerum quos inventore deserunt non. Lorem ipsum
-                    dolor, sit amet consectetur adipisicing elit. Explicabo corporis
-                    earum, laborum facilis ipsum iusto molestias totam commodi eos
-                    obcaecati consequatur voluptates sint dolores quisquam voluptate
-                    autem fugiat iste excepturi? Lorem, ipsum dolor sit amet
-                    consectetur adipisicing elit. Provident quaerat optio labore ut,
-                    animi maiores. Facilis cum natus sit neque expedita, quisquam,
-                    laboriosam alias commodi aperiam eius eveniet eum aliquid! Lorem
-                    ipsum dolor sit amet consectetur adipisicing elit. Inventore
-                    repellendus nam nisi reprehenderit laboriosam eveniet,
-                    perspiciatis, architecto alias asperiores vero beatae omnis at
-                    necessitatibus? Facere ut optio molestiae enim soluta. Lorem ipsum
-                    dolor sit amet consectetur adipisicing elit. Obcaecati, minus at
-                    quasi veritatis vero eveniet, praesentium magni tenetur rem itaque
-                    quidem aliquam? Quas incidunt omnis rerum quos inventore deserunt
-                    non. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Explicabo corporis earum, laborum facilis ipsum iusto molestias
-                    totam commodi eos obcaecati consequatur voluptates sint dolores
-                    quisquam voluptate autem fugiat iste excepturi? Lorem, ipsum dolor
-                    sit amet consectetur adipisicing elit. Provident quaerat optio
-                    labore ut, animi maiores. Facilis cum natus sit neque expedita,
-                    quisquam, laboriosam alias commodi aperiam eius eveniet eum
-                    aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Inventore repellendus nam nisi reprehenderit laboriosam eveniet,
-                    perspiciatis, architecto alias asperiores vero beatae omnis at
-                    necessitatibus? Facere ut optio molestiae enim soluta. Lorem ipsum
-                    dolor sit amet consectetur adipisicing elit. Obcaecati, minus at
-                    quasi veritatis vero eveniet, praesentium magni tenetur rem itaque
-                    quidem aliquam? Quas incidunt omnis rerum quos inventore deserunt
-                    non.`}
+        languageDetails={`The official language of Assam is Assamese, which is an Indo-Aryan language with a history dating back to the 7th century. The language has a rich literary tradition, with medieval works such as the *Kirtan-ghosa* by the revered saint-poet Sankardev and various works by Madhavdev. Assamese script is derived from the Brahmi script and shares similarities with the Bengali and Odia scripts. The language is known for its melodious tone and significant vocabulary influenced by its diverse ethnic communities.`}
         languageCourse={"/learn-Indian-culture/assamese-course"}
         artsDetails={AssamArts}
         artsCourse={"/learn-Indian-culture/assam-art-course"}

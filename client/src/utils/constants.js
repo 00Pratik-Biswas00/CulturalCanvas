@@ -17,8 +17,32 @@ import assamImg from "../assets/states/assam.png";
 import jkImg from "../assets/states/jk.png";
 import karnatakaImg from "../assets/states/karnataka.png";
 import meghalayaImg from "../assets/states/meghalaya.png";
-import uPradeshImg from "../assets/states/up.png";
+import uttarpradeshImg from "../assets/states/up.png";
+import andhrapradeshImg from "../assets/states/wb.png";
+import arunachalpradeshImg from "../assets/states/wb.png";
+import biharImg from "../assets/states/wb.png";
+import chhattisgarhImg from "../assets/states/wb.png";
+import goaImg from "../assets/states/wb.png";
+import gujaratImg from "../assets/states/wb.png";
+import haryanaImg from "../assets/states/wb.png";
+import himachalpradeshImg from "../assets/states/wb.png";
+import jharkhandImg from "../assets/states/wb.png";
+import keralaImg from "../assets/states/wb.png";
+import madhyapradeshImg from "../assets/states/wb.png";
+import maharashtraImg from "../assets/states/wb.png";
+import manipurImg from "../assets/states/wb.png";
+import mizoramImg from "../assets/states/wb.png";
+import nagalandImg from "../assets/states/wb.png";
+import odishaImg from "../assets/states/wb.png";
+import punjabImg from "../assets/states/wb.png";
+import rajasthanImg from "../assets/states/wb.png";
+import sikkimImg from "../assets/states/wb.png";
+import tamilnaduImg from "../assets/states/wb.png";
+import telanganaImg from "../assets/states/wb.png";
+import tripuraImg from "../assets/states/wb.png";
+import uttarakhandImg from "../assets/states/wb.png";
 import wbImg from "../assets/states/wb.png";
+
 
 import bengaliImg from "../assets/courses/bengali.png";
 
@@ -87,37 +111,151 @@ export const dummyData = {
 
   StateCulturesData: [
     {
+      stateImg: andhrapradeshImg,
+      stateName: "1. Andhra Pradesh",
+      individualPage: "/culture-tradition/andhra-pradesh-state",
+    },
+    {
+      stateImg: arunachalpradeshImg,
+      stateName: "2. Arunachal Pradesh",
+      individualPage: "/culture-tradition/arunachal-pradesh-state",
+    },
+    {
       stateImg: assamImg,
-      stateName: "1. Assam",
+      stateName: "3. Assam",
       individualPage: "/culture-tradition/assam-state",
     },
     {
+      stateImg: biharImg,
+      stateName: "4. Bihar",
+      individualPage: "/culture-tradition/bihar-state",
+    },
+    {
+      stateImg: chhattisgarhImg,
+      stateName: "5. Chhattisgarh",
+      individualPage: "/culture-tradition/chhattisgarh-state",
+    },
+    {
+      stateImg: goaImg,
+      stateName: "6. Goa",
+      individualPage: "/culture-tradition/goa-state",
+    },
+    {
+      stateImg: gujaratImg,
+      stateName: "7. Gujarat",
+      individualPage: "/culture-tradition/gujarat-state",
+    },
+    {
+      stateImg: haryanaImg,
+      stateName: "8. Haryana",
+      individualPage: "/culture-tradition/haryana-state",
+    },
+    {
+      stateImg: himachalpradeshImg,
+      stateName: "9. Himachal Pradesh",
+      individualPage: "/culture-tradition/himachal-pradesh-state",
+    },
+    {
       stateImg: jkImg,
-      stateName: "2. Jammu & Kashmir",
+      stateName: "10. Jammu & Kashmir",
       individualPage: "/culture-tradition/jammu-kashmir-state",
     },
-
+    {
+      stateImg: jharkhandImg,
+      stateName: "11. Jharkhand",
+      individualPage: "/culture-tradition/jharkhand-state",
+    },
     {
       stateImg: karnatakaImg,
-      stateName: "3. Karnataka",
+      stateName: "12. Karnataka",
       individualPage: "/culture-tradition/karnataka-state",
     },
     {
+      stateImg: keralaImg,
+      stateName: "13. Kerala",
+      individualPage: "/culture-tradition/kerala-state",
+    },
+    {
+      stateImg: madhyapradeshImg,
+      stateName: "14. Madhya Pradesh",
+      individualPage: "/culture-tradition/madhya-pradesh-state",
+    },
+    {
+      stateImg: maharashtraImg,
+      stateName: "15. Maharashtra",
+      individualPage: "/culture-tradition/maharashtra-state",
+    },
+    {
+      stateImg: manipurImg,
+      stateName: "16. Manipur",
+      individualPage: "/culture-tradition/manipur-state",
+    },
+    {
       stateImg: meghalayaImg,
-      stateName: "4. Meghalaya",
+      stateName: "17. Meghalaya",
       individualPage: "/culture-tradition/meghalaya-state",
     },
     {
-      stateImg: uPradeshImg,
-      stateName: "5. Uttar Pradesh",
+      stateImg: mizoramImg,
+      stateName: "18. Mizoram",
+      individualPage: "/culture-tradition/mizoram-state",
+    },
+    {
+      stateImg: nagalandImg,
+      stateName: "19. Nagaland",
+      individualPage: "/culture-tradition/nagaland-state",
+    },
+    {
+      stateImg: odishaImg,
+      stateName: "20. Odisha",
+      individualPage: "/culture-tradition/odisha-state",
+    },
+    {
+      stateImg: punjabImg,
+      stateName: "21. Punjab",
+      individualPage: "/culture-tradition/punjab-state",
+    },
+    {
+      stateImg: rajasthanImg,
+      stateName: "22. Rajasthan",
+      individualPage: "/culture-tradition/rajasthan-state",
+    },
+    {
+      stateImg: sikkimImg,
+      stateName: "23. Sikkim",
+      individualPage: "/culture-tradition/sikkim-state",
+    },
+    {
+      stateImg: tamilnaduImg,
+      stateName: "24. Tamil Nadu",
+      individualPage: "/culture-tradition/tamil-nadu-state",
+    },
+    {
+      stateImg: telanganaImg,
+      stateName: "25. Telangana",
+      individualPage: "/culture-tradition/telangana-state",
+    },
+    {
+      stateImg: tripuraImg,
+      stateName: "26. Tripura",
+      individualPage: "/culture-tradition/tripura-state",
+    },
+    {
+      stateImg: uttarpradeshImg,
+      stateName: "27. Uttar Pradesh",
       individualPage: "/culture-tradition/uttar-pradesh-state",
     },
     {
-      stateImg: wbImg,
-      stateName: "6. West Bengal",
-      individualPage: "/culture-tradition/west-bengal-state",
+      stateImg: uttarakhandImg,
+      stateName: "28. Uttarakhand",
+      individualPage: "/culture-tradition/uttarakhand-state",
     },
-  ],
+    {
+      stateImg: wbImg,
+      stateName: "29. West Bengal",
+      individualPage: "/culture-tradition/west-bengal-state",
+    }
+],
 
   SingleState: {
     stateHistory: [
