@@ -2,7 +2,7 @@ import React from "react";
 import { FaAnglesDown } from "react-icons/fa6";
 import { FaAngleDoubleUp } from "react-icons/fa";
 
-const LoadMoreButton = ({ visibleCount, onClick, vCount }) => {
+const LoadMoreButton = ({ isAllDisplayed, onClick }) => {
   return (
     <div>
       <button
@@ -13,19 +13,7 @@ const LoadMoreButton = ({ visibleCount, onClick, vCount }) => {
           aria-hidden="true"
           className="transition duration-300 group-hover:-translate-y-12"
         >
-          {visibleCount === vCount ? (
-            <>
-              <div className="h-12 flex items-center justify-center">
-                <span className="text-highlight_hover">Show More</span>
-              </div>
-              <div className="h-12 flex items-center justify-center">
-                <span className="text-highlight_hover">
-                  {" "}
-                  <FaAnglesDown />{" "}
-                </span>
-              </div>
-            </>
-          ) : (
+          {isAllDisplayed ? (
             <>
               <div className="h-12 flex items-center justify-center">
                 <span className="text-highlight_hover">Show Less</span>
@@ -34,6 +22,18 @@ const LoadMoreButton = ({ visibleCount, onClick, vCount }) => {
                 <span className="text-highlight_hover">
                   {" "}
                   <FaAngleDoubleUp />{" "}
+                </span>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="h-12 flex items-center justify-center">
+                <span className="text-highlight_hover">Show More</span>
+              </div>
+              <div className="h-12 flex items-center justify-center">
+                <span className="text-highlight_hover">
+                  {" "}
+                  <FaAnglesDown />{" "}
                 </span>
               </div>
             </>

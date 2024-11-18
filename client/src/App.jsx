@@ -35,22 +35,6 @@ import MyProfile from "./pages/MyProfile";
 import BudgetPredictor from "./pages/BudgetPrediction";
 import SingleStateCulture from "./pages/SingleStateCulture";
 import SavedTrips from "./pages/ExploreDiversity/SavedTrips";
-
-// Admin pages
-import AdminNavSidebar from "./admin-components/AdminNavbar";
-import AdminDashboard from "./admin-pages/AdminDashboard";
-import AdminUsers from "./admin-pages/AdminUsers";
-import AdminAdmins from "./admin-pages/AdminAdmins";
-import AdminSellers from "./admin-pages/AdminSellers";
-import AdminStates from "./admin-pages/AdminStates";
-import AdminCourses from "./admin-pages/AdminCourses";
-import AdminHeritage from "./admin-pages/AdminHeritage";
-import AdminCulture from "./admin-pages/AdminCulture";
-import AdminMarket from "./admin-pages/AdminMarket";
-import SingleBlogVlog from "./pages/SingleBlogVlog";
-import UploadBlogVlog from "./pages/UploadBlogVlog/UploadBlogVlog";
-import AdminContents from "./admin-pages/AdminContents";
-import AdminSingleBlogVerification from "./admin-pages/AdminContents/AdminSingleBlogVerification";
 import LearnIndianCultureCourses from "./pages/LearnIndianCulture/LearnIndianCultureCourses";
 import BengaliCourse from "./pages/IndividualCoursesPage/BengaliCourse";
 import EnglishCourse from "./pages/IndividualCoursesPage/EnglishCourse";
@@ -59,6 +43,25 @@ import GujaratiCourse from "./pages/IndividualCoursesPage/GujaratiCourse";
 import UrduCourse from "./pages/IndividualCoursesPage/UrduCourse";
 import UserBlogsVLogs from "./pages/UserBlogsVLogs";
 import AssamState from "./pages/SingleStateCulture/AssamState";
+import WestBengalState from "./pages/SingleStateCulture/WestBengalState";
+import ChhattisgarhState from "./pages/SingleStateCulture/ChhattisgarhState";
+import BiharState from "./pages/SingleStateCulture/BiharState";
+import ArunachalPradeshState from "./pages/SingleStateCulture/ArunachalPradeshState";
+import AndhraPradeshState from "./pages/SingleStateCulture/AndhraPradeshState";
+
+// Admin pages
+import AdminNavSidebar from "./admin-components/AdminNavbar";
+import AdminDashboard from "./admin-pages/AdminDashboard";
+import AdminUsers from "./admin-pages/AdminUsers";
+import AdminAdmins from "./admin-pages/AdminAdmins";
+import AdminSellers from "./admin-pages/AdminSellers";
+import AdminCourses from "./admin-pages/AdminCourses";
+import AdminHeritage from "./admin-pages/AdminHeritage";
+import AdminMarket from "./admin-pages/AdminMarket";
+import SingleBlogVlog from "./pages/SingleBlogVlog";
+import UploadBlogVlog from "./pages/UploadBlogVlog/UploadBlogVlog";
+import AdminContents from "./admin-pages/AdminContents";
+import AdminSingleBlogVerification from "./admin-pages/AdminContents/AdminSingleBlogVerification";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -227,6 +230,26 @@ function App() {
               <Route
                 path="/culture-tradition/assam-state"
                 element={<AssamState />}
+              />
+              <Route
+                path="/culture-tradition/andhra-pradesh-state"
+                element={<AndhraPradeshState />}
+              />
+              <Route
+                path="/culture-tradition/arunachal-pradesh-state"
+                element={<ArunachalPradeshState />}
+              />
+              <Route
+                path="/culture-tradition/bihar-state"
+                element={<BiharState />}
+              />
+              <Route
+                path="/culture-tradition/chhattisgarh-state"
+                element={<ChhattisgarhState />}
+              />
+              <Route
+                path="/culture-tradition/west-bengal-state"
+                element={<WestBengalState />}
               />
 
               {/*  ---------------- Learning Courses  ---------------- */}

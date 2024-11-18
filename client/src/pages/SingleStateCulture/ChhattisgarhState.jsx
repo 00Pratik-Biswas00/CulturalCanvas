@@ -41,11 +41,11 @@ const AssamArts = [
   },
 ];
 
-const AssamState = () => {
+const ChhattisgarhState = () => {
   return (
     <div>
       <SingleStateCulture
-        stateName={["Assam"]}
+        stateName={["Chhattisgarh"]}
         greetingImg={tajImg}
         greetingName={"Nomoskar"}
         stateImg={wbImg}
@@ -65,4 +65,4 @@ const AssamState = () => {
   );
 };
 
-export default AssamState;
+export default ChhattisgarhState;
