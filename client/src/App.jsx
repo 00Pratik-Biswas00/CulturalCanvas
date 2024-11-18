@@ -58,6 +58,7 @@ import HindiCourse from "./pages/IndividualCoursesPage/HindiCourse";
 import GujaratiCourse from "./pages/IndividualCoursesPage/GujaratiCourse";
 import UrduCourse from "./pages/IndividualCoursesPage/UrduCourse";
 import UserBlogsVLogs from "./pages/UserBlogsVLogs";
+import AssamState from "./pages/SingleStateCulture/AssamState";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -216,12 +217,16 @@ function App() {
                 element={<MultiplePagesCulture />}
               />
               <Route
+                path="/culture-tradition/multiple-pages/:slug"
+                element={<MultipleSingleCulture />}
+              />
+              <Route
                 path="/culture-tradition/single-state"
                 element={<SingleStateCulture />}
               />
               <Route
-                path="/culture-tradition/multiple-pages/:slug"
-                element={<MultipleSingleCulture />}
+                path="/culture-tradition/assam-state"
+                element={<AssamState />}
               />
 
               {/*  ---------------- Learning Courses  ---------------- */}

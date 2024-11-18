@@ -39,7 +39,6 @@ const Footer = () => {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1000 100"
-          // fill="bg-background2 dark:bg-shadow"
           className="w-full h-full fill-current text-[#fff] dark:text-dark_background1"
         >
           <path d="M0 0v4c250 0 250 96 500 96S750 4 1000 4V0H0Z"></path>
