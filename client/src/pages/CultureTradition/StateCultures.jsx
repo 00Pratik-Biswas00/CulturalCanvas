@@ -8,6 +8,7 @@ const StateCultures = () => {
   const navigate = useNavigate();
 
   const [visibleCount, setVisibleCount] = useState(6);
+  const isAllDisplayed = visibleCount >= StateCulturesData.length;
 
   const openSingleState = () => {
     navigate(`/culture-tradition/single-state`);
@@ -62,12 +63,17 @@ const StateCultures = () => {
       <div className="flex justify-center pt-20">
         <LoadMoreButton
           visibleCount={visibleCount}
+          isAllDisplayed={isAllDisplayed}
           onClick={() =>
-            setVisibleCount((prev) =>
-              prev === 6 ? dummyData.StateCulturesData.length : 6
-            )
+            setVisibleCount((prev) => {
+              if (prev + 6 >= dummyData.StateCulturesData.length) {
+                return prev === dummyData.StateCulturesData.length
+                  ? 6
+                  : dummyData.StateCulturesData.length;
+              }
+              return prev + 6;
+            })
           }
-          vCount={6}
         />
       </div>
     </div>

@@ -96,19 +96,19 @@ const SingleStateCulture = ({
           <h1 className=" font-extrabold text-5xl  ">Brief History</h1>
           <p className=" opacity-70 text-lg">
             {" "}
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.?
+            Discover the rich heritage and story of the region{" "}
           </p>
         </div>
 
         <div className="relative ">
           <img
             src={stateImg}
-            alt="West Bengal"
-            className="float-right w-64 h-64 object-cover "
+            alt="state image"
+            className="float-right w-72 h-72 object-cover "
           />
 
           <div className=" flex flex-col gap-3">
-            <p className="text-justify">{stateHistory}</p>
+            <p className="text-justify text-lg">{stateHistory}</p>
             <div className="flex flex-col items-start justify-center">
               <a
                 className="bg-highlight hover:bg-highlight_dark duration-500 px-3 py-1 rounded-xl font-bold"
@@ -128,7 +128,7 @@ const SingleStateCulture = ({
           <h1 className=" font-extrabold text-5xl  ">Cuisines</h1>
           <p className=" opacity-70 text-lg">
             {" "}
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.?
+            Taste the flavors that define culture and tradition{" "}
           </p>
         </div>
 
@@ -174,7 +174,7 @@ const SingleStateCulture = ({
           <h1 className=" font-extrabold text-5xl  ">Traditional Clothing</h1>
           <p className=" opacity-70 text-lg">
             {" "}
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.?
+            Explore iconic attire reflecting heritage and local identity{" "}
           </p>
         </div>
 
@@ -197,7 +197,7 @@ const SingleStateCulture = ({
           <h1 className=" font-extrabold text-5xl  ">Language</h1>
           <p className=" opacity-70 text-lg">
             {" "}
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.?
+            Dive into the linguistic treasures shaping communication and culture{" "}
           </p>
         </div>
 
@@ -243,7 +243,8 @@ const SingleStateCulture = ({
           <h1 className=" font-extrabold text-5xl  ">Arts & Crafts</h1>
           <p className=" opacity-70 text-lg">
             {" "}
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.?
+            Uncover timeless creativity through handcrafted masterpieces and
+            traditions{" "}
           </p>
         </div>
 
