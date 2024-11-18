@@ -5,7 +5,7 @@ const MyButton3 = ({ classDesign, onClick, buttonName, buttonIcon }) => {
     <div>
       <button
         onClick={onClick}
-        class={`relative flex items-center justify-center font-bold gap-2  group overflow-hidden px-8 py-2 rounded-md 
+        className={`relative flex items-center justify-center font-bold gap-2  group overflow-hidden px-8 py-2 rounded-md 
         before:absolute 
         before:inset-0 
         
@@ -23,8 +23,8 @@ const MyButton3 = ({ classDesign, onClick, buttonName, buttonIcon }) => {
         transition-transform hover:scale-105 transform-cpu
                       `}
       >
-        <span class="relative uppercase text-lg ">{buttonName}</span>
-        <span class="relative uppercase text-lg ">{buttonIcon}</span>
+        <span className="relative uppercase text-lg ">{buttonName}</span>
+        <span className="relative uppercase text-lg ">{buttonIcon}</span>
       </button>
     </div>
   );

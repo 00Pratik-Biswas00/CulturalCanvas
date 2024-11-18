@@ -25,14 +25,12 @@ import SingleCourse from "./pages/SingleCourse";
 import ScrollToTop from "./components/ScrollToTop";
 import GoToTop from "./components/GoToTopButton";
 import Chatbot from "./components/ChatBot";
-import PredictAmount from "./pages/ExploreDiversity/PredictAmount";
 import TripCreation from "./pages/ExploreDiversity/TripCreation";
 import ViewTrip from "./pages/ExploreDiversity/ViewTrip/[tripId]/index";
 import SinglePageCulture from "./pages/SinglePageCulture";
 import MultiplePagesCulture from "./pages/MultiplePagesCulture";
 import MultipleSingleCulture from "./pages/MultiplePagesCulture/MultipleSingleCulture";
 import MyProfile from "./pages/MyProfile";
-import BudgetPredictor from "./pages/BudgetPrediction";
 import SingleStateCulture from "./pages/SingleStateCulture";
 import SavedTrips from "./pages/ExploreDiversity/SavedTrips";
 import LearnIndianCultureCourses from "./pages/LearnIndianCulture/LearnIndianCultureCourses";
@@ -48,6 +46,8 @@ import ChhattisgarhState from "./pages/SingleStateCulture/ChhattisgarhState";
 import BiharState from "./pages/SingleStateCulture/BiharState";
 import ArunachalPradeshState from "./pages/SingleStateCulture/ArunachalPradeshState";
 import AndhraPradeshState from "./pages/SingleStateCulture/AndhraPradeshState";
+import SingleBlogVlog from "./pages/SingleBlogVlog";
+import UploadBlogVlog from "./pages/UploadBlogVlog/UploadBlogVlog";
 
 // Admin pages
 import AdminNavSidebar from "./admin-components/AdminNavbar";
@@ -58,10 +58,11 @@ import AdminSellers from "./admin-pages/AdminSellers";
 import AdminCourses from "./admin-pages/AdminCourses";
 import AdminHeritage from "./admin-pages/AdminHeritage";
 import AdminMarket from "./admin-pages/AdminMarket";
-import SingleBlogVlog from "./pages/SingleBlogVlog";
-import UploadBlogVlog from "./pages/UploadBlogVlog/UploadBlogVlog";
 import AdminContents from "./admin-pages/AdminContents";
 import AdminSingleBlogVerification from "./admin-pages/AdminContents/AdminSingleBlogVerification";
+
+// new additions
+import PredictBudget from "./pages/ExploreDiversity/PredictAmount";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -150,11 +151,7 @@ function App() {
                 path="/sellers-acdprsIndia24"
                 element={<AdminSellers />}
               />
-              {/* <Route
-                exact
-                path="/states-acdprsIndia24"
-                element={<AdminStates />}
-              /> */}
+
               <Route
                 exact
                 path="/courses-acdprsIndia24"
@@ -165,11 +162,7 @@ function App() {
                 path="/heritage-acdprsIndia24"
                 element={<AdminHeritage />}
               />
-              {/* <Route
-                exact
-                path="/culture-acdprsIndia24"
-                element={<AdminCulture />}
-              /> */}
+
               <Route
                 exact
                 path="/market-place-acdprsIndia24"
@@ -285,8 +278,8 @@ function App() {
               {/*  ---------------- Explore Diversity  ---------------- */}
               <Route path="/explore-diversity" element={<ExploreDiversity />} />
               <Route
-                path="/explore-diversity/predict-amount"
-                element={<PredictAmount />}
+                path="/explore-diversity/predict-budget"
+                element={<PredictBudget />}
               />
               <Route
                 path="/explore-diversity/create-trip"
@@ -296,10 +289,10 @@ function App() {
                 path="/explore-diversity/create-trip/view-trip/:tripId"
                 element={<ViewTrip />}
               />
-              <Route
+              {/* <Route
                 path="/explore-diversity/predict-budget"
                 element={<BudgetPredictor />}
-              />
+              /> */}
               <Route
                 path="/explore-diversity/saved-trips"
                 element={<SavedTrips />}

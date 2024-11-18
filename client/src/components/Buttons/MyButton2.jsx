@@ -11,13 +11,13 @@ const MyButton2 = ({ classDesign, buttonLink, buttonName1, buttonName2 }) => {
       >
         <div
           aria-hidden="true"
-          class="transition duration-500 group-hover:-translate-y-12"
+          className="transition duration-500 group-hover:-translate-y-12"
         >
-          <div class="h-12 flex items-center justify-center">
-            <span class="">{buttonName1}</span>
+          <div className="h-12 flex items-center justify-center">
+            <span className="">{buttonName1}</span>
           </div>
-          <div class="h-12 text-base font-bold flex items-center justify-center">
-            <span class="">{buttonName2}</span>
+          <div className="h-12 text-base font-bold flex items-center justify-center">
+            <span className="">{buttonName2}</span>
           </div>
         </div>
       </button>

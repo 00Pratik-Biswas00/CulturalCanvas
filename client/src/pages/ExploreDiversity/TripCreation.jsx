@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 import { Input } from "../../components/ExplorePlacesComponents/ui/input";
 import {
@@ -6,7 +6,6 @@ import {
   SelectBudgetOptions,
   SelectTravelList,
 } from "../../components/ExplorePlacesComponents/constants/options";
-import { Button } from "../../components/ExplorePlacesComponents/ui/button";
 import { toast } from "sonner";
 import { chatSession } from "../../components/ExplorePlacesComponents/service/AIModel";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
@@ -14,7 +13,6 @@ import { useNavigate } from "react-router-dom";
 import api from "../../config/axios";
 import { CiBoxList } from "react-icons/ci";
 import MyButton4 from "../../components/Buttons/MyButton4";
-import SquareAnimation from "../../components/Blobs/SquareAnimation";
 
 function CreateTrip() {
   const [place, setPlace] = useState();
@@ -40,7 +38,7 @@ function CreateTrip() {
       !formData?.budget ||
       !formData?.traveler
     ) {
-      toast.dismiss("Please fill all details!");
+      toast.error("Please fill all details!");
       return;
     }
     toast.success("Form generated.");
@@ -80,7 +78,7 @@ function CreateTrip() {
   };
 
   return (
-    <div className="relative px-5  sm:px-10 md:px-32 lg:px-56 xl:px-72 duration-300 bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-6 flex flex-col gap-10">
+    <div className="relative px-5  sm:px-10 md:px-32 lg:px-32 duration-300 bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-6 flex flex-col gap-10">
       <div onClick={openSavedTrips} className="absolute right-[4.3rem] group">
         <CiBoxList className="w-10 h-10 cursor-pointer" />
 
@@ -95,28 +93,30 @@ function CreateTrip() {
         </div>
       </div>
 
-      <div>
-        <h2 className="font-bold text-3xl">
-          Tell us your travel preferences 🌍✈️🌴
+      <div className="flex flex-col items-center justify-center gap-3">
+        <h2 className="font-montserrat text-5xl">
+          Plan Your Perfect Trip ✈️🌴{" "}
         </h2>
-        <p className="mt-3 text-secondary_text  dark:text-background2 text-xl">
-          Just provide some basic information, and our trip planner will
-          generate a customized itinerary based on your preferences.
+        <p className=" opacity-70 text-lg">
+          Share your travel preferences, and our trip planner will create a
+          tailored itinerary just for you!
         </p>
       </div>
 
-      <div className=" z-10 flex flex-col gap-5">
-        <div className="mb-5 flex flex-col gap-2">
-          <label className="text-xl font-medium">
-            What is your destination of choice?
+      <div className=" z-10 flex flex-col gap-10">
+        <div className=" flex flex-col gap-2">
+          <label className="text-xl font-medium ">
+            Enter Your Destination of Choice!
           </label>
           <GooglePlacesAutocomplete
             apiKey={import.meta.env.VITE_GOOGLE_PLACES_API_KEY}
             selectProps={{
               place,
               onChange: (v) => {
+                console.log("Selected Place:", v);
+
                 setPlace(v);
-                handleInputChange("location", v.label);
+                handleInputChange("location", v?.label || ""); // Safeguard against undefined values
               },
               styles: {
                 control: (provided) => ({
@@ -151,9 +151,9 @@ function CreateTrip() {
           />
         </div>
 
-        <div className="mb-5">
+        <div className="">
           <label className="text-xl font-medium">
-            How many days are you planning your trip?
+            How Long is Your Trip Planned For?
           </label>
           <Input
             placeholder={"ex. 3"}
@@ -164,54 +164,57 @@ function CreateTrip() {
           />
         </div>
 
-        <div>
-          <label className="text-xl mb-5 font-medium">
-            What is Your Budget?
-          </label>
-          <p>
-            The budget is exclusively allocated for activities and dining
-            purposes.
-          </p>
-          <div className="grid grid-cols-3 gap-5 mt-5 mb-5 bg-background1 dark:bg-dark_background1">
-            {SelectBudgetOptions.map((item, index) => (
-              <div
-                key={index}
-                onClick={() => handleInputChange("budget", item.title)}
-                className={`cursor-pointer p-4 border rounded-lg hover:shadow-lg ${
-                  formData?.budget === item.title &&
-                  "shadow-lg border-highlight_hover"
-                }`}
-              >
-                <h2 className="text-3xl">{item.icon}</h2>
-                <h2 className="font-bold text-lg">{item.title}</h2>
-                <h2 className="text-sm text-secondary_text dark:text-background2">
-                  {item.desc}
-                </h2>
-              </div>
-            ))}
+        <div className="flex w-full  justify-between px-16">
+          <div className="flex flex-col items-center justify-center gap-2">
+            <label className="text-xl font-medium">
+              What is your estimated <b>BUDGET</b>?
+            </label>
+            <p>
+              This budget will be used solely for activities and dining
+              experiences.
+            </p>
+            <div className="grid grid-cols-3 gap-5 my-5 bg-background1 dark:bg-dark_background1">
+              {SelectBudgetOptions.map((item, index) => (
+                <div
+                  key={index}
+                  onClick={() => handleInputChange("budget", item.title)}
+                  className={`cursor-pointer flex flex-col items-center justify-center  p-5 border rounded-full hover:shadow-lg shadow-dark_background1 dark:shadow-background1 ${
+                    formData?.budget === item.title &&
+                    "shadow-md border-highlight_hover"
+                  }`}
+                >
+                  <h2 className="text-3xl">{item.icon}</h2>
+                  <h2 className="font-bold text-lg">{item.title}</h2>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <label className="text-xl font-medium my-3">
-            Who do you plan on traveling with on your next adventure?
-          </label>
-          <div className="grid grid-cols-3 gap-5 mt-5 bg-background1 dark:bg-dark_background1">
-            {SelectTravelList.map((item, index) => (
-              <div
-                key={index}
-                onClick={() => handleInputChange("traveler", item.people)}
-                className={`cursor-pointer p-4 border rounded-lg hover:shadow-lg ${
-                  formData?.traveler === item.people &&
-                  "shadow-lg border-highlight"
-                }`}
-              >
-                <h2 className="text-3xl">{item.icon}</h2>
-                <h2 className="text-lg font-bold">{item.title}</h2>
-                <h2 className="text-sm text-gray-500">{item.desc}</h2>
-              </div>
-            ))}
+          <div className="flex flex-col items-center justify-center gap-2">
+            <label className="text-xl font-medium">
+              Who will <b>ACCOMPANY</b> you on your journey?
+            </label>
+            <p>Choose your travel companions for this adventure.</p>
+            <div className="grid grid-cols-4 gap-5 my-5 bg-background1 dark:bg-dark_background1">
+              {SelectTravelList.map((item, index) => (
+                <div
+                  key={index}
+                  onClick={() => handleInputChange("traveler", item.people)}
+                  className={`cursor-pointer flex flex-col items-center justify-center  p-5 border rounded-full hover:shadow-lg shadow-dark_background1 dark:shadow-background1 ${
+                    formData?.traveler === item.people &&
+                    "shadow-md border-highlight"
+                  }`}
+                >
+                  <h2 className="text-3xl">{item.icon}</h2>
+                  <h2 className="text-lg font-bold">{item.title}</h2>
+                  {/* <h2 className="text-sm text-gray-500">{item.desc}</h2> */}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
+
       <div className=" z-10 flex justify-end">
         {loading ? (
           <AiOutlineLoading3Quarters className="h-7 w-7 animate-spin" />
@@ -221,11 +224,10 @@ function CreateTrip() {
               "bg-highlight_dark before:bg-highlight  text-dark_primary_text "
             }
             buttonName={"Generate Trip"}
-            buttonLink={OnGenerateTrip}
+            onClick={OnGenerateTrip}
           />
         )}
       </div>
-      {/* <SquareAnimation /> */}
     </div>
   );
 }
