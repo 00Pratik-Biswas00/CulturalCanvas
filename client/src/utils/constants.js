@@ -1,13 +1,3 @@
-// home
-
-import homeImg from "../assets/Home/home.avif";
-import heritageImg from "../assets/Home/heritage.avif";
-import cultureImg from "../assets/Home/culture.avif";
-import learnImg from "../assets/Home/learn.avif";
-import exploreImg from "../assets/Home/exploreDiversity.avif";
-import blogsImg from "../assets/Home/blogs.avif";
-import virtualStoreImg from "../assets/Home/virtual.avif";
-
 // culture
 
 import langImg from "../assets/culture/language.avif";
@@ -30,565 +20,12 @@ import meghalayaImg from "../assets/states/meghalaya.png";
 import uPradeshImg from "../assets/states/up.png";
 import wbImg from "../assets/states/wb.png";
 
-import taj from "../assets/Heritage/taj.jpeg";
 import bengaliImg from "../assets/courses/bengali.png";
-
-import unescoLogo from "../assets/Heritage/unescologo.png";
 
 import upImg from "../assets/Heritage/up.png";
 
-import bahomein from "../assets/Heritage/bais.mp4";
-
-import img1 from "../assets/blogs/pic1.jpg";
-import img2 from "../assets/blogs/pic2.jpeg";
-import img3 from "../assets/blogs/pic3.png";
-import img4 from "../assets/Heritage/taj.jpeg";
-import img5 from "../assets/explorePlaces/travel.jpg";
-import img6 from "../assets/explorePlaces/createTrip.jpg";
-import pratikImg from "../assets/courses/pratik.jpg";
-
-
-
 export const dummyData = {
-  // updated home page
-  Home: [
-    {
-      para: `Dive deep into India’s historical and cultural wealth by exploring its most celebrated World Heritage Sites. This section is dedicated to the architectural and natural marvels that have stood the test of time, each narrating a story of its own. From the majestic forts that once guarded kingdoms to the sacred temples that echo with ancient prayers, you’ll uncover the profound legacy embedded in these sites. Explore high-resolution images, detailed histories, and interactive elements that bring these monumental treasures to life. Through comprehensive narratives and visual splendor, gain a profound understanding of India’s past and appreciate the craftsmanship and cultural significance that make these sites globally revered.`,
-      image: heritageImg,
-      shadow: "shadow-custom-blue",
-      buttonName: "Unveiling India’s Timeless Treasures",
-      buttonLink: "/heritage",
-    },
-    {
-      para: `India’s culture is a vibrant mosaic of traditions that reflect the country’s diverse heritage and spiritual depth. Each region, with its unique customs, festivals, and rituals, contributes to the rich tapestry that is Indian culture. This section celebrates the living traditions that have been passed down through generations, offering insight into the practices that define Indian life. From the joyous celebrations of Diwali and Holi to the solemn rituals of a Hindu wedding, every cultural expression is a reflection of the values, beliefs, and history of its people. Traditional attire like the saree, kurta-pajama, and lehenga-choli are more than just clothing; they are symbols of identity, steeped in cultural significance. As you explore this section, you will gain a deeper appreciation for the traditions that continue to thrive in India, preserving the essence of a civilization that has influenced the world for centuries.`,
-      image: cultureImg,
-      shadow: "shadow-custom-green",
-      buttonName: "Experience the Living Tapestry of India’s Culture",
-      buttonLink: "/culture-tradition",
-    },
-    {
-      para: `Discover the essence of India’s vibrant culture with a comprehensive educational experience. This section invites you to explore various facets of Indian traditions, from culinary arts to linguistic diversity and traditional attire. Engage in interactive tutorials on authentic Indian cooking, where you can master traditional recipes from different regions. Learn about the rich tapestry of India’s languages through engaging articles and language lessons that highlight the country's linguistic heritage. Explore traditional attire, including the saree, lehenga, and kurta-pajama, with style guides and historical insights. This immersive experience allows you to not only learn about India’s culture but to live it, offering a deeper connection to its diverse traditions.`,
-      image: learnImg,
-      shadow: "shadow-custom-orange",
-      buttonName: "Dive Deep into the Rich Tapestry of Indian Traditions",
-      buttonLink: "/learn-Indian-culture",
-    },
-    {
-      para: `Plan an unforgettable journey through India with a personalized travel guide tailored to your interests. This section helps you design a customized itinerary based on your starting point, desired destinations, and trip duration. Discover essential sites, from historic landmarks and cultural hotspots to scenic nature trails. Receive recommendations for local experiences, including culinary tours and cultural performances, as well as practical advice on accommodation and dining. This comprehensive guide ensures a well-rounded adventure, with every detail thoughtfully considered to enhance your travel experience and create lasting memories across India's diverse landscapes.`,
-      image: exploreImg,
-      shadow: "shadow-custom-blue",
-      buttonName: "Craft Your Perfect Indian Adventure",
-      buttonLink: "/explore-diversity",
-    },
-    {
-      para: `Immerse yourself in the vibrant stories and insights of fellow travelers who have explored India’s diverse landscapes. This section features a rich collection of blogs, vlogs, and personal narratives that provide firsthand accounts of Indian adventures. Gain inspiration from detailed travel diaries, engaging video logs, and cultural reflections that showcase the country’s vibrant experiences. Share your own travel stories and connect with a community passionate about India. This interactive space allows you to gather practical advice, discover hidden gems, and enjoy a dynamic exchange of travel experiences, enriching your understanding and appreciation of India.`,
-      image: blogsImg,
-      shadow: "shadow-custom-green",
-      buttonName: "Explore India Through the Eyes of Fellow Travelers",
-      buttonLink: "/blogs-vlogs",
-    },
-    {
-      para: `Connect with India’s artistic legacy through a curated selection of traditional arts and crafts. This section offers authentic products sourced from local artisans, including handwoven textiles, intricate jewelry, and unique crafts. Each item represents a piece of India’s rich cultural heritage, crafted with traditional techniques passed down through generations. By purchasing from this section, you support the preservation of these ancient crafts and the livelihoods of artisans. Enjoy a meaningful shopping experience that not only brings a piece of India into your home but also contributes to the ongoing celebration and preservation of its artistic traditions. `,
-      image: virtualStoreImg,
-      shadow: "shadow-custom-orange",
-      buttonName: "Bring a Piece of India’s Heritage Home",
-      buttonLink: "/virtual-store",
-    },
-  ],
-
-  HeritageDetails: {
-    unesco_listed: [
-      {
-        image: taj,
-        name: "Taj Mahal",
-        introduction:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
-        category: "UNESCO Listed",
-
-        categoryImg: unescoLogo,
-        type: "cultural",
-        endlessDigitalArt: bahomein,
-
-        // before video blog
-        part1: [
-          {
-            heading1: "loremdsfdssfd",
-            description1: "sdffffffffffffffffsdgsgvesvgerfergveveggerger",
-          },
-          {
-            heading1: "dfffef",
-            description1:
-              "sdccccccccccccccccccccccffffffffffffffffsdgsgvesvgerfergveveggerger",
-          },
-        ],
-        // animated video
-        animatedVideo: bahomein,
-        // after video blog
-        part2: [
-          {
-            heading2: "vrefwefw",
-            description2: "svrwfweweerfwefwfwfwvvvwfwefwfw",
-          },
-          {
-            heading2: "vrevvvvvvfwefw",
-            description2: "svvvvvvvvvvvvvvvvvvvvrwfweweerfwefwfwfwvvvwfwefwfw",
-          },
-        ],
-
-        vlogVideo: bahomein,
-        police_helpline: "+0000000",
-        women_helpline: "+111111",
-        child_helpline: "+222222",
-        fire_emergency: "+333333",
-        medical_emergency: "+444444",
-        state_culture_name: "Bengal",
-        state_culture_introduction: "efbuevbhevh v hevebvrhebv",
-        state_culture_link: "/bengal",
-        nearest_attraction: [
-          {
-            name: "Agra Fort",
-            link: "/",
-            image: taj,
-            entryFee: "Rs.10",
-          },
-          {
-            name: "Rupal r sosur bari",
-            link: "/norok",
-            image: taj,
-            entryFee: "Rs.10",
-          },
-        ],
-      },
-      {
-        image: taj,
-        name: "Taj Mahal",
-        introduction:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
-        category: "UNESCO Listed",
-
-        categoryImg: unescoLogo,
-        type: "cultural",
-        endlessDigitalArt: bahomein,
-
-        // before video blog
-        part1: [
-          {
-            heading1: "loremdsfdssfd",
-            description1: "sdffffffffffffffffsdgsgvesvgerfergveveggerger",
-          },
-          {
-            heading1: "dfffef",
-            description1:
-              "sdccccccccccccccccccccccffffffffffffffffsdgsgvesvgerfergveveggerger",
-          },
-        ],
-        // animated video
-        animatedVideo: bahomein,
-        // after video blog
-        part2: [
-          {
-            heading2: "vrefwefw",
-            description2: "svrwfweweerfwefwfwfwvvvwfwefwfw",
-          },
-          {
-            heading2: "vrevvvvvvfwefw",
-            description2: "svvvvvvvvvvvvvvvvvvvvrwfweweerfwefwfwfwvvvwfwefwfw",
-          },
-        ],
-
-        vlogVideo: bahomein,
-        police_helpline: "+0000000",
-        women_helpline: "+111111",
-        child_helpline: "+222222",
-        fire_emergency: "+333333",
-        medical_emergency: "+444444",
-        state_culture_name: "Bengal",
-        state_culture_introduction: "efbuevbhevh v hevebvrhebv",
-        state_culture_link: "/bengal",
-        nearest_attraction: [
-          {
-            name: "Agra Fort",
-            link: "/",
-            image: taj,
-            entryFee: "Rs.10",
-          },
-          {
-            name: "Rupal r sosur bari",
-            link: "/norok",
-            image: taj,
-            entryFee: "Rs.10",
-          },
-        ],
-      },
-    ],
-    unesco_unlisted: [
-      {
-        image: taj,
-        name: "Taj Mahal",
-        introduction:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
-        category: "UNESCO Unisted",
-
-        categoryImg: unescoLogo,
-        type: "cultural",
-        endlessDigitalArt: bahomein,
-
-        // before video blog
-        part1: [
-          {
-            heading1: "loremdsfdssfd",
-            description1: "sdffffffffffffffffsdgsgvesvgerfergveveggerger",
-          },
-          {
-            heading1: "dfffef",
-            description1:
-              "sdccccccccccccccccccccccffffffffffffffffsdgsgvesvgerfergveveggerger",
-          },
-        ],
-        // animated video
-        animatedVideo: bahomein,
-        // after video blog
-        part2: [
-          {
-            heading2: "vrefwefw",
-            description2: "svrwfweweerfwefwfwfwvvvwfwefwfw",
-          },
-          {
-            heading2: "vrevvvvvvfwefw",
-            description2: "svvvvvvvvvvvvvvvvvvvvrwfweweerfwefwfwfwvvvwfwefwfw",
-          },
-        ],
-
-        vlogVideo: bahomein,
-        police_helpline: "+0000000",
-        women_helpline: "+111111",
-        child_helpline: "+222222",
-        fire_emergency: "+333333",
-        medical_emergency: "+444444",
-        state_culture_name: "Bengal",
-        state_culture_introduction: "efbuevbhevh v hevebvrhebv",
-        state_culture_link: "/bengal",
-        nearest_attraction: [
-          {
-            name: "Agra Fort",
-            link: "/",
-            image: taj,
-            entryFee: "Rs.10",
-          },
-          {
-            name: "Rupal r sosur bari",
-            link: "/norok",
-            image: taj,
-            entryFee: "Rs.10",
-          },
-        ],
-      },
-    ],
-    local_heritage: [
-      {
-        image: taj,
-        name: "Taj Mahal",
-        introduction:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
-        category: "Local Heritage",
-
-        categoryImg: unescoLogo,
-        type: "cultural",
-        endlessDigitalArt: bahomein,
-
-        // before video blog
-        part1: [
-          {
-            heading1: "loremdsfdssfd",
-            description1: "sdffffffffffffffffsdgsgvesvgerfergveveggerger",
-          },
-          {
-            heading1: "dfffef",
-            description1:
-              "sdccccccccccccccccccccccffffffffffffffffsdgsgvesvgerfergveveggerger",
-          },
-        ],
-        // animated video
-        animatedVideo: bahomein,
-        // after video blog
-        part2: [
-          {
-            heading2: "vrefwefw",
-            description2: "svrwfweweerfwefwfwfwvvvwfwefwfw",
-          },
-          {
-            heading2: "vrevvvvvvfwefw",
-            description2: "svvvvvvvvvvvvvvvvvvvvrwfweweerfwefwfwfwvvvwfwefwfw",
-          },
-        ],
-
-        vlogVideo: bahomein,
-        police_helpline: "+0000000",
-        women_helpline: "+111111",
-        child_helpline: "+222222",
-        fire_emergency: "+333333",
-        medical_emergency: "+444444",
-        state_culture_name: "Bengal",
-        state_culture_introduction: "efbuevbhevh v hevebvrhebv",
-        state_culture_link: "/bengal",
-        nearest_attraction: [
-          {
-            name: "Agra Fort",
-            link: "/",
-            image: taj,
-            entryFee: "Rs.10",
-          },
-          {
-            name: "Rupal r sosur bari",
-            link: "/norok",
-            image: taj,
-            entryFee: "Rs.10",
-          },
-        ],
-      },
-    ],
-  },
-
-  LearningDetails: {
-    languages: [
-      {
-        image: bengaliImg,
-        name: "Bengali",
-        introduction:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
-        courseCategory: "Learn Different Languages of India",
-        courseDetails: {
-          courseName: "Bengali",
-          courseHistory: "sdfegrbrbrb",
-          courseIntro: "Introduction",
-          videoDetails: [
-            {
-              videoVideo: bahomein,
-              videoImage: bengaliImg,
-              videoName: "1. Introduction",
-              videoDescription: "Introduction to Bengali Language",
-            },
-          ],
-          teacher: {
-            teacherImg: bengaliImg,
-            teacherName: "Dr. Pratik Biswas",
-            teacherOccupation: "Professor of Jadavpur University",
-            teacherData: [
-              {
-                link: "mailto:04biswaspratik@gmail.com",
-                text: "04biswaspratik@gmail.com",
-              },
-              {
-                link: "/",
-                text: "Pratik Biswas",
-              },
-            ],
-          },
-        },
-      },
-      {
-        image: bengaliImg,
-        name: "Bengali",
-        introduction:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
-        courseCategory: "Learn Different Languages of India",
-        courseDetails: {
-          courseName: "Bengali",
-          courseHistory: "sdfegrbrbrb",
-          courseIntro: "Introduction",
-          videoDetails: [
-            {
-              videoVideo: bahomein,
-              videoImage: bengaliImg,
-              videoName: "1. Introduction",
-              videoDescription: "Introduction to Bengali Language",
-            },
-          ],
-          teacher: {
-            teacherImg: bengaliImg,
-            teacherName: "Dr. Pratik Biswas",
-            teacherOccupation: "Professor of Jadavpur University",
-            teacherData: [
-              {
-                link: "mailto:04biswaspratik@gmail.com",
-                text: "04biswaspratik@gmail.com",
-              },
-              {
-                link: "/",
-                text: "Pratik Biswas",
-              },
-            ],
-          },
-        },
-      },
-      {
-        image: bengaliImg,
-        name: "Bengali",
-        introduction:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
-        courseCategory: "Learn Different Languages of India",
-        courseDetails: {
-          courseName: "Bengali",
-          courseHistory: "sdfegrbrbrb",
-          courseIntro: "Introduction",
-          videoDetails: [
-            {
-              videoVideo: bahomein,
-              videoImage: bengaliImg,
-              videoName: "1. Introduction",
-              videoDescription: "Introduction to Bengali Language",
-            },
-          ],
-          teacher: {
-            teacherImg: bengaliImg,
-            teacherName: "Dr. Pratik Biswas",
-            teacherOccupation: "Professor of Jadavpur University",
-            teacherData: [
-              {
-                link: "mailto:04biswaspratik@gmail.com",
-                text: "04biswaspratik@gmail.com",
-              },
-              {
-                link: "/",
-                text: "Pratik Biswas",
-              },
-            ],
-          },
-        },
-      },
-      {
-        image: bengaliImg,
-        name: "Bengali",
-        introduction:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
-        courseCategory: "Learn Different Languages of India",
-        courseDetails: {
-          courseName: "Bengali",
-          courseHistory: "sdfegrbrbrb",
-          courseIntro: "Introduction",
-          videoDetails: [
-            {
-              videoVideo: bahomein,
-              videoImage: bengaliImg,
-              videoName: "1. Introduction",
-              videoDescription: "Introduction to Bengali Language",
-            },
-          ],
-          teacher: {
-            teacherImg: bengaliImg,
-            teacherName: "Dr. Pratik Biswas",
-            teacherOccupation: "Professor of Jadavpur University",
-            teacherData: [
-              {
-                link: "mailto:04biswaspratik@gmail.com",
-                text: "04biswaspratik@gmail.com",
-              },
-              {
-                link: "/",
-                text: "Pratik Biswas",
-              },
-            ],
-          },
-        },
-      },
-    ],
-
-    cuisines: [
-      {
-        image: taj,
-        name: "Bengali",
-        introduction:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
-        courseCategory: "Try Different Cuisines of India",
-        courseLink: "/",
-      },
-      {
-        image: taj,
-        name: "English",
-        introduction:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
-        courseCategory: "Try Different Cuisines of India",
-        courseLink: "/",
-      },
-      {
-        image: taj,
-        name: "Hindi",
-        introduction:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
-        courseCategory: "Try Different Cuisines of India",
-        courseLink: "/",
-      },
-    ],
-
-    clothing: [
-      {
-        image: taj,
-        name: "Bengali",
-        introduction:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
-        courseCategory: "Try Different Cloths of India",
-        courseLink: "/",
-      },
-      {
-        image: taj,
-        name: "English",
-        introduction:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
-        courseCategory: "Try Different Cloths of India",
-        courseLink: "/",
-      },
-      {
-        image: taj,
-        name: "Bengali",
-        introduction:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
-        courseCategory: "Learn Different Languages of India",
-        courseLink: "/",
-      },
-      {
-        image: taj,
-        name: "Hindi",
-        introduction:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
-        courseCategory: "Try Different Cloths of India",
-        courseLink: "/",
-      },
-    ],
-    artCrafts: [
-      {
-        image: taj,
-        name: "Bengali",
-        introduction:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
-        courseCategory: "Try Different Arts & Crafts of India",
-        courseLink: "/",
-      },
-      {
-        image: taj,
-        name: "English",
-        introduction:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
-        courseCategory: "Try Different Arts & Crafts of India",
-        courseLink: "/",
-      },
-      {
-        image: taj,
-        name: "Bengali",
-        introduction:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
-        courseCategory: "Learn Different Languages of India",
-        courseLink: "/",
-      },
-      {
-        image: taj,
-        name: "Hindi",
-        introduction:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem",
-        courseCategory: "Try Different Arts & Crafts of India",
-        courseLink: "/",
-      },
-    ],
-  },
+  // --------------------------------------- CULTURE & TRADITION ---------------------------------------
 
   AllCulturesData: [
     {
@@ -652,93 +89,33 @@ export const dummyData = {
     {
       stateImg: assamImg,
       stateName: "1. Assam",
-      individualPage: "/culture-tradition/id",
+      individualPage: "/culture-tradition/assam-state",
     },
     {
       stateImg: jkImg,
       stateName: "2. Jammu & Kashmir",
-      individualPage: "/culture-tradition/id",
+      individualPage: "/culture-tradition/jammu-kashmir-state",
     },
 
     {
       stateImg: karnatakaImg,
       stateName: "3. Karnataka",
-      individualPage: "/culture-tradition/id",
+      individualPage: "/culture-tradition/karnataka-state",
     },
     {
       stateImg: meghalayaImg,
       stateName: "4. Meghalaya",
-      individualPage: "/culture-tradition/id",
+      individualPage: "/culture-tradition/meghalaya-state",
     },
     {
       stateImg: uPradeshImg,
       stateName: "5. Uttar Pradesh",
-      individualPage: "/culture-tradition/id",
+      individualPage: "/culture-tradition/uttar-pradesh-state",
     },
     {
       stateImg: wbImg,
       stateName: "6. West Bengal",
-      individualPage: "/culture-tradition/id",
-    },
-    {
-      stateImg: meghalayaImg,
-      stateName: "4. Meghalaya",
-      individualPage: "/culture-tradition/id",
-    },
-    {
-      stateImg: uPradeshImg,
-      stateName: "5. Uttar Pradesh",
-      individualPage: "/culture-tradition/id",
-    },
-    {
-      stateImg: wbImg,
-      stateName: "6. West Bengal",
-      individualPage: "/culture-tradition/id",
-    },
-    {
-      stateImg: meghalayaImg,
-      stateName: "4. Meghalaya",
-      individualPage: "/culture-tradition/id",
-    },
-    {
-      stateImg: uPradeshImg,
-      stateName: "5. Uttar Pradesh",
-      individualPage: "/culture-tradition/id",
-    },
-    {
-      stateImg: wbImg,
-      stateName: "6. West Bengal",
-      individualPage: "/culture-tradition/id",
-    },
-    {
-      stateImg: meghalayaImg,
-      stateName: "4. Meghalaya",
-      individualPage: "/culture-tradition/id",
-    },
-    {
-      stateImg: uPradeshImg,
-      stateName: "5. Uttar Pradesh",
-      individualPage: "/culture-tradition/id",
-    },
-    {
-      stateImg: wbImg,
-      stateName: "6. West Bengal",
-      individualPage: "/culture-tradition/id",
-    },
-    {
-      stateImg: meghalayaImg,
-      stateName: "4. Meghalaya",
-      individualPage: "/culture-tradition/id",
-    },
-    {
-      stateImg: uPradeshImg,
-      stateName: "5. Uttar Pradesh",
-      individualPage: "/culture-tradition/id",
-    },
-    {
-      stateImg: wbImg,
-      stateName: "6. West Bengal",
-      individualPage: "/culture-tradition/id",
+      individualPage: "/culture-tradition/west-bengal-state",
     },
   ],
 
@@ -783,38 +160,7 @@ export const dummyData = {
     ],
   },
 
-  dummyUser: [
-    {
-      userImg: taj,
-      userName: "Arka Biswas",
-      userEmail: "messi10.pratikbiswas@gmail.com",
-      userGender: "Male",
-      userPhone: "7001316356",
-    },
-    {
-      userImg: taj,
-      userName: "Chandrima Kar",
-      userEmail: "chandrimakar16@gmail.com",
-      userGender: "Female",
-      userPhone: "9163145748",
-    },
-    // {
-    //   userImg: taj,
-    //   userName: "Rupal Paul",
-    //   userEmail: "ganjakhor@gmail.com",
-    //   userGender: "Male",
-    //   userPhone: "986537415",
-    // },
-    // {
-    //   userImg: taj,
-    //   userName: "Sattwikee Ghosh",
-    //   userEmail: "sattwikeeghosh@gmail.com",
-    //   userGender: "Female",
-    //   userPhone: "9387456245",
-    // },
-  ],
-
-  // COURSES ----------------------------------------------
+  // ---------------------------------------------- COURSES ----------------------------------------------
   LanguagesTypes: [
     {
       image: BengaliLangImg,
@@ -948,6 +294,8 @@ export const dummyData = {
   ],
 };
 
+// ***************************  USER NAVIGATION  ***************************
+
 export const RoutesNames = [
   {
     route_link: "/",
@@ -971,13 +319,19 @@ export const RoutesNames = [
   },
   {
     route_link: "/blogs-vlogs",
-    route_name: "Blogs & Vlogs",
+    route_name: "Contents",
+  },
+  {
+    route_link: "/career",
+    route_name: "Career",
   },
   {
     route_link: "/virtual-store",
-    route_name: "Virtual Store",
+    route_name: "Store",
   },
 ];
+
+// ***************************  ADMIN NAVIGATION  ***************************
 
 export const adminNavData = [
   {
@@ -1021,79 +375,5 @@ export const adminNavData = [
   {
     name: "Manage Contents ",
     path: "/contents-acdprsIndia24",
-  },
-];
-
-export const blogsVlogs = [
-  {
-    blogImage: img1,
-    blogName: "Unraveling Hawa Mahal's Historical Treasures",
-    type: "Blog",
-    author: "Debopriya Lahiri",
-    authorImg: pratikImg,
-  },
-
-  {
-    blogImage: img4,
-    blogName: "Unraveling Rupal er Barir 14 puruser Treasures",
-    type: "Vlog",
-    author: "Pratik Biswas",
-    authorImg: pratikImg,
-  },
-  {
-    blogImage: img3,
-    blogName: "Unraveling Taj Mahal's Historical Treasures",
-    type: "Vlog",
-    author: "Pratik Biswas",
-    authorImg: pratikImg,
-  },
-  {
-    blogImage: img4,
-    blogName: "Unraveling Taj Mahal's Historical Treasures",
-    type: "Vlog",
-    author: "Rupal Paul",
-    authorImg: pratikImg,
-  },
-  {
-    blogImage: img2,
-    blogName: "Unraveling Victoria Memorial's Historical Treasures",
-    type: "Blog",
-    author: "Sattwikee Ghosh",
-    authorImg: pratikImg,
-  },
-  {
-    blogImage: img4,
-    blogName: "Unraveling Taj Mahal's Historical Treasures",
-    type: "Vlog",
-    author: "Ayaan Ahmed",
-    authorImg: pratikImg,
-  },
-  {
-    blogImage: img2,
-    blogName: "Unraveling Victoria Memorial's Historical Treasures",
-    type: "Blog",
-    author: "Chandrima Kar",
-    authorImg: pratikImg,
-  },
-  {
-    blogImage: img5,
-    blogName: "Unraveling Rupal er Barir 14 puruser Treasures",
-    type: "Vlog",
-    author: "Pratik Biswas",
-    authorImg: pratikImg,
-  },
-  {
-    blogImage: img3,
-    blogName: "Unraveling Taj Mahal's Historical Treasures",
-    type: "Vlog",
-    author: "Pratik Biswas",
-    authorImg: pratikImg,
-  },
-  {
-    blogImage: img6,
-    blogName: "Unraveling Victoria Memorial's Historical Treasures",
-    type: "Blog",
-    author: "Pratik Biswas",
-    authorImg: pratikImg,
   },
 ];

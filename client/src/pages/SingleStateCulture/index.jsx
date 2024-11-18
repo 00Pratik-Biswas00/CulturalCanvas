@@ -1,81 +1,287 @@
 import React from "react";
-import upImg from "../../assets/Heritage/up.png";
+import tajImg from "../../assets/culture/stateCultureBg.png";
+import { IoIosLink } from "react-icons/io";
+
+import wbImg from "../../assets/states/wb.png";
 import { dummyData } from "../../utils/constants";
+import MyButton3 from "../../components/Buttons/MyButton3";
 
-{
-  /*  let shadowClass;
-             let borderClass;
+import MyButton1 from "../../components/Buttons/MyButton1";
+import { useNavigate } from "react-router-dom";
 
-             if (index % 3 === 0) {
-               shadowClass = "shadow-custom-orange ";
-               borderClass = "border-highlight";
-             } else if (index % 3 === 1) {
-               shadowClass = "shadow-custom-blue";
-               borderClass = "border-secondary_text dark:border-background1";
-             } else if (index % 3 === 2) {
-               shadowClass = "shadow-custom-green";
-               borderClass = "border-highlight_hover ";
-             } */
-}
+// const words = ["west", "bengal"];
 
-const SingleStateCulture = () => {
+const SingleStateCulture = ({
+  stateName,
+  greetingImg,
+  greetingName,
+  stateImg,
+  stateHistory,
+  stateHistoryVideo,
+  cuisineDetails,
+  cuisineCourse,
+  clothingImg,
+  clothingDetails,
+  languageImg,
+  languageDetails,
+  languageCourse,
+  artsDetails,
+  artsCourse,
+}) => {
   const { SingleState } = dummyData;
+  const navigate = useNavigate();
 
   return (
-    <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-4 px-16 duration-300">
-      {dummyData.SingleState.stateHistory.map((content, ind) => (
-        <div key={ind} className="flex flex-col gap-5 mb-10">
-          <h1 className="font-extrabold text-[50px] text-center">
-            Immerse Yourself in {content.stateName}'s Traditions
-          </h1>
-          <div className="flex items-center justify-center gap-10">
-            <img
-              src={content.stateImg}
-              alt={content.stateName}
-              className="w-[500px] h-[500px]"
-            />
-            <div className="border-2 font-bold font-ubuntu px-5 py-2 relative flex items-center justify-center rounded-xl">
-              <p className="text-xl leading-9">{content.stateHistory}</p>
+    <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text duration-300">
+      <div
+        style={{ backgroundImage: `url(${tajImg})` }}
+        className="relative bg-center bg-cover bg-fixed bg-no-repeat flex flex-col items-center justify-center "
+      >
+        <div className="flex gap-16 items-center justify-center">
+          {stateName.map((word, wordIndex) => (
+            <div
+              key={wordIndex}
+              className="flex relative z-20 gap-5 justify-center items-center h-[35vh] text-dark_primary_text"
+            >
+              {word.split("").map((letter, letterIndex) => (
+                <h1
+                  key={letterIndex}
+                  className={`text-7xl bg-black px-2 pb-2 rounded-xl font-extrabold text-dark_primary_text font-pangaia uppercase ${
+                    letterIndex % 2 === 0 ? "rotate-6" : "-rotate-6"
+                  }`}
+                >
+                  {letter}
+                </h1>
+              ))}
             </div>
-          </div>
+          ))}
         </div>
-      ))}
 
-      {dummyData.SingleState.languageModel.map((content, ind) => (
-        <div key={ind} className="flex flex-col items-start gap-5 mb-10">
-          <h1 className="font-extrabold text-[40px] font-playfair text-center">
-            {content.heading}
-          </h1>
-          <div className="flex items-center justify-center gap-10">
-            <img
-              src={content.image}
-              alt="Language & Architecture"
-              className="w-[400px] h-[225px]"
-            />
-            <div className="border-2 font-bold font-ubuntu px-5 py-2 relative flex items-center justify-center rounded-xl">
-              <p className="text-xl leading-9">{content.courseHistory}</p>
-            </div>
-          </div>
-        </div>
-      ))}
+        {/* SVG Curve */}
+        <svg
+          className="w-full "
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 300"
+        >
+          <path
+            className=" fill-current text-[#fff] dark:text-dark_background1"
+            d="M0,96L48,106.7C96,117,192,139,288,154.7C384,171,480,181,576,165.3C672,149,768,107,864,90.7C960,75,1056,85,1152,96C1248,107,1344,117,1392,122.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
+        </svg>
 
-      {dummyData.SingleState.cuisineModel.map((content, ind) => (
-        <div key={ind} className="flex flex-col items-start gap-5 mb-10">
-          <h1 className="font-extrabold text-[40px] font-playfair text-center">
-            {content.heading}
+        {/* Greeting */}
+
+        <div className=" absolute flex flex-col items-center justify-center px-5 py-2  gap-5 border border-b-0 border-dark_background1 dark:border-background1 bg-background1 dark:bg-dark_background1 rounded-xl mt-40 ">
+          <h1 className=" font-playfair text-3xl font-extrabold">
+            Our Greeting
           </h1>
-          <div className="flex items-center justify-center gap-10">
-            <img
-              src={content.image}
-              alt="Cuisine"
-              className="w-[400px] h-[225px]"
-            />
-            <div className="border-2 font-bold font-ubuntu px-5 py-2 relative flex items-center justify-center rounded-xl">
-              <p className="text-xl leading-9">{content.cuisineDescription}</p>
+          <img src={greetingImg} className="w-80 rounded-xl" />
+
+          <MyButton3
+            classDesign={
+              "before:bg-highlight_hover_dark bg-highlight_hover text-dark_primary_text "
+            }
+            buttonName={`${greetingName}`}
+            onClick={() => {
+              navigate(`/culture-tradition/greetings`);
+            }}
+            buttonIcon={<IoIosLink />}
+          />
+        </div>
+      </div>
+
+      {/* History */}
+      <div className="flex flex-col items-center justify-center px-16 py-10 gap-10">
+        <div className="flex flex-col items-center justify-center gap-4">
+          <h1 className=" font-extrabold text-5xl  ">Brief History</h1>
+          <p className=" opacity-70 text-lg">
+            {" "}
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.?
+          </p>
+        </div>
+
+        <div className="relative ">
+          <img
+            src={stateImg}
+            alt="West Bengal"
+            className="float-right w-64 h-64 object-cover "
+          />
+
+          <div className=" flex flex-col gap-3">
+            <p className="text-justify">{stateHistory}</p>
+            <div className="flex flex-col items-start justify-center">
+              <a
+                className="bg-highlight hover:bg-highlight_dark duration-500 px-3 py-1 rounded-xl font-bold"
+                href={stateHistoryVideo}
+                target="_blank"
+              >
+                Want to know more? 🔗
+              </a>
             </div>
           </div>
         </div>
-      ))}
+      </div>
+
+      {/* Cuisines */}
+      <div className="flex flex-col items-center justify-center px-16 py-10 gap-10">
+        <div className="flex flex-col items-center justify-center gap-4">
+          <h1 className=" font-extrabold text-5xl  ">Cuisines</h1>
+          <p className=" opacity-70 text-lg">
+            {" "}
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.?
+          </p>
+        </div>
+
+        <div className="grid grid-cols-4 gap-5">
+          {cuisineDetails.map((content, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center justify-center gap-2"
+            >
+              <img src={content.cuisineImage} className="w-80 rounded-xl" />
+              <p className=" text-xl font-montserrat">{content.cuisineName}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex items-center justify-center gap-10">
+          <MyButton3
+            classDesign={
+              "before:bg-highlight_hover_dark bg-highlight_hover text-dark_primary_text "
+            }
+            buttonName={"Want to know more?"}
+            onClick={() => {
+              navigate(`/culture-tradition/cuisines`);
+            }}
+            buttonIcon={<IoIosLink />}
+          />
+          <MyButton3
+            classDesign={
+              "before:bg-highlight bg-highlight_dark text-dark_primary_text "
+            }
+            buttonName={"Want to cook?"}
+            onClick={() => {
+              navigate(`${cuisineCourse}`);
+            }}
+            buttonIcon={<IoIosLink />}
+          />
+        </div>
+      </div>
+
+      {/* Clothing */}
+      <div className="flex flex-col items-center justify-center px-16 py-10 gap-10">
+        <div className="flex flex-col items-center justify-center gap-4">
+          <h1 className=" font-extrabold text-5xl  ">Traditional Clothing</h1>
+          <p className=" opacity-70 text-lg">
+            {" "}
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.?
+          </p>
+        </div>
+
+        <div className="relative ">
+          <img
+            src={clothingImg}
+            alt="West Bengal"
+            className="float-right w-64 h-64 object-cover "
+          />
+
+          <div className=" flex flex-col gap-3">
+            <p className="text-justify"> {clothingDetails} </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Language */}
+      <div className="flex flex-col items-center justify-center px-16 py-10 gap-10">
+        <div className="flex flex-col items-center justify-center gap-4">
+          <h1 className=" font-extrabold text-5xl  ">Language</h1>
+          <p className=" opacity-70 text-lg">
+            {" "}
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.?
+          </p>
+        </div>
+
+        <div className="relative ">
+          <img
+            src={languageImg}
+            alt="West Bengal"
+            className="float-right w-64 h-64 object-cover "
+          />
+
+          <div className=" flex flex-col gap-3">
+            <p className="text-justify"> {languageDetails} </p>
+          </div>
+        </div>
+
+        <div className="flex items-center justify-center gap-10">
+          <MyButton3
+            classDesign={
+              "before:bg-highlight_hover_dark bg-highlight_hover text-dark_primary_text "
+            }
+            buttonName={"Want to know more?"}
+            onClick={() => {
+              navigate(`/culture-tradition/languages`);
+            }}
+            buttonIcon={<IoIosLink />}
+          />
+          <MyButton3
+            classDesign={
+              "before:bg-highlight bg-highlight_dark text-dark_primary_text "
+            }
+            buttonName={"Want to cook?"}
+            onClick={() => {
+              navigate(`${languageCourse}`);
+            }}
+            buttonIcon={<IoIosLink />}
+          />
+        </div>
+      </div>
+
+      {/* arts and crafts */}
+      <div className="flex flex-col items-center justify-center px-16 py-10 gap-10">
+        <div className="flex flex-col items-center justify-center gap-4">
+          <h1 className=" font-extrabold text-5xl  ">Arts & Crafts</h1>
+          <p className=" opacity-70 text-lg">
+            {" "}
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.?
+          </p>
+        </div>
+
+        <div className="grid grid-cols-4 gap-5">
+          {artsDetails.map((content, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center justify-center gap-2"
+            >
+              <img src={content.cuisineImage} className="w-80 rounded-xl" />
+              <p className=" text-xl font-montserrat">{content.cuisineName}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex items-center justify-center gap-10">
+          <MyButton3
+            classDesign={
+              "before:bg-highlight_hover_dark bg-highlight_hover text-dark_primary_text "
+            }
+            buttonName={"Want to know more?"}
+            onClick={() => {
+              navigate(`/culture-tradition/cuisines`);
+            }}
+            buttonIcon={<IoIosLink />}
+          />
+          <MyButton3
+            classDesign={
+              "before:bg-highlight bg-highlight_dark text-dark_primary_text "
+            }
+            buttonName={"Want to cook?"}
+            onClick={() => {
+              navigate(`${artsCourse}`);
+            }}
+            buttonIcon={<IoIosLink />}
+          />
+        </div>
+      </div>
     </section>
   );
 };
