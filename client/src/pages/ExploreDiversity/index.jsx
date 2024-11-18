@@ -13,9 +13,7 @@ const ExploreDiversity = () => {
   const user = useSelector((state) => state.user.userInfo);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const handlePredictionRedirect = () => {
-    navigate("predict-budget");
-  };
+
   const handleCreateTripRedirect = () => {
     if (user) {
       navigate("create-trip");
@@ -59,8 +57,10 @@ const ExploreDiversity = () => {
               classDesign={
                 "before:bg-highlight_hover_dark bg-highlight_hover text-dark_primary_text "
               }
-              buttonLink={handlePredictionRedirect}
-              buttonName={"Predict Amount"}
+              onClick={() => {
+                navigate(`predict-budget`);
+              }}
+              buttonName={"Predict Budget"}
               buttonIcon={<RiMoneyRupeeCircleFill />}
             />
           </div>
@@ -94,7 +94,13 @@ const ExploreDiversity = () => {
               classDesign={
                 "before:bg-highlight_hover_dark bg-highlight_hover text-dark_primary_text "
               }
-              buttonLink={handleCreateTripRedirect}
+              onClick={() => {
+                if (user) {
+                  navigate("create-trip");
+                } else {
+                  dispatch(switchLoginModalOpen(true));
+                }
+              }}
               buttonName={"Create Trip"}
               buttonIcon={<FaPlus />}
             />
