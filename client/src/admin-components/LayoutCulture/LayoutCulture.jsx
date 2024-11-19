@@ -42,15 +42,6 @@ const LayoutCulture = ({ cultureName, setModalOpen }) => {
     scrollRef.current.scrollBy({ left: 500, behavior: "smooth" });
   };
 
-    const [editCourseData, setEditCourseData] = useState(null);
-    const [isEditing, setIsEditing] = useState(false);
-    
-  const handleEditCourse = (course) => {
-    setEditCourseData(course); // Populate course data
-    setIsEditing(true); // Toggle editing mode
-    setLanguageCourseModal(true); // Open the modal (adjust for your category logic)
-  };
-
   return (
     <div>
       {/* Header Section */}

@@ -1,31 +1,61 @@
-import React, { useState } from "react";
-import LayoutCulture from "../../admin-components/LayoutCulture/LayoutCulture";
+import React, { useEffect, useState } from "react";
 import AddCourses from "../../admin-components/AdminModals/AddCourses/AddCourses";
+import LayoutCourses from "../../admin-components/LayoutCourses/LayoutCourses";
+import { useQuery } from "@apollo/client";
+import { GET_ALL_COURSES_QUERY } from "../../graphql/courseQuery";
 
 const AdminCourses = () => {
+  const [languageCourses, setLanguageCourses] = useState([]);
+  const [cuisineCourses, setCuisineCourses] = useState([]);
+  const [sportsCourses, setSportsCourses] = useState([]);
+  const [artCraftCourses, setArtCraftCourses] = useState([]);
+
   const [languageCourseModal, setLanguageCourseModal] = useState(false);
   const [cuisineCourseModal, setCuisineCourseModal] = useState(false);
   const [sportsCourseModal, setSportsCourseModal] = useState(false);
   const [artCraftCourseModal, setArtCraftCourseModal] = useState(false);
 
+  const [editCourseData, setEditCourseData] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
 
+  const { loading, error, data } = useQuery(GET_ALL_COURSES_QUERY);
 
-  const handleApplyLanguageCourseModal = () => {
-    setLanguageCourseModal(false);
+  useEffect(() => {
+    if (data && data.getCourses) {
+      // Group courses into categories
+      const language = data.getCourses.filter(
+        (course) => course.courseCategory.language !== "None"
+      );
+      const cuisine = data.getCourses.filter(
+        (course) => course.courseCategory.cuisine !== "None"
+      );
+      const sports = data.getCourses.filter(
+        (course) => course.courseCategory.sports !== "None"
+      );
+      const artCraft = data.getCourses.filter(
+        (course) => course.courseCategory.arts !== "None"
+      );
+
+      setLanguageCourses(language);
+      setCuisineCourses(cuisine);
+      setSportsCourses(sports);
+      setArtCraftCourses(artCraft);
+    }
+  }, [data]);
+
+  const handleEditCourse = (course) => {
+    setEditCourseData(course);
+    setIsEditing(true);
+
+    // Open the modal based on course category
+    if (course.courseCategory.language !== "None") setLanguageCourseModal(true);
+    if (course.courseCategory.cuisine !== "None") setCuisineCourseModal(true);
+    if (course.courseCategory.sports !== "None") setSportsCourseModal(true);
+    if (course.courseCategory.arts !== "None") setArtCraftCourseModal(true);
   };
 
-  const handleApplyCuisineCourseModal = () => {
-    setCuisineCourseModal(false);
-  };
-
-  const handleApplyArtCraftCourseModal = () => {
-    setArtCraftCourseModal(false);
-  };
-
-  const handleApplySportsCourseModal = () => {
-    setSportsCourseModal(false);
-  };
-
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
 
   return (
     <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-6 px-4 duration-300 min-h-screen">
@@ -36,63 +66,72 @@ const AdminCourses = () => {
           </h1>
         </div>
 
-        <LayoutCulture
+        {/* Pass grouped data to LayoutCourses */}
+        <LayoutCourses
           cultureName="Language Course"
           setModalOpen={setLanguageCourseModal}
+          courses={languageCourses}
           onEditCourse={handleEditCourse}
         />
-        <LayoutCulture
+        <LayoutCourses
           cultureName="Cuisine Course"
           setModalOpen={setCuisineCourseModal}
+          courses={cuisineCourses}
           onEditCourse={handleEditCourse}
         />
-
-        <LayoutCulture
+        <LayoutCourses
           cultureName="Art & Craft Course"
           setModalOpen={setArtCraftCourseModal}
+          courses={artCraftCourses}
           onEditCourse={handleEditCourse}
         />
-
-        <LayoutCulture
+        <LayoutCourses
           cultureName="Sports Course"
           setModalOpen={setSportsCourseModal}
+          courses={sportsCourses}
           onEditCourse={handleEditCourse}
         />
       </div>
 
+      {/* AddCourses Modals */}
       {languageCourseModal && (
         <AddCourses
           setCourseModal={setLanguageCourseModal}
-          handleApplyCourseModal={handleApplyLanguageCourseModal}
+          handleApplyCourseModal={() => setLanguageCourseModal(false)}
           courseTopic="Language"
-          editCourseData
+          isEditing={isEditing}
+          editCourseData={editCourseData}
+          initialCategory={"language"}
         />
       )}
 
       {cuisineCourseModal && (
         <AddCourses
           setCourseModal={setCuisineCourseModal}
-          handleApplyCourseModal={handleApplyCuisineCourseModal}
+          handleApplyCourseModal={() => setCuisineCourseModal(false)}
           courseTopic="Cuisine"
-          editCourseData
+          isEditing={isEditing}
+          editCourseData={editCourseData}
         />
       )}
 
       {artCraftCourseModal && (
         <AddCourses
           setCourseModal={setArtCraftCourseModal}
-          handleApplyCourseModal={handleApplyArtCraftCourseModal}
+          handleApplyCourseModal={() => setArtCraftCourseModal(false)}
           courseTopic="Art & Craft"
-          editCourseData
+          isEditing={isEditing}
+          editCourseData={editCourseData}
         />
       )}
 
       {sportsCourseModal && (
         <AddCourses
           setCourseModal={setSportsCourseModal}
-          handleApplyCourseModal={handleApplySportsCourseModal}
+          handleApplyCourseModal={() => setSportsCourseModal(false)}
           courseTopic="Sports"
-          editCourseData
+          isEditing={isEditing}
+          editCourseData={editCourseData}
         />
       )}
     </section>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AddNewModal from "../AddNewModal";
 import InputComponent from "../../../components/Input/InputComponent";
 import TextareaComponent from "../../../components/Textarea/TextareaComponent";
@@ -12,13 +12,15 @@ const AddCourses = ({
   setCourseModal,
   handleApplyCourseModal,
   courseTopic,
+  mainCategory, // Assume this prop contains the main category
+  isEditing,
   editCourseData = null,
 }) => {
   useEffect(() => {
-    if (isEditing && editData) {
-      setFormData(editData);
+    if (isEditing && editCourseData) {
+      setFormData(editCourseData);
     }
-  }, [isEditing, editData]);
+  }, [isEditing, editCourseData]);
 
   const RESTAPI_BASE_URL = import.meta.env.VITE_API_KEY_RESTAPI;
 
@@ -351,7 +353,7 @@ const AddCourses = ({
 
           <div className="mb-4 overflow-auto">
             <label className="block text-xl font-bold">Course Details:</label>
-            {formData.courseModule.map((module, index) => (
+            {formData?.courseModule.map((module, index) => (
               <div
                 key={index}
                 className="flex flex-col w-full justify-between gap-1 mb-2 border-2 border-t-0 rounded-xl rounded-t-none px-4 pb-2 mt-3">
