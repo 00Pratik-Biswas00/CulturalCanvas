@@ -3,9 +3,6 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import ReactPlayer from "react-player";
 import { GET_COURSE_QUERY } from "../../graphql/courseQuery";
-
-import bengaliImg from "../../assets/courses/bengali.png";
-import pratikImg from "../../assets/courses/pratik.jpg";
 import MailImg from "../../assets/courses/mail.avif";
 import LinkedInImg from "../../assets/courses/linkedin.jpeg";
 

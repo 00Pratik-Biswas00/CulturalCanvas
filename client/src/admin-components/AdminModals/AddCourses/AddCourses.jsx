@@ -3,41 +3,68 @@ import AddNewModal from "../AddNewModal";
 import InputComponent from "../../../components/Input/InputComponent";
 import TextareaComponent from "../../../components/Textarea/TextareaComponent";
 import InputImageVideo from "../../../components/Input/InputImageVideo";
-import { useMutation } from "@apollo/client";
-import { CREATE_COURSE_MUTATION, UPDATE_COURSE_MUTATION } from "../../../graphql/courseMutation";
+import { useMutation, useQuery } from "@apollo/client";
+import {
+  CREATE_COURSE_MUTATION,
+  UPDATE_COURSE_MUTATION,
+} from "../../../graphql/courseMutation";
 import { toast } from "sonner";
 import api from "../../../config/axios";
+import { GET_COURSE_QUERY } from "../../../graphql/courseQuery";
 
 const AddCourses = ({
   setCourseModal,
   handleApplyCourseModal,
   courseTopic,
-  mainCategory, // Assume this prop contains the main category
   isEditing,
-  editCourseData = null,
+  initialCategory = null,
+  editCourseSlug = null,
 }) => {
-  useEffect(() => {
-    if (isEditing && editCourseData) {
-      setFormData(editCourseData);
-    }
-  }, [isEditing, editCourseData]);
-
   const RESTAPI_BASE_URL = import.meta.env.VITE_API_KEY_RESTAPI;
 
+  const { loading, error, data } = useQuery(GET_COURSE_QUERY, {
+    variables: { slug: editCourseSlug },
+  });
+
   const [formData, setFormData] = useState({
-    courseName: "",
-    courseImage: "",
-    mainCategory: "",
-    subCategory: "",
-    courseIntro: "",
+    name: "",
+    slug: "",
+    image: {},
+    courseCategory: {
+      language: "None",
+      cuisine: "None",
+      arts: "None",
+      sports: "None",
+    },
     courseHistory: "",
+    courseIntro: "",
     instructorName: "",
     instructorEmail: "",
-    instructorImage: "",
-    courseModule: [
-      { moduleName: "", moduleIntro: "", moduleVideo: "", moduleThumbnail: "" },
+    instructorImage: {},
+    modules: [
+      {
+        name: "",
+        image: {},
+        description: "",
+        video: "",
+      },
     ],
   });
+
+  useEffect(() => {
+    if (isEditing && editCourseSlug && data) {
+      setFormData(data.getCourse);
+      console.log(data.getCourse);
+    } else if (initialCategory) {
+      setFormData((prev) => ({
+        ...prev,
+        courseCategory: {
+          ...prev.courseCategory,
+          [initialCategory]: "",
+        },
+      }));
+    }
+  }, [isEditing, editCourseSlug, initialCategory, data]);
 
   const categoryOptions = {
     language: [
@@ -110,30 +137,30 @@ const AddCourses = ({
   };
 
   const handleCourseModuleChange = (index, field, value) => {
-    const updatedModules = formData.courseModule.map((module, i) =>
+    const updatedModules = formData.modules.map((module, i) =>
       i === index ? { ...module, [field]: value } : module
     );
-    setFormData((prev) => ({ ...prev, courseModule: updatedModules }));
+    setFormData((prev) => ({ ...prev, modules: updatedModules }));
   };
 
   const handleAddCourseModule = () => {
     setFormData((prev) => ({
       ...prev,
-      courseModule: [
-        ...prev.courseModule,
+      modules: [
+        ...prev.modules,
         {
-          moduleName: "",
-          moduleIntro: "",
-          moduleVideo: "",
-          moduleThumbnail: "",
+          name: "",
+          image: {},
+          description: "",
+          video: "",
         },
       ],
     }));
   };
 
   const handleRemoveCourseModule = (index) => {
-    const updatedModules = formData.courseModule.filter((_, i) => i !== index);
-    setFormData((prev) => ({ ...prev, courseModule: updatedModules }));
+    const updatedModules = formData.modules.filter((_, i) => i !== index);
+    setFormData((prev) => ({ ...prev, modules: updatedModules }));
   };
 
   const handleUploadingImage = async (file) => {
@@ -146,30 +173,24 @@ const AddCourses = ({
       );
       return data;
     } catch (e) {
-      console.error(e);
-      toast.error("Image upload failed!");
+      console.error("Error uploading image:", e);
     }
   };
 
-  const handleImageInput1 = async (file, fieldName) => {
+  const handleImageInput = async (file, field, index = null) => {
     try {
-      const data = await handleUploadingImage(file);
-      //console.log(data);
-      setFormData((prev) => ({ ...prev, [fieldName]: data }));
+      const uploadedImageData = await handleUploadingImage(file);
+      if (index !== null) {
+        handleCourseModuleChange(index, field, uploadedImageData);
+      } else {
+        setFormData((prev) => ({
+          ...prev,
+          [field]: {},
+        }));
+      }
     } catch (e) {
       console.error("Error uploading image:", e);
       toast.error("Image upload failed!");
-    }
-  };
-
-  const handleImageInput2 = async (file, index) => {
-    try {
-      const data = await handleUploadingImage(file);
-      //console.log(data);
-      handleCourseModuleChange(index, "moduleThumbnail", data);
-    } catch (e) {
-      console.error("Error uploading module image:", e);
-      toast.error("Module image upload failed!");
     }
   };
 
@@ -250,18 +271,16 @@ const AddCourses = ({
               <InputComponent
                 iName={`${courseTopic} Name`}
                 iType="text"
-                value={formData.courseName}
+                value={formData.name}
                 onChange={(e) => handleInputChange(e)}
-                name="courseName"
+                name="name"
               />
             </div>
 
             <InputImageVideo
               imageName={`${courseTopic} Image:`}
               fileType="image"
-              onChange={(e) =>
-                handleImageInput1(e.target.files[0], "courseImage")
-              }
+              onChange={(e) => handleImageInput(e.target.files[0], "image")}
             />
           </div>
 
@@ -269,29 +288,24 @@ const AddCourses = ({
             <div className="w-full">
               <label className="block font-bold">Choose Course Category</label>
               <select
-                value={formData.mainCategory}
-                onChange={(e) => handleInputChange(e)}
-                name="mainCategory"
+                value={initialCategory}
+                disabled
+                name="initialCategory"
                 className="block w-full px-3 py-2 border rounded">
-                <option value="">Select Main Category</option>
-                {Object.keys(categoryOptions).map((category) => (
-                  <option key={category} value={category}>
-                    {category.charAt(0).toUpperCase() + category.slice(1)}
-                  </option>
-                ))}
+                <option>{initialCategory}</option>
               </select>
             </div>
 
-            {formData.mainCategory && (
+            {initialCategory && (
               <div className="w-full">
                 <label className="block font-bold">Choose Subcategory</label>
                 <select
-                  value={formData.subCategory}
+                  value={formData.courseCategory[initialCategory]}
                   onChange={(e) => handleInputChange(e)}
                   name="subCategory"
                   className="block w-full px-3 py-2 border rounded">
                   <option value="">Select Subcategory</option>
-                  {categoryOptions[formData.mainCategory].map((sub) => (
+                  {categoryOptions[initialCategory].map((sub) => (
                     <option key={sub} value={sub}>
                       {sub}
                     </option>
@@ -326,7 +340,7 @@ const AddCourses = ({
               <InputComponent
                 iName="Teacher's Name"
                 iType="text"
-                value={formData.teacherName}
+                value={formData.instructorName}
                 onChange={(e) => handleInputChange(e)}
                 name="instructorName"
               />
@@ -336,7 +350,7 @@ const AddCourses = ({
               <InputComponent
                 iName="Teacher's Email"
                 iType="email"
-                value={formData.teacherEmail}
+                value={formData.instructorEmail}
                 onChange={(e) => handleInputChange(e)}
                 name="instructorEmail"
               />
@@ -347,13 +361,13 @@ const AddCourses = ({
             imageName="Teacher's Image:"
             fileType="image"
             onChange={(e) =>
-              handleImageInput1(e.target.files[0], "instructorImage")
+              handleImageInput(e.target.files[0], "instructorImage")
             }
           />
 
           <div className="mb-4 overflow-auto">
             <label className="block text-xl font-bold">Course Details:</label>
-            {formData?.courseModule.map((module, index) => (
+            {formData?.modules.map((module, index) => (
               <div
                 key={index}
                 className="flex flex-col w-full justify-between gap-1 mb-2 border-2 border-t-0 rounded-xl rounded-t-none px-4 pb-2 mt-3">
@@ -363,11 +377,11 @@ const AddCourses = ({
                       <InputComponent
                         iName="Module Name"
                         iType="text"
-                        value={module.moduleName}
+                        value={module.name}
                         onChange={(e) =>
                           handleCourseModuleChange(
                             index,
-                            "moduleName",
+                            "name",
                             e.target.value
                           )
                         }
@@ -377,11 +391,11 @@ const AddCourses = ({
                       <InputComponent
                         iName="Module Video Link"
                         iType="text"
-                        value={module.moduleVideo}
+                        value={module.video}
                         onChange={(e) =>
                           handleCourseModuleChange(
                             index,
-                            "moduleVideo",
+                            "video",
                             e.target.value
                           )
                         }
@@ -392,20 +406,20 @@ const AddCourses = ({
                   <InputImageVideo
                     imageName="Video Thumbnail:"
                     fileType="video"
-                    value={module.moduleThumbnail}
+                    value={module.image}
                     onChange={(e) =>
-                      handleImageInput2(e.target.files[0], index)
+                      handleImageInput(e.target.files[0], "image", index)
                     }
                   />
 
                   <div className="w-full">
                     <label className="block text-xl">Module Introduction</label>
                     <TextareaComponent
-                      value={module.moduleIntro}
+                      value={module.description}
                       onChange={(e) =>
                         handleCourseModuleChange(
                           index,
-                          "moduleIntro",
+                          "description",
                           e.target.value
                         )
                       }

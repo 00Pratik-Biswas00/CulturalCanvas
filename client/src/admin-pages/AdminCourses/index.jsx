@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import AddCourses from "../../admin-components/AdminModals/AddCourses/AddCourses";
 import LayoutCourses from "../../admin-components/LayoutCourses/LayoutCourses";
 import { useQuery } from "@apollo/client";
-import { GET_ALL_COURSES_QUERY } from "../../graphql/courseQuery";
+import { GET_ALL_COURSES_ADMIN_QUERY } from "../../graphql/courseQuery";
 
 const AdminCourses = () => {
   const [languageCourses, setLanguageCourses] = useState([]);
@@ -15,10 +15,10 @@ const AdminCourses = () => {
   const [sportsCourseModal, setSportsCourseModal] = useState(false);
   const [artCraftCourseModal, setArtCraftCourseModal] = useState(false);
 
-  const [editCourseData, setEditCourseData] = useState(null);
+  const [editCourseSlug, setEditCourseSlug] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
 
-  const { loading, error, data } = useQuery(GET_ALL_COURSES_QUERY);
+  const { loading, error, data } = useQuery(GET_ALL_COURSES_ADMIN_QUERY);
 
   useEffect(() => {
     if (data && data.getCourses) {
@@ -44,18 +44,30 @@ const AdminCourses = () => {
   }, [data]);
 
   const handleEditCourse = (course) => {
-    setEditCourseData(course);
+    setEditCourseSlug(course.slug);
     setIsEditing(true);
 
     // Open the modal based on course category
-    if (course.courseCategory.language !== "None") setLanguageCourseModal(true);
-    if (course.courseCategory.cuisine !== "None") setCuisineCourseModal(true);
-    if (course.courseCategory.sports !== "None") setSportsCourseModal(true);
-    if (course.courseCategory.arts !== "None") setArtCraftCourseModal(true);
+    if (course.courseCategory.language !== "None") {
+      setLanguageCourseModal(true);
+    }
+    if (course.courseCategory.cuisine !== "None") {
+      setCuisineCourseModal(true);
+    }
+    if (course.courseCategory.sports !== "None") {
+      setSportsCourseModal(true);
+    }
+    if (course.courseCategory.arts !== "None") {
+      setArtCraftCourseModal(true);
+    }
   };
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
   return (
     <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-6 px-4 duration-300 min-h-screen">
@@ -100,7 +112,7 @@ const AdminCourses = () => {
           handleApplyCourseModal={() => setLanguageCourseModal(false)}
           courseTopic="Language"
           isEditing={isEditing}
-          editCourseData={editCourseData}
+          editCourseSlug={editCourseSlug}
           initialCategory={"language"}
         />
       )}
@@ -111,7 +123,7 @@ const AdminCourses = () => {
           handleApplyCourseModal={() => setCuisineCourseModal(false)}
           courseTopic="Cuisine"
           isEditing={isEditing}
-          editCourseData={editCourseData}
+          editCourseSlug={editCourseSlug}
         />
       )}
 
@@ -121,7 +133,7 @@ const AdminCourses = () => {
           handleApplyCourseModal={() => setArtCraftCourseModal(false)}
           courseTopic="Art & Craft"
           isEditing={isEditing}
-          editCourseData={editCourseData}
+          editCourseSlug={editCourseSlug}
         />
       )}
 
@@ -131,7 +143,7 @@ const AdminCourses = () => {
           handleApplyCourseModal={() => setSportsCourseModal(false)}
           courseTopic="Sports"
           isEditing={isEditing}
-          editCourseData={editCourseData}
+          editCourseSlug={editCourseSlug}
         />
       )}
     </section>
