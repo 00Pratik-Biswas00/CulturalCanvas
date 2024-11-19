@@ -6,11 +6,9 @@ export const GET_ALL_FESTIVALS_QUERY = gql`
       name
       slug
       date
-      location {
-        city
-        state
-        lat
-        lng
+      image {
+        url
+        public_id
       }
     }
   }
@@ -27,14 +25,6 @@ export const GET_FESTIVAL_BY_SLUG = gql`
         url
         public_id
       }
-      location {
-        city
-        lat
-      }
-      detail {
-        heading
-        description
-      }
     }
   }
 `;
@@ -45,11 +35,9 @@ export const GET_FESTIVAL_BY_DATE = gql`
       name
       slug
       date
-      location {
-        city
-        state
-        lat
-        lng
+      image {
+        url
+        public_id
       }
     }
   }
