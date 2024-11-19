@@ -281,6 +281,7 @@ const AddCourses = ({
               imageName={`${courseTopic} Image:`}
               fileType="image"
               onChange={(e) => handleImageInput(e.target.files[0], "image")}
+              preview={formData.image}
             />
           </div>
 
@@ -363,6 +364,7 @@ const AddCourses = ({
             onChange={(e) =>
               handleImageInput(e.target.files[0], "instructorImage")
             }
+            preview={formData.instructorImage}
           />
 
           <div className="mb-4 overflow-auto">
@@ -410,6 +412,7 @@ const AddCourses = ({
                     onChange={(e) =>
                       handleImageInput(e.target.files[0], "image", index)
                     }
+                    preview={module.image}
                   />
 
                   <div className="w-full">

@@ -109,7 +109,10 @@ const AdminCourses = () => {
       {languageCourseModal && (
         <AddCourses
           setCourseModal={setLanguageCourseModal}
-          handleApplyCourseModal={() => setLanguageCourseModal(false)}
+          handleApplyCourseModal={() => {
+            setLanguageCourseModal(false);
+            setIsEditing(false);
+          }}
           courseTopic="Language"
           isEditing={isEditing}
           editCourseSlug={editCourseSlug}
@@ -120,7 +123,10 @@ const AdminCourses = () => {
       {cuisineCourseModal && (
         <AddCourses
           setCourseModal={setCuisineCourseModal}
-          handleApplyCourseModal={() => setCuisineCourseModal(false)}
+          handleApplyCourseModal={() => {
+            setCuisineCourseModal(false);
+            setIsEditing(false);
+          }}
           courseTopic="Cuisine"
           isEditing={isEditing}
           editCourseSlug={editCourseSlug}
@@ -130,7 +136,10 @@ const AdminCourses = () => {
       {artCraftCourseModal && (
         <AddCourses
           setCourseModal={setArtCraftCourseModal}
-          handleApplyCourseModal={() => setArtCraftCourseModal(false)}
+          handleApplyCourseModal={() => {
+            setArtCraftCourseModal(false);
+            setIsEditing(false);
+          }}
           courseTopic="Art & Craft"
           isEditing={isEditing}
           editCourseSlug={editCourseSlug}
@@ -140,7 +149,10 @@ const AdminCourses = () => {
       {sportsCourseModal && (
         <AddCourses
           setCourseModal={setSportsCourseModal}
-          handleApplyCourseModal={() => setSportsCourseModal(false)}
+          handleApplyCourseModal={() => {
+            setSportsCourseModal(false);
+            setIsEditing(false);
+          }}
           courseTopic="Sports"
           isEditing={isEditing}
           editCourseSlug={editCourseSlug}

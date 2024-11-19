@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import MyButton4 from "../Buttons/MyButton4";
 
-const InputImageVideo = ({ imageName, fileType, onChange, required = false }) => {
+const InputImageVideo = ({ imageName, fileType, onChange, preview, required = false }) => {
   const fileInputRef = useRef(null);
 
   const handleButtonClick = () => {
@@ -32,6 +32,14 @@ const InputImageVideo = ({ imageName, fileType, onChange, required = false }) =>
         }
         onClick={handleButtonClick}
       />
+
+      {preview && (
+        <img
+          src={preview.url}
+          alt="Preview"
+          className="w-16 h-16 object-cover border rounded"
+        />
+      )}
       {/* <button
         type="submit"
         // onClick={() => imageInputRef.current.click()}
