@@ -20,27 +20,9 @@ const moduleSchema = new mongoose.Schema({
     required: true,
   },
   video: {
-    ETag: {
-      type: String,
-      required: true,
-    },
-    ServerSideEncryption: {
-      type: String,
-      required: true,
-    },
-    Location: {
-      type: String,
-      required: true,
-    },
-    Key: {
-      type: String,
-      required: true,
-    },
-    Bucket: {
-      type: String,
-      required: true,
-    },
-  },
+    type: String,
+    required: true,
+  }
 });
 
 const courseSchema = new mongoose.Schema({
@@ -66,6 +48,7 @@ const courseSchema = new mongoose.Schema({
     language: {
       type: String,
       enum: [
+        "English",
         "Assamese",
         "Bengali",
         "Bodo",
@@ -88,6 +71,7 @@ const courseSchema = new mongoose.Schema({
         "Tamil",
         "Telugu",
         "Urdu",
+        "None",
       ],
     },
     cuisine: {
@@ -126,6 +110,7 @@ const courseSchema = new mongoose.Schema({
         "Sindhi",
         "Parsi",
         "Anglo-Indian",
+        "None",
       ],
     },
     arts: {
@@ -135,6 +120,7 @@ const courseSchema = new mongoose.Schema({
         "Music",
         "Theatre",
         "Puppetry",
+        "None",
         // Add other arts forms as needed
       ],
     },
@@ -147,6 +133,7 @@ const courseSchema = new mongoose.Schema({
         "Kabaddi",
         "Kabaddi",
         "Kho Kho",
+        "None",
         // Add other sports as needed
       ],
     },
@@ -159,10 +146,32 @@ const courseSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  instructorName: {
+    type: String,
+    required: true,
+  },
+  instructorEmail: {
+    type: String,
+    required: true,
+  },
+  instructorImage: {
+    url: {
+      type: String,
+      required: true,
+    },
+    public_id: {
+      type: String,
+      required: true,
+    },
+  },
   modules: [moduleSchema],
-  instructor: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+  averageRatings: {
+    type: Number,
+    default: 0,
+  },
+  totalRatings: {
+    type: Number,
+    default: 0,
   },
 });
 

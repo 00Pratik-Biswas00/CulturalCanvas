@@ -8,6 +8,9 @@ const AdminCourses = () => {
   const [sportsCourseModal, setSportsCourseModal] = useState(false);
   const [artCraftCourseModal, setArtCraftCourseModal] = useState(false);
 
+  const [editCourseData, setEditCourseData] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
+
   const handleApplyLanguageCourseModal = () => {
     setLanguageCourseModal(false);
   };
@@ -23,6 +26,7 @@ const AdminCourses = () => {
   const handleApplySportsCourseModal = () => {
     setSportsCourseModal(false);
   };
+
 
   return (
     <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-6 px-4 duration-300 min-h-screen">

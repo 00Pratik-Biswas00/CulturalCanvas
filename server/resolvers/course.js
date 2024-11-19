@@ -6,7 +6,7 @@ const courseResolvers = {
   Query: {
     getCourses: async () => {
       try {
-        const courses = await Course.find().populate("instructor");
+        const courses = await Course.find();
         return courses;
       } catch (error) {
         console.log("Error fetching courses: ", error);
@@ -30,8 +30,17 @@ const courseResolvers = {
   Mutation: {
     createCourse: async (
       _,
-      { image, name, courseCategory, courseHistory, courseIntro, modules },
-      { userId }
+      {
+        name,
+        image,
+        courseCategory,
+        courseHistory,
+        courseIntro,
+        instructorName,
+        instructorEmail,
+        instructorImage,
+        modules,
+      }
     ) => {
       let slug;
       if (name) {
@@ -47,21 +56,34 @@ const courseResolvers = {
           courseCategory,
           courseHistory,
           courseIntro,
+          instructorName,
+          instructorEmail,
+          instructorImage,
           modules,
-          instructor: userId,
         });
         await newCourse.save();
 
-        return newCourse;
+        return { ok: true };
       } catch (error) {
         console.log("Error creating course: ", error);
-        throw new Error("Error creating course");
+        throw new Error("Error creating course", error);
       }
     },
 
     updateCourse: async (
       _,
-      { id, name, image, courseCategory, courseHistory, courseIntro }
+      {
+        id,
+        name,
+        image,
+        courseCategory,
+        courseHistory,
+        courseIntro,
+        instructorName,
+        instructorEmail,
+        instructorImage,
+        modules,
+      }
     ) => {
       try {
         const course = await Course.findById(id);
@@ -83,15 +105,43 @@ const courseResolvers = {
         course.courseCategory = courseCategory || course.courseCategory;
         course.courseHistory = courseHistory || course.courseHistory;
         course.courseIntro = courseIntro || course.courseIntro;
+        course.instructorName = instructorName || course.instructorName;
+        course.instructorEmail = instructorEmail || course.instructorEmail;
+        course.instructorImage = instructorImage || course.instructorImage;
+        course.modules = modules || course.modules;
 
         await course.save();
 
-        return course;
+        return { ok: true };
       } catch (error) {
         console.log("Error updating course: ", error);
         throw new Error("Error updating course");
       }
     },
+
+    rateCourse: async (_, { newRating }) => {
+      try {
+        const course = await Course.findById(id);
+
+        if (!course) {
+          throw new Error("Course not found");
+        }
+
+        course.averageRatings =
+          (course.averageRatings * course.totalRatings + newRating) /
+          (course.totalRatings + 1);
+        course.totalRatings += 1;
+
+        await course.save();
+
+        return { ok: true };
+      } catch (error) {
+        console.log("Error rating the course: ", error);
+        throw new Error("Error rating the course");
+      }
+    },
+
+/*
 
     addCourseModule: async (_, { id, module }) => {
       try {
@@ -146,6 +196,9 @@ const courseResolvers = {
       }
     },
 
+
+*/
+
     deleteCourse: async (_, { id }) => {
       try {
         const deletedCourse = await Course.findByIdAndDelete(id);
@@ -155,7 +208,7 @@ const courseResolvers = {
           throw new Error("Course not found or already deleted.");
         }
 
-        return "Course deleted successfully";
+        return { ok: true };
       } catch (error) {
         console.log("Error deleting course: ", error);
         throw new Error("Error deleting course");

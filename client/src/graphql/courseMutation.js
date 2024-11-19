@@ -7,8 +7,10 @@ export const CREATE_COURSE_MUTATION = gql`
     $courseCategory: CourseCategoryInput!
     $courseHistory: String!
     $courseIntro: String!
+    $instructorName: String!
+    $instructorEmail: String!
+    $instructorImage: ImageInput!
     $modules: [ModuleInput]
-    $instructor: ID!
   ) {
     createCourse(
       name: $name
@@ -16,40 +18,13 @@ export const CREATE_COURSE_MUTATION = gql`
       courseCategory: $courseCategory
       courseHistory: $courseHistory
       courseIntro: $courseIntro
+      instructorName: $instructorName
+      instructorEmail: $instructorEmail
+      instructorImage: $instructorImage
       modules: $modules
-      instructor: $instructor
     ) {
-      id
-      name
-      slug
-      image {
-        url
-        public_id
-      }
-      courseHistory
-      courseIntro
-      courseCategory {
-        language
-        cuisine
-        arts
-        sports
-      }
-      modules {
-        name
-        description
-        image {
-          url
-          public_id
-        }
-        video {
-          ETag
-          ServerSideEncryption
-          Location
-          Key
-          Bucket
-        }
-      }
-      instructor
+      ok
+      error
     }
   }
 `;
