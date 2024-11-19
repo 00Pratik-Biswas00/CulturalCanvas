@@ -18,11 +18,11 @@ import jkImg from "../assets/states/jk.png";
 import karnatakaImg from "../assets/states/karnataka.png";
 import meghalayaImg from "../assets/states/meghalaya.png";
 import uttarpradeshImg from "../assets/states/up.png";
-import andhrapradeshImg from "../assets/states/wb.png";
-import arunachalpradeshImg from "../assets/states/wb.png";
-import biharImg from "../assets/states/wb.png";
-import chhattisgarhImg from "../assets/states/wb.png";
-import goaImg from "../assets/states/wb.png";
+import andhrapradeshImg from "../assets/states/andhra-pradesh.png";
+import arunachalpradeshImg from "../assets/states/arunachal-pradesh.png";
+import biharImg from "../assets/states/bihar.png";
+import chhattisgarhImg from "../assets/states/chhattisgarh.png";
+import goaImg from "../assets/states/goa.png";
 import gujaratImg from "../assets/states/wb.png";
 import haryanaImg from "../assets/states/wb.png";
 import himachalpradeshImg from "../assets/states/wb.png";
@@ -42,7 +42,6 @@ import telanganaImg from "../assets/states/wb.png";
 import tripuraImg from "../assets/states/wb.png";
 import uttarakhandImg from "../assets/states/wb.png";
 import wbImg from "../assets/states/wb.png";
-
 
 import bengaliImg from "../assets/courses/bengali.png";
 
@@ -254,8 +253,8 @@ export const dummyData = {
       stateImg: wbImg,
       stateName: "29. West Bengal",
       individualPage: "/culture-tradition/west-bengal-state",
-    }
-],
+    },
+  ],
 
   SingleState: {
     stateHistory: [

@@ -15,7 +15,7 @@ const StateCultures = () => {
   };
 
   return (
-    <div className="text-primary_text dark:text-dark_primary_text flex flex-col py-5 pb-7 ">
+    <div className="text-primary_text dark:text-dark_primary_text flex flex-col py-8  ">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-32 gap-y-14">
         {dummyData.StateCulturesData.slice(0, visibleCount).map(
           (content, index) => {
