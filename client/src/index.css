@@ -1,20 +1,16 @@
 /* Common CSS  */
 
-@import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@700&family=Open+Sans&family=Roboto&family=Ubuntu:wght@400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@700&family=Open+Sans&family=Roboto&family=Ubuntu:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
-
-@import url('https://fonts.cdnfonts.com/css/gallient');
-@import url('https://fonts.cdnfonts.com/css/future-straw');
-@import url('https://fonts.cdnfonts.com/css/diphylleia');
+@import url("https://fonts.cdnfonts.com/css/gallient");
+@import url("https://fonts.cdnfonts.com/css/future-straw");
+@import url("https://fonts.cdnfonts.com/css/diphylleia");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
-
 
 /* scrollbar */
 ::-webkit-scrollbar-track {
@@ -33,7 +29,6 @@
   background: transparent;
 }
 
-
 /* Hide download button in the video controls */
 .react-player .controls .controls__button[title="Download"] {
   display: none;
@@ -41,7 +36,7 @@
 
 /* Target the outer container of the Google Translate widget */
 #google_translate_element .goog-te-gadget {
-  font-family: 'Arial', sans-serif !important;
+  font-family: "Arial", sans-serif !important;
   font-size: 14px !important;
   color: #333 !important;
   /* Change text color */
@@ -53,7 +48,10 @@
 }
 
 /* Customize the dropdown button */
-#google_translate_element .goog-te-gadget .goog-te-gadget-simple a.VIpgJd-ZVi9od-xl07Ob-lTBxed {
+#google_translate_element
+  .goog-te-gadget
+  .goog-te-gadget-simple
+  a.VIpgJd-ZVi9od-xl07Ob-lTBxed {
   /* background-color: #4CAF50 !important; */
   /* Change button background */
   color: black !important;
@@ -65,7 +63,10 @@
 }
 
 /* Customize the arrow icon */
-#google_translate_element .goog-te-gadget .goog-te-gadget-simple span[aria-hidden="true"] {
+#google_translate_element
+  .goog-te-gadget
+  .goog-te-gadget-simple
+  span[aria-hidden="true"] {
   color: black !important;
   padding-left: 8px !important;
   /* Change the arrow icon color */
@@ -77,14 +78,13 @@
   /* Hide default icons */
 }
 
-#google_translate_element .goog-te-gadget .goog-te-gadget-simple span[style*="border-left"] {
+#google_translate_element
+  .goog-te-gadget
+  .goog-te-gadget-simple
+  span[style*="border-left"] {
   display: none !important;
   /* Hide default border */
 }
-
-
-
-
 
 /* total users */
 
@@ -96,7 +96,6 @@
   z-index: 0;
   border: 2px solid #f49738;
   text-decoration: none;
-
 }
 
 .hollowBorder:hover::before {
@@ -105,7 +104,7 @@
 }
 
 .hollowBorder::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 60px;
   left: 0;
@@ -114,9 +113,8 @@
   background: #f49738;
   border-radius: 70% 70% 0 0;
   z-index: -1;
-  transition: all .9s;
+  transition: all 0.9s;
 }
-
 
 /* square bg animation */
 
@@ -200,4 +198,76 @@
     transform: scale(1.3) translateY(-90px) rotate(360deg);
     opacity: 0;
   }
+}
+
+/* React Calendar */
+
+.react-calendar {
+  width: 600px;
+  max-width: 100%;
+  border: 0px;
+  font-family: Diphylleia, sans-serif;
+  font-size: 18px;
+  line-height: 2.125em;
+}
+
+.react-calendar__navigation button {
+  color: #f49738;
+  min-width: 44px;
+  background: none;
+  font-size: 28px;
+  font-family: Montserrat, sans-serif;
+}
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background-color: #f496386c;
+  border-radius: 20px;
+}
+.react-calendar__navigation button[disabled] {
+  background-color: #f496386c;
+}
+abbr[title] {
+  text-decoration: none;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background: #f496386c;
+  border-radius: 8px;
+}
+.react-calendar__tile--now {
+  background: #148938;
+  border-radius: 6px;
+  font-weight: bold;
+  color: white;
+}
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+  background: #f496386c;
+  border-radius: 6px;
+  font-weight: bold;
+}
+.react-calendar__tile--hasActive:enabled:hover,
+.react-calendar__tile--hasActive:enabled:focus {
+  background: #f49738;
+}
+.react-calendar__tile--active {
+  background: #f49738;
+  border-radius: 6px;
+  font-weight: bold;
+  color: white;
+}
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background: #f49738;
+  color: white;
+}
+
+.react-calendar__tile--rangeEnd {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  background: #f49738;
+  color: white;
 }
