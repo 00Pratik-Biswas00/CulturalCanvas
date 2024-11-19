@@ -52,7 +52,7 @@ const StateCultures = () => {
                 <div
                   className={` ${borderClass} ${shadowClass} border-x-2 border-t-2 font-bold font-ubuntu px-5 py-2 relative flex items-center justify-center rounded-xl -bottom-5 `}
                 >
-                  <p className="text-xl">{content.stateName}</p>
+                  <p className="text-xl text-center">{content.stateName}</p>
                 </div>
               </div>
             );

@@ -29,9 +29,9 @@ export default {
       boxShadow: {
         "custom-orange": "0 10px 20px #f496386c",
         "custom-blue": "0 10px 20px #06038D6c",
-        "custom-white": "20px 5px 50px rgb(255, 255, 255, 0.5)",
-        "custom-black": "20px 5px 50px rgb(0, 0, 0, 0.5)",
-        "custom-green": "0 10px 20px #1489386c",
+        "custom-white": "10px 5px 50px rgb(255, 255, 255, 0.5)",
+        "custom-black": "10px 5px 50px rgb(0, 0, 0, 0.5)",
+        "custom-green": "10px 10px 20px #1489386c",
       },
 
       fontFamily: {

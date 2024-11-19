@@ -86,7 +86,7 @@
   /* Hide default border */
 }
 
-/* total users */
+/* wavy border */
 
 .hollowBorder {
   position: relative;
@@ -203,12 +203,12 @@
 /* React Calendar */
 
 .react-calendar {
-  width: 600px;
+  width: 550px;
   max-width: 100%;
   border: 0px;
   font-family: Diphylleia, sans-serif;
   font-size: 18px;
-  line-height: 2.125em;
+  line-height: 2em;
 }
 
 .react-calendar__navigation button {
@@ -221,7 +221,7 @@
 .react-calendar__navigation button:enabled:hover,
 .react-calendar__navigation button:enabled:focus {
   background-color: #f496386c;
-  border-radius: 20px;
+  border-radius: 12px;
 }
 .react-calendar__navigation button[disabled] {
   background-color: #f496386c;
@@ -264,10 +264,7 @@ abbr[title] {
 }
 
 .react-calendar__tile--rangeEnd {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
+  border-radius: 6px;
   background: #f49738;
   color: white;
 }

@@ -14,38 +14,41 @@ import BengaliLangImg from "../assets/courses/BengaliLang.png";
 // states
 
 import assamImg from "../assets/states/assam.png";
-import jkImg from "../assets/states/jk.png";
 import karnatakaImg from "../assets/states/karnataka.png";
 import meghalayaImg from "../assets/states/meghalaya.png";
-import uttarpradeshImg from "../assets/states/up.png";
+import uttarpradeshImg from "../assets/states/uttar-pradesh.png";
 import andhrapradeshImg from "../assets/states/andhra-pradesh.png";
 import arunachalpradeshImg from "../assets/states/arunachal-pradesh.png";
 import biharImg from "../assets/states/bihar.png";
-import chhattisgarhImg from "../assets/states/chhattisgarh.png";
-import goaImg from "../assets/states/goa.png";
-import gujaratImg from "../assets/states/wb.png";
-import haryanaImg from "../assets/states/wb.png";
-import himachalpradeshImg from "../assets/states/wb.png";
-import jharkhandImg from "../assets/states/wb.png";
-import keralaImg from "../assets/states/wb.png";
-import madhyapradeshImg from "../assets/states/wb.png";
-import maharashtraImg from "../assets/states/wb.png";
-import manipurImg from "../assets/states/wb.png";
-import mizoramImg from "../assets/states/wb.png";
-import nagalandImg from "../assets/states/wb.png";
-import odishaImg from "../assets/states/wb.png";
-import punjabImg from "../assets/states/wb.png";
-import rajasthanImg from "../assets/states/wb.png";
-import sikkimImg from "../assets/states/wb.png";
-import tamilnaduImg from "../assets/states/wb.png";
-import telanganaImg from "../assets/states/wb.png";
-import tripuraImg from "../assets/states/wb.png";
-import uttarakhandImg from "../assets/states/wb.png";
-import wbImg from "../assets/states/wb.png";
-
-import bengaliImg from "../assets/courses/bengali.png";
-
-import upImg from "../assets/Heritage/up.png";
+import chhattisgarhImg from "../assets/states/Chhattisgarh.png";
+import goaImg from "../assets/states/Goa.png";
+import gujaratImg from "../assets/states/Gujarat.png";
+import haryanaImg from "../assets/states/Haryana.png";
+import himachalpradeshImg from "../assets/states/himachal-pradesh.png";
+import jharkhandImg from "../assets/states/Jharkhand.png";
+import keralaImg from "../assets/states/Kerala.png";
+import madhyapradeshImg from "../assets/states/madhya-pradesh.png";
+import maharashtraImg from "../assets/states/Maharashtra.png";
+import manipurImg from "../assets/states/Manipur.png";
+import mizoramImg from "../assets/states/Mizoram.png";
+import nagalandImg from "../assets/states/Nagaland.png";
+import odishaImg from "../assets/states/Odisha.png";
+import punjabImg from "../assets/states/Punjab.png";
+import rajasthanImg from "../assets/states/Rajasthan.png";
+import sikkimImg from "../assets/states/Sikkim.png";
+import tamilnaduImg from "../assets/states/Tamil-Nadu.png";
+import telanganaImg from "../assets/states/Telangana.png";
+import tripuraImg from "../assets/states/Tripura.png";
+import uttarakhandImg from "../assets/states/Uttarakhand.png";
+import wbImg from "../assets/states/west-bengal.png";
+import jkImg from "../assets/states/Jammu.png";
+import andamanImg from "../assets/states/andaman.png";
+import chandigarhImg from "../assets/states/chandigarh.png";
+import dadraImg from "../assets/states/dadra.png";
+import delhiImg from "../assets/states/Delhi.png";
+import puducherryImg from "../assets/states/puducherry.png";
+import ladakhImg from "../assets/states/ladakh.png";
+import lakshadweepImg from "../assets/states/lakshya.png";
 
 export const dummyData = {
   // --------------------------------------- CULTURE & TRADITION ---------------------------------------
@@ -155,147 +158,143 @@ export const dummyData = {
       individualPage: "/culture-tradition/himachal-pradesh-state",
     },
     {
-      stateImg: jkImg,
-      stateName: "10. Jammu & Kashmir",
-      individualPage: "/culture-tradition/jammu-kashmir-state",
-    },
-    {
       stateImg: jharkhandImg,
-      stateName: "11. Jharkhand",
+      stateName: "10. Jharkhand",
       individualPage: "/culture-tradition/jharkhand-state",
     },
     {
       stateImg: karnatakaImg,
-      stateName: "12. Karnataka",
+      stateName: "11. Karnataka",
       individualPage: "/culture-tradition/karnataka-state",
     },
     {
       stateImg: keralaImg,
-      stateName: "13. Kerala",
+      stateName: "12. Kerala",
       individualPage: "/culture-tradition/kerala-state",
     },
     {
       stateImg: madhyapradeshImg,
-      stateName: "14. Madhya Pradesh",
+      stateName: "13. Madhya Pradesh",
       individualPage: "/culture-tradition/madhya-pradesh-state",
     },
     {
       stateImg: maharashtraImg,
-      stateName: "15. Maharashtra",
+      stateName: "14. Maharashtra",
       individualPage: "/culture-tradition/maharashtra-state",
     },
     {
       stateImg: manipurImg,
-      stateName: "16. Manipur",
+      stateName: "15. Manipur",
       individualPage: "/culture-tradition/manipur-state",
     },
     {
       stateImg: meghalayaImg,
-      stateName: "17. Meghalaya",
+      stateName: "16. Meghalaya",
       individualPage: "/culture-tradition/meghalaya-state",
     },
     {
       stateImg: mizoramImg,
-      stateName: "18. Mizoram",
+      stateName: "17. Mizoram",
       individualPage: "/culture-tradition/mizoram-state",
     },
     {
       stateImg: nagalandImg,
-      stateName: "19. Nagaland",
+      stateName: "18. Nagaland",
       individualPage: "/culture-tradition/nagaland-state",
     },
     {
       stateImg: odishaImg,
-      stateName: "20. Odisha",
+      stateName: "19. Odisha",
       individualPage: "/culture-tradition/odisha-state",
     },
     {
       stateImg: punjabImg,
-      stateName: "21. Punjab",
+      stateName: "20. Punjab",
       individualPage: "/culture-tradition/punjab-state",
     },
     {
       stateImg: rajasthanImg,
-      stateName: "22. Rajasthan",
+      stateName: "21. Rajasthan",
       individualPage: "/culture-tradition/rajasthan-state",
     },
     {
       stateImg: sikkimImg,
-      stateName: "23. Sikkim",
+      stateName: "22. Sikkim",
       individualPage: "/culture-tradition/sikkim-state",
     },
     {
       stateImg: tamilnaduImg,
-      stateName: "24. Tamil Nadu",
+      stateName: "23. Tamil Nadu",
       individualPage: "/culture-tradition/tamil-nadu-state",
     },
     {
       stateImg: telanganaImg,
-      stateName: "25. Telangana",
+      stateName: "24. Telangana",
       individualPage: "/culture-tradition/telangana-state",
     },
     {
       stateImg: tripuraImg,
-      stateName: "26. Tripura",
+      stateName: "25. Tripura",
       individualPage: "/culture-tradition/tripura-state",
     },
     {
       stateImg: uttarpradeshImg,
-      stateName: "27. Uttar Pradesh",
+      stateName: "26. Uttar Pradesh",
       individualPage: "/culture-tradition/uttar-pradesh-state",
     },
     {
       stateImg: uttarakhandImg,
-      stateName: "28. Uttarakhand",
+      stateName: "27. Uttarakhand",
       individualPage: "/culture-tradition/uttarakhand-state",
     },
     {
       stateImg: wbImg,
-      stateName: "29. West Bengal",
+      stateName: "28. West Bengal",
       individualPage: "/culture-tradition/west-bengal-state",
     },
+
+    {
+      stateImg: andamanImg,
+      stateName: "29. Andaman and Nicobar Islands (Union Territory)",
+      individualPage: "/culture-tradition/andaman-nicobar-ut",
+    },
+    {
+      stateImg: chandigarhImg,
+      stateName: "30. Chandigarh (Union Territory)",
+      individualPage: "/culture-tradition/chandigarh-ut",
+    },
+    {
+      stateImg: dadraImg,
+      stateName:
+        "31. Dadra and Nagar Haveli and Daman and Diu (Union Territory)",
+      individualPage: "/culture-tradition/dadra-diu-ut",
+    },
+    {
+      stateImg: delhiImg,
+      stateName: "32. Delhi (Union Territory)",
+      individualPage: "/culture-tradition/delhi-ut",
+    },
+    {
+      stateImg: jkImg,
+      stateName: "33. Jammu and Kashmir (Union Territory)",
+      individualPage: "/culture-tradition/jammu-kashmir-ut",
+    },
+    {
+      stateImg: ladakhImg,
+      stateName: "34. Ladakh (Union Territory)",
+      individualPage: "/culture-tradition/ladakh-ut",
+    },
+    {
+      stateImg: lakshadweepImg,
+      stateName: "35. Lakshadweep (Union Territory)",
+      individualPage: "/culture-tradition/lakshadweep-ut",
+    },
+    {
+      stateImg: puducherryImg,
+      stateName: "36. Puducherry (Union Territory)",
+      individualPage: "/culture-tradition/puducherry-ut",
+    },
   ],
-
-  SingleState: {
-    stateHistory: [
-      {
-        stateName: "West Bengal",
-        stateHistory: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis,
-              minima? Cumque ducimus magnam, illum voluptatibus enim ratione
-              recusandae, in est officiis veritatis doloremque! Quasi ducimus
-              hic ea recusandae eius perspiciatis. Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Repellat sapiente ratione sit
-              adipisci veritatis explicabo, facere est nam aliquam ab aliquid
-              odit architecto recusandae asperiores natus eius molestiae?
-              Ratione, tenetur? Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Officiis, minima? Cumque ducimus magnam, illum
-              voluptatibus enim ratione recusandae, in est officiis veritatis
-              doloremque! Quasi ducimus hic ea recusandae eius perspiciatis.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
-              sapiente ratione sit adipisci veritatis explicabo, facere est nam
-              aliquam ab aliquid odit architecto recusandae asperiores natus
-              eius molestiae? Ratione, tenetur?`,
-        stateImg: upImg,
-      },
-    ],
-    languageModel: [
-      {
-        heading: "Language & Architecture",
-        courseHistory:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        image: bengaliImg,
-      },
-    ],
-    cuisineModel: [
-      {
-        heading: "Famous Cuisines",
-
-        cuisineDescription:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        image: bengaliImg,
-      },
-    ],
-  },
 
   // ---------------------------------------------- COURSES ----------------------------------------------
   LanguagesTypes: [

@@ -1,7 +1,7 @@
 import React from "react";
 import SingleStateCulture from ".";
 import tajImg from "../../assets/culture/stateCultureBg.png";
-import wbImg from "../../assets/states/wb.png";
+import wbImg from "../../assets/states/west-bengal.png";
 
 const WestBengalCuisines = [
   {
