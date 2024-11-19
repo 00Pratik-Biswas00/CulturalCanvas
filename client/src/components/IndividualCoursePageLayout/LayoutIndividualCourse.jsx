@@ -3,12 +3,36 @@ import MyButton3 from "../../components/Buttons/MyButton3";
 import { CiLink } from "react-icons/ci";
 import { CiSearch, CiFilter } from "react-icons/ci";
 import MyButton2 from "../Buttons/MyButton2";
+import { useNavigate } from "react-router-dom";
+import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa"; // Import star icons
 
 const LayoutIndividualCourse = ({ course, courseDetails }) => {
   const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
 
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
+  };
+
+  const renderRatingStars = (rating) => {
+    // Round the rating to the nearest 0.5
+    const fullStars = Math.floor(rating);
+    const halfStars = rating % 1 >= 0.5 ? 1 : 0;
+    const emptyStars = 5 - fullStars - halfStars;
+
+    return (
+      <div className="flex gap-1">
+        {[...Array(fullStars)].map((_, index) => (
+          <FaStar key={`full-${index}`} className="text-yellow-500" />
+        ))}
+        {[...Array(halfStars)].map((_, index) => (
+          <FaStarHalfAlt key={`half-${index}`} className="text-yellow-500" />
+        ))}
+        {[...Array(emptyStars)].map((_, index) => (
+          <FaRegStar key={`empty-${index}`} className="text-yellow-500" />
+        ))}
+      </div>
+    );
   };
 
   return (
@@ -41,23 +65,31 @@ const LayoutIndividualCourse = ({ course, courseDetails }) => {
           {courseDetails.map((courseDetail, index) => (
             <div
               key={index}
-              className="p-5 rounded-lg flex flex-col items-center shadow-lg shadow-gray-400 gap-5"
-            >
+              className="p-5 rounded-lg flex flex-col items-center shadow-lg shadow-gray-400 gap-5">
               <div className="flex flex-col">
                 <img
-                  src={courseDetail.courseImg}
-                  alt={courseDetail.courseName}
+                  src={courseDetail.image.url}
+                  alt={courseDetail.name}
                   className="w-full h-full rounded-md"
                 />
               </div>
               <div className="flex flex-col items-center justify-center gap-2">
                 <h2 className="text-3xl font-extrabold text-center uppercase">
-                  {courseDetail.courseName}
+                  {courseDetail.name}
                 </h2>
                 <p className="italic font-semibold">
-                  - by {courseDetail.teacherName}
+                  - by {courseDetail.instructorName}
                 </p>
-                <div>{courseDetail.totalStars}</div>
+
+                {/* Display the rating stars here */}
+                <div className="flex flex-col items-center">
+                  <div className="text-yellow-500">
+                    {renderRatingStars(courseDetail.averageRatings)}
+                  </div>
+                  <span className="text-sm text-gray-500">
+                    ({courseDetail.totalRatings} ratings)
+                  </span>
+                </div>
               </div>
 
               <MyButton3
@@ -66,7 +98,7 @@ const LayoutIndividualCourse = ({ course, courseDetails }) => {
                 }
                 buttonName={"Go To Course"}
                 buttonIcon={<CiLink className="w-7 h-7" />}
-                // buttonLink={slug open korabi ekhan diye}
+                onClick={() => navigate(`${courseDetail.slug}`)}
               />
             </div>
           ))}

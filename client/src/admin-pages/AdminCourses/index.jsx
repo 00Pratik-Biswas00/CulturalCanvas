@@ -8,8 +8,7 @@ const AdminCourses = () => {
   const [sportsCourseModal, setSportsCourseModal] = useState(false);
   const [artCraftCourseModal, setArtCraftCourseModal] = useState(false);
 
-  const [editCourseData, setEditCourseData] = useState(null);
-  const [isEditing, setIsEditing] = useState(false);
+
 
   const handleApplyLanguageCourseModal = () => {
     setLanguageCourseModal(false);
@@ -40,20 +39,24 @@ const AdminCourses = () => {
         <LayoutCulture
           cultureName="Language Course"
           setModalOpen={setLanguageCourseModal}
+          onEditCourse={handleEditCourse}
         />
         <LayoutCulture
           cultureName="Cuisine Course"
           setModalOpen={setCuisineCourseModal}
+          onEditCourse={handleEditCourse}
         />
 
         <LayoutCulture
           cultureName="Art & Craft Course"
           setModalOpen={setArtCraftCourseModal}
+          onEditCourse={handleEditCourse}
         />
 
         <LayoutCulture
           cultureName="Sports Course"
           setModalOpen={setSportsCourseModal}
+          onEditCourse={handleEditCourse}
         />
       </div>
 
@@ -62,6 +65,7 @@ const AdminCourses = () => {
           setCourseModal={setLanguageCourseModal}
           handleApplyCourseModal={handleApplyLanguageCourseModal}
           courseTopic="Language"
+          editCourseData
         />
       )}
 
@@ -70,6 +74,7 @@ const AdminCourses = () => {
           setCourseModal={setCuisineCourseModal}
           handleApplyCourseModal={handleApplyCuisineCourseModal}
           courseTopic="Cuisine"
+          editCourseData
         />
       )}
 
@@ -78,6 +83,7 @@ const AdminCourses = () => {
           setCourseModal={setArtCraftCourseModal}
           handleApplyCourseModal={handleApplyArtCraftCourseModal}
           courseTopic="Art & Craft"
+          editCourseData
         />
       )}
 
@@ -86,6 +92,7 @@ const AdminCourses = () => {
           setCourseModal={setSportsCourseModal}
           handleApplyCourseModal={handleApplySportsCourseModal}
           courseTopic="Sports"
+          editCourseData
         />
       )}
     </section>

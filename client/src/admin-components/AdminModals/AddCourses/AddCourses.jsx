@@ -12,13 +12,13 @@ const AddCourses = ({
   setCourseModal,
   handleApplyCourseModal,
   courseTopic,
+  editCourseData = null,
 }) => {
   useEffect(() => {
     if (isEditing && editData) {
-      setFormData(editData); 
+      setFormData(editData);
     }
   }, [isEditing, editData]);
-
 
   const RESTAPI_BASE_URL = import.meta.env.VITE_API_KEY_RESTAPI;
 
@@ -171,9 +171,8 @@ const AddCourses = ({
     }
   };
 
-  const [createCourse, { createLoading, createError, createData }] = useMutation(
-    CREATE_COURSE_MUTATION,
-    {
+  const [createCourse, { createLoading, createError, createData }] =
+    useMutation(CREATE_COURSE_MUTATION, {
       onCompleted: () => {
         toast.success("Course Created Successfully!");
       },
@@ -181,18 +180,18 @@ const AddCourses = ({
         console.error("Error creating course:", error);
         toast.error("Error creating course:");
       },
-    }
-  );
+    });
 
-  const [updateCourse, { updateLoading, updateError, updateData }] = useMutation(UPDATE_COURSE_MUTATION, {
-    onCompleted: () => {
-      toast.success("Course Updated Successfully!");
-    },
-    onError: (error) => {
-      console.error("Error updating course!", error);
-      toast.error("Error updating course!");
-    }
-  });
+  const [updateCourse, { updateLoading, updateError, updateData }] =
+    useMutation(UPDATE_COURSE_MUTATION, {
+      onCompleted: () => {
+        toast.success("Course Updated Successfully!");
+      },
+      onError: (error) => {
+        console.error("Error updating course!", error);
+        toast.error("Error updating course!");
+      },
+    });
 
   const handleSaveCourse = async () => {
     try {
@@ -235,7 +234,6 @@ const AddCourses = ({
       console.error("Error creating course:", e);
     }
   };
-
 
   return (
     <div>
@@ -321,7 +319,6 @@ const AddCourses = ({
             </div>
           </div>
 
-
           <div className="flex items-start w-full justify-between gap-5">
             <div className="w-full">
               <InputComponent
@@ -348,12 +345,9 @@ const AddCourses = ({
             imageName="Teacher's Image:"
             fileType="image"
             onChange={(e) =>
-                handleImageInput1(e.target.files[0], "instructorImage")
+              handleImageInput1(e.target.files[0], "instructorImage")
             }
           />
-
-
-
 
           <div className="mb-4 overflow-auto">
             <label className="block text-xl font-bold">Course Details:</label>

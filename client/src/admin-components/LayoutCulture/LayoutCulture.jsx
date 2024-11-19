@@ -23,7 +23,9 @@ const LayoutCulture = ({ cultureName, setModalOpen }) => {
   };
 
   const handleMouseMove = (e) => {
-    if (!isDragging.current) return;
+    if (!isDragging.current) {
+      return;
+    }
     const distance = e.clientX - startPosition.current;
     scrollRef.current.scrollLeft = scrollLeftValue.current - distance;
   };
@@ -38,6 +40,15 @@ const LayoutCulture = ({ cultureName, setModalOpen }) => {
 
   const scrollRight = () => {
     scrollRef.current.scrollBy({ left: 500, behavior: "smooth" });
+  };
+
+    const [editCourseData, setEditCourseData] = useState(null);
+    const [isEditing, setIsEditing] = useState(false);
+    
+  const handleEditCourse = (course) => {
+    setEditCourseData(course); // Populate course data
+    setIsEditing(true); // Toggle editing mode
+    setLanguageCourseModal(true); // Open the modal (adjust for your category logic)
   };
 
   return (
@@ -61,8 +72,7 @@ const LayoutCulture = ({ cultureName, setModalOpen }) => {
         {/* Add New State Button */}
         <button
           onClick={() => setModalOpen(true)}
-          className="bg-highlight_hover hover:bg-highlight_hover_dark text-dark_primary_text font-medium font-ubuntu sm:text-base py-1 px-4 rounded transition-transform hover:scale-110 duration-1000 transform-cpu"
-        >
+          className="bg-highlight_hover hover:bg-highlight_hover_dark text-dark_primary_text font-medium font-ubuntu sm:text-base py-1 px-4 rounded transition-transform hover:scale-110 duration-1000 transform-cpu">
           Add a New {cultureName}
         </button>
       </div>
@@ -72,8 +82,7 @@ const LayoutCulture = ({ cultureName, setModalOpen }) => {
         {/* Scroll Left Button */}
         <button
           onClick={scrollLeft}
-          className="absolute -left-2 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 hover:text-dark_primary_text border p-2 duration-300 rounded-full "
-        >
+          className="absolute -left-2 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 hover:text-dark_primary_text border p-2 duration-300 rounded-full ">
           <FaLongArrowAltLeft className="w-5 h-5" />
         </button>
 
@@ -85,8 +94,7 @@ const LayoutCulture = ({ cultureName, setModalOpen }) => {
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
           className="flex gap-7 overflow-x-hidden w-full outline-none"
-          style={{ scrollSnapType: "x mandatory" }}
-        >
+          style={{ scrollSnapType: "x mandatory" }}>
           {/* Sample Cards map korabi ekhane*/}
 
           <div className="flex flex-col items-center justify-start gap-3 p-4 min-w-[32%]">
@@ -97,11 +105,13 @@ const LayoutCulture = ({ cultureName, setModalOpen }) => {
             />
 
             <div className="flex items-center  justify-center pt-5 gap-x-3">
-              <RiEditFill className="w-7 h-7  cursor-pointer text-highlight_hover hover:text-highlight_hover_dark" />
+              <RiEditFill
+                className="w-7 h-7  cursor-pointer text-highlight_hover hover:text-highlight_hover_dark"
+                onClick={() => onEditCourse({ name: "Hinduism", id: courseId })}
+              />
 
               <div
-                className={`  border-2  font-bold font-ubuntu px-4 py-1  flex items-center justify-center rounded-xl  `}
-              >
+                className={`  border-2  font-bold font-ubuntu px-4 py-1  flex items-center justify-center rounded-xl  `}>
                 <p className="text-xl">Hinduism</p>
               </div>
               <MdDelete className="w-7 h-7  cursor-pointer text-red-600 hover:text-red-800" />
@@ -111,8 +121,7 @@ const LayoutCulture = ({ cultureName, setModalOpen }) => {
 
         <button
           onClick={scrollRight}
-          className="absolute -right-2 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 hover:text-dark_primary_text border p-2 duration-300 rounded-full "
-        >
+          className="absolute -right-2 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 hover:text-dark_primary_text border p-2 duration-300 rounded-full ">
           <FaLongArrowAltRight className="w-5 h-5" />
         </button>
       </div>
