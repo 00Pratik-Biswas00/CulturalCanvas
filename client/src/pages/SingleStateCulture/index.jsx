@@ -2,7 +2,7 @@ import React from "react";
 import tajImg from "../../assets/culture/stateCultureBg.png";
 import { IoIosLink } from "react-icons/io";
 
-import wbImg from "../../assets/states/wb.png";
+import wbImg from "../../assets/states/west-bengal.png";
 import { dummyData } from "../../utils/constants";
 import MyButton3 from "../../components/Buttons/MyButton3";
 
@@ -186,7 +186,7 @@ const SingleStateCulture = ({
           />
 
           <div className=" flex flex-col gap-3">
-            <p className="text-justify"> {clothingDetails} </p>
+            <p className="text-justify text-lg"> {clothingDetails} </p>
           </div>
         </div>
       </div>
@@ -209,7 +209,7 @@ const SingleStateCulture = ({
           />
 
           <div className=" flex flex-col gap-3">
-            <p className="text-justify"> {languageDetails} </p>
+            <p className="text-justify text-lg"> {languageDetails} </p>
           </div>
         </div>
 

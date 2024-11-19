@@ -7,7 +7,7 @@ import Agra from "../../assets/Heritage/Agra fort(avif).avif";
 import Fateh from "../../assets/Heritage/Fateh(avif).avif";
 import RedFort from "../../assets/Heritage/Red fort (avif).avif";
 import Suntemple from "../../assets/Heritage/Sun(avif).avif";
-import upImg from "../../assets/states/up.png";
+import upImg from "../../assets/states/west-bengal.png";
 
 import { MdLocalPolice } from "react-icons/md";
 import { IoWoman } from "react-icons/io5";
