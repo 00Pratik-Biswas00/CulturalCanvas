@@ -7,19 +7,11 @@ const courseTypeDefs = gql`
     public_id: String!
   }
 
-  type Video {
-    ETag: String
-    ServerSideEncryption: String
-    Location: String
-    Key: String
-    Bucket: String
-  }
-
   type Module {
     name: String!
     description: String!
     image: Image!
-    video: Video!
+    video: String!
   }
 
   type CourseCategory {
@@ -37,21 +29,12 @@ const courseTypeDefs = gql`
     courseCategory: CourseCategory!
     courseHistory: String!
     courseIntro: String!
+    instructorName: String!
+    instructorEmail: String!
+    instructorImage: Image!
     modules: [Module]
-    instructor: User!
-  }
-
-  type User {
-    _id: ID!
-    name: String!
-    email: String!
-    photo: Photo
-    gender: String!
-    role: String!
-    phone: String!
-    rewards: [ID]
-    vlogs: [ID]
-    blogs: [ID]
+    averageRatings: Float!
+    totalRatings: Int!
   }
 
   # Input types for mutations
@@ -60,19 +43,11 @@ const courseTypeDefs = gql`
     public_id: String!
   }
 
-  input CourseVideoInput {
-    ETag: String
-    ServerSideEncryption: String
-    Location: String
-    Key: String
-    Bucket: String
-  }
-
   input ModuleInput {
     name: String!
     description: String!
     image: ImageInput!
-    video: CourseVideoInput!
+    video: String!
   }
 
   input CourseCategoryInput {
@@ -84,15 +59,8 @@ const courseTypeDefs = gql`
 
   # Output types for mutations
   type CourseMutationResponse {
-    id: ID!
-    name: String!
-    slug: String!
-    image: Image!
-    courseCategory: CourseCategory!
-    courseHistory: String!
-    courseIntro: String!
-    modules: [Module]
-    instructor: ID!
+    ok: Boolean
+    error: String
   }
 
   # Queries and Mutations
@@ -105,26 +73,37 @@ const courseTypeDefs = gql`
     createCourse(
       name: String!
       image: ImageInput!
-      courseCategory: String!
+      courseCategory: CourseCategoryInput!
       courseHistory: String!
       courseIntro: String!
+      instructorName: String!
+      instructorEmail: String!
+      instructorImage: ImageInput!
       modules: [ModuleInput]
-    ): CourseMutationResponse
+    ): CourseMutationResponse!
 
     updateCourse(
       id: ID!
       image: ImageInput
       name: String
-      courseCategory: String
+      courseCategory: CourseCategoryInput
       courseHistory: String
       courseIntro: String
-    ): CourseMutationResponse
+      instructorName: String!
+      instructorEmail: String!
+      instructorImage: ImageInput!
+      modules: [ModuleInput]
+    ): CourseMutationResponse!
 
-    addCourseModule(id: ID!, module: ModuleInput!): Module
+    rateCourse(
+      newRating: Float!
+    ): CourseMutationResponse!
 
-    removeCourseModule(courseId: ID!, moduleId: ID!): Module
+    #addCourseModule(id: ID!, module: ModuleInput!): Module
 
-    deleteCourse(id: ID!): String!
+    #removeCourseModule(courseId: ID!, moduleId: ID!): Module
+
+    deleteCourse(id: ID!): CourseMutationResponse!
   }
 `;
 
