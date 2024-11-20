@@ -14,6 +14,11 @@ load_dotenv()
 # os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
+from concurrent.futures import ThreadPoolExecutor  # Import the executor
+
+# Create a thread pool executor (do this once, globally)
+executor = ThreadPoolExecutor(max_workers=1)
+
 def get_pdf_text(pdf_docs):
     text=""
     for pdf in pdf_docs:
@@ -47,7 +52,7 @@ def get_conversational_chain():
     Answer:
     """
 
-    model = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0.3)
+    model = ChatGoogleGenerativeAI(model="gemini-flash", temperature=0.3)
 
     prompt = PromptTemplate(template = prompt_template, input_variables = ["context", "question"])
     chain = load_qa_chain(model, chain_type="stuff", prompt=prompt)
