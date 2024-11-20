@@ -4,6 +4,9 @@ from flask_cors import CORS
 import pandas as pd
 import numpy as np
 import joblib
+from geopy.geocoders import Nominatim
+from geopy.distance import geodesic
+import overpy
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -104,6 +107,86 @@ def predict():
     
     # Return the prediction as JSON
     return jsonify({'budget': prediction})
+
+geolocator = Nominatim(user_agent="nearest_attraction_finder")
+api = overpy.Overpass()
+
+# Function to get coordinates of a place
+def get_coordinates(place_name):
+    location = geolocator.geocode(place_name)
+    if location:
+        return (location.latitude, location.longitude)
+    else:
+        return None
+
+# Route to find nearest attractions (updated to work with the React frontend)
+@app.route("/api/find-attractions", methods=['GET','POST'])
+def find_attractions():
+    try:
+        data = request.get_json()  # Receive JSON data from the request
+        place_name = data.get("place")
+        attraction_type = data.get("attraction")
+
+        # Validate input and find nearest places
+        if place_name and attraction_type:
+            user_location = get_coordinates(place_name)
+            if user_location:
+                attractions_sorted = find_nearest_places(user_location, attraction_type, radius=30000)
+
+                # Return the results as a JSON response
+                return jsonify({
+                    "place_name": place_name,
+                    "attraction_type": attraction_type,
+                    "attractions": attractions_sorted
+                })
+
+            else:
+                return jsonify({"error": "Place not found. Please check the name and try again."}), 400
+        else:
+            return jsonify({"error": "Invalid input. Place and attraction type are required."}), 400
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+# Function to find nearest places based on user input
+def find_nearest_places(user_location, attraction_type, radius=30000):  # Radius set to 30 km
+    # OSM tags for various attraction types
+    attraction_types = {
+        "tourist_spots": '["tourism"~"attraction|museum|monument|zoo|theme_park|viewpoint"]',
+        "restaurants": '["amenity"="restaurant"]',
+        "hotels": '["tourism"="hotel"]',
+        "hospitals": '["amenity"="hospital"]',
+        "police_stations": '["amenity"="police"]'  # New entry for police stations
+    }
+
+    if attraction_type not in attraction_types:
+        return []
+
+    # Overpass query for the given attraction type
+    query = f"""
+    node{attraction_types[attraction_type]}(around:{radius},{user_location[0]},{user_location[1]});
+    out body;
+    """
+    result = api.query(query)
+
+    # Store attractions with distances, excluding unnamed locations
+    attractions = []
+    for node in result.nodes:
+        if "name" in node.tags:
+            attraction_location = (node.lat, node.lon)
+            distance = geodesic(user_location, attraction_location).km
+            google_maps_link = f"https://www.google.com/maps?q={node.lat},{node.lon}"
+            
+            attractions.append({
+                'name': node.tags.get("name"),
+                'location': attraction_location,
+                'distance': distance,
+                'link': google_maps_link
+            })
+
+    # Sort attractions by distance and return the results
+    attractions_sorted = sorted(attractions, key=lambda x: x['distance'])
+    
+    return attractions_sorted[:20]
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000)
