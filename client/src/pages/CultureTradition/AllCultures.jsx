@@ -40,11 +40,10 @@ const AllCultures = () => {
                 />
               </div>
 
-              <p>{content.cultureIntro}</p>
-              <div className=" pb-12">
-                {" "}
-                <p className=" text-left">Want to know more? Check below</p>
-              </div>
+              <p className=" text-center py-8 pb-10 font-bold font-pangaia text-xl">
+                {content.cultureIntro}
+              </p>
+
               <div className="absolute bottom-0 ">
                 <a
                   href={content.individualPage}
