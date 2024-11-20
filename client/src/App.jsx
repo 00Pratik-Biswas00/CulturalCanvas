@@ -63,6 +63,7 @@ import AdminSingleBlogVerification from "./admin-pages/AdminContents/AdminSingle
 
 // new additions
 import PredictBudget from "./pages/ExploreDiversity/PredictAmount";
+import ClothingCulture from "./pages/SinglePageCulture/ClothingCulture";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -208,6 +209,12 @@ function App() {
                 path="/culture-tradition/single-page"
                 element={<SinglePageCulture />}
               />
+
+              <Route
+                path="/culture-tradition/clothing-culture"
+                element={<ClothingCulture />}
+              />
+
               <Route
                 path="/culture-tradition/multiple-pages"
                 element={<MultiplePagesCulture />}
@@ -220,6 +227,7 @@ function App() {
                 path="/culture-tradition/single-state"
                 element={<SingleStateCulture />}
               />
+              {/* states */}
               <Route
                 path="/culture-tradition/assam-state"
                 element={<AssamState />}
@@ -275,7 +283,7 @@ function App() {
                 path="/learn-Indian-culture/:maincategory/:category/:slug"
                 element={<SingleCourse />}
               />
-              
+
               {/*  ---------------- Explore Diversity  ---------------- */}
               <Route path="/explore-diversity" element={<ExploreDiversity />} />
               <Route
