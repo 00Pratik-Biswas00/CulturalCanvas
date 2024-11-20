@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Chatbot</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Multi-PDF Chatbot 🤖</h1>
+        <hr>
+
+        <!-- Upload PDF Section -->
+        <h3>Upload PDFs</h3>
+        <form id="upload-form" enctype="multipart/form-data">
+            <div class="mb-3">
+                <input type="file" name="pdf_files" multiple class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Process PDFs</button>
+        </form>
+        <div id="upload-status" class="mt-3"></div>
+
+        <hr>
+
+        <!-- Chat Section -->
+        <h3>Ask a Question</h3>
+        <form id="chat-form">
+            <div class="mb-3">
+                <input type="text" name="question" id="question" class="form-control" placeholder="Enter your question">
+            </div>
+            <button type="submit" class="btn btn-success">Ask</button>
+        </form>
+        <div id="response" class="mt-3"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Handle PDF upload
+        $("#upload-form").submit(function (e) {
+            e.preventDefault();
+            let formData = new FormData(this);
+            $.ajax({
+                url: "/process-pdfs",
+                type: "POST",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    $("#upload-status").html(`<div class="alert alert-success">${response.message}</div>`);
+                },
+                error: function (xhr) {
+                    $("#upload-status").html(`<div class="alert alert-danger">${xhr.responseJSON.error}</div>`);
+                }
+            });
+        });
+
+        // Handle Question Submission
+        $("#chat-form").submit(function (e) {
+            e.preventDefault();
+            let question = $("#question").val();
+            $.ajax({
+                url: "/ask-question",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify({ question }),
+                success: function (response) {
+                    $("#response").html(`<div class="alert alert-info">Answer: ${response.answer}</div>`);
+                },
+                error: function (xhr) {
+                    $("#response").html(`<div class="alert alert-danger">${xhr.responseJSON.error}</div>`);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
