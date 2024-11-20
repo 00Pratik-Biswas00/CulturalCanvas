@@ -48,6 +48,7 @@ import ArunachalPradeshState from "./pages/SingleStateCulture/ArunachalPradeshSt
 import AndhraPradeshState from "./pages/SingleStateCulture/AndhraPradeshState";
 import SingleBlogVlog from "./pages/SingleBlogVlog";
 import UploadBlogVlog from "./pages/UploadBlogVlog/UploadBlogVlog";
+import NearestAttractions from "./pages/NearestAttraction";
 
 // Admin pages
 import AdminNavSidebar from "./admin-components/AdminNavbar";
@@ -201,6 +202,10 @@ function App() {
               {/*  ---------------- Heritage  ---------------- */}
               <Route path="/heritage" element={<Heritage />} />
               <Route path="/heritage/:slug" element={<SingleHeritage />} />
+              <Route
+                path="/nearest-attractions"
+                element={<NearestAttractions />}
+              />
 
               {/*  ---------------- Culture and Tradition  ---------------- */}
               <Route path="/culture-tradition" element={<CultureTradition />} />
@@ -275,7 +280,7 @@ function App() {
                 path="/learn-Indian-culture/:maincategory/:category/:slug"
                 element={<SingleCourse />}
               />
-              
+
               {/*  ---------------- Explore Diversity  ---------------- */}
               <Route path="/explore-diversity" element={<ExploreDiversity />} />
               <Route

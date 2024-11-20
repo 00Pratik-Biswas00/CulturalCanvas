@@ -8,6 +8,7 @@ import Fateh from "../../assets/Heritage/Fateh(avif).avif";
 import RedFort from "../../assets/Heritage/Red fort (avif).avif";
 import Suntemple from "../../assets/Heritage/Sun(avif).avif";
 import upImg from "../../assets/states/west-bengal.png";
+import { useNavigate } from "react-router-dom";
 
 import { MdLocalPolice } from "react-icons/md";
 import { IoWoman } from "react-icons/io5";
@@ -28,6 +29,11 @@ const SingleHeritage = () => {
       setHeritage(data.getHeritage);
     }
   }, [data]);
+
+  const navigate = useNavigate();
+  const handleNavigation = () => {
+    navigate("/nearest-attractions");
+  };
 
   if (loading) {
     return <h1>Loading...</h1>;
@@ -260,6 +266,15 @@ const SingleHeritage = () => {
               </div>
             </div>
             {/* ... (unchanged section) ... */}
+
+            <div className="min-h-screen flex items-center justify-center bg-orange-100">
+              <button
+                onClick={handleNavigation}
+                className="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition duration-300"
+              >
+                Go to Nearest Attractions
+              </button>
+            </div>
 
             <div className="bg-background1 dark:bg-dark_background1 py-4 px-16 pt-4 flex flex-col gap-4 items-center justify-center w-full h-full">
               <h1 className="font-bold font-playfair text-5xl tracking-wider">
