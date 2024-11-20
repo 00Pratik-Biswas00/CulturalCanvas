@@ -6,8 +6,7 @@ const courseResolvers = {
   Query: {
     getCourses: async () => {
       try {
-        const courses = await Course.find();
-        return courses;
+        return await Course.find();
       } catch (error) {
         console.log("Error fetching courses: ", error);
         throw new Error("Error fetching courses");
@@ -16,10 +15,7 @@ const courseResolvers = {
 
     getCourse: async (_, { slug }) => {
       try {
-        const course = await Course.findOne({ slug: slug }).populate(
-          "instructor"
-        );
-        return course;
+        return await Course.findOne({ slug: slug });
       } catch (error) {
         console.log("Error fetching courses: ", error);
         throw new Error("Error fetching course");

@@ -89,9 +89,9 @@ const courseTypeDefs = gql`
       courseCategory: CourseCategoryInput
       courseHistory: String
       courseIntro: String
-      instructorName: String!
-      instructorEmail: String!
-      instructorImage: ImageInput!
+      instructorName: String
+      instructorEmail: String
+      instructorImage: ImageInput
       modules: [ModuleInput]
     ): CourseMutationResponse!
 

@@ -6,31 +6,38 @@ export const GET_ALL_COURSES_QUERY = gql`
       id
       name
       slug
-      courseCategory
-      courseHistory
-      courseIntro
       image {
         url
         public_id
       }
-      modules {
-        name
-        description
-        video {
-          ETag
-          ServerSideEncryption
-          Location
-          Key
-          Bucket
-        }
-        image {
-          url
-          public_id
-        }
+      courseCategory {
+        language
+        cuisine
+        arts
+        sports
       }
-      instructor {
-        name
-        email
+      instructorName
+      averageRatings
+      totalRatings
+    }
+  }
+`;
+
+export const GET_ALL_COURSES_ADMIN_QUERY = gql`
+  query GetCourses {
+    getCourses {
+      id
+      name
+      slug
+      image {
+        url
+        public_id
+      }
+      courseCategory {
+        language
+        cuisine
+        arts
+        sports
       }
     }
   }
@@ -42,42 +49,34 @@ export const GET_COURSE_QUERY = gql`
       id
       name
       slug
-      courseCategory
+      image {
+        url
+        public_id
+      }
       courseHistory
       courseIntro
-      image {
+      instructorName
+      instructorEmail
+      instructorImage {
         url
         public_id
       }
       modules {
         name
+        description
         image {
           url
           public_id
         }
-        description
-        video {
-          ETag
-          ServerSideEncryption
-          Location
-          Key
-          Bucket
-        }
+        video
       }
-      instructor {
-        _id
-        name
-        email
-        gender
-        role
-        phone
-        rewards
-        vlogs
-        blogs
-        photo {
-          url
-          public_id
-        }
+      averageRatings
+      totalRatings
+      courseCategory {
+        language
+        cuisine
+        arts
+        sports
       }
     }
   }

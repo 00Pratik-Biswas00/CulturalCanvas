@@ -32,68 +32,39 @@ export const CREATE_COURSE_MUTATION = gql`
 export const UPDATE_COURSE_MUTATION = gql`
   mutation UpdateCourse(
     $id: ID!
-    $image: ImageInput
     $name: String
-    $courseCategory: String
+    $image: ImageInput
+    $courseCategory: CourseCategoryInput
     $courseHistory: String
     $courseIntro: String
+    $instructorName: String
+    $instructorEmail: String
+    $instructorImage: ImageInput
+    $modules: [ModuleInput]
   ) {
     updateCourse(
       id: $id
-      image: $image
       name: $name
+      image: $image
       courseCategory: $courseCategory
       courseHistory: $courseHistory
       courseIntro: $courseIntro
+      instructorName: $instructorName
+      instructorEmail: $instructorEmail
+      instructorImage: $instructorImage
+      modules: $modules
     ) {
-      name
-      image {
-        public_id
-        url
-      }
-      courseCategory
-      courseIntro
-      courseHistory
+      ok
+      error
     }
   }
 `;
 
-export const ADD_COURSE_MODULE_MUTATION = gql`
-  mutation AddCourseModule($id: ID!, $module: ModuleInput!) {
-    addCourseModule(id: $id, module: $module) {
-      name
-      description
-      image {
-        url
-        public_id
-      }
-      video {
-        ETag
-        ServerSideEncryption
-        Location
-        Key
-        Bucket
-      }
-    }
-  }
-`;
-
-export const REMOVE_COURSE_MODULE_MUTATION = gql`
-  mutation RemoveCourseModule($courseId: ID!, $moduleId: ID!) {
-    removeCourseModule(courseId: $courseId, moduleId: $moduleId) {
-      name
-      description
-      image {
-        url
-        public_id
-      }
-      video {
-        ETag
-        ServerSideEncryption
-        Location
-        Key
-        Bucket
-      }
+export const RATE_COURSE_MUTATION = gql`
+  mutation RateCourse($id: ID!, $newRating: Float!) {
+    rateCourse(id: $id, newRating: $newRating) {
+      ok
+      error
     }
   }
 `;

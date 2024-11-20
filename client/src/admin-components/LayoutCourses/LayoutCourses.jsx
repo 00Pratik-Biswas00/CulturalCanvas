@@ -5,12 +5,14 @@ import {
   FaLongArrowAltRight,
 } from "react-icons/fa";
 import { RiEditFill } from "react-icons/ri";
-
 import { MdDelete } from "react-icons/md";
 
-import imgTemp from "../../assets/footer/linkedin.jpeg";
-
-const LayoutCulture = ({ cultureName, setModalOpen }) => {
+const LayoutCourses = ({
+  cultureName,
+  setModalOpen,
+  courses,
+  onEditCourse,
+}) => {
   const scrollRef = useRef(null);
   const isDragging = useRef(false);
   const startPosition = useRef(0);
@@ -23,9 +25,7 @@ const LayoutCulture = ({ cultureName, setModalOpen }) => {
   };
 
   const handleMouseMove = (e) => {
-    if (!isDragging.current) {
-      return;
-    }
+    if (!isDragging.current) return;
     const distance = e.clientX - startPosition.current;
     scrollRef.current.scrollLeft = scrollLeftValue.current - distance;
   };
@@ -45,7 +45,7 @@ const LayoutCulture = ({ cultureName, setModalOpen }) => {
   return (
     <div>
       {/* Header Section */}
-      <div className="flex flex-col sm:flex-row justify-between items-center  gap-y-3 ">
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-y-3">
         <h1 className="text-[1.8rem] rounded-r-xl font-semibold text-center font-playfair bg-highlight text-dark_primary_text py-1 px-4">
           {cultureName}s
         </h1>
@@ -60,7 +60,7 @@ const LayoutCulture = ({ cultureName, setModalOpen }) => {
           <FaSearch className="absolute left-3 w-4 h-4" />
         </div>
 
-        {/* Add New State Button */}
+        {/* Add New Button */}
         <button
           onClick={() => setModalOpen(true)}
           className="bg-highlight_hover hover:bg-highlight_hover_dark text-dark_primary_text font-medium font-ubuntu sm:text-base py-1 px-4 rounded transition-transform hover:scale-110 duration-1000 transform-cpu">
@@ -69,11 +69,11 @@ const LayoutCulture = ({ cultureName, setModalOpen }) => {
       </div>
 
       {/* Scrollable Section */}
-      <div className="relative w-full mt-10 px-10 ">
+      <div className="relative w-full mt-10 px-10">
         {/* Scroll Left Button */}
         <button
           onClick={scrollLeft}
-          className="absolute -left-2 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 hover:text-dark_primary_text border p-2 duration-300 rounded-full ">
+          className="absolute -left-2 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 hover:text-dark_primary_text border p-2 duration-300 rounded-full">
           <FaLongArrowAltLeft className="w-5 h-5" />
         </button>
 
@@ -86,33 +86,32 @@ const LayoutCulture = ({ cultureName, setModalOpen }) => {
           onMouseLeave={handleMouseUp}
           className="flex gap-7 overflow-x-hidden w-full outline-none"
           style={{ scrollSnapType: "x mandatory" }}>
-          {/* Sample Cards map korabi ekhane*/}
-
-          <div className="flex flex-col items-center justify-start gap-3 p-4 min-w-[32%]">
-            <img
-              src={imgTemp}
-              className="rounded-xl w-80 h-80"
-              alt="Religion Image"
-            />
-
-            <div className="flex items-center  justify-center pt-5 gap-x-3">
-              <RiEditFill
-                className="w-7 h-7  cursor-pointer text-highlight_hover hover:text-highlight_hover_dark"
-                onClick={() => onEditCourse({ name: "Hinduism", id: courseId })}
+          {/* Cards for Courses */}
+          {courses.map((course) => (
+            <div
+              key={course.slug}
+              className="flex flex-col items-center justify-start gap-3 p-4 min-w-[32%]">
+              <img
+                src={course.image.url}
+                className="rounded-xl w-80 h-80"
+                alt={course.name}
               />
-
-              <div
-                className={`  border-2  font-bold font-ubuntu px-4 py-1  flex items-center justify-center rounded-xl  `}>
-                <p className="text-xl">Hinduism</p>
+              <div className="flex items-center justify-center pt-5 gap-x-3">
+                <RiEditFill
+                  className="w-7 h-7 cursor-pointer text-highlight_hover hover:text-highlight_hover_dark"
+                  onClick={() => onEditCourse(course)}
+                />
+                <p className="text-xl font-bold">{course.name}</p>
+                <MdDelete className="w-7 h-7 cursor-pointer text-red-600 hover:text-red-800" />
               </div>
-              <MdDelete className="w-7 h-7  cursor-pointer text-red-600 hover:text-red-800" />
             </div>
-          </div>
+          ))}
         </div>
 
+        {/* Scroll Right Button */}
         <button
           onClick={scrollRight}
-          className="absolute -right-2 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 hover:text-dark_primary_text border p-2 duration-300 rounded-full ">
+          className="absolute -right-2 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 hover:text-dark_primary_text border p-2 duration-300 rounded-full">
           <FaLongArrowAltRight className="w-5 h-5" />
         </button>
       </div>
@@ -120,4 +119,4 @@ const LayoutCulture = ({ cultureName, setModalOpen }) => {
   );
 };
 
-export default LayoutCulture;
+export default LayoutCourses;

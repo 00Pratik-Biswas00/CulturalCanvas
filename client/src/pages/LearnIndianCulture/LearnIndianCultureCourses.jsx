@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { dummyData } from "../../utils/constants";
 import DifferentCourses from "./DifferentCourses";
 
