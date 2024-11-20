@@ -55,59 +55,59 @@ export const dummyData = {
 
   AllCulturesData: [
     {
-      cultureImg: religiousImg,
-      cultureIntro: `Planning a heritage tour in India can be exciting, but the cost can sometimes be a mystery. With our easy-to-use tool, you can quickly estimate the potential`,
-      cultureName: "Religion",
-      individualPage: "/culture-tradition/multiple-pages",
-    },
-
-    {
-      cultureImg: langImg,
-      cultureIntro: `Planning a heritage tour in India can be exciting, but the cost can sometimes be a mystery. With our easy-to-use tool, you can quickly estimate the potential.`,
-      cultureName: "Languages",
-      individualPage: "/culture-tradition/single-page",
-    },
-    {
-      cultureImg: cuisineImg,
-      cultureIntro: `Planning a heritage tour in India can be exciting, but the cost can sometimes be a mystery. With our easy-to-use tool, you can quickly estimate the potential.`,
-      cultureName: "Cuisines",
-      individualPage: "/culture-tradition/id",
-    },
-    {
-      cultureImg: festivalImg,
-      cultureIntro: `Planning a heritage tour in India can be exciting, but the cost can sometimes be a mystery. With our easy-to-use tool, you can quickly estimate the potential.`,
-      cultureName: "Festivals",
-      individualPage: "/culture-tradition/id",
-    },
-    {
-      cultureImg: greetingImg,
-      cultureIntro: `Planning a heritage tour in India can be exciting, but the cost can sometimes be a mystery. With our easy-to-use tool, you can quickly estimate the potential.`,
-      cultureName: "Greetings",
-      individualPage: "/culture-tradition/id",
-    },
-    {
       cultureImg: weddingImg,
-      cultureIntro: `Planning a heritage tour in India can be exciting, but the cost can sometimes be a mystery. With our easy-to-use tool, you can quickly estimate the potential.`,
-      cultureName: "Family Structures & Weddings",
-      individualPage: "/culture-tradition/id",
-    },
-    {
-      cultureImg: weddingImg,
-      cultureIntro: `Planning a heritage tour in India can be exciting, but the cost can sometimes be a mystery. With our easy-to-use tool, you can quickly estimate the potential.`,
-      cultureName: "Clothing",
-      individualPage: "/culture-tradition/id",
-    },
-    {
-      cultureImg: weddingImg,
-      cultureIntro: `Planning a heritage tour in India can be exciting, but the cost can sometimes be a mystery. With our easy-to-use tool, you can quickly estimate the potential.`,
+      cultureIntro: `Celebrate India’s artistic heritage, from classical to contemporary 🎨`,
       cultureName: "Arts",
       individualPage: "/culture-tradition/id",
     },
     {
       cultureImg: weddingImg,
-      cultureIntro: `Planning a heritage tour in India can be exciting, but the cost can sometimes be a mystery. With our easy-to-use tool, you can quickly estimate the potential.`,
-      cultureName: "Sports",
+      cultureIntro: `Unravel the elegance of India’s traditional and modern attire 🥻`,
+      cultureName: "Clothing",
+      individualPage: "/culture-tradition/clothing-culture",
+    },
+    {
+      cultureImg: cuisineImg,
+      cultureIntro: `Savor the flavors of India’s iconic dishes and regional delights 🍛`,
+      cultureName: "Cuisines",
       individualPage: "/culture-tradition/id",
+    },
+
+    {
+      cultureImg: weddingImg,
+      cultureIntro: `Dive into the traditions of Indian families and majestic weddings 🏠`,
+      cultureName: "Family Structures & Weddings",
+      individualPage: "/culture-tradition/id",
+    },
+    {
+      cultureImg: festivalImg,
+      cultureIntro: `Experience the vibrance of India’s grand festivals and celebrations 🥳`,
+      cultureName: "Festivals",
+      individualPage: "/culture-tradition/id",
+    },
+    {
+      cultureImg: greetingImg,
+      cultureIntro: `Learn the warmth and meaning behind India’s unique ways of greeting 🙏`,
+      cultureName: "Greetings",
+      individualPage: "/culture-tradition/id",
+    },
+    {
+      cultureImg: langImg,
+      cultureIntro: `Explore India’s linguistic treasures and the beauty of its 22 official languages 🌐`,
+      cultureName: "Languages",
+      individualPage: "/culture-tradition/single-page",
+    },
+    {
+      cultureImg: religiousImg,
+      cultureIntro: `Discover the spiritual essence of India’s diverse faiths and traditions 🛐`,
+      cultureName: "Religion",
+      individualPage: "/culture-tradition/multiple-pages",
+    },
+    {
+      cultureImg: weddingImg,
+      cultureIntro: `Explore India’s love for sports, from cricket to ancient martial arts 🏑`,
+      cultureName: "Sports",
+      individualPage: "/culture-tradition/sport-culture",
     },
   ],
 
