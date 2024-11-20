@@ -251,30 +251,31 @@ function App() {
                 element={<LearnIndianCultureCourses />}
               />
               <Route
-                path="/learn-Indian-culture/bengali-course"
+                path="/learn-Indian-culture/language/bengali"
                 element={<BengaliCourse />}
               />
               <Route
-                path="/learn-Indian-culture/english-course"
+                path="/learn-Indian-culture/language/english"
                 element={<EnglishCourse />}
               />
               <Route
-                path="/learn-Indian-culture/hindi-course"
+                path="/learn-Indian-culture/language/hindi"
                 element={<HindiCourse />}
               />
               <Route
-                path="/learn-Indian-culture/gujarati-course"
+                path="/learn-Indian-culture/language/gujarati"
                 element={<GujaratiCourse />}
               />
               <Route
-                path="/learn-Indian-culture/urdu-course"
+                path="/learn-Indian-culture/language/urdu"
                 element={<UrduCourse />}
               />
+              {/*  ---------------- Learning Courses  Single Course---------------- */}
               <Route
-                path="/learn-Indian-culture/:slug"
+                path="/learn-Indian-culture/:maincategory/:category/:slug"
                 element={<SingleCourse />}
               />
-
+              
               {/*  ---------------- Explore Diversity  ---------------- */}
               <Route path="/explore-diversity" element={<ExploreDiversity />} />
               <Route

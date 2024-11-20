@@ -46,6 +46,7 @@ export const GET_ALL_COURSES_ADMIN_QUERY = gql`
 export const GET_COURSE_QUERY = gql`
   query GetCourse($slug: String!) {
     getCourse(slug: $slug) {
+      id
       name
       slug
       image {

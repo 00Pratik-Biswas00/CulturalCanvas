@@ -1,16 +1,23 @@
 import React, { useRef } from "react";
 import MyButton4 from "../Buttons/MyButton4";
 
-const InputImageVideo = ({ imageName, fileType, onChange, preview, required = false }) => {
+const InputImageVideo = ({
+  imageName,
+  fileType,
+  onChange,
+  preview = {},
+  required = false,
+}) => {
   const fileInputRef = useRef(null);
 
   const handleButtonClick = () => {
     fileInputRef.current.click();
   };
 
+  console.log(imageName, " : ", preview);
 
   return (
-    <div className="w-full flex items-center  my-3 gap-5">
+    <div className="w-full flex items-center my-3 gap-5">
       <label className="font-bold font-pangaia text-xl"> {imageName}</label>
       <input
         // onChange={handleImageChange}
@@ -28,12 +35,13 @@ const InputImageVideo = ({ imageName, fileType, onChange, preview, required = fa
         bType={"submit"}
         buttonName={` Upload ${fileType}`}
         classDesign={
-          "bg-transparent blogCards border-2 border-highlight before:bg-highlight  text-primary_text dark:text-dark_primary_text py-1  "
+          "bg-transparent blogCards border-2 border-highlight before:bg-highlight text-primary_text dark:text-dark_primary_text py-1"
         }
         onClick={handleButtonClick}
       />
 
-      {preview && (
+      {/* Conditionally render the preview only if preview.url exists */}
+      {preview?.url && (
         <img
           src={preview.url}
           alt="Preview"

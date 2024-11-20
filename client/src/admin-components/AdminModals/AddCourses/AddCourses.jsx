@@ -14,7 +14,7 @@ import { GET_COURSE_QUERY } from "../../../graphql/courseQuery";
 
 const AddCourses = ({
   setCourseModal,
-  handleApplyCourseModal,
+  setIsEditing,
   courseTopic,
   isEditing,
   initialCategory = null,
@@ -216,51 +216,57 @@ const AddCourses = ({
       },
     });
 
+    const removeTypename = (obj) => {
+      if (Array.isArray(obj)) {
+        return obj.map(removeTypename);
+      } else if (typeof obj === "object" && obj !== null) {
+        const newObj = {};
+        for (let key in obj) {
+          if (key !== "__typename") {
+            newObj[key] = removeTypename(obj[key]);
+          }
+        }
+        return newObj;
+      }
+      return obj;
+    };
+
   const handleSaveCourse = async () => {
     try {
-      const response = await createCourse({
-        variables: {
-          name: formData.courseName,
-          image: formData.courseImage,
-          courseCategory: {
-            language:
-              formData.mainCategory === "language"
-                ? formData.subCategory
-                : "None",
-            cuisine:
-              formData.mainCategory === "cuisine"
-                ? formData.subCategory
-                : "None",
-            arts:
-              formData.mainCategory === "arts" ? formData.subCategory : "None",
-            sports:
-              formData.mainCategory === "sports"
-                ? formData.subCategory
-                : "None",
-          },
-          courseIntro: formData.courseIntro,
-          courseHistory: formData.courseHistory,
-          instructorName: formData.instructorName,
-          instructorEmail: formData.instructorEmail,
-          instructorImage: formData.instructorImage,
-          modules: formData.courseModule.map((module) => ({
-            name: module.moduleName,
-            description: module.moduleIntro,
-            image: module.moduleThumbnail,
-            video: module.moduleVideo,
-          })),
-        },
-      });
-      console.log("Course created successfully:", response.data);
-      handleApplyCourseModal();
+      if (isEditing) {
+        // Perform update course mutation
+        const cleanedFormData = removeTypename(formData);
+        await updateCourse({
+          variables: cleanedFormData,
+        });
+        toast.success("Course Updated Successfully!");
+      } else {
+        // Perform create course mutation
+        await createCourse({
+          variables: formData,
+        });
+        toast.success("Course Created Successfully!");
+      }
+      setCourseModal(false); // Close modal
+      setIsEditing(false); // Reset editing state
     } catch (e) {
-      console.error("Error creating course:", e);
+      console.error(
+        isEditing ? "Error updating course:" : "Error creating course:",
+        e
+      );
+      toast.error(
+        isEditing ? "Error updating course!" : "Error creating course!"
+      );
     }
   };
 
+
   return (
     <div>
-      <AddNewModal setModalOpen={setCourseModal} handleApply={handleSaveCourse}>
+      <AddNewModal
+        setModalOpen={setCourseModal}
+        setIsEditing={setIsEditing}
+        handleApply={handleSaveCourse}>
         <h2 className="text-2xl lg:text-3xl font-bold mb-2">
           Add a New {courseTopic} Course
         </h2>
@@ -360,7 +366,7 @@ const AddCourses = ({
 
           <InputImageVideo
             imageName="Teacher's Image:"
-            fileType="image"
+            fileType="instructorImage"
             onChange={(e) =>
               handleImageInput(e.target.files[0], "instructorImage")
             }

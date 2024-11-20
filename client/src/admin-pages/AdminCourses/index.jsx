@@ -62,6 +62,8 @@ const AdminCourses = () => {
     }
   };
 
+  console.log(isEditing);
+  
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -113,6 +115,7 @@ const AdminCourses = () => {
             setLanguageCourseModal(false);
             setIsEditing(false);
           }}
+          setIsEditing={setIsEditing}
           courseTopic="Language"
           isEditing={isEditing}
           editCourseSlug={editCourseSlug}
@@ -127,6 +130,7 @@ const AdminCourses = () => {
             setCuisineCourseModal(false);
             setIsEditing(false);
           }}
+          setIsEditing={setIsEditing}
           courseTopic="Cuisine"
           isEditing={isEditing}
           editCourseSlug={editCourseSlug}
@@ -140,6 +144,7 @@ const AdminCourses = () => {
             setArtCraftCourseModal(false);
             setIsEditing(false);
           }}
+          setIsEditing={setIsEditing}
           courseTopic="Art & Craft"
           isEditing={isEditing}
           editCourseSlug={editCourseSlug}
@@ -150,9 +155,10 @@ const AdminCourses = () => {
         <AddCourses
           setCourseModal={setSportsCourseModal}
           handleApplyCourseModal={() => {
-            setSportsCourseModal(false);
+            setLanguageCourseModal(false);
             setIsEditing(false);
           }}
+          setIsEditing={setIsEditing}
           courseTopic="Sports"
           isEditing={isEditing}
           editCourseSlug={editCourseSlug}

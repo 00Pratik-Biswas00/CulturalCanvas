@@ -1,25 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import LayoutIndividualCourse from "../../components/IndividualCoursePageLayout/LayoutIndividualCourse";
-import money from "../../assets/explorePlaces/predictPoster.png";
-const UrduCourses = [
-  {
-    courseImg: money,
-    courseName: "Urdu Original (Zero to Hero)",
-    teacherName: "Dr. Ayaan Biswas",
-    totalStars: "⭐⭐⭐⭐⭐ (2.9k students)",
-  },
+import { useQuery } from "@apollo/client";
+import { GET_ALL_COURSES_QUERY } from "../../graphql/courseQuery";
+import { useNavigate } from "react-router-dom";
 
-  {
-    courseImg: money,
-    courseName: "Maulana's Poems (All in One)",
-    teacherName: "Dr. Rupal Biswas",
-    totalStars: "⭐⭐⭐⭐⭐ (2.9k students)",
-  },
-];
 const UrduCourse = () => {
+  const [courses, setCourses] = useState([]);
+  const { loading, error, data } = useQuery(GET_ALL_COURSES_QUERY);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (data && data.getCourses) {
+      // Filter courses by language "Bengali"
+      const urduCourses = data.getCourses.filter(
+        (course) => course.courseCategory.language === "Hindi"
+      );
+      setCourses(urduCourses);
+      console.log(urduCourses);
+    }
+  }, [data]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
   return (
     <div>
-      <LayoutIndividualCourse course={"Urdu"} courseDetails={UrduCourses} />
+      <LayoutIndividualCourse course={"Urdu"} courseDetails={courses} />
     </div>
   );
 };

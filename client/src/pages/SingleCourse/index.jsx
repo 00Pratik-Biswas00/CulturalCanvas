@@ -7,9 +7,10 @@ import MailImg from "../../assets/courses/mail.avif";
 import LinkedInImg from "../../assets/courses/linkedin.jpeg";
 
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
+import NotFound from "../../components/NotFound";
 
 const SingleCourse = () => {
-  const { slug } = useParams();
+  const { maincategory, category, slug } = useParams();
   const scrollRef = useRef(null);
   const isDragging = useRef(false);
   const startPosition = useRef(0);
@@ -34,7 +35,9 @@ const SingleCourse = () => {
   };
 
   const handleMouseMove = (e) => {
-    if (!isDragging.current) return;
+    if (!isDragging.current) {
+      return;
+    }
     const distance = e.clientX - startPosition.current;
     scrollRef.current.scrollLeft = scrollLeftValue.current - distance;
   };
@@ -58,7 +61,42 @@ const SingleCourse = () => {
     setCurrentVideo(videoUrl);
     setCurrentHeading(heading);
   };
-  //console.log(course);
+
+  const CategoryCheck = () => {
+    if (
+      !course ||
+      !course.courseCategory ||
+      !maincategory ||
+      !course.courseCategory[maincategory]
+    ) {
+      return false;
+    }
+
+    const actualCategory = course.courseCategory[maincategory];
+
+    return actualCategory.toLowerCase() === category.toLowerCase();
+
+    /*
+      let { language, cuisine, arts, sports } = course.courseCategory;
+
+      language = language.toLowerCase();
+      cuisine = cuisine.toLowerCase();
+      arts = arts.toLowerCase();
+      sports = sports.toLowerCase();
+
+      return (
+        category === language ||
+        category === cuisine ||
+        category === arts ||
+        category === sports
+      );
+
+    */
+  };
+
+  const categoryMatches = CategoryCheck();
+
+  console.log(course);
 
   if (loading) {
     return <h1>Loading...</h1>;
@@ -68,13 +106,12 @@ const SingleCourse = () => {
     return <div>Error fetching course!</div>;
   }
 
-  return (
+  return categoryMatches ? (
     <section className=" text-primary_text dark:text-dark_primary_text  duration-300">
       {course && (
         <div
           style={{ backgroundImage: `url(${course.image.url})` }}
-          className="relative bg-center bg-contain bg-fixed bg-no-repeat"
-        >
+          className="relative bg-center bg-contain bg-fixed bg-no-repeat">
           {/* Black overlay */}
           <div className="absolute inset-0 bg-background1 dark:bg-dark_background1 opacity-80 z-10"></div>
           <div className="relative z-20 flex flex-col items-center justify-center">
@@ -88,7 +125,6 @@ const SingleCourse = () => {
             </div>
 
             {/* description */}
-
             <div className="">
               <div className=" py-4 px-16 text-lg flex flex-col items-start justify-center gap-3 w-full h-full">
                 <div className="flex flex-col  relative gap-3">
@@ -103,8 +139,7 @@ const SingleCourse = () => {
                   <p className="">{course.courseIntro}</p>
                   <button
                     aria-label="Speak Text"
-                    className="text-2xl  absolute -left-12 "
-                  >
+                    className="text-2xl  absolute -left-12 ">
                     🔊
                   </button>
                 </div>
@@ -115,7 +150,7 @@ const SingleCourse = () => {
                   </h1>
                   <div className="flex items-center gap-3 ">
                     <img
-                      src={course.instructor.photo?.url}
+                      src={course.instructorImage?.url}
                       alt="teacher"
                       className=" rounded-full w-32 h-32"
                     />
@@ -123,45 +158,28 @@ const SingleCourse = () => {
                     <div className="flex flex-col justify-center gap-3">
                       <div className=" flex items-center gap-3">
                         <p className="text-4xl leading-7 font-bold font-playfair">
-                          {course.instructor.name}
+                          {course.instructorName}
                         </p>
-                        {course.instructor.occupation && (
+                        {course.instructor?.occupation && (
                           <p className=" text-xl font-lato pt-1">
                             {" "}
-                            {course.instructor.occupation}
+                            {course.instructorName}
                           </p>
                         )}
                       </div>
                       <div className="flex items-center justify-start gap-4">
                         <a
-                          href={`mailto:${course.instructor.email}`}
+                          href={`mailto:${course.instructorEmail}`}
                           target="blank"
                           rel="noopener"
-                          className="flex items-center justify-center gap-2 font-medium duration-500 transition-transform hover:scale-105 transform-cpu"
-                        >
+                          className="flex items-center justify-center gap-2 font-medium duration-500 transition-transform hover:scale-105 transform-cpu">
                           <img
                             src={MailImg}
                             alt="Mail"
                             className=" rounded-full w-8 h-8"
                           />
-                          <p>{course.instructor.email}</p>
+                          <p>{course.instructorEmail}</p>
                         </a>
-
-                        {course.instructor.linkedin && (
-                          <a
-                            href={course.instructor.linkedin}
-                            target="blank"
-                            rel="noopener"
-                            className="flex items-center justify-center gap-2 font-medium duration-500 transition-transform hover:scale-105 transform-cpu"
-                          >
-                            <img
-                              src={LinkedInImg}
-                              alt="Linkedin"
-                              className=" rounded-full w-8 h-8"
-                            />
-                            <p>{course.instructor.name}</p>
-                          </a>
-                        )}
                       </div>
                     </div>
                   </div>
@@ -169,7 +187,6 @@ const SingleCourse = () => {
               </div>
 
               {/* videos */}
-
               <div className=" py-4 px-16 bg-background1 dark:bg-dark_background1">
                 <div className="py-4 flex flex-col gap-4 items-center justify-center w-full h-full">
                   <h1 className="font-bold font-playfair text-5xl tracking-wider">
@@ -192,8 +209,7 @@ const SingleCourse = () => {
                 <div className="relative w-full">
                   <button
                     onClick={scrollLeft}
-                    className="absolute -left-11 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 text-highlight_hover hover:bg-highlight_hover hover:text-dark_primary_text border border-highlight_hover p-2 duration-300 rounded-full z-10"
-                  >
+                    className="absolute -left-11 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 text-highlight_hover hover:bg-highlight_hover hover:text-dark_primary_text border border-highlight_hover p-2 duration-300 rounded-full z-10">
                     <FaLongArrowAltLeft className="w-5 h-5" />
                   </button>
 
@@ -204,31 +220,25 @@ const SingleCourse = () => {
                     onMouseUp={handleMouseUp}
                     onMouseLeave={handleMouseUp}
                     className="flex gap-7 w-full overflow-x-auto scroll-smooth outline-none"
-                    style={{ scrollSnapType: "x mandatory" }}
-                  >
-                    {course.modules.map((content, ind) => (
+                    style={{ scrollSnapType: "x mandatory" }}>
+                    {course.modules.map((module, ind) => (
                       <div
                         key={ind}
-                        className="flex-shrink-0 w-[32%] max-w-[32%] flex flex-col items-center justify-start gap-3 border-2 border-highlight_hover rounded-xl p-4"
-                      >
+                        className="flex-shrink-0 w-[32%] max-w-[32%] flex flex-col items-center justify-start gap-3 border-2 border-highlight_hover rounded-xl p-4">
                         <img
-                          src={content.image.url}
+                          src={module.image?.url}
                           className="rounded-xl"
                           alt="bengali"
                         />
                         <h1 className="font-montserrat text-xl text-center">
-                          {content.name}
+                          {module.name}
                         </h1>
-                        <p className="text-center">{content.description}</p>
+                        <p className="text-center">{module.description}</p>
                         <div
                           onClick={() =>
-                            handleVideoClick(
-                              content.video.Location,
-                              content.name
-                            )
+                            handleVideoClick(module.video, module.name)
                           }
-                          className="bg-background1 dark:bg-dark_background1 text-highlight_hover hover:bg-highlight_hover hover:text-dark_primary_text border-2 border-highlight_hover p-2 duration-300 rounded-xl font-bold cursor-pointer"
-                        >
+                          className="bg-background1 dark:bg-dark_background1 text-highlight_hover hover:bg-highlight_hover hover:text-dark_primary_text border-2 border-highlight_hover p-2 duration-300 rounded-xl font-bold cursor-pointer">
                           Start Learning
                         </div>
                       </div>
@@ -237,8 +247,7 @@ const SingleCourse = () => {
 
                   <button
                     onClick={scrollRight}
-                    className="absolute -right-11 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 text-highlight_hover hover:bg-highlight_hover hover:text-dark_primary_text border border-highlight_hover p-2 duration-300 rounded-full z-10"
-                  >
+                    className="absolute -right-11 top-1/2 transform -translate-y-1/2 bg-background1 dark:bg-dark_background1 text-highlight_hover hover:bg-highlight_hover hover:text-dark_primary_text border border-highlight_hover p-2 duration-300 rounded-full z-10">
                     <FaLongArrowAltRight className="w-5 h-5" />
                   </button>
                 </div>
@@ -248,6 +257,8 @@ const SingleCourse = () => {
         </div>
       )}
     </section>
+  ) : (
+    <NotFound />
   );
 };
 
