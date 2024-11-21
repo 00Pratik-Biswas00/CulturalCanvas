@@ -7,7 +7,7 @@ import { IoCheckmarkDoneCircle } from "react-icons/io5";
 
 const Home = () => {
   const { t, i18n } = useTranslation();
-  const homeContent = t("Home", { returnObjects: true });
+  const homeContent = t("HomeData", { returnObjects: true });
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
@@ -49,7 +49,7 @@ const Home = () => {
             Bengali
           </button>
         </div>
-        {homeContent.map((content, ind) => (
+        {homeContent.Home.map((content, ind) => (
           <div
             key={ind}
             className={`backdrop-blur-lg shadow-md ${content.shadow} bg-opacity-80    rounded-b-[3rem]  relative flex flex-col lg:flex-row  lg:justify-between px-5 sm:px-16 lg:py-10   `}
@@ -97,7 +97,7 @@ const Home = () => {
                       "bg-gradient-to-r from-[#193c70e9] to-[#1489386c] hover:to-[#174926]"
                     }
                     buttonLink={content.buttonLink}
-                    buttonName="VISIT"
+                    buttonName={homeContent.homeButtonName}
                   />
                 </div>
                 <div

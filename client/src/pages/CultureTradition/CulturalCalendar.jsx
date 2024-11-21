@@ -7,8 +7,12 @@ import {
   GET_FESTIVAL_BY_DATE,
 } from "../../graphql/festivalQuery";
 import { format } from "date-fns";
+import { useTranslation } from "react-i18next";
 
 const CulturalCalendar = () => {
+  const { t } = useTranslation();
+  const commonStaticNames = t("CommonStaticInfo", { returnObjects: true });
+
   const [date, setDate] = useState(new Date());
   const [festival, setFestival] = useState([]);
   const [festivals, setFestivals] = useState([]);
@@ -108,7 +112,7 @@ const CulturalCalendar = () => {
   return (
     <div>
       <h1 className="text-6xl tracking-wider font-extrabold font-gallient py-3 text-center ">
-        📆Cultural Calendar of India
+        {commonStaticNames.cultureCalendarHeading}
       </h1>
       <div className="flex  justify-center gap-16 px-5 py-7">
         <div className="flex flex-col items-center justify-center">
