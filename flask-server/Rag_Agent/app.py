@@ -38,34 +38,26 @@ def get_vector_store(text_chunks):
 
 def get_conversational_chain():
     prompt_template = """
-    Answer the question as detailed as possible from the provided context, make sure to provide all the details, if the answer is not in
-    provided context just say, "answer is not available in the context", don't provide the wrong answer\n\n
-    Context:\n {context}?\n
-    Question: \n{question}\n
+    Answer the question as detailed as possible from the provided context, making sure to provide all details. 
+    If the answer is not in the provided context, just say, "Answer is not available in the context."
+    Do not provide a wrong answer.
+
+    Context:
+    {context}
+
+    Question:
+    {question}
 
     Answer:
     """
-
+    
+    # Adjusted model for the conversational chain
     model = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0.3)
     
-    # Make sure to include 'messages' input variables if using ChatPromptTemplate
-    prompt = ChatPromptTemplate(template = prompt_template, input_variables = ["context", "question"])
+    prompt = ChatPromptTemplate(template=prompt_template, input_variables=["context", "question"])
     
     chain = load_qa_chain(model, chain_type="stuff", prompt=prompt)
     return chain
-
-# async def user_input(user_question):
-#     embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
-#     new_db = FAISS.load_local("faiss_index", embeddings)
-#     docs = new_db.similarity_search(user_question)
-
-#     chain = get_conversational_chain()
-#     response = chain(
-#         {"input_documents": docs, "question": user_question}, return_only_outputs=True
-#     )
-
-#     print(response)
-#     st.write("Reply: ", response["output_text"])
 
 async def user_input(user_question):
     embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
@@ -74,15 +66,16 @@ async def user_input(user_question):
 
     chain = get_conversational_chain()
     
-    # Pass the correct structure for the 'messages' key if using ChatPromptTemplate
+    # Simplified usage without "messages"
     response = chain(
-        {"input_documents": docs, "question": user_question, "messages": []}, return_only_outputs=True
+        {"input_documents": docs, "question": user_question}, return_only_outputs=True
     )
 
     if "output_text" in response:
         st.write("Reply: ", response["output_text"])
     else:
         st.write("Sorry, no answer could be found in the provided context.")
+
 
 
 
