@@ -2,6 +2,8 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import MyButton1 from "../../components/Buttons/MyButton1";
 import HomePageBlob from "../../components/Blobs/HomePageBlob";
+import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
+import { IoCheckmarkDoneCircle } from "react-icons/io5";
 
 const Home = () => {
   const { t, i18n } = useTranslation();
@@ -27,10 +29,26 @@ const Home = () => {
   return (
     <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-10 duration-500">
       <div className="w-full flex flex-col items-center justify-center gap-20">
-        {/* <div>
-          <button onClick={() => changeLanguage("en")}>English</button>
-          <button onClick={() => changeLanguage("hi")}>Hindi</button>
-        </div> */}
+        <div className="flex gap-5">
+          <button
+            className="p-5 hover:bg-blue-700"
+            onClick={() => changeLanguage("en")}
+          >
+            English
+          </button>
+          <button
+            className="p-5 hover:bg-blue-700"
+            onClick={() => changeLanguage("hi")}
+          >
+            Hindi
+          </button>
+          <button
+            className="p-5 hover:bg-blue-700"
+            onClick={() => changeLanguage("bn")}
+          >
+            Bengali
+          </button>
+        </div>
         {homeContent.map((content, ind) => (
           <div
             key={ind}
@@ -43,8 +61,28 @@ const Home = () => {
                   <div className=" text-5xl xl:text-7xl font-extrabold  ">
                     {content.headingName}
                   </div>
-                  <div className="flex items-center relative">
+                  <div className="flex flex-col gap-2  relative">
                     <p className="  font-lato">{content.para}</p>
+                    {Array.isArray(content.featuringData) &&
+                      content.featuringData.length > 0 && (
+                        <div>
+                          <h1 className="flex gap-1 items-center pb-2 font-semibold text-lg">
+                            <span>Featuring</span>{" "}
+                            <MdOutlineKeyboardDoubleArrowRight className="w-5 h-5 mt-[0.28rem]" />
+                          </h1>
+                          <div className="flex flex-wrap gap-x-20 gap-y-2">
+                            {content.featuringData.map((con, i) => (
+                              <div key={i} className="flex gap-1 items-center">
+                                <span className="text-2xl font-bold">
+                                  {con.featureName}
+                                </span>{" "}
+                                <IoCheckmarkDoneCircle className="text-highlight_hover w-8 h-8" />
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
                     {/* <button
                       onClick={() => speakText(content.para)}
                       aria-label="Speak Text"
@@ -140,8 +178,35 @@ const Home = () => {
                   <div className=" text-5xl xl:text-7xl font-extrabold text-right  ">
                     {content.headingName}
                   </div>
-                  <div className="flex items-center gap-4 relative">
+                  <div className="flex flex-col gap-2  relative">
                     <p className=" text-right  font-lato">{content.para}</p>
+                    {Array.isArray(content.featuringData) &&
+                      content.featuringData.length > 0 && (
+                        <div>
+                          <h1 className="flex gap-1 items-center justify-end pb-2 font-semibold text-lg">
+                            <span>Featuring </span>{" "}
+                            <MdOutlineKeyboardDoubleArrowRight className="w-5 h-5 mt-[0.28rem]" />
+                          </h1>
+                          <div className="flex  justify-end flex-wrap gap-x-20 gap-y-2">
+                            {content.featuringData.map((con, i) => (
+                              <div key={i} className="flex gap-1 items-center">
+                                <span className="text-2xl font-bold">
+                                  {con.featureName}
+                                </span>{" "}
+                                <IoCheckmarkDoneCircle className="text-highlight_hover w-8 h-8" />
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                    {/* <button
+                      onClick={() => speakText(content.para)}
+                      aria-label="Speak Text"
+                      className="text-2xl absolute -left-14"
+                    >
+                      🔊
+                    </button> */}
                   </div>
                   <MyButton1
                     classDesign={
