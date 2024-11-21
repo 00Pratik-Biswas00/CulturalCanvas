@@ -2,12 +2,11 @@ import React from "react";
 import tajImg from "../../assets/culture/stateCultureBg.png";
 import { IoIosLink } from "react-icons/io";
 
-import wbImg from "../../assets/states/west-bengal.png";
 import { dummyData } from "../../utils/constants";
 import MyButton3 from "../../components/Buttons/MyButton3";
 
-import MyButton1 from "../../components/Buttons/MyButton1";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 // const words = ["west", "bengal"];
 
@@ -28,6 +27,9 @@ const SingleStateCulture = ({
   artsDetails,
   artsCourse,
 }) => {
+  const { t } = useTranslation();
+  const commonStaticNames = t("CommonStaticInfo", { returnObjects: true });
+
   const { SingleState } = dummyData;
   const navigate = useNavigate();
 
@@ -73,7 +75,7 @@ const SingleStateCulture = ({
 
         <div className=" absolute flex flex-col items-center justify-center px-5 py-2  gap-5 border border-b-0 border-dark_background1 dark:border-background1 bg-background1 dark:bg-dark_background1 rounded-xl mt-40 ">
           <h1 className=" font-playfair text-3xl font-extrabold">
-            Our Greeting
+            {commonStaticNames.ourGreeting}
           </h1>
           <img src={greetingImg} className="w-80 rounded-xl" />
 
@@ -93,10 +95,12 @@ const SingleStateCulture = ({
       {/* History */}
       <div className="flex flex-col items-center justify-center px-16 py-10 gap-10">
         <div className="flex flex-col items-center justify-center gap-4">
-          <h1 className=" font-extrabold text-5xl  ">Brief History</h1>
+          <h1 className=" font-extrabold text-5xl  ">
+            {commonStaticNames.briefHistory}
+          </h1>
           <p className=" opacity-70 text-lg">
             {" "}
-            Discover the rich heritage and story of the region{" "}
+            {commonStaticNames.briefHistoryPara}{" "}
           </p>
         </div>
 
@@ -115,7 +119,7 @@ const SingleStateCulture = ({
                 href={stateHistoryVideo}
                 target="_blank"
               >
-                Want to know more? 🔗
+                {commonStaticNames.buttonWantToKnowMore} 🔗
               </a>
             </div>
           </div>
@@ -125,10 +129,12 @@ const SingleStateCulture = ({
       {/* Cuisines */}
       <div className="flex flex-col items-center justify-center px-16 py-10 gap-10">
         <div className="flex flex-col items-center justify-center gap-4">
-          <h1 className=" font-extrabold text-5xl  ">Cuisines</h1>
+          <h1 className=" font-extrabold text-5xl  ">
+            {commonStaticNames.cuisines}
+          </h1>
           <p className=" opacity-70 text-lg">
             {" "}
-            Taste the flavors that define culture and tradition{" "}
+            {commonStaticNames.cuisinesPara}{" "}
           </p>
         </div>
 
@@ -149,7 +155,7 @@ const SingleStateCulture = ({
             classDesign={
               "before:bg-highlight_hover_dark bg-highlight_hover text-dark_primary_text "
             }
-            buttonName={"Want to know more?"}
+            buttonName={commonStaticNames.buttonWantToKnowMore}
             onClick={() => {
               navigate(`/culture-tradition/cuisines`);
             }}
@@ -159,7 +165,7 @@ const SingleStateCulture = ({
             classDesign={
               "before:bg-highlight bg-highlight_dark text-dark_primary_text "
             }
-            buttonName={"Want to cook?"}
+            buttonName={commonStaticNames.buttonWantToCook}
             onClick={() => {
               navigate(`${cuisineCourse}`);
             }}
@@ -171,10 +177,12 @@ const SingleStateCulture = ({
       {/* Clothing */}
       <div className="flex flex-col items-center justify-center px-16 py-10 gap-10">
         <div className="flex flex-col items-center justify-center gap-4">
-          <h1 className=" font-extrabold text-5xl  ">Traditional Clothing</h1>
+          <h1 className=" font-extrabold text-5xl  ">
+            {commonStaticNames.clothings}
+          </h1>
           <p className=" opacity-70 text-lg">
             {" "}
-            Explore iconic attire reflecting heritage and local identity{" "}
+            {commonStaticNames.clothingPara}{" "}
           </p>
         </div>
 
@@ -194,10 +202,12 @@ const SingleStateCulture = ({
       {/* Language */}
       <div className="flex flex-col items-center justify-center px-16 py-10 gap-10">
         <div className="flex flex-col items-center justify-center gap-4">
-          <h1 className=" font-extrabold text-5xl  ">Language</h1>
+          <h1 className=" font-extrabold text-5xl  ">
+            {commonStaticNames.languages}
+          </h1>
           <p className=" opacity-70 text-lg">
             {" "}
-            Dive into the linguistic treasures shaping communication and culture{" "}
+            {commonStaticNames.languagesPara}{" "}
           </p>
         </div>
 
@@ -218,7 +228,7 @@ const SingleStateCulture = ({
             classDesign={
               "before:bg-highlight_hover_dark bg-highlight_hover text-dark_primary_text "
             }
-            buttonName={"Want to know more?"}
+            buttonName={commonStaticNames.buttonWantToKnowMore}
             onClick={() => {
               navigate(`/culture-tradition/languages`);
             }}
@@ -228,7 +238,7 @@ const SingleStateCulture = ({
             classDesign={
               "before:bg-highlight bg-highlight_dark text-dark_primary_text "
             }
-            buttonName={"Want to cook?"}
+            buttonName={commonStaticNames.buttonWantToCook}
             onClick={() => {
               navigate(`${languageCourse}`);
             }}
@@ -240,11 +250,12 @@ const SingleStateCulture = ({
       {/* arts and crafts */}
       <div className="flex flex-col items-center justify-center px-16 py-10 gap-10">
         <div className="flex flex-col items-center justify-center gap-4">
-          <h1 className=" font-extrabold text-5xl  ">Arts & Crafts</h1>
+          <h1 className=" font-extrabold text-5xl  ">
+            {commonStaticNames.artsCrafts}
+          </h1>
           <p className=" opacity-70 text-lg">
             {" "}
-            Uncover timeless creativity through handcrafted masterpieces and
-            traditions{" "}
+            {commonStaticNames.artsCraftsPara}
           </p>
         </div>
 
@@ -265,7 +276,7 @@ const SingleStateCulture = ({
             classDesign={
               "before:bg-highlight_hover_dark bg-highlight_hover text-dark_primary_text "
             }
-            buttonName={"Want to know more?"}
+            buttonName={commonStaticNames.buttonWantToKnowMore}
             onClick={() => {
               navigate(`/culture-tradition/cuisines`);
             }}
@@ -275,7 +286,7 @@ const SingleStateCulture = ({
             classDesign={
               "before:bg-highlight bg-highlight_dark text-dark_primary_text "
             }
-            buttonName={"Want to cook?"}
+            buttonName={commonStaticNames.buttonWantToCook}
             onClick={() => {
               navigate(`${artsCourse}`);
             }}

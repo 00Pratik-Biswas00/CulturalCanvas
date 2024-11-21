@@ -31,11 +31,6 @@ const Header = ({ open, setOpen }) => {
   const [isResetModalOpen, setIsResetModalOpen] = useState(false);
   const [showTranslate, setShowTranslate] = useState(false);
 
-  // const [isTranslatePopupOpen, setIsTranslatePopupOpen] = useState(false);
-  // const translatePopup = () => {
-  //   setIsTranslatePopupOpen(!isTranslatePopupOpen);
-  // };
-
   const openResetModal = () => {
     setIsResetModalOpen(true);
     dispatch(switchLoginModalOpen(false));
@@ -115,7 +110,6 @@ const Header = ({ open, setOpen }) => {
 
   useEffect(() => {
     const addGoogleTranslateScript = () => {
-      // Ensure the script is not added multiple times
       if (
         !document.querySelector(
           "script[src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit']"
@@ -128,7 +122,6 @@ const Header = ({ open, setOpen }) => {
       }
     };
 
-    // Initialize Google Translate Element
     window.googleTranslateElementInit = () => {
       if (window.google && window.google.translate) {
         new window.google.translate.TranslateElement(
@@ -195,10 +188,7 @@ const Header = ({ open, setOpen }) => {
       <div className="hidden lg:flex items-center justify-center space-x-5">
         <div className="flex items-center justify-center gap-x-4 font-ubuntu font-medium text-sm ">
           <div className="flex flex-col items-center justify-center ">
-            <button
-              onClick={() => setShowTranslate(!showTranslate)}
-              // className="p-2 bg-blue-500 text-white rounded-full"
-            >
+            <button onClick={() => setShowTranslate(!showTranslate)}>
               <MdOutlineTranslate className="w-5 h-5" />
             </button>
 

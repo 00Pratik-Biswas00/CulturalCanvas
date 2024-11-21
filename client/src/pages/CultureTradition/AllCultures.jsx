@@ -1,19 +1,20 @@
 import React from "react";
-import { dummyData } from "../../utils/constants";
-const AllCultures = () => {
-  const { AllCulturesData } = dummyData;
+import { useTranslation } from "react-i18next";
 
+const AllCultures = () => {
+  const { t } = useTranslation();
+  const allCultureContent = t("AllCulturesData", { returnObjects: true });
   return (
     <div>
       <h1
         id="translate_section"
         className="text-6xl tracking-wider font-extrabold font-gallient py-3  text-center "
       >
-        Cultural Richness of India🪔
+        {allCultureContent.allCultureHeading}
       </h1>
       <div className="text-primary_text dark:text-dark_primary_text flex flex-col py-8 ">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-10">
-          {dummyData.AllCulturesData.map((content, index) => {
+          {allCultureContent.AllCulturesName.map((content, index) => {
             let shadowClass;
             let hoverClass;
             let borderClass;
