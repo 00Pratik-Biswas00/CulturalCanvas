@@ -465,10 +465,6 @@ export const RoutesNames = [
     route_link: "/virtual-store",
     route_name: "Store",
   },
-  {
-    route_link: "/nearest-attractions",
-    route_name: "Attractions",
-  },
 ];
 
 // ***************************  ADMIN NAVIGATION  ***************************

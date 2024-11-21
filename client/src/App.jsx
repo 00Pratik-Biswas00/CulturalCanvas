@@ -48,7 +48,7 @@ import ArunachalPradeshState from "./pages/SingleStateCulture/ArunachalPradeshSt
 import AndhraPradeshState from "./pages/SingleStateCulture/AndhraPradeshState";
 import SingleBlogVlog from "./pages/SingleBlogVlog";
 import UploadBlogVlog from "./pages/UploadBlogVlog/UploadBlogVlog";
-import NearestAttractions from "./pages/NearestAttraction";
+import NearestAttractions from "./pages/ExploreDiversity/NearestAttractions";
 
 // Admin pages
 import AdminNavSidebar from "./admin-components/AdminNavbar";
@@ -203,10 +203,6 @@ function App() {
               {/*  ---------------- Heritage  ---------------- */}
               <Route path="/heritage" element={<Heritage />} />
               <Route path="/heritage/:slug" element={<SingleHeritage />} />
-              <Route
-                path="/nearest-attractions"
-                element={<NearestAttractions />}
-              />
 
               {/*  ---------------- Culture and Tradition  ---------------- */}
               <Route path="/culture-tradition" element={<CultureTradition />} />
@@ -303,10 +299,10 @@ function App() {
                 path="/explore-diversity/create-trip/view-trip/:tripId"
                 element={<ViewTrip />}
               />
-              {/* <Route
-                path="/explore-diversity/predict-budget"
-                element={<BudgetPredictor />}
-              /> */}
+              <Route
+                path="/explore-diversity/nearest-attractions"
+                element={<NearestAttractions />}
+              />
               <Route
                 path="/explore-diversity/saved-trips"
                 element={<SavedTrips />}
