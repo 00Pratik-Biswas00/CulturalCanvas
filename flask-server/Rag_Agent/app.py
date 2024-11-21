@@ -12,12 +12,11 @@ from dotenv import load_dotenv
 import asyncio
 
 load_dotenv()
+os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
-# Remove ThreadPoolExecutor
+# ThreadPoolExecutor
 # executor = ThreadPoolExecutor(max_workers=1)
-
-# Make sure all functions that need to be async are handled within the asyncio loop
 
 def get_pdf_text(pdf_docs):
     text = ""
@@ -28,7 +27,7 @@ def get_pdf_text(pdf_docs):
     return text
 
 def get_text_chunks(text):
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=50000, chunk_overlap=1000)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=10000, chunk_overlap=1000)
     chunks = text_splitter.split_text(text)
     return chunks
 
@@ -50,8 +49,7 @@ def get_conversational_chain():
     model = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0.3)
     
     # Make sure to include 'messages' input variables if using ChatPromptTemplate
-    prompt = ChatPromptTemplate(template=prompt_template)
-    
+    prompt = ChatPromptTemplate(template = prompt_template, input_variables = ["context", "question"])
     
     chain = load_qa_chain(model, chain_type="stuff", prompt=prompt)
     return chain
