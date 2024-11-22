@@ -1,12 +1,6 @@
 import React from "react";
 
-const MyButton4 = ({
-  classDesign,
-  bType,
-  onClick,
-  buttonName,
-  buttonIcon,
-}) => {
+const MyButton4 = ({ classDesign, bType, onClick, buttonName, buttonIcon }) => {
   return (
     <div>
       <button
@@ -24,7 +18,8 @@ const MyButton4 = ({
         hover:before:origin-left
         ${classDesign}
         
-        `}>
+        `}
+      >
         <span className="relative  text-xl ">{buttonName}</span>
         <span className="relative  text-lg ">{buttonIcon}</span>
       </button>
