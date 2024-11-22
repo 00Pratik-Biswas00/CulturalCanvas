@@ -1,14 +1,12 @@
 import React from "react";
 import tajImg from "../../assets/culture/stateCultureBg.png";
 import { IoIosLink } from "react-icons/io";
-
+import i18next from "i18next";
 import { dummyData } from "../../utils/constants";
 import MyButton3 from "../../components/Buttons/MyButton3";
 
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-
-// const words = ["west", "bengal"];
 
 const SingleStateCulture = ({
   stateName,
@@ -29,6 +27,7 @@ const SingleStateCulture = ({
 }) => {
   const { t } = useTranslation();
   const commonStaticNames = t("CommonStaticInfo", { returnObjects: true });
+  const currentLanguage = i18next.language;
 
   const { SingleState } = dummyData;
   const navigate = useNavigate();
@@ -40,7 +39,7 @@ const SingleStateCulture = ({
         className="relative bg-center bg-cover bg-fixed bg-no-repeat flex flex-col items-center justify-center "
       >
         <div className="flex gap-16 items-center justify-center">
-          {stateName.map((word, wordIndex) => (
+          {/* {stateName.map((word, wordIndex) => (
             <div
               key={wordIndex}
               className="flex relative z-20 gap-5 justify-center items-center h-[35vh] text-dark_primary_text"
@@ -56,7 +55,33 @@ const SingleStateCulture = ({
                 </h1>
               ))}
             </div>
-          ))}
+          ))} */}
+
+          {currentLanguage === "en" ? (
+            stateName.map((word, wordIndex) => (
+              <div
+                key={wordIndex}
+                className="flex relative z-20 gap-5 justify-center items-center h-[35vh] text-dark_primary_text"
+              >
+                {word.split("").map((letter, letterIndex) => (
+                  <h1
+                    key={letterIndex}
+                    className={`text-7xl bg-black px-2 pb-2 mb-5 rounded-xl font-extrabold text-dark_primary_text font-pangaia uppercase ${
+                      letterIndex % 2 === 0 ? "rotate-6" : "-rotate-6"
+                    }`}
+                  >
+                    {letter}
+                  </h1>
+                ))}
+              </div>
+            ))
+          ) : (
+            <div className="flex relative z-20 gap-5 justify-center items-center h-[35vh] text-dark_primary_text">
+              <h1 className="text-7xl bg-black px-5 pb-4 mb-5 rounded-xl font-extrabold text-dark_primary_text font-pangaia uppercase">
+                {stateName.join(" ")}
+              </h1>
+            </div>
+          )}
         </div>
 
         {/* SVG Curve */}
@@ -104,11 +129,11 @@ const SingleStateCulture = ({
           </p>
         </div>
 
-        <div className="relative ">
+        <div className="relative flex gap-5 items-center ">
           <img
             src={stateImg}
             alt="state image"
-            className="float-right w-72 h-72 object-cover "
+            className="  w-72 h-72 object-cover "
           />
 
           <div className=" flex flex-col gap-3">
@@ -186,16 +211,16 @@ const SingleStateCulture = ({
           </p>
         </div>
 
-        <div className="relative ">
-          <img
-            src={clothingImg}
-            alt="West Bengal"
-            className="float-right w-64 h-64 object-cover "
-          />
-
+        <div className="relative flex gap-5 items-center">
           <div className=" flex flex-col gap-3">
             <p className="text-justify text-lg"> {clothingDetails} </p>
           </div>
+
+          <img
+            src={clothingImg}
+            alt="West Bengal"
+            className=" w-64 h-64 object-cover "
+          />
         </div>
       </div>
 
@@ -211,11 +236,11 @@ const SingleStateCulture = ({
           </p>
         </div>
 
-        <div className="relative ">
+        <div className="relative flex gap-5 items-center">
           <img
             src={languageImg}
             alt="West Bengal"
-            className="float-right w-64 h-64 object-cover "
+            className=" w-64 h-64 object-cover "
           />
 
           <div className=" flex flex-col gap-3">
