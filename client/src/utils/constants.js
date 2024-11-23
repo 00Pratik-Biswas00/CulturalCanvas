@@ -447,7 +447,7 @@ export const RoutesNames = [
   },
   {
     route_link: "/learn-Indian-culture",
-    route_name: "Learn Indian Culture",
+    route_name: "Cultural Course",
   },
   {
     route_link: "/explore-diversity",
@@ -455,7 +455,11 @@ export const RoutesNames = [
   },
   {
     route_link: "/blogs-vlogs",
-    route_name: "Contents",
+    route_name: "Blogs & Vlogs",
+  },
+  {
+    route_link: "/live-contest",
+    route_name: "Live Contest",
   },
   {
     route_link: "/career",

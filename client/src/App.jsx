@@ -65,6 +65,8 @@ import AdminSingleBlogVerification from "./admin-pages/AdminContents/AdminSingle
 // new additions
 import PredictBudget from "./pages/ExploreDiversity/PredictAmount";
 import ClothingCulture from "./pages/SinglePageCulture/ClothingCulture";
+import Career from "./pages/Career/Career";
+import LiveContest from "./pages/Contest/LiveContest";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -315,6 +317,12 @@ function App() {
                 path="/blogs-vlogs/upload-blog-vlog"
                 element={<UploadBlogVlog />}
               />
+
+              {/*  ---------------- Career  ---------------- */}
+              <Route path="/live-contest" element={<LiveContest />} />
+
+              {/*  ---------------- Career  ---------------- */}
+              <Route path="/career" element={<Career />} />
 
               {/*  ---------------- Virtual Store  ---------------- */}
               <Route path="/virtual-store" element={<VirtualStore />} />
