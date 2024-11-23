@@ -171,8 +171,8 @@ const SingleHeritage = () => {
             </div>
 
             {/* Nearest attractions section remains unchanged */}
-            <div className="bg-background1 dark:bg-dark_background1 py-4 px-16 pt-0  flex flex-col gap-4 items-center justify-center w-full h-full">
-              <h1 className="font-bold font-playfair text-5xl tracking-wider">
+            <div className="py-4 px-16 pt-0  flex flex-col gap-4 items-center justify-center w-full h-full">
+              <h1 className="font-bold text-white font-playfair text-5xl tracking-wider">
                 Nearest Attractions
               </h1>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full gap-5">
@@ -180,7 +180,7 @@ const SingleHeritage = () => {
                   href="http://localhost:5173/heritage/agra-fort-tm5qapeerlqsiarphpzrm"
                   target="blank"
                   rel=" noopener"
-                  className="flex items-center justify-start gap-3 p-3  border-2 rounded-xl shadow-md shadow-primary_text dark:shadow-dark_primary_text  duration-500 transition-transform hover:scale-105 transform-cpu"
+                  className="flex items-center text-white justify-start gap-3 p-3  border-2 rounded-xl shadow-md shadow-primary_text dark:shadow-dark_primary_text  duration-500 transition-transform hover:scale-105 transform-cpu"
                 >
                   <img src={Agra} className="w-32 rounded-xl" />
                   <div className="flex flex-col items-start">
@@ -202,7 +202,7 @@ const SingleHeritage = () => {
                   href="http://localhost:5173/heritage/fatehpur-sikri-jon8oii2eltby4bqztget"
                   target="blank"
                   rel=" noopener"
-                  className="flex items-center justify-start gap-3 p-3  border-2 rounded-xl shadow-md shadow-primary_text dark:shadow-dark_primary_text  duration-500 transition-transform hover:scale-105 transform-cpu"
+                  className="flex text-white items-center justify-start gap-3 p-3  border-2 rounded-xl shadow-md shadow-primary_text dark:shadow-dark_primary_text  duration-500 transition-transform hover:scale-105 transform-cpu"
                 >
                   <img src={Fateh} className="w-32 rounded-xl" />
                   <div className="flex flex-col items-start">
@@ -224,7 +224,7 @@ const SingleHeritage = () => {
                   href="http://localhost:5173/heritage/red-fort-rryfs_ad8atw8szctnij4"
                   target="blank"
                   rel=" noopener"
-                  className="flex items-center justify-start gap-3 p-3  border-2 rounded-xl shadow-md shadow-primary_text dark:shadow-dark_primary_text  duration-500 transition-transform hover:scale-105 transform-cpu"
+                  className="flex text-white items-center justify-start gap-3 p-3  border-2 rounded-xl shadow-md shadow-primary_text dark:shadow-dark_primary_text  duration-500 transition-transform hover:scale-105 transform-cpu"
                 >
                   <img src={RedFort} className="w-32 rounded-xl" />
                   <div className="flex flex-col items-start">
@@ -241,44 +241,24 @@ const SingleHeritage = () => {
                     </div>
                   </div>
                 </a>
-
-                <a
-                  href="http://localhost:5173/heritage/sun-temple-z1sxzhmqvwmongbzfqhlr"
-                  target="blank"
-                  rel=" noopener"
-                  className="flex items-center justify-start gap-3 p-3  border-2 rounded-xl shadow-md shadow-primary_text dark:shadow-dark_primary_text  duration-500 transition-transform hover:scale-105 transform-cpu"
+              </div>
+              <div className="flex items-center justify-center ">
+                <button
+                  onClick={handleNavigation}
+                  className="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition duration-300"
                 >
-                  <img src={Suntemple} className="w-32 rounded-xl" />
-                  <div className="flex flex-col items-start">
-                    <h1 className=" font-semibold text-2xl tracking-wide">
-                      Sun Temple
-                    </h1>
-                    <div className="flex flex-wrap w-full items-center justify-center gap-5">
-                      <p>
-                        <b> Distance:</b>1200km
-                      </p>
-                      <p>
-                        <b>Entry Fee:</b> Rs.40
-                      </p>
-                    </div>
-                  </div>
-                </a>
+                  Go to Nearest Attractions
+                </button>
               </div>
             </div>
             {/* ... (unchanged section) ... */}
 
-            <div className="min-h-screen flex items-center justify-center bg-orange-100">
-              <button
-                onClick={handleNavigation}
-                className="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition duration-300"
-              >
-                Go to Nearest Attractions
-              </button>
-            </div>
-
-            <div className="bg-background1 dark:bg-dark_background1 py-4 px-16 pt-4 flex flex-col gap-4 items-center justify-center w-full h-full">
-              <h1 className="font-bold font-playfair text-5xl tracking-wider">
-                A Cultural Odyssey: Exploring {heritage.state_culture_name.name}
+            <div className="bg-background1 dark:bg-dark_background1 py-4 px-16 pt-4 flex gap-4 items-center justify-center w-full h-full">
+              <h1 className="font-bold font-pangaia text-2xl tracking-wider w-3/4">
+                Do you know that {heritage.name} is just one of the glimpse of
+                the majesty of the {heritage.state_culture_name.name} 🤩! If you
+                want to know explore more about{" "}
+                {heritage.state_culture_name.name} click on the image!
               </h1>
               <a
                 href="/"
@@ -286,13 +266,9 @@ const SingleHeritage = () => {
                 rel=" noopener"
                 className="flex items-center justify-center "
               >
-                {/* <img
-                  src={heritage.state_culture_name.image.url}
-                  className="w-full h-full duration-500 transition-transform hover:scale-105 transform-cpu"
-                /> */}
                 <img
                   src={upImg}
-                  className="w-full h-full duration-500 transition-transform hover:scale-105 transform-cpu"
+                  className="w-52 h-52 duration-500 transition-transform hover:scale-105 transform-cpu"
                 />
               </a>
             </div>
