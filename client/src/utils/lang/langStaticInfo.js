@@ -292,36 +292,77 @@ export const Static_Information = {
           {
             sImg: ladakhImg,
             sName: "Bandhani Saree",
-            sIntro:
-              "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
+            sIntro: "A traditional tie-dye saree originating from Gujarat and Rajasthan ▶️",
           },
-
           {
             sImg: ladakhImg,
             sName: "Banarasi Silk Saree",
-            sIntro:
-              "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
+            sIntro: "Exquisite saree known for its intricate gold and silver brocade ▶️",
           },
-
           {
             sImg: ladakhImg,
             sName: "Silk Saree",
-            sIntro:
-              "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
+            sIntro: "Elegant saree crafted from pure silk for a luxurious feel ▶️",
           },
-
           {
             sImg: ladakhImg,
             sName: "Dola Silk Saree",
-            sIntro:
-              "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
+            sIntro: "A premium saree with a blend of softness and vibrant patterns ▶️",
           },
-
           {
             sImg: ladakhImg,
             sName: "Georgette Saree",
-            sIntro:
-              "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
+            sIntro: "Lightweight and easy-to-drape saree perfect for every occasion ▶️",
+          },
+          {
+            sImg: ladakhImg,
+            sName: "Kanjeevaram Saree",
+            sIntro: "South India's pride, known for its rich colors and thick borders ▶️",
+          },
+          {
+            sImg: ladakhImg,
+            sName: "Chanderi Saree",
+            sIntro: "A blend of cotton and silk with zari work for a delicate look ▶️",
+          },
+          {
+            sImg: ladakhImg,
+            sName: "Tant Saree",
+            sIntro: "A crisp and breathable cotton saree from West Bengal ▶️",
+          },
+          {
+            sImg: ladakhImg,
+            sName: "Paithani Saree",
+            sIntro: "A regal saree from Maharashtra with intricate peacock motifs ▶️",
+          },
+          {
+            sImg: ladakhImg,
+            sName: "Pochampally Ikat Saree",
+            sIntro: "Known for its geometric patterns and handwoven artistry ▶️",
+          },
+          {
+            sImg: ladakhImg,
+            sName: "Kasavu Saree",
+            sIntro: "Kerala's traditional saree with golden borders for festive vibes ▶️",
+          },
+          {
+            sImg: ladakhImg,
+            sName: "Mysore Silk Saree",
+            sIntro: "Famed for its shimmering texture and vibrant solid colors ▶️",
+          },
+          {
+            sImg: ladakhImg,
+            sName: "Chiffon Saree",
+            sIntro: "An ultra-light saree ideal for comfort and graceful draping ▶️",
+          },
+          {
+            sImg: ladakhImg,
+            sName: "Patola Saree",
+            sIntro: "A double ikat masterpiece from Gujarat with vivid designs ▶️",
+          },
+          {
+            sImg: ladakhImg,
+            sName: "Kota Doria Saree",
+            sIntro: "A sheer and airy saree with unique square patterns ▶️",
           },
         ],
         dhotiHeading: "Dhoti",
@@ -351,60 +392,552 @@ export const Static_Information = {
         DiffDhotis: [
           {
             dImg: wbImg,
-            dName: " Tamil Veshti Dhoti",
-            dIntro:
-              "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
+            dName: "Tamil Veshti Dhoti",
+            dIntro: "Traditional attire in Tamil Nadu, worn for rituals and daily wear ▶️",
           },
-
           {
             dImg: wbImg,
             dName: "Kannada Kache Panche Dhoti",
-            dIntro:
-              "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
+            dIntro: "A classic dhoti style with pleats, commonly worn in Karnataka ▶️",
           },
-
           {
             dImg: wbImg,
             dName: "Telugu Pancha Dhoti",
-            dIntro:
-              "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
+            dIntro: "Simple yet elegant, a staple for Andhra Pradesh ceremonies ▶️",
           },
-
           {
             dImg: wbImg,
             dName: "Punjabi Chadra",
-            dIntro:
-              "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
+            dIntro: "A vibrant and colorful dhoti draped for special occasions ▶️",
           },
-
           {
             dImg: wbImg,
             dName: "Maharashtrian Dhotar",
-            dIntro:
-              "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
+            dIntro: "A crisp white dhoti often paired with a kurta or angavastram ▶️",
           },
-
           {
             dImg: wbImg,
             dName: "Rajasthani Dulangi Dhoti",
-            dIntro:
-              "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
+            dIntro: "Brightly colored dhoti with bold prints, worn traditionally in Rajasthan ▶️",
           },
-
           {
             dImg: wbImg,
             dName: "The Bengali Kochano or Pleated Dhoti",
-            dIntro:
-              "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
+            dIntro: "Elegant white dhoti with intricate pleats, popular in Bengal ▶️",
           },
-
           {
             dImg: wbImg,
             dName: "Readymade Velcro Dhoti",
-            dIntro:
-              "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
+            dIntro: "A modern twist for convenience, pre-stitched and easy to wear ▶️",
+          },
+          {
+            dImg: wbImg,
+            dName: "Kerala Mundu",
+            dIntro: "A lightweight and breathable dhoti, often paired with a golden border ▶️",
+          },
+          {
+            dImg: wbImg,
+            dName: "Gujarati Dhoti",
+            dIntro: "Known for its comfort and flair, commonly worn during garba ▶️",
+          },
+          {
+            dImg: wbImg,
+            dName: "Odisha Dhoti",
+            dIntro: "Traditional dhoti paired with a colorful border for festive occasions ▶️",
+          },
+          {
+            dImg: wbImg,
+            dName: "Assamese Dhoti",
+            dIntro: "A white dhoti with red accents, typically worn during Bihu celebrations ▶️",
+          },
+          {
+            dImg: wbImg,
+            dName: "Bhagalpuri Dhoti",
+            dIntro: "Renowned for its silky texture and worn for formal occasions ▶️",
+          },
+          {
+            dImg: wbImg,
+            dName: "Rajbari Style Dhoti",
+            dIntro: "An elegant drape popularized by royalty in Eastern India ▶️",
+          },
+          {
+            dImg: wbImg,
+            dName: "Dhoti Kurta Set",
+            dIntro: "A complete traditional look with a paired kurta ▶️",
+          },
+          {
+            dImg: wbImg,
+            dName: "Kashmiri Dhoti",
+            dIntro: "Woolen dhoti designed for warmth and traditional elegance ▶️",
+          },
+          {
+            dImg: wbImg,
+            dName: "Mysuru Panche Dhoti",
+            dIntro: "A royal dhoti adorned with zari borders, worn in Karnataka ▶️",
+          },
+          {
+            dImg: wbImg,
+            dName: "Chhattisgarhi Dhoti",
+            dIntro: "A simple cotton dhoti, ideal for daily wear in central India ▶️",
+          },
+          {
+            dImg: wbImg,
+            dName: "Jodhpuri Dhoti",
+            dIntro: "A tailored dhoti reflecting the aristocratic heritage of Rajasthan ▶️",
+          },
+          {
+            dImg: wbImg,
+            dName: "Vidarbha Style Dhoti",
+            dIntro: "Traditional wear of Vidarbha region, known for its unique drape ▶️",
+          },
+          {
+            dImg: wbImg,
+            dName: "Tribal Dhoti",
+            dIntro: "Worn by tribal communities with unique patterns and earthy tones ▶️",
+          },
+          {
+            dImg: wbImg,
+            dName: "Angarkha Dhoti",
+            dIntro: "Worn with an angarkha, this dhoti highlights Rajputana culture ▶️",
+          },
+          {
+            dImg: wbImg,
+            dName: "Gandhi Dhoti",
+            dIntro: "Minimalist, handwoven dhoti inspired by Mahatma Gandhi ▶️",
+          },
+          {
+            dImg: wbImg,
+            dName: "Cotton Temple Dhoti",
+            dIntro: "Popular in South India, used during religious ceremonies ▶️",
+          },
+          {
+            dImg: wbImg,
+            dName: "Festival Zari Dhoti",
+            dIntro: "Richly embroidered dhoti, ideal for weddings and festivals ▶️",
+          }, 
+        ],
+        salwarHeading: "Salwar Kameez: The Quintessential North Indian Attire",
+        salwarDescription: `
+        Introduction: The salwar kameez is a beloved traditional outfit worn by women across North India. Known for its comfort and elegance, this ensemble has become a staple in Indian fashion, symbolizing both cultural heritage and modern style.
+
+        Overview: The salwar kameez consists of three main pieces: the kameez (a long tunic or top), the salwar (loose-fitting trousers), and the dupatta (a long scarf). The kameez can vary in length and style, often featuring intricate embroidery or prints. The salwar is designed for ease of movement and comfort, while the dupatta adds a touch of grace and modesty. Together, these elements create an outfit that balances practicality with aesthetic appeal, making it a favorite across generations.
+
+        Cultural Significance: Originating from the Mughal era, the salwar kameez has evolved over time, blending traditional designs with contemporary trends. It reflects the rich cultural tapestry of North India and showcases the region's textile artistry through diverse fabrics and embellishments. The embroidery techniques, block prints, and hand-painted patterns on the kameez are testaments to India's craftsmanship. Over time, the salwar kameez has become a cultural icon, embodying elegance and tradition while adapting to modern sensibilities.
+
+        Occasions: The salwar kameez is versatile, suitable for casual wear, formal events, and festive occasions. It is often chosen for daily wear as well as special celebrations, including weddings and religious ceremonies. Its adaptability allows it to be styled in numerous ways, making it a favored choice for women of all ages. Whether paired with simple accessories for a casual look or adorned with heavy embroidery and ornate jewelry for festive events, the salwar kameez continues to charm with its timeless appeal.
+
+        Modern Adaptations: Over the years, the salwar kameez has undergone significant transformations to align with contemporary fashion trends. Designers have introduced modern cuts, fusion styles, and experimental patterns, making this attire popular not only in India but also globally. Palazzo-style salwars, Anarkali suits, and asymmetrical kameez designs are some of the innovations that blend tradition with modernity. The salwar kameez remains a canvas for creativity, ensuring its place in both traditional and modern wardrobes.
+        `,
+        DiffSalwars: [
+          {
+            sImg: wbImg,
+            sName: "Patiala Salwar Kameez",
+            sIntro: "Known for its pleated and voluminous bottoms, Patiala suits are vibrant and iconic attire from Punjab. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Anarkali Suit",
+            sIntro: "A floor-length kameez paired with churidar salwar, this design exudes royal elegance. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Palazzo Salwar Kameez",
+            sIntro: "Modern and chic, this style features wide-legged palazzos for a contemporary look. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Straight-Cut Salwar Kameez",
+            sIntro: "Simple yet stylish, this classic design is perfect for both formal and casual wear. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Churidar Salwar Kameez",
+            sIntro: "Featuring tight-fitted churidar bottoms, this outfit is a timeless classic. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Sharara Suit",
+            sIntro: "A festive favorite, the sharara suit features flared bottoms and intricate embroidery. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Angrakha Salwar Kameez",
+            sIntro: "With its overlapping kameez design, the Angrakha style is a nod to traditional Mughal fashion. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Cape Salwar Kameez",
+            sIntro: "A modern twist, this style features a cape layer for a glamorous look. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Patiyala Dhoti Salwar Suit",
+            sIntro: "A perfect blend of comfort and elegance, this suit combines dhoti-style bottoms with a chic kameez. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Indo-Western Salwar Kameez",
+            sIntro: "A fusion of Indian and Western designs, this style brings modernity to traditional attire. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Afghani Salwar Kameez",
+            sIntro: "Inspired by Afghan fashion, this style features loose, flowy salwars with elegant kameez. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Jacket-Style Salwar Kameez",
+            sIntro: "A stylish addition, this outfit pairs a jacket with a salwar suit for a regal look. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Umbrella-Cut Kameez",
+            sIntro: "Known for its wide flare, this kameez style adds a dramatic touch to any outfit. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Asymmetrical Salwar Kameez",
+            sIntro: "With its uneven hemline, this modern style adds a trendy edge to traditional attire. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Dhoti-Style Salwar Kameez",
+            sIntro: "Featuring dhoti-inspired bottoms, this style combines tradition and contemporary elegance. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Pakistani Salwar Kameez",
+            sIntro: "Renowned for its long kameez and elegant salwars, this style is a blend of grace and sophistication. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Front-Slit Salwar Kameez",
+            sIntro: "A bold and modern choice, this kameez features a slit in the front for added flair. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Peplum-Style Salwar Kameez",
+            sIntro: "A chic design with a peplum-style kameez, perfect for adding a touch of glamour. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Gharara Salwar Kameez",
+            sIntro: "Traditional yet glamorous, this suit features heavily flared gharara pants with a short kameez. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Lehenga-Style Salwar Kameez",
+            sIntro: "A fusion of lehenga and salwar kameez, this outfit is ideal for weddings and grand celebrations. ▶️",
           },
         ],
+        kurtaHeading: "Kurta-Pajama: A Blend of Comfort and Style",
+kurtaDescription: `
+Introduction: The kurta-pajama is a versatile and classic outfit for men, deeply rooted in Indian tradition. Known for its simplicity and comfort, it has remained a popular choice for casual wear, festive occasions, and formal events.
+
+Overview: The kurta is a long tunic that can be plain, embroidered, or patterned, while the pajama is a slim or loose-fitting bottom. This outfit seamlessly combines practicality and elegance, making it suitable for men of all ages. Whether crafted from cotton, silk, or other rich fabrics, the kurta-pajama remains timeless in Indian fashion.
+
+Cultural Significance: Tracing its origins to the Mughal era, the kurta-pajama is a symbol of Indian heritage and craftsmanship. It reflects the diverse cultural fabric of India, with regional variations such as the Lucknowi Chikankari kurta and Punjabi embroidered styles. The kurta-pajama is often worn during religious ceremonies, weddings, and festivals, symbolizing grace and tradition.
+
+Occasions: Perfect for both everyday wear and special events, the kurta-pajama is adaptable to various occasions. For casual outings, a plain cotton kurta paired with simple pajama pants is ideal. For weddings and celebrations, heavily embroidered kurtas in silk or brocade are paired with churidars or dhoti-style pajamas for a regal look.
+
+Modern Adaptations: Designers have reinvented the kurta-pajama with asymmetric hemlines, side slits, and fusion styles like pairing kurtas with jeans or modern trousers. The introduction of printed kurtas and Indo-Western ensembles has expanded its appeal globally, making it a fashion statement for men across the world.
+`,
+DiffKurtas: [
+  {
+    kImg: wbImg,
+    kName: "Chikankari Kurta",
+    kIntro: "Featuring intricate hand-embroidered patterns, this style is a favorite for traditional occasions. ▶️",
+  },
+  {
+    kImg: wbImg,
+    kName: "Pathani Kurta",
+    kIntro: "With a rugged yet elegant design, the Pathani kurta is inspired by traditional Afghan attire. ▶️",
+  },
+  {
+    kImg: wbImg,
+    kName: "Asymmetric Kurta",
+    kIntro: "A modern twist, this kurta features an uneven hemline for a contemporary look. ▶️",
+  },
+  {
+    kImg: wbImg,
+    kName: "Short Kurta",
+    kIntro: "A casual and trendy option, this kurta is shorter in length and pairs well with jeans. ▶️",
+  },
+  {
+    kImg: wbImg,
+    kName: "Sherwani-Style Kurta",
+    kIntro: "Richly embellished, this kurta exudes grandeur and is ideal for weddings and grand occasions. ▶️",
+  },
+  {
+    kImg: wbImg,
+    kName: "Printed Kurta",
+    kIntro: "Adorned with vibrant prints, this kurta adds a splash of color to your wardrobe. ▶️",
+  },
+  {
+    kImg: wbImg,
+    kName: "Silk Kurta",
+    kIntro: "Crafted from luxurious silk, this kurta offers an elegant and sophisticated appearance. ▶️",
+  },
+  {
+    kImg: wbImg,
+    kName: "Indo-Western Kurta",
+    kIntro: "A blend of traditional and modern aesthetics, perfect for contemporary fashion enthusiasts. ▶️",
+  },
+  {
+    kImg: wbImg,
+    kName: "Linen Kurta",
+    kIntro: "Lightweight and breathable, this kurta is a great choice for summer festivities. ▶️",
+  },
+  {
+    kImg: wbImg,
+    kName: "Bandhgala Kurta",
+    kIntro: "Featuring a closed-neck design, this kurta is a stylish pick for formal events. ▶️",
+  },
+],
+lehengaHeading: "Lehenga-Choli: The Bridal Splendor of India",
+lehengaDescription: `
+Introduction: The lehenga-choli is a quintessential bridal outfit in India, embodying tradition, opulence, and grace. Its intricate embroidery, luxurious fabrics, and vibrant colors make it a timeless choice for weddings and grand celebrations.
+
+Overview: This attire consists of three components: the lehenga (a flared skirt), the choli (a fitted blouse), and the dupatta (a long scarf). The lehenga is often heavily embellished with zari, sequins, or embroidery, while the choli complements with matching or contrasting designs. Together, these elements create a regal and eye-catching ensemble.
+
+Cultural Significance: The lehenga-choli holds a special place in Indian weddings, symbolizing joy, celebration, and cultural heritage. Its design varies across regions, from the Bandhani patterns of Gujarat to the intricate zardozi work of Rajasthan. Worn primarily during weddings and festivals, it represents the rich traditions and artistry of India.
+
+Occasions: The lehenga-choli is not limited to weddings; it is also a favorite for sangeet, mehendi, and festive gatherings. Bridal lehengas are crafted with exquisite detail, while simpler lehengas in cotton or silk are ideal for casual celebrations.
+
+Modern Adaptations: Designers have reimagined the lehenga-choli with fusion styles like lehenga gowns, crop top lehengas, and contemporary drapes. Experimentation with lighter fabrics, unique cuts, and minimalistic embroidery has made it a versatile outfit for modern brides and fashion enthusiasts.
+`,
+DiffLehengas: [
+  {
+    lImg: wbImg,
+    lName: "Bridal Lehenga",
+    lIntro: "Exquisitely crafted with heavy embroidery and embellishments, perfect for the wedding day. ▶️",
+  },
+  {
+    lImg: wbImg,
+    lName: "A-Line Lehenga",
+    lIntro: "With a fitted waist and flared hem, this style creates a flattering silhouette. ▶️",
+  },
+  {
+    lImg: wbImg,
+    lName: "Fish-Cut Lehenga",
+    lIntro: "This style hugs the body till the knees and flares out, resembling a mermaid’s tail. ▶️",
+  },
+  {
+    lImg: wbImg,
+    lName: "Circular Lehenga",
+    lIntro: "The classic choice with wide flares and intricate embroidery, perfect for traditional ceremonies. ▶️",
+  },
+  {
+    lImg: wbImg,
+    lName: "Panelled Lehenga",
+    lIntro: "With multiple panels stitched together, this lehenga adds volume and variety to the outfit. ▶️",
+  },
+  {
+    lImg: wbImg,
+    lName: "Chikankari Lehenga",
+    lIntro: "Featuring delicate hand-embroidered patterns, ideal for elegant and subtle looks. ▶️",
+  },
+  {
+    lImg: wbImg,
+    lName: "Lehenga Saree",
+    lIntro: "A fusion of lehenga and saree, combining the beauty of both attires in one. ▶️",
+  },
+  {
+    lImg: wbImg,
+    lName: "Indo-Western Lehenga",
+    lIntro: "A modern take with unique cuts and minimal embellishments, perfect for contemporary fashion. ▶️",
+  },
+  {
+    lImg: wbImg,
+    lName: "Velvet Lehenga",
+    lIntro: "Crafted from rich velvet fabric, exuding luxury and sophistication. ▶️",
+  },
+  {
+    lImg: wbImg,
+    lName: "Jacket-Style Lehenga",
+    lIntro: "Paired with a stylish jacket instead of a choli, adding a modern twist to tradition. ▶️",
+  },
+],
+sherwaniHeading: "Sherwani: The Regal Groom's Attire",
+  sherwaniDescription: `
+    Introduction: The Sherwani is the quintessential choice for grooms during weddings, symbolizing royal elegance and grace. With its rich history and timeless appeal, it remains a favorite for men on their special day.
+    
+    Overview: The Sherwani is a long coat-like garment, typically worn over a kurta, paired with a churidar or a straight pant. It features intricate embroidery, luxurious fabrics like silk, velvet, or brocade, and is often accessorized with a dupatta or stole.
+    
+    Cultural Significance: Originating from the Mughal era, the Sherwani is a reflection of the regal heritage and craftsmanship of India. Its popularity in weddings, particularly in North India, showcases its importance as a symbol of grandeur and celebration.
+    
+    Occasions: While primarily worn by grooms during weddings, the Sherwani is also a popular choice for other celebrations like receptions, sangeet, and festive occasions. The design and embroidery of Sherwanis can vary depending on the region and personal preferences.
+    
+    Modern Adaptations: Designers have modernized the Sherwani with fusion elements, such as asymmetrical cuts, short Sherwanis, and even fusion Sherwani kurtas. They are now available in various styles, including minimalistic designs for contemporary grooms.
+  `,
+  DiffSherwanis: [
+    {
+      sImg: wbImg,
+      sName: "Traditional Sherwani",
+      sIntro: "A classic Sherwani with intricate embroidery, perfect for traditional weddings. ▶️",
+    },
+    {
+      sImg: wbImg,
+      sName: "Designer Sherwani",
+      sIntro: "Modern cuts and exclusive fabrics make this Sherwani a showstopper for the groom. ▶️",
+    },
+    {
+      sImg: wbImg,
+      sName: "Pathani Sherwani",
+      sIntro: "Inspired by Afghan-style fashion, this Sherwani offers a rugged yet regal look. ▶️",
+    },
+    {
+      sImg: wbImg,
+      sName: "Short Sherwani",
+      sIntro: "A contemporary twist with shorter lengths and a modern fit, ideal for a stylish groom. ▶️",
+    },
+    {
+      sImg: wbImg,
+      sName: "Velvet Sherwani",
+      sIntro: "Crafted from luxurious velvet fabric, exuding sophistication and class. ▶️",
+    },
+  ],
+
+  meklaChadorHeading: "Mekla Chador: The Traditional Bengali Elegance",
+  meklaChadorDescription: `
+    Introduction: The Mekla Chador is a traditional attire of Bengal, representing grace and femininity. Worn during weddings and festivals, this ensemble is a beautiful combination of the saree and a chador (veil), symbolizing both tradition and modern elegance.
+    
+    Overview: The Mekla Chador consists of a wide-bordered saree paired with a matching blouse and a veil draped over the head. The saree’s design often features intricate patterns, traditional motifs, and rich fabric choices like kanjeevaram or cotton.
+    
+    Cultural Significance: Deeply rooted in Bengali culture, the Mekla Chador is predominantly worn by brides during their wedding ceremonies. The bright colors and floral designs reflect the vibrant traditions of the Bengali community.
+    
+    Occasions: While the Mekla Chador is most often worn by brides, it is also seen during festivals such as Durga Puja and other grand cultural celebrations. Its elegance makes it a standout choice for traditional occasions.
+    
+    Modern Adaptations: Designers have modernized the Mekla Chador with contemporary drapes and fusion styles, blending traditional weaves with modern fashion elements, making it more versatile for younger generations.
+  `,
+  DiffMeklaChadors: [
+    {
+      mImg: wbImg,
+      mName: "Traditional Mekla Chador",
+      mIntro: "A classic Mekla Chador with intricate traditional designs, ideal for wedding ceremonies. ▶️",
+    },
+    {
+      mImg: wbImg,
+      mName: "Fusion Mekla Chador",
+      mIntro: "Modern touches and vibrant colors, perfect for younger brides. ▶️",
+    },
+    {
+      mImg: wbImg,
+      mName: "Kanjeevaram Mekla Chador",
+      mIntro: "Luxury meets tradition with this silk Mekla Chador, ideal for grand weddings. ▶️",
+    },
+    {
+      mImg: wbImg,
+      mName: "Cotton Mekla Chador",
+      mIntro: "Lightweight and breathable, this Mekla Chador is perfect for summer celebrations. ▶️",
+    },
+  ],
+
+  munduHeading: "Mundu: The Traditional South Indian Wear",
+  munduDescription: `
+    Introduction: The Mundu is a traditional garment worn in South India, particularly in Kerala, representing cultural heritage and simplicity. Worn by men, it is known for its comfort and functionality, making it a staple in everyday wear and festive occasions.
+    
+    Overview: The Mundu is a simple piece of cloth, usually white or cream, draped around the waist and secured with a knot. It is often paired with a traditional shirt or kurta, creating a classic look for formal and festive events.
+    
+    Cultural Significance: The Mundu is an integral part of the Kerala culture, worn during religious ceremonies, weddings, and festivals. It reflects the peaceful and simple lifestyle of the people of Kerala.
+    
+    Occasions: Traditionally worn by men for daily activities, the Mundu is also worn during weddings, especially paired with a traditional shirt or jacket for grooms.
+    
+    Modern Adaptations: Though simple, the Mundu has seen adaptations in recent years with embroidery, fusion styles, and modern cuts for contemporary men.
+  `,
+  DiffMundus: [
+    {
+      mImg: wbImg,
+      mName: "Traditional Mundu",
+      mIntro: "A classic white Mundu, perfect for formal and religious ceremonies. ▶️",
+    },
+    {
+      mImg: wbImg,
+      mName: "Designer Mundu",
+      mIntro: "Modern cuts and embroidery bring a stylish twist to the traditional Mundu. ▶️",
+    },
+    {
+      mImg: wbImg,
+      mName: "Silk Mundu",
+      mIntro: "Crafted from luxurious silk, ideal for weddings and grand occasions. ▶️",
+    },
+  ],
+
+  bandhgalaHeading: "Bandhgala: The Elegant Indo-Western Attire",
+  bandhgalaDescription: `
+    Introduction: The Bandhgala, also known as the Nehru jacket, is a formal Indian outfit that blends traditional and modern elements. Known for its structured design and royal appeal, it is a popular choice for weddings, parties, and formal occasions.
+    
+    Overview: The Bandhgala is a tailored, buttoned jacket with a stand-up collar, typically worn over a kurta or shirt. The garment is known for its sophisticated fit and is often made of rich fabrics like silk, wool, or brocade.
+    
+    Cultural Significance: Named after India’s first Prime Minister Jawaharlal Nehru, the Bandhgala has become a symbol of refined elegance in Indian menswear. It represents the perfect fusion of Indian tradition and Western influence.
+    
+    Occasions: The Bandhgala is a go-to attire for weddings, formal gatherings, and evening events. It is often paired with a kurta, churidar, or even trousers, making it a versatile outfit for various occasions.
+    
+    Modern Adaptations: The Bandhgala has undergone several modern reinventions, with designers experimenting with cuts, fabrics, and embroidery to suit contemporary tastes. It is now a favorite for stylish men looking to make a statement.
+  `,
+  DiffBandgalas: [
+    {
+      bImg: wbImg,
+      bName: "Traditional Bandhgala",
+      bIntro: "A classic Bandhgala with minimal embroidery and a formal fit, ideal for weddings. ▶️",
+    },
+    {
+      bImg: wbImg,
+      bName: "Designer Bandhgala",
+      bIntro: "Modern and stylish, with unique cuts and embroidery for a contemporary look. ▶️",
+    },
+    {
+      bImg: wbImg,
+      bName: "Silk Bandhgala",
+      bIntro: "Crafted from luxurious silk, this Bandhgala adds a regal touch to formal occasions. ▶️",
+    },
+    {
+      bImg: wbImg,
+      bName: "Short Bandhgala",
+      bIntro: "A trendy, shorter version of the traditional Bandhgala, perfect for modern grooms. ▶️",
+    },
+  ],
+  phiranHeading: "Phiran: The Traditional Kashmiri Attire",
+  phiranDescription: `
+    Introduction: The Phiran is a traditional Kashmiri garment, widely worn by both men and women, known for its elegance and warmth. It is especially popular during the cold winter months in Kashmir, providing both comfort and style.
+    
+    Overview: The Phiran is a long, flowing robe that reaches the ankles, typically made from wool or cotton, depending on the season. It features a loose fit, making it ideal for layering and warmth. The garment often features intricate embroidery, particularly around the cuffs, collar, and hem, reflecting the rich craftsmanship of the region.
+    
+    Cultural Significance: The Phiran holds deep cultural importance in Kashmiri heritage. Worn for centuries, it is a symbol of regional identity and is a reflection of the natural beauty and artisanal traditions of Kashmir.
+    
+    Occasions: Traditionally worn in daily life, the Phiran is also seen on festive occasions, including religious ceremonies, weddings, and cultural events. The designs vary depending on the formality of the occasion, with more elaborate embroidery used for special events.
+    
+    Modern Adaptations: The Phiran has undergone several transformations, with designers incorporating modern elements such as vibrant colors, contemporary cuts, and fusion styles. It is now being worn by people outside Kashmir as a statement piece for cultural fashion.
+  `,
+  DiffPhirans: [
+    {
+      pImg: wbImg,
+      pName: "Traditional Phiran",
+      pIntro: "A classic woolen Phiran, perfect for the cold winters of Kashmir. ▶️",
+    },
+    {
+      pImg: wbImg,
+      pName: "Embroidered Phiran",
+      pIntro: "Intricate Kashmiri embroidery adorns this Phiran, ideal for weddings and special occasions. ▶️",
+    },
+    {
+      pImg: wbImg,
+      pName: "Cotton Phiran",
+      pIntro: "Lightweight and breathable, perfect for warm-weather wear and casual occasions. ▶️",
+    },
+    {
+      pImg: wbImg,
+      pName: "Modern Phiran",
+      pIntro: "A contemporary take on the traditional Phiran with a stylish fit and bold colors. ▶️",
+    },
+    {
+      pImg: wbImg,
+      pName: "Festive Phiran",
+      pIntro: "Rich fabric and detailed embroidery make this Phiran a perfect choice for festive occasions. ▶️",
+    },
+  ],
+
+
       },
 
       StateCulturesData: {
