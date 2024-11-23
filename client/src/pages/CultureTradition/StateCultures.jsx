@@ -100,7 +100,7 @@ const StateCultures = () => {
   const navigate = useNavigate();
 
   const [visibleCount, setVisibleCount] = useState(6);
-  const isAllDisplayed = visibleCount >= stateContent.length;
+  const isAllDisplayed = visibleCount >= stateContent.AllStatesName.length;
 
   return (
     <div>
