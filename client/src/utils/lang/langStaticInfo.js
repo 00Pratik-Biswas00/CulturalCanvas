@@ -11,13 +11,13 @@ import virtualStoreImg from "./../../assets/Home/virtual.avif";
 import langImg from "./../../assets/culture/language.avif";
 import religiousImg from "./../../assets/culture/religious.avif";
 import cuisineImg from "./../../assets/culture/cuisine.avif";
-import festivalImg from "./../../assets/culture/festival.avif";
+import festivasImg from "./../../assets/culture/festival.avif";
 import greetingImg from "./../../assets/culture/greeting.avif";
 import weddingImg from "./../../assets/culture/wedding.avif";
 
 // states
 
-import assamImg from "./../../assets/states/assam.png";
+import assasImg from "./../../assets/states/assam.png";
 import karnatakaImg from "./../../assets/states/karnataka.png";
 import meghalayaImg from "./../../assets/states/meghalaya.png";
 import uttarpradeshImg from "./../../assets/states/uttar-pradesh.png";
@@ -29,23 +29,23 @@ import goaImg from "./../../assets/states/Goa.png";
 import gujaratImg from "./../../assets/states/Gujarat.png";
 import haryanaImg from "./../../assets/states/Haryana.png";
 import himachalpradeshImg from "./../../assets/states/himachal-pradesh.png";
-import jharkhandImg from "./../../assets/states/Jharkhand.png";
+import jharkhansImg from "./../../assets/states/Jharkhand.png";
 import keralaImg from "./../../assets/states/Kerala.png";
 import madhyapradeshImg from "./../../assets/states/madhya-pradesh.png";
 import maharashtraImg from "./../../assets/states/Maharashtra.png";
 import manipurImg from "./../../assets/states/Manipur.png";
-import mizoramImg from "./../../assets/states/Mizoram.png";
-import nagalandImg from "./../../assets/states/Nagaland.png";
+import mizorasImg from "./../../assets/states/Mizoram.png";
+import nagalansImg from "./../../assets/states/Nagaland.png";
 import odishaImg from "./../../assets/states/Odisha.png";
 import punjabImg from "./../../assets/states/Punjab.png";
 import rajasthanImg from "./../../assets/states/Rajasthan.png";
-import sikkimImg from "./../../assets/states/Sikkim.png";
+import sikkisImg from "./../../assets/states/Sikkim.png";
 import tamilnaduImg from "./../../assets/states/Tamil-Nadu.png";
 import telanganaImg from "./../../assets/states/Telangana.png";
 import tripuraImg from "./../../assets/states/Tripura.png";
-import uttarakhandImg from "./../../assets/states/Uttarakhand.png";
+import uttarakhansImg from "./../../assets/states/Uttarakhand.png";
 import wbImg from "./../../assets/states/west-bengal.png";
-import jkImg from "./../../assets/states/Jammu.png";
+import jsImg from "./../../assets/states/Jammu.png";
 import andamanImg from "./../../assets/states/andaman.png";
 import chandigarhImg from "./../../assets/states/chandigarh.png";
 import dadraImg from "./../../assets/states/dadra.png";
@@ -225,7 +225,7 @@ export const Static_Information = {
             individualPage: "/culture-tradition/id",
           },
           {
-            cultureImg: festivalImg,
+            cultureImg: festivasImg,
             cultureIntro: `Experience the vibrance of India’s grand festivals and celebrations 🥳`,
             cultureName: "Festivals",
             individualPage: "/culture-tradition/id",
@@ -292,37 +292,44 @@ export const Static_Information = {
           {
             sImg: ladakhImg,
             sName: "Bandhani Saree",
-            sIntro: "A traditional tie-dye saree originating from Gujarat and Rajasthan ▶️",
+            sIntro:
+              "A traditional tie-dye saree originating from Gujarat and Rajasthan ▶️",
           },
           {
             sImg: ladakhImg,
             sName: "Banarasi Silk Saree",
-            sIntro: "Exquisite saree known for its intricate gold and silver brocade ▶️",
+            sIntro:
+              "Exquisite saree known for its intricate gold and silver brocade ▶️",
           },
           {
             sImg: ladakhImg,
             sName: "Silk Saree",
-            sIntro: "Elegant saree crafted from pure silk for a luxurious feel ▶️",
+            sIntro:
+              "Elegant saree crafted from pure silk for a luxurious feel ▶️",
           },
           {
             sImg: ladakhImg,
             sName: "Dola Silk Saree",
-            sIntro: "A premium saree with a blend of softness and vibrant patterns ▶️",
+            sIntro:
+              "A premium saree with a blend of softness and vibrant patterns ▶️",
           },
           {
             sImg: ladakhImg,
             sName: "Georgette Saree",
-            sIntro: "Lightweight and easy-to-drape saree perfect for every occasion ▶️",
+            sIntro:
+              "Lightweight and easy-to-drape saree perfect for every occasion ▶️",
           },
           {
             sImg: ladakhImg,
             sName: "Kanjeevaram Saree",
-            sIntro: "South India's pride, known for its rich colors and thick borders ▶️",
+            sIntro:
+              "South India's pride, known for its rich colors and thick borders ▶️",
           },
           {
             sImg: ladakhImg,
             sName: "Chanderi Saree",
-            sIntro: "A blend of cotton and silk with zari work for a delicate look ▶️",
+            sIntro:
+              "A blend of cotton and silk with zari work for a delicate look ▶️",
           },
           {
             sImg: ladakhImg,
@@ -332,32 +339,38 @@ export const Static_Information = {
           {
             sImg: ladakhImg,
             sName: "Paithani Saree",
-            sIntro: "A regal saree from Maharashtra with intricate peacock motifs ▶️",
+            sIntro:
+              "A regal saree from Maharashtra with intricate peacock motifs ▶️",
           },
           {
             sImg: ladakhImg,
             sName: "Pochampally Ikat Saree",
-            sIntro: "Known for its geometric patterns and handwoven artistry ▶️",
+            sIntro:
+              "Known for its geometric patterns and handwoven artistry ▶️",
           },
           {
             sImg: ladakhImg,
             sName: "Kasavu Saree",
-            sIntro: "Kerala's traditional saree with golden borders for festive vibes ▶️",
+            sIntro:
+              "Kerala's traditional saree with golden borders for festive vibes ▶️",
           },
           {
             sImg: ladakhImg,
             sName: "Mysore Silk Saree",
-            sIntro: "Famed for its shimmering texture and vibrant solid colors ▶️",
+            sIntro:
+              "Famed for its shimmering texture and vibrant solid colors ▶️",
           },
           {
             sImg: ladakhImg,
             sName: "Chiffon Saree",
-            sIntro: "An ultra-light saree ideal for comfort and graceful draping ▶️",
+            sIntro:
+              "An ultra-light saree ideal for comfort and graceful draping ▶️",
           },
           {
             sImg: ladakhImg,
             sName: "Patola Saree",
-            sIntro: "A double ikat masterpiece from Gujarat with vivid designs ▶️",
+            sIntro:
+              "A double ikat masterpiece from Gujarat with vivid designs ▶️",
           },
           {
             sImg: ladakhImg,
@@ -391,130 +404,153 @@ export const Static_Information = {
             and tradition.`,
         DiffDhotis: [
           {
-            dImg: wbImg,
-            dName: "Tamil Veshti Dhoti",
-            dIntro: "Traditional attire in Tamil Nadu, worn for rituals and daily wear ▶️",
+            sImg: wbImg,
+            sName: "Tamil Veshti Dhoti",
+            sIntro:
+              "Traditional attire in Tamil Nadu, worn for rituals and daily wear ▶️",
           },
           {
-            dImg: wbImg,
-            dName: "Kannada Kache Panche Dhoti",
-            dIntro: "A classic dhoti style with pleats, commonly worn in Karnataka ▶️",
+            sImg: wbImg,
+            sName: "Kannada Kache Panche Dhoti",
+            sIntro:
+              "A classic dhoti style with pleats, commonly worn in Karnataka ▶️",
           },
           {
-            dImg: wbImg,
-            dName: "Telugu Pancha Dhoti",
-            dIntro: "Simple yet elegant, a staple for Andhra Pradesh ceremonies ▶️",
+            sImg: wbImg,
+            sName: "Telugu Pancha Dhoti",
+            sIntro:
+              "Simple yet elegant, a staple for Andhra Pradesh ceremonies ▶️",
           },
           {
-            dImg: wbImg,
-            dName: "Punjabi Chadra",
-            dIntro: "A vibrant and colorful dhoti draped for special occasions ▶️",
+            sImg: wbImg,
+            sName: "Punjabi Chadra",
+            sIntro:
+              "A vibrant and colorful dhoti draped for special occasions ▶️",
           },
           {
-            dImg: wbImg,
-            dName: "Maharashtrian Dhotar",
-            dIntro: "A crisp white dhoti often paired with a kurta or angavastram ▶️",
+            sImg: wbImg,
+            sName: "Maharashtrian Dhotar",
+            sIntro:
+              "A crisp white dhoti often paired with a kurta or angavastram ▶️",
           },
           {
-            dImg: wbImg,
-            dName: "Rajasthani Dulangi Dhoti",
-            dIntro: "Brightly colored dhoti with bold prints, worn traditionally in Rajasthan ▶️",
+            sImg: wbImg,
+            sName: "Rajasthani Dulangi Dhoti",
+            sIntro:
+              "Brightly colored dhoti with bold prints, worn traditionally in Rajasthan ▶️",
           },
           {
-            dImg: wbImg,
-            dName: "The Bengali Kochano or Pleated Dhoti",
-            dIntro: "Elegant white dhoti with intricate pleats, popular in Bengal ▶️",
+            sImg: wbImg,
+            sName: "The Bengali Kochano or Pleated Dhoti",
+            sIntro:
+              "Elegant white dhoti with intricate pleats, popular in Bengal ▶️",
           },
           {
-            dImg: wbImg,
-            dName: "Readymade Velcro Dhoti",
-            dIntro: "A modern twist for convenience, pre-stitched and easy to wear ▶️",
+            sImg: wbImg,
+            sName: "Readymade Velcro Dhoti",
+            sIntro:
+              "A modern twist for convenience, pre-stitched and easy to wear ▶️",
           },
           {
-            dImg: wbImg,
-            dName: "Kerala Mundu",
-            dIntro: "A lightweight and breathable dhoti, often paired with a golden border ▶️",
+            sImg: wbImg,
+            sName: "Kerala Mundu",
+            sIntro:
+              "A lightweight and breathable dhoti, often paired with a golden border ▶️",
           },
           {
-            dImg: wbImg,
-            dName: "Gujarati Dhoti",
-            dIntro: "Known for its comfort and flair, commonly worn during garba ▶️",
+            sImg: wbImg,
+            sName: "Gujarati Dhoti",
+            sIntro:
+              "Known for its comfort and flair, commonly worn during garba ▶️",
           },
           {
-            dImg: wbImg,
-            dName: "Odisha Dhoti",
-            dIntro: "Traditional dhoti paired with a colorful border for festive occasions ▶️",
+            sImg: wbImg,
+            sName: "Odisha Dhoti",
+            sIntro:
+              "Traditional dhoti paired with a colorful border for festive occasions ▶️",
           },
           {
-            dImg: wbImg,
-            dName: "Assamese Dhoti",
-            dIntro: "A white dhoti with red accents, typically worn during Bihu celebrations ▶️",
+            sImg: wbImg,
+            sName: "Assamese Dhoti",
+            sIntro:
+              "A white dhoti with red accents, typically worn during Bihu celebrations ▶️",
           },
           {
-            dImg: wbImg,
-            dName: "Bhagalpuri Dhoti",
-            dIntro: "Renowned for its silky texture and worn for formal occasions ▶️",
+            sImg: wbImg,
+            sName: "Bhagalpuri Dhoti",
+            sIntro:
+              "Renowned for its silky texture and worn for formal occasions ▶️",
           },
           {
-            dImg: wbImg,
-            dName: "Rajbari Style Dhoti",
-            dIntro: "An elegant drape popularized by royalty in Eastern India ▶️",
+            sImg: wbImg,
+            sName: "Rajbari Style Dhoti",
+            sIntro:
+              "An elegant drape popularized by royalty in Eastern India ▶️",
           },
           {
-            dImg: wbImg,
-            dName: "Dhoti Kurta Set",
-            dIntro: "A complete traditional look with a paired kurta ▶️",
+            sImg: wbImg,
+            sName: "Dhoti Kurta Set",
+            sIntro: "A complete traditional look with a paired kurta ▶️",
           },
           {
-            dImg: wbImg,
-            dName: "Kashmiri Dhoti",
-            dIntro: "Woolen dhoti designed for warmth and traditional elegance ▶️",
+            sImg: wbImg,
+            sName: "Kashmiri Dhoti",
+            sIntro:
+              "Woolen dhoti designed for warmth and traditional elegance ▶️",
           },
           {
-            dImg: wbImg,
-            dName: "Mysuru Panche Dhoti",
-            dIntro: "A royal dhoti adorned with zari borders, worn in Karnataka ▶️",
+            sImg: wbImg,
+            sName: "Mysuru Panche Dhoti",
+            sIntro:
+              "A royal dhoti adorned with zari borders, worn in Karnataka ▶️",
           },
           {
-            dImg: wbImg,
-            dName: "Chhattisgarhi Dhoti",
-            dIntro: "A simple cotton dhoti, ideal for daily wear in central India ▶️",
+            sImg: wbImg,
+            sName: "Chhattisgarhi Dhoti",
+            sIntro:
+              "A simple cotton dhoti, ideal for daily wear in central India ▶️",
           },
           {
-            dImg: wbImg,
-            dName: "Jodhpuri Dhoti",
-            dIntro: "A tailored dhoti reflecting the aristocratic heritage of Rajasthan ▶️",
+            sImg: wbImg,
+            sName: "Jodhpuri Dhoti",
+            sIntro:
+              "A tailored dhoti reflecting the aristocratic heritage of Rajasthan ▶️",
           },
           {
-            dImg: wbImg,
-            dName: "Vidarbha Style Dhoti",
-            dIntro: "Traditional wear of Vidarbha region, known for its unique drape ▶️",
+            sImg: wbImg,
+            sName: "Vidarbha Style Dhoti",
+            sIntro:
+              "Traditional wear of Vidarbha region, known for its unique drape ▶️",
           },
           {
-            dImg: wbImg,
-            dName: "Tribal Dhoti",
-            dIntro: "Worn by tribal communities with unique patterns and earthy tones ▶️",
+            sImg: wbImg,
+            sName: "Tribal Dhoti",
+            sIntro:
+              "Worn by tribal communities with unique patterns and earthy tones ▶️",
           },
           {
-            dImg: wbImg,
-            dName: "Angarkha Dhoti",
-            dIntro: "Worn with an angarkha, this dhoti highlights Rajputana culture ▶️",
+            sImg: wbImg,
+            sName: "Angarkha Dhoti",
+            sIntro:
+              "Worn with an angarkha, this dhoti highlights Rajputana culture ▶️",
           },
           {
-            dImg: wbImg,
-            dName: "Gandhi Dhoti",
-            dIntro: "Minimalist, handwoven dhoti inspired by Mahatma Gandhi ▶️",
+            sImg: wbImg,
+            sName: "Gandhi Dhoti",
+            sIntro: "Minimalist, handwoven dhoti inspired by Mahatma Gandhi ▶️",
           },
           {
-            dImg: wbImg,
-            dName: "Cotton Temple Dhoti",
-            dIntro: "Popular in South India, used during religious ceremonies ▶️",
+            sImg: wbImg,
+            sName: "Cotton Temple Dhoti",
+            sIntro:
+              "Popular in South India, used during religious ceremonies ▶️",
           },
           {
-            dImg: wbImg,
-            dName: "Festival Zari Dhoti",
-            dIntro: "Richly embroidered dhoti, ideal for weddings and festivals ▶️",
-          }, 
+            sImg: wbImg,
+            sName: "Festival Zari Dhoti",
+            sIntro:
+              "Richly embroidered dhoti, ideal for weddings and festivals ▶️",
+          },
         ],
         salwarHeading: "Salwar Kameez: The Quintessential North Indian Attire",
         salwarDescription: `
@@ -532,106 +568,126 @@ export const Static_Information = {
           {
             sImg: wbImg,
             sName: "Patiala Salwar Kameez",
-            sIntro: "Known for its pleated and voluminous bottoms, Patiala suits are vibrant and iconic attire from Punjab. ▶️",
+            sIntro:
+              "Known for its pleated and voluminous bottoms, Patiala suits are vibrant and iconic attire from Punjab. ▶️",
           },
           {
             sImg: wbImg,
             sName: "Anarkali Suit",
-            sIntro: "A floor-length kameez paired with churidar salwar, this design exudes royal elegance. ▶️",
+            sIntro:
+              "A floor-length kameez paired with churidar salwar, this design exudes royal elegance. ▶️",
           },
           {
             sImg: wbImg,
             sName: "Palazzo Salwar Kameez",
-            sIntro: "Modern and chic, this style features wide-legged palazzos for a contemporary look. ▶️",
+            sIntro:
+              "Modern and chic, this style features wide-legged palazzos for a contemporary look. ▶️",
           },
           {
             sImg: wbImg,
             sName: "Straight-Cut Salwar Kameez",
-            sIntro: "Simple yet stylish, this classic design is perfect for both formal and casual wear. ▶️",
+            sIntro:
+              "Simple yet stylish, this classic design is perfect for both formal and casual wear. ▶️",
           },
           {
             sImg: wbImg,
             sName: "Churidar Salwar Kameez",
-            sIntro: "Featuring tight-fitted churidar bottoms, this outfit is a timeless classic. ▶️",
+            sIntro:
+              "Featuring tight-fitted churidar bottoms, this outfit is a timeless classic. ▶️",
           },
           {
             sImg: wbImg,
             sName: "Sharara Suit",
-            sIntro: "A festive favorite, the sharara suit features flared bottoms and intricate embroidery. ▶️",
+            sIntro:
+              "A festive favorite, the sharara suit features flared bottoms and intricate embroidery. ▶️",
           },
           {
             sImg: wbImg,
             sName: "Angrakha Salwar Kameez",
-            sIntro: "With its overlapping kameez design, the Angrakha style is a nod to traditional Mughal fashion. ▶️",
+            sIntro:
+              "With its overlapping kameez design, the Angrakha style is a nod to traditional Mughal fashion. ▶️",
           },
           {
             sImg: wbImg,
             sName: "Cape Salwar Kameez",
-            sIntro: "A modern twist, this style features a cape layer for a glamorous look. ▶️",
+            sIntro:
+              "A modern twist, this style features a cape layer for a glamorous look. ▶️",
           },
           {
             sImg: wbImg,
             sName: "Patiyala Dhoti Salwar Suit",
-            sIntro: "A perfect blend of comfort and elegance, this suit combines dhoti-style bottoms with a chic kameez. ▶️",
+            sIntro:
+              "A perfect blend of comfort and elegance, this suit combines dhoti-style bottoms with a chic kameez. ▶️",
           },
           {
             sImg: wbImg,
             sName: "Indo-Western Salwar Kameez",
-            sIntro: "A fusion of Indian and Western designs, this style brings modernity to traditional attire. ▶️",
+            sIntro:
+              "A fusion of Indian and Western designs, this style brings modernity to traditional attire. ▶️",
           },
           {
             sImg: wbImg,
             sName: "Afghani Salwar Kameez",
-            sIntro: "Inspired by Afghan fashion, this style features loose, flowy salwars with elegant kameez. ▶️",
+            sIntro:
+              "Inspired by Afghan fashion, this style features loose, flowy salwars with elegant kameez. ▶️",
           },
           {
             sImg: wbImg,
             sName: "Jacket-Style Salwar Kameez",
-            sIntro: "A stylish addition, this outfit pairs a jacket with a salwar suit for a regal look. ▶️",
+            sIntro:
+              "A stylish addition, this outfit pairs a jacket with a salwar suit for a regal look. ▶️",
           },
           {
             sImg: wbImg,
             sName: "Umbrella-Cut Kameez",
-            sIntro: "Known for its wide flare, this kameez style adds a dramatic touch to any outfit. ▶️",
+            sIntro:
+              "Known for its wide flare, this kameez style adds a dramatic touch to any outfit. ▶️",
           },
           {
             sImg: wbImg,
             sName: "Asymmetrical Salwar Kameez",
-            sIntro: "With its uneven hemline, this modern style adds a trendy edge to traditional attire. ▶️",
+            sIntro:
+              "With its uneven hemline, this modern style adds a trendy edge to traditional attire. ▶️",
           },
           {
             sImg: wbImg,
             sName: "Dhoti-Style Salwar Kameez",
-            sIntro: "Featuring dhoti-inspired bottoms, this style combines tradition and contemporary elegance. ▶️",
+            sIntro:
+              "Featuring dhoti-inspired bottoms, this style combines tradition and contemporary elegance. ▶️",
           },
           {
             sImg: wbImg,
             sName: "Pakistani Salwar Kameez",
-            sIntro: "Renowned for its long kameez and elegant salwars, this style is a blend of grace and sophistication. ▶️",
+            sIntro:
+              "Renowned for its long kameez and elegant salwars, this style is a blend of grace and sophistication. ▶️",
           },
           {
             sImg: wbImg,
             sName: "Front-Slit Salwar Kameez",
-            sIntro: "A bold and modern choice, this kameez features a slit in the front for added flair. ▶️",
+            sIntro:
+              "A bold and modern choice, this kameez features a slit in the front for added flair. ▶️",
           },
           {
             sImg: wbImg,
             sName: "Peplum-Style Salwar Kameez",
-            sIntro: "A chic design with a peplum-style kameez, perfect for adding a touch of glamour. ▶️",
+            sIntro:
+              "A chic design with a peplum-style kameez, perfect for adding a touch of glamour. ▶️",
           },
           {
             sImg: wbImg,
             sName: "Gharara Salwar Kameez",
-            sIntro: "Traditional yet glamorous, this suit features heavily flared gharara pants with a short kameez. ▶️",
+            sIntro:
+              "Traditional yet glamorous, this suit features heavily flared gharara pants with a short kameez. ▶️",
           },
           {
             sImg: wbImg,
             sName: "Lehenga-Style Salwar Kameez",
-            sIntro: "A fusion of lehenga and salwar kameez, this outfit is ideal for weddings and grand celebrations. ▶️",
+            sIntro:
+              "A fusion of lehenga and salwar kameez, this outfit is ideal for weddings and grand celebrations. ▶️",
           },
         ],
         kurtaHeading: "Kurta-Pajama: A Blend of Comfort and Style",
-kurtaDescription: `
+        kurtaDescription: `
 Introduction: The kurta-pajama is a versatile and classic outfit for men, deeply rooted in Indian tradition. Known for its simplicity and comfort, it has remained a popular choice for casual wear, festive occasions, and formal events.
 
 Overview: The kurta is a long tunic that can be plain, embroidered, or patterned, while the pajama is a slim or loose-fitting bottom. This outfit seamlessly combines practicality and elegance, making it suitable for men of all ages. Whether crafted from cotton, silk, or other rich fabrics, the kurta-pajama remains timeless in Indian fashion.
@@ -642,60 +698,70 @@ Occasions: Perfect for both everyday wear and special events, the kurta-pajama i
 
 Modern Adaptations: Designers have reinvented the kurta-pajama with asymmetric hemlines, side slits, and fusion styles like pairing kurtas with jeans or modern trousers. The introduction of printed kurtas and Indo-Western ensembles has expanded its appeal globally, making it a fashion statement for men across the world.
 `,
-DiffKurtas: [
-  {
-    kImg: wbImg,
-    kName: "Chikankari Kurta",
-    kIntro: "Featuring intricate hand-embroidered patterns, this style is a favorite for traditional occasions. ▶️",
-  },
-  {
-    kImg: wbImg,
-    kName: "Pathani Kurta",
-    kIntro: "With a rugged yet elegant design, the Pathani kurta is inspired by traditional Afghan attire. ▶️",
-  },
-  {
-    kImg: wbImg,
-    kName: "Asymmetric Kurta",
-    kIntro: "A modern twist, this kurta features an uneven hemline for a contemporary look. ▶️",
-  },
-  {
-    kImg: wbImg,
-    kName: "Short Kurta",
-    kIntro: "A casual and trendy option, this kurta is shorter in length and pairs well with jeans. ▶️",
-  },
-  {
-    kImg: wbImg,
-    kName: "Sherwani-Style Kurta",
-    kIntro: "Richly embellished, this kurta exudes grandeur and is ideal for weddings and grand occasions. ▶️",
-  },
-  {
-    kImg: wbImg,
-    kName: "Printed Kurta",
-    kIntro: "Adorned with vibrant prints, this kurta adds a splash of color to your wardrobe. ▶️",
-  },
-  {
-    kImg: wbImg,
-    kName: "Silk Kurta",
-    kIntro: "Crafted from luxurious silk, this kurta offers an elegant and sophisticated appearance. ▶️",
-  },
-  {
-    kImg: wbImg,
-    kName: "Indo-Western Kurta",
-    kIntro: "A blend of traditional and modern aesthetics, perfect for contemporary fashion enthusiasts. ▶️",
-  },
-  {
-    kImg: wbImg,
-    kName: "Linen Kurta",
-    kIntro: "Lightweight and breathable, this kurta is a great choice for summer festivities. ▶️",
-  },
-  {
-    kImg: wbImg,
-    kName: "Bandhgala Kurta",
-    kIntro: "Featuring a closed-neck design, this kurta is a stylish pick for formal events. ▶️",
-  },
-],
-lehengaHeading: "Lehenga-Choli: The Bridal Splendor of India",
-lehengaDescription: `
+        DiffKurtas: [
+          {
+            sImg: wbImg,
+            sName: "Chikankari Kurta",
+            sIntro:
+              "Featuring intricate hand-embroidered patterns, this style is a favorite for traditional occasions. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Pathani Kurta",
+            sIntro:
+              "With a rugged yet elegant design, the Pathani kurta is inspired by traditional Afghan attire. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Asymmetric Kurta",
+            sIntro:
+              "A modern twist, this kurta features an uneven hemline for a contemporary look. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Short Kurta",
+            sIntro:
+              "A casual and trendy option, this kurta is shorter in length and pairs well with jeans. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Sherwani-Style Kurta",
+            sIntro:
+              "Richly embellished, this kurta exudes grandeur and is ideal for weddings and grand occasions. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Printed Kurta",
+            sIntro:
+              "Adorned with vibrant prints, this kurta adds a splash of color to your wardrobe. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Silk Kurta",
+            sIntro:
+              "Crafted from luxurious silk, this kurta offers an elegant and sophisticated appearance. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Indo-Western Kurta",
+            sIntro:
+              "A blend of traditional and modern aesthetics, perfect for contemporary fashion enthusiasts. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Linen Kurta",
+            sIntro:
+              "Lightweight and breathable, this kurta is a great choice for summer festivities. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Bandhgala Kurta",
+            sIntro:
+              "Featuring a closed-neck design, this kurta is a stylish pick for formal events. ▶️",
+          },
+        ],
+        lehengaHeading: "Lehenga-Choli: The Bridal Splendor of India",
+        lehengaDescription: `
 Introduction: The lehenga-choli is a quintessential bridal outfit in India, embodying tradition, opulence, and grace. Its intricate embroidery, luxurious fabrics, and vibrant colors make it a timeless choice for weddings and grand celebrations.
 
 Overview: This attire consists of three components: the lehenga (a flared skirt), the choli (a fitted blouse), and the dupatta (a long scarf). The lehenga is often heavily embellished with zari, sequins, or embroidery, while the choli complements with matching or contrasting designs. Together, these elements create a regal and eye-catching ensemble.
@@ -706,60 +772,70 @@ Occasions: The lehenga-choli is not limited to weddings; it is also a favorite f
 
 Modern Adaptations: Designers have reimagined the lehenga-choli with fusion styles like lehenga gowns, crop top lehengas, and contemporary drapes. Experimentation with lighter fabrics, unique cuts, and minimalistic embroidery has made it a versatile outfit for modern brides and fashion enthusiasts.
 `,
-DiffLehengas: [
-  {
-    lImg: wbImg,
-    lName: "Bridal Lehenga",
-    lIntro: "Exquisitely crafted with heavy embroidery and embellishments, perfect for the wedding day. ▶️",
-  },
-  {
-    lImg: wbImg,
-    lName: "A-Line Lehenga",
-    lIntro: "With a fitted waist and flared hem, this style creates a flattering silhouette. ▶️",
-  },
-  {
-    lImg: wbImg,
-    lName: "Fish-Cut Lehenga",
-    lIntro: "This style hugs the body till the knees and flares out, resembling a mermaid’s tail. ▶️",
-  },
-  {
-    lImg: wbImg,
-    lName: "Circular Lehenga",
-    lIntro: "The classic choice with wide flares and intricate embroidery, perfect for traditional ceremonies. ▶️",
-  },
-  {
-    lImg: wbImg,
-    lName: "Panelled Lehenga",
-    lIntro: "With multiple panels stitched together, this lehenga adds volume and variety to the outfit. ▶️",
-  },
-  {
-    lImg: wbImg,
-    lName: "Chikankari Lehenga",
-    lIntro: "Featuring delicate hand-embroidered patterns, ideal for elegant and subtle looks. ▶️",
-  },
-  {
-    lImg: wbImg,
-    lName: "Lehenga Saree",
-    lIntro: "A fusion of lehenga and saree, combining the beauty of both attires in one. ▶️",
-  },
-  {
-    lImg: wbImg,
-    lName: "Indo-Western Lehenga",
-    lIntro: "A modern take with unique cuts and minimal embellishments, perfect for contemporary fashion. ▶️",
-  },
-  {
-    lImg: wbImg,
-    lName: "Velvet Lehenga",
-    lIntro: "Crafted from rich velvet fabric, exuding luxury and sophistication. ▶️",
-  },
-  {
-    lImg: wbImg,
-    lName: "Jacket-Style Lehenga",
-    lIntro: "Paired with a stylish jacket instead of a choli, adding a modern twist to tradition. ▶️",
-  },
-],
-sherwaniHeading: "Sherwani: The Regal Groom's Attire",
-  sherwaniDescription: `
+        DiffLehengas: [
+          {
+            sImg: wbImg,
+            sName: "Bridal Lehenga",
+            sIntro:
+              "Exquisitely crafted with heavy embroidery and embellishments, perfect for the wedding day. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "A-Line Lehenga",
+            sIntro:
+              "With a fitted waist and flared hem, this style creates a flattering silhouette. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Fish-Cut Lehenga",
+            sIntro:
+              "This style hugs the body till the knees and flares out, resembling a mermaid’s tail. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Circular Lehenga",
+            sIntro:
+              "The classic choice with wide flares and intricate embroidery, perfect for traditional ceremonies. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Panelled Lehenga",
+            sIntro:
+              "With multiple panels stitched together, this lehenga adds volume and variety to the outfit. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Chikankari Lehenga",
+            sIntro:
+              "Featuring delicate hand-embroidered patterns, ideal for elegant and subtle looks. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Lehenga Saree",
+            sIntro:
+              "A fusion of lehenga and saree, combining the beauty of both attires in one. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Indo-Western Lehenga",
+            sIntro:
+              "A modern take with unique cuts and minimal embellishments, perfect for contemporary fashion. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Velvet Lehenga",
+            sIntro:
+              "Crafted from rich velvet fabric, exuding luxury and sophistication. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Jacket-Style Lehenga",
+            sIntro:
+              "Paired with a stylish jacket instead of a choli, adding a modern twist to tradition. ▶️",
+          },
+        ],
+        sherwaniHeading: "Sherwani: The Regal Groom's Attire",
+        sherwaniDescription: `
     Introduction: The Sherwani is the quintessential choice for grooms during weddings, symbolizing royal elegance and grace. With its rich history and timeless appeal, it remains a favorite for men on their special day.
     
     Overview: The Sherwani is a long coat-like garment, typically worn over a kurta, paired with a churidar or a straight pant. It features intricate embroidery, luxurious fabrics like silk, velvet, or brocade, and is often accessorized with a dupatta or stole.
@@ -770,36 +846,41 @@ sherwaniHeading: "Sherwani: The Regal Groom's Attire",
     
     Modern Adaptations: Designers have modernized the Sherwani with fusion elements, such as asymmetrical cuts, short Sherwanis, and even fusion Sherwani kurtas. They are now available in various styles, including minimalistic designs for contemporary grooms.
   `,
-  DiffSherwanis: [
-    {
-      sImg: wbImg,
-      sName: "Traditional Sherwani",
-      sIntro: "A classic Sherwani with intricate embroidery, perfect for traditional weddings. ▶️",
-    },
-    {
-      sImg: wbImg,
-      sName: "Designer Sherwani",
-      sIntro: "Modern cuts and exclusive fabrics make this Sherwani a showstopper for the groom. ▶️",
-    },
-    {
-      sImg: wbImg,
-      sName: "Pathani Sherwani",
-      sIntro: "Inspired by Afghan-style fashion, this Sherwani offers a rugged yet regal look. ▶️",
-    },
-    {
-      sImg: wbImg,
-      sName: "Short Sherwani",
-      sIntro: "A contemporary twist with shorter lengths and a modern fit, ideal for a stylish groom. ▶️",
-    },
-    {
-      sImg: wbImg,
-      sName: "Velvet Sherwani",
-      sIntro: "Crafted from luxurious velvet fabric, exuding sophistication and class. ▶️",
-    },
-  ],
+        DiffSherwanis: [
+          {
+            sImg: wbImg,
+            sName: "Traditional Sherwani",
+            sIntro:
+              "A classic Sherwani with intricate embroidery, perfect for traditional weddings. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Designer Sherwani",
+            sIntro:
+              "Modern cuts and exclusive fabrics make this Sherwani a showstopper for the groom. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Pathani Sherwani",
+            sIntro:
+              "Inspired by Afghan-style fashion, this Sherwani offers a rugged yet regal look. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Short Sherwani",
+            sIntro:
+              "A contemporary twist with shorter lengths and a modern fit, ideal for a stylish groom. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Velvet Sherwani",
+            sIntro:
+              "Crafted from luxurious velvet fabric, exuding sophistication and class. ▶️",
+          },
+        ],
 
-  meklaChadorHeading: "Mekla Chador: The Traditional Bengali Elegance",
-  meklaChadorDescription: `
+        meklaChadorHeading: "Mekla Chador: The Traditional Bengali Elegance",
+        meklaChadorDescription: `
     Introduction: The Mekla Chador is a traditional attire of Bengal, representing grace and femininity. Worn during weddings and festivals, this ensemble is a beautiful combination of the saree and a chador (veil), symbolizing both tradition and modern elegance.
     
     Overview: The Mekla Chador consists of a wide-bordered saree paired with a matching blouse and a veil draped over the head. The saree’s design often features intricate patterns, traditional motifs, and rich fabric choices like kanjeevaram or cotton.
@@ -810,31 +891,35 @@ sherwaniHeading: "Sherwani: The Regal Groom's Attire",
     
     Modern Adaptations: Designers have modernized the Mekla Chador with contemporary drapes and fusion styles, blending traditional weaves with modern fashion elements, making it more versatile for younger generations.
   `,
-  DiffMeklaChadors: [
-    {
-      mImg: wbImg,
-      mName: "Traditional Mekla Chador",
-      mIntro: "A classic Mekla Chador with intricate traditional designs, ideal for wedding ceremonies. ▶️",
-    },
-    {
-      mImg: wbImg,
-      mName: "Fusion Mekla Chador",
-      mIntro: "Modern touches and vibrant colors, perfect for younger brides. ▶️",
-    },
-    {
-      mImg: wbImg,
-      mName: "Kanjeevaram Mekla Chador",
-      mIntro: "Luxury meets tradition with this silk Mekla Chador, ideal for grand weddings. ▶️",
-    },
-    {
-      mImg: wbImg,
-      mName: "Cotton Mekla Chador",
-      mIntro: "Lightweight and breathable, this Mekla Chador is perfect for summer celebrations. ▶️",
-    },
-  ],
+        DiffMeklaChadors: [
+          {
+            sImg: wbImg,
+            sName: "Traditional Mekla Chador",
+            sIntro:
+              "A classic Mekla Chador with intricate traditional designs, ideal for wedding ceremonies. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Fusion Mekla Chador",
+            sIntro:
+              "Modern touches and vibrant colors, perfect for younger brides. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Kanjeevaram Mekla Chador",
+            sIntro:
+              "Luxury meets tradition with this silk Mekla Chador, ideal for grand weddings. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Cotton Mekla Chador",
+            sIntro:
+              "Lightweight and breathable, this Mekla Chador is perfect for summer celebrations. ▶️",
+          },
+        ],
 
-  munduHeading: "Mundu: The Traditional South Indian Wear",
-  munduDescription: `
+        munduHeading: "Mundu: The Traditional South Indian Wear",
+        munduDescription: `
     Introduction: The Mundu is a traditional garment worn in South India, particularly in Kerala, representing cultural heritage and simplicity. Worn by men, it is known for its comfort and functionality, making it a staple in everyday wear and festive occasions.
     
     Overview: The Mundu is a simple piece of cloth, usually white or cream, draped around the waist and secured with a knot. It is often paired with a traditional shirt or kurta, creating a classic look for formal and festive events.
@@ -845,26 +930,29 @@ sherwaniHeading: "Sherwani: The Regal Groom's Attire",
     
     Modern Adaptations: Though simple, the Mundu has seen adaptations in recent years with embroidery, fusion styles, and modern cuts for contemporary men.
   `,
-  DiffMundus: [
-    {
-      mImg: wbImg,
-      mName: "Traditional Mundu",
-      mIntro: "A classic white Mundu, perfect for formal and religious ceremonies. ▶️",
-    },
-    {
-      mImg: wbImg,
-      mName: "Designer Mundu",
-      mIntro: "Modern cuts and embroidery bring a stylish twist to the traditional Mundu. ▶️",
-    },
-    {
-      mImg: wbImg,
-      mName: "Silk Mundu",
-      mIntro: "Crafted from luxurious silk, ideal for weddings and grand occasions. ▶️",
-    },
-  ],
+        DiffMundus: [
+          {
+            sImg: wbImg,
+            sName: "Traditional Mundu",
+            sIntro:
+              "A classic white Mundu, perfect for formal and religious ceremonies. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Designer Mundu",
+            sIntro:
+              "Modern cuts and embroidery bring a stylish twist to the traditional Mundu. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Silk Mundu",
+            sIntro:
+              "Crafted from luxurious silk, ideal for weddings and grand occasions. ▶️",
+          },
+        ],
 
-  bandhgalaHeading: "Bandhgala: The Elegant Indo-Western Attire",
-  bandhgalaDescription: `
+        bandhgalaHeading: "Bandhgala: The Elegant Indo-Western Attire",
+        bandhgalaDescription: `
     Introduction: The Bandhgala, also known as the Nehru jacket, is a formal Indian outfit that blends traditional and modern elements. Known for its structured design and royal appeal, it is a popular choice for weddings, parties, and formal occasions.
     
     Overview: The Bandhgala is a tailored, buttoned jacket with a stand-up collar, typically worn over a kurta or shirt. The garment is known for its sophisticated fit and is often made of rich fabrics like silk, wool, or brocade.
@@ -875,30 +963,34 @@ sherwaniHeading: "Sherwani: The Regal Groom's Attire",
     
     Modern Adaptations: The Bandhgala has undergone several modern reinventions, with designers experimenting with cuts, fabrics, and embroidery to suit contemporary tastes. It is now a favorite for stylish men looking to make a statement.
   `,
-  DiffBandgalas: [
-    {
-      bImg: wbImg,
-      bName: "Traditional Bandhgala",
-      bIntro: "A classic Bandhgala with minimal embroidery and a formal fit, ideal for weddings. ▶️",
-    },
-    {
-      bImg: wbImg,
-      bName: "Designer Bandhgala",
-      bIntro: "Modern and stylish, with unique cuts and embroidery for a contemporary look. ▶️",
-    },
-    {
-      bImg: wbImg,
-      bName: "Silk Bandhgala",
-      bIntro: "Crafted from luxurious silk, this Bandhgala adds a regal touch to formal occasions. ▶️",
-    },
-    {
-      bImg: wbImg,
-      bName: "Short Bandhgala",
-      bIntro: "A trendy, shorter version of the traditional Bandhgala, perfect for modern grooms. ▶️",
-    },
-  ],
-  phiranHeading: "Phiran: The Traditional Kashmiri Attire",
-  phiranDescription: `
+        DiffBandgalas: [
+          {
+            sImg: wbImg,
+            sName: "Traditional Bandhgala",
+            sIntro:
+              "A classic Bandhgala with minimal embroidery and a formal fit, ideal for weddings. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Designer Bandhgala",
+            sIntro:
+              "Modern and stylish, with unique cuts and embroidery for a contemporary look. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Silk Bandhgala",
+            sIntro:
+              "Crafted from luxurious silk, this Bandhgala adds a regal touch to formal occasions. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Short Bandhgala",
+            sIntro:
+              "A trendy, shorter version of the traditional Bandhgala, perfect for modern grooms. ▶️",
+          },
+        ],
+        phiranHeading: "Phiran: The Traditional Kashmiri Attire",
+        phiranDescription: `
     Introduction: The Phiran is a traditional Kashmiri garment, widely worn by both men and women, known for its elegance and warmth. It is especially popular during the cold winter months in Kashmir, providing both comfort and style.
     
     Overview: The Phiran is a long, flowing robe that reaches the ankles, typically made from wool or cotton, depending on the season. It features a loose fit, making it ideal for layering and warmth. The garment often features intricate embroidery, particularly around the cuffs, collar, and hem, reflecting the rich craftsmanship of the region.
@@ -909,35 +1001,38 @@ sherwaniHeading: "Sherwani: The Regal Groom's Attire",
     
     Modern Adaptations: The Phiran has undergone several transformations, with designers incorporating modern elements such as vibrant colors, contemporary cuts, and fusion styles. It is now being worn by people outside Kashmir as a statement piece for cultural fashion.
   `,
-  DiffPhirans: [
-    {
-      pImg: wbImg,
-      pName: "Traditional Phiran",
-      pIntro: "A classic woolen Phiran, perfect for the cold winters of Kashmir. ▶️",
-    },
-    {
-      pImg: wbImg,
-      pName: "Embroidered Phiran",
-      pIntro: "Intricate Kashmiri embroidery adorns this Phiran, ideal for weddings and special occasions. ▶️",
-    },
-    {
-      pImg: wbImg,
-      pName: "Cotton Phiran",
-      pIntro: "Lightweight and breathable, perfect for warm-weather wear and casual occasions. ▶️",
-    },
-    {
-      pImg: wbImg,
-      pName: "Modern Phiran",
-      pIntro: "A contemporary take on the traditional Phiran with a stylish fit and bold colors. ▶️",
-    },
-    {
-      pImg: wbImg,
-      pName: "Festive Phiran",
-      pIntro: "Rich fabric and detailed embroidery make this Phiran a perfect choice for festive occasions. ▶️",
-    },
-  ],
-
-
+        DiffPhirans: [
+          {
+            sImg: wbImg,
+            sName: "Traditional Phiran",
+            sIntro:
+              "A classic woolen Phiran, perfect for the cold winters of Kashmir. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Embroidered Phiran",
+            sIntro:
+              "Intricate Kashmiri embroidery adorns this Phiran, ideal for weddings and special occasions. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Cotton Phiran",
+            sIntro:
+              "Lightweight and breathable, perfect for warm-weather wear and casual occasions. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Modern Phiran",
+            sIntro:
+              "A contemporary take on the traditional Phiran with a stylish fit and bold colors. ▶️",
+          },
+          {
+            sImg: wbImg,
+            sName: "Festive Phiran",
+            sIntro:
+              "Rich fabric and detailed embroidery make this Phiran a perfect choice for festive occasions. ▶️",
+          },
+        ],
       },
 
       StateCulturesData: {
@@ -954,7 +1049,7 @@ sherwaniHeading: "Sherwani: The Regal Groom's Attire",
             individualPage: "/culture-tradition/arunachal-pradesh-state",
           },
           {
-            stateImg: assamImg,
+            stateImg: assasImg,
             stateName: "3. Assam",
             individualPage: "/culture-tradition/assam-state",
           },
@@ -989,7 +1084,7 @@ sherwaniHeading: "Sherwani: The Regal Groom's Attire",
             individualPage: "/culture-tradition/himachal-pradesh-state",
           },
           {
-            stateImg: jharkhandImg,
+            stateImg: jharkhansImg,
             stateName: "10. Jharkhand",
             individualPage: "/culture-tradition/jharkhand-state",
           },
@@ -1024,12 +1119,12 @@ sherwaniHeading: "Sherwani: The Regal Groom's Attire",
             individualPage: "/culture-tradition/meghalaya-state",
           },
           {
-            stateImg: mizoramImg,
+            stateImg: mizorasImg,
             stateName: "17. Mizoram",
             individualPage: "/culture-tradition/mizoram-state",
           },
           {
-            stateImg: nagalandImg,
+            stateImg: nagalansImg,
             stateName: "18. Nagaland",
             individualPage: "/culture-tradition/nagaland-state",
           },
@@ -1049,7 +1144,7 @@ sherwaniHeading: "Sherwani: The Regal Groom's Attire",
             individualPage: "/culture-tradition/rajasthan-state",
           },
           {
-            stateImg: sikkimImg,
+            stateImg: sikkisImg,
             stateName: "22. Sikkim",
             individualPage: "/culture-tradition/sikkim-state",
           },
@@ -1074,7 +1169,7 @@ sherwaniHeading: "Sherwani: The Regal Groom's Attire",
             individualPage: "/culture-tradition/uttar-pradesh-state",
           },
           {
-            stateImg: uttarakhandImg,
+            stateImg: uttarakhansImg,
             stateName: "27. Uttarakhand",
             individualPage: "/culture-tradition/uttarakhand-state",
           },
@@ -1106,7 +1201,7 @@ sherwaniHeading: "Sherwani: The Regal Groom's Attire",
             individualPage: "/culture-tradition/delhi-ut",
           },
           {
-            stateImg: jkImg,
+            stateImg: jsImg,
             stateName: "33. Jammu and Kashmir (Union Territory)",
             individualPage: "/culture-tradition/jammu-kashmir-ut",
           },
@@ -1328,7 +1423,7 @@ sherwaniHeading: "Sherwani: The Regal Groom's Attire",
             individualPage: "/culture-tradition/id",
           },
           {
-            cultureImg: festivalImg,
+            cultureImg: festivasImg,
             cultureIntro: `भारत के भव्य त्योहारों और समारोहों की जीवंतता का अनुभव करें🥳`,
             cultureName: "समारोह",
             individualPage: "/culture-tradition/id",
@@ -1454,58 +1549,58 @@ sherwaniHeading: "Sherwani: The Regal Groom's Attire",
             and tradition.`,
         DiffDhotis: [
           {
-            dImg: wbImg,
-            dName: " Tamil Veshti Dhoti",
-            dIntro:
+            sImg: wbImg,
+            sName: " Tamil Veshti Dhoti",
+            sIntro:
               "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
           },
 
           {
-            dImg: wbImg,
-            dName: "Kannada Kache Panche Dhoti",
-            dIntro:
+            sImg: wbImg,
+            sName: "Kannada Kache Panche Dhoti",
+            sIntro:
               "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
           },
 
           {
-            dImg: wbImg,
-            dName: "Telugu Pancha Dhoti",
-            dIntro:
+            sImg: wbImg,
+            sName: "Telugu Pancha Dhoti",
+            sIntro:
               "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
           },
 
           {
-            dImg: wbImg,
-            dName: "Punjabi Chadra",
-            dIntro:
+            sImg: wbImg,
+            sName: "Punjabi Chadra",
+            sIntro:
               "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
           },
 
           {
-            dImg: wbImg,
-            dName: "Maharashtrian Dhotar",
-            dIntro:
+            sImg: wbImg,
+            sName: "Maharashtrian Dhotar",
+            sIntro:
               "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
           },
 
           {
-            dImg: wbImg,
-            dName: "Rajasthani Dulangi Dhoti",
-            dIntro:
+            sImg: wbImg,
+            sName: "Rajasthani Dulangi Dhoti",
+            sIntro:
               "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
           },
 
           {
-            dImg: wbImg,
-            dName: "The Bengali Kochano or Pleated Dhoti",
-            dIntro:
+            sImg: wbImg,
+            sName: "The Bengali Kochano or Pleated Dhoti",
+            sIntro:
               "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
           },
 
           {
-            dImg: wbImg,
-            dName: "Readymade Velcro Dhoti",
-            dIntro:
+            sImg: wbImg,
+            sName: "Readymade Velcro Dhoti",
+            sIntro:
               "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
           },
         ],
@@ -1525,7 +1620,7 @@ sherwaniHeading: "Sherwani: The Regal Groom's Attire",
             individualPage: "/culture-tradition/arunachal-pradesh-state",
           },
           {
-            stateImg: assamImg,
+            stateImg: assasImg,
             stateName: "3. असम",
             individualPage: "/culture-tradition/assam-state",
           },
@@ -1560,7 +1655,7 @@ sherwaniHeading: "Sherwani: The Regal Groom's Attire",
             individualPage: "/culture-tradition/himachal-pradesh-state",
           },
           {
-            stateImg: jharkhandImg,
+            stateImg: jharkhansImg,
             stateName: "10. झारखंड",
             individualPage: "/culture-tradition/jharkhand-state",
           },
@@ -1595,12 +1690,12 @@ sherwaniHeading: "Sherwani: The Regal Groom's Attire",
             individualPage: "/culture-tradition/meghalaya-state",
           },
           {
-            stateImg: mizoramImg,
+            stateImg: mizorasImg,
             stateName: "17. मिजोरम",
             individualPage: "/culture-tradition/mizoram-state",
           },
           {
-            stateImg: nagalandImg,
+            stateImg: nagalansImg,
             stateName: "18. नागालैंड",
             individualPage: "/culture-tradition/nagaland-state",
           },
@@ -1620,7 +1715,7 @@ sherwaniHeading: "Sherwani: The Regal Groom's Attire",
             individualPage: "/culture-tradition/rajasthan-state",
           },
           {
-            stateImg: sikkimImg,
+            stateImg: sikkisImg,
             stateName: "22. सिक्किम",
             individualPage: "/culture-tradition/sikkim-state",
           },
@@ -1645,7 +1740,7 @@ sherwaniHeading: "Sherwani: The Regal Groom's Attire",
             individualPage: "/culture-tradition/uttar-pradesh-state",
           },
           {
-            stateImg: uttarakhandImg,
+            stateImg: uttarakhansImg,
             stateName: "27. उत्तराखंड",
             individualPage: "/culture-tradition/uttarakhand-state",
           },
@@ -1676,7 +1771,7 @@ sherwaniHeading: "Sherwani: The Regal Groom's Attire",
             individualPage: "/culture-tradition/delhi-ut",
           },
           {
-            stateImg: jkImg,
+            stateImg: jsImg,
             stateName: "33. जम्मू और कश्मीर (संघ राज्य क्षेत्र)",
             individualPage: "/culture-tradition/jammu-kashmir-ut",
           },
@@ -1895,7 +1990,7 @@ sherwaniHeading: "Sherwani: The Regal Groom's Attire",
             individualPage: "/culture-tradition/id",
           },
           {
-            cultureImg: festivalImg,
+            cultureImg: festivasImg,
             cultureIntro: `ভারতের মহৎ উৎসব এবং উদযাপনের রঙিন অভিজ্ঞতা নিন 🥳`,
             cultureName: "উৎসব",
             individualPage: "/culture-tradition/id",
@@ -2021,58 +2116,58 @@ sherwaniHeading: "Sherwani: The Regal Groom's Attire",
             and tradition.`,
         DiffDhotis: [
           {
-            dImg: wbImg,
-            dName: " Tamil Veshti Dhoti",
-            dIntro:
+            sImg: wbImg,
+            sName: " Tamil Veshti Dhoti",
+            sIntro:
               "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
           },
 
           {
-            dImg: wbImg,
-            dName: "Kannada Kache Panche Dhoti",
-            dIntro:
+            sImg: wbImg,
+            sName: "Kannada Kache Panche Dhoti",
+            sIntro:
               "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
           },
 
           {
-            dImg: wbImg,
-            dName: "Telugu Pancha Dhoti",
-            dIntro:
+            sImg: wbImg,
+            sName: "Telugu Pancha Dhoti",
+            sIntro:
               "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
           },
 
           {
-            dImg: wbImg,
-            dName: "Punjabi Chadra",
-            dIntro:
+            sImg: wbImg,
+            sName: "Punjabi Chadra",
+            sIntro:
               "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
           },
 
           {
-            dImg: wbImg,
-            dName: "Maharashtrian Dhotar",
-            dIntro:
+            sImg: wbImg,
+            sName: "Maharashtrian Dhotar",
+            sIntro:
               "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
           },
 
           {
-            dImg: wbImg,
-            dName: "Rajasthani Dulangi Dhoti",
-            dIntro:
+            sImg: wbImg,
+            sName: "Rajasthani Dulangi Dhoti",
+            sIntro:
               "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
           },
 
           {
-            dImg: wbImg,
-            dName: "The Bengali Kochano or Pleated Dhoti",
-            dIntro:
+            sImg: wbImg,
+            sName: "The Bengali Kochano or Pleated Dhoti",
+            sIntro:
               "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
           },
 
           {
-            dImg: wbImg,
-            dName: "Readymade Velcro Dhoti",
-            dIntro:
+            sImg: wbImg,
+            sName: "Readymade Velcro Dhoti",
+            sIntro:
               "Lorem ipsum dolor sit amet sit amet consectetursit amet ▶️",
           },
         ],
@@ -2092,7 +2187,7 @@ sherwaniHeading: "Sherwani: The Regal Groom's Attire",
             individualPage: "/culture-tradition/arunachal-pradesh-state",
           },
           {
-            stateImg: assamImg,
+            stateImg: assasImg,
             stateName: "৩. আসাম",
             individualPage: "/culture-tradition/assam-state",
           },
@@ -2127,7 +2222,7 @@ sherwaniHeading: "Sherwani: The Regal Groom's Attire",
             individualPage: "/culture-tradition/himachal-pradesh-state",
           },
           {
-            stateImg: jharkhandImg,
+            stateImg: jharkhansImg,
             stateName: "১০. ঝাড়খন্ড",
             individualPage: "/culture-tradition/jharkhand-state",
           },
@@ -2163,12 +2258,12 @@ sherwaniHeading: "Sherwani: The Regal Groom's Attire",
           },
 
           {
-            stateImg: mizoramImg,
+            stateImg: mizorasImg,
             stateName: "১৭. মিজোরাম",
             individualPage: "/culture-tradition/mizoram-state",
           },
           {
-            stateImg: nagalandImg,
+            stateImg: nagalansImg,
             stateName: "১৮. নাগাল্যান্ড",
             individualPage: "/culture-tradition/nagaland-state",
           },
@@ -2188,7 +2283,7 @@ sherwaniHeading: "Sherwani: The Regal Groom's Attire",
             individualPage: "/culture-tradition/rajasthan-state",
           },
           {
-            stateImg: sikkimImg,
+            stateImg: sikkisImg,
             stateName: "২২. সিক্কিম",
             individualPage: "/culture-tradition/sikkim-state",
           },
@@ -2213,7 +2308,7 @@ sherwaniHeading: "Sherwani: The Regal Groom's Attire",
             individualPage: "/culture-tradition/uttar-pradesh-state",
           },
           {
-            stateImg: uttarakhandImg,
+            stateImg: uttarakhansImg,
             stateName: "২৭. উত্তরাখণ্ড",
             individualPage: "/culture-tradition/uttarakhand-state",
           },
@@ -2244,7 +2339,7 @@ sherwaniHeading: "Sherwani: The Regal Groom's Attire",
             individualPage: "/culture-tradition/delhi-ut",
           },
           {
-            stateImg: jkImg,
+            stateImg: jsImg,
             stateName: "৩৩. জম্মু ও কাশ্মীর (কেন্দ্রশাসিত অঞ্চল)",
             individualPage: "/culture-tradition/jammu-kashmir-ut",
           },

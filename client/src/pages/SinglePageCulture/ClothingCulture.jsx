@@ -33,68 +33,68 @@ const ClothingCulture = () => {
           arrayName={clothingNames.DiffDhotis}
         />
 
-        {/* Kurta Pajama */}
-
-        <LayoutClothingCulture
-          heading={clothingNames.dhotiHeading}
-          description={clothingNames.dhotiDescription}
-          arrayName={clothingNames.DiffDhotis}
-        />
-
         {/* salwar kameez */}
 
         <LayoutClothingCulture
-          heading={clothingNames.dhotiHeading}
-          description={clothingNames.dhotiDescription}
-          arrayName={clothingNames.DiffDhotis}
+          heading={clothingNames.salwarHeading}
+          description={clothingNames.salwarDescription}
+          arrayName={clothingNames.DiffSalwars}
         />
 
-        {/* lehenga choli */}
+        {/* kurta pajama */}
 
         <LayoutClothingCulture
-          heading={clothingNames.dhotiHeading}
-          description={clothingNames.dhotiDescription}
-          arrayName={clothingNames.DiffDhotis}
+          heading={clothingNames.kurtaHeading}
+          description={clothingNames.kurtaDescription}
+          arrayName={clothingNames.DiffKurtas}
+        />
+
+        {/* lehenga */}
+
+        <LayoutClothingCulture
+          heading={clothingNames.lehengaHeading}
+          description={clothingNames.lehengaDescription}
+          arrayName={clothingNames.DiffLehengas}
         />
 
         {/* sherwani */}
 
         <LayoutClothingCulture
-          heading={clothingNames.dhotiHeading}
-          description={clothingNames.dhotiDescription}
-          arrayName={clothingNames.DiffDhotis}
+          heading={clothingNames.sherwaniHeading}
+          description={clothingNames.sherwaniDescription}
+          arrayName={clothingNames.DiffSherwanis}
         />
 
-        {/* mekhela chador */}
+        {/* mekhla */}
 
         <LayoutClothingCulture
-          heading={clothingNames.dhotiHeading}
-          description={clothingNames.dhotiDescription}
-          arrayName={clothingNames.DiffDhotis}
+          heading={clothingNames.meklaChadorHeading}
+          description={clothingNames.meklaChadorDescription}
+          arrayName={clothingNames.DiffMeklaChadors}
         />
 
         {/* mundu */}
 
         <LayoutClothingCulture
-          heading={clothingNames.dhotiHeading}
-          description={clothingNames.dhotiDescription}
-          arrayName={clothingNames.DiffDhotis}
+          heading={clothingNames.munduHeading}
+          description={clothingNames.munduDescription}
+          arrayName={clothingNames.DiffMundus}
         />
 
         {/* phiran */}
 
         <LayoutClothingCulture
-          heading={clothingNames.dhotiHeading}
-          description={clothingNames.dhotiDescription}
-          arrayName={clothingNames.DiffDhotis}
+          heading={clothingNames.phiranHeading}
+          description={clothingNames.phiranDescription}
+          arrayName={clothingNames.DiffPhirans}
         />
 
         {/*bandhgala */}
 
         <LayoutClothingCulture
-          heading={clothingNames.dhotiHeading}
-          description={clothingNames.dhotiDescription}
-          arrayName={clothingNames.DiffDhotis}
+          heading={clothingNames.bandhgalaHeading}
+          description={clothingNames.bandhgalaDescription}
+          arrayName={clothingNames.DiffBandgalas}
         />
       </div>
     </section>
