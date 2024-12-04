@@ -54,6 +54,15 @@ import puducherryImg from "./../../assets/states/puducherry.png";
 import ladakhImg from "./../../assets/states/ladakh.png";
 import lakshadweepImg from "./../../assets/states/lakshya.png";
 
+// career
+
+import adminImg from "../../assets/career/admins.png";
+import blogWriterImg from "../../assets/career/blogWriter.png";
+import digiArtImg from "../../assets/career/digiArt.png";
+import seoImg from "../../assets/career/seo.png";
+import teacherImg from "../../assets/career/teacher.png";
+import vlogCreatorImg from "../../assets/career/vlogCreator.png";
+
 export const Static_Information = {
   en: {
     translation: {
@@ -1285,6 +1294,79 @@ Modern Adaptations: Designers have reimagined the lehenga-choli with fusion styl
           },
         ],
         artsCourse: "/learn-Indian-culture/assam-art-course",
+      },
+
+      // ------------------------- CAREER --------------
+
+      CareerData: {
+        careerHeading: "We are Hiring!",
+        diffCareers: [
+          {
+            jobTitle: "Join the Administrative Team of Cultural Canvas",
+            jobDescription:
+              "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio ipsam consequuntur tempore nulla qui deleniti fugit quos, maxime nostrum et facere repudiandae porro exercitationem voluptate! Distinctio mollitia eos facere consequatur?",
+            jobLocation: "Work From Office - Kolkata",
+            jobSalary: "₹40k/month",
+            jobType: "Full-Time",
+            jobLink: "/",
+            jobImg: adminImg,
+          },
+
+          {
+            jobTitle: "Share Your Knowledge: Become a Teacher",
+            jobDescription:
+              "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio ipsam consequuntur tempore nulla qui deleniti fugit quos, maxime nostrum et facere repudiandae porro exercitationem voluptate! Distinctio mollitia eos facere consequatur?",
+            jobLocation: "Work From Office - Kolkata",
+            jobSalary: "₹1L/course",
+            jobType: "Part-Time",
+            jobLink: "/",
+            jobImg: teacherImg,
+          },
+
+          {
+            jobTitle: "Become a Part of Our Creative Writing Team",
+            jobDescription:
+              "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio ipsam consequuntur tempore nulla qui deleniti fugit quos, maxime nostrum et facere repudiandae porro exercitationem voluptate! Distinctio mollitia eos facere consequatur?",
+            jobLocation: "Work From Home",
+            jobSalary: "12p/word",
+            jobType: "Part-Time",
+            jobLink: "/",
+            jobImg: blogWriterImg,
+          },
+
+          {
+            jobTitle: "Join Our Video Content Creators Team",
+            jobDescription:
+              "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio ipsam consequuntur tempore nulla qui deleniti fugit quos, maxime nostrum et facere repudiandae porro exercitationem voluptate! Distinctio mollitia eos facere consequatur?",
+            jobLocation: "Work From Anywhere",
+            jobSalary: "₹4k/vlog",
+            jobType: "Part-Time",
+            jobLink: "/",
+            jobImg: vlogCreatorImg,
+          },
+
+          {
+            jobTitle: "Join Our Digital Marketing Team",
+            jobDescription:
+              "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio ipsam consequuntur tempore nulla qui deleniti fugit quos, maxime nostrum et facere repudiandae porro exercitationem voluptate! Distinctio mollitia eos facere consequatur?",
+            jobLocation: "Work From Home/Office",
+            jobSalary: "₹25k/month",
+            jobType: "Full-Time",
+            jobLink: "/",
+            jobImg: seoImg,
+          },
+
+          {
+            jobTitle: "Paint the Digital Canvas: Join Our Design Team",
+            jobDescription:
+              "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio ipsam consequuntur tempore nulla qui deleniti fugit quos, maxime nostrum et facere repudiandae porro exercitationem voluptate! Distinctio mollitia eos facere consequatur?",
+            jobLocation: "Work From Home",
+            jobSalary: "₹2k/Art",
+            jobType: "Part-Time",
+            jobLink: "/",
+            jobImg: digiArtImg,
+          },
+        ],
       },
     },
   },
