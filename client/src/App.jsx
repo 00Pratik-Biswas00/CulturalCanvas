@@ -67,6 +67,8 @@ import PredictBudget from "./pages/ExploreDiversity/PredictAmount";
 import ClothingCulture from "./pages/SinglePageCulture/ClothingCulture";
 import Career from "./pages/Career/Career";
 import LiveContest from "./pages/Contest/LiveContest";
+import CareerAdminForm from "./pages/Career/CareerAdminForm";
+import CareerTeacherForm from "./pages/Career/CareerTeacherForm";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -312,11 +314,16 @@ function App() {
                 element={<UploadBlogVlog />}
               />
 
-              {/*  ---------------- Career  ---------------- */}
+              {/*  ---------------- Live Contest  ---------------- */}
               <Route path="/live-contest" element={<LiveContest />} />
 
               {/*  ---------------- Career  ---------------- */}
               <Route path="/career" element={<Career />} />
+              <Route path="/career/admin-form" element={<CareerAdminForm />} />
+              <Route
+                path="/career/teacher-form"
+                element={<CareerTeacherForm />}
+              />
 
               {/*  ---------------- Virtual Store  ---------------- */}
               <Route path="/virtual-store" element={<VirtualStore />} />
