@@ -6,8 +6,8 @@ import { Link } from "react-scroll";
 import listed_pic from "../../assets/Heritage/ZListed(avif).avif";
 import unlisted_pic from "../../assets/Heritage/ZUnlisted(avif).avif";
 import local_pic from "../../assets/Heritage/ZLocal(avif).avif";
-import commonImg from "../../assets/Heritage/a.png";
 import { FaAnglesRight } from "react-icons/fa6";
+import LinkButtons from "../../components/Buttons/LinkButtons";
 
 const Heritage = () => {
   const [heritages, setHeritages] = useState([]);
@@ -47,7 +47,7 @@ const Heritage = () => {
       id={groupName}
       className="text-primary_text dark:text-dark_primary_text flex flex-col py-10 pb-20  "
     >
-      <div className="flex flex-col gap-5 ">
+      <div className="flex flex-col gap-10 ">
         <div className="flex items-center gap-3">
           <img
             src={categoryImg}
@@ -69,7 +69,7 @@ const Heritage = () => {
             } else if (index % 3 === 1) {
               shadowClass = "shadow-custom-blue";
               hoverClass =
-                "hover:bg-secondary_text dark:hover:bg-secondary_text";
+                "hover:bg-secondary_text dark:hover:bg-background1 dark:hover:text-secondary_text ";
             } else {
               shadowClass = "shadow-custom-green";
               hoverClass =
@@ -79,7 +79,7 @@ const Heritage = () => {
             return (
               <div
                 key={index}
-                className={`backdrop-blur-lg bg-opacity-80 py-4 px-10 rounded-lg flex flex-col items-center ${shadowClass} gap-2`}
+                className={`backdrop-blur-lg bg-opacity-80  dark:bg-shadow py-4 px-10 rounded-lg flex flex-col items-center ${shadowClass} gap-4`}
               >
                 <div className="flex flex-col">
                   <img
@@ -91,7 +91,12 @@ const Heritage = () => {
                 <h2 className="text-3xl tracking-wider font-bold text-center font-montserrat">
                   {content.name}
                 </h2>
-                <p className="mb-12">{content.introduction}</p>
+                {/* <p className="mb-12">{content.introduction}</p> */}
+                <p className=" text-center pb-14 font-bold font-pangaia text-xl">
+                  {/* Ekhane {content.introduction} e dibi but choto dibi and try koris related kono emoji text tar ses e add korar */}
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Perferendis excepturi 👑
+                </p>
                 <div className="absolute bottom-0">
                   <button
                     className={` ${shadowClass} bg-background1 dark:bg-dark_background1  hover:text-dark_primary_text duration-500 font-bold font-ubuntu p-12 relative flex items-center justify-center rounded-full -bottom-10 ${hoverClass}`}
@@ -113,37 +118,29 @@ const Heritage = () => {
   if (loading) return <p>Loading..</p>;
   if (error) return <p>Error fetching Heritages!</p>;
   return (
-    <section className="bg-background1 dark:bg-dark_background1 py-4 px-16 duration-300">
-      <div>
-        <img src={commonImg} alt="Common" />
-      </div>
-
-      <div className="flex items-center tracking-wide justify-center py-4 text-6xl gap-12 font-bold font-playfair uppercase [word-spacing:25px] text-primary_text dark:text-dark_primary_text">
+    <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-4 px-16 duration-300 flex flex-col items-center justify-center gap-5">
+      <h1 className="text-7xl tracking-widest font-extrabold font-gallient py-3 text-center ">
         World Heritage Sites in India
-      </div>
+      </h1>
 
-      <div className="flex items-center justify-center gap-10">
-        <Link
-          to="Local_Heritage"
-          smooth={true}
-          className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-300 transition-transform hover:scale-105 transform-cpu cursor-pointer"
-        >
-          Local Heritage
-        </Link>
-        <Link
-          to="Unesco_listed"
-          smooth={true}
-          className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-300 transition-transform hover:scale-105 transform-cpu cursor-pointer"
-        >
-          UNESCO Listed
-        </Link>
-        <Link
-          to="Unesco_unlisted"
-          smooth={true}
-          className="uppercase bg-highlight hover:bg-highlight_hover text-primary_text hover:text-white px-2 py-1 rounded font-ubuntu duration-300 transition-transform hover:scale-105 transform-cpu cursor-pointer"
-        >
-          UNESCO Unlisted
-        </Link>
+      <div className="flex items-center  justify-center gap-10 sticky top-3 z-20 bg-background2 shadow-custom-black dark:bg-shadow dark:shadow-custom-white px-5 py-3 rounded-3xl ">
+        <LinkButtons
+          toWhere={"LOCAL_Heritage"}
+          LinkName={"Local Heritage"}
+          classDesign={" before:bg-highlight_hover_dark bg-highlight_hover "}
+        />
+
+        <LinkButtons
+          toWhere={"UNESCO_Unlisted"}
+          LinkName={"UNESCO Unlisted"}
+          classDesign={" before:bg-highlight_hover_dark bg-highlight_hover "}
+        />
+
+        <LinkButtons
+          toWhere={"UNESCO_Listed"}
+          LinkName={"UNESCO Listed"}
+          classDesign={" before:bg-highlight_hover_dark bg-highlight_hover "}
+        />
       </div>
 
       {/* Conditionally render local heritages if available */}
@@ -154,18 +151,18 @@ const Heritage = () => {
           local_pic
         )}
 
-      {/* Render UNESCO Listed heritages */}
-      {renderHeritageGroup(
-        groupedHeritages.unesco_listed,
-        "UNESCO_Listed",
-        listed_pic
-      )}
-
       {/* Render UNESCO Unlisted heritages */}
       {renderHeritageGroup(
         groupedHeritages.unesco_unlisted,
         "UNESCO_Unlisted",
         unlisted_pic
+      )}
+
+      {/* Render UNESCO Listed heritages */}
+      {renderHeritageGroup(
+        groupedHeritages.unesco_listed,
+        "UNESCO_Listed",
+        listed_pic
       )}
     </section>
   );

@@ -231,28 +231,22 @@ function App() {
                 element={<SingleStateCulture />}
               />
               {/* states */}
+              <Route path="/culture-tradition/assam" element={<AssamState />} />
               <Route
-                path="/culture-tradition/assam-state"
-                element={<AssamState />}
-              />
-              <Route
-                path="/culture-tradition/andhra-pradesh-state"
+                path="/culture-tradition/andhra-pradesh"
                 element={<AndhraPradeshState />}
               />
               <Route
-                path="/culture-tradition/arunachal-pradesh-state"
+                path="/culture-tradition/arunachal-pradesh"
                 element={<ArunachalPradeshState />}
               />
+              <Route path="/culture-tradition/bihar" element={<BiharState />} />
               <Route
-                path="/culture-tradition/bihar-state"
-                element={<BiharState />}
-              />
-              <Route
-                path="/culture-tradition/chhattisgarh-state"
+                path="/culture-tradition/chhattisgarh"
                 element={<ChhattisgarhState />}
               />
               <Route
-                path="/culture-tradition/west-bengal-state"
+                path="/culture-tradition/west-bengal"
                 element={<WestBengalState />}
               />
 
