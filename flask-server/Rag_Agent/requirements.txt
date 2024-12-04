@@ -6,3 +6,5 @@ PyPDF2
 faiss-cpu
 langchain_google_genai
 flask
+langchain_community
+langchainhub
