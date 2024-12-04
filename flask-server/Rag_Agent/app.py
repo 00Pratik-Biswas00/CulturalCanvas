@@ -113,7 +113,7 @@ def main():
         asyncio.run(user_input(user_question))  # Run async user input handling
 
     with st.sidebar:
-        st.image("img/Robot.jpg")
+        st.image("img/robo.jpeg")
         st.write("---")
         st.title("📁 PDF File's Section")
         pdf_docs = st.file_uploader(
