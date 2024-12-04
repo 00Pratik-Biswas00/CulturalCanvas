@@ -3,11 +3,13 @@ from PyPDF2 import PdfReader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 import os
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langchain_google_genai import ChatGoogleGenerativeAI
 import google.generativeai as genai
 from langchain.vectorstores import FAISS
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.chains.question_answering import load_qa_chain
-from langchain.prompts import ChatPromptTemplate
+from langchain.prompts.chat import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate
+
 from dotenv import load_dotenv
 import asyncio
 
@@ -37,26 +39,27 @@ def get_vector_store(text_chunks):
     vector_store.save_local("faiss_index")
 
 def get_conversational_chain():
-    prompt_template = """
-    Answer the question as detailed as possible from the provided context, making sure to provide all details. 
-    If the answer is not in the provided context, just say, "Answer is not available in the context."
-    Do not provide a wrong answer.
+    prompt_template = (
+        "You are an assistant for question-answering tasks. "
+        "Use the following pieces of retrieved context to answer "
+        "the question. If you don't know the answer, say that you "
+        "don't know. Use three sentences maximum and keep the "
+        "answer concise."
+        "\n\n"
+        "{context}"
+    )
 
-    Context:
-    {context}
+    # Create system and human message templates
+    system_message = SystemMessagePromptTemplate.from_template(prompt_template)
+    human_message = HumanMessagePromptTemplate.from_template("{input}")
 
-    Question:
-    {question}
+    # Construct the ChatPromptTemplate
+    prompt = ChatPromptTemplate.from_messages([system_message, human_message])
 
-    Answer:
-    """
-    
-    # Adjusted model for the conversational chain
-    model = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0.3)
-    
-    prompt = ChatPromptTemplate(template=prompt_template, input_variables=["context", "question"])
-    
+    # Initialize the conversational chain
+    model = ChatGoogleGenerativeAI(model="gemini-1.5-pro", temperature=0)
     chain = load_qa_chain(model, chain_type="stuff", prompt=prompt)
+    
     return chain
 
 async def user_input(user_question):
