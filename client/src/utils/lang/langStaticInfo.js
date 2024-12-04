@@ -1308,7 +1308,7 @@ Modern Adaptations: Designers have reimagined the lehenga-choli with fusion styl
             jobLocation: "Work From Office - Kolkata",
             jobSalary: "₹40k/month",
             jobType: "Full-Time",
-            jobLink: "/",
+            jobLink: "/career/admin-form",
             jobImg: adminImg,
           },
 
@@ -1319,7 +1319,7 @@ Modern Adaptations: Designers have reimagined the lehenga-choli with fusion styl
             jobLocation: "Work From Office - Kolkata",
             jobSalary: "₹1L/course",
             jobType: "Part-Time",
-            jobLink: "/",
+            jobLink: "/career/teacher-form",
             jobImg: teacherImg,
           },
 
