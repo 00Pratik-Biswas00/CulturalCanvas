@@ -8,6 +8,7 @@ from geopy.geocoders import Nominatim
 from geopy.distance import geodesic
 import overpy
 from dotenv import load_dotenv
+from deep_translator import GoogleTranslator
 
 load_dotenv()
 
@@ -187,6 +188,51 @@ def find_nearest_places(user_location, attraction_type, radius=30000):  # Radius
     attractions_sorted = sorted(attractions, key=lambda x: x['distance'])
     
     return attractions_sorted[:20]
+
+
+
+LANGUAGES = {
+    "English": "en",
+    "Assamese": "as",
+    "Bengali": "bn",
+    "Sanskrit": "sa",
+    "Gujarati": "gu",
+    "Hindi": "hi",
+    "Kannada": "kn",
+    "Malayalam": "ml",
+    "Marathi": "mr",
+    "Nepali": "ne",
+    "Odia": "or",
+    "Punjabi": "pa",
+    "Tamil": "ta",
+    "Telugu": "te",
+    "Urdu": "ur",
+    "Sindhi": "sd",
+    "Bhojpuri": "bho",
+    "Maithili": "mai",
+    "Myanmar": "my",
+    "Dogri": "doi",
+}
+
+@app.route("/api/translate", methods=["POST"])
+def translate():
+    data = request.get_json()
+    text = data.get("text")
+    language = data.get("language")
+
+    if not text or not language:
+        return jsonify({"error": "Missing text or language"}), 400
+
+    try:
+        code = LANGUAGES.get(language)
+        if not code:
+            return jsonify({"error": "Unsupported language"}), 400
+
+        translated_text = GoogleTranslator(source="auto", target=code).translate(text)
+        return jsonify({"translation": translated_text})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000)
