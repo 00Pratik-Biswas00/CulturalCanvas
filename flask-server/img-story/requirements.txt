@@ -1,0 +1,7 @@
+transformers
+torch
+langchain
+python-dotenv
+requests
+streamlit
+tf-keras
