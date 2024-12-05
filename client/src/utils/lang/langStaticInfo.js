@@ -1367,6 +1367,138 @@ Modern Adaptations: Designers have reimagined the lehenga-choli with fusion styl
             jobImg: digiArtImg,
           },
         ],
+        careerAdmin: {
+          heading: "Join Us as a Website Administrator",
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, molestiae debitis. Nobis suscipit porro officia quae, eaque nesciunt. Eveniet eaque reprehenderit ut deserunt non ipsa cumque autem expedita inventore distinctio.",
+          sH1: "Eligibility Criteria",
+          sH1List: [
+            {
+              des: "Strong knowledge in Hindi, English and atleast one regional language",
+            },
+            {
+              des: "Proficiency in website management tools (React, Tailwind, CMS)",
+            },
+            {
+              des: "Strong problem-solving skills and attention to detail",
+            },
+            {
+              des: "Prior experience as a website administrator (preferred)",
+            },
+            {
+              des: "Excellent communication and organizational skills",
+            },
+          ],
+          sH2: "Responsibilities",
+          sH2List: [
+            {
+              des: "Maintain and update website content",
+            },
+            {
+              des: "Troubleshoot technical issues and ensure website uptime",
+            },
+            {
+              des: "Monitor website performance and implement improvements",
+            },
+            {
+              des: "Collaborate with other departments to ensure smooth operations",
+            },
+          ],
+          sH3: "Job Details",
+          sH3List: [
+            {
+              des: "Salary: ₹25,000 - ₹35,000/month (Negotiable)",
+            },
+            {
+              des: "Job Type: Full-Time (Remote/On-Site)",
+            },
+            {
+              des: "Location: Remote or Office-Based",
+            },
+          ],
+          sH4: "Benefits",
+          sH4List: [
+            {
+              des: "Flexible working hours",
+            },
+            {
+              des: "Paid time off (PTO)",
+            },
+            {
+              des: "Performance bonuses",
+            },
+            {
+              des: "Professional development opportunities",
+            },
+          ],
+          careerImg: adminImg,
+        },
+        careerInstructor: {
+          heading: "Join Us as an Instructor",
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, molestiae debitis. Nobis suscipit porro officia quae, eaque nesciunt. Eveniet eaque reprehenderit ut deserunt non ipsa cumque autem expedita inventore distinctio.",
+          sH1: "Eligibility Criteria",
+          sH1List: [
+            {
+              des: "Bachelor's degree in Computer Science, IT, or related field",
+            },
+            {
+              des: "Proficiency in website management tools (React, Tailwind, CMS)",
+            },
+            {
+              des: "Strong problem-solving skills and attention to detail",
+            },
+            {
+              des: "Prior experience as a website administrator (preferred)",
+            },
+            {
+              des: "Excellent communication and organizational skills",
+            },
+          ],
+          sH2: "Responsibilities",
+          sH2List: [
+            {
+              des: "Maintain and update website content",
+            },
+            {
+              des: "Troubleshoot technical issues and ensure website uptime",
+            },
+            {
+              des: "Monitor website performance and implement improvements",
+            },
+            {
+              des: "Collaborate with other departments to ensure smooth operations",
+            },
+          ],
+          sH3: "Job Details",
+          sH3List: [
+            {
+              des: "Salary: ₹25,000 - ₹35,000/month (Negotiable)",
+            },
+            {
+              des: "Job Type: Full-Time (Remote/On-Site)",
+            },
+            {
+              des: "Location: Remote or Office-Based",
+            },
+          ],
+          sH4: "Benefits",
+          sH4List: [
+            {
+              des: "Flexible working hours",
+            },
+            {
+              des: "Paid time off (PTO)",
+            },
+            {
+              des: "Performance bonuses",
+            },
+            {
+              des: "Professional development opportunities",
+            },
+          ],
+          careerImg: teacherImg,
+        },
       },
     },
   },

@@ -3,9 +3,12 @@ import InputComponent from "../../components/Input/InputComponent";
 import TextareaComponent from "../../components/Textarea/TextareaComponent";
 import InputImageVideo from "../../components/Input/InputImageVideo";
 import MyButton4 from "../../components/Buttons/MyButton4";
-import img1 from "../../assets/career/admins.png";
+import { useTranslation } from "react-i18next";
 
 const CareerAdminForm = () => {
+  const { t } = useTranslation();
+  const careerAdminContent = t("CareerData", { returnObjects: true });
+
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -60,73 +63,66 @@ const CareerAdminForm = () => {
     >
       <div className="px-20 py-1 flex flex-col items-start justify-start gap-5 ">
         <h1 className="text-4xl font-extrabold border-2 rounded-3xl border-black mt-14 px-3 py-2 ">
-          Join Us as a Website Administrator
+          {careerAdminContent.careerAdmin.heading}
         </h1>
-        <p className="">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa,
-          molestiae debitis. Nobis suscipit porro officia quae, eaque nesciunt.
-          Eveniet eaque reprehenderit ut deserunt non ipsa cumque autem expedita
-          inventore distinctio.
-        </p>
+        <p className="">{careerAdminContent.careerAdmin.description}</p>
 
         <div className="space-y-4 w-full">
           <div className="flex justify-between w-full gap-5">
             <div>
-              <h2 className="text-2xl font-bold mb-3">Eligibility Criteria</h2>
+              <h2 className="text-2xl font-bold mb-3">
+                {careerAdminContent.careerAdmin.sH1}
+              </h2>
               <ul className="list-disc list-inside text-lg">
-                <li>
-                  Bachelor's degree in Computer Science, IT, or related field
-                </li>
-                <li>
-                  Proficiency in website management tools (React, Tailwind, CMS)
-                </li>
-                <li>Strong problem-solving skills and attention to detail</li>
-                <li>Prior experience as a website administrator (preferred)</li>
-                <li>Excellent communication and organizational skills</li>
+                {careerAdminContent.careerAdmin.sH1List.map((content, ind) => (
+                  <li key={ind}>{content.des}</li>
+                ))}
               </ul>
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold mb-3">Responsibilities</h2>
+              <h2 className="text-2xl font-bold mb-3">
+                {careerAdminContent.careerAdmin.sH2}
+              </h2>
               <ul className="list-disc list-inside text-lg">
-                <li>Maintain and update website content</li>
-                <li>Troubleshoot technical issues and ensure website uptime</li>
-                <li>Monitor website performance and implement improvements</li>
-                <li>
-                  Collaborate with other departments to ensure smooth operations
-                </li>
+                {careerAdminContent.careerAdmin.sH2List.map((content, ind) => (
+                  <li key={ind}>{content.des}</li>
+                ))}
               </ul>
             </div>
           </div>
           <div className="flex w-full justify-between">
             <div className="flex flex-col gap-8">
               <div>
-                <h2 className="text-2xl font-bold mb-3">Job Details</h2>
+                <h2 className="text-2xl font-bold mb-3">
+                  {careerAdminContent.careerAdmin.sH3}
+                </h2>
                 <ul className="list-disc list-inside text-lg">
-                  <li>
-                    <strong>Salary:</strong> ₹25,000 - ₹35,000/month
-                    (Negotiable)
-                  </li>
-                  <li>
-                    <strong>Job Type:</strong> Full-Time (Remote/On-Site)
-                  </li>
-                  <li>
-                    <strong>Location:</strong> Remote or Office-Based
-                  </li>
+                  {careerAdminContent.careerAdmin.sH3List.map(
+                    (content, ind) => (
+                      <li key={ind}>{content.des}</li>
+                    )
+                  )}
                 </ul>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold mb-3">Benefits</h2>
+                <h2 className="text-2xl font-bold mb-3">
+                  {careerAdminContent.careerAdmin.sH4}
+                </h2>
                 <ul className="list-disc list-inside text-lg">
-                  <li>Flexible working hours</li>
-                  <li>Paid time off (PTO)</li>
-                  <li>Performance bonuses</li>
-                  <li>Professional development opportunities</li>
+                  {careerAdminContent.careerAdmin.sH4List.map(
+                    (content, ind) => (
+                      <li key={ind}>{content.des}</li>
+                    )
+                  )}
                 </ul>
               </div>
             </div>
-            <img src={img1} className=" w-[25rem] h-[25rem]" />
+            <img
+              src={careerAdminContent.careerAdmin.careerImg}
+              className=" w-[25rem] h-[25rem]"
+            />
           </div>
         </div>
       </div>
@@ -193,7 +189,9 @@ const CareerAdminForm = () => {
             {[
               "Content Moderation",
               "Team Management",
-              "Technical Troubleshooting",
+              "Multitasking",
+              "Website Maintenance",
+              "Data Analytics",
             ].map((skill) => (
               <label key={skill} className="flex items-center">
                 <input
@@ -214,7 +212,10 @@ const CareerAdminForm = () => {
           // value={formData.education}
         />
 
-        <InputImageVideo imageName={`Upload Resume/CV:`} fileType="file" />
+        <InputImageVideo
+          imageName={`Upload Resume/CV with photo:`}
+          fileType="file"
+        />
         {/* Submit */}
 
         <div className=" w-1/3">
