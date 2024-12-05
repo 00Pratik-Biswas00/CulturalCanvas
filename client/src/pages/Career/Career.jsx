@@ -1,6 +1,5 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import img1 from "../../assets/career/vlogCreator.png";
 import MyButton1 from "../../components/Buttons/MyButton1";
 const Career = () => {
   const { t } = useTranslation();
