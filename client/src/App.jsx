@@ -67,12 +67,9 @@ import PredictBudget from "./pages/ExploreDiversity/PredictAmount";
 import ClothingCulture from "./pages/SinglePageCulture/ClothingCulture";
 import Career from "./pages/Career/Career";
 import LiveContest from "./pages/Contest/LiveContest";
-<<<<<<< Updated upstream
 import CareerAdminForm from "./pages/Career/CareerAdminForm";
 import CareerTeacherForm from "./pages/Career/CareerTeacherForm";
-=======
 import BengaliCuisine from "./pages/IndividualCoursesPage/BengaliCuisine";
->>>>>>> Stashed changes
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
