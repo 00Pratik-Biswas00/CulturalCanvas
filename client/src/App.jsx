@@ -71,6 +71,9 @@ import CareerAdminForm from "./pages/Career/CareerAdminForm";
 import CareerTeacherForm from "./pages/Career/CareerTeacherForm";
 import BengaliCuisine from "./pages/IndividualCoursesPage/BengaliCuisine";
 import QuizContest from "./pages/Contest/QuizContest";
+import StoryTelling from "./pages/ExploreDiversity/StoryTelling";
+import AncientScriptTranscription from "./pages/ExploreDiversity/AncientScriptTranscription";
+import RAGSummary from "./pages/ExploreDiversity/RAGSummary";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -311,6 +314,21 @@ function App() {
               <Route
                 path="/explore-diversity/nearest-attractions"
                 element={<NearestAttractions />}
+              />
+
+              <Route
+                path="/explore-diversity/story-telling"
+                element={<StoryTelling />}
+              />
+
+              <Route
+                path="/explore-diversity/ancient-script-transcription"
+                element={<AncientScriptTranscription />}
+              />
+
+              <Route
+                path="/explore-diversity/rag-manual-summary"
+                element={<RAGSummary />}
               />
               <Route
                 path="/explore-diversity/saved-trips"
