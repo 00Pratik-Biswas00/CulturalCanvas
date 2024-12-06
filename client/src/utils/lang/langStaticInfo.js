@@ -1500,6 +1500,37 @@ Modern Adaptations: Designers have reimagined the lehenga-choli with fusion styl
           careerImg: teacherImg,
         },
       },
+
+      ContestData: {
+        contestHeading: "The Competition is LIVE!",
+        diffContests: [
+          {
+            contestTitle: "How Well Do You Know India? A Cultural Quiz Journey",
+            contestLink: "/contest/quiz",
+            contestImg: adminImg,
+          },
+
+          {
+            contestTitle:
+              "Indian Heritage and Cultural Content Writing Challenge: Your Words, Your World",
+            contestLink: "/contest/blog",
+            contestImg: blogWriterImg,
+          },
+
+          {
+            contestTitle:
+              "Showcase India's Rich Heritage Through Your Lens: A Vlog Competition",
+            contestLink: "/contest/vlog",
+            contestImg: vlogCreatorImg,
+          },
+
+          {
+            contestTitle: "Paint the Canvas of India: Digital Art Competition",
+            contestLink: "/contest/digital art",
+            contestImg: digiArtImg,
+          },
+        ],
+      },
     },
   },
   hi: {
