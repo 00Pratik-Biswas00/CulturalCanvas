@@ -141,6 +141,114 @@ const ExploreDiversity = () => {
               buttonIcon={<RiMoneyRupeeCircleFill />}
             />
           </div>
+
+          {/* 4 */}
+
+          <div
+            className={` p-5 rounded-lg flex flex-col items-center shadow-lg shadow-gray-400 gap-5 `}
+          >
+            <div className="flex flex-col">
+              <img src={money} alt=".." className="w-full h-full rounded-md" />
+            </div>
+            <h2 className="text-3xl font-extrabold text-center uppercase">
+              Story Telling{" "}
+            </h2>
+            <p className="">
+              Planning a heritage tour in India can be exciting, but the cost
+              can sometimes be a mystery. With our easy-to-use tool, you can
+              quickly estimate the potential expenses for your trip. <br />{" "}
+              <br />{" "}
+              <em>
+                <b>
+                  Get started now and plan your dream Indian heritage tour with
+                  confidence!
+                </b>
+              </em>
+            </p>
+
+            <MyButton3
+              classDesign={
+                "before:bg-highlight_hover_dark bg-highlight_hover text-dark_primary_text "
+              }
+              onClick={() => {
+                navigate(`story-telling`);
+              }}
+              buttonName={"Story Telling"}
+              buttonIcon={<RiMoneyRupeeCircleFill />}
+            />
+          </div>
+
+          {/* 5 */}
+
+          <div
+            className={` p-5 rounded-lg flex flex-col items-center shadow-lg shadow-gray-400 gap-5 `}
+          >
+            <div className="flex flex-col">
+              <img src={money} alt=".." className="w-full h-full rounded-md" />
+            </div>
+            <h2 className="text-3xl font-extrabold text-center uppercase">
+              RAG Manual Summary{" "}
+            </h2>
+            <p className="">
+              Planning a heritage tour in India can be exciting, but the cost
+              can sometimes be a mystery. With our easy-to-use tool, you can
+              quickly estimate the potential expenses for your trip. <br />{" "}
+              <br />{" "}
+              <em>
+                <b>
+                  Get started now and plan your dream Indian heritage tour with
+                  confidence!
+                </b>
+              </em>
+            </p>
+
+            <MyButton3
+              classDesign={
+                "before:bg-highlight_hover_dark bg-highlight_hover text-dark_primary_text "
+              }
+              onClick={() => {
+                navigate(`rag-manual-summary`);
+              }}
+              buttonName={"RAG Manual Summary"}
+              buttonIcon={<RiMoneyRupeeCircleFill />}
+            />
+          </div>
+
+          {/* 6 */}
+
+          <div
+            className={` p-5 rounded-lg flex flex-col items-center shadow-lg shadow-gray-400 gap-5 `}
+          >
+            <div className="flex flex-col">
+              <img src={money} alt=".." className="w-full h-full rounded-md" />
+            </div>
+            <h2 className="text-3xl font-extrabold text-center uppercase">
+              Ancient Script Transcription{" "}
+            </h2>
+            <p className="">
+              Planning a heritage tour in India can be exciting, but the cost
+              can sometimes be a mystery. With our easy-to-use tool, you can
+              quickly estimate the potential expenses for your trip. <br />{" "}
+              <br />{" "}
+              <em>
+                <b>
+                  Get started now and plan your dream Indian heritage tour with
+                  confidence!
+                </b>
+              </em>
+            </p>
+
+            <MyButton3
+              classDesign={
+                "before:bg-highlight_hover_dark bg-highlight_hover text-dark_primary_text "
+              }
+              onClick={() => {
+                navigate(`ancient-script-transcription`);
+              }}
+              buttonName={"Ancient Script Transcription"}
+              buttonIcon={<RiMoneyRupeeCircleFill />}
+            />
+          </div>
         </div>
       </div>
     </section>

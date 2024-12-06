@@ -67,8 +67,17 @@ import PredictBudget from "./pages/ExploreDiversity/PredictAmount";
 import ClothingCulture from "./pages/SinglePageCulture/ClothingCulture";
 import Career from "./pages/Career/Career";
 import LiveContest from "./pages/Contest/LiveContest";
+
 import AdminHeritageContents from "./admin-pages/AdminHeritageContent";
 import AdminSingleBlogHeritage from "./admin-pages/AdminHeritageContent/AdminSingleBlogHeritage";
+
+import CareerAdminForm from "./pages/Career/CareerAdminForm";
+import CareerTeacherForm from "./pages/Career/CareerTeacherForm";
+import BengaliCuisine from "./pages/IndividualCoursesPage/BengaliCuisine";
+import QuizContest from "./pages/Contest/QuizContest";
+import StoryTelling from "./pages/ExploreDiversity/StoryTelling";
+import AncientScriptTranscription from "./pages/ExploreDiversity/AncientScriptTranscription";
+import RAGSummary from "./pages/ExploreDiversity/RAGSummary";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -242,28 +251,22 @@ function App() {
                 element={<SingleStateCulture />}
               />
               {/* states */}
+              <Route path="/culture-tradition/assam" element={<AssamState />} />
               <Route
-                path="/culture-tradition/assam-state"
-                element={<AssamState />}
-              />
-              <Route
-                path="/culture-tradition/andhra-pradesh-state"
+                path="/culture-tradition/andhra-pradesh"
                 element={<AndhraPradeshState />}
               />
               <Route
-                path="/culture-tradition/arunachal-pradesh-state"
+                path="/culture-tradition/arunachal-pradesh"
                 element={<ArunachalPradeshState />}
               />
+              <Route path="/culture-tradition/bihar" element={<BiharState />} />
               <Route
-                path="/culture-tradition/bihar-state"
-                element={<BiharState />}
-              />
-              <Route
-                path="/culture-tradition/chhattisgarh-state"
+                path="/culture-tradition/chhattisgarh"
                 element={<ChhattisgarhState />}
               />
               <Route
-                path="/culture-tradition/west-bengal-state"
+                path="/culture-tradition/west-bengal"
                 element={<WestBengalState />}
               />
 
@@ -272,6 +275,8 @@ function App() {
                 path="/learn-Indian-culture"
                 element={<LearnIndianCultureCourses />}
               />
+
+              {/** ----- languages ------- */}
               <Route
                 path="/learn-Indian-culture/language/bengali"
                 element={<BengaliCourse />}
@@ -292,6 +297,13 @@ function App() {
                 path="/learn-Indian-culture/language/urdu"
                 element={<UrduCourse />}
               />
+
+              {/** ----- cuisines------- */}
+              <Route
+                path="/learn-Indian-culture/cuisine/bengali"
+                element={<BengaliCuisine />}
+              />
+
               {/*  ---------------- Learning Courses  Single Course---------------- */}
               <Route
                 path="/learn-Indian-culture/:maincategory/:category/:slug"
@@ -316,6 +328,21 @@ function App() {
                 path="/explore-diversity/nearest-attractions"
                 element={<NearestAttractions />}
               />
+
+              <Route
+                path="/explore-diversity/story-telling"
+                element={<StoryTelling />}
+              />
+
+              <Route
+                path="/explore-diversity/ancient-script-transcription"
+                element={<AncientScriptTranscription />}
+              />
+
+              <Route
+                path="/explore-diversity/rag-manual-summary"
+                element={<RAGSummary />}
+              />
               <Route
                 path="/explore-diversity/saved-trips"
                 element={<SavedTrips />}
@@ -329,11 +356,17 @@ function App() {
                 element={<UploadBlogVlog />}
               />
 
-              {/*  ---------------- Career  ---------------- */}
+              {/*  ---------------- Live Contest  ---------------- */}
               <Route path="/live-contest" element={<LiveContest />} />
+              <Route path="/live-contest/quiz" element={<QuizContest />} />
 
               {/*  ---------------- Career  ---------------- */}
               <Route path="/career" element={<Career />} />
+              <Route path="/career/admin-form" element={<CareerAdminForm />} />
+              <Route
+                path="/career/teacher-form"
+                element={<CareerTeacherForm />}
+              />
 
               {/*  ---------------- Virtual Store  ---------------- */}
               <Route path="/virtual-store" element={<VirtualStore />} />

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Chat Agent</title>
+</head>
+<body>
+    <h1>Multi-PDF Chat Agent 🤖</h1>
+
+    <h2>Upload PDF Files</h2>
+    <form action="/upload_pdfs" method="post" enctype="multipart/form-data">
+        <input type="file" name="pdfs" multiple><br><br>
+        <button type="submit">Submit & Process</button>
+    </form>
+
+    <h2>Ask a Question</h2>
+    <form id="questionForm">
+        <input type="text" id="question" placeholder="Ask a question from the PDFs"><br><br>
+        <button type="submit">Ask</button>
+    </form>
+
+    <h3>Answer:</h3>
+    <div id="answer"></div>
+
+    <script>
+        document.getElementById('questionForm').onsubmit = async function(event) {
+            event.preventDefault();
+            const question = document.getElementById('question').value;
+
+            const response = await fetch('/ask_question', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ question })
+            });
+            const result = await response.json();
+
+            if (response.ok) {
+                document.getElementById('answer').innerText = result.answer;
+            } else {
+                document.getElementById('answer').innerText = 'Error: ' + result.error;
+            }
+        };
+    </script>
+</body>
+</html>

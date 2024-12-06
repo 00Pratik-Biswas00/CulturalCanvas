@@ -3,6 +3,7 @@ import axios from "axios";
 import MyButton4 from "../../components/Buttons/MyButton4";
 import bgImg from "../../assets/explorePlaces/bgImg.png";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import TranslationButton from "../../components/Buttons/TranslationButton";
 
 const NearestAttractions = () => {
   const [place, setPlace] = useState("");
@@ -143,6 +144,7 @@ const NearestAttractions = () => {
                   >
                     <FaMapMarkerAlt className=" w-5 h-5 text-dark_primary_text " />
                   </a>
+                  <TranslationButton text={attraction.name} />
                 </div>
               ))}
             </div>

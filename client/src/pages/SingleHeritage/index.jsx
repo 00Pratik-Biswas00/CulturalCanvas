@@ -6,7 +6,6 @@ import { GET_HERITAGE_QUERY } from "../../graphql/HeritageQuery";
 import Agra from "../../assets/Heritage/Agra fort(avif).avif";
 import Fateh from "../../assets/Heritage/Fateh(avif).avif";
 import RedFort from "../../assets/Heritage/Red fort (avif).avif";
-import Suntemple from "../../assets/Heritage/Sun(avif).avif";
 import upImg from "../../assets/states/west-bengal.png";
 import { useNavigate } from "react-router-dom";
 
@@ -16,6 +15,7 @@ import { FaHandsHoldingChild } from "react-icons/fa6";
 import { FaAmbulance } from "react-icons/fa";
 import { FaBriefcaseMedical } from "react-icons/fa";
 import { MdFireTruck } from "react-icons/md";
+import MyButton1 from "../../components/Buttons/MyButton1";
 
 const SingleHeritage = () => {
   const { slug } = useParams();
@@ -32,7 +32,7 @@ const SingleHeritage = () => {
 
   const navigate = useNavigate();
   const handleNavigation = () => {
-    navigate("/nearest-attractions");
+    navigate("/explore-diversity/nearest-attractions");
   };
 
   if (loading) {
@@ -54,29 +54,29 @@ const SingleHeritage = () => {
           <div className="absolute inset-0 bg-black opacity-40 z-10"></div>
 
           <div className="relative z-20 flex flex-col items-center justify-center">
-            <div className="bg-background1 dark:bg-dark_background1 py-4 px-16 flex flex-col gap-4 items-center justify-center w-full h-full">
-              <h1 className="font-bold font-playfair text-5xl tracking-wider">
+            <div className="bg-background1 dark:bg-dark_background1 py-4 px-16 flex flex-col items-center justify-center w-full h-full">
+              <h1 className="font-bold font-gallient text-5xl tracking-wider pt-2 pb-6">
                 Exploring the {heritage.name} in the Digital Realm
               </h1>
-              <ReactPlayer
-                url={heritage.endlessDigitalArt.Location}
-                width="100%"
-                height="100%"
-                className="max-w-full max-h-full m-auto"
-                playing={false}
-                controls
-                config={{
-                  file: {
-                    attributes: { controlsList: "nodownload" },
-                  },
-                }}
-              />
+              <div className="flex flex-col items-center justify-center w-full h-full m-auto">
+                <ReactPlayer
+                  url={heritage.endlessDigitalArt.Location}
+                  width="85%"
+                  height="85%"
+                  playing={false}
+                  controls
+                  config={{
+                    file: {
+                      attributes: { controlsList: "nodownload" },
+                    },
+                  }}
+                />
+              </div>
             </div>
 
             <div className="flex flex-col gap-20 items-center justify-center px-16 py-32 h-screen text-dark_primary_text">
-              <p className="text-[7rem] leading-9">{heritage.name}</p>
-              <p className="text-2xl font-semibold px-28 text-center">
-                {heritage.introduction}
+              <p className=" text-5xl xl:text-7xl font-extrabold text-center  ">
+                {heritage.name}
               </p>
             </div>
 
@@ -94,35 +94,37 @@ const SingleHeritage = () => {
                           {section.heading}
                         </h1>
                         <p>{section.description}</p>
-                        <button
+                        {/* <button
                           aria-label="Speak Text"
                           className="text-2xl absolute -left-12 "
                         >
                           🔊
-                        </button>
+                        </button> */}
                       </div>
                     ))}
                 </div>
               )}
 
-              <div className="my-4 w-full flex flex-col gap-4 justify-center">
+              <div className="my-4 w-full flex flex-col gap-4 justify-center items-center">
                 <h1 className="font-bold font-montserrat text-2xl tracking-wider">
                   A Journey Through Time: The {heritage.name} Animated
                 </h1>
                 {heritage?.animatedVideo?.Location && (
-                  <ReactPlayer
-                    url={heritage.animatedVideo.Location}
-                    width="100%"
-                    height="100%"
-                    className="max-w-full max-h-full m-auto"
-                    playing={false}
-                    controls
-                    config={{
-                      file: {
-                        attributes: { controlsList: "nodownload" },
-                      },
-                    }}
-                  />
+                  <div className=" w-full h-full m-auto">
+                    <ReactPlayer
+                      url={heritage.animatedVideo.Location}
+                      width="85%"
+                      height="85%"
+                      className="max-w-full max-h-full m-auto"
+                      playing={false}
+                      controls
+                      config={{
+                        file: {
+                          attributes: { controlsList: "nodownload" },
+                        },
+                      }}
+                    />
+                  </div>
                 )}
               </div>
 
@@ -139,48 +141,30 @@ const SingleHeritage = () => {
                           {section.heading}
                         </h1>
                         <p>{section.description}</p>
-                        <button
+                        {/* <button
                           aria-label="Speak Text"
                           className="text-2xl absolute -left-12 "
                         >
                           🔊
-                        </button>
+                        </button> */}
                       </div>
                     ))}
                 </div>
               )}
             </div>
 
-            <div className="bg-background1 dark:bg-dark_background1 py-4 px-16 pt-0 flex flex-col gap-4 items-center justify-center w-full h-full">
-              <h1 className="font-bold font-playfair text-5xl tracking-wider">
-                Sensory Experience of {heritage.name}
+            <div className="py-4 px-16 pt-0  flex flex-col gap-10 items-center justify-center w-full h-full">
+              <h1 className="font-bold font-gallient text-5xl tracking-wider text-dark_primary_text pt-8">
+                Nearest Main Attractions
               </h1>
-              <ReactPlayer
-                url={heritage.vlogVideo.Location}
-                width="100%"
-                height="100%"
-                className="max-w-full max-h-full m-auto"
-                playing={false}
-                controls
-                config={{
-                  file: {
-                    attributes: { controlsList: "nodownload" },
-                  },
-                }}
-              />
-            </div>
 
-            {/* Nearest attractions section remains unchanged */}
-            <div className="py-4 px-16 pt-0  flex flex-col gap-4 items-center justify-center w-full h-full">
-              <h1 className="font-bold text-white font-playfair text-5xl tracking-wider">
-                Nearest Attractions
-              </h1>
+              {/* ekhane backend theke data anis admin panel e field add kore dis je nearest attraction e ki ki add korbi diye manually add kore dis ba jodi kono bhabe existing jaiga r drop down select kore korte paris dekhis */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full gap-5">
                 <a
                   href="http://localhost:5173/heritage/agra-fort-tm5qapeerlqsiarphpzrm"
                   target="blank"
                   rel=" noopener"
-                  className="flex items-center text-white justify-start gap-3 p-3  border-2 rounded-xl shadow-md shadow-primary_text dark:shadow-dark_primary_text  duration-500 transition-transform hover:scale-105 transform-cpu"
+                  className="flex items-center bg-background2 dark:bg-shadow justify-start gap-3 p-3  border-2 rounded-xl shadow-md shadow-primary_text dark:shadow-dark_primary_text  duration-500 transition-transform hover:scale-105 transform-cpu"
                 >
                   <img src={Agra} className="w-32 rounded-xl" />
                   <div className="flex flex-col items-start">
@@ -197,74 +181,31 @@ const SingleHeritage = () => {
                     </div>
                   </div>
                 </a>
-
-                <a
-                  href="http://localhost:5173/heritage/fatehpur-sikri-jon8oii2eltby4bqztget"
-                  target="blank"
-                  rel=" noopener"
-                  className="flex text-white items-center justify-start gap-3 p-3  border-2 rounded-xl shadow-md shadow-primary_text dark:shadow-dark_primary_text  duration-500 transition-transform hover:scale-105 transform-cpu"
-                >
-                  <img src={Fateh} className="w-32 rounded-xl" />
-                  <div className="flex flex-col items-start">
-                    <h1 className=" font-semibold text-2xl tracking-wide">
-                      Fatehpur Sikri
-                    </h1>
-                    <div className="flex flex-wrap w-full items-center justify-center gap-5">
-                      <p>
-                        <b> Distance:</b> 37km
-                      </p>
-                      <p>
-                        <b>Entry Fee:</b> Rs.50
-                      </p>
-                    </div>
-                  </div>
-                </a>
-
-                <a
-                  href="http://localhost:5173/heritage/red-fort-rryfs_ad8atw8szctnij4"
-                  target="blank"
-                  rel=" noopener"
-                  className="flex text-white items-center justify-start gap-3 p-3  border-2 rounded-xl shadow-md shadow-primary_text dark:shadow-dark_primary_text  duration-500 transition-transform hover:scale-105 transform-cpu"
-                >
-                  <img src={RedFort} className="w-32 rounded-xl" />
-                  <div className="flex flex-col items-start">
-                    <h1 className=" font-semibold text-2xl tracking-wide">
-                      Red Fort
-                    </h1>
-                    <div className="flex flex-wrap w-full items-center justify-center gap-5">
-                      <p>
-                        <b> Distance:</b> 230km
-                      </p>
-                      <p>
-                        <b>Entry Fee:</b> Rs.35
-                      </p>
-                    </div>
-                  </div>
-                </a>
               </div>
               <div className="flex items-center justify-center ">
-                <button
-                  onClick={handleNavigation}
-                  className="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition duration-300"
-                >
-                  Go to Nearest Attractions
-                </button>
+                <MyButton1
+                  classDesign={
+                    "bg-gradient-to-r from-[#ff9b00] to-[#174926] hover:to-[#06038D] font-bold "
+                  }
+                  buttonLink={"/explore-diversity/nearest-attractions"}
+                  buttonName={"Find Other Nearest Attractions using AI"}
+                />
               </div>
             </div>
             {/* ... (unchanged section) ... */}
 
-            <div className="bg-background1 dark:bg-dark_background1 py-4 px-16 pt-4 flex gap-4 items-center justify-center w-full h-full">
+            <div className="bg-background1 dark:bg-dark_background1 py-10 px-16  flex gap-4 items-center justify-center w-full h-full">
               <h1 className="font-bold font-pangaia text-2xl tracking-wider w-3/4">
                 Do you know that {heritage.name} is just one of the glimpse of
-                the majesty of the {heritage.state_culture_name.name} 🤩! If you
+                the majesty of the {heritage.state_culture_name.name} 🤩? If you
                 want to know explore more about{" "}
                 {heritage.state_culture_name.name} click on the image!
               </h1>
               <a
-                href="/"
-                target="blank"
-                rel=" noopener"
-                className="flex items-center justify-center "
+                href={`/culture-tradition/${heritage.state_culture_name.name
+                  .toLowerCase()
+                  .replace(/\s+/g, "-")}`}
+                className="flex items-center justify-center"
               >
                 <img
                   src={upImg}
@@ -273,7 +214,28 @@ const SingleHeritage = () => {
               </a>
             </div>
 
-            <div className="bg-background1 dark:bg-dark_background1 py-4 px-16 pt-4 flex flex-col gap-10 items-center justify-center w-full h-full">
+            <div className="bg-background1 dark:bg-dark_background1 py-4 px-16 pt-0 flex flex-col gap-4 items-center justify-center w-full h-full">
+              <h1 className="font-bold font-gallient text-5xl tracking-wider pt-2 pb-6">
+                Sensory Experience of {heritage.name}
+              </h1>
+              <div className=" w-full h-full m-auto">
+                <ReactPlayer
+                  url={heritage.vlogVideo.Location}
+                  width="85%"
+                  height="85%"
+                  className="max-w-full max-h-full m-auto"
+                  playing={false}
+                  controls
+                  config={{
+                    file: {
+                      attributes: { controlsList: "nodownload" },
+                    },
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* <div className="bg-background1 dark:bg-dark_background1 py-4 px-16 pt-4 flex flex-col gap-10 items-center justify-center w-full h-full">
               <h1 className="font-bold font-playfair text-5xl tracking-wider">
                 Helpline numbers of {heritage.name}
               </h1>
@@ -324,7 +286,7 @@ const SingleHeritage = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       )}
