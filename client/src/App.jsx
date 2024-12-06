@@ -70,6 +70,7 @@ import LiveContest from "./pages/Contest/LiveContest";
 import CareerAdminForm from "./pages/Career/CareerAdminForm";
 import CareerTeacherForm from "./pages/Career/CareerTeacherForm";
 import BengaliCuisine from "./pages/IndividualCoursesPage/BengaliCuisine";
+import QuizContest from "./pages/Contest/QuizContest";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -259,7 +260,7 @@ function App() {
                 element={<LearnIndianCultureCourses />}
               />
 
-                    {/** ----- languages ------- */}
+              {/** ----- languages ------- */}
               <Route
                 path="/learn-Indian-culture/language/bengali"
                 element={<BengaliCourse />}
@@ -281,7 +282,7 @@ function App() {
                 element={<UrduCourse />}
               />
 
-                    {/** ----- cuisines------- */}
+              {/** ----- cuisines------- */}
               <Route
                 path="/learn-Indian-culture/cuisine/bengali"
                 element={<BengaliCuisine />}
@@ -326,6 +327,7 @@ function App() {
 
               {/*  ---------------- Live Contest  ---------------- */}
               <Route path="/live-contest" element={<LiveContest />} />
+              <Route path="/live-contest/quiz" element={<QuizContest />} />
 
               {/*  ---------------- Career  ---------------- */}
               <Route path="/career" element={<Career />} />
