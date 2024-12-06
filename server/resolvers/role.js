@@ -2,6 +2,7 @@ import { transporter } from "../config.js";
 import User from "../models/user.js";
 import bcrypt from "bcryptjs";
 import { AuthenticationError, ForbiddenError } from "apollo-server-express";
+import path from "path";
 
 const generateStrongPassword = () => {
   const allCharacters =
@@ -114,82 +115,77 @@ const roleResolvers = {
           subject: "🎉 Welcome to the Cultural Canvas Admin Team!",
           html: `
             <!DOCTYPE html>
-            <html>
-              <head>
-                <style>
-                  body {
-                    font-family: Arial, sans-serif;
-                    line-height: 1.6;
-                    color: #333333;
-                    background-color: #f9f9f9;
-                    padding: 0;
-                    margin: 0;
-                  }
-                  .email-container {
-                    max-width: 600px;
-                    margin: 20px auto;
-                    background: #ffffff;
-                    border: 1px solid #eaeaea;
-                    border-radius: 8px;
-                    padding: 20px;
-                  }
-                  h2 {
-                    color: #4caf50;
-                  }
-                  p {
-                    font-size: 16px;
-                  }
-                  ul {
-                    padding-left: 20px;
-                  }
-                  li {
-                    margin-bottom: 8px;
-                  }
-                  .footer {
-                    margin-top: 20px;
-                    font-size: 14px;
-                    color: #555555;
-                    text-align: center;
-                  }
-                  .cta-button {
-                    display: inline-block;
-                    margin-top: 15px;
-                    padding: 10px 20px;
-                    color: #ffffff;
-                    background-color: #4caf50;
-                    text-decoration: none;
-                    border-radius: 5px;
-                    font-size: 16px;
-                  }
-                  .cta-button:hover {
-                    background-color: #45a049;
-                  }
-                </style>
-              </head>
-              <body>
-                <div class="email-container">
-                  <h2>Congratulations ${name},</h2>
-                  <p>We are thrilled to welcome you as a new Admin for <strong>Cultural Canvas</strong>!</p>
-                  <p>Your account has been set up with the following details:</p>
-                  <ul>
-                    <li><strong>Admin Email:</strong> ${newEmail}</li>
-                    <li><strong>Temporary Password:</strong> ${password}</li>
-                  </ul>
-                  <p>For your security, please log in and update your password as soon as possible.</p>
-                  <a href=${
-                    process.env.FRONTEND
-                  }/login" class="cta-button">Log In Now</a>
-                  <p>If you have any questions, feel free to reply to this email or contact us directly.</p>
-                  <p>Welcome to the team!</p>
-                  <p>Warm regards,</p>
-                  <p><strong>The Cultural Canvas Team</strong></p>
-                  <div class="footer">
-                    <p>&copy; ${new Date().getFullYear()} Cultural Canvas. All Rights Reserved.</p>
-                    <p>Please do not share your login details with anyone.</p>
-                  </div>
-                </div>
-              </body>
-            </html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Cultural Canvas</title>
+</head>
+<body style="font-family: 'Georgia', serif; line-height: 1.6; color: #3a3a3a; background-color: #f4f1e8; margin: 0; padding: 0;">
+  <table cellpadding="0" cellspacing="0" border="0" width="100%" style="min-width: 100%; background-color: #f4f1e8;">
+    <tr>
+      <td align="center" valign="top">
+        <table cellpadding="0" cellspacing="0" border="0" width="600" style="max-width: 600px; margin: 20px auto; background-color: #fff; border: 1px solid #d3c6a6; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+          <tr>
+            <td style="padding: 40px 40px 30px;">
+              <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                <tr>
+                  <td align="center" style="padding-bottom: 30px;">
+                    <img src=${
+                      process.env.LOGO_PATH
+                    } alt="Cultural Canvas Logo" width="150" style="max-width: 150px;">
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h1 style="color: #8b4513; font-size: 28px; font-weight: bold; text-align: center; margin-bottom: 20px; border-bottom: 2px solid #d3c6a6; padding-bottom: 10px;">Welcome to Cultural Canvas</h1>
+                    <p style="font-size: 18px; color: #3a3a3a; text-align: center; font-style: italic;">"Preserving the past, inspiring the future"</p>
+                    <h2 style="color: #8b4513; font-size: 24px; margin-top: 30px;">Congratulations ${name},</h2>
+                    <p style="font-size: 16px; color: #3a3a3a;">We are thrilled to welcome you as a new Admin for <strong>Cultural Canvas</strong>! Your role is crucial in our mission to preserve and share our rich cultural heritage.</p>
+                    <p style="font-size: 16px; color: #3a3a3a;">Your account has been set up with the following details:</p>
+                    <table cellpadding="10" cellspacing="0" border="0" style="background-color: #f9f5ea; border-radius: 5px; margin: 20px 0;">
+                      <tr>
+                        <td><strong>Admin Email:</strong></td>
+                        <td>${newEmail}</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Temporary Password:</strong></td>
+                        <td>${password}</td>
+                      </tr>
+                    </table>
+                    <p style="font-size: 16px; color: #3a3a3a;">For your security, please log in and update your password as soon as possible.</p>
+                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                      <tr>
+                        <td align="center" style="padding: 30px 0;">
+                          <a href="${
+                            process.env.FRONTEND
+                          }/login" style="display: inline-block; padding: 12px 24px; color: #ffffff; background-color: #8b4513; text-decoration: none; border-radius: 5px; font-size: 18px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; transition: background-color 0.3s ease;">Log In Now</a>
+                        </td>
+                      </tr>
+                    </table>
+                    <p style="font-size: 16px; color: #3a3a3a;">If you have any questions, feel free to reply to this email or contact us directly.</p>
+                    <p style="font-size: 16px; color: #3a3a3a;">Welcome to the team!</p>
+                    <p style="font-size: 16px; color: #3a3a3a; margin-bottom: 5px;">Warm regards,</p>
+                    <p style="font-size: 18px; color: #8b4513; font-weight: bold;">The Cultural Canvas Team</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="background-color: #f9f5ea; padding: 20px; border-top: 1px solid #d3c6a6; text-align: center;">
+              <p style="font-size: 14px; color: #6c6c6c; margin: 0 0 10px;">© ${new Date().getFullYear()} Cultural Canvas. All Rights Reserved.</p>
+              <p style="font-size: 14px; color: #6c6c6c; margin: 0;">Please do not share your login details with anyone.</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+
+
           `,
         };
 

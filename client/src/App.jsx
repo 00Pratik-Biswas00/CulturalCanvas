@@ -67,6 +67,8 @@ import PredictBudget from "./pages/ExploreDiversity/PredictAmount";
 import ClothingCulture from "./pages/SinglePageCulture/ClothingCulture";
 import Career from "./pages/Career/Career";
 import LiveContest from "./pages/Contest/LiveContest";
+import AdminHeritageContents from "./admin-pages/AdminHeritageContent";
+import AdminSingleBlogHeritage from "./admin-pages/AdminHeritageContent/AdminSingleBlogHeritage";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -180,10 +182,19 @@ function App() {
               />
               <Route
                 exact
+                path="/threshold-contents-acdprsIndia24"
+                element={<AdminHeritageContents />}
+              />
+              <Route
+                exact
                 path="/blogs-vlogs/verify/:id"
                 element={<AdminSingleBlogVerification />}
               />
-
+              <Route
+                exact
+                path="/blogs-vlogs/heritage/:id"
+                element={<AdminSingleBlogHeritage />}
+              />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </AdminLayout>

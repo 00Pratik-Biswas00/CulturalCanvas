@@ -121,14 +121,21 @@ const BlogsVlogs = ({ blogsVlogs, loading, user, handleDelete }) => {
                   onClick={() => {
                     const path =
                       user?.role === "admin"
-                        ? `/blogs-vlogs/verify/${content.id}`
+                        ? content.verified
+                          ? `/blogs-vlogs/heritage/${content.id}`
+                          : `/blogs-vlogs/verify/${content.id}`
                         : `/blogs-vlogs/${content.id}`;
                     navigate(path);
                   }}
                   className="bg-background2 hover:bg-lime-200 duration-500 text-primary_text px-5 py-2 text-base rounded-3xl mb-5 font-open_sans"
                 >
-                  {user?.role === "admin" ? "Verify" : "Read More"}
+                  {user?.role === "admin"
+                    ? content.verified
+                      ? "Check"
+                      : "Verify"
+                    : "Read More"}
                 </button>
+
                 <div className="absolute bottom-5 right-5 italic text-sm tracking-wider font-playfair">
                   {content.contentType}{" "}
                   {content.contentType === "Blog" ? "📝" : "🎬"}
