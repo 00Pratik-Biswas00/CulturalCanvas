@@ -163,6 +163,18 @@ const AddCourses = ({
     setFormData((prev) => ({ ...prev, modules: updatedModules }));
   };
 
+  const handleSubcategoryChange = (e) => {
+    const { value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      courseCategory: {
+        ...prev.courseCategory,
+        [initialCategory]: value, // Update the specific category
+      },
+    }));
+  };
+
+
   const handleUploadingImage = async (file) => {
     const formData = new FormData();
     formData.append("image", file);
@@ -176,16 +188,17 @@ const AddCourses = ({
       console.error("Error uploading image:", e);
     }
   };
-
+  console.log(formData);
   const handleImageInput = async (file, field, index = null) => {
     try {
       const uploadedImageData = await handleUploadingImage(file);
+      console.log(uploadedImageData);
       if (index !== null) {
         handleCourseModuleChange(index, field, uploadedImageData);
       } else {
         setFormData((prev) => ({
           ...prev,
-          [field]: {},
+          [field]: uploadedImageData,
         }));
       }
     } catch (e) {
@@ -242,8 +255,9 @@ const AddCourses = ({
         toast.success("Course Updated Successfully!");
       } else {
         // Perform create course mutation
+        const cleanedFormData = removeTypename(formData);
         await createCourse({
-          variables: formData,
+          variables: cleanedFormData,
         });
         toast.success("Course Created Successfully!");
       }
@@ -287,6 +301,7 @@ const AddCourses = ({
               imageName={`${courseTopic} Image:`}
               fileType="image"
               onChange={(e) => handleImageInput(e.target.files[0], "image")}
+              value={formData.image}
               preview={formData.image}
             />
           </div>
@@ -308,7 +323,7 @@ const AddCourses = ({
                 <label className="block font-bold">Choose Subcategory</label>
                 <select
                   value={formData.courseCategory[initialCategory]}
-                  onChange={(e) => handleInputChange(e)}
+                  onChange={(e) => handleSubcategoryChange(e)}
                   name="subCategory"
                   className="block w-full px-3 py-2 border rounded">
                   <option value="">Select Subcategory</option>
@@ -370,6 +385,7 @@ const AddCourses = ({
             onChange={(e) =>
               handleImageInput(e.target.files[0], "instructorImage")
             }
+            value={formData.instructorImage}
             preview={formData.instructorImage}
           />
 

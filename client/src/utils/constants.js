@@ -335,7 +335,7 @@ export const dummyData = {
       image: greetingImg,
       description: "Want to learn more about Bengali? Check Below",
       name: "Bengali Cuisines",
-      buttonLink: "/learn-Indian-culture/bengali-cuisine-course",
+      buttonLink: "/learn-Indian-culture/cuisine/bengali",
     },
     {
       image: greetingImg,

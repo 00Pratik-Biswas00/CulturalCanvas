@@ -69,6 +69,7 @@ import Career from "./pages/Career/Career";
 import LiveContest from "./pages/Contest/LiveContest";
 import CareerAdminForm from "./pages/Career/CareerAdminForm";
 import CareerTeacherForm from "./pages/Career/CareerTeacherForm";
+import BengaliCuisine from "./pages/IndividualCoursesPage/BengaliCuisine";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -257,6 +258,8 @@ function App() {
                 path="/learn-Indian-culture"
                 element={<LearnIndianCultureCourses />}
               />
+
+                    {/** ----- languages ------- */}
               <Route
                 path="/learn-Indian-culture/language/bengali"
                 element={<BengaliCourse />}
@@ -277,6 +280,13 @@ function App() {
                 path="/learn-Indian-culture/language/urdu"
                 element={<UrduCourse />}
               />
+
+                    {/** ----- cuisines------- */}
+              <Route
+                path="/learn-Indian-culture/cuisine/bengali"
+                element={<BengaliCuisine />}
+              />
+
               {/*  ---------------- Learning Courses  Single Course---------------- */}
               <Route
                 path="/learn-Indian-culture/:maincategory/:category/:slug"

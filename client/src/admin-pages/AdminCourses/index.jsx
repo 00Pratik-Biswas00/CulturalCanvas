@@ -63,7 +63,7 @@ const AdminCourses = () => {
   };
 
   console.log(isEditing);
-  
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -134,6 +134,7 @@ const AdminCourses = () => {
           courseTopic="Cuisine"
           isEditing={isEditing}
           editCourseSlug={editCourseSlug}
+          initialCategory={"cuisine"}
         />
       )}
 
@@ -148,6 +149,7 @@ const AdminCourses = () => {
           courseTopic="Art & Craft"
           isEditing={isEditing}
           editCourseSlug={editCourseSlug}
+          initialCategory={"arts"}
         />
       )}
 
@@ -162,6 +164,7 @@ const AdminCourses = () => {
           courseTopic="Sports"
           isEditing={isEditing}
           editCourseSlug={editCourseSlug}
+          initialCategory={"sports"}
         />
       )}
     </section>

@@ -194,8 +194,6 @@ const SingleCourse = () => {
                   </h1>
                   <ReactPlayer
                     url={currentVideo}
-                    width="100%"
-                    height="100%"
                     className="max-w-full max-h-full m-auto"
                     playing={!!currentVideo}
                     controls
