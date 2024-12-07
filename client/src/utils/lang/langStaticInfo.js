@@ -1324,6 +1324,17 @@ Modern Adaptations: Designers have reimagined the lehenga-choli with fusion styl
           },
 
           {
+            jobTitle: "Become a Part of Our Selling Team",
+            jobDescription:
+              "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio ipsam consequuntur tempore nulla qui deleniti fugit quos, maxime nostrum et facere repudiandae porro exercitationem voluptate! Distinctio mollitia eos facere consequatur?",
+            jobLocation: "Work From Home",
+            jobSalary: "₹2k/Art",
+            jobType: "Part-Time",
+            jobLink: "/",
+            jobImg: digiArtImg,
+          },
+
+          {
             jobTitle: "Become a Part of Our Creative Writing Team",
             jobDescription:
               "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio ipsam consequuntur tempore nulla qui deleniti fugit quos, maxime nostrum et facere repudiandae porro exercitationem voluptate! Distinctio mollitia eos facere consequatur?",
@@ -1505,16 +1516,20 @@ Modern Adaptations: Designers have reimagined the lehenga-choli with fusion styl
         contestHeading: "The Competition is LIVE!",
         diffContests: [
           {
-            contestTitle: "How Well Do You Know India? A Cultural Quiz Journey",
-            contestLink: "/live-contest/quiz",
-            contestImg: adminImg,
-          },
-
-          {
             contestTitle:
               "Indian Heritage and Cultural Content Writing Challenge: Your Words, Your World",
             contestLink: "/live-contest/blog",
             contestImg: blogWriterImg,
+            contestDate: "07-03-2025",
+            contestTime: "14:00",
+          },
+
+          {
+            contestTitle: "How Well Do You Know India? A Cultural Quiz Journey",
+            contestLink: "/live-contest/quiz",
+            contestImg: adminImg,
+            contestDate: "07-03-2025",
+            contestTime: "10:00",
           },
 
           {
@@ -1522,12 +1537,16 @@ Modern Adaptations: Designers have reimagined the lehenga-choli with fusion styl
               "Showcase India's Rich Heritage Through Your Lens: A Vlog Competition",
             contestLink: "/live-contest/vlog",
             contestImg: vlogCreatorImg,
+            contestDate: "07-03-2025",
+            contestTime: "17:00",
           },
 
           {
             contestTitle: "Paint the Canvas of India: Digital Art Competition",
             contestLink: "/live-contest/digital art",
             contestImg: digiArtImg,
+            contestDate: "07-03-2025",
+            contestTime: "20:00",
           },
         ],
       },

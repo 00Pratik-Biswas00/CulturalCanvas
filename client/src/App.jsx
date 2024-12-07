@@ -115,20 +115,17 @@ const AdminLayout = ({ children }) => {
       <div
         className={`flex-1 overflow-y-auto transition-all duration-700 ${
           open ? "lg:ml-[200px]" : "ml-0"
-        }`}
-      >
+        }`}>
         <div
           className={`lg:hidden fixed z-50 bottom-0 transition-all duration-700 ${
             open ? "left-[12.5rem] px-2 py-1" : "left-0 p-1"
-          }`}
-        >
+          }`}>
           {" "}
           <h1
             className="text-2xl bg-gray-50 p-2 rounded-xl font-semibold cursor-pointer transition-transform duration-700"
             onClick={() => {
               setOpen(!open);
-            }}
-          >
+            }}>
             {open ? <RiMenuUnfold2Line /> : <RiMenuFold2Line />}
           </h1>
         </div>
