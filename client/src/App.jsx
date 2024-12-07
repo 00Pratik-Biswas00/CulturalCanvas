@@ -352,7 +352,11 @@ function App() {
                 path="/blogs-vlogs/upload-blog-vlog"
                 element={<UploadBlogVlog />}
               />
-
+              <Route
+                path="/blogs-vlogs/edit-blog-vlog/:id"
+                element={<UploadBlogVlog />}
+              />
+              
               {/*  ---------------- Live Contest  ---------------- */}
               <Route path="/live-contest" element={<LiveContest />} />
               <Route path="/live-contest/quiz" element={<QuizContest />} />

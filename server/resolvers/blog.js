@@ -126,6 +126,35 @@ const blogResolvers = {
         throw new Error("Error deleting blog: " + err.message);
       }
     },
+    updateBlog: async (_, { id, input }, { userId }) => {
+      try {
+        if (!userId) {
+          throw new AuthenticationError(
+            "You must be logged in to update a blog."
+          );
+        }
+
+        const blog = await Blog.findById(id);
+        if (!blog) {
+          throw new Error("Blog not found.");
+        }
+
+        if (blog.author.toString() !== userId) {
+          throw new ForbiddenError("You can only update your own blogs.");
+        }
+
+        const { content, originLocation } = input;
+        if (content) {
+          blog.content = content;
+        }
+        if (originLocation) blog.originLocation = originLocation;
+
+        await blog.save();
+        return true;
+      } catch (err) {
+        throw new Error("Error updating blog: " + err.message);
+      }
+    },
     postComment: async (_, { input }, { userId }) => {
       const { blogId, content } = input;
 

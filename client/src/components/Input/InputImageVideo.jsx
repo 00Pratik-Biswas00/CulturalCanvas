@@ -5,6 +5,7 @@ const InputImageVideo = ({
   imageName,
   fileType,
   onChange,
+  disabled = false,
   preview = {},
   required = false,
 }) => {
@@ -24,6 +25,7 @@ const InputImageVideo = ({
         type="file"
         accept={`"${fileType}/*"`}
         id={fileType}
+        disabled={disabled}
         name={fileType}
         required={required}
         ref={fileInputRef}

@@ -6,22 +6,44 @@ import InputImageVideo from "../../components/Input/InputImageVideo";
 import Editor from "../../components/Editor/Editor";
 import MyButton4 from "../../components/Buttons/MyButton4";
 import api from "../../config/axios";
-import { CREATE_BLOG } from "../../graphql/blog";
-import { useMutation } from "@apollo/client";
+import { CREATE_BLOG, GET_BLOG, UPDATE_BLOG } from "../../graphql/blog";
+import { useMutation, useQuery } from "@apollo/client";
 import { toast } from "sonner";
+import { useNavigate, useParams } from "react-router-dom";
 
 const UploadBlogVlog = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const isEditMode = !!id;
   const [formData, setFormData] = useState({
     contentName: "",
     originState: "",
     originCity: "",
     gMapLocation: "",
     contentType: "Blog",
+    contentCategory: "",
     blogPoster: null,
     blogVideo: null,
     blogContent: "",
   });
-
+  const { data: fetchedBlog, loading: fetchingBlog } = useQuery(GET_BLOG, {
+    variables: { id },
+    skip: !isEditMode,
+    onCompleted: (data) => {
+      if (data?.getBlog) {
+        setFormData({
+          contentName: data.getBlog.title,
+          originState: data.getBlog.state,
+          originCity: data.getBlog.city,
+          gMapLocation: "",
+          contentType: data.getBlog.contentType,
+          blogPoster: data.getBlog.image,
+          blogVideo: data.getBlog.video,
+          blogContent: "",
+        });
+      }
+    },
+  });
   const handleInputChange = (name, value) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -66,26 +88,48 @@ const UploadBlogVlog = () => {
       toast.error("Failed to create the blog.");
     },
   });
+  const [updateBlog] = useMutation(UPDATE_BLOG, {
+    onCompleted: () => {
+      toast.success("Blog Updated Successfully!");
+      // navigate(`/blogs-vlogs/${id}`);
+    },
+    onError: (error) => {
+      console.error("Error updating blog:", error);
+      toast.error("Failed to update the blog.");
+    },
+  });
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await createBlog({
-        variables: {
-          input: {
-            title: formData.contentName,
-            content: formData.blogContent,
-            image: formData.blogPoster,
-            video: formData.blogVideo ? formData.blogVideo : null,
-            state: formData.originState,
-            city: formData.originCity,
-            originLocation: formData.gMapLocation,
-            contentType: formData.contentType,
+      if (isEditMode) {
+        await updateBlog({
+          variables: {
+            id,
+            input: {
+              content: formData.blogContent,
+              originLocation: formData.gMapLocation,
+            },
           },
-        },
-      });
+        });
+      } else {
+        await createBlog({
+          variables: {
+            input: {
+              title: formData.contentName,
+              content: formData.blogContent,
+              image: formData.blogPoster,
+              video: formData.blogVideo || null,
+              state: formData.originState,
+              city: formData.originCity,
+              originLocation: formData.gMapLocation,
+              contentType: formData.contentType,
+            },
+          },
+        });
+      }
     } catch (err) {
       console.error("Error submitting blog:", err);
-      toast.error("Failed to create the blog.");
+      toast.error("Failed to submit the blog.");
     }
   };
 
@@ -98,33 +142,40 @@ const UploadBlogVlog = () => {
     >
       <div className="flex flex-col p-5 w-[90%]   rounded-xl  shadow-custom-black  dark:shadow-custom-white   blogCards">
         <div className="flex items-center tracking-wide justify-center pb-4 text-[3rem] font-extrabold font-gallient">
-          Upload Your Blog📝 / Vlog🎬
+          {isEditMode ? "Edit Your Blog" : "Upload Your Blog 📝 / Vlog 🎬"}{" "}
         </div>
 
         <InputComponent
           iType={"text"}
           iName={"Name of Your Content"}
+          value={formData.contentName}
           required={true}
           onChange={(e) => handleInputChange("contentName", e.target.value)}
+          disabled={isEditMode}
         />
 
         <div className="flex  gap-24">
           <InputComponent
             iType={"text"}
             iName={"Heritage's / Culture's Origin State"}
+            value={formData.originState}
             required={true}
             onChange={(e) => handleInputChange("originState", e.target.value)}
+            disabled={isEditMode}
           />
           <InputComponent
             iType={"text"}
             iName={"Heritage's / Culture's Origin City"}
+            value={formData.originCity}
             onChange={(e) => handleInputChange("originCity", e.target.value)}
+            disabled={isEditMode}
           />
         </div>
 
         <InputComponent
           iType={"text"}
           iName={"Heritage's / Culture's Origin GMap Location"}
+          value={formData.gMapLocation}
           required={true}
           onChange={(e) => handleInputChange("gMapLocation", e.target.value)}
         />
@@ -147,6 +198,27 @@ const UploadBlogVlog = () => {
             </button>
           </div>
         </div>
+        <div className="w-full flex items-center  my-3 gap-5">
+          <div className="font-bold font-pangaia text-xl">
+            Choose Your Content Type:
+          </div>
+          <div className="flex  justify-center gap-5 items-center my-3 font-playfair">
+            <button
+              className={`hollowBorder blogCards font-searchBars  text-lg px-6 py-1 rounded bg-transparent text-primary_text dark:text-dark_primary_text `}
+              onClick={() => handleInputChange("contentCategory", "Heritage")}
+              disabled={isEditMode}
+            >
+              Heritage
+            </button>
+            <button
+              className={`hollowBorder blogCards font-searchBars  text-lg px-6 py-1 rounded bg-transparent text-primary_text dark:text-dark_primary_text`}
+              onClick={() => handleInputChange("contentCategory", "Culture")}
+              disabled={isEditMode}
+            >
+              Culture
+            </button>
+          </div>
+        </div>
 
         <div className="flex justify-between ">
           <InputImageVideo
@@ -154,11 +226,13 @@ const UploadBlogVlog = () => {
             fileType={"image"}
             imageName={"Upload Your Blog's Poster:"}
             onChange={(e) => handleImageUpload(e.currentTarget.files[0])}
+            disabled={isEditMode}
           />
           <InputImageVideo
             fileType={"video"}
             imageName={"Upload Your Blog's Video:"}
             onChange={(e) => handleVideoUpload(e.currentTarget.files[0])}
+            disabled={isEditMode}
           />
         </div>
 
@@ -186,9 +260,9 @@ const UploadBlogVlog = () => {
           />
           <MyButton4
             classDesign={
-              "bg-highlight before:bg-highlight_dark  text-dark_primary_text py-1 mt-4"
+              "bg-highlight before:bg-highlight_dark text-dark_primary_text py-1 mt-4"
             }
-            buttonName={"Submit"}
+            buttonName={isEditMode ? "Update" : "Submit"}
             onClick={handleSubmit}
           />
         </div>

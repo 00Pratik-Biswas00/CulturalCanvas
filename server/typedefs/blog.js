@@ -90,6 +90,15 @@ const blogTypeDefs = gql`
   extend type Mutation {
     likeBlog(id: ID!): Int
   }
+
+  input UpdateBlogInput {
+    content: String
+    originLocation: String
+  }
+
+  extend type Mutation {
+    updateBlog(id: ID!, input: UpdateBlogInput): Boolean!
+  }
 `;
 
 export default blogTypeDefs;
