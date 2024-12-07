@@ -7,7 +7,10 @@ import tensorflow as tf
 from PIL import Image
 import os
 import json
-from googletrans import Translator
+# from googletrans import Translator
+from deep_translator import GoogleTranslator
+from indic_transliteration import sanscript
+from indic_transliteration.sanscript import transliterate
 
 # Define function for skew correction
 # def correct_skew(image, delta=1, limit=5):
@@ -134,10 +137,9 @@ def recognize_characters(image_folder):
 
 # Function to translate text to English
 def translate_to_english(text):
-    translator = Translator()
     try:
-        translated = translator.translate(text, src='auto', dest='en')  # Detect source language and translate to English
-        return translated.text
+        translated_text = GoogleTranslator(source='auto', target='en').translate(text)
+        return translated_text
     except Exception as e:
         return f"Translation Error: {str(e)}"
 
@@ -191,7 +193,8 @@ def main():
             st.text("Recognized Text: "+recognized_text)
 
             st.subheader("4. Translation to English")
-            translated_text = translate_to_english(recognized_text)
+            transliterated_text = transliterate(recognized_text, sanscript.TAMIL, sanscript.ITRANS)
+            translated_text = translate_to_english(transliterated_text)
             st.text("Translated Text: " + translated_text)
 
 # Run the Streamlit application

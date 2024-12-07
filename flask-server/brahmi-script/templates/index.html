@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ancient Inscription Translator</title>
+</head>
+<body>
+    <h1>Upload Ancient Inscription Image</h1>
+    <form action="/translate" method="post" enctype="multipart/form-data">
+        <label for="file">Choose File:</label>
+        <input type="file" name="file" id="file" required>
+        <label for="language">Target Language (e.g., en, hi, fr):</label>
+        <input type="text" name="language" id="language" value="en">
+        <button type="submit">Translate</button>
+    </form>
+</body>
+</html>
