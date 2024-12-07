@@ -3,12 +3,25 @@ import numpy as np
 import pandas as pd
 import joblib
 
-# Load the trained model and label encoders
-model = joblib.load('budget_prediction_new.pkl')
-label_encoder_source = joblib.load('label_encoder_source.pkl')
-label_encoder_destination = joblib.load('label_encoder_destination.pkl')
+import os
+import joblib
 
-df = pd.read_csv("heritage_budget.csv")
+# Get the directory of the current script
+script_dir = os.path.dirname(__file__)
+
+# Path to the model and label encoders
+model_path = os.path.join(script_dir, 'budget_prediction_new.pkl')
+label_encoder_source_path = os.path.join(script_dir, 'label_encoder_source.pkl')
+label_encoder_destination_path = os.path.join(script_dir, 'label_encoder_destination.pkl')
+
+# Load the model and label encoders
+model = joblib.load(model_path)
+label_encoder_source = joblib.load(label_encoder_source_path)
+label_encoder_destination = joblib.load(label_encoder_destination_path)
+
+csv_path = os.path.join(os.path.dirname(__file__), '../../data/heritage_budget.csv')
+
+df = pd.read_csv(csv_path)
 
 def handle_unseen_label(label, label_encoder):
     if label not in label_encoder.classes_:

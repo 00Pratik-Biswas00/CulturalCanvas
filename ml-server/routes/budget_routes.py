@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from budget_prediction.budget_predictor import predict_budget
+from ml.budget_prediction.budget_predictor import predict_budget
 
 # Create a Blueprint for budget routes
 budget_bp = Blueprint('budget_routes', __name__)

@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from nearest_attraction import get_coordinates, find_nearest_places
+from ml.nearest_attraction.nearest_attractions import get_coordinates, find_nearest_places
 
 # Create a Blueprint for attraction routes
 attractions_bp = Blueprint('attractions_routes', __name__)
