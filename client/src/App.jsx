@@ -67,6 +67,10 @@ import PredictBudget from "./pages/ExploreDiversity/PredictAmount";
 import ClothingCulture from "./pages/SinglePageCulture/ClothingCulture";
 import Career from "./pages/Career/Career";
 import LiveContest from "./pages/Contest/LiveContest";
+
+import AdminHeritageContents from "./admin-pages/AdminHeritageContent";
+import AdminSingleBlogHeritage from "./admin-pages/AdminHeritageContent/AdminSingleBlogHeritage";
+
 import CareerAdminForm from "./pages/Career/CareerAdminForm";
 import CareerTeacherForm from "./pages/Career/CareerTeacherForm";
 import BengaliCuisine from "./pages/IndividualCoursesPage/BengaliCuisine";
@@ -187,10 +191,19 @@ function App() {
               />
               <Route
                 exact
+                path="/threshold-contents-acdprsIndia24"
+                element={<AdminHeritageContents />}
+              />
+              <Route
+                exact
                 path="/blogs-vlogs/verify/:id"
                 element={<AdminSingleBlogVerification />}
               />
-
+              <Route
+                exact
+                path="/blogs-vlogs/heritage/:id"
+                element={<AdminSingleBlogHeritage />}
+              />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </AdminLayout>

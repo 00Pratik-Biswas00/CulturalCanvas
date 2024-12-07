@@ -26,7 +26,7 @@ const blogTypeDefs = gql`
     city: String!
     originLocation: String!
     contentType: String!
-    tags: [String]
+    likes: [ID]
     createdAt: String!
     updatedAt: String!
   }
@@ -59,12 +59,36 @@ const blogTypeDefs = gql`
     getBlogs: [Blog!]!
     getBlog(id: ID!): Blog
     getUnverifiedBlogs: [Blog!]!
+    getTHCrossedBlogs: [Blog!]!
   }
 
   type Mutation {
     createBlog(input: BlogInput!): Boolean!
     verifyBlog(id: ID!): Boolean!
     deleteBlog(id: ID!): Boolean!
+  }
+
+  type Comment {
+    author: User
+    content: String
+    createdAt: String
+  }
+
+  extend type Blog {
+    comments: [Comment]
+  }
+
+  input CommentInput {
+    blogId: ID!
+    content: String!
+  }
+
+  extend type Mutation {
+    postComment(input: CommentInput!): Comment
+  }
+
+  extend type Mutation {
+    likeBlog(id: ID!): Int
   }
 `;
 

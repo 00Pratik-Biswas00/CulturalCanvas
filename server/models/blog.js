@@ -2,30 +2,34 @@ import mongoose from "mongoose";
 
 const { Schema } = mongoose;
 
-const blogSchema = new Schema(
+const commentSchema = new Schema(
   {
-    title: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-    content: {
-      type: String,
-      required: true,
-    },
     author: {
       type: Schema.Types.ObjectId,
       ref: "User",
       required: true,
     },
-    verified: {
-      type: Boolean,
-      default: false,
+    content: {
+      type: String,
+      required: true,
+      trim: true,
     },
-    image: {
-      url: String,
-      public_id: String,
+    createdAt: {
+      type: Date,
+      default: Date.now,
     },
+  },
+  { _id: false },
+  { timestamps: true }
+);
+
+const blogSchema = new Schema(
+  {
+    title: { type: String, required: true, trim: true },
+    content: { type: String, required: true },
+    author: { type: Schema.Types.ObjectId, ref: "User", required: true },
+    verified: { type: Boolean, default: false },
+    image: { url: String, public_id: String },
     video: {
       ETag: String,
       ServerSideEncryption: String,
@@ -33,31 +37,19 @@ const blogSchema = new Schema(
       Key: String,
       Bucket: String,
     },
-    state: {
+    contentCategory: {
       type: String,
+      enum: ["Culture", "Heritage"],
       required: true,
     },
-    city: {
-      type: String,
-      required: true,
-    },
-    originLocation: {
-      type: String,
-      required: true,
-    },
-    contentType: {
-      type: String,
-      enum: ["Blog", "Vlog"],
-      required: true,
-    },
-    createdAt: {
-      type: Date,
-      default: Date.now,
-    },
-    updatedAt: {
-      type: Date,
-      default: Date.now,
-    },
+    likes: [{ type: Schema.Types.ObjectId, ref: "User" }],
+    state: { type: String, required: true },
+    city: { type: String, required: true },
+    originLocation: { type: String, required: true },
+    contentType: { type: String, enum: ["Blog", "Vlog"], required: true },
+    comments: [commentSchema],
+    createdAt: { type: Date, default: Date.now },
+    updatedAt: { type: Date, default: Date.now },
   },
   { timestamps: true }
 );

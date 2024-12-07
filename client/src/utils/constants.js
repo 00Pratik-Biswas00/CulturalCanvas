@@ -517,3 +517,24 @@ export const adminNavData = [
     path: "/contents-acdprsIndia24",
   },
 ];
+
+export const Comments = [
+  {
+    id: "1",
+    user: {
+      name: "John Doe",
+      image: "https://randomuser.me/api/portraits/men/1.jpg",
+    },
+    content: "Great post! I really enjoyed reading it.",
+    createdAt: "2023-05-01T12:00:00Z",
+  },
+  {
+    id: "2",
+    user: {
+      name: "Jane Smith",
+      image: "https://randomuser.me/api/portraits/women/1.jpg",
+    },
+    content: "Thanks for sharing this information. It was very helpful.",
+    createdAt: "2023-05-02T14:30:00Z",
+  },
+];

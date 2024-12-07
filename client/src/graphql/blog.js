@@ -12,6 +12,7 @@ export const GET_BLOGS = gql`
       id
       title
       content
+      verified
       author {
         id
         name
@@ -31,6 +32,7 @@ export const GET_BLOGS = gql`
 export const GET_BLOG = gql`
   query GetBlog($id: ID!) {
     getBlog(id: $id) {
+      id
       title
       content
       author {
@@ -47,6 +49,17 @@ export const GET_BLOG = gql`
       }
       state
       city
+      likes
+      comments {
+        content
+        author {
+          name
+          photo {
+            url
+          }
+        }
+        createdAt
+      }
       originLocation
       createdAt
     }
@@ -58,6 +71,7 @@ export const GET_UNVERIFIED_BLOGS = gql`
     getUnverifiedBlogs {
       id
       title
+      verified
       content
       author {
         id
@@ -68,9 +82,31 @@ export const GET_UNVERIFIED_BLOGS = gql`
       }
       image {
         url
-        public_id
       }
       contentType
+    }
+  }
+`;
+
+export const GET_HERITAGE_BLOGS = gql`
+  query GetHeritageBlogs {
+    getTHCrossedBlogs {
+      id
+      title
+      content
+      verified
+      author {
+        id
+        name
+        photo {
+          url
+        }
+      }
+      image {
+        url
+      }
+      contentType
+      likes
     }
   }
 `;
@@ -84,5 +120,26 @@ export const DELETE_BLOG = gql`
 export const VERIFY_BLOG = gql`
   mutation verifyBlog($id: ID!) {
     verifyBlog(id: $id)
+  }
+`;
+
+export const POST_COMMENT = gql`
+  mutation PostComment($input: CommentInput!) {
+    postComment(input: $input) {
+      content
+      author {
+        name
+        photo {
+          url
+        }
+      }
+      createdAt
+    }
+  }
+`;
+
+export const LIKE_BLOG = gql`
+  mutation LikeBlog($id: ID!) {
+    likeBlog(id: $id)
   }
 `;
