@@ -511,13 +511,13 @@ export const adminNavData = [
   },
 
   {
-    name: "Check Local Heritage Contents ",
-    path: "/contents/find-local-heritage-acdprsIndia24",
+    name: "Check Local Heritage Contents",
+    path: "/blogs-vlogs/heritage/:id",
   },
 
   {
     name: "Teacher Applications",
-    path: "/teacher/applications",
+    path: "/teacher-applications",
   },
 ];
 

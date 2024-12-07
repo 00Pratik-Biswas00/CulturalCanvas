@@ -154,6 +154,18 @@ const CareerAdminForm = () => {
           />
         </div>
 
+        <div className="mb-4">
+          <label className="text-xl font-bold font-pangaia">Gender</label>
+          <div className="flex items-center gap-4 mt-2">
+            {["Male", "Female", "Non-Binary", "Others"].map((skill) => (
+              <label key={skill} className="flex items-center">
+                <input type="radio" value={skill} />
+                <span className="ml-2">{skill}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+
         <div className="w-full">
           <label className="text-xl font-bold font-pangaia ">
             Date of Birth
@@ -213,8 +225,8 @@ const CareerAdminForm = () => {
         />
 
         <InputImageVideo
-          imageName={`Upload Resume/CV with photo:`}
-          fileType="file"
+          imageName={`Upload Resume/CV with photo (jpg, jpeg, png):`}
+          fileType="image"
         />
         {/* Submit */}
 
