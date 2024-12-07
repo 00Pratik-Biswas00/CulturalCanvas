@@ -120,7 +120,7 @@ const AdminAdmins = () => {
         </div>
       </div>
 
-      {user?.role === "admin" && <AdminApplications />}
+      {user?.role === "owner" && <AdminApplications />}
 
       {isAdminSignUpModalOpen && (
         <AdminSignUpModal

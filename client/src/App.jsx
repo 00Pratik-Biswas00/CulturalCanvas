@@ -78,6 +78,10 @@ import QuizContest from "./pages/Contest/QuizContest";
 import StoryTelling from "./pages/ExploreDiversity/StoryTelling";
 import AncientScriptTranscription from "./pages/ExploreDiversity/AncientScriptTranscription";
 import RAGSummary from "./pages/ExploreDiversity/RAGSummary";
+import AdminApplications from "./admin-pages/AdminAdmins/AdminApplications";
+import SingleAdminApplication from "./admin-pages/AdminAdmins/SingleAdminApplication";
+import TeacherApplications from "./admin-pages/Applications/Teacher/TeacherApplications";
+import SingleTeacherApplication from "./admin-pages/Applications/Teacher/SingleTeacherApplication";
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -115,17 +119,20 @@ const AdminLayout = ({ children }) => {
       <div
         className={`flex-1 overflow-y-auto transition-all duration-700 ${
           open ? "lg:ml-[200px]" : "ml-0"
-        }`}>
+        }`}
+      >
         <div
           className={`lg:hidden fixed z-50 bottom-0 transition-all duration-700 ${
             open ? "left-[12.5rem] px-2 py-1" : "left-0 p-1"
-          }`}>
+          }`}
+        >
           {" "}
           <h1
             className="text-2xl bg-gray-50 p-2 rounded-xl font-semibold cursor-pointer transition-transform duration-700"
             onClick={() => {
               setOpen(!open);
-            }}>
+            }}
+          >
             {open ? <RiMenuUnfold2Line /> : <RiMenuFold2Line />}
           </h1>
         </div>
@@ -158,6 +165,13 @@ function App() {
                 path="/admins-acdprsIndia24"
                 element={<AdminAdmins />}
               />
+
+              <Route
+                exact
+                path="/admins-acdprsIndia24/full-admin-application"
+                element={<SingleAdminApplication />}
+              />
+
               <Route
                 exact
                 path="/sellers-acdprsIndia24"
@@ -201,6 +215,19 @@ function App() {
                 path="/blogs-vlogs/heritage/:id"
                 element={<AdminSingleBlogHeritage />}
               />
+
+              <Route
+                exact
+                path="/teacher-applications"
+                element={<TeacherApplications />}
+              />
+
+              <Route
+                exact
+                path="/teacher-applications/full-teacher-application"
+                element={<SingleTeacherApplication />}
+              />
+
               <Route path="*" element={<NotFound />} />
             </Routes>
           </AdminLayout>
@@ -356,7 +383,7 @@ function App() {
                 path="/blogs-vlogs/edit-blog-vlog/:id"
                 element={<UploadBlogVlog />}
               />
-              
+
               {/*  ---------------- Live Contest  ---------------- */}
               <Route path="/live-contest" element={<LiveContest />} />
               <Route path="/live-contest/quiz" element={<QuizContest />} />

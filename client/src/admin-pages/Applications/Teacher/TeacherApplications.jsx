@@ -1,14 +1,14 @@
 import React from "react";
-import DeleteUserButton from "../../components/UserDeleteButton";
+import DeleteUserButton from "../../../components/UserDeleteButton";
 import { useNavigate } from "react-router-dom";
 
-const AdminApplications = () => {
+const TeacherApplications = () => {
   const navigate = useNavigate();
   return (
-    <section className="flex flex-col py-14">
+    <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-3 sm:py-6 px-4 duration-300 min-h-screen">
       <div className=" flex flex-col gap-10">
-        <h1 className="text-5xl text-center   tracking-widest font-montserrat">
-          Admin Applications
+        <h1 className="text-5xl    tracking-widest font-montserrat">
+          Teacher Applications
         </h1>
 
         <div className="grid grid-cols-4 gap-3">
@@ -29,7 +29,7 @@ const AdminApplications = () => {
             <div className="flex flex-col  ">
               <button
                 onClick={() => {
-                  navigate(`/admins-acdprsIndia24/full-admin-application`);
+                  navigate(`/teacher-applications/full-teacher-application`);
                 }}
                 className=" p-1 bg-blue-400 hover:bg-blue-800 font-bold rounded-lg"
               >
@@ -46,4 +46,4 @@ const AdminApplications = () => {
   );
 };
 
-export default AdminApplications;
+export default TeacherApplications;
