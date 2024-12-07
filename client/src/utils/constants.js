@@ -490,10 +490,7 @@ export const adminNavData = [
     name: "Manage Users",
     path: "/users-acdprsIndia24",
   },
-  // {
-  //   name: "Manage States",
-  //   path: "/states-acdprsIndia24",
-  // },
+
   {
     name: "Manage Courses",
     path: "/courses-acdprsIndia24",
@@ -502,10 +499,6 @@ export const adminNavData = [
     name: "Manage Heritage",
     path: "/heritage-acdprsIndia24",
   },
-  // {
-  //   name: "Manage Culture",
-  //   path: "/culture-acdprsIndia24",
-  // },
 
   {
     name: "Manage Market ",
@@ -515,6 +508,16 @@ export const adminNavData = [
   {
     name: "Manage Contents ",
     path: "/contents-acdprsIndia24",
+  },
+
+  {
+    name: "Check Local Heritage Contents ",
+    path: "/contents/find-local-heritage-acdprsIndia24",
+  },
+
+  {
+    name: "Teacher Applications",
+    path: "/teacher/applications",
   },
 ];
 

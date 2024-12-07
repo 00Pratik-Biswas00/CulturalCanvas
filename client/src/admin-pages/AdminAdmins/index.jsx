@@ -9,6 +9,7 @@ import MalePng from "./../../assets/logo/male.png";
 import FemalePng from "./../../assets/logo/female.png";
 import DeleteUserButton from "../../components/UserDeleteButton";
 import AdminSignUpModal from "../../admin-components/AdminModals/AdminSignUpModal/AdminSignUpModal";
+import AdminApplications from "./AdminApplications";
 
 const AdminAdmins = () => {
   const user = useSelector((state) => state?.user?.userInfo);
@@ -47,7 +48,7 @@ const AdminAdmins = () => {
 
   return (
     <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-3 sm:py-6 px-4 duration-300 min-h-screen">
-      <div className="flex flex-col  gap-5 sm:gap-10">
+      <div className="flex flex-col  gap-5 sm:gap-10 ">
         <div className="flex flex-col  gap-5 ">
           <div className="flex flex-col sm:flex-row justify-between items-center sm:items-center gap-y-3 ">
             <h1 className="text-4xl font-semibold text-center   tracking-tighter font-playfair">
@@ -118,6 +119,8 @@ const AdminAdmins = () => {
             ))}
         </div>
       </div>
+
+      {user?.role === "admin" && <AdminApplications />}
 
       {isAdminSignUpModalOpen && (
         <AdminSignUpModal
