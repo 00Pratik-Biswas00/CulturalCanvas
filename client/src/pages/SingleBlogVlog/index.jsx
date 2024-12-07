@@ -19,7 +19,7 @@ const SingleBlogVlog = () => {
   const [isLiked, setIsLiked] = useState(false);
   const [showHeartAnimation, setShowHeartAnimation] = useState(false);
   const [doubleClickTimer, setDoubleClickTimer] = useState(null);
-
+  const navigate = useNavigate();
   const [likeBlog] = useMutation(LIKE_BLOG, {
     variables: { id },
     update(cache, { data: { likeBlog } }) {
@@ -120,9 +120,10 @@ const SingleBlogVlog = () => {
           </p>
         </div>
 
-        {user?.role === "user" && (
+        {user?.role === "user" && blog?.author?.id === user?._id && (
           <MyButton4
             buttonName={"Edit Post"}
+            onClick={() => navigate(`/blogs-vlogs/edit-blog-vlog/${blog?.id}`)}
             buttonIcon={<CiEdit className="w-6 h-6" />}
             classDesign={
               "before:bg-highlight_hover_dark bg-highlight_hover text-dark_primary_text z-10"

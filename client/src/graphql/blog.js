@@ -36,6 +36,7 @@ export const GET_BLOG = gql`
       title
       content
       author {
+        id
         name
         photo {
           url
@@ -141,5 +142,11 @@ export const POST_COMMENT = gql`
 export const LIKE_BLOG = gql`
   mutation LikeBlog($id: ID!) {
     likeBlog(id: $id)
+  }
+`;
+
+export const UPDATE_BLOG = gql`
+  mutation UpdateBlog($id: ID!, $input: UpdateBlogInput!) {
+    updateBlog(id: $id, input: $input)
   }
 `;
