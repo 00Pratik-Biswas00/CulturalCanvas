@@ -517,7 +517,7 @@ export const adminNavData = [
 
   {
     name: "Check Local Heritage Contents",
-    path: "/blogs-vlogs/heritage/:id",
+    path: "/threshold-contents-acdprsIndia24",
   },
 
   {

@@ -2,29 +2,25 @@ import React from "react";
 import { FaTimes } from "react-icons/fa";
 import InputComponent from "../../../components/Input/InputComponent";
 
-const AddContests = () => {
+const AddWinners = () => {
   return (
     <div className="fixed inset-0 bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text bg-opacity-50 dark:bg-opacity-70 flex items-center justify-end pr-14 overflow-auto">
       <div className="bg-background2 dark:bg-shadow sm:w-[81%] max-h-[90vh] overflow-y-auto my-5 px-4 py-2 rounded-lg relative">
         <FaTimes className="absolute top-2 right-3 text-red-600 hover:text-red-800 text-xl cursor-pointer" />
 
         <InputComponent
-          iName={`Blog Contest Topic`}
+          iName={`Winners Name`}
           iType="text"
           // value={formData.name}
           // onChange={(e) => handleInputChange(e)}
           name="bName"
         />
         <InputComponent
-          iName={`Blog Contest Date (DD-MM-YYYY)`}
+          iName={`Winners Social Media Link`}
           iType="text"
-          name="bDate"
+          name="bLink"
         />
-        <InputComponent
-          iName={`Blog Contest Time (00:00)`}
-          iType="text"
-          name="bTime"
-        />
+        <InputComponent iName={`Winners Rank`} iType="text" name="bRank" />
         <InputComponent
           iName={`Blog Contest Current Week `}
           iType="text"
@@ -41,4 +37,4 @@ const AddContests = () => {
   );
 };
 
-export default AddContests;
+export default AddWinners;
