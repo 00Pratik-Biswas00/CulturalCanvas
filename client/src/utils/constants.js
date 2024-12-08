@@ -501,13 +501,18 @@ export const adminNavData = [
   },
 
   {
+    name: "Manage Contents ",
+    path: "/contents-acdprsIndia24",
+  },
+
+  {
     name: "Manage Market ",
     path: "/market-place-acdprsIndia24",
   },
 
   {
-    name: "Manage Contents ",
-    path: "/contents-acdprsIndia24",
+    name: "Manage Contests ",
+    path: "/contests-acdprsIndia24",
   },
 
   {

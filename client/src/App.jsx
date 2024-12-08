@@ -18,7 +18,6 @@ import Home from "./pages/Home";
 import Heritage from "./pages/Heritage";
 import CultureTradition from "./pages/CultureTradition";
 import ExploreDiversity from "./pages/ExploreDiversity";
-import BlogsVlogs from "./pages/BlogsVlogs";
 import VirtualStore from "./pages/VirtualStore";
 import SingleHeritage from "./pages/SingleHeritage";
 import SingleCourse from "./pages/SingleCourse";
@@ -49,6 +48,17 @@ import AndhraPradeshState from "./pages/SingleStateCulture/AndhraPradeshState";
 import SingleBlogVlog from "./pages/SingleBlogVlog";
 import UploadBlogVlog from "./pages/UploadBlogVlog/UploadBlogVlog";
 import NearestAttractions from "./pages/ExploreDiversity/NearestAttractions";
+import PredictBudget from "./pages/ExploreDiversity/PredictAmount";
+import ClothingCulture from "./pages/SinglePageCulture/ClothingCulture";
+import Career from "./pages/Career/Career";
+import LiveContest from "./pages/Contest/LiveContest";
+import CareerAdminForm from "./pages/Career/CareerAdminForm";
+import CareerTeacherForm from "./pages/Career/CareerTeacherForm";
+import BengaliCuisine from "./pages/IndividualCoursesPage/BengaliCuisine";
+import QuizContest from "./pages/Contest/QuizContest";
+import StoryTelling from "./pages/ExploreDiversity/StoryTelling";
+import AncientScriptTranscription from "./pages/ExploreDiversity/AncientScriptTranscription";
+import RAGSummary from "./pages/ExploreDiversity/RAGSummary";
 
 // Admin pages
 import AdminNavSidebar from "./admin-components/AdminNavbar";
@@ -61,27 +71,15 @@ import AdminHeritage from "./admin-pages/AdminHeritage";
 import AdminMarket from "./admin-pages/AdminMarket";
 import AdminContents from "./admin-pages/AdminContents";
 import AdminSingleBlogVerification from "./admin-pages/AdminContents/AdminSingleBlogVerification";
-
-// new additions
-import PredictBudget from "./pages/ExploreDiversity/PredictAmount";
-import ClothingCulture from "./pages/SinglePageCulture/ClothingCulture";
-import Career from "./pages/Career/Career";
-import LiveContest from "./pages/Contest/LiveContest";
-
-import AdminHeritageContents from "./admin-pages/AdminHeritageContent";
-import AdminSingleBlogHeritage from "./admin-pages/AdminHeritageContent/AdminSingleBlogHeritage";
-
-import CareerAdminForm from "./pages/Career/CareerAdminForm";
-import CareerTeacherForm from "./pages/Career/CareerTeacherForm";
-import BengaliCuisine from "./pages/IndividualCoursesPage/BengaliCuisine";
-import QuizContest from "./pages/Contest/QuizContest";
-import StoryTelling from "./pages/ExploreDiversity/StoryTelling";
-import AncientScriptTranscription from "./pages/ExploreDiversity/AncientScriptTranscription";
-import RAGSummary from "./pages/ExploreDiversity/RAGSummary";
 import AdminApplications from "./admin-pages/AdminAdmins/AdminApplications";
 import SingleAdminApplication from "./admin-pages/AdminAdmins/SingleAdminApplication";
 import TeacherApplications from "./admin-pages/Applications/Teacher/TeacherApplications";
 import SingleTeacherApplication from "./admin-pages/Applications/Teacher/SingleTeacherApplication";
+import ManageDifferentContests from "./admin-pages/AdminContests";
+import AdminHeritageContents from "./admin-pages/AdminHeritageContent";
+import AdminSingleBlogHeritage from "./admin-pages/AdminHeritageContent/AdminSingleBlogHeritage";
+
+// new additions
 
 const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -154,12 +152,20 @@ function App() {
           <AdminLayout>
             <ScrollToTop />
             <Routes>
+              {/*  ----------------  DASHBOARD ---------------- */}
+
               <Route exact path="/" element={<AdminDashboard />} />
+
+              {/*  ----------------  USERS ---------------- */}
+
               <Route
                 exact
                 path="/users-acdprsIndia24"
                 element={<AdminUsers />}
               />
+
+              {/*  ----------------  ADMINS ---------------- */}
+
               <Route
                 exact
                 path="/admins-acdprsIndia24"
@@ -176,22 +182,28 @@ function App() {
                 element={<SingleAdminApplication />}
               />
 
+              {/*  ----------------  SELLERS ---------------- */}
               <Route
                 exact
                 path="/sellers-acdprsIndia24"
                 element={<AdminSellers />}
               />
 
+              {/*  ----------------  COURSES ---------------- */}
               <Route
                 exact
                 path="/courses-acdprsIndia24"
                 element={<AdminCourses />}
               />
+
+              {/*  ----------------  HERITAGE ---------------- */}
               <Route
                 exact
                 path="/heritage-acdprsIndia24"
                 element={<AdminHeritage />}
               />
+
+              {/*  ----------------  MARKET ---------------- */}
 
               <Route
                 exact
@@ -199,6 +211,7 @@ function App() {
                 element={<AdminMarket />}
               />
 
+              {/*  ----------------  CONTENT ---------------- */}
               <Route
                 exact
                 path="/contents-acdprsIndia24"
@@ -220,6 +233,15 @@ function App() {
                 element={<AdminSingleBlogHeritage />}
               />
 
+              {/*  ----------------  CONTESTS ---------------- */}
+
+              <Route
+                exact
+                path="/contests-acdprsIndia24"
+                element={<ManageDifferentContests />}
+              />
+
+              {/*  ----------------   APPLICATIONS ---------------- */}
               <Route
                 exact
                 path="/teacher-applications"
