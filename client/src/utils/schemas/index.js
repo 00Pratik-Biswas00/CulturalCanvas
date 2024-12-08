@@ -89,3 +89,32 @@ export const UpdateProfileValidationSchema = Yup.object().shape({
     "Phone number must be exactly 10 digits"
   ),
 });
+
+export const adminvalidationSchema = Yup.object({
+  fullName: Yup.string().required("Full Name is required"),
+  email: Yup.string()
+    .email("Invalid email address")
+    .required("Email is required"),
+  phone: Yup.string().required("Phone number is required"),
+  gender: Yup.string().required("Gender is required"),
+  dob: Yup.date().required("Date of Birth is required"),
+  address: Yup.string().required("Address is required"),
+  education: Yup.string().required("Highest Qualification is required"),
+  workExperience: Yup.string().required("Work Experience is required"),
+  skills: Yup.array().min(1, "At least one skill must be selected"),
+  languages: Yup.string().required("Languages Known is required"),
+});
+
+export const teachervalidationSchema = Yup.object({
+  fullName: Yup.string().required("Full Name is required"),
+  email: Yup.string()
+    .email("Invalid email address")
+    .required("Email is required"),
+  phone: Yup.string().required("Phone number is required"),
+  dob: Yup.date().required("Date of Birth is required"),
+  address: Yup.string().required("Address is required"),
+  education: Yup.string().required("Highest Qualification is required"),
+  workExperience: Yup.string().required("Work Experience is required"),
+  skills: Yup.array().min(1, "At least one skill must be selected"),
+  domainOfTeaching: Yup.string().required("Domain of Teaching is required"),
+});

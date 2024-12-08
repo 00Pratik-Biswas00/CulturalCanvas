@@ -165,10 +165,14 @@ function App() {
                 path="/admins-acdprsIndia24"
                 element={<AdminAdmins />}
               />
-
               <Route
                 exact
-                path="/admins-acdprsIndia24/full-admin-application"
+                path="/admins-acdprsIndia24/admin-application"
+                element={<AdminApplications />}
+              />
+              <Route
+                exact
+                path="/admins-acdprsIndia24/full-admin-application/:id"
                 element={<SingleAdminApplication />}
               />
 
@@ -224,7 +228,7 @@ function App() {
 
               <Route
                 exact
-                path="/teacher-applications/full-teacher-application"
+                path="/teacher-applications/full-teacher-application/:id"
                 element={<SingleTeacherApplication />}
               />
 

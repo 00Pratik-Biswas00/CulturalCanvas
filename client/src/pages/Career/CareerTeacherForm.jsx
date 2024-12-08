@@ -1,16 +1,37 @@
-import React, { useState } from "react";
+import React from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 import InputComponent from "../../components/Input/InputComponent";
 import TextareaComponent from "../../components/Textarea/TextareaComponent";
 import InputImageVideo from "../../components/Input/InputImageVideo";
 import MyButton4 from "../../components/Buttons/MyButton4";
-import img1 from "../../assets/career/admins.png";
 import { useTranslation } from "react-i18next";
+import { teachervalidationSchema } from "../../utils/schemas";
+import api from "../../config/axios";
+import { CREATE_TEACHER } from "../../graphql/career";
+import { useMutation } from "@apollo/client";
+import { toast } from "sonner";
 
 const CareerTeacherForm = () => {
   const { t } = useTranslation();
   const careerInstructorContent = t("CareerData", { returnObjects: true });
+  const [imageInput, setImageInput] = React.useState(null);
+  const handleImageUpload = async (file) => {
+    const formData = new FormData();
+    formData.append("image", file);
 
-  const [formData, setFormData] = useState({
+    try {
+      const { data } = await api.post(
+        `${import.meta.env.VITE_API_KEY_RESTAPI}/upload-image`,
+        formData
+      );
+      setImageInput(data);
+    } catch (e) {
+      console.error(e);
+      toast.error("Image upload failed!");
+    }
+  };
+  const initialValues = {
     fullName: "",
     email: "",
     phone: "",
@@ -19,49 +40,32 @@ const CareerTeacherForm = () => {
     education: "",
     workExperience: "",
     skills: [],
-    availability: "",
-    languages: "",
-    technicalSkills: "",
-    adminTools: "",
-    problemSolving: "",
-    scenarioResponse: "",
-    portfolio: null,
-    socialLinks: "",
-    motivation: "",
-    references: "",
+    domainOfTeaching: "",
+  };
+  const [createTeacher] = useMutation(CREATE_TEACHER, {
+    onCompleted: () => {
+      toast.success("Application submitted successfully!");
+    },
+    onError: (error) => {
+      console.error(error);
+      toast.error("Failed to submit application.");
+    },
   });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleFileUpload = (e) => {
-    setFormData({ ...formData, portfolio: e.target.files[0] });
-  };
-
-  const handleSkillsChange = (e) => {
-    const { value, checked } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      skills: checked
-        ? [...prev.skills, value]
-        : prev.skills.filter((skill) => skill !== value),
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form Data Submitted:", formData);
-    // You can add an API call here to send the formData to your backend.
+  const handleSubmit = async (values, { setSubmitting, resetForm }) => {
+    const input = { ...values, portfolio: imageInput };
+    try {
+      await createTeacher({ variables: { input } });
+      resetForm();
+    } catch (error) {
+      console.error("Error submitting application:", error);
+      toast.error("Failed to submit application!");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
-    <section
-      className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-5 pb-14 px-16 duration-300 min-h-screen relative w-full bg-contain bg-fixed  bg-no-repeat bg-center
- 
-  "
-    >
+    <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-5 pb-14 px-16 duration-300 min-h-screen relative w-full bg-contain bg-fixed bg-no-repeat bg-center">
       <div className="px-20 py-1 flex flex-col items-start justify-start gap-5 ">
         <h1 className="text-4xl font-extrabold border-2 rounded-3xl border-black mt-14 px-3 py-2 ">
           {careerInstructorContent.careerInstructor.heading}
@@ -134,105 +138,199 @@ const CareerTeacherForm = () => {
         </div>
       </div>
 
-      <form
-        className="flex flex-col  gap-3 justify-center rounded-lg py-10  px-20  w-full"
+      <Formik
+        initialValues={initialValues}
+        validationSchema={teachervalidationSchema}
         onSubmit={handleSubmit}
       >
-        <InputComponent
-          iType={"text"}
-          iName={"Full Name"}
-          required={true}
-          // value={formData.fullName}
-        />
-
-        <div className="flex gap-5">
-          <InputComponent
-            iType={"email"}
-            iName={"Email"}
-            required={true}
-            // value={formData.email}
-          />
-
-          <InputComponent
-            iType={"tel"}
-            iName={"Phone"}
-            required={true}
-            // value={formData.phone}
-          />
-        </div>
-
-        <div className="w-full">
-          <label className="text-xl font-bold font-pangaia ">
-            Date of Birth
-          </label>
-          <InputComponent iType={"date"} required={true} />
-        </div>
-
-        <InputComponent
-          iType={"text"}
-          iName={"Highest Qualification"}
-          required={true}
-          // value={formData.education}
-        />
-
-        <div className="w-full">
-          <label className="text-xl font-bold font-pangaia ">Address</label>
-          <TextareaComponent name="address" pText={"Enter your address here"} />
-        </div>
-
-        <div className="w-full">
-          <label className="text-xl font-bold font-pangaia ">
-            Work Experience
-          </label>
-          <TextareaComponent
-            name="work-experience"
-            pText={"Enter your work experience here"}
-          />
-        </div>
-
-        <div className="mb-4">
-          <label className="text-xl font-bold font-pangaia">Skills</label>
-          <div className="flex items-center gap-4 mt-2">
-            {[
-              "Content Moderation",
-              "Team Management",
-              "Technical Troubleshooting",
-            ].map((skill) => (
-              <label key={skill} className="flex items-center">
-                <input
-                  type="checkbox"
-                  value={skill}
-                  onChange={handleSkillsChange}
+        {({ isSubmitting, setFieldValue }) => (
+          <Form className="flex flex-col gap-3 justify-center rounded-lg py-10 px-20 w-full">
+            <Field name="fullName">
+              {({ field }) => (
+                <InputComponent
+                  {...field}
+                  iType="text"
+                  iName="Full Name"
+                  required={true}
                 />
-                <span className="ml-2">{skill}</span>
+              )}
+            </Field>
+            <ErrorMessage
+              name="fullName"
+              component="div"
+              className="text-red-500"
+            />
+
+            <div className="flex gap-5">
+              <div className="flex-1">
+                <Field name="email">
+                  {({ field }) => (
+                    <InputComponent
+                      {...field}
+                      iType="email"
+                      iName="Email"
+                      required={true}
+                    />
+                  )}
+                </Field>
+                <ErrorMessage
+                  name="email"
+                  component="div"
+                  className="text-red-500"
+                />
+              </div>
+              <div className="flex-1">
+                <Field name="phone">
+                  {({ field }) => (
+                    <InputComponent
+                      {...field}
+                      iType="tel"
+                      iName="Phone"
+                      required={true}
+                    />
+                  )}
+                </Field>
+                <ErrorMessage
+                  name="phone"
+                  component="div"
+                  className="text-red-500"
+                />
+              </div>
+            </div>
+
+            <div className="w-full">
+              <label className="text-xl font-bold font-pangaia">
+                Date of Birth
               </label>
-            ))}
-          </div>
-        </div>
+              <Field name="dob">
+                {({ field }) => (
+                  <InputComponent
+                    {...field}
+                    iType="date"
+                    iName="Date of Birth"
+                    required={true}
+                  />
+                )}
+              </Field>
+              <ErrorMessage
+                name="dob"
+                component="div"
+                className="text-red-500"
+              />
+            </div>
 
-        <InputComponent
-          iType={"text"}
-          iName={"Domain of Teaching"}
-          required={true}
-          // value={formData.education}
-        />
+            <Field name="education">
+              {({ field }) => (
+                <InputComponent
+                  {...field}
+                  iType="text"
+                  iName="Highest Qualification"
+                  required={true}
+                />
+              )}
+            </Field>
+            <ErrorMessage
+              name="education"
+              component="div"
+              className="text-red-500"
+            />
 
-        <InputImageVideo
-          imageName={`Upload Resume/CV with photo:`}
-          fileType="file"
-        />
-        {/* Submit */}
+            <div className="w-full">
+              <label className="text-xl font-bold font-pangaia">Address</label>
+              <Field name="address">
+                {({ field }) => (
+                  <TextareaComponent
+                    {...field}
+                    pText="Enter your address here"
+                  />
+                )}
+              </Field>
+              <ErrorMessage
+                name="address"
+                component="div"
+                className="text-red-500"
+              />
+            </div>
 
-        <div className=" w-1/3">
-          <MyButton4
-            bType={"submit"}
-            classDesign={
-              "bg-highlight before:bg-highlight_hover  text-dark_primary_text py-1 "
-            }
-            buttonName={"Submit Application"}
-          />
-        </div>
-      </form>
+            <div className="w-full">
+              <label className="text-xl font-bold font-pangaia">
+                Work Experience
+              </label>
+              <Field name="workExperience">
+                {({ field }) => (
+                  <TextareaComponent
+                    {...field}
+                    pText="Enter your work experience here"
+                  />
+                )}
+              </Field>
+              <ErrorMessage
+                name="workExperience"
+                component="div"
+                className="text-red-500"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label className="text-xl font-bold font-pangaia">Skills</label>
+              <div className="flex items-center gap-4 mt-2">
+                {[
+                  "Content Moderation",
+                  "Team Management",
+                  "Technical Troubleshooting",
+                ].map((skill) => (
+                  <label key={skill} className="flex items-center">
+                    <Field type="checkbox" name="skills" value={skill} />
+                    <span className="ml-2">{skill}</span>
+                  </label>
+                ))}
+              </div>
+              <ErrorMessage
+                name="skills"
+                component="div"
+                className="text-red-500"
+              />
+            </div>
+
+            <Field name="domainOfTeaching">
+              {({ field }) => (
+                <InputComponent
+                  {...field}
+                  iType="text"
+                  iName="Domain of Teaching"
+                  required={true}
+                />
+              )}
+            </Field>
+            <ErrorMessage
+              name="domainOfTeaching"
+              component="div"
+              className="text-red-500"
+            />
+
+            <div>
+              <InputImageVideo
+                imageName="Upload Resume/CV with photo:"
+                fileType="file"
+                onChange={(e) => handleImageUpload(e.currentTarget.files[0])}
+              />
+            </div>
+
+            <div className="w-1/3">
+              <Field>
+                {({ form }) => (
+                  <MyButton4
+                    bType="submit"
+                    classDesign="bg-highlight before:bg-highlight_hover text-dark_primary_text py-1"
+                    buttonName="Submit Application"
+                    disabled={form.isSubmitting}
+                  />
+                )}
+              </Field>
+            </div>
+          </Form>
+        )}
+      </Formik>
     </section>
   );
 };
