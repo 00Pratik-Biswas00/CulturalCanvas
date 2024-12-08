@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import LayoutContests from "../../admin-components/LayoutContests/LayoutContests";
 import AddContests from "../../admin-components/AdminModals/AddContests/AddContests";
+import AddWinners from "../../admin-components/AdminModals/AddContests/AddWinners";
 
 const ManageDifferentContests = () => {
   const [blogContestModal, setBlogContestModal] = useState(false);
+  const [blogWinnerModal, setBlogWinnerModal] = useState(false);
 
   return (
     <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-3 sm:py-6 px-4 duration-300 min-h-screen">
@@ -13,9 +15,13 @@ const ManageDifferentContests = () => {
         </h1>
 
         {/* Blog Contest */}
-        <LayoutContests setModalOpen={setBlogContestModal} />
+        <LayoutContests
+          setModalOpen={setBlogContestModal}
+          setWinnersModal={setBlogWinnerModal}
+        />
 
         {blogContestModal && <AddContests setModal={setBlogContestModal} />}
+        {blogWinnerModal && <AddWinners setModal={setBlogWinnerModal} />}
       </div>
     </section>
   );

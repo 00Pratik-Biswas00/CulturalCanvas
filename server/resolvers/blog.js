@@ -33,8 +33,8 @@ const blogResolvers = {
     getTHCrossedBlogs: async () => {
       try {
         return await Blog.find({
-          // likes: { $exists: true, $not: { $size: 0 } },
-          likes: { $exists: true, $size: { $gt: process.env.TH_CROSS } },
+          likes: { $exists: true, $not: { $size: 0 } },
+          // likes: { $exists: true, $size: { $gt: process.env.TH_CROSS } },
           contentCategory: "Heritage",
         })
           .populate("author")

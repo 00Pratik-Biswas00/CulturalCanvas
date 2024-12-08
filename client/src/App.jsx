@@ -78,6 +78,7 @@ import SingleTeacherApplication from "./admin-pages/Applications/Teacher/SingleT
 import ManageDifferentContests from "./admin-pages/AdminContests";
 import AdminHeritageContents from "./admin-pages/AdminHeritageContent";
 import AdminSingleBlogHeritage from "./admin-pages/AdminHeritageContent/AdminSingleBlogHeritage";
+import BlogContest from "./pages/Contest/BlogContest";
 
 // new additions
 
@@ -413,6 +414,7 @@ function App() {
               {/*  ---------------- Live Contest  ---------------- */}
               <Route path="/live-contest" element={<LiveContest />} />
               <Route path="/live-contest/quiz" element={<QuizContest />} />
+              <Route path="/live-contest/blog" element={<BlogContest />} />
 
               {/*  ---------------- Career  ---------------- */}
               <Route path="/career" element={<Career />} />
