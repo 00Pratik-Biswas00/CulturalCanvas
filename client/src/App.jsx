@@ -414,7 +414,7 @@ function App() {
               {/*  ---------------- Live Contest  ---------------- */}
               <Route path="/live-contest" element={<LiveContest />} />
               <Route path="/live-contest/quiz" element={<QuizContest />} />
-              <Route path="/live-contest/blog" element={<BlogContest />} />
+              <Route path="/live-contest/blog/:id" element={<BlogContest />} />
 
               {/*  ---------------- Career  ---------------- */}
               <Route path="/career" element={<Career />} />
