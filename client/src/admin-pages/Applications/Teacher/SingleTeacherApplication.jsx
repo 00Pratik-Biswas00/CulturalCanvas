@@ -15,17 +15,17 @@ const SingleTeacherApplication = () => {
   const teacher = data.teacher;
 
   return (
-    <section className="bg-gray-100 dark:bg-gray-900 py-6 px-4 min-h-screen">
-      <div className="container mx-auto max-w-4xl">
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-          <div className="bg-blue-600 text-white p-6">
+    <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-3 sm:py-6 px-4 duration-300 min-h-screen">
+      <div className="container mx-auto max-w-6xl">
+        <div className="bg-background1 dark:bg-dark_background2 rounded-lg shadow-lg overflow-hidden">
+          <div className=" bg-background2 dark:bg-shadow p-6">
             <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
-              <div className="w-32 h-32 rounded-full bg-white flex items-center justify-center text-blue-600 text-4xl font-bold overflow-hidden">
+              <div className="w-32 h-32 rounded-full dark:bg-background2 bg-dark_background1 flex items-center justify-center dark:text-primary_text text-dark_primary_text text-4xl font-bold overflow-hidden">
                 {teacher.fullName.charAt(0)}
               </div>
               <div>
                 <h1 className="text-2xl font-bold">{teacher.fullName}</h1>
-                <p className="text-blue-200">{teacher.email}</p>
+                <p className=" opacity-70">{teacher.email}</p>
               </div>
             </div>
           </div>
@@ -48,20 +48,7 @@ const SingleTeacherApplication = () => {
                 value={teacher.domainOfTeaching}
               />
             </div>
-            {teacher.portfolio && teacher.portfolio.url && (
-              <div>
-                <h3 className="font-semibold text-lg mb-2 flex items-center">
-                  <Icon name="photograph" /> Portfolio
-                </h3>
-                <div className="mt-2 rounded-lg overflow-hidden shadow-lg">
-                  <img
-                    src={teacher.portfolio.url}
-                    alt={`${teacher.fullName}'s portfolio`}
-                    className="w-full h-auto"
-                  />
-                </div>
-              </div>
-            )}
+
             <div>
               <h3 className="font-semibold text-lg mb-2 flex items-center">
                 <Icon name="academic-cap" /> Education
@@ -93,6 +80,21 @@ const SingleTeacherApplication = () => {
                 ))}
               </div>
             </div>
+
+            {teacher.portfolio && teacher.portfolio.url && (
+              <div>
+                <h3 className="font-semibold text-lg mb-2 flex items-center">
+                  <Icon name="photograph" /> Portfolio
+                </h3>
+                <div className="mt-2 rounded-lg overflow-hidden shadow-lg">
+                  <img
+                    src={teacher.portfolio.url}
+                    alt={`${teacher.fullName}'s portfolio`}
+                    className="w-full h-auto"
+                  />
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
