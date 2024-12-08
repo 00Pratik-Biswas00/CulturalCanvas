@@ -30,6 +30,8 @@ import blogResolvers from "./resolvers/blog.js";
 import blogTypeDefs from "./typedefs/blog.js";
 import careertypeDefs from "./typedefs/career.js";
 import careerResolvers from "./resolvers/career.js";
+import contesttypeDefs from "./typedefs/contest.js";
+import contestResolvers from "./resolvers/contest.js";
 
 const customLoggingPlugin = {
   requestDidStart(requestContext) {
@@ -63,6 +65,7 @@ const typeDefs = mergeTypeDefs([
   roleTypeDefs,
   blogTypeDefs,
   careertypeDefs,
+  contesttypeDefs,
 ]);
 const resolvers = mergeResolvers([
   authResolver,
@@ -75,6 +78,7 @@ const resolvers = mergeResolvers([
   roleResolvers,
   blogResolvers,
   careerResolvers,
+  contestResolvers,
 ]);
 
 const apolloServer = new ApolloServer({
