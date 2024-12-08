@@ -156,7 +156,7 @@ const BlogsVlogs = ({ blogsVlogs, loading, user, handleDelete }) => {
                 </div>
 
                 {/* Delete Icon: Only visible if user._id matches content.author.id */}
-                {handleDelete && user._id === content.author?.id && (
+                {handleDelete && user && user._id === content.author?.id && (
                   <button
                     onClick={() => handleDelete(content.id)}
                     className="absolute top-3 right-3 bg-red-600 text-white p-2 rounded-full hover:bg-red-700"
