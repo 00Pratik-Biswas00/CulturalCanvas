@@ -79,6 +79,8 @@ import ManageDifferentContests from "./admin-pages/AdminContests";
 import AdminHeritageContents from "./admin-pages/AdminHeritageContent";
 import AdminSingleBlogHeritage from "./admin-pages/AdminHeritageContent/AdminSingleBlogHeritage";
 import BlogContest from "./pages/Contest/BlogContest";
+import Settings from "./components/Settings/Settings";
+import { SpeakerProvider } from "./components/SpeakerContext/SpeakerContext";
 
 // new additions
 
@@ -86,13 +88,16 @@ const UserLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
 
   return (
-    <>
-      <Header open={open} setOpen={setOpen} />
-      {children}
-      <GoToTop />
-      <Chatbot />
-      <Footer />
-    </>
+    <SpeakerProvider>
+      <>
+        <Header open={open} setOpen={setOpen} />
+        {children}
+        <Settings />
+        <GoToTop />
+        <Chatbot />
+        <Footer />
+      </>
+    </SpeakerProvider>
   );
 };
 

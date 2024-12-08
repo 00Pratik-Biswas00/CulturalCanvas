@@ -15,6 +15,7 @@ import { CiMenuFries } from "react-icons/ci";
 import { RxCross2 } from "react-icons/rx";
 import { MdLightMode, MdDarkMode, MdOutlineTranslate } from "react-icons/md";
 import { RoutesNames } from "../../utils/constants";
+import TranslatePopUp from "./TranslatePopUp";
 
 // Routes
 
@@ -31,6 +32,10 @@ const Header = ({ open, setOpen }) => {
   const [isResetModalOpen, setIsResetModalOpen] = useState(false);
   const [showTranslate, setShowTranslate] = useState(false);
 
+  const [isTranslatePopUp, setIsTranslatePopUp] = useState(false);
+  const toggleTranslatePopup = () => {
+    setIsTranslatePopUp(!isTranslatePopUp);
+  };
   const openResetModal = () => {
     setIsResetModalOpen(true);
     dispatch(switchLoginModalOpen(false));
@@ -187,8 +192,21 @@ const Header = ({ open, setOpen }) => {
       {/* theme change, login, and Google */}
       <div className="hidden lg:flex items-center justify-center space-x-5">
         <div className="flex items-center justify-center gap-x-4 font-ubuntu font-medium text-sm ">
-          <div className="flex flex-col items-center justify-center ">
+          {/* <div className="flex flex-col items-center justify-center ">
             <button onClick={() => setShowTranslate(!showTranslate)}>
+              <MdOutlineTranslate className="w-5 h-5" />
+            </button>
+
+            <div
+              id="google_translate_element"
+              className={` absolute top-14 transition-opacity duration-300 ${
+                showTranslate ? "opacity-100 visible" : "opacity-0 invisible"
+              }`}
+            ></div>
+          </div> */}
+
+          <div className="flex flex-col items-center justify-center ">
+            <button onClick={toggleTranslatePopup}>
               <MdOutlineTranslate className="w-5 h-5" />
             </button>
 
@@ -310,6 +328,8 @@ const Header = ({ open, setOpen }) => {
           isFPModalOpen={isFPModalOpen}
         />
       )}
+
+      {isTranslatePopUp && <TranslatePopUp />}
     </div>
   );
 };

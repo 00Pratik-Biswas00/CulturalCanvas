@@ -10,7 +10,7 @@ const Chatbot = () => {
   };
 
   return (
-    <div className="fixed bottom-1 right-1 lg:right-14 lg:bottom-8 z-40 mt-8 flex items-center">
+    <div className="fixed bottom-1 right-2 lg:right-14 lg:bottom-8 z-40 mt-8 flex items-center">
       <div
         className={`
         absolute `}
