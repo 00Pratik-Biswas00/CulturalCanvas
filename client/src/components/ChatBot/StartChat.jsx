@@ -1,11 +1,107 @@
 import React, { useState } from "react";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
+import { IoMic, IoMicOff } from "react-icons/io5";
 
 const StartChat = ({ selectedLanguage, onClose }) => {
   const [question, setQuestion] = useState("");
   const [generatingAnswer, setGeneratingAnswer] = useState(false);
   const [conversation, setConversation] = useState([]);
+  const [isListening, setIsListening] = useState(false);
+  const [recognition, setRecognition] = useState(null);
+
+  // Start speech recognition
+  // const startListening = () => {
+  //   if (!("webkitSpeechRecognition" in window)) {
+  //     alert("Your browser does not support speech recognition.");
+  //     return;
+  //   }
+
+  //   const recognitionInstance = new webkitSpeechRecognition();
+  //   recognitionInstance.continuous = false;
+  //   recognitionInstance.interimResults = false;
+  //   recognitionInstance.lang = "en-US";
+
+  //   recognitionInstance.onstart = () => setIsListening(true);
+  //   recognitionInstance.onend = () => setIsListening(false);
+
+  //   recognitionInstance.onresult = (event) => {
+  //     const transcript = event.results[0][0].transcript;
+  //     setQuestion(transcript); // Set the recognized text as the question
+  //   };
+
+  //   recognitionInstance.onerror = (event) => {
+  //     console.error("Speech recognition error:", event.error);
+  //     setIsListening(false);
+  //   };
+
+  //   recognitionInstance.start();
+  //   setRecognition(recognitionInstance);
+  // };
+
+  const startListening = () => {
+    if (!("webkitSpeechRecognition" in window)) {
+      alert("Your browser does not support speech recognition.");
+      return;
+    }
+
+    const recognitionInstance = new webkitSpeechRecognition();
+    recognitionInstance.continuous = false;
+    recognitionInstance.interimResults = false;
+
+    // Set language dynamically based on the selected language
+    const languageMap = {
+      Bengali: "bn-IN",
+      Hindi: "hi-IN",
+      English: "en-US",
+      Tamil: "ta-IN",
+      Assamese: "as-IN",
+      Bodo: "brx-IN",
+      Dogri: "doi-IN",
+      Gujarati: "gu-IN",
+      Kashmiri: "ks-IN",
+      Kannada: "kn-IN",
+      Konkani: "kok-IN",
+      Maithili: "mai-IN",
+      Malayalam: "ml-IN",
+      Manipuri: "mni-IN",
+      Marathi: "mr-IN",
+      Nepali: "ne-IN",
+      Oriya: "or-IN",
+      Punjabi: "pa-IN",
+      Sanskrit: "sa-IN",
+      Santali: "sat-IN",
+      Sindhi: "sd-IN",
+      Telugu: "te-IN",
+      Urdu: "ur-IN",
+    };
+
+    recognitionInstance.lang = languageMap[selectedLanguage] || "en-US";
+
+    recognitionInstance.onstart = () => setIsListening(true);
+    recognitionInstance.onend = () => setIsListening(false);
+
+    recognitionInstance.onresult = (event) => {
+      const transcript = event.results[0][0].transcript;
+      setQuestion(transcript); // Set the recognized text as the question
+    };
+
+    recognitionInstance.onerror = (event) => {
+      console.error("Speech recognition error:", event.error);
+      setIsListening(false);
+    };
+
+    recognitionInstance.start();
+    setRecognition(recognitionInstance);
+  };
+
+  // Stop speech recognition
+  const stopListening = () => {
+    if (recognition) {
+      recognition.stop();
+      setRecognition(null);
+    }
+  };
 
   const generateAnswer = async (e) => {
     e.preventDefault();
@@ -30,7 +126,7 @@ const StartChat = ({ selectedLanguage, onClose }) => {
             role: "user",
             parts: [
               {
-                text: `You are an expert in heritage and culture. Act as an expert in ${selectedLanguage} and answer all the questions in the same language. Keep information precise, and if someone asks something irrelevant, respond that it's irrelevant. ${question}`,
+                text: `You are an expert in heritage and culture. Act as an expert in ${selectedLanguage} and answer all the questions in the ${selectedLanguage} language. Keep information precise, and if someone asks something irrelevant, respond that it's irrelevant. ${question}`,
               },
             ],
           },
@@ -130,11 +226,13 @@ const StartChat = ({ selectedLanguage, onClose }) => {
       </div>
 
       {/* Input Section */}
-      <form onSubmit={generateAnswer} className="w-full flex gap-2 mt-4">
+      <div className="w-full flex gap-2 mt-4">
         <div className="relative w-full">
           <input
             type="text"
-            placeholder="Type your message..."
+            placeholder={
+              isListening ? "Listening..." : "Type your question here..."
+            }
             className="w-full py-2 px-3 bg-shadow rounded-xl text-dark_primary_text placeholder:text-dark_primary_text focus:outline-none focus:bg-shadow focus:border-shadow"
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
@@ -143,7 +241,22 @@ const StartChat = ({ selectedLanguage, onClose }) => {
         </div>
 
         <button
-          type="submit"
+          onClick={isListening ? stopListening : startListening}
+          className={`px-2 rounded-full ${
+            isListening
+              ? "bg-red-500"
+              : "bg-[#2a3d4c] hover:bg-[#1b2934] text-dark_primary_text"
+          }`}
+        >
+          {isListening ? (
+            <IoMicOff className=" w-5 h-5" />
+          ) : (
+            <IoMic className=" w-5 h-5" />
+          )}
+        </button>
+
+        <button
+          onClick={generateAnswer}
           className={`text-dark_primary_text px-3 cursor-pointer bg-[#2a3d4c] hover:bg-[#1b2934] rounded-xl ${
             generatingAnswer ? "opacity-50 cursor-not-allowed" : ""
           }`}
@@ -151,7 +264,7 @@ const StartChat = ({ selectedLanguage, onClose }) => {
         >
           {generatingAnswer ? "Sending..." : "Submit"}
         </button>
-      </form>
+      </div>
     </div>
   );
 };

@@ -62,7 +62,7 @@ const ChatBotPopUp = ({ onClose }) => {
     >
       <div className="absolute inset-0 bg-dark_background1 opacity-50 z-10 rounded-xl"></div>
 
-      <div className="relative z-20">
+      <div className="relative z-30">
         <div className="flex justify-between items-center w-full text-2xl px-5 py-3 font-playfair font-bold text-dark_primary_text">
           <h1 className="tracking-wider">Cultural Canvas ChatBot</h1>
           <button onClick={onClose}>

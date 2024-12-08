@@ -4,51 +4,15 @@ import MyButton1 from "../../components/Buttons/MyButton1";
 import HomePageBlob from "../../components/Blobs/HomePageBlob";
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 import { IoCheckmarkDoneCircle } from "react-icons/io5";
+import Speaker from "../../components/Settings/Speaker";
 
 const Home = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const homeContent = t("HomeData", { returnObjects: true });
-
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-  };
-
-  const speakText = (text) => {
-    if (speechSynthesis.speaking) {
-      speechSynthesis.cancel();
-    } else {
-      const chunks = text.match(/[^।!?]+[।!?]/g) || [text];
-      chunks.forEach((chunk) => {
-        const utterance = new SpeechSynthesisUtterance(chunk.trim());
-        utterance.lang = i18n.language === "hi" ? "hi-IN" : "en-US";
-        speechSynthesis.speak(utterance);
-      });
-    }
-  };
 
   return (
     <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-10 duration-500">
       <div className="w-full flex flex-col items-center justify-center gap-20">
-        <div className="flex gap-5">
-          <button
-            className="p-5 hover:bg-blue-700"
-            onClick={() => changeLanguage("en")}
-          >
-            English
-          </button>
-          <button
-            className="p-5 hover:bg-blue-700"
-            onClick={() => changeLanguage("hi")}
-          >
-            Hindi
-          </button>
-          <button
-            className="p-5 hover:bg-blue-700"
-            onClick={() => changeLanguage("bn")}
-          >
-            Bengali
-          </button>
-        </div>
         {homeContent.Home.map((content, ind) => (
           <div
             key={ind}
@@ -83,13 +47,7 @@ const Home = () => {
                         </div>
                       )}
 
-                    {/* <button
-                      onClick={() => speakText(content.para)}
-                      aria-label="Speak Text"
-                      className="text-2xl absolute -left-14"
-                    >
-                      🔊
-                    </button> */}
+                    <Speaker webData={content.para} />
                   </div>
 
                   <MyButton1
@@ -199,14 +157,6 @@ const Home = () => {
                           </div>
                         </div>
                       )}
-
-                    {/* <button
-                      onClick={() => speakText(content.para)}
-                      aria-label="Speak Text"
-                      className="text-2xl absolute -left-14"
-                    >
-                      🔊
-                    </button> */}
                   </div>
                   <MyButton1
                     classDesign={
