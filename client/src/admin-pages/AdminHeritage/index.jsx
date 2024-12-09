@@ -2,20 +2,25 @@ import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import AddHeritageModal from "../../admin-components/AdminModals/AddNewHeritage/AddHeritage";
 import LayoutHeritage from "../../admin-components/LayoutHeritages";
-import { GET_HERITAGES } from "../../graphql/heritageQuery";
+import { GET_HERITAGES } from "../../graphql/HeritageQuery";
 import { DELETE_HERITAGE } from "../../graphql/heritageMutation";
 import { toast } from "sonner";
 
 const AdminHeritagePage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingHeritage, setEditingHeritage] = useState(null);
+  const [isHeritageEditing, setIsHeritageEditing] = useState(false);
 
   const { loading, error, data } = useQuery(GET_HERITAGES);
   const [deleteHeritage] = useMutation(DELETE_HERITAGE, {
     refetchQueries: [{ query: GET_HERITAGES }],
   });
 
-  const handleOpenModal = () => setIsModalOpen(true);
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+    setEditingHeritage(null); // Clear editing state
+  };
+
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setEditingHeritage(null);
@@ -23,7 +28,7 @@ const AdminHeritagePage = () => {
 
   const handleEditHeritage = (heritage) => {
     setEditingHeritage(heritage);
-    setIsModalOpen(true);
+    setIsModalOpen(true); // Open modal in editing mode
   };
 
   const handleDeleteHeritage = async (id) => {
@@ -41,22 +46,37 @@ const AdminHeritagePage = () => {
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <div className="admin-heritage-page p-6">
-      <h1 className="text-3xl font-bold mb-6">Manage Heritage Data</h1>
+    <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-6 px-4 duration-300 min-h-screen">
+      <div className="flex flex-col gap-5 sm:gap-10">
+        <div className="flex flex-col sm:flex-row justify-between items-center sm:items-center gap-y-3 ">
+          <h1 className="text-4xl font-semibold text-center tracking-tighter font-playfair">
+            Manage Your Heritages
+          </h1>
+        </div>
 
-      <LayoutHeritage
-        setModalOpen={handleOpenModal}
-        heritages={data.getHeritages}
-        onEditHeritage={handleEditHeritage}
-        onDeleteHeritage={handleDeleteHeritage}
-      />
+        <LayoutHeritage
+          setModalOpen={handleOpenModal} // Explicitly for adding new heritage
+          heritages={data.getHeritages}
+          onEditHeritage={handleEditHeritage}
+          onDeleteHeritage={handleDeleteHeritage}
+        />
+        {/* {isModalOpen && (
+          <AddHeritageModal
+            isOpen={isModalOpen}
+            onClose={handleCloseModal}
+            heritage={editingHeritage}
+          />
+        )} */}
 
-      <AddHeritageModal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        heritage={editingHeritage}
-      />
-    </div>
+        {isModalOpen && (
+          <AddHeritageModal
+            isOpen={isModalOpen}
+            onClose={handleCloseModal}
+            heritage={editingHeritage}
+          />
+        )}
+      </div>
+    </section>
   );
 };
 

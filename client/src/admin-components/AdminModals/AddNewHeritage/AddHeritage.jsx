@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AddNewModal from "../AddNewModal";
+import { FaTimes } from "react-icons/fa";
+
 import InputComponent from "../../../components/Input/InputComponent";
 import TextareaComponent from "../../../components/Textarea/TextareaComponent";
 import InputImageVideo from "../../../components/Input/InputImageVideo";
@@ -11,7 +13,7 @@ import {
 } from "../../../graphql/heritageMutation";
 import { toast } from "sonner";
 import api from "../../../config/axios";
-import { GET_HERITAGE_QUERY } from "../../../graphql/heritageQuery";
+import { GET_HERITAGE_QUERY } from "../../../graphql/HeritageQuery";
 
 const AddHeritage = ({
   setIsEditing,
@@ -178,181 +180,191 @@ const AddHeritage = ({
 
   return (
     <div>
-      <AddNewModal
-        setModalOpen={isOpen}
-        setIsEditing={setIsEditing}
-        handleApply={handleSaveHeritage}
-      >
-        <h2 className="text-2xl lg:text-3xl font-bold mb-2">
-          {isEditing ? "Edit Heritage Entry" : "Add a New Heritage Entry"}
-        </h2>
+      <div className="fixed inset-0 bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text bg-opacity-50 dark:bg-opacity-70 flex items-center justify-end pr-14 overflow-auto">
+        <div className="bg-background2 dark:bg-shadow sm:w-[81%] max-h-[90vh] overflow-y-auto my-5 px-4 py-2 rounded-lg relative">
+          <FaTimes
+            className="absolute top-2 right-3 text-red-600 hover:text-red-800 text-xl cursor-pointer"
+            onClick={onClose}
+          />
+          <h2 className="text-2xl lg:text-3xl font-bold mb-2">
+            {isEditing ? "Edit Heritage Entry" : "Add a New Heritage Entry"}
+          </h2>
 
-        <div className="flex flex-col gap-2 py-2">
-          <div className="flex items-start w-full justify-between gap-5">
+          <div className="flex flex-col gap-2 py-2">
+            <div className="flex items-start w-full justify-between gap-5">
+              <div className="w-full">
+                <InputComponent
+                  iName="Heritage Name"
+                  iType="text"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  name="name"
+                />
+              </div>
+
+              <InputImageVideo
+                imageName="Heritage Image:"
+                fileType="image"
+                onChange={(e) => handleImageInput(e.target.files[0], "image")}
+                preview={formData.image}
+              />
+            </div>
+
+            <div className="w-full">
+              <label className="block font-bold">Introduction</label>
+              <TextareaComponent
+                value={formData.introduction}
+                onChange={handleInputChange}
+                name="introduction"
+              />
+            </div>
+
+            <div className="mb-4 overflow-auto">
+              <label className="block text-xl font-bold">Part 1 Details:</label>
+              {formData.part1.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col w-full justify-between gap-1 mb-2 border-2 border-t-0 rounded-xl rounded-t-none px-4 pb-2 mt-3"
+                >
+                  <div className="w-full">
+                    <InputComponent
+                      iName="Heading"
+                      iType="text"
+                      value={item.heading}
+                      onChange={(e) =>
+                        handlePart1Change(index, "heading", e.target.value)
+                      }
+                    />
+                    <TextareaComponent
+                      value={item.description}
+                      onChange={(e) =>
+                        handlePart1Change(index, "description", e.target.value)
+                      }
+                      name={`description-${index}`}
+                    />
+                  </div>
+                  <div className="flex justify-end w-full">
+                    <button
+                      type="button"
+                      onClick={() => handleRemovePart1(index)}
+                      className="px-4 py-1 bg-red-500 hover:bg-red-800 rounded text-white"
+                    >
+                      Delete Part
+                    </button>
+                  </div>
+                </div>
+              ))}
+              <div className="flex items-center justify-between w-full mt-2">
+                <button
+                  type="button"
+                  onClick={handleAddPart1}
+                  className="bg-highlight hover:bg-highlight_hover text-primary_text px-4 py-1 rounded font-medium transition-all duration-300 w-fit uppercase"
+                >
+                  Add Part
+                </button>
+              </div>
+            </div>
+
+            <div className="flex items-start w-full justify-between gap-5">
+              <div className="w-full">
+                <InputImageVideo
+                  imageName="Animated Video:"
+                  fileType="animatedVideo"
+                  onChange={(e) =>
+                    handleImageInput(e.target.files[0], "animatedVideo")
+                  }
+                  preview={formData.animatedVideo}
+                />
+              </div>
+
+              <div className="w-full">
+                <InputImageVideo
+                  imageName="Endless Digital Art:"
+                  fileType="endlessDigitalArt"
+                  onChange={(e) =>
+                    handleImageInput(e.target.files[0], "endlessDigitalArt")
+                  }
+                  preview={formData.endlessDigitalArt}
+                />
+              </div>
+            </div>
+
+            <div className="flex items-start w-full justify-between gap-5">
+              <div className="w-full">
+                <InputImageVideo
+                  imageName="Vlog Video:"
+                  fileType="vlogVideo"
+                  onChange={(e) =>
+                    handleImageInput(e.target.files[0], "vlogVideo")
+                  }
+                  preview={formData.vlogVideo}
+                />
+              </div>
+            </div>
+
+            <div className="flex items-start w-full justify-between gap-5">
+              <div className="w-full">
+                <label className="block font-bold">Type of Heritage</label>
+                <select
+                  value={formData.type_of_heritage}
+                  onChange={handleInputChange}
+                  name="type_of_heritage"
+                  className="block w-full px-3 py-2 border rounded"
+                >
+                  <option value="unesco_listed">UNESCO Listed</option>
+                  <option value="unesco_unlisted">UNESCO Unlisted</option>
+                  <option value="local_heritage">Local Heritage</option>
+                </select>
+              </div>
+
+              <div className="w-full">
+                <label className="block font-bold">Heritage Tag</label>
+                <select
+                  value={formData.tag}
+                  onChange={handleInputChange}
+                  name="tag"
+                  className="block w-full px-3 py-2 border rounded"
+                >
+                  <option value="cultural">Cultural</option>
+                  <option value="natural">Natural</option>
+                  <option value="tangible">Tangible</option>
+                  <option value="intangible">Intangible</option>
+                </select>
+              </div>
+            </div>
+
             <div className="w-full">
               <InputComponent
-                iName="Heritage Name"
+                iName="State/Culture Name"
                 iType="text"
-                value={formData.name}
+                value={formData.state_culture_name}
                 onChange={handleInputChange}
-                name="name"
+                name="state_culture_name"
               />
             </div>
 
-            <InputImageVideo
-              imageName="Heritage Image:"
-              fileType="image"
-              onChange={(e) => handleImageInput(e.target.files[0], "image")}
-              preview={formData.image}
-            />
-          </div>
-
-          <div className="w-full">
-            <label className="block font-bold">Introduction</label>
-            <TextareaComponent
-              value={formData.introduction}
-              onChange={handleInputChange}
-              name="introduction"
-            />
-          </div>
-
-          <div className="mb-4 overflow-auto">
-            <label className="block text-xl font-bold">Part 1 Details:</label>
-            {formData.part1.map((item, index) => (
-              <div
-                key={index}
-                className="flex flex-col w-full justify-between gap-1 mb-2 border-2 border-t-0 rounded-xl rounded-t-none px-4 pb-2 mt-3"
-              >
-                <div className="w-full">
-                  <InputComponent
-                    iName="Heading"
-                    iType="text"
-                    value={item.heading}
-                    onChange={(e) =>
-                      handlePart1Change(index, "heading", e.target.value)
-                    }
-                  />
-                  <TextareaComponent
-                    value={item.description}
-                    onChange={(e) =>
-                      handlePart1Change(index, "description", e.target.value)
-                    }
-                    name={`description-${index}`}
-                  />
-                </div>
-                <div className="flex justify-end w-full">
-                  <button
-                    type="button"
-                    onClick={() => handleRemovePart1(index)}
-                    className="px-4 py-1 bg-red-500 hover:bg-red-800 rounded text-white"
-                  >
-                    Delete Part
-                  </button>
-                </div>
+            {isEditing && (
+              <div className="flex justify-end mt-4">
+                <button
+                  type="button"
+                  onClick={handleDeleteHeritage}
+                  className="px-4 py-2 bg-red-600 hover:bg-red-800 text-white rounded"
+                >
+                  Delete Heritage Entry
+                </button>
               </div>
-            ))}
-            <div className="flex items-center justify-between w-full mt-2">
-              <button
-                type="button"
-                onClick={handleAddPart1}
-                className="bg-highlight hover:bg-highlight_hover text-primary_text px-4 py-1 rounded font-medium transition-all duration-300 w-fit uppercase"
-              >
-                Add Part
-              </button>
-            </div>
+            )}
           </div>
-
-          <div className="flex items-start w-full justify-between gap-5">
-            <div className="w-full">
-              <InputImageVideo
-                imageName="Animated Video:"
-                fileType="animatedVideo"
-                onChange={(e) =>
-                  handleImageInput(e.target.files[0], "animatedVideo")
-                }
-                preview={formData.animatedVideo}
-              />
-            </div>
-
-            <div className="w-full">
-              <InputImageVideo
-                imageName="Endless Digital Art:"
-                fileType="endlessDigitalArt"
-                onChange={(e) =>
-                  handleImageInput(e.target.files[0], "endlessDigitalArt")
-                }
-                preview={formData.endlessDigitalArt}
-              />
-            </div>
+          <div className="flex justify-end gap-x-4">
+            <button
+              className="bg-highlight hover:bg-highlight_dark text-dark_primary_text font-medium py-1 px-3 rounded-lg"
+              onClick={handleSaveHeritage}
+            >
+              SAVE
+            </button>
           </div>
-
-          <div className="flex items-start w-full justify-between gap-5">
-            <div className="w-full">
-              <InputImageVideo
-                imageName="Vlog Video:"
-                fileType="vlogVideo"
-                onChange={(e) =>
-                  handleImageInput(e.target.files[0], "vlogVideo")
-                }
-                preview={formData.vlogVideo}
-              />
-            </div>
-          </div>
-
-          <div className="flex items-start w-full justify-between gap-5">
-            <div className="w-full">
-              <label className="block font-bold">Type of Heritage</label>
-              <select
-                value={formData.type_of_heritage}
-                onChange={handleInputChange}
-                name="type_of_heritage"
-                className="block w-full px-3 py-2 border rounded"
-              >
-                <option value="unesco_listed">UNESCO Listed</option>
-                <option value="unesco_unlisted">UNESCO Unlisted</option>
-                <option value="local_heritage">Local Heritage</option>
-              </select>
-            </div>
-
-            <div className="w-full">
-              <label className="block font-bold">Heritage Tag</label>
-              <select
-                value={formData.tag}
-                onChange={handleInputChange}
-                name="tag"
-                className="block w-full px-3 py-2 border rounded"
-              >
-                <option value="cultural">Cultural</option>
-                <option value="natural">Natural</option>
-                <option value="tangible">Tangible</option>
-                <option value="intangible">Intangible</option>
-              </select>
-            </div>
-          </div>
-
-          <div className="w-full">
-            <InputComponent
-              iName="State/Culture Name"
-              iType="text"
-              value={formData.state_culture_name}
-              onChange={handleInputChange}
-              name="state_culture_name"
-            />
-          </div>
-
-          {isEditing && (
-            <div className="flex justify-end mt-4">
-              <button
-                type="button"
-                onClick={handleDeleteHeritage}
-                className="px-4 py-2 bg-red-600 hover:bg-red-800 text-white rounded"
-              >
-                Delete Heritage Entry
-              </button>
-            </div>
-          )}
         </div>
-      </AddNewModal>
+      </div>
     </div>
   );
 };
