@@ -19,8 +19,8 @@ const AddHeritage = ({
   setIsEditing,
   isEditing,
   editHeritageSlug = null,
-  isOpen,
   onClose,
+  updateID,
 }) => {
   const RESTAPI_BASE_URL = import.meta.env.VITE_API_KEY_RESTAPI;
 
@@ -142,15 +142,15 @@ const AddHeritage = ({
     try {
       if (isEditing) {
         await updateHeritage({
-          variables: { id: formData.id, ...formData },
+          variables: { id: updateID, ...formData },
         });
       } else {
         await createHeritage({
           variables: formData,
         });
       }
-      setHeritageModal(false); // Close modal
-      setIsEditing(false); // Reset editing state
+      setHeritageModal(false);
+      setIsEditing(false);
     } catch (e) {
       console.error(
         isEditing ? "Error updating heritage:" : "Error creating heritage:",
@@ -170,7 +170,6 @@ const AddHeritage = ({
         await deleteHeritage({
           variables: { id: formData.id },
         });
-        // Optionally, you can add logic to delete images/videos from Cloudinary/S3 here
       } catch (e) {
         console.error("Error deleting heritage:", e);
         toast.error("Error deleting heritage!");

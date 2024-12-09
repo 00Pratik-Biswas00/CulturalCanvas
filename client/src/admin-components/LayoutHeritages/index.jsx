@@ -105,7 +105,7 @@ const LayoutHeritage = ({
               <div className="flex items-center justify-center pt-5 gap-x-3">
                 <RiEditFill
                   className="w-7 h-7 cursor-pointer text-highlight_hover hover:text-highlight_hover_dark"
-                  onClick={() => onEditHeritage(heritage)}
+                  onClick={() => onEditHeritage(heritage._id)}
                 />
                 <p className="text-xl font-bold">{heritage.name}</p>
                 <MdDelete
