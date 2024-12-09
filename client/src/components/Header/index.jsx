@@ -7,14 +7,14 @@ import ForgotPasswordModal from "../modals/ForgotPasswordModal/ForgotPasswordMod
 import ResetPasswordModal from "../modals/ResetPasswordModal/[id]/token/ResetPasswordModal";
 import { switchTheme } from "../../redux/slices/themeSlice";
 import { switchLoginModalOpen } from "../../redux/slices/loginModalOpenSlice";
-
+import { useTranslation } from "react-i18next";
 import logo from "../../assets/logo/logo.png";
 import headerBG from "../../assets/logo/headerBG.png";
 
 import { CiMenuFries } from "react-icons/ci";
 import { RxCross2 } from "react-icons/rx";
 import { MdLightMode, MdDarkMode, MdOutlineTranslate } from "react-icons/md";
-import { RoutesNames } from "../../utils/constants";
+// import { routeContent } from "../../utils/constants";
 import TranslatePopUp from "./TranslatePopUp";
 
 // Routes
@@ -31,6 +31,9 @@ const Header = ({ open, setOpen }) => {
   const [isFPModalOpen, setIsFPModalOpen] = useState(false);
   const [isResetModalOpen, setIsResetModalOpen] = useState(false);
   const [showTranslate, setShowTranslate] = useState(false);
+
+  const { t } = useTranslation();
+  const routeContent = t("UserRoutesNames", { returnObjects: true });
 
   const [isTranslatePopUp, setIsTranslatePopUp] = useState(false);
   const toggleTranslatePopup = () => {
@@ -168,14 +171,14 @@ const Header = ({ open, setOpen }) => {
 
       <div className="hidden lg:flex items-center justify-center space-x-5">
         <div className="flex space-x-4 font-ubuntu font-medium text-sm uppercase">
-          {RoutesNames.map((routes, ind) => (
+          {routeContent.map((routes, ind) => (
             <NavLink
               key={ind}
               to={routes.route_link}
               className={({ isActive }) =>
                 isActive
                   ? "text-highlight_hover dark:text-dark_primary_text uppercase "
-                  : " text-dark_secondary_text dark:text-highlight hover:text-highlight_hover dark:hover:text-highlight_hover "
+                  : " text-dark_secondary_text dark:text-highlight hover:text-highlight_hover dark:hover:text-highlight_hover header_links transition-transform duration-500 ease transform hover:scale-110"
               }
               end
               onClick={handleNavLinkClick}
@@ -276,7 +279,7 @@ const Header = ({ open, setOpen }) => {
           </button>
 
           <div className="flex flex-col items-end gap-y-5 text-lg font-ubuntu">
-            {RoutesNames.map((routes, ind) => (
+            {routeContent.map((routes, ind) => (
               <NavLink
                 key={ind}
                 to={routes.route_link}

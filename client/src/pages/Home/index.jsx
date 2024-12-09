@@ -157,6 +157,7 @@ const Home = () => {
                           </div>
                         </div>
                       )}
+                    <Speaker webData={content.para} />
                   </div>
                   <MyButton1
                     classDesign={
