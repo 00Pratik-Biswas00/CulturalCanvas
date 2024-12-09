@@ -10,7 +10,7 @@ nude_detection_bp = Blueprint('nude_detection', __name__)
 UPLOAD_FOLDER = 'ml/nude_detection/uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-@nude_detection_bp.route('/api/detect-nudity/image', methods=['POST'])
+@nude_detection_bp.route('/detect-nudity/image', methods=['POST'])
 def detect_image():
     file = request.files.get('file')
     if not file:
@@ -38,7 +38,7 @@ def detect_image():
     return jsonify(response)
 
 
-@nude_detection_bp.route('/api/detect-nudity/video', methods=['POST'])
+@nude_detection_bp.route('/detect-nudity/video', methods=['POST'])
 def detect_video():
     """
     Detect nudity in a video file.

@@ -3,7 +3,7 @@ from ml.language_translator.language_translator import translate_text
 
 translation_bp = Blueprint("translation", __name__)
 
-@translation_bp.route("/api/translate", methods=["POST"])
+@translation_bp.route("/translate", methods=["POST"])
 def translate():
     data = request.get_json()
     text = data.get("text")

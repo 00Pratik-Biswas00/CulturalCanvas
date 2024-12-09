@@ -4,7 +4,7 @@ from ml.nearest_attraction.nearest_attractions import get_coordinates, find_near
 # Create a Blueprint for attraction routes
 nearest_attractions_bp = Blueprint('attractions_routes', __name__)
 
-@nearest_attractions_bp.route("/api/find-attractions", methods=['POST'])
+@nearest_attractions_bp.route("/find-attractions", methods=['POST'])
 def find_attractions():
     data = request.get_json()
     place_name = data.get("place")

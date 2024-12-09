@@ -11,3 +11,8 @@ folium==0.14.0
 deep-translator==1.10.1
 opencv-python-headless
 onnxruntime
+google-generativeai
+transformers
+torch
+Pillow
+gtts
