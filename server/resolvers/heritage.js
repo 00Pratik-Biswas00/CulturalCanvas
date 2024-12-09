@@ -170,7 +170,7 @@ const heritageResolvers = {
 
         await heritage.deleteOne();
 
-        return "Heritage deleted successfully";
+        return true;
       } catch (error) {
         console.error("Error deleting heritage: ", error);
         throw new Error("Error deleting heritage");

@@ -64,3 +64,15 @@ export const GET_HERITAGE_QUERY = gql`
     }
   }
 `;
+
+export const GET_HERITAGES = gql`
+  query GetHeritages {
+    getHeritages {
+      _id
+      name
+      image {
+        url
+      }
+    }
+  }
+`;

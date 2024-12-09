@@ -133,7 +133,7 @@ const heritageTypeDefs = gql`
       nearest_attractions: [NearestAttractionInput]
     ): HeritageResponse
 
-    deleteHeritage(id: ID!): HeritageResponse
+    deleteHeritage(id: ID!): Boolean!
   }
 `;
 

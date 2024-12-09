@@ -163,8 +163,10 @@ export const UPDATE_HERITAGE_MUTATION = gql`
   }
 `;
 
-export const DELETE_HERITAGE_MUTATION = gql`
-  mutation deleteHeritage($id: ID!) {
+
+
+export const DELETE_HERITAGE = gql`
+  mutation DeleteHeritage($id: ID!) {
     deleteHeritage(id: $id)
   }
 `;

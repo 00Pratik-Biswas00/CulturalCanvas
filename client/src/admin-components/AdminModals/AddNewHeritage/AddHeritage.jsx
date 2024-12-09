@@ -6,18 +6,19 @@ import InputImageVideo from "../../../components/Input/InputImageVideo";
 import { useMutation, useQuery } from "@apollo/client";
 import {
   CREATE_HERITAGE_MUTATION,
+  DELETE_HERITAGE,
   UPDATE_HERITAGE_MUTATION,
-  DELETE_HERITAGE_MUTATION,
 } from "../../../graphql/heritageMutation";
 import { toast } from "sonner";
 import api from "../../../config/axios";
 import { GET_HERITAGE_QUERY } from "../../../graphql/heritageQuery";
 
 const AddHeritage = ({
-  setHeritageModal,
   setIsEditing,
   isEditing,
   editHeritageSlug = null,
+  isOpen,
+  onClose,
 }) => {
   const RESTAPI_BASE_URL = import.meta.env.VITE_API_KEY_RESTAPI;
 
@@ -122,7 +123,7 @@ const AddHeritage = ({
   );
 
   const [deleteHeritage, { loading: deleteLoading }] = useMutation(
-    DELETE_HERITAGE_MUTATION,
+    DELETE_HERITAGE,
     {
       onCompleted: () => {
         toast.success("Heritage Deleted Successfully!");
@@ -178,7 +179,7 @@ const AddHeritage = ({
   return (
     <div>
       <AddNewModal
-        setModalOpen={setHeritageModal}
+        setModalOpen={isOpen}
         setIsEditing={setIsEditing}
         handleApply={handleSaveHeritage}
       >
