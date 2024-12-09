@@ -86,7 +86,44 @@ export const Static_Information = {
         buttonWantToKnowMore: "Want to know more?",
         buttonWantToCook: "Want to cook?",
       },
-
+      UserRoutesNames: [
+        {
+          route_link: "/",
+          route_name: "Home",
+        },
+        {
+          route_link: "/heritage",
+          route_name: "Heritage",
+        },
+        {
+          route_link: "/culture-tradition",
+          route_name: "Culture & Tradition",
+        },
+        {
+          route_link: "/learn-Indian-culture",
+          route_name: "Cultural Course",
+        },
+        {
+          route_link: "/explore-diversity",
+          route_name: "Explore Diversity",
+        },
+        {
+          route_link: "/blogs-vlogs",
+          route_name: "Blogs & Vlogs",
+        },
+        {
+          route_link: "/live-contest",
+          route_name: "Live Contest",
+        },
+        {
+          route_link: "/career",
+          route_name: "Career",
+        },
+        {
+          route_link: "/virtual-store",
+          route_name: "Store",
+        },
+      ],
       // -------------------------- HOME ---------------------------
       HomeData: {
         homeButtonName: "VISIT",
@@ -129,8 +166,35 @@ export const Static_Information = {
           },
           {
             para: `Dive deep into India’s historical and cultural wealth by exploring its most celebrated World Heritage Sites. This section is dedicated to the architectural and natural marvels that have stood the test of time, each narrating a story of its own. From the majestic forts that once guarded kingdoms to the sacred temp`,
-            image: learnImg,
+            image: exploreImg,
             shadow: "shadow-highlight_hover",
+            headingName: "Craft Your Perfect Indian Adventure",
+            buttonLink: "/explore-diversity",
+            featuringData: [
+              {
+                featureName: "Cultural Heritage Story Telling",
+              },
+              {
+                featureName: "Predict Heritage Trip Budgets",
+              },
+              {
+                featureName: "Create Personal Itinerary",
+              },
+              {
+                featureName: "Explore Nearest Attractions",
+              },
+              {
+                featureName: "Transcribe Ancient Scripts",
+              },
+              {
+                featureName: "Heritage Manual Summary",
+              },
+            ],
+          },
+          {
+            para: `Dive deep into India’s historical and cultural wealth by exploring its most celebrated World Heritage Sites. This section is dedicated to the architectural and natural marvels that have stood the test of time, each narrating a story of its own. From the majestic forts that once guarded kingdoms to the sacred temp`,
+            image: learnImg,
+            shadow: "shadow-highlight",
             headingName:
               "Dive Deep into the Rich Tapestry of Indian Traditions",
             buttonLink: "/learn-Indian-culture",
@@ -149,30 +213,7 @@ export const Static_Information = {
               },
             ],
           },
-          {
-            para: `Dive deep into India’s historical and cultural wealth by exploring its most celebrated World Heritage Sites. This section is dedicated to the architectural and natural marvels that have stood the test of time, each narrating a story of its own. From the majestic forts that once guarded kingdoms to the sacred temp`,
-            image: exploreImg,
-            shadow: "shadow-highlight",
-            headingName: "Craft Your Perfect Indian Adventure",
-            buttonLink: "/explore-diversity",
-            featuringData: [
-              {
-                featureName: "Predict Tour Budgets",
-              },
-              {
-                featureName: "Create Personal Itinerary",
-              },
-              {
-                featureName: "Explore Nearest Attractions",
-              },
-              {
-                featureName: "Transcribe Ancient Scripts",
-              },
-              {
-                featureName: "Personalized Story Telling",
-              },
-            ],
-          },
+
           {
             para: `Dive deep into India’s historical and cultural wealth by exploring its most celebrated World Heritage Sites. This section is dedicated to the architectural and natural marvels that have stood the test of time, each narrating a story of its own. From the majestic forts that once guarded kingdoms to the sacred temp`,
             image: blogsImg,
@@ -188,15 +229,70 @@ export const Static_Information = {
               },
             ],
           },
+
+          {
+            para: `Get ready to dive into the excitement! Our live contest is now live. Test your skills, showcase your talent, and stand a chance to win incredible prizes. Don't miss out on this thrilling opportunity.`,
+            image: blogsImg,
+            shadow: "shadow-highlight_hover",
+            headingName: "Win Big! Participate in Our Live Contest",
+            buttonLink: "/live-contest",
+            featuringData: [
+              {
+                featureName: "Content Writing Contest",
+              },
+              {
+                featureName: "Digital Art Contest",
+              },
+              {
+                featureName: "Indian Heritage and Culture Quiz Contest",
+              },
+              {
+                featureName: "Content Creation (Vlog) Contest",
+              },
+            ],
+          },
+
+          {
+            para: `Discover a world of possibilities at Cultural Canvas. Explore our diverse range of career opportunities and join a team of talented individuals. Start your journey today.`,
+            image: blogsImg,
+            shadow: "shadow-highlight",
+            headingName: "Your Next Career Adventure Starts Here",
+            buttonLink: "/career",
+            featuringData: [
+              {
+                featureName: "Career opportunity for Admins",
+              },
+              {
+                featureName: "Career opportunity for Blog Writers",
+              },
+
+              {
+                featureName: "Career opportunity for Teachers",
+              },
+              {
+                featureName: "Career opportunity for Digital Artists",
+              },
+              {
+                featureName: "Career opportunity for Sellers",
+              },
+              {
+                featureName: "Career opportunity for Content Creators",
+              },
+            ],
+          },
+
           {
             para: `Dive deep into India’s historical and cultural wealth by exploring its most celebrated World Heritage Sites. This section is dedicated to the architectural and natural marvels that have stood the test of time, each narrating a story of its own. From the majestic forts that once guarded kingdoms to the sacred temp`,
             image: virtualStoreImg,
-            shadow: "shadow-highlight_hover",
+            shadow: "shadow-dark_secondary_text",
             headingName: "Bring a Piece of India’s Heritage Home",
             buttonLink: "/virtual-store",
             featuringData: [
               {
                 featureName: "Buy Antique Products",
+              },
+              {
+                featureName: "Sell/Promote Antique Products",
               },
             ],
           },

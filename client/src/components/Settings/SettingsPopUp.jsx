@@ -14,7 +14,7 @@ const Settings = ({ onClose }) => {
   };
 
   return (
-    <div className="absolute bottom-8 left-2 z-20 flex items-center justify-end bg-center bg-cover bg-no-repeat rounded-xl duration-500">
+    <div className="absolute -bottom-6 left-14 z-20 flex items-center justify-end bg-center bg-cover bg-no-repeat rounded-xl duration-500">
       <div className="absolute inset-0 bg-dark_background1 dark:bg-shadow opacity-90 z-10 rounded-xl"></div>
       <div className="relative z-30">
         <div className="flex justify-between items-center h-20 w-[22rem] px-4 py-3 font-bold text-dark_primary_text">
