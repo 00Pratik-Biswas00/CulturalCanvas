@@ -151,9 +151,9 @@ const heritageResolvers = {
           );
         }
 
-        const updatedHeritage = await heritage.save();
+        await heritage.save();
 
-        return updatedHeritage;
+        return true;
       } catch (error) {
         console.error("Error updating heritage: ", error);
         throw new Error("Error updating heritage");

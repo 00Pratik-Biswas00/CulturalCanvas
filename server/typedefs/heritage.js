@@ -121,17 +121,19 @@ const heritageTypeDefs = gql`
     updateHeritage(
       id: ID!
       name: String
-      image: ImageInput
       introduction: String
-      endlessDigitalArt: VideoInput
-      animatedVideo: VideoInput
-      vlogVideo: VideoInput
       part1: [DescriptionInput]
       type_of_heritage: HeritageType
       tag: HeritageTag
       state_culture_name: String
       nearest_attractions: [NearestAttractionInput]
-    ): HeritageResponse
+      police_helpline: String
+      women_helpline: String
+      child_helpline: String
+      fire_emergency: String
+      medical_emergency: String
+      entry_fee: Float
+    ): Boolean!
 
     deleteHeritage(id: ID!): Boolean!
   }
