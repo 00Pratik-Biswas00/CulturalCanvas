@@ -33,8 +33,8 @@ def predict_budget(source, destination, duration, travel_preference):
     source_encoded = handle_unseen_label(source, label_encoder_source)
     destination_encoded = handle_unseen_label(destination, label_encoder_destination)
     
-    if duration < 5:
-        travel_preference = 'Flight'
+    #if duration < 5:
+        #travel_preference = 'Flight'
     
     local_travel_cost = df['Local Travel Cost (INR)'].mean()
     hotel_cost = df['Hotel Cost (INR)'].mean()

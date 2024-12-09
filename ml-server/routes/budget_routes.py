@@ -4,7 +4,7 @@ from ml.budget_prediction.budget_predictor import predict_budget
 # Create a Blueprint for budget routes
 budget_bp = Blueprint('budget_routes', __name__)
 
-@budget_bp.route('/api/predict-budget', methods=['POST'])
+@budget_bp.route('/predict-budget', methods=['POST'])
 def predict():
     data = request.json
     source = data.get('source')
