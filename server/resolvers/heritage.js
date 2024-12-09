@@ -54,10 +54,8 @@ const heritageResolvers = {
         part1,
         type_of_heritage,
         tag,
-        helpline_numbers,
         state_culture_name,
-        entry_fee,
-        distance,
+        nearest_attractions,
       },
       { userId }
     ) => {
@@ -68,6 +66,13 @@ const heritageResolvers = {
         }).toLowerCase();
       }
       try {
+        // Format nearest attractions
+        const formattedAttractions = nearest_attractions?.map((attraction) => ({
+          heritage: attraction.heritage,
+          distance: attraction.distance,
+          entry_fee: attraction.entry_fee,
+        }));
+
         const newHeritage = new Heritage({
           name,
           image,
@@ -79,11 +84,9 @@ const heritageResolvers = {
           part1,
           type_of_heritage,
           tag,
-          helpline_numbers,
           state_culture_name,
-          entry_fee,
-          distance,
-          createdBy: userId, // Assuming you want to track who created the heritage
+          nearest_attractions: formattedAttractions,
+          createdBy: userId, // Tracking who created the heritage
         });
 
         await newHeritage.save();
@@ -108,10 +111,8 @@ const heritageResolvers = {
         part1,
         type_of_heritage,
         tag,
-        helpline_numbers,
         state_culture_name,
-        entry_fee,
-        distance,
+        nearest_attractions,
       }
     ) => {
       try {
@@ -138,11 +139,17 @@ const heritageResolvers = {
         if (part1) heritage.part1 = part1;
         if (type_of_heritage) heritage.type_of_heritage = type_of_heritage;
         if (tag) heritage.tag = tag;
-        if (helpline_numbers) heritage.helpline_numbers = helpline_numbers;
         if (state_culture_name)
           heritage.state_culture_name = state_culture_name;
-        if (entry_fee) heritage.entry_fee = entry_fee;
-        if (distance) heritage.distance = distance;
+        if (nearest_attractions) {
+          heritage.nearest_attractions = nearest_attractions.map(
+            (attraction) => ({
+              heritage: attraction.heritage,
+              distance: attraction.distance,
+              entry_fee: attraction.entry_fee,
+            })
+          );
+        }
 
         const updatedHeritage = await heritage.save();
 

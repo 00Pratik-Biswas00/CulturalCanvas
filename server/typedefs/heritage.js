@@ -1,9 +1,22 @@
 import { gql } from "apollo-server-express";
 
 const heritageTypeDefs = gql`
+  enum HeritageType {
+    unesco_listed
+    unesco_unlisted
+    local_heritage
+  }
+
+  enum HeritageTag {
+    cultural
+    natural
+    tangible
+    intangible
+  }
+
   type Image {
-    url: String!
-    public_id: String!
+    url: String
+    public_id: String
   }
 
   type Video {
@@ -14,69 +27,38 @@ const heritageTypeDefs = gql`
     Bucket: String
   }
 
-  type helpLine {
-    police_helpline: String!
-    women_helpline: String!
-    child_helpline: String!
-    ambulance_helpline: String!
-    hospital_helpline: String!
-    fire_brigade: String!
-  }
-
   type Description {
-    heading: String!
-    description: String!
+    heading: String
+    description: String
   }
 
-  type State {
-    name: String!
-    image: Image!
-  }
-
-  # New type for nearest attractions
   type NearestAttraction {
     _id: ID!
-    name: String!
-    image: Image
-    distance: String!
-    entry_fee: Float!
-    slug: String! # Slug for linking to the single heritage page
+    distance: Float
+    entry_fee: Float
   }
 
-  # Output types for queries
   type Heritage {
     _id: ID!
-    name: String!
-    slug: String!
+    name: String
+    slug: String
     image: Image
-    introduction: String!
+    introduction: String
     endlessDigitalArt: Video
     animatedVideo: Video
     vlogVideo: Video
     part1: [Description]
-    type_of_heritage: String!
-    tag: String
-    helpline_numbers: [helpLine]
-    state_culture_name: State!
-    entry_fee: Float
-    distance: String!
+    type_of_heritage: HeritageType
+    tag: HeritageTag
+    state_culture_name: String
+    nearest_attractions: [NearestAttraction]
     createdAt: String
     updatedAt: String
   }
 
-  # Input types for mutation
   input ImageInput {
-    url: String!
-    public_id: String!
-  }
-
-  input helpLineInput {
-    police_helpline: String!
-    women_helpline: String!
-    child_helpline: String!
-    ambulance_helpline: String!
-    hospital_helpline: String!
-    fire_brigade: String!
+    url: String
+    public_id: String
   }
 
   input VideoInput {
@@ -88,37 +70,34 @@ const heritageTypeDefs = gql`
   }
 
   input DescriptionInput {
-    heading: String!
-    description: String!
+    heading: String
+    description: String
   }
 
-  input StateInput {
-    name: String!
-    image: ImageInput!
+  input NearestAttractionInput {
+    heritage: ID
+    distance: Float
+    entry_fee: Float
   }
 
-  # Output types for mutations
   type HeritageResponse {
     id: ID!
-    name: String!
-    slug: String!
+    name: String
+    slug: String
     image: Image
-    introduction: String!
+    introduction: String
     endlessDigitalArt: Video
     animatedVideo: Video
     vlogVideo: Video
     part1: [Description]
-    type_of_heritage: String!
-    tag: String
-    helpline_numbers: [helpLine]
-    state_culture_name: State!
-    entry_fee: Float
-    distance: String!
+    type_of_heritage: HeritageType
+    tag: HeritageTag
+    state_culture_name: String
+    nearest_attractions: [NearestAttraction]
     createdAt: String
     updatedAt: String
   }
 
-  # Queries and Mutations
   type Query {
     getHeritage(slug: String!): Heritage
     getHeritages: [Heritage]
@@ -126,19 +105,17 @@ const heritageTypeDefs = gql`
 
   type Mutation {
     createHeritage(
-      name: String!
-      image: ImageInput!
-      introduction: String!
+      name: String
+      image: ImageInput
+      introduction: String
       endlessDigitalArt: VideoInput
       animatedVideo: VideoInput
       vlogVideo: VideoInput
       part1: [DescriptionInput]
-      type_of_heritage: String!
-      tag: String!
-      helpline_numbers: [helpLineInput]
-      state_culture_name: StateInput!
-      entry_fee: Float!
-      distance: String!
+      type_of_heritage: HeritageType
+      tag: HeritageTag
+      state_culture_name: String
+      nearest_attractions: [NearestAttractionInput]
     ): HeritageResponse
 
     updateHeritage(
@@ -150,15 +127,13 @@ const heritageTypeDefs = gql`
       animatedVideo: VideoInput
       vlogVideo: VideoInput
       part1: [DescriptionInput]
-      type_of_heritage: String
-      tag: String
-      helpline_numbers: [helpLineInput]
-      state_culture_name: StateInput
-      entry_fee: Float
-      distance: String
+      type_of_heritage: HeritageType
+      tag: HeritageTag
+      state_culture_name: String
+      nearest_attractions: [NearestAttractionInput]
     ): HeritageResponse
 
-    deleteHeritage(id: ID!): String!
+    deleteHeritage(id: ID!): HeritageResponse
   }
 `;
 

@@ -40,23 +40,12 @@ query GetHeritages {
     }
     type_of_heritage
     tag
-    helpline_numbers {
-      women_helpline
-      child_helpline
-      fire_brigade
-      police_helpline
-      ambulance_helpline
-      hospital_helpline
-    }
-    state_culture_name {
-      image {
-        public_id
-        url
-      }
-      name
-    }
-    entry_fee
+    state_culture_name
+    nearest_attractions {
+    _id
     distance
+    entry_fee
+   }
   }  
   }
 }
@@ -98,23 +87,6 @@ query GetHeritage($slug: String!) {
     }
     type_of_heritage
     tag
-    helpline_numbers {
-      women_helpline
-      child_helpline
-      fire_brigade
-      police_helpline
-      ambulance_helpline
-      hospital_helpline
-    }
-    state_culture_name {
-      image {
-        public_id
-        url
-      }
-      name
-    }
-    entry_fee
-    distance
-  }  
+    state_culture_name 
   }
 }

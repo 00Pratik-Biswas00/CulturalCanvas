@@ -1,219 +1,355 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AddNewModal from "../AddNewModal";
 import InputComponent from "../../../components/Input/InputComponent";
 import TextareaComponent from "../../../components/Textarea/TextareaComponent";
 import InputImageVideo from "../../../components/Input/InputImageVideo";
+import { useMutation, useQuery } from "@apollo/client";
+import {
+  CREATE_HERITAGE_MUTATION,
+  UPDATE_HERITAGE_MUTATION,
+  DELETE_HERITAGE_MUTATION,
+} from "../../../graphql/heritageMutation";
+import { toast } from "sonner";
+import api from "../../../config/axios";
+import { GET_HERITAGE_QUERY } from "../../../graphql/heritageQuery";
 
-const AddHeritage = ({ setHeritageModal, handleApplyHeritageModal }) => {
-  const [heritageDetails, setHeritageDetails] = useState({
-    name: "",
-    image: "",
-    introduction: "",
-    endlessDigitalArt: "",
-    animatedVideo: "",
-    vlogVideo: "",
-    part1: [{ heading: "", description: "" }],
-    type_of_heritage: "unesco_listed",
-    tag: "cultural",
-    helpline_numbers: {
-      police_helpline: "",
-      women_helpline: "",
-      child_helpline: "",
-      ambulance_helpline: "",
-      hospital_helpline: "",
-      fire_brigade: "",
-    },
-    state_culture_name: { name: "", image: "" },
-    entry_fee: 0,
-    distance: "",
+const AddHeritage = ({
+  setHeritageModal,
+  setIsEditing,
+  isEditing,
+  editHeritageSlug = null,
+}) => {
+  const RESTAPI_BASE_URL = import.meta.env.VITE_API_KEY_RESTAPI;
+
+  const { loading, error, data } = useQuery(GET_HERITAGE_QUERY, {
+    variables: { slug: editHeritageSlug },
   });
 
-  const handleChange = (field, value) => {
-    setHeritageDetails({ ...heritageDetails, [field]: value });
-  };
+  const [formData, setFormData] = useState({
+    name: "",
+    image: {},
+    introduction: "",
+    part1: [{ heading: "", description: "" }],
+    animatedVideo: {},
+    endlessDigitalArt: {},
+    vlogVideo: {},
+    type_of_heritage: "unesco_listed", // Default value
+    tag: "cultural", // Default value
+    state_culture_name: "",
+  });
 
-  const handleHelplineChange = (field, value) => {
-    setHeritageDetails({
-      ...heritageDetails,
-      helpline_numbers: {
-        ...heritageDetails.helpline_numbers,
-        [field]: value,
-      },
-    });
+  useEffect(() => {
+    if (isEditing && editHeritageSlug && data) {
+      setFormData(data.getHeritage);
+    }
+  }, [isEditing, editHeritageSlug, data]);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handlePart1Change = (index, field, value) => {
-    const updatedPart1 = heritageDetails.part1.map((item, i) =>
+    const updatedPart1 = formData.part1.map((item, i) =>
       i === index ? { ...item, [field]: value } : item
     );
-    setHeritageDetails({ ...heritageDetails, part1: updatedPart1 });
+    setFormData((prev) => ({ ...prev, part1: updatedPart1 }));
   };
 
   const handleAddPart1 = () => {
-    setHeritageDetails({
-      ...heritageDetails,
-      part1: [...heritageDetails.part1, { heading: "", description: "" }],
-    });
+    setFormData((prev) => ({
+      ...prev,
+      part1: [...prev.part1, { heading: "", description: "" }],
+    }));
   };
 
   const handleRemovePart1 = (index) => {
-    const updatedPart1 = heritageDetails.part1.filter((_, i) => i !== index);
-    setHeritageDetails({ ...heritageDetails, part1: updatedPart1 });
+    const updatedPart1 = formData.part1.filter((_, i) => i !== index);
+    setFormData((prev) => ({ ...prev, part1: updatedPart1 }));
+  };
+
+  const handleUploadingImage = async (file) => {
+    const formData = new FormData();
+    formData.append("image", file);
+    try {
+      const { data } = await api.post(
+        `${RESTAPI_BASE_URL}/upload-image`,
+        formData
+      );
+      return data;
+    } catch (e) {
+      console.error("Error uploading image:", e);
+    }
+  };
+
+  const handleImageInput = async (file, field) => {
+    try {
+      const uploadedImageData = await handleUploadingImage(file);
+      setFormData((prev) => ({
+        ...prev,
+        [field]: uploadedImageData,
+      }));
+    } catch (e) {
+      console.error("Error uploading image:", e);
+      toast.error("Image upload failed!");
+    }
+  };
+
+  const [createHeritage, { loading: createLoading }] = useMutation(
+    CREATE_HERITAGE_MUTATION,
+    {
+      onCompleted: () => {
+        toast.success("Heritage Created Successfully!");
+      },
+      onError: (error) => {
+        console.error("Error creating heritage:", error);
+        toast.error("Error creating heritage!");
+      },
+    }
+  );
+
+  const [updateHeritage, { loading: updateLoading }] = useMutation(
+    UPDATE_HERITAGE_MUTATION,
+    {
+      onCompleted: () => {
+        toast.success("Heritage Updated Successfully!");
+      },
+      onError: (error) => {
+        console.error("Error updating heritage!", error);
+        toast.error("Error updating heritage!");
+      },
+    }
+  );
+
+  const [deleteHeritage, { loading: deleteLoading }] = useMutation(
+    DELETE_HERITAGE_MUTATION,
+    {
+      onCompleted: () => {
+        toast.success("Heritage Deleted Successfully!");
+        setHeritageModal(false); // Close modal after deletion
+      },
+      onError: (error) => {
+        console.error("Error deleting heritage:", error);
+        toast.error("Error deleting heritage!");
+      },
+    }
+  );
+
+  const handleSaveHeritage = async () => {
+    try {
+      if (isEditing) {
+        await updateHeritage({
+          variables: { id: formData.id, ...formData },
+        });
+      } else {
+        await createHeritage({
+          variables: formData,
+        });
+      }
+      setHeritageModal(false); // Close modal
+      setIsEditing(false); // Reset editing state
+    } catch (e) {
+      console.error(
+        isEditing ? "Error updating heritage:" : "Error creating heritage:",
+        e
+      );
+      toast.error(
+        isEditing ? "Error updating heritage!" : "Error creating heritage!"
+      );
+    }
+  };
+
+  const handleDeleteHeritage = async () => {
+    if (
+      window.confirm("Are you sure you want to delete this heritage entry?")
+    ) {
+      try {
+        await deleteHeritage({
+          variables: { id: formData.id },
+        });
+        // Optionally, you can add logic to delete images/videos from Cloudinary/S3 here
+      } catch (e) {
+        console.error("Error deleting heritage:", e);
+        toast.error("Error deleting heritage!");
+      }
+    }
   };
 
   return (
     <div>
       <AddNewModal
         setModalOpen={setHeritageModal}
-        handleApply={() => handleApplyHeritageModal(heritageDetails)}
+        setIsEditing={setIsEditing}
+        handleApply={handleSaveHeritage}
       >
-        <h2 className="text-2xl font-bold mb-2">Add New Heritage</h2>
-        <div className="flex flex-col gap-4 py-2">
-          {/* Heritage Name and Image */}
+        <h2 className="text-2xl lg:text-3xl font-bold mb-2">
+          {isEditing ? "Edit Heritage Entry" : "Add a New Heritage Entry"}
+        </h2>
+
+        <div className="flex flex-col gap-2 py-2">
           <div className="flex items-start w-full justify-between gap-5">
             <div className="w-full">
               <InputComponent
                 iName="Heritage Name"
                 iType="text"
-                value={heritageDetails.name}
-                onChange={(e) => handleChange("name", e.target.value)}
+                value={formData.name}
+                onChange={handleInputChange}
+                name="name"
               />
             </div>
+
             <InputImageVideo
-              imageName="Heritage Image"
+              imageName="Heritage Image:"
               fileType="image"
-              value={heritageDetails.image}
-              onChange={(e) => handleChange("image", e.target.value)}
+              onChange={(e) => handleImageInput(e.target.files[0], "image")}
+              preview={formData.image}
             />
           </div>
 
-          {/* Introduction */}
-          <div className="flex items-start w-full justify-between gap-5">
-            <div className="w-full">
-              <label className="block font-bold">Introduction</label>
-              <TextareaComponent
-                value={heritageDetails.introduction}
-                onChange={(e) => handleChange("introduction", e.target.value)}
-              />
-            </div>
-          </div>
-
-          {/* Video Uploads */}
-          <div className="flex items-start w-full justify-between gap-5">
-            <InputImageVideo
-              imageName="Endless Digital Art Video"
-              fileType="video"
-              value={heritageDetails.endlessDigitalArt}
-              onChange={(e) =>
-                handleChange("endlessDigitalArt", e.target.value)
-              }
-            />
-            <InputImageVideo
-              imageName="Animated Video"
-              fileType="video"
-              value={heritageDetails.animatedVideo}
-              onChange={(e) => handleChange("animatedVideo", e.target.value)}
-            />
-            <InputImageVideo
-              imageName="Vlog Video"
-              fileType="video"
-              value={heritageDetails.vlogVideo}
-              onChange={(e) => handleChange("vlogVideo", e.target.value)}
+          <div className="w-full">
+            <label className="block font-bold">Introduction</label>
+            <TextareaComponent
+              value={formData.introduction}
+              onChange={handleInputChange}
+              name="introduction"
             />
           </div>
 
-          {/* Part 1 Sections */}
-          <div>
-            <h3 className="font-bold text-lg py-4">
-              Add heading and descriptions
-            </h3>
-            {heritageDetails.part1.map((section, index) => (
-              <div key={index} className="flex items-center gap-4 mb-3">
-                <InputComponent
-                  iName={`Heading ${index + 1}`}
-                  iType="text"
-                  value={section.heading}
-                  onChange={(e) =>
-                    handlePart1Change(index, "heading", e.target.value)
-                  }
-                />
-                <TextareaComponent
-                  value={section.description}
-                  placeholder={`Description ${index + 1}`}
-                  onChange={(e) =>
-                    handlePart1Change(index, "description", e.target.value)
-                  }
-                />
-                <button
-                  onClick={() => handleRemovePart1(index)}
-                  className="bg-red-500 text-white px-3 py-1 rounded"
-                >
-                  Remove
-                </button>
+          <div className="mb-4 overflow-auto">
+            <label className="block text-xl font-bold">Part 1 Details:</label>
+            {formData.part1.map((item, index) => (
+              <div
+                key={index}
+                className="flex flex-col w-full justify-between gap-1 mb-2 border-2 border-t-0 rounded-xl rounded-t-none px-4 pb-2 mt-3"
+              >
+                <div className="w-full">
+                  <InputComponent
+                    iName="Heading"
+                    iType="text"
+                    value={item.heading}
+                    onChange={(e) =>
+                      handlePart1Change(index, "heading", e.target.value)
+                    }
+                  />
+                  <TextareaComponent
+                    value={item.description}
+                    onChange={(e) =>
+                      handlePart1Change(index, "description", e.target.value)
+                    }
+                    name={`description-${index}`}
+                  />
+                </div>
+                <div className="flex justify-end w-full">
+                  <button
+                    type="button"
+                    onClick={() => handleRemovePart1(index)}
+                    className="px-4 py-1 bg-red-500 hover:bg-red-800 rounded text-white"
+                  >
+                    Delete Part
+                  </button>
+                </div>
               </div>
             ))}
-            <button
-              onClick={handleAddPart1}
-              className="bg-blue-500 text-white px-3 py-1 rounded"
-            >
-              Add Section
-            </button>
+            <div className="flex items-center justify-between w-full mt-2">
+              <button
+                type="button"
+                onClick={handleAddPart1}
+                className="bg-highlight hover:bg-highlight_hover text-primary_text px-4 py-1 rounded font-medium transition-all duration-300 w-fit uppercase"
+              >
+                Add Part
+              </button>
+            </div>
           </div>
 
-          {/* Helpline Numbers */}
-          <div>
-            <h3 className="font-bold text-lg py-4">Helpline Numbers</h3>
-            <div className="grid grid-cols-2 gap-4">
-              <InputComponent
-                iName="Police Helpline"
-                iType="text"
-                value={heritageDetails.helpline_numbers.police_helpline}
+          <div className="flex items-start w-full justify-between gap-5">
+            <div className="w-full">
+              <InputImageVideo
+                imageName="Animated Video:"
+                fileType="animatedVideo"
                 onChange={(e) =>
-                  handleHelplineChange("police_helpline", e.target.value)
+                  handleImageInput(e.target.files[0], "animatedVideo")
                 }
+                preview={formData.animatedVideo}
               />
-              <InputComponent
-                iName="Women Helpline"
-                iType="text"
-                value={heritageDetails.helpline_numbers.women_helpline}
+            </div>
+
+            <div className="w-full">
+              <InputImageVideo
+                imageName="Endless Digital Art:"
+                fileType="endlessDigitalArt"
                 onChange={(e) =>
-                  handleHelplineChange("women_helpline", e.target.value)
+                  handleImageInput(e.target.files[0], "endlessDigitalArt")
                 }
-              />
-              <InputComponent
-                iName="Child Helpline"
-                iType="text"
-                value={heritageDetails.helpline_numbers.child_helpline}
-                onChange={(e) =>
-                  handleHelplineChange("child_helpline", e.target.value)
-                }
-              />
-              <InputComponent
-                iName="Ambulance Helpline"
-                iType="text"
-                value={heritageDetails.helpline_numbers.ambulance_helpline}
-                onChange={(e) =>
-                  handleHelplineChange("ambulance_helpline", e.target.value)
-                }
-              />
-              <InputComponent
-                iName="Hospital Helpline"
-                iType="text"
-                value={heritageDetails.helpline_numbers.hospital_helpline}
-                onChange={(e) =>
-                  handleHelplineChange("hospital_helpline", e.target.value)
-                }
-              />
-              <InputComponent
-                iName="Fire Brigade"
-                iType="text"
-                value={heritageDetails.helpline_numbers.fire_brigade}
-                onChange={(e) =>
-                  handleHelplineChange("fire_brigade", e.target.value)
-                }
+                preview={formData.endlessDigitalArt}
               />
             </div>
           </div>
+
+          <div className="flex items-start w-full justify-between gap-5">
+            <div className="w-full">
+              <InputImageVideo
+                imageName="Vlog Video:"
+                fileType="vlogVideo"
+                onChange={(e) =>
+                  handleImageInput(e.target.files[0], "vlogVideo")
+                }
+                preview={formData.vlogVideo}
+              />
+            </div>
+          </div>
+
+          <div className="flex items-start w-full justify-between gap-5">
+            <div className="w-full">
+              <label className="block font-bold">Type of Heritage</label>
+              <select
+                value={formData.type_of_heritage}
+                onChange={handleInputChange}
+                name="type_of_heritage"
+                className="block w-full px-3 py-2 border rounded"
+              >
+                <option value="unesco_listed">UNESCO Listed</option>
+                <option value="unesco_unlisted">UNESCO Unlisted</option>
+                <option value="local_heritage">Local Heritage</option>
+              </select>
+            </div>
+
+            <div className="w-full">
+              <label className="block font-bold">Heritage Tag</label>
+              <select
+                value={formData.tag}
+                onChange={handleInputChange}
+                name="tag"
+                className="block w-full px-3 py-2 border rounded"
+              >
+                <option value="cultural">Cultural</option>
+                <option value="natural">Natural</option>
+                <option value="tangible">Tangible</option>
+                <option value="intangible">Intangible</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="w-full">
+            <InputComponent
+              iName="State/Culture Name"
+              iType="text"
+              value={formData.state_culture_name}
+              onChange={handleInputChange}
+              name="state_culture_name"
+            />
+          </div>
+
+          {isEditing && (
+            <div className="flex justify-end mt-4">
+              <button
+                type="button"
+                onClick={handleDeleteHeritage}
+                className="px-4 py-2 bg-red-600 hover:bg-red-800 text-white rounded"
+              >
+                Delete Heritage Entry
+              </button>
+            </div>
+          )}
         </div>
       </AddNewModal>
     </div>

@@ -197,12 +197,12 @@ const SingleHeritage = () => {
             <div className="bg-background1 dark:bg-dark_background1 py-10 px-16  flex gap-4 items-center justify-center w-full h-full">
               <h1 className="font-bold font-pangaia text-2xl tracking-wider w-3/4">
                 Do you know that {heritage.name} is just one of the glimpse of
-                the majesty of the {heritage.state_culture_name.name} 🤩? If you
-                want to know explore more about{" "}
-                {heritage.state_culture_name.name} click on the image!
+                the majesty of the {heritage.state_culture_name} 🤩? If you want
+                to know explore more about {heritage.state_culture_name} click
+                on the image!
               </h1>
               <a
-                href={`/culture-tradition/${heritage.state_culture_name.name
+                href={`/culture-tradition/${heritage.state_culture_name
                   .toLowerCase()
                   .replace(/\s+/g, "-")}`}
                 className="flex items-center justify-center"
