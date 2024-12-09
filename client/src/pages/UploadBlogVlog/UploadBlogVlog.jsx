@@ -10,6 +10,7 @@ import { CREATE_BLOG, GET_BLOG, UPDATE_BLOG } from "../../graphql/blog";
 import { useMutation, useQuery } from "@apollo/client";
 import { toast } from "sonner";
 import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 
 const UploadBlogVlog = () => {
   const { id } = useParams();
@@ -26,6 +27,8 @@ const UploadBlogVlog = () => {
     blogVideo: null,
     blogContent: "",
   });
+  const [uploading, setUploading] = useState(false); // To manage the uploading state
+
   const { data: fetchedBlog, loading: fetchingBlog } = useQuery(GET_BLOG, {
     variables: { id },
     skip: !isEditMode,
@@ -98,8 +101,64 @@ const UploadBlogVlog = () => {
       toast.error("Failed to update the blog.");
     },
   });
+
+  const handleFileChange = async (e, fileType) => {
+    const file = e.currentTarget.files[0];
+
+    // Proceed to upload if verification is successful
+    if (fileType === "image") {
+      // First, check the content for explicit material
+      const isVerified = await handleExplicitContentCheck(file, "image");
+      console.log(isVerified);
+      if (!isVerified) {
+        return;
+      }
+
+      await handleImageUpload(file);
+    } else if (fileType === "video") {
+      // First, check the content for explicit material
+      const isVerified = await handleExplicitContentCheck(file, "video");
+
+      if (!isVerified) {
+        return; // Do not proceed if the file has explicit content
+      }
+      await handleVideoUpload(file);
+    }
+  };
+
+  const handleExplicitContentCheck = async (file, type) => {
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_KEY_FLASKAPI}/detect-nudity/${type}`,
+        formData,
+        { headers: { "Content-Type": "multipart/form-data" } }
+      );
+
+      const isNudityDetected = response.data.nudity_detected;
+
+      if (isNudityDetected) {
+        toast.error(
+          "Explicit content detected! Please upload a different file."
+        );
+        return false;
+      } else {
+        toast.success("Verification successful!");
+        return true;
+      }
+    } catch (error) {
+      console.error("Error checking for explicit content:", error);
+      toast.error("Error verifying content.");
+      return false;
+    }
+  };
+  console.log(formData);
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setUploading(true);
+
     try {
       if (isEditMode) {
         await updateBlog({
@@ -130,6 +189,8 @@ const UploadBlogVlog = () => {
     } catch (err) {
       console.error("Error submitting blog:", err);
       toast.error("Failed to submit the blog.");
+    } finally {
+      setUploading(false);
     }
   };
 
@@ -138,8 +199,7 @@ const UploadBlogVlog = () => {
       style={{ backgroundImage: `url(${blogBG})` }}
       className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-10 pb-14 px-16 duration-300 min-h-screen relative w-full bg-contain bg-fixed  bg-no-repeat bg-center
       flex flex-col items-center
-      "
-    >
+      ">
       <div className="flex flex-col p-5 w-[90%]   rounded-xl  shadow-custom-black  dark:shadow-custom-white   blogCards">
         <div className="flex items-center tracking-wide justify-center pb-4 text-[3rem] font-extrabold font-gallient">
           {isEditMode ? "Edit Your Blog" : "Upload Your Blog 📝 / Vlog 🎬"}{" "}
@@ -186,14 +246,12 @@ const UploadBlogVlog = () => {
           <div className="flex  justify-center gap-5 items-center my-3 font-playfair">
             <button
               className={`hollowBorder blogCards font-searchBars  text-lg px-6 py-1 rounded bg-transparent text-primary_text dark:text-dark_primary_text `}
-              onClick={() => handleInputChange("contentType", "Blog")}
-            >
+              onClick={() => handleInputChange("contentType", "Blog")}>
               Blog
             </button>
             <button
               className={`hollowBorder blogCards font-searchBars  text-lg px-6 py-1 rounded bg-transparent text-primary_text dark:text-dark_primary_text`}
-              onClick={() => handleInputChange("contentType", "Vlog")}
-            >
+              onClick={() => handleInputChange("contentType", "Vlog")}>
               Vlog
             </button>
           </div>
@@ -206,15 +264,13 @@ const UploadBlogVlog = () => {
             <button
               className={`hollowBorder blogCards font-searchBars  text-lg px-6 py-1 rounded bg-transparent text-primary_text dark:text-dark_primary_text `}
               onClick={() => handleInputChange("contentCategory", "Heritage")}
-              disabled={isEditMode}
-            >
+              disabled={isEditMode}>
               Heritage
             </button>
             <button
               className={`hollowBorder blogCards font-searchBars  text-lg px-6 py-1 rounded bg-transparent text-primary_text dark:text-dark_primary_text`}
               onClick={() => handleInputChange("contentCategory", "Culture")}
-              disabled={isEditMode}
-            >
+              disabled={isEditMode}>
               Culture
             </button>
           </div>
@@ -225,13 +281,13 @@ const UploadBlogVlog = () => {
             required={true}
             fileType={"image"}
             imageName={"Upload Your Blog's Poster:"}
-            onChange={(e) => handleImageUpload(e.currentTarget.files[0])}
+            onChange={(e) => handleFileChange(e, "image")}
             disabled={isEditMode}
           />
           <InputImageVideo
             fileType={"video"}
             imageName={"Upload Your Blog's Video:"}
-            onChange={(e) => handleVideoUpload(e.currentTarget.files[0])}
+            onChange={(e) => handleFileChange(e, "video")}
             disabled={isEditMode}
           />
         </div>
@@ -249,15 +305,6 @@ const UploadBlogVlog = () => {
         </div>
 
         <div className="flex items-center justify-center gap-5">
-          <MyButton4
-            classDesign={
-              "bg-highlight_hover before:bg-highlight_hover_dark  text-dark_primary_text py-1 mt-4"
-            }
-            buttonName={"Verify"}
-            onClick={() => {
-              // TODO:
-            }}
-          />
           <MyButton4
             classDesign={
               "bg-highlight before:bg-highlight_dark text-dark_primary_text py-1 mt-4"
