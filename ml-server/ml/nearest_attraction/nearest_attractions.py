@@ -5,6 +5,7 @@ import overpy
 geolocator = Nominatim(user_agent="nearest_attraction_finder")
 api = overpy.Overpass()
 
+# Function to get coordinates of a place
 def get_coordinates(place_name):
     location = geolocator.geocode(place_name)
     if location:
@@ -12,6 +13,7 @@ def get_coordinates(place_name):
     else:
         return None
 
+# Function to find nearest places based on user input
 def find_nearest_places(user_location, attraction_type, radius=30000):
     attraction_types = {
         "tourist_spots": '["tourism"~"attraction|museum|monument|zoo|theme_park|viewpoint"]',
