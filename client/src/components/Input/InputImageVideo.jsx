@@ -15,7 +15,6 @@ const InputImageVideo = ({
     fileInputRef.current.click();
   };
 
-  console.log(imageName, " : ", preview);
 
   return (
     <div className="w-full flex items-center my-3 gap-5">

@@ -8,8 +8,9 @@ import { toast } from "sonner";
 
 const AdminHeritagePage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [editingHeritage, setEditingHeritage] = useState(null);
+  const [editingHeritage, setEditingHeritage] = useState(false);
   const [isHeritageEditing, setIsHeritageEditing] = useState(false);
+  const [updateID, setUpdateID] = useState("");
 
   const { loading, error, data } = useQuery(GET_HERITAGES);
   const [deleteHeritage] = useMutation(DELETE_HERITAGE, {
@@ -18,7 +19,7 @@ const AdminHeritagePage = () => {
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
-    setEditingHeritage(null); // Clear editing state
+    setEditingHeritage(null);
   };
 
   const handleCloseModal = () => {
@@ -26,9 +27,10 @@ const AdminHeritagePage = () => {
     setEditingHeritage(null);
   };
 
-  const handleEditHeritage = (heritage) => {
-    setEditingHeritage(heritage);
-    setIsModalOpen(true); // Open modal in editing mode
+  const handleEditHeritage = (id) => {
+    setIsHeritageEditing(true);
+    setIsModalOpen(true);
+    setUpdateID(id);
   };
 
   const handleDeleteHeritage = async (id) => {
@@ -55,24 +57,19 @@ const AdminHeritagePage = () => {
         </div>
 
         <LayoutHeritage
-          setModalOpen={handleOpenModal} // Explicitly for adding new heritage
+          setModalOpen={handleOpenModal}
           heritages={data.getHeritages}
           onEditHeritage={handleEditHeritage}
           onDeleteHeritage={handleDeleteHeritage}
         />
-        {/* {isModalOpen && (
-          <AddHeritageModal
-            isOpen={isModalOpen}
-            onClose={handleCloseModal}
-            heritage={editingHeritage}
-          />
-        )} */}
 
         {isModalOpen && (
           <AddHeritageModal
             isOpen={isModalOpen}
             onClose={handleCloseModal}
             heritage={editingHeritage}
+            isEditing={isHeritageEditing}
+            updateID={updateID}
           />
         )}
       </div>
