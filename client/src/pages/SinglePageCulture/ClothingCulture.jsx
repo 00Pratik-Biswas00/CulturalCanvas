@@ -11,7 +11,7 @@ const ClothingCulture = () => {
     <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text   ">
       <div className="relative flex items-center justify-center">
         <img src={img1} alt="culture-bg" />
-        <div className=" absolute pb-20 font-montserrat font-extrabold text-7xl">
+        <div className=" absolute pb-20 font-montserrat font-extrabold text-7xl text-dark_primary_text">
           {clothingNames.traditionalClothsHeading}
         </div>
         <div className="h-20 w-[93%] bg-background1 dark:bg-dark_background1 rounded-t-[3rem] absolute bottom-0 "></div>

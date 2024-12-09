@@ -26,7 +26,6 @@ import GoToTop from "./components/GoToTopButton";
 import Chatbot from "./components/ChatBot";
 import TripCreation from "./pages/ExploreDiversity/TripCreation";
 import ViewTrip from "./pages/ExploreDiversity/ViewTrip/[tripId]/index";
-import SinglePageCulture from "./pages/SinglePageCulture";
 import MultiplePagesCulture from "./pages/MultiplePagesCulture";
 import MultipleSingleCulture from "./pages/MultiplePagesCulture/MultipleSingleCulture";
 import MyProfile from "./pages/MyProfile";
@@ -284,10 +283,6 @@ function App() {
 
               {/*  ---------------- Culture and Tradition  ---------------- */}
               <Route path="/culture-tradition" element={<CultureTradition />} />
-              <Route
-                path="/culture-tradition/single-page"
-                element={<SinglePageCulture />}
-              />
 
               <Route
                 path="/culture-tradition/clothing-culture"

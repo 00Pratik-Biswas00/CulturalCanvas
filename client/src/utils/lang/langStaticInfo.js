@@ -11,7 +11,7 @@ import virtualStoreImg from "./../../assets/Home/virtual.avif";
 import langImg from "./../../assets/culture/language.avif";
 import religiousImg from "./../../assets/culture/religious.avif";
 import cuisineImg from "./../../assets/culture/cuisine.avif";
-import festivasImg from "./../../assets/culture/festival.avif";
+import festivalsImg from "./../../assets/culture/festival.avif";
 import greetingImg from "./../../assets/culture/greeting.avif";
 import weddingImg from "./../../assets/culture/wedding.avif";
 
@@ -308,7 +308,7 @@ export const Static_Information = {
             cultureImg: weddingImg,
             cultureIntro: `Celebrate India’s artistic heritage, from classical to contemporary 🎨`,
             cultureName: "Arts",
-            individualPage: "/culture-tradition/id",
+            individualPage: "/culture-tradition/art-culture",
           },
           {
             cultureImg: weddingImg,
@@ -320,32 +320,32 @@ export const Static_Information = {
             cultureImg: cuisineImg,
             cultureIntro: `Savor the flavors of India’s iconic dishes and regional delights 🍛`,
             cultureName: "Cuisines",
-            individualPage: "/culture-tradition/id",
+            individualPage: "/culture-tradition/cuisine-culture",
           },
 
           {
             cultureImg: weddingImg,
             cultureIntro: `Dive into the traditions of Indian families and majestic weddings 🏠`,
             cultureName: "Family Structures & Weddings",
-            individualPage: "/culture-tradition/id",
+            individualPage: "/culture-tradition/wedding-culture",
           },
           {
-            cultureImg: festivasImg,
+            cultureImg: festivalsImg,
             cultureIntro: `Experience the vibrance of India’s grand festivals and celebrations 🥳`,
             cultureName: "Festivals",
-            individualPage: "/culture-tradition/id",
+            individualPage: "/culture-tradition/festival-culture",
           },
           {
             cultureImg: greetingImg,
             cultureIntro: `Learn the warmth and meaning behind India’s unique ways of greeting 🙏`,
             cultureName: "Greetings",
-            individualPage: "/culture-tradition/id",
+            individualPage: "/culture-tradition/greeting-culture",
           },
           {
             cultureImg: langImg,
             cultureIntro: `Explore India’s linguistic treasures and the beauty of its 22 official languages 🌐`,
             cultureName: "Languages",
-            individualPage: "/culture-tradition/single-page",
+            individualPage: "/culture-tradition/language-culture",
           },
           {
             cultureImg: religiousImg,
@@ -395,19 +395,19 @@ export const Static_Information = {
             origin, weaving history into its fabric.`,
         DiffSarees: [
           {
-            sImg: ladakhImg,
+            sImg: greetingImg,
             sName: "Bandhani Saree",
             sIntro:
               "A traditional tie-dye saree originating from Gujarat and Rajasthan ▶️",
           },
           {
-            sImg: ladakhImg,
+            sImg: greetingImg,
             sName: "Banarasi Silk Saree",
             sIntro:
               "Exquisite saree known for its intricate gold and silver brocade ▶️",
           },
           {
-            sImg: ladakhImg,
+            sImg: greetingImg,
             sName: "Silk Saree",
             sIntro:
               "Elegant saree crafted from pure silk for a luxurious feel ▶️",
@@ -1784,7 +1784,7 @@ Modern Adaptations: Designers have reimagined the lehenga-choli with fusion styl
             individualPage: "/culture-tradition/id",
           },
           {
-            cultureImg: festivasImg,
+            cultureImg: festivalsImg,
             cultureIntro: `भारत के भव्य त्योहारों और समारोहों की जीवंतता का अनुभव करें🥳`,
             cultureName: "समारोह",
             individualPage: "/culture-tradition/id",
@@ -2352,7 +2352,7 @@ Modern Adaptations: Designers have reimagined the lehenga-choli with fusion styl
             individualPage: "/culture-tradition/id",
           },
           {
-            cultureImg: festivasImg,
+            cultureImg: festivalsImg,
             cultureIntro: `ভারতের মহৎ উৎসব এবং উদযাপনের রঙিন অভিজ্ঞতা নিন 🥳`,
             cultureName: "উৎসব",
             individualPage: "/culture-tradition/id",

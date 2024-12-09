@@ -7,6 +7,7 @@ import MyButton3 from "../../components/Buttons/MyButton3";
 
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import Speaker from "../../components/Settings/Speaker";
 
 const SingleStateCulture = ({
   stateName,
@@ -137,7 +138,11 @@ const SingleStateCulture = ({
           />
 
           <div className=" flex flex-col gap-3">
-            <p className="text-justify text-lg">{stateHistory}</p>
+            <div className=" relative">
+              {" "}
+              <p className="text-justify text-lg">{stateHistory}</p>
+              <Speaker webData={stateHistory} />
+            </div>
             <div className="flex flex-col items-start justify-center">
               <a
                 className="bg-highlight hover:bg-highlight_dark duration-500 px-3 py-1 rounded-xl font-bold"
@@ -212,8 +217,9 @@ const SingleStateCulture = ({
         </div>
 
         <div className="relative flex gap-5 items-center">
-          <div className=" flex flex-col gap-3">
+          <div className=" flex flex-col gap-3 relative">
             <p className="text-justify text-lg"> {clothingDetails} </p>
+            <Speaker webData={clothingDetails} />
           </div>
 
           <img
@@ -243,8 +249,9 @@ const SingleStateCulture = ({
             className=" w-64 h-64 object-cover "
           />
 
-          <div className=" flex flex-col gap-3">
+          <div className=" flex flex-col gap-3 relative">
             <p className="text-justify text-lg"> {languageDetails} </p>
+            <Speaker webData={languageDetails} />
           </div>
         </div>
 
