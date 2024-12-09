@@ -1,0 +1,87 @@
+#app {
+  height: 100%
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper {
+  width: 200px;
+  height: 320px;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: var(--swiper-pagination-bottom, auto);
+  top: var(--swiper-pagination-top, 20.8rem);
+  left: 0;
+  width: 100%;
+}
+
+:root {
+  --swiper-theme-color: #E0E0E0;
+}
+
+.swiper-pagination-bullet {
+  background: var(--swiper-pagination-bullet-inactive-color, var(--accent-color));
+}
+
+.card:hover {
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+}
+
+
+@media (min-width: 640px) {
+  .swiper {
+    width: 320px;
+    height: 500px;
+  }
+
+  .swiper-horizontal>.swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    top: var(--swiper-pagination-top, 31.5rem);
+
+  }
+}
+
+
+@media (min-width: 768px) {
+  .swiper {
+    width: 270px;
+    height: 370px;
+  }
+
+  .swiper-horizontal>.swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    top: var(--swiper-pagination-top, 23.5rem);
+
+  }
+}
+
+
+@media (min-width: 1280px) {
+  .swiper {
+    width: 320px;
+    height: 500px;
+  }
+
+  .swiper-horizontal>.swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    top: var(--swiper-pagination-top, 31.5rem);
+
+  }
+}

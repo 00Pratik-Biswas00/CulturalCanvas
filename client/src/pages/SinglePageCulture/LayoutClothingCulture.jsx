@@ -1,4 +1,11 @@
 import React from "react";
+// swiper components
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/effect-cube";
+import "swiper/css/pagination";
+import "../../style_swiper.css";
+import { EffectCube, Pagination } from "swiper/modules";
 
 const LayoutClothingCulture = ({ heading, description, arrayName }) => {
   return (
@@ -9,7 +16,31 @@ const LayoutClothingCulture = ({ heading, description, arrayName }) => {
         dangerouslySetInnerHTML={{ __html: description }}
       ></p>
 
-      <div className="grid grid-cols-4 gap-5">
+      <Swiper
+        effect={"cube"}
+        grabCursor={true}
+        cubeEffect={{
+          shadow: true,
+          slideShadows: true,
+          shadowOffset: 20,
+          shadowScale: 0.94,
+        }}
+        loop={true}
+        pagination={{
+          clickable: true,
+        }}
+        speed={500}
+        modules={[EffectCube, Pagination]}
+        className="mySwiper"
+      >
+        {arrayName.map((content, index) => (
+          <SwiperSlide key={index}>
+            <img src={content.sImg} alt={`Drawing ${index + 1}`} className="" />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      {/* <div className="grid grid-cols-4 gap-5">
         {arrayName.map((content, ind) => (
           <div
             key={ind}
@@ -22,7 +53,7 @@ const LayoutClothingCulture = ({ heading, description, arrayName }) => {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };
