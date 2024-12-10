@@ -16,3 +16,4 @@ transformers
 torch
 Pillow
 gtts
+tf-keras

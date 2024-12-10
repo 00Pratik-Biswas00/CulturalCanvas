@@ -59,7 +59,7 @@ const Speaker = ({ webData }) => {
       <button
         onClick={() => speakText(webData)}
         aria-label={isSpeaking ? "Stop Speaking" : "Speak Text"}
-        className="text-2xl absolute -left-10"
+        className="text-2xl absolute -left-10 top-0"
       >
         {isSpeaking ? (
           <div className="bg-slate-400 rounded-full p-1 animate-pulse">
