@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 import { GET_ALL_HERITAGES_QUERY } from "../../graphql/HeritageQuery";
-import { Link } from "react-scroll";
 import listed_pic from "../../assets/Heritage/ZListed(avif).avif";
 import unlisted_pic from "../../assets/Heritage/ZUnlisted(avif).avif";
 import local_pic from "../../assets/Heritage/ZLocal(avif).avif";

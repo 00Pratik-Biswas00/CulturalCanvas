@@ -21,10 +21,10 @@ const InputComponent = ({
         onChange={onChange}
       />
       <label
-        className={`absolute top-1/2 left-0 transform -translate-y-1/2 text-primary_text dark:text-dark_primary_text text-xl pointer-events-none transition-all duration-500 font-bold font-pangaia ${
+        className={`absolute left-0 transform transition-all duration-500 font-bold font-pangaia ${
           value
             ? "-top-2 text-sm font-medium font-playfair"
-            : "group-focus-within:-top-2 group-focus-within:text-sm group-focus-within:font-medium group-focus-within:font-playfair"
+            : "top-1/2 -translate-y-1/2 text-xl group-focus-within:-top-2 group-focus-within:text-sm group-focus-within:font-medium group-focus-within:font-playfair"
         }`}
       >
         {iName}
