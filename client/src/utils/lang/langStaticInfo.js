@@ -127,6 +127,7 @@ export const Static_Information = {
       // -------------------------- HOME ---------------------------
       HomeData: {
         homeButtonName: "VISIT",
+
         Home: [
           {
             para: `Dive deep into India’s historical and cultural wealth by exploring its most celebrated World Heritage Sites. This section is dedicated to the architectural and natural marvels that have stood the test of time, each narrating a story of its own. From the majestic forts that once guarded kingdoms to the sacred temp`,
@@ -134,6 +135,8 @@ export const Static_Information = {
             shadow: "shadow-highlight",
             headingName: "Unveiling India’s Timeless Treasures",
             buttonLink: "/heritage",
+            featuring: "Featuring",
+
             featuringData: [
               {
                 featureName: "Local Indian Heritages",
@@ -301,6 +304,23 @@ export const Static_Information = {
 
       // ------------------------- CULTURE & TRADITION --------------
 
+      CultureCalendarData: [
+        {
+          name: "Holi",
+          description:
+            "The festival of colors celebrated with joy and enthusiasm. The festival of colors celebrated with joy and enthusiasm.",
+          date: "2024-12-12",
+          image: greetingImg,
+        },
+
+        {
+          name: "Holiiii",
+          description:
+            "The festival of colors celebrated with joy and enthusiasm.",
+          date: "2024-12-14",
+          image: greetingImg,
+        },
+      ],
       AllCulturesData: {
         allCultureHeading: "Cultural Richness of India🪔",
         AllCulturesName: [
@@ -351,7 +371,7 @@ export const Static_Information = {
             cultureImg: religiousImg,
             cultureIntro: `Discover the spiritual essence of India’s diverse faiths and traditions 🛐`,
             cultureName: "Religion",
-            individualPage: "/culture-tradition/multiple-pages",
+            individualPage: "/culture-tradition/religion",
           },
           {
             cultureImg: weddingImg,
@@ -1138,6 +1158,26 @@ Modern Adaptations: Designers have reimagined the lehenga-choli with fusion styl
               "Rich fabric and detailed embroidery make this Phiran a perfect choice for festive occasions. ▶️",
           },
         ],
+      },
+      ReligionData: [
+        {
+          name: "Hinduism",
+          intro:
+            " Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, vel fugit. Veniam odio quas expedita, omnis ipsa autem reiciendis officiis ullam quasi dolore, possimus laborum fuga in totam consectetur rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, vel fugit. Veniam odio quas expedita, omnis ipsa autem reiciendis officiis ullam quasi dolore, possimus laborum fuga in totam consectetur rem.Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, vel fugit. Veniam odio quas expedita, omnis ipsa autem reiciendis officiis ullam quasi dolore, possimus laborum fuga in totam consectetur rem.",
+          image: greetingImg,
+          religionLink: "/culture-tradition/religion/hinduism",
+        },
+      ],
+
+      HinduismData: {
+        image: greetingImg,
+        name: "Hinduism",
+        introduction: "loremmm",
+        overview: "loreskdfnsdnfdsn",
+        history: "sdfwefwfwcwe",
+        regions: "yfugugugugug",
+        core_beliefs: [{ title: "dsfsdfs", description: "sdfwefwfwef" }],
+        practices: "sefwefw",
       },
 
       StateCulturesData: {
