@@ -15,13 +15,13 @@ import heritageTypeDefs from "./typedefs/heritage.js";
 import heritageResolvers from "./resolvers/heritage.js";
 import courseTypeDefs from "./typedefs/course.js";
 import courseResolvers from "./resolvers/course.js";
-import religionResolvers from "./resolvers/religion.js";
-import religionTypeDefs from "./typedefs/religion.js";
+// import religionResolvers from "./resolvers/religion.js";
+// import religionTypeDefs from "./typedefs/religion.js";
 import languageResolvers from "./resolvers/language.js";
 import languageTypeDefs from "./typedefs/language.js";
 import connect from "./config.js";
-import stateCultureResolvers from "./resolvers/stateculture.js";
-import stateCultureTypeDefs from "./typedefs/stateculture.js";
+// import stateCultureResolvers from "./resolvers/stateculture.js";
+// import stateCultureTypeDefs from "./typedefs/stateculture.js";
 import { festivalTypeDefs } from "./typedefs/festival.js";
 import festivalResolvers from "./resolvers/festival.js";
 import roleResolvers from "./resolvers/role.js";
@@ -60,9 +60,9 @@ const typeDefs = mergeTypeDefs([
   authTypeDefs,
   heritageTypeDefs,
   courseTypeDefs,
-  religionTypeDefs,
+  // religionTypeDefs,
   languageTypeDefs,
-  stateCultureTypeDefs,
+  // stateCultureTypeDefs,
   festivalTypeDefs,
   roleTypeDefs,
   blogTypeDefs,
@@ -74,9 +74,9 @@ const resolvers = mergeResolvers([
   authResolver,
   heritageResolvers,
   courseResolvers,
-  religionResolvers,
+  // religionResolvers,
   languageResolvers,
-  stateCultureResolvers,
+  // stateCultureResolvers,
   festivalResolvers,
   roleResolvers,
   blogResolvers,
