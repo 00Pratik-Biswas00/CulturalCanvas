@@ -7,7 +7,6 @@ import MyButton2 from "../../components/Buttons/MyButton2";
 import MyButton4 from "../../components/Buttons/MyButton4";
 import { useQuery } from "@apollo/client";
 import { GET_PRODUCT } from "../../graphql/product";
-import { use } from "react";
 const SingleProduct = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);

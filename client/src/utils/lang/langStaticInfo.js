@@ -15,8 +15,6 @@ import festivalsImg from "./../../assets/culture/festival.avif";
 import greetingImg from "./../../assets/culture/greeting.avif";
 import weddingImg from "./../../assets/culture/wedding.avif";
 
-
-
 // states
 
 import assasImg from "./../../assets/states/assam.png";
@@ -74,7 +72,6 @@ import islamImg from "../../assets/culture/5.png";
 export const Static_Information = {
   en: {
     translation: {
-      // -------------------------- COMMON STATIC NAMES ---------------------------
       CommonStaticInfo: {
         cultureCalendarHeading: "📆Cultural Calendar of India",
         ourGreeting: "Our Greeting",
@@ -1167,7 +1164,7 @@ Modern Adaptations: Designers have reimagined the lehenga-choli with fusion styl
           },
         ],
       },
-      ReligionData : [
+      ReligionData: [
         {
           name: "Hinduism",
           intro:
@@ -1204,25 +1201,44 @@ Modern Adaptations: Designers have reimagined the lehenga-choli with fusion styl
           religionLink: "/culture-tradition/religion/islam",
         },
       ],
-      
 
-      HinduismData : {
+      HinduismData: {
         image: hinduImg,
         name: "Hinduism",
-        introduction: "Hinduism, one of the world's oldest and most diverse religions, is deeply rooted in the Indian subcontinent. It encompasses a rich tapestry of spiritual traditions, philosophies, and cultural practices.",
-        overview: "Hinduism is one of the world's oldest and most diverse religions, characterized by a rich tapestry of beliefs, rituals, and philosophies. It is the predominant religion in India and Nepal and has millions of followers worldwide. Hinduism is not a monolithic religion but a complex, pluralistic tradition with numerous deities, practices, and schools of thought.",
+        introduction:
+          "Hinduism, one of the world's oldest and most diverse religions, is deeply rooted in the Indian subcontinent. It encompasses a rich tapestry of spiritual traditions, philosophies, and cultural practices.",
+        overview:
+          "Hinduism is one of the world's oldest and most diverse religions, characterized by a rich tapestry of beliefs, rituals, and philosophies. It is the predominant religion in India and Nepal and has millions of followers worldwide. Hinduism is not a monolithic religion but a complex, pluralistic tradition with numerous deities, practices, and schools of thought.",
 
-        history: "Hinduism's origins trace back over 4,000 years to the ancient Indus Valley Civilization and the Vedic period (1500–500 BCE). The Vedas, a collection of sacred texts, are among the earliest religious writings in Hinduism. Over centuries, Hinduism evolved through various philosophical and devotional movements, including the Upanishads, which introduced the concepts of karma and moksha (liberation).The epics, Mahabharata and Ramayana, and the Puranas further shaped Hindu beliefs and practices. The emergence of devotional (bhakti) movements between the 7th and 12th centuries CE emphasized personal devotion to deities such as Vishnu, Shiva, and Shakti, leading to a rich tradition of temple worship and pilgrimage.",
-        regions: "Hinduism is predominantly practiced in India, with significant communities in Nepal, Bangladesh, and Sri Lanka. The Indian diaspora has spread its traditions globally, making Hindu festivals and temples common in countries like the United States, Canada, and the United Kingdom.",
+        history:
+          "Hinduism's origins trace back over 4,000 years to the ancient Indus Valley Civilization and the Vedic period (1500–500 BCE). The Vedas, a collection of sacred texts, are among the earliest religious writings in Hinduism. Over centuries, Hinduism evolved through various philosophical and devotional movements, including the Upanishads, which introduced the concepts of karma and moksha (liberation).The epics, Mahabharata and Ramayana, and the Puranas further shaped Hindu beliefs and practices. The emergence of devotional (bhakti) movements between the 7th and 12th centuries CE emphasized personal devotion to deities such as Vishnu, Shiva, and Shakti, leading to a rich tradition of temple worship and pilgrimage.",
+        regions:
+          "Hinduism is predominantly practiced in India, with significant communities in Nepal, Bangladesh, and Sri Lanka. The Indian diaspora has spread its traditions globally, making Hindu festivals and temples common in countries like the United States, Canada, and the United Kingdom.",
         core_beliefs: [
-          { title: "Dharma", description: "The moral and ethical duties or responsibilities of an individual." },
-          { title: "Karma", description: "The principle of cause and effect, where actions influence one's future." },
-          { title: "Moksha", description: "The ultimate goal of liberation from the cycle of birth and rebirth." },
-          { title: "Deities", description: "A vast pantheon including Brahma (the creator), Vishnu (the preserver), and Shiva (the destroyer)." }
+          {
+            title: "Dharma",
+            description:
+              "The moral and ethical duties or responsibilities of an individual.",
+          },
+          {
+            title: "Karma",
+            description:
+              "The principle of cause and effect, where actions influence one's future.",
+          },
+          {
+            title: "Moksha",
+            description:
+              "The ultimate goal of liberation from the cycle of birth and rebirth.",
+          },
+          {
+            title: "Deities",
+            description:
+              "A vast pantheon including Brahma (the creator), Vishnu (the preserver), and Shiva (the destroyer).",
+          },
         ],
-        practices: "Hindu practices include rituals, meditation, yoga, and pilgrimage to sacred sites. Festivals like Diwali, Holi, and Navaratri are celebrated with fervor, reflecting the vibrant and diverse nature of Hindu worship and community life."
+        practices:
+          "Hindu practices include rituals, meditation, yoga, and pilgrimage to sacred sites. Festivals like Diwali, Holi, and Navaratri are celebrated with fervor, reflecting the vibrant and diverse nature of Hindu worship and community life.",
       },
-      
 
       StateCulturesData: {
         stateHeading: "India's Cultural Odyssey: State-Wise🗺️",
@@ -1416,60 +1432,72 @@ Modern Adaptations: Designers have reimagined the lehenga-choli with fusion styl
         stateName: ["Andhra", "Pradesh"],
         greetingImg: weddingImg,
         greetingName: "Namaskaram",
-        stateImg: andhrapradeshImg,
+        stateImg:
+          "https://upload.wikimedia.org/wikipedia/commons/0/02/Clay_puppets_from_andhrapradesh_-_india.jpeg",
         stateHistory:
-          "Andhra Pradesh, a state in southeastern India, boasts a rich and multifaceted history shaped by ancient dynasties, flourishing cultures, and significant resistance movements. The history of Andhra Pradesh dates back to the Mauryan Empire (4th–3rd century BCE), which helped establish early administrative structures in the region. Post-Mauryan rule, the Satavahanas (2nd century BCE–3rd century CE) rose to prominence, becoming one of the earliest Deccan dynasties. Known for their extensive trade networks, they contributed to Buddhist architectural marvels such as the Amaravati Stupa. \n\n Following the Satavahanas, Andhra saw the rise of the Pallavas, Chalukyas, and Rashtrakutas. The Pallavas (3rd–9th century CE), famous for their contributions to art and architecture, were instrumental in constructing several ancient temples, including those at Kanchi and Guntur. \n\n The Eastern Chalukyas (7th–12th century CE) significantly impacted the Telugu region, promoting Telugu literature. Their rule was followed by the Kakatiya dynasty (12th–14th century CE), which unified Telugu-speaking regions and left behind architectural marvels such as the Thousand Pillar Temple and the Warangal Fort. In the 14th century, Andhra Pradesh became part of the Vijayanagara Empire, known for its patronage of art and literature. Iconic structures like the Lepakshi Temple exemplify their influence. \n\n During colonial rule, Andhra Pradesh was part of the Madras Presidency, contributing significantly to India's freedom struggle. The state is also known for its enduring cultural legacy, including Kuchipudi dance, vibrant festivals, and Telugu literature. Today, Andhra Pradesh thrives as a center of historical preservation and cultural celebration.",
-        stateHistoryVideo: "https://youtu.be/CkZyrYfofHc",
+          "Andhra Pradesh, in southeastern India, has a rich history shaped by ancient dynasties, trade, and cultural heritage. Notable rulers include the Mauryans, Satavahanas, Pallavas, and Kakatiyas, who contributed to art, literature, and architecture, such as the Amaravati Stupa and Warangal Fort. During colonial rule, it played a role in India's freedom struggle. Today, it is celebrated for its Kuchipudi dance, vibrant festivals, and Telugu literature.",
+        stateHistoryVideo: "https://www.youtube.com/watch?v=FLDZQW5rD_s",
         cuisineDetails: [
           {
-            cuisineImage: greetingImg,
+            cuisineImage:
+              "https://www.indianhealthyrecipes.com/wp-content/uploads/2024/06/pulihora-recipe.jpg",
             cuisineName: "Pulihora (Tamarind Rice)",
           },
           {
-            cuisineImage: greetingImg,
-            cuisineName: "Gongura Pachadi (Roselle Leaf Pickle)",
+            cuisineImage:
+              "https://cookingfromheart.com/wp-content/uploads/2016/04/Gongura-2.jpg",
+            cuisineName: "Gongura Pachadi (Roselle Pickle)",
           },
           {
-            cuisineImage: greetingImg,
+            cuisineImage:
+              "https://upload.wikimedia.org/wikipedia/commons/7/7c/Hyderabadi_Chicken_Biryani.jpg",
             cuisineName: "Hyderabadi Biryani",
           },
           {
-            cuisineImage: greetingImg,
+            cuisineImage:
+              "https://www.masalakorb.com/wp-content/uploads/2016/01/Poornam-Boorelu-Recipe-Poornalu-V1-500x500.jpg",
             cuisineName: "Boorelu (Sweet Dumplings)",
           },
           {
-            cuisineImage: greetingImg,
+            cuisineImage:
+              "https://i.ytimg.com/vi/c0PQz7TF7RQ/maxresdefault.jpg",
             cuisineName: "Pesarattu (Green Gram Dosa)",
           },
         ],
         cuisineCourse: "/learn-Indian-culture/assam-cuisine-course",
-        clothingImg: andhrapradeshImg,
+        clothingImg:
+          "https://houseofelegance.in/cdn/shop/products/ikat-silk-saree-1.webp?v=1674323426",
         clothingDetails:
-          "The traditional attire of Andhra Pradesh beautifully encapsulates the state's cultural richness and diversity. Women predominantly wear sarees made from luxurious fabrics like Pochampally ikat, Mangalagiri cotton, and Dharmavaram silk. These sarees are often adorned with intricate designs and vibrant patterns, symbolizing elegance and heritage. Dharmavaram sarees, for instance, feature zari work and motifs inspired by flora, fauna, and temple architecture, while Gadwal sarees uniquely combine cotton for the body and silk for the pallu and border, creating striking color contrasts. Men traditionally wear dhotis paired with kurtas, often complemented by an angavastram, a draped cloth symbolizing sophistication. In tribal areas, attire reflects local artistry, with unique textiles and patterns crafted using natural dyes and traditional weaving techniques. These garments, often adorned with symbolic motifs, highlight the creative ingenuity and cultural significance of Andhra Pradesh's tribal communities. The state's traditional clothing is not only a testament to its heritage but also a celebration of its artisans' skilled craftsmanship, with each piece narrating a story of tradition and cultural pride.",
-
-        languageImg: andhrapradeshImg,
+          "Andhra's traditional clothing reflects its rich culture. Women wear sarees like Pochampally ikat and Dharmavaram silk, known for vibrant designs. Men wear dhotis with kurtas, often paired with angavastram. Tribal attire features natural dyes and unique motifs, showcasing creativity and heritage.",
+        languageImg:
+          "https://t4.ftcdn.net/jpg/08/36/42/77/360_F_836427783_QKk4pEkTIP63FaseBFiURT0nWiXJz3mp.jpg",
         languageDetails:
-          "The official language of Andhra Pradesh is Telugu, one of the six classical languages of India. Known as the 'Italian of the East,' Telugu is celebrated for its melodic tones and vast literary heritage. The language is widely spoken and used in educational institutions, official communications, and day-to-day interactions. Telugu literature has produced renowned poets and writers, enriching the cultural tapestry of India. The language has a rich tradition of both oral and written storytelling, with ancient texts like the Andhra Mahabharata and classical poetry that date back over two thousand years. Telugu is also recognized as one of the languages of classical dance, particularly in the form of Kuchipudi, which utilizes the language for its traditional performances. It is written in the Telugu script, which has a distinct circular and curvilinear appearance, and is known for its unique phonetics and sound system.",
+          "Telugu, the official language, is celebrated for its melody and literary heritage. Known as the 'Italian of the East,' it has enriched Indian culture through poetry, storytelling, and classical dance forms like Kuchipudi. Written in a unique circular script, Telugu remains widely used.",
         languageCourse: "/learn-Indian-culture/assamese-course",
         artsDetails: [
           {
-            cuisineImage: greetingImg,
+            cuisineImage:
+              "https://clickstory.in/wp-content/uploads/2016/09/kuchipudi-dancedrama.jpg",
             cuisineName: "Kuchipudi Dance",
           },
           {
-            cuisineImage: greetingImg,
+            cuisineImage:
+              "https://th-i.thgim.com/public/news/national/andhra-pradesh/x13dlp/article29128160.ece/alternates/FREE_1200/19VJPAGEBURRAKATHA",
             cuisineName: "Burrakatha (Folk Storytelling)",
           },
           {
-            cuisineImage: greetingImg,
+            cuisineImage:
+              "https://upload.wikimedia.org/wikipedia/commons/8/83/Hanuman_and_Ravana_in_Tholu_Bommalata%2C_the_shadow_puppet_tradition_of_Andhra_Pradesh%2C_India.JPG",
             cuisineName: "Tholu Bommalata (Shadow Puppetry)",
           },
           {
-            cuisineImage: greetingImg,
+            cuisineImage:
+              "https://www.gktoday.in/wp-content/uploads/2023/03/perini.jpg",
             cuisineName: "Perini Sivatandavam (Warrior Dance)",
           },
           {
-            cuisineImage: greetingImg,
+            cuisineImage:
+              "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXW-G-4yR3Od2c5UHHR-JkebFMv_1EJjyaqND3Cw6YKu4LJRhnN2OFc5uzSVvY9-JL8VmseRpfwfj1a_CfIsMH-nlxataeakhxD0B2dffsRITHivN9Sv43zI2huLj72ZHHfJ-961ID4-M/s1600/kuchipudi-dance-410_m.jpg",
             cuisineName: "Veeranatyam (Dance of Warriors)",
           },
         ],
