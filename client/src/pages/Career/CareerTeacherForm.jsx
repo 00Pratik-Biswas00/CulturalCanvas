@@ -308,14 +308,6 @@ const CareerTeacherForm = () => {
               className="text-red-500"
             />
 
-            <div>
-              <InputImageVideo
-                imageName="Upload Resume/CV with photo:"
-                fileType="file"
-                onChange={(e) => handleImageUpload(e.currentTarget.files[0])}
-              />
-            </div>
-
             <div className="w-1/3">
               <Field>
                 {({ form }) => (
@@ -331,6 +323,13 @@ const CareerTeacherForm = () => {
           </Form>
         )}
       </Formik>
+      <div>
+        <InputImageVideo
+          imageName="Upload Resume/CV with photo:"
+          fileType="file"
+          onChange={(e) => handleImageUpload(e.currentTarget.files[0])}
+        />
+      </div>
     </section>
   );
 };
