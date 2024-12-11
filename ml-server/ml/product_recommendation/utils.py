@@ -25,6 +25,54 @@ stores = [
 
 products = [
     {
+        "id": "6759c6385204dcbaadf3fc09",
+        "name": "Dhokra",
+        "description": "Dhokra (also spelt Dokra) is non–ferrous metal casting using the lost-wax casting technique. This sort of metal casting has been used in India for over 4,000 years and is still used. One of the earliest known lost wax artefacts is the dancing girl of Mohenjo-daro.[1] The product of dhokra artisans are in great demand in domestic and foreign markets because of primitive simplicity, enchanting folk motifs and forceful form. Dhokra horses, elephants, peacocks, owls, religious images, measuring bowls, and lamp caskets etc., are highly appreciated.[2] The lost wax technique for casting of copper based alloys has also been found in China, Egypt, Malaysia, Nigeria, Central America, and other places.",
+        "uniqueFeature": "Bell Metal Dhokra is a traditional Indian metal casting art known for its use of the lost wax technique, ensuring each piece is unique. Crafted from a copper and tin alloy, Dhokra artifacts have a distinctive golden sheen and a rustic, primitive aesthetic. The designs often depict themes inspired by nature, mythology, and tribal life, featuring animals, deities, and rural scenes. Entirely handmade, the process relies on sustainable, eco-friendly materials like beeswax, clay, and scrap metal, preserving ancient techniques passed down through generations. With roots tracing back over 4,000 years to the Indus Valley Civilization, Dhokra art is celebrated for its cultural significance, versatile applications in decorative and functional items, and its enduring charm.",
+        "materialDetails": [
+            {
+            "name": "Copper",
+            "description": " a reddish, extremely ductile metal of Group 11 (Ib) of the periodic table that is an unusually good conductor of electricity and heat.",
+            "_id": {
+                "$oid": "6759c6385204dcbaadf3fc0a"
+            }
+            },
+            {
+            "name": "Tin",
+            "description": "Tin is a chemical element; it has symbol Sn (from Latin stannum) and atomic number 50. A silvery-colored metal, tin is soft enough to be cut with little force,[10] and a bar of tin can be bent by hand with little effort.",
+            "_id": {
+                "$oid": "6759c6385204dcbaadf3fc0b"
+            }
+            }
+        ],
+        "image": {
+            "url": "https://res.cloudinary.com/dqyqqysgx/image/upload/v1733939045/aq41gyuz6ermo3p5orzf.jpg",
+            "public_id": "wooden_table_123"
+        },
+        "video": {
+            "ETag": "\"2f0316b9702ed3c7260f82b7e558e29e-9\"",
+            "ServerSideEncryption": "AES256",
+            "Location": "https://culturalcanvas.s3.ap-south-1.amazonaws.com/u5_w13U6fW5KVYApehOOD.mp4",
+            "Key": "u5_w13U6fW5KVYApehOOD.mp4",
+            "Bucket": "culturalcanvas"
+        },
+        "price": 849.99,
+        "category": "Handicrafts",
+        "quantity": 5,
+        "coordinates": {
+            "longitude": 19.076,
+            "latitude": 72.8777
+        },
+        "city": "Raipur",
+        "seller": {
+            "$oid": "6759b2c89438a2617c835a30"
+        },
+        "certification": {
+            "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmE95EzHX3jmUKTtNZGh63ud9EgJ781w4Mcw&s",
+            "public_id": "cert_wooden_table_123"
+        },
+    },
+    {
         "id": 1,
         "name": "Handcrafted Wooden Chair",
         "description": "A beautifully handcrafted chair made from high-quality teak wood. Perfect for adding a rustic charm to any room.",
