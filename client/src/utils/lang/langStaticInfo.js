@@ -14,6 +14,16 @@ import cuisineImg from "./../../assets/culture/cuisine.avif";
 import festivalsImg from "./../../assets/culture/festival.avif";
 import greetingImg from "./../../assets/culture/greeting.avif";
 import weddingImg from "./../../assets/culture/wedding.avif";
+import greetandhra from  "./../../assets/states/download.jpeg";
+import pulihora from "./../../assets/states/pulihora.jpeg";
+import pesarattu from "./../../assets/states/pesarattu.jpeg";
+import Hyderabadi from "./../../assets/states/hydrabadi biryani.jpeg";
+import gongura from "./../../assets/states/gongura.jpeg";
+import borelu from "./../../assets/states/borelu.jpeg";
+import KuchipudiDance from "./../../assets/states/kuchi.jpg";
+import Burrakatha from "./../../assets/states/Burrakatha (Folk Storytelling).jpeg";
+import Tholu from "./../../assets/states/Tholu Bommalata (Shadow Puppetry).jpeg";
+import Veeranatyam from "./../../assets/states/Veeranatyam (Dance of Warriors).jpg";
 
 
 
@@ -1414,7 +1424,7 @@ Modern Adaptations: Designers have reimagined the lehenga-choli with fusion styl
       },
       AndhraPradeshData: {
         stateName: ["Andhra", "Pradesh"],
-        greetingImg: weddingImg,
+        greetingImg: greetandhra,
         greetingName: "Namaskaram",
         stateImg: andhrapradeshImg,
         stateHistory:
@@ -1422,23 +1432,23 @@ Modern Adaptations: Designers have reimagined the lehenga-choli with fusion styl
         stateHistoryVideo: "https://youtu.be/CkZyrYfofHc",
         cuisineDetails: [
           {
-            cuisineImage: greetingImg,
+            cuisineImage: pulihora,
             cuisineName: "Pulihora (Tamarind Rice)",
           },
           {
-            cuisineImage: greetingImg,
+            cuisineImage: gongura,
             cuisineName: "Gongura Pachadi (Roselle Leaf Pickle)",
           },
           {
-            cuisineImage: greetingImg,
+            cuisineImage: Hyderabadi,
             cuisineName: "Hyderabadi Biryani",
           },
           {
-            cuisineImage: greetingImg,
+            cuisineImage: borelu,
             cuisineName: "Boorelu (Sweet Dumplings)",
           },
           {
-            cuisineImage: greetingImg,
+            cuisineImage: pesarattu,
             cuisineName: "Pesarattu (Green Gram Dosa)",
           },
         ],
@@ -1453,23 +1463,20 @@ Modern Adaptations: Designers have reimagined the lehenga-choli with fusion styl
         languageCourse: "/learn-Indian-culture/assamese-course",
         artsDetails: [
           {
-            cuisineImage: greetingImg,
+            cuisineImage: KuchipudiDance,
             cuisineName: "Kuchipudi Dance",
           },
           {
-            cuisineImage: greetingImg,
+            cuisineImage: Burrakatha,
             cuisineName: "Burrakatha (Folk Storytelling)",
           },
           {
-            cuisineImage: greetingImg,
+            cuisineImage: Tholu,
             cuisineName: "Tholu Bommalata (Shadow Puppetry)",
           },
+          
           {
-            cuisineImage: greetingImg,
-            cuisineName: "Perini Sivatandavam (Warrior Dance)",
-          },
-          {
-            cuisineImage: greetingImg,
+            cuisineImage: Veeranatyam,
             cuisineName: "Veeranatyam (Dance of Warriors)",
           },
         ],
