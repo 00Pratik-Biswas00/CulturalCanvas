@@ -20,3 +20,7 @@ tf-keras
 PyPDF2
 langchain
 langchain-google-genai
+opencv-python
+tensorflow
+keras
+indic-transliteration

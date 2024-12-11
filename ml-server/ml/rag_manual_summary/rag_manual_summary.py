@@ -23,7 +23,6 @@ def get_text_chunks(text):
     return text_splitter.split_text(text)
 
 def create_vector_store(text_chunks):
-    print("Text Chunks:", text_chunks)  # Debugging line
     embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
     vector_store = FAISS.from_texts(text_chunks, embedding=embeddings)
     vector_store.save_local("faiss_index")
@@ -46,7 +45,7 @@ def process_pdf(pdf_files):
     raw_text = get_pdf_text(pdf_files)
     chunks = get_text_chunks(raw_text)
     create_vector_store(chunks)
-    return "PDFs processed successfully."
+    return "success"
 
 def ask_question(user_question):
     embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")

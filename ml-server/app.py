@@ -7,6 +7,7 @@ from routes.nude_detection_routes import nude_detection_bp
 from routes.lang_translation_routes import translation_bp
 from routes.image_to_story_routes import image_to_story_bp
 from routes.rag_agent_routes import rag_agent_bp
+from routes.ancient_script_routes import ancient_script_bp
 
 
 from dotenv import load_dotenv
@@ -25,6 +26,7 @@ app.register_blueprint(nude_detection_bp, url_prefix="/api")
 app.register_blueprint(translation_bp, url_prefix="/api")
 app.register_blueprint(image_to_story_bp, url_prefix="/api")
 app.register_blueprint(rag_agent_bp, url_prefix="/api")
+app.register_blueprint(ancient_script_bp, url_prefix="/api")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000)
