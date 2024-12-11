@@ -1,5 +1,6 @@
 import { Contest, Winner } from "./../models/contest.js";
 import moment from "moment";
+import User from "./../models/user.js";
 const contestResolvers = {
   Mutation: {
     addContest: async (_, { topic, date, time }) => {
@@ -32,6 +33,19 @@ const contestResolvers = {
         throw new Error("Failed to add winner: " + error.message);
       }
     },
+    addBadge: async (_, { id, badge }, { userId }) => {
+      if (!userId) {
+        throw new AuthenticationError("You must be logged in to add a badge.");
+      }
+      try {
+        const user = await User.findById(id);
+        user.badges.push(badge);
+        await user.save();
+        return true;
+      } catch (err) {
+        throw new Error("Error adding badge: " + err.message);
+      }
+    },
   },
   Query: {
     currentContest: async () => {
@@ -51,20 +65,6 @@ const contestResolvers = {
         throw new Error(
           `Failed to fetch winners for week ${week}: ${error.message}`
         );
-      }
-    },
-    addBadge: async (_, { id, badge }, { userId }) => {
-      if (!userId) {
-        throw new AuthenticationError("You must be logged in to add a badge.");
-      }
-
-      try {
-        const user = User.findById(id);
-        user.badges.push(badge);
-        await user.save();
-        return true;
-      } catch (err) {
-        throw new Error("Error adding badge: " + err.message);
       }
     },
   },
