@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import car1 from "../../assets/store/a.mp4";
+import car2 from "../../assets/store/ed.mp4";
 // import img1 from "../../assets/career/admins.png";
 import img1 from "../../assets/store/aaa.png";
+import img2 from "../../assets/store/dhokra.png";
 import { CiSearch, CiFilter } from "react-icons/ci";
 
 import MyButton2 from "../../components/Buttons/MyButton2";
@@ -9,7 +11,7 @@ import MyButton2 from "../../components/Buttons/MyButton2";
 const cards = [
   {
     video: car1,
-    image: img1,
+    image: img2,
     heading: "Rupal r Matha",
     subheading: "Power up your playground.",
     button1: "Find Available Cars",
@@ -26,6 +28,30 @@ const cards = [
   {
     video: car1,
     image: img1,
+    heading: "Rupal r Matha",
+    subheading: "Power up your playground.",
+    button1: "Find Available Cars",
+    button2: "Learn More",
+  },
+  {
+    video: car1,
+    image: img2,
+    heading: "Rupal r Matha",
+    subheading: "Power up your playground.",
+    button1: "Find Available Cars",
+    button2: "Learn More",
+  },
+  {
+    video: car1,
+    image: img2,
+    heading: "Rupal r Matha",
+    subheading: "Power up your playground.",
+    button1: "Find Available Cars",
+    button2: "Learn More",
+  },
+  {
+    video: car1,
+    image: img2,
     heading: "Rupal r Matha",
     subheading: "Power up your playground.",
     button1: "Find Available Cars",
@@ -160,7 +186,10 @@ const VirtualStore = () => {
                 <div className="containerx">
                   <div className="boxx">
                     <h2 className="namex">Khadi Kurti</h2>
-                    <a href="/virtual-store/id" className="buyx">
+                    <a
+                      href="/virtual-store/6759c6385204dcbaadf3fc09"
+                      className="buyx"
+                    >
                       Buy
                     </a>
                     <div className="circlex"></div>

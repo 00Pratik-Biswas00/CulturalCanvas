@@ -93,8 +93,7 @@ const Heritage = () => {
                 {/* <p className="mb-12">{content.introduction}</p> */}
                 <p className=" text-center pb-14 font-bold font-pangaia text-xl">
                   {/* Ekhane {content.introduction} e dibi but choto dibi and try koris related kono emoji text tar ses e add korar */}
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Perferendis excepturi 👑
+                  {content.introduction}
                 </p>
                 <div className="absolute bottom-0">
                   <button
