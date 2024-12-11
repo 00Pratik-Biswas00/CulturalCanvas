@@ -427,7 +427,7 @@ function App() {
 
               {/*  ---------------- Virtual Store  ---------------- */}
               <Route path="/virtual-store" element={<VirtualStore />} />
-              <Route path="/virtual-store/id" element={<SingleProduct />} />
+              <Route path="/virtual-store/:id" element={<SingleProduct />} />
 
               {/*  ---------------- My Profile  ---------------- */}
               <Route path="/my-profile" element={<MyProfile />} />

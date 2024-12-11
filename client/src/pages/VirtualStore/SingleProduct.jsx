@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import img1 from "../../assets/store/aaa.png";
 import ReactPlayer from "react-player";
 import car1 from "../../assets/store/a.mp4";
 import MyButton2 from "../../components/Buttons/MyButton2";
 import MyButton4 from "../../components/Buttons/MyButton4";
+import { useQuery } from "@apollo/client";
+import { GET_PRODUCT } from "../../graphql/product";
+import { use } from "react";
 const SingleProduct = () => {
+  const { id } = useParams();
+  const [product, setProduct] = useState(null);
+  const { loading, error, data } = useQuery(GET_PRODUCT, {
+    variables: { id },
+  });
+  useEffect(() => {
+    if (data) {
+      setProduct(data.getProduct);
+    }
+  }, [data]);
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+  console.log(product);
   return (
     <div>
       {sampleProducts.map((product, ind) => (
