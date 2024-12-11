@@ -1,9 +1,11 @@
 from flask import Blueprint, request, jsonify
 import os
-from ml.ancient_script_translation.ancient_script_translation import process_image, UPLOAD_FOLDER
+from ml.ancient_script_translation.ancient_script_translation import process_image
 
 # Define the Blueprint
 ancient_script_bp = Blueprint('ancient_script', __name__)
+
+UPLOAD_FOLDER = "ml/ancient_script_translation/uploads"
 
 @ancient_script_bp.route('/upload-ancient-scripts', methods=['POST'])
 def upload_and_process():
