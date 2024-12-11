@@ -18,6 +18,9 @@ import courseResolvers from "./resolvers/course.js";
 import languageResolvers from "./resolvers/language.js";
 import languageTypeDefs from "./typedefs/language.js";
 import connect from "./config.js";
+import languageResolvers from "./resolvers/language.js";
+import languageTypeDefs from "./typedefs/language.js";
+import connect from "./config.js";
 import { festivalTypeDefs } from "./typedefs/festival.js";
 import festivalResolvers from "./resolvers/festival.js";
 import roleResolvers from "./resolvers/role.js";
@@ -57,6 +60,7 @@ const typeDefs = mergeTypeDefs([
   heritageTypeDefs,
   courseTypeDefs,
   languageTypeDefs,
+  languageTypeDefs,
   festivalTypeDefs,
   roleTypeDefs,
   blogTypeDefs,
@@ -68,6 +72,7 @@ const resolvers = mergeResolvers([
   authResolver,
   heritageResolvers,
   courseResolvers,
+  languageResolvers,
   languageResolvers,
   festivalResolvers,
   roleResolvers,
