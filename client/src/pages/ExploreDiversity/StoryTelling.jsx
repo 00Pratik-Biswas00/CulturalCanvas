@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import bgImg from "../../assets/explorePlaces/bgImg.png";
 import InputImageVideo from "../../components/Input/InputImageVideo";
 import MyButton4 from "../../components/Buttons/MyButton4";
+import { TfiReload } from "react-icons/tfi";
 
 const StoryTelling = () => {
   const [uploadedImage, setUploadedImage] = useState(null);
@@ -85,7 +86,8 @@ const StoryTelling = () => {
   return (
     <section
       style={{ backgroundImage: `url(${bgImg}) ` }}
-      className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-4 px-16 duration-300 flex flex-col items-center bg-contain bg-no-repeat bg-center ">
+      className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-4 px-16 duration-300 flex flex-col items-center bg-contain bg-no-repeat bg-center "
+    >
       <div className="flex items-start justify-center gap-10 p-8 my-8 rounded-xl shadow-custom-black dark:shadow-custom-white blogCards">
         <div className="flex flex-col items-center justify-center gap-5">
           <h1 className="text-4xl font-extrabold text-center">
@@ -100,8 +102,15 @@ const StoryTelling = () => {
           </p>
           <form
             onSubmit={handleSubmit}
-            className="space-y-4 font-pangaia flex flex-col items-center justify-center">
-            <div className="w-[720px] h-[405px] flex flex-col items-center justify-center border border-gray-500 rounded-3xl">
+            className="space-y-4 font-pangaia flex flex-col items-center justify-center"
+          >
+            <div className="relative w-[720px] h-[405px] flex flex-col items-center justify-center border border-gray-500 rounded-3xl">
+              <a
+                href="/explore-diversity/story-telling"
+                className=" text-xl absolute top-0 -left-8"
+              >
+                <TfiReload />
+              </a>
               {uploadedImage ? (
                 <img
                   src={URL.createObjectURL(uploadedImage)}
@@ -133,23 +142,42 @@ const StoryTelling = () => {
           )}
 
           {showText && storyData && (
-            <div className="mt-5">
-              <h2 className="text-2xl font-bold">Description:</h2>
-              <p className="text-center">{storyData.description}</p>
-              <h2 className="text-2xl font-bold mt-4">Introduction:</h2>
-              <p className="text-center">{storyData.introduction}</p>
-              <h2 className="text-2xl font-bold mt-4">Story:</h2>
-              <p className="text-center">{storyData.story}</p>
-              <MyButton4
-                classDesign={
-                  "bg-highlight_dark before:bg-highlight text-dark_primary_text mt-5"
-                }
-                buttonName={"Generate Audio"}
-                bType="button"
-                onClick={handleGenerateAudio}
-              />
+            <div className="flex flex-col  gap-3">
+              <div className=" flex items-center gap-2">
+                <h2 className="text-2xl font-bold">
+                  Description of the Uploaded Image:
+                </h2>
+                <p className="text-center text-xl capitalize">
+                  {storyData.description}
+                </p>
+              </div>
+
+              <div className=" flex flex-col  gap-2">
+                <h2 className="text-2xl font-bold">Introduction:</h2>
+                <p className="">{storyData.introduction}</p>
+              </div>
+
+              <div className=" flex flex-col  gap-2">
+                <h2 className="text-2xl font-bold">Story:</h2>
+                <p className="">{storyData.story}</p>
+              </div>
+              <div className=" flex flex-col items-center justify-center">
+                <MyButton4
+                  classDesign={
+                    "bg-highlight_dark before:bg-highlight text-dark_primary_text mt-5"
+                  }
+                  buttonName={"Generate Audio"}
+                  bType="button"
+                  onClick={handleGenerateAudio}
+                />
+              </div>
+
               {audioUrl && (
-                <div className="mt-5">
+                <div className="flex gap-3 items-center mt-5">
+                  <h1 className="text-2xl font-bold">
+                    {" "}
+                    Your Audio File is here:{" "}
+                  </h1>
                   <audio controls src={audioUrl}>
                     Your browser does not support the audio element.
                   </audio>
