@@ -72,9 +72,14 @@
 }
 
 @media (min-width: 1280px) {
-  .swiper {
+  /* .swiper {
     width: 600px;
     height: 338px;
+  } */
+
+  .swiper {
+    width: 400px;
+    height: 400px;
   }
 
   .swiper-horizontal > .swiper-pagination-bullets,
