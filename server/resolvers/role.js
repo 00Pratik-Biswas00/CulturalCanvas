@@ -2,7 +2,6 @@ import { transporter } from "../config.js";
 import User from "../models/user.js";
 import bcrypt from "bcryptjs";
 import { AuthenticationError, ForbiddenError } from "apollo-server-express";
-import path from "path";
 
 const generateStrongPassword = () => {
   const allCharacters =

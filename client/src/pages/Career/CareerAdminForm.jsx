@@ -16,6 +16,8 @@ const CareerAdminForm = () => {
   const careerAdminContent = t("CareerData", { returnObjects: true });
   const [imageInput, setImageInput] = React.useState(null);
   const handleImageUpload = async (file) => {
+    // console.log("form submit");
+    // return;
     const formData = new FormData();
     formData.append("image", file);
 
@@ -324,14 +326,6 @@ const CareerAdminForm = () => {
               className="text-red-500"
             />
 
-            <div>
-              <InputImageVideo
-                imageName="Upload Resume/CV with photo (jpg, jpeg, png):"
-                fileType="image"
-                onChange={(e) => handleImageUpload(e.currentTarget.files[0])}
-              />
-            </div>
-
             <div className="w-1/3">
               <Field>
                 {({ form }) => (
@@ -347,6 +341,13 @@ const CareerAdminForm = () => {
           </Form>
         )}
       </Formik>
+      <div>
+        <InputImageVideo
+          imageName="Upload Resume/CV with photo (jpg, jpeg, png):"
+          fileType="image"
+          onChange={(e) => handleImageUpload(e.currentTarget.files[0])}
+        />
+      </div>
     </section>
   );
 };
