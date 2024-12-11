@@ -10,6 +10,7 @@ const StoryTelling = () => {
   const [storyData, setStoryData] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
   const [audioUrl, setAudioUrl] = useState(null);
+  const [icon, showIcon] = useState(false);
 
   // Handle image upload
   const handleImageUpload = (e) => {
@@ -17,6 +18,7 @@ const StoryTelling = () => {
     if (file) {
       const imageUrl = URL.createObjectURL(file);
       setUploadedImage(file);
+      showIcon(true);
     }
   };
   const ML_API_URL = import.meta.env.VITE_API_KEY_FLASKAPI;
@@ -109,7 +111,7 @@ const StoryTelling = () => {
                 href="/explore-diversity/story-telling"
                 className=" text-xl absolute top-0 -left-8"
               >
-                <TfiReload />
+                {icon && <TfiReload />}
               </a>
               {uploadedImage ? (
                 <img
