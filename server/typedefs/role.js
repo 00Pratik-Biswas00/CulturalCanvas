@@ -12,7 +12,7 @@ const roleTypeDefs = gql`
 
   type Query {
     getAdmins: [User]!
-    getSellers: [User]!
+
     getUsers: [User]!
   }
 

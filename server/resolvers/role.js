@@ -25,13 +25,13 @@ const roleResolvers = {
         throw new Error("Error fetching admins");
       }
     },
-    getSellers: async () => {
-      try {
-        return await User.find({ role: "seller" });
-      } catch (err) {
-        throw new Error("Error fetching sellers");
-      }
-    },
+    // getSellers: async () => {
+    //   try {
+    //     return await User.find({ role: "seller" });
+    //   } catch (err) {
+    //     throw new Error("Error fetching sellers");
+    //   }
+    // },
     getUsers: async () => {
       try {
         return await User.find({ role: "user" });

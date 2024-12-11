@@ -1,5 +1,6 @@
 import Seller from "../models/seller.js";
 import User from "../models/user.js";
+import { deletePhoto, videoDelete } from "../routes/upload.js";
 
 const sellerResolvers = {
   Query: {
@@ -82,16 +83,32 @@ const sellerResolvers = {
           await deletePhoto(seller.image.public_id);
         }
 
-        if (seller.video && seller.video.Bucket && seller.video.Key) {
-          videoDelete({ Bucket: blog.video.Bucket, Key: blog.video.Key });
+        if (seller.itCertificate && seller.itCertificate.public_id) {
+          await deletePhoto(seller.itCertificate.public_id);
+        }
+        if (seller.idProof && seller.idProof.public_id) {
+          await deletePhoto(seller.idProof.public_id);
         }
 
-        await Blog.findByIdAndDelete(id);
+        if (
+          seller.background &&
+          seller.background.Bucket &&
+          seller.background.Key
+        ) {
+          videoDelete({
+            Bucket: seller.background.Bucket,
+            Key: seller.background.Key,
+          });
+        }
+
+        await Seller.findByIdAndDelete(id);
         return true;
       } catch (err) {
-        console.error("Error deleting blog:", err);
-        throw new Error("Error deleting blog: " + err.message);
+        console.error("Error deleting seller:", err);
+        throw new Error("Error deleting seller: " + err.message);
       }
     },
   },
 };
+
+export default sellerResolvers;

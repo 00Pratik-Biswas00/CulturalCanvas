@@ -3,22 +3,22 @@ import { gql } from "apollo-server-express";
 const sellerTypeDefs = gql`
   type Seller {
     name: String!
-    phone: Number!
+    phone: String!
     gender: String!
     verified: Boolean!
-    image: ImageInput
+    image: Image
     address: String!
     shopAddress: String!
     biography: String!
-    background: VideoInput
-    itCertificate: ImageInput
-    idProof: ImageInput
+    background: Video
+    itCertificate: Image
+    idProof: Image
     category: String!
   }
 
-  type SellerInput {
+  input SellerInput {
     name: String!
-    phone: Number!
+    phone: String!
     gender: String!
     verified: Boolean!
     image: ImageInput
@@ -31,7 +31,7 @@ const sellerTypeDefs = gql`
     category: String!
   }
   type Mutation {
-    addSeller(input: SellerInput): Boolean!
+    addSeller(input: SellerInput): Seller!
 
     verifySeller(id: ID!): Boolean!
 
@@ -41,6 +41,7 @@ const sellerTypeDefs = gql`
   type Query {
     getSellers: [Seller!]!
     getSeller(id: ID!): Seller!
+    getUnverifiedSellers: [Seller!]
   }
 `;
 
