@@ -279,7 +279,7 @@ const AddHeritage = ({
               <div className="w-full">
                 <InputImageVideo
                   imageName="Endless Digital Art:"
-                  fileType="endlessDigitalArt"
+                  fileType="video"
                   onChange={(e) =>
                     handleImageInput(e.target.files[0], "endlessDigitalArt")
                   }

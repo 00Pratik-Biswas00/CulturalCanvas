@@ -159,7 +159,7 @@ const SingleHeritage = () => {
               </h1>
 
               {/* ekhane backend theke data anis admin panel e field add kore dis je nearest attraction e ki ki add korbi diye manually add kore dis ba jodi kono bhabe existing jaiga r drop down select kore korte paris dekhis */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full gap-5">
+              {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full gap-5">
                 <a
                   href="http://localhost:5173/heritage/agra-fort-tm5qapeerlqsiarphpzrm"
                   target="blank"
@@ -181,7 +181,7 @@ const SingleHeritage = () => {
                     </div>
                   </div>
                 </a>
-              </div>
+              </div> */}
               <div className="flex items-center justify-center ">
                 <MyButton1
                   classDesign={
