@@ -1,8 +1,13 @@
+import sys
+import os
 import pandas as pd
 import numpy as np
 from sklearn.neighbors import NearestNeighbors
 import pickle
-from .utils import get_stores_data
+
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+from utils import get_stores_data
 
 """
 Convert stores data into a DataFrame format with relevant location info for the recommendation system.
@@ -14,8 +19,8 @@ def prepare_store_data(stores):
             "id": store["id"],
             "name": store["name"],
             "city": store["city"],
-            "latitude": store["latitude"],
-            "longitude": store["longitude"]
+            "latitude": store["coordinates"]["longitude"],
+            "longitude": store["coordinates"]["latitude"],
         })
     return pd.DataFrame(store_info)
 
