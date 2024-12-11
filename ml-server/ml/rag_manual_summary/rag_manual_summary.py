@@ -45,7 +45,7 @@ def process_pdf(pdf_files):
     raw_text = get_pdf_text(pdf_files)
     chunks = get_text_chunks(raw_text)
     create_vector_store(chunks)
-    return "PDFs processed successfully."
+    return "success"
 
 def ask_question(user_question):
     embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
