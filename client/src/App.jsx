@@ -81,6 +81,7 @@ import BlogContest from "./pages/Contest/BlogContest";
 import Settings from "./components/Settings/Settings";
 import { SpeakerProvider } from "./components/SpeakerContext/SpeakerContext";
 import SingleProduct from "./pages/VirtualStore/SingleProduct";
+import MaharashtraState from "./pages/SingleStateCulture/MaharastraState";
 
 // new additions
 
@@ -321,7 +322,10 @@ function App() {
                 path="/culture-tradition/west-bengal"
                 element={<WestBengalState />}
               />
-
+              <Route
+                path="/culture-tradition/maharastra"
+                element={<MaharashtraState />}
+              />
               {/*  ---------------- Learning Courses  ---------------- */}
               <Route
                 path="/learn-Indian-culture"
