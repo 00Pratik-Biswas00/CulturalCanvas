@@ -193,7 +193,7 @@ const VirtualStore = () => {
                       />
                     ) : (
                       <img
-                        src={product.image_url}
+                        src={product.image.url}
                         alt={product.name}
                         className="w-[20rem] h-[20rem]"
                       />
