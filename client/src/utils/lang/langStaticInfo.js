@@ -15,6 +15,8 @@ import festivalsImg from "./../../assets/culture/festival.avif";
 import greetingImg from "./../../assets/culture/greeting.avif";
 import weddingImg from "./../../assets/culture/wedding.avif";
 
+
+
 // states
 
 import assasImg from "./../../assets/states/assam.png";
@@ -62,6 +64,12 @@ import digiArtImg from "../../assets/career/digiArt.png";
 import seoImg from "../../assets/career/seo.png";
 import teacherImg from "../../assets/career/teacher.png";
 import vlogCreatorImg from "../../assets/career/vlogCreator.png";
+// religion
+import hinduImg from "../../assets/culture/1.png";
+import buddiImg from "../../assets/culture/2.png";
+import jainiImg from "../../assets/culture/3.png";
+import sikhiImg from "../../assets/culture/4.png";
+import islamImg from "../../assets/culture/5.png";
 
 export const Static_Information = {
   en: {
@@ -1159,26 +1167,62 @@ Modern Adaptations: Designers have reimagined the lehenga-choli with fusion styl
           },
         ],
       },
-      ReligionData: [
+      ReligionData : [
         {
           name: "Hinduism",
           intro:
-            " Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, vel fugit. Veniam odio quas expedita, omnis ipsa autem reiciendis officiis ullam quasi dolore, possimus laborum fuga in totam consectetur rem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, vel fugit. Veniam odio quas expedita, omnis ipsa autem reiciendis officiis ullam quasi dolore, possimus laborum fuga in totam consectetur rem.Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, vel fugit. Veniam odio quas expedita, omnis ipsa autem reiciendis officiis ullam quasi dolore, possimus laborum fuga in totam consectetur rem.",
-          image: greetingImg,
+            "Hinduism, one of the oldest religions in the world, is a diverse and complex spiritual tradition rooted in the Indian subcontinent. It emphasizes dharma (moral duty), karma (action and consequence), and moksha (liberation from the cycle of rebirth). Key scriptures include the Vedas, Upanishads, Bhagavad Gita, and Ramayana, and its practices range from devotion to deities like Vishnu, Shiva, and Devi, to yoga and meditation. Hindu festivals such as Diwali and Holi celebrate light, renewal, and community spirit.",
+          image: hinduImg,
           religionLink: "/culture-tradition/religion/hinduism",
         },
+        {
+          name: "Buddhism",
+          intro:
+            "Buddhism is a spiritual tradition founded by Siddhartha Gautama, known as the Buddha, in the 5th-4th centuries BCE in India. It focuses on the Four Noble Truths and the Eightfold Path as a means to overcome suffering and achieve enlightenment (nirvana). Central concepts include mindfulness, meditation, and compassion. Buddhist teachings have influenced diverse cultures, with practices varying from Theravada's simplicity to Mahayana's bodhisattva path and Vajrayana's rituals.",
+          image: buddiImg,
+          religionLink: "/culture-tradition/religion/buddism",
+        },
+        {
+          name: "Jainism",
+          intro:
+            "Jainism is an ancient Indian religion emphasizing non-violence (ahimsa), truth, and asceticism. Founded by the Tirthankaras, with Mahavira as the most recent, Jainism seeks liberation of the soul through self-discipline and purity. Jains follow strict ethical codes, including non-possession and vegetarianism, and worship at beautifully adorned temples. Key scriptures include the Agamas, which guide spiritual practices and ethical living.",
+          image: jainiImg,
+          religionLink: "/culture-tradition/religion/jainism",
+        },
+        {
+          name: "Sikhism",
+          intro:
+            "Sikhism, founded in the 15th century by Guru Nanak in Punjab, India, is a monotheistic religion promoting equality, justice, and service. The Guru Granth Sahib, the eternal scripture, serves as the faith's spiritual guide. Sikhs practice devotion through prayer, community service (seva), and the concept of sharing (vand chakko). The Golden Temple in Amritsar symbolizes the Sikh ideals of openness and inclusivity.",
+          image: sikhiImg,
+          religionLink: "/culture-tradition/religion/sikhism",
+        },
+        {
+          name: "Islam",
+          intro:
+            "Islam, a monotheistic religion founded in the 7th century CE by the Prophet Muhammad in Arabia, emphasizes submission to the will of Allah (God). Its core principles are encapsulated in the Five Pillars: faith, prayer, fasting, charity, and pilgrimage to Mecca. The Quran, believed to be the word of God, guides Muslims in spiritual and daily life. Islamic culture has profoundly influenced art, architecture, science, and literature worldwide.",
+          image: islamImg,
+          religionLink: "/culture-tradition/religion/islam",
+        },
       ],
+      
 
-      HinduismData: {
-        image: greetingImg,
+      HinduismData : {
+        image: hinduImg,
         name: "Hinduism",
-        introduction: "loremmm",
-        overview: "loreskdfnsdnfdsn",
-        history: "sdfwefwfwcwe",
-        regions: "yfugugugugug",
-        core_beliefs: [{ title: "dsfsdfs", description: "sdfwefwfwef" }],
-        practices: "sefwefw",
+        introduction: "Hinduism, one of the world's oldest and most diverse religions, is deeply rooted in the Indian subcontinent. It encompasses a rich tapestry of spiritual traditions, philosophies, and cultural practices.",
+        overview: "Hinduism is one of the world's oldest and most diverse religions, characterized by a rich tapestry of beliefs, rituals, and philosophies. It is the predominant religion in India and Nepal and has millions of followers worldwide. Hinduism is not a monolithic religion but a complex, pluralistic tradition with numerous deities, practices, and schools of thought.",
+
+        history: "Hinduism's origins trace back over 4,000 years to the ancient Indus Valley Civilization and the Vedic period (1500–500 BCE). The Vedas, a collection of sacred texts, are among the earliest religious writings in Hinduism. Over centuries, Hinduism evolved through various philosophical and devotional movements, including the Upanishads, which introduced the concepts of karma and moksha (liberation).The epics, Mahabharata and Ramayana, and the Puranas further shaped Hindu beliefs and practices. The emergence of devotional (bhakti) movements between the 7th and 12th centuries CE emphasized personal devotion to deities such as Vishnu, Shiva, and Shakti, leading to a rich tradition of temple worship and pilgrimage.",
+        regions: "Hinduism is predominantly practiced in India, with significant communities in Nepal, Bangladesh, and Sri Lanka. The Indian diaspora has spread its traditions globally, making Hindu festivals and temples common in countries like the United States, Canada, and the United Kingdom.",
+        core_beliefs: [
+          { title: "Dharma", description: "The moral and ethical duties or responsibilities of an individual." },
+          { title: "Karma", description: "The principle of cause and effect, where actions influence one's future." },
+          { title: "Moksha", description: "The ultimate goal of liberation from the cycle of birth and rebirth." },
+          { title: "Deities", description: "A vast pantheon including Brahma (the creator), Vishnu (the preserver), and Shiva (the destroyer)." }
+        ],
+        practices: "Hindu practices include rituals, meditation, yoga, and pilgrimage to sacred sites. Festivals like Diwali, Holi, and Navaratri are celebrated with fervor, reflecting the vibrant and diverse nature of Hindu worship and community life."
       },
+      
 
       StateCulturesData: {
         stateHeading: "India's Cultural Odyssey: State-Wise🗺️",
