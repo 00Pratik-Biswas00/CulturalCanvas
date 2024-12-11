@@ -2,53 +2,64 @@ import React from "react";
 import SingleStateCulture from ".";
 import tajImg from "../../assets/culture/stateCultureBg.png";
 import wbImg from "../../assets/states/west-bengal.png";
+import assasImg from "./../../assets/states/assam.png";
+import greetingImg from "./../../assets/culture/greeting.avif";
+import assamTeaImg from "./../../assets/states/assamtea.jpg";
+import kharImg from "./../../assets/states/khar.jpeg";
+import pithaImg from "./../../assets/states/pitha.webp";
+import tengaImg from "./../../assets/states/tenga.jpg";
+import bihuImg from  "./../../assets/states/bihu.avif";
+import xImg from  "./../../assets/states/sattriya.jpeg";
+import yImg from  "./../../assets/states/gamosa.jpeg";
+import zImg from  "./../../assets/states/japi.jpg";
 
 const AssamCuisines = [
   {
-    cuisineImage: tajImg,
-    cuisineName: "Luchi + Cholar Daal",
+    cuisineImage: assamTeaImg, // Replace with actual image of Assam Tea
+    cuisineName: "Assam Tea",
   },
   {
-    cuisineImage: tajImg,
-    cuisineName: "Bhaat + Daal",
+    cuisineImage: pithaImg, // Replace with actual image of Pitha
+    cuisineName: "Pitha",
   },
   {
-    cuisineImage: tajImg,
-    cuisineName: "Luchi + Mangso",
+    cuisineImage: tengaImg, // Replace with actual image of Masor Tenga
+    cuisineName: "Masor Tenga (Tangy Fish Curry)",
   },
   {
-    cuisineImage: tajImg,
-    cuisineName: "Khichuri",
+    cuisineImage: kharImg, // Replace with actual image of Khar
+    cuisineName: "Khar",
   },
 ];
 
 const AssamArts = [
   {
-    cuisineImage: tajImg,
+    cuisineImage: bihuImg, // Replace with actual image of Bihu Dance
     cuisineName: "Bihu Dance",
   },
   {
-    cuisineImage: tajImg,
+    cuisineImage: xImg, // Replace with actual image of Sattriya Dance
     cuisineName: "Sattriya Dance",
   },
   {
-    cuisineImage: tajImg,
-    cuisineName: "Japi Craft",
+    cuisineImage: yImg, // Replace with actual image of Gamosa
+    cuisineName: "Gamosa Weaving",
   },
   {
-    cuisineImage: tajImg,
-    cuisineName: "Assamese Pottery",
+    cuisineImage: zImg, // Replace with actual image of Japi
+    cuisineName: "Japi Craft",
   },
 ];
+
 
 const AssamState = () => {
   return (
     <div>
       <SingleStateCulture
         stateName={["Assam"]}
-        greetingImg={tajImg}
+        greetingImg={greetingImg}
         greetingName={"Nomoskar"}
-        stateImg={wbImg}
+        stateImg={assasImg}
         stateHistory={`Assam, located in the lush northeastern region of India, is a state rich in history and culture. It is best known for its vast tea gardens, which produce some of the world’s finest teas, and its fertile land enriched by the mighty Brahmaputra River. Historically, Assam was ruled by the Ahom Dynasty for over 600 years, contributing to the state's strong cultural identity. The state's vibrant festivals, such as Bihu, highlight the importance of agriculture and the cycles of nature. Assam is also known for its contributions to literature, arts, and traditional crafts. Assam, located in the lush northeastern region of India, is a state rich in history and culture. It is best known for its vast tea gardens, which produce some of the world’s finest teas, and its fertile land enriched by the mighty Brahmaputra River. Historically, Assam was ruled by the Ahom Dynasty for over 600 years, contributing to the state's strong cultural identity. The state's vibrant festivals, such as Bihu, highlight the importance of agriculture and the cycles of nature. Assam is also known for its contributions to literature, arts, and traditional crafts. Assam, located in the lush northeastern region of India, is a state rich in history and culture. It is best known for its vast tea gardens, which produce some of the world’s finest teas, and its fertile land enriched by the mighty Brahmaputra River. Historically, Assam was ruled by the Ahom Dynasty for over 600 years, contributing to the state's strong cultural identity. `}
         stateHistoryVideo={"https://youtu.be/CkZyrYfofHc"}
         cuisineDetails={AssamCuisines}
