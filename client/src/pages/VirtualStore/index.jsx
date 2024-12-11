@@ -5,6 +5,7 @@ import car2 from "../../assets/store/ed.mp4";
 import img1 from "../../assets/store/aaa.png";
 import img2 from "../../assets/store/dhokra.png";
 import { CiSearch, CiFilter } from "react-icons/ci";
+import axios from "axios";
 
 import MyButton2 from "../../components/Buttons/MyButton2";
 
@@ -63,6 +64,8 @@ const VirtualStore = () => {
   const [visibleCount, setVisibleCount] = useState(6);
   const [initialVisibleCount, setInitialVisibleCount] = useState(6);
   const [bookHovered, setBookHovered] = useState(false);
+  const [userLocation, setUserLocation] = useState(null);
+  const [recommendations, setRecommendations] = useState([]);
 
   const [flippedCard, setFlippedCard] = useState(null);
 
@@ -103,6 +106,44 @@ const VirtualStore = () => {
     };
   }, []);
 
+  // Fetch user's current location
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          setUserLocation({ latitude, longitude });
+        },
+        (error) => {
+          console.error("Error getting location:", error);
+          // Handle error (e.g., fallback to a default location)
+        }
+      );
+    }
+  }, []);
+
+  // Fetch recommendations from the backend when user location is available
+  useEffect(() => {
+    if (userLocation) {
+      const fetchRecommendations = async () => {
+        try {
+          const response = await axios.post(
+            "http://127.0.0.1:8000/api/recommend-products",
+            {
+              latitude: userLocation.latitude,
+              longitude: userLocation.longitude,
+            }
+          );
+          setRecommendations(response.data.recommendations || []);
+        } catch (error) {
+          console.error("Error fetching recommendations:", error);
+        }
+      };
+
+      fetchRecommendations();
+    }
+  }, [userLocation]);
+
   return (
     <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text  py-4 px-16 duration-300 min-h-screen">
       <div className="flex items-center tracking-widest justify-center py-4 text-6xl font-extrabold font-gallient">
@@ -128,6 +169,64 @@ const VirtualStore = () => {
           />
         </div>
       </div>
+
+      {recommendations && (
+        <>
+          <h4>Check out the local products around you: </h4>
+          <div className="grid xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 lg:gap-12 gap-8 sm:gap-10 pt-5">
+            {recommendations.slice(0, visibleCount).map((product, index) => (
+              <div
+                key={index}
+                className={`relative rounded-lg overflow-hidden flex flex-col items-center justify-center shadow-lg cursor-pointer ${
+                  flippedCard === index ? "rotate-y-180" : ""
+                } transition-transform duration-700`}
+                onMouseEnter={() => handleMouseEnter(index)}
+                onMouseLeave={handleMouseLeave}>
+                {flippedCard !== index ? (
+                  <>
+                    {hoveredCard === index ? (
+                      <video
+                        src={product.video.url}
+                        autoPlay
+                        loop
+                        className="w-full h-full"
+                      />
+                    ) : (
+                      <img
+                        src={product.image_url}
+                        alt={product.name}
+                        className="w-[20rem] h-[20rem]"
+                      />
+                    )}
+
+                    <div className="p-3">
+                      <button onClick={() => handleFlip(index)}>NEXT</button>
+                    </div>
+                  </>
+                ) : (
+                  <div className="back absolute inset-0 flex flex-col justify-center items-center bg-background2 rounded-lg">
+                    <div className="containerx">
+                      <div className="boxx">
+                        <h2 className="namex">{product.name}</h2>
+                        <a href="/" className="buyx">
+                          Buy
+                        </a>
+                        <div className="circlex"></div>
+                        <img
+                          src={product.image.url}
+                          alt="Product"
+                          className="productx w-52 h-52"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+
       <div className="grid xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 lg:gap-12 gap-8 sm:gap-10 pt-5">
         {cards.slice(0, visibleCount).map((car, index) => (
           <div
@@ -136,8 +235,7 @@ const VirtualStore = () => {
               flippedCard === index ? "rotate-y-180" : ""
             } transition-transform duration-700`}
             onMouseEnter={() => handleMouseEnter(index)}
-            onMouseLeave={handleMouseLeave}
-          >
+            onMouseLeave={handleMouseLeave}>
             {flippedCard !== index ? (
               <div className=" p-3 flex items-center justify-center flex-col">
                 {hoveredCard === index ? (
