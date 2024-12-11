@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Recommendations with Google Maps</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+        #recommendations {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Nearby Store Recommendations</h1>
+
+    <!-- Google Map -->
+    <div id="map"></div>
+
+    <div id="recommendations"></div>
+
+    <script>
+        let map, userMarker;
+        const stores = []; // This will hold store data from the backend
+
+        // Initialize the map
+        function initMap() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const userLat = position.coords.latitude;
+                    const userLon = position.coords.longitude;
+
+                    // Initialize map centered at user's location
+                    map = new google.maps.Map(document.getElementById('map'), {
+                        center: { lat: userLat, lng: userLon },
+                        zoom: 14
+                    });
+
+                    // Add marker for the user's location
+                    userMarker = new google.maps.Marker({
+                        position: { lat: userLat, lng: userLon },
+                        map: map,
+                        title: "Your Location"
+                    });
+
+                    // Call backend API to get nearby stores and products
+                    fetch('http://127.0.0.1:5000/recommend', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ latitude: userLat, longitude: userLon })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        displayRecommendations(data.recommendations);
+                    });
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        // Display recommendations in the HTML
+        function displayRecommendations(recommendations) {
+            let recommendationsHTML = '';
+            recommendations.forEach(item => {
+                const storeLocation = new google.maps.LatLng(item.store_location.lat, item.store_location.lng);
+
+                // Add a marker for the store
+                new google.maps.Marker({
+                    position: storeLocation,
+                    map: map,
+                    title: item.store_name
+                });
+
+                recommendationsHTML += `
+                    <div>
+                        <h3>${item.store_name}</h3>
+                        <p><strong>Product:</strong> ${item.product_name}</p>
+                        <p><strong>Description:</strong> ${item.description}</p>
+                        <p><strong>Price:</strong> ${item.price}</p>
+                        <img src="${item.image_url}" alt="${item.product_name}" width="150">
+                        <p><strong>Distance:</strong> ${item.distance_km} km</p>
+                        <a href="https://www.google.com/maps?q=${item.store_location.lat},${item.store_location.lng}" target="_blank">View Store on Google Maps</a>
+                    </div><br>
+                `;
+            });
+            document.getElementById('recommendations').innerHTML = recommendationsHTML;
+        }
+    </script>
+</body>
+</html>

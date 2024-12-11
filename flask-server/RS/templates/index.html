@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location-Based Recommendations</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
+    <script>
+        function getUserLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((position) => {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+
+                    document.getElementById("location").innerHTML = `Your Location: <a href='https://www.google.com/maps?q=${latitude},${longitude}' target='_blank'>View on Google Maps</a>`;
+
+                    fetch('/recommend', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ latitude, longitude })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        const recommendationsDiv = document.getElementById("recommendations");
+                        recommendationsDiv.innerHTML = "";
+
+                        if (data.recommendations.length > 0) {
+                            data.recommendations.forEach(item => {
+                                const card = document.createElement("div");
+                                card.style.border = "1px solid #ccc";
+                                card.style.margin = "10px";
+                                card.style.padding = "10px";
+                                card.style.borderRadius = "5px";
+                                card.style.boxShadow = "0 4px 8px rgba(0,0,0,0.2)";
+
+                                card.innerHTML = `
+                                    <h3>${item.product_name}</h3>
+                                    <img src="${item.image_url}" alt="${item.product_name}" style="width: 150px; height: auto;" />
+                                    <p><strong>Store:</strong> ${item.store_name} (${item.city})</p>
+                                    <p><strong>Description:</strong> ${item.description}</p>
+                                    <p><strong>Price:</strong> ${item.price}</p>
+                                    <p><strong>Distance:</strong> ${item.distance_km} km</p>
+                                `;
+
+                                recommendationsDiv.appendChild(card);
+                            });
+                        } else {
+                            recommendationsDiv.innerHTML = `
+                                <div style="border: 1px solid #ccc; padding: 10px; border-radius: 5px;">
+                                    <h3>No Nearby Stores Found</h3>
+                                    <p>Try searching in a different location or explore default recommendations.</p>
+                                </div>
+                            `;
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching recommendations:', error);
+                    });
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", getUserLocation);
+    </script>
+</head>
+<body>
+    <h1>Welcome to Location-Based Recommendations</h1>
+    <div id="location">Fetching your location...</div>
+    <div id="recommendations" style="margin-top: 20px;"></div>
+</body>
+</html> 
+
+
+
