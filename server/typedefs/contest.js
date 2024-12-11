@@ -10,17 +10,14 @@ const contesttypeDefs = gql`
   }
 
   type Mutation {
-    addContest(
-      topic: String!
-      date: String!
-      time: String!
-    ): Boolean!
+    addContest(topic: String!, date: String!, time: String!): Boolean!
     addWinner(
       name: String!
       socialMediaLink: String!
       rank: Int!
       week: Int!
     ): Boolean!
+    addBadge(id: ID!, badge: String!): Boolean
   }
 
   type Query {
