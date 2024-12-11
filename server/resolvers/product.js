@@ -32,16 +32,15 @@ const productResolvers = {
 
   Mutation: {
     createProduct: async (_, { input }, { userId }) => {
-      if (!userId) {
-        throw new AuthenticationError(
-          "You must be logged in as a seller to create a product."
-        );
-      }
+      // if (!userId) {
+      //   throw new AuthenticationError(
+      //     "You must be logged in as a seller to create a product."
+      //   );
+      // }
 
       try {
         const newProduct = new Product({
           ...input,
-          seller: userId,
         });
         await newProduct.save();
         return true;

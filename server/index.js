@@ -15,12 +15,9 @@ import heritageTypeDefs from "./typedefs/heritage.js";
 import heritageResolvers from "./resolvers/heritage.js";
 import courseTypeDefs from "./typedefs/course.js";
 import courseResolvers from "./resolvers/course.js";
-import languageResolvers from "./resolvers/language.js";
-import languageTypeDefs from "./typedefs/language.js";
 import connect from "./config.js";
 import languageResolvers from "./resolvers/language.js";
 import languageTypeDefs from "./typedefs/language.js";
-import connect from "./config.js";
 import { festivalTypeDefs } from "./typedefs/festival.js";
 import festivalResolvers from "./resolvers/festival.js";
 import roleResolvers from "./resolvers/role.js";
@@ -33,6 +30,8 @@ import contesttypeDefs from "./typedefs/contest.js";
 import contestResolvers from "./resolvers/contest.js";
 import sellerTypeDefs from "./typedefs/seller.js";
 import sellerResolvers from "./resolvers/seller.js";
+import productTypeDefs from "./typedefs/product.js";
+import productResolvers from "./resolvers/product.js";
 
 const customLoggingPlugin = {
   requestDidStart(requestContext) {
@@ -67,6 +66,7 @@ const typeDefs = mergeTypeDefs([
   careertypeDefs,
   contesttypeDefs,
   sellerTypeDefs,
+  productTypeDefs,
 ]);
 const resolvers = mergeResolvers([
   authResolver,
@@ -80,6 +80,7 @@ const resolvers = mergeResolvers([
   careerResolvers,
   contestResolvers,
   sellerResolvers,
+  productResolvers,
 ]);
 
 const apolloServer = new ApolloServer({

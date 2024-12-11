@@ -30,6 +30,11 @@ const productTypeDefs = gql`
     description: String!
   }
 
+  input MaterialDetailInput {
+    name: String!
+    description: String!
+  }
+
   type Query {
     getProducts: [Product!]!
     getProduct(id: ID!): Product
@@ -39,14 +44,26 @@ const productTypeDefs = gql`
     name: String!
     description: String!
     uniqueFeature: String!
-    image: Image
-    video: Video
+    image: ImageInput
+    video: VideoInput
     quantity: Int!
     category: String!
     price: Float!
     seller: ID!
     materialDetails: [MaterialDetailInput]
-    certification: Image
+    certification: ImageInput
+    coordinates: CoordinatesInput
+    city: String
+  }
+
+  type Coordinates {
+    longitude: Float
+    latitude: Float
+  }
+
+  input CoordinatesInput {
+    longitude: Float
+    latitude: Float
   }
 
   input UpdateProductInput {
