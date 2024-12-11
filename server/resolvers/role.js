@@ -2,7 +2,6 @@ import { transporter } from "../config.js";
 import User from "../models/user.js";
 import bcrypt from "bcryptjs";
 import { AuthenticationError, ForbiddenError } from "apollo-server-express";
-import path from "path";
 
 const generateStrongPassword = () => {
   const allCharacters =
@@ -25,13 +24,13 @@ const roleResolvers = {
         throw new Error("Error fetching admins");
       }
     },
-    getSellers: async () => {
-      try {
-        return await User.find({ role: "seller" });
-      } catch (err) {
-        throw new Error("Error fetching sellers");
-      }
-    },
+    // getSellers: async () => {
+    //   try {
+    //     return await User.find({ role: "seller" });
+    //   } catch (err) {
+    //     throw new Error("Error fetching sellers");
+    //   }
+    // },
     getUsers: async () => {
       try {
         return await User.find({ role: "user" });

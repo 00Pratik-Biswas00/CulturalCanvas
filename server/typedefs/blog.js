@@ -54,6 +54,7 @@ const blogTypeDefs = gql`
    
     originLocation: String!
     contentType: String!
+    contentCategory: String!
   }
 
   type Query {
