@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import img1 from "../../assets/store/aaa.png";
+import img1 from "../../assets/store/dhokra.png";
+import img2 from "../../assets/store/dhokra2.png";
+import img3 from "../../assets/store/dhokra3.png";
 import ReactPlayer from "react-player";
 import car1 from "../../assets/store/a.mp4";
 import MyButton2 from "../../components/Buttons/MyButton2";
@@ -8,6 +10,30 @@ import MyButton4 from "../../components/Buttons/MyButton4";
 import { useQuery } from "@apollo/client";
 import { GET_PRODUCT } from "../../graphql/product";
 import { use } from "react";
+import pbImg from "../../assets/store/pb.jpg";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/effect-cube";
+import "swiper/css/pagination";
+import "../../style_swiper.css";
+import { EffectCube, Pagination } from "swiper/modules";
+import { RiExternalLinkLine } from "react-icons/ri";
+
+const arrayName = [
+  {
+    image: img2,
+  },
+  {
+    image: img1,
+  },
+
+  {
+    image: img3,
+  },
+];
+
 const SingleProduct = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -27,25 +53,69 @@ const SingleProduct = () => {
       <div className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text  py-4 px-16 duration-300 min-h-screen">
         {/* Product Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between border-b pb-4 mb-6">
-          <h1 className="text-3xl font-bold mb-2 md:mb-0">{product?.name}</h1>
+          <h1 className="text-5xl font-gallient font-bold py-3">
+            {product?.name}
+          </h1>
           <p className=" font-pangaia">✨Category: {product?.category}</p>
         </div>
 
         {/* Product Image and Details */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+          {/* <div className=" flex flex-col items-center justify-center">
             {product?.image ? (
               <img
                 src={product?.image?.url}
                 alt={product?.name}
-                className="rounded-lg shadow-lg"
+                className="rounded-2xl duration-700 hover:shadow-xl w-[35rem] h-[35rem] "
               />
             ) : (
               <div className="bg-gray-200 rounded-lg shadow-lg h-64 flex items-center justify-center">
                 <p className="">No Image Available</p>
               </div>
             )}
-          </div>
+          </div> */}
+
+          <Swiper
+            effect={"cube"}
+            grabCursor={true}
+            cubeEffect={{
+              shadow: true,
+              slideShadows: true,
+              shadowOffset: 20,
+              shadowScale: 0.94,
+            }}
+            loop={true}
+            pagination={{
+              clickable: true,
+            }}
+            speed={500}
+            modules={[EffectCube, Pagination]}
+            className="mySwiper"
+          >
+            {arrayName.map((content, index) => (
+              <SwiperSlide key={index}>
+                <div
+                  // key={index}
+                  style={{ backgroundImage: `url(${content.image})` }}
+                  className="w-[100%] h-[100%] bg-cover bg-center bg-no-repeat relative flex justify-end items-end "
+                >
+                  <div className="absolute inset-0  opacity-50 rounded-[20px]"></div>
+                  {/* <img src={content.sImg} /> */}
+                  {/* <a
+                    href="/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className=" bg-dark_secondary_text hover:bg-black  opacity-40 px-5 py-2 rounded-3xl text-xl mr-2 mb-2 "
+                  >
+                    <span className="text-dark_primary_text font-extrabold flex  items-center justify-center gap-2">
+                      {" "}
+                      {content.sName} <RiExternalLinkLine />
+                    </span>
+                  </a> */}
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
 
           <div className="flex flex-col ">
             <label className=" text-lg font-montserrat mb-3">
@@ -64,11 +134,9 @@ const SingleProduct = () => {
                 </h2>
                 <ul className="space-y-2">
                   {product?.materialDetails.map((material, index) => (
-                    <li key={index} className=" flex items-center gap-1 p-1">
-                      <h3 className="text-lg font-semibold">
-                        {material.name}:{" "}
-                      </h3>
-                      <p className=""> {material.description}</p>
+                    <li key={index} className=" flex items-start gap-1 p-1">
+                      <h3 className=" font-bold">{material.name}: </h3>
+                      <p className=" capitalize"> {material.description}</p>
                     </li>
                   ))}
                 </ul>
@@ -99,13 +167,19 @@ const SingleProduct = () => {
 
         {/* Material Details */}
 
-        <div>
-          <p className="text-md  mb-2">Quantity: {product?.quantity}</p>
-          <p className="text-md  mb-4">City: {product?.city || "Raipur"}</p>
-          <p className="text-xl font-bold text-highlight mb-4">
-            Price: ${product?.price.toFixed(2)}
-          </p>
-          <div className="flex items-center gap-5 justify-start">
+        <div className=" flex flex-col items-center justify-center gap-5">
+          <div className="grid grid-cols-3 gap-5">
+            <p className=" font-bold font-pangaia rounded-xl text-xl p-5 border bg-background2 flex items-center justify-center ">
+              Quantity: {product?.quantity}
+            </p>
+            <p className=" font-bold font-pangaia rounded-xl text-xl p-5 border bg-background2 flex items-center justify-center">
+              City: {product?.city || "Raipur"}
+            </p>
+            <p className="font-bold font-pangaia rounded-xl text-xl p-5 border bg-background2 flex items-center justify-center">
+              Price: ${product?.price.toFixed(2)}
+            </p>
+          </div>
+          <div className="flex items-center gap-5 justify-center">
             <MyButton4
               classDesign={
                 "bg-highlight before:bg-highlight_dark  text-dark_primary_text py-1 "
@@ -156,28 +230,31 @@ const SingleProduct = () => {
         {product?.seller && (
           <div className="mt-8 border-t pt-4">
             <h2 className="text-lg font-bold mb-2 font-playfair">
-              Seller Information
+              Seller's Information
             </h2>
             <div className="p-4 border rounded-lg shadow hover:shadow-xl transition flex items-start gap-5  ">
               <img
-                src={img1}
+                src={pbImg}
                 className=" rounded-full w-20 h-20 border shadow-xl "
               />
               <div className="flex flex-col gap-2">
-                <p className="">Seller Name</p>
+                <p className="font-montserrat text-xl">Pratik Biswas</p>
                 <div className=" flex w-full gap-5">
-                  <p className=" w-1/2">
-                    Seller Description Seller Description Seller Description
-                    Seller Description Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Ipsum quis blanditiis aliquid deserunt
-                    facilis quaerat excepturi, cum earum necessitatibus,
-                    explicabo dolores labore placeat quidem animi asperiores
-                    itaque alias mollitia harum.
+                  <p className=" font-playfair w-[75%]">
+                    I'm Pratik Biswas, a B.Tech. (CSE-AIML) student, thrives on
+                    solving problems through code. Passionate about frontend and
+                    backend development (actively learning backend!), I love
+                    collaborating with friends to brainstorm ideas and build
+                    projects. Currently exploring integrating machine learning
+                    models into web apps and creating AI-powered human-centric
+                    platforms. Beyond tech, I find creative expression through
+                    sketching and content writing and enjoy sharing knowledge
+                    through teaching.
                   </p>
                   <ReactPlayer
                     url={car1}
-                    width="100%"
-                    height="100%"
+                    width="40%"
+                    height="40%"
                     playing={false}
                     controls
                     // config={{
