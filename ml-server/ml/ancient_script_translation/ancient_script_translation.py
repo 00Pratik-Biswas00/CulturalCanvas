@@ -1,7 +1,7 @@
 import os
 import cv2  # OpenCV for image processing
 import pytesseract  # OCR for text recognition
-from googletrans import Translator  # Google Translate API for translation
+from deep_translator import GoogleTranslator  # Replace googletrans with deep-translator
 
 # Set path for uploads
 UPLOAD_FOLDER = os.path.join(os.path.dirname(__file__), "uploads")
@@ -62,7 +62,7 @@ def recognize_text(segments):
 
 
 """
-    Translate the recognized text to the target language.
+    Translate the recognized text to the target language using deep-translator.
     Args:
         text (str): Recognized text.
         target_language (str): Target language code (default: "en").
@@ -71,9 +71,8 @@ def recognize_text(segments):
 """
 def translate_text(text, target_language="en"):
     try:
-        translator = Translator()
-        translated = translator.translate(text, dest=target_language)
-        return translated.text
+        translated = GoogleTranslator(source="auto", target=target_language).translate(text)
+        return translated
     except Exception as e:
         print(f"Error in translation: {e}")
         return ""
