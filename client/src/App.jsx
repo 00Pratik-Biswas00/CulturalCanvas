@@ -26,8 +26,8 @@ import GoToTop from "./components/GoToTopButton";
 import Chatbot from "./components/ChatBot";
 import TripCreation from "./pages/ExploreDiversity/TripCreation";
 import ViewTrip from "./pages/ExploreDiversity/ViewTrip/[tripId]/index";
-import MultiplePagesCulture from "./pages/MultiplePagesCulture";
-import MultipleSingleCulture from "./pages/MultiplePagesCulture/MultipleSingleCulture";
+import ReligionCulture from "./pages/MultiplePagesCulture";
+import Hinduism from "./pages/MultiplePagesCulture/Hinduism";
 import MyProfile from "./pages/MyProfile";
 import SingleStateCulture from "./pages/SingleStateCulture";
 import SavedTrips from "./pages/ExploreDiversity/SavedTrips";
@@ -290,12 +290,12 @@ function App() {
               />
 
               <Route
-                path="/culture-tradition/multiple-pages"
-                element={<MultiplePagesCulture />}
+                path="/culture-tradition/religion"
+                element={<ReligionCulture />}
               />
               <Route
-                path="/culture-tradition/multiple-pages/:slug"
-                element={<MultipleSingleCulture />}
+                path="/culture-tradition/religion/hinduism"
+                element={<Hinduism />}
               />
               <Route
                 path="/culture-tradition/single-state"

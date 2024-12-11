@@ -31,7 +31,7 @@ const Home = () => {
                       content.featuringData.length > 0 && (
                         <div>
                           <h1 className="flex gap-1 items-center pb-2 font-semibold text-lg">
-                            <span>Featuring</span>{" "}
+                            <span> {content.featuring}</span>{" "}
                             <MdOutlineKeyboardDoubleArrowRight className="w-5 h-5 mt-[0.28rem]" />
                           </h1>
                           <div className="flex flex-wrap gap-x-20 gap-y-2">

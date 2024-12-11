@@ -14,7 +14,6 @@ const contesttypeDefs = gql`
       topic: String!
       date: String!
       time: String!
-      week: Int!
     ): Boolean!
     addWinner(
       name: String!
