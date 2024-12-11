@@ -55,6 +55,11 @@ const productSchema = new Schema(
       enum: ["Clothing", "Handicrafts"],
     },
     quantity: { type: Number, required: true },
+    coordinates: {
+      longitude: { type: Number },
+      latitude: { type: Number },
+    },
+    city: { type: String },
     seller: { type: Schema.Types.ObjectId, ref: "Seller", required: true },
     certification: { url: String, public_id: String },
     reviews: [reviewSchema],

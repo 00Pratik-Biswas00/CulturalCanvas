@@ -1,6 +1,16 @@
 import mongoose from "mongoose";
 const { Schema } = mongoose;
 
+const badgeEnum = [
+  "TopVoice",
+  "TopSeller",
+  "CustomerChoice",
+  "CommunityBuilder",
+  "EcoFriendly",
+  "Innovator",
+  "StarReviewer",
+];
+
 const userSchema = new Schema(
   {
     name: {
@@ -39,8 +49,15 @@ const userSchema = new Schema(
     },
     rewards: [
       {
-        type: Schema.Types.ObjectId,
-        ref: "Reward",
+        badge: {
+          type: String,
+          enum: badgeEnum,
+          required: true,
+        },
+        awardedAt: {
+          type: Date,
+          default: Date.now,
+        },
       },
     ],
     vlogs: [

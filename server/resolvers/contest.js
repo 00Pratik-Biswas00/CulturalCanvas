@@ -53,6 +53,20 @@ const contestResolvers = {
         );
       }
     },
+    addBadge: async (_, { id, badge }, { userId }) => {
+      if (!userId) {
+        throw new AuthenticationError("You must be logged in to add a badge.");
+      }
+
+      try {
+        const user = User.findById(id);
+        user.badges.push(badge);
+        await user.save();
+        return true;
+      } catch (err) {
+        throw new Error("Error adding badge: " + err.message);
+      }
+    },
   },
 };
 
