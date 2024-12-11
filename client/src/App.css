@@ -191,3 +191,150 @@
     transform: rotate(360deg);
   }
 }
+
+.relative {
+  perspective: 1000px;
+}
+
+.front,
+.back {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.front {
+  transform: rotateY(0);
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+.relative.rotate-y-180 .front {
+  transform: rotateY(-180deg);
+}
+
+.relative.rotate-y-180 .back {
+  transform: rotateY(0);
+}
+
+.containerx {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  perspective: 1000px; /* Added perspective */
+}
+
+.containerx .boxx {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin: 20px;
+  background: #232323;
+  border-radius: 20px;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+}
+
+.containerx .boxx:hover {
+  transform: rotateY(15deg); /* Example hover effect */
+}
+
+.containerx .boxx::before {
+  content: "CULTURAL";
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 4em;
+  color: white;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.containerx .boxx::after {
+  content: "CANVAS";
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 3em;
+  color: wheat;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.containerx .boxx:hover::before,
+.containerx .boxx:hover::after {
+  opacity: 0.04;
+}
+
+.containerx .boxx .namex {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  text-align: center;
+  color: white;
+  width: 100%;
+  transform-style: preserve-3d;
+  transform: translate3d(0, 0, 75px);
+  transition: 0.5s;
+  opacity: 0;
+  z-index: 10;
+}
+
+.containerx .boxx:hover .namex {
+  opacity: 1;
+}
+
+.containerx .boxx .buyx {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform: translate3d(-50%, 0, 75px);
+  color: white;
+  background: #333;
+  padding: 10px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: 0.5s;
+  opacity: 0;
+  z-index: 10;
+}
+
+.containerx .boxx:hover .buyx {
+  opacity: 1;
+}
+
+.containerx .boxx .circlex {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: white;
+  opacity: 0.5;
+  transform-style: preserve-3d;
+  z-index: 1;
+  transform: translate3d(-50%, -50%, 50px);
+}
+
+.containerx .boxx .productx {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 200px;
+  transition: 0.5s;
+  z-index: 11;
+  transform-style: preserve-3d;
+  transform: translate3d(-50%, -50%, 0px) rotate(-15deg);
+}
+
+.containerx .boxx:hover .productx {
+  transform: translate3d(-50%, -50%, 75px) rotate(0deg);
+}
