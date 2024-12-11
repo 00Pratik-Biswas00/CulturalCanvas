@@ -80,6 +80,7 @@ import AdminSingleBlogHeritage from "./admin-pages/AdminHeritageContent/AdminSin
 import BlogContest from "./pages/Contest/BlogContest";
 import Settings from "./components/Settings/Settings";
 import { SpeakerProvider } from "./components/SpeakerContext/SpeakerContext";
+import SingleProduct from "./pages/VirtualStore/SingleProduct";
 
 // new additions
 
@@ -426,6 +427,7 @@ function App() {
 
               {/*  ---------------- Virtual Store  ---------------- */}
               <Route path="/virtual-store" element={<VirtualStore />} />
+              <Route path="/virtual-store/id" element={<SingleProduct />} />
 
               {/*  ---------------- My Profile  ---------------- */}
               <Route path="/my-profile" element={<MyProfile />} />
