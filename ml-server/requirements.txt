@@ -17,3 +17,6 @@ torch
 Pillow
 gtts
 tf-keras
+PyPDF2
+langchain
+langchain-google-genai

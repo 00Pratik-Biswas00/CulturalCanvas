@@ -51,6 +51,7 @@ const blogTypeDefs = gql`
     video: VideoInput
     state: String!
     city: String!
+   
     originLocation: String!
     contentType: String!
   }
