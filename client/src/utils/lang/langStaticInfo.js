@@ -2112,82 +2112,153 @@ Modern Adaptations: Designers have reimagined the lehenga-choli with fusion styl
 
       // -------------------------- HOME ---------------------------
       HomeData: {
-        homeButtonName: "और जानिये",
-        Home: [
-          {
-            para: `भारत की ऐतिहासिक और सांस्कृतिक संपत्ति में गहराई से समा जाएं, इसके सबसे प्रसिद्ध विश्व धरोहर स्थलों का अन्वेषण करते हुए। यह अनुभाग उन वास्तुकला और प्राकृतिक चमत्कारों को समर्पित है जिन्होंने समय की कसौटी पर खरा उतरते हुए अपनी अलग कहानी सुनाई है। भव्य किलों से लेकर पवित्र मंदिरों तक, जो कभी साम्राज्यों की रक्षा करते थे।`,
-            image: heritageImg,
-            shadow: "shadow-highlight",
-            headingName: "भारत की शाश्वत धरोहरों का अनावरण",
-            buttonLink: "/heritage",
-            featuringData: [
-              { featureName: "स्थानीय भारतीय धरोहर" },
-              {
-                featureName:
-                  "यूनेस्को द्वारा सूचीबद्ध न होने वाली भारतीय धरोहरें",
-              },
-              { featureName: "यूनेस्को द्वारा सूचीबद्ध भारतीय धरोहरें" },
-            ],
-          },
-          {
-            para: `भारत की ऐतिहासिक और सांस्कृतिक संपत्ति में गहराई से समा जाएं, इसके सबसे प्रसिद्ध विश्व धरोहर स्थलों का अन्वेषण करते हुए। यह अनुभाग उन वास्तुकला और प्राकृतिक चमत्कारों को समर्पित है जिन्होंने समय की कसौटी पर खरा उतरते हुए अपनी अलग कहानी सुनाई है। भव्य किलों से लेकर पवित्र मंदिरों तक, जो कभी साम्राज्यों की रक्षा करते थे।`,
-            image: cultureImg,
-            shadow: "shadow-dark_secondary_text",
-            headingName: "भारत की संस्कृति के जीवित चित्रपट का अनुभव करें",
-            buttonLink: "/culture-tradition",
-            featuringData: [
-              { featureName: "भारतीय सांस्कृतिक कैलेंडर" },
-              { featureName: "भारतीय संस्कृतियों के प्रकार" },
-              { featureName: "राज्य-वार भारतीय संस्कृतियां" },
-            ],
-          },
-          {
-            para: `भारत की ऐतिहासिक और सांस्कृतिक संपत्ति में गहराई से समा जाएं, इसके सबसे प्रसिद्ध विश्व धरोहर स्थलों का अन्वेषण करते हुए। यह अनुभाग उन वास्तुकला और प्राकृतिक चमत्कारों को समर्पित है जिन्होंने समय की कसौटी पर खरा उतरते हुए अपनी अलग कहानी सुनाई है। भव्य किलों से लेकर पवित्र मंदिरों तक, जो कभी साम्राज्यों की रक्षा करते थे।`,
-            image: learnImg,
-            shadow: "shadow-highlight_hover",
-            headingName: "भारत की परंपराओं के समृद्ध चित्रपट में गहरे उतरें",
-            buttonLink: "/learn-Indian-culture",
-            featuringData: [
-              { featureName: "विभिन्न भाषाएं सीखें" },
-              { featureName: "विभिन्न व्यंजन सीखें" },
-              { featureName: "विभिन्न कला रूप सीखें" },
-              { featureName: "विभिन्न खेल सीखें" },
-            ],
-          },
-          {
-            para: `भारत की ऐतिहासिक और सांस्कृतिक संपत्ति में गहराई से समा जाएं, इसके सबसे प्रसिद्ध विश्व धरोहर स्थलों का अन्वेषण करते हुए। यह अनुभाग उन वास्तुकला और प्राकृतिक चमत्कारों को समर्पित है जिन्होंने समय की कसौटी पर खरा उतरते हुए अपनी अलग कहानी सुनाई है। भव्य किलों से लेकर पवित्र मंदिरों तक, जो कभी साम्राज्यों की रक्षा करते थे।`,
-            image: exploreImg,
-            shadow: "shadow-highlight",
-            headingName: "अपनी आदर्श भारतीय यात्रा बनाएं",
-            buttonLink: "/explore-diversity",
-            featuringData: [
-              { featureName: "यात्रा बजट का पूर्वानुमान करें" },
-              { featureName: "व्यक्तिगत यात्रा कार्यक्रम बनाएं" },
-              { featureName: "निकटतम आकर्षणों का अन्वेषण करें" },
-              { featureName: "प्राचीन लिपियों का लिप्यंतरण करें" },
-              { featureName: "व्यक्तिगत कहानी सुनाना" },
-            ],
-          },
-          {
-            para: `भारत की ऐतिहासिक और सांस्कृतिक संपत्ति में गहराई से समा जाएं, इसके सबसे प्रसिद्ध विश्व धरोहर स्थलों का अन्वेषण करते हुए। यह अनुभाग उन वास्तुकला और प्राकृतिक चमत्कारों को समर्पित है जिन्होंने समय की कसौटी पर खरा उतरते हुए अपनी अलग कहानी सुनाई है। भव्य किलों से लेकर पवित्र मंदिरों तक, जो कभी साम्राज्यों की रक्षा करते थे।`,
-            image: blogsImg,
-            shadow: "shadow-dark_secondary_text",
-            headingName: "भारत को सहयात्री के दृष्टिकोण से अन्वेषण करें",
-            buttonLink: "/blogs-vlogs",
-            featuringData: [
-              { featureName: "ब्लॉग्स और व्लॉग्स अपलोड करें" },
-              { featureName: "विभिन्न सामग्री पढ़ें/सुनें" },
-            ],
-          },
-          {
-            para: `भारत की ऐतिहासिक और सांस्कृतिक संपत्ति में गहराई से समा जाएं, इसके सबसे प्रसिद्ध विश्व धरोहर स्थलों का अन्वेषण करते हुए। यह अनुभाग उन वास्तुकला और प्राकृतिक चमत्कारों को समर्पित है जिन्होंने समय की कसौटी पर खरा उतरते हुए अपनी अलग कहानी सुनाई है। भव्य किलों से लेकर पवित्र मंदिरों तक, जो कभी साम्राज्यों की रक्षा करते थे।`,
-            image: virtualStoreImg,
-            shadow: "shadow-highlight_hover",
-            headingName: "भारत की धरोहर का एक टुकड़ा अपने घर लाएं",
-            buttonLink: "/virtual-store",
-            featuringData: [{ featureName: "प्राचीन उत्पाद खरीदें" }],
-          },
-        ],
+        homeButtonName: "विजिट करें",
+
+        MulHome: {
+          HeriHome: [
+            {
+              para: `भारत की ऐतिहासिक और सांस्कृतिक संपदा में गहराई से डुबकी लगाएं और इसके सबसे प्रसिद्ध विश्व धरोहर स्थलों का अन्वेषण करें। यह खंड उन वास्तुशिल्प और प्राकृतिक चमत्कारों को समर्पित है जो समय की कसौटी पर खरे उतरे हैं, प्रत्येक अपनी अनोखी कहानी सुनाते हुए। उन शानदार किलों से लेकर जो कभी राज्यों की रक्षा करते थे, और पवित्र मंदिरों तक।`,
+              image: heritageImg,
+              shadow: "shadow-highlight",
+              headingName: "भारत के अनमोल खजानों का अनावरण",
+              buttonLink: "/heritage",
+              featuring: "विशेषताएं",
+
+              featuringData: [
+                {
+                  featureName: "स्थानीय भारतीय धरोहर",
+                },
+                {
+                  featureName: "यूनेस्को अनलिस्टेड भारतीय धरोहर",
+                },
+                {
+                  featureName: "यूनेस्को लिस्टेड भारतीय धरोहर",
+                },
+              ],
+              nRHead: "यहां आपका स्वागत है!",
+              nRPara: `हमारे शहर में हार्दिक स्वागत है! भारत के मध्य प्रदेश के दिल को खोजें। प्राचीन मंदिरों, हरे-भरे परिदृश्यों, और हलचल वाले बाजारों की खोज करें। स्थानीय व्यंजनों का स्वाद लें और हमारे लोगों की गर्मजोशी का अनुभव करें। यादगार प्रवास करें!`,
+              nRoptions: "आकर्षण प्रकार चुनें",
+              op1: "पर्यटक स्थल",
+              op2: "रेस्टोरेंट",
+              op3: "होटल्स",
+              op4: "अस्पताल",
+              op5: "पुलिस स्टेशन",
+
+              nR: "निकटतम आकर्षण",
+              dist: "दूरी",
+            },
+          ],
+          StoreHome: [
+            {
+              para: `भारत की ऐतिहासिक और सांस्कृतिक संपदा में गहराई से डुबकी लगाएं और इसके सबसे प्रसिद्ध विश्व धरोहर स्थलों का अन्वेषण करें। यह खंड उन वास्तुशिल्प और प्राकृतिक चमत्कारों को समर्पित है जो समय की कसौटी पर खरे उतरे हैं, प्रत्येक अपनी अनोखी कहानी सुनाते हुए। उन शानदार किलों से लेकर जो कभी राज्यों की रक्षा करते थे, और पवित्र मंदिरों तक।`,
+              image: virtualStoreImg,
+              shadow: "shadow-dark_secondary_text",
+              headingName: "भारत की धरोहर को घर लाएं",
+              buttonLink: "/virtual-store",
+              featuring: "विशेषताएं",
+              featuringData: [
+                {
+                  featureName: "प्राचीन उत्पाद खरीदें",
+                },
+                {
+                  featureName: "प्राचीन उत्पाद बेचें/प्रचार करें",
+                },
+              ],
+              proText: "अपने आसपास के स्थानीय उत्पाद देखें",
+            },
+          ],
+          Home: [
+            {
+              para: `भारत की ऐतिहासिक और सांस्कृतिक संपदा में गहराई से डुबकी लगाएं और इसके सबसे प्रसिद्ध विश्व धरोहर स्थलों का अन्वेषण करें। यह खंड उन वास्तुशिल्प और प्राकृतिक चमत्कारों को समर्पित है जो समय की कसौटी पर खरे उतरे हैं, प्रत्येक अपनी अनोखी कहानी सुनाते हुए। उन शानदार किलों से लेकर जो कभी राज्यों की रक्षा करते थे, और पवित्र मंदिरों तक।`,
+              image: cultureImg,
+              shadow: "shadow-dark_secondary_text",
+              headingName: "भारत की संस्कृति का जीवित ताना-बाना अनुभव करें",
+              buttonLink: "/culture-tradition",
+              featuring: "विशेषताएं",
+              featuringData: [
+                {
+                  featureName: "भारतीय सांस्कृतिक कैलेंडर",
+                },
+                {
+                  featureName: "भारतीय संस्कृतियों के प्रकार",
+                },
+                {
+                  featureName: "राज्य-वार भारतीय संस्कृतियां",
+                },
+              ],
+            },
+
+            {
+              para: `भारत की ऐतिहासिक और सांस्कृतिक संपदा में गहराई से डुबकी लगाएं और इसके सबसे प्रसिद्ध विश्व धरोहर स्थलों का अन्वेषण करें। यह खंड उन वास्तुशिल्प और प्राकृतिक चमत्कारों को समर्पित है जो समय की कसौटी पर खरे उतरे हैं, प्रत्येक अपनी अनोखी कहानी सुनाते हुए। उन शानदार किलों से लेकर जो कभी राज्यों की रक्षा करते थे, और पवित्र मंदिरों तक।`,
+              image: learnImg,
+              shadow: "shadow-highlight",
+              headingName:
+                "भारतीय परंपराओं के समृद्ध ताना-बाने में गहराई से उतरें",
+              buttonLink: "/learn-Indian-culture",
+              featuring: "विशेषताएं",
+              featuringData: [
+                {
+                  featureName: "विभिन्न भाषाएं सीखें",
+                },
+                {
+                  featureName: "विभिन्न व्यंजन सीखें",
+                },
+                {
+                  featureName: "विभिन्न कलाएं सीखें",
+                },
+                {
+                  featureName: "विभिन्न खेल सीखें",
+                },
+              ],
+            },
+
+            {
+              para: `भारत की ऐतिहासिक और सांस्कृतिक संपदा में गहराई से डुबकी लगाएं और इसके सबसे प्रसिद्ध विश्व धरोहर स्थलों का अन्वेषण करें। यह खंड उन वास्तुशिल्प और प्राकृतिक चमत्कारों को समर्पित है जो समय की कसौटी पर खरे उतरे हैं, प्रत्येक अपनी अनोखी कहानी सुनाते हुए। उन शानदार किलों से लेकर जो कभी राज्यों की रक्षा करते थे, और पवित्र मंदिरों तक।`,
+              image: blogsImg,
+              shadow: "shadow-dark_secondary_text",
+              headingName: "साथी यात्रियों की नजर से भारत का अन्वेषण करें",
+              buttonLink: "/blogs-vlogs",
+              featuring: "विशेषताएं",
+              featuringData: [
+                {
+                  featureName: "ब्लॉग्स और व्लॉग्स अपलोड करें",
+                },
+                {
+                  featureName: "विभिन्न सामग्रियां पढ़ें/सुनें",
+                },
+              ],
+            },
+
+            {
+              para: `भारत की ऐतिहासिक और सांस्कृतिक संपदा में गहराई से डुबकी लगाएं और इसके सबसे प्रसिद्ध विश्व धरोहर स्थलों का अन्वेषण करें। यह खंड उन वास्तुशिल्प और प्राकृतिक चमत्कारों को समर्पित है जो समय की कसौटी पर खरे उतरे हैं, प्रत्येक अपनी अनोखी कहानी सुनाते हुए। उन शानदार किलों से लेकर जो कभी राज्यों की रक्षा करते थे, और पवित्र मंदिरों तक।`,
+              image: exploreImg,
+              shadow: "shadow-highlight_hover",
+              headingName: "अपने परफेक्ट भारतीय साहसिक अभियान को तैयार करें",
+              buttonLink: "/explore-diversity",
+              featuring: "विशेषताएं",
+              featuringData: [
+                {
+                  featureName: "सांस्कृतिक धरोहर कहानी कहना",
+                },
+                {
+                  featureName: "धरोहर यात्रा बजट का अनुमान लगाएं",
+                },
+                {
+                  featureName: "व्यक्तिगत यात्रा योजना बनाएं",
+                },
+                {
+                  featureName: "निकटतम आकर्षण खोजें",
+                },
+                {
+                  featureName: "प्राचीन लिपियों का लिप्यंतरण करें",
+                },
+                {
+                  featureName: "धरोहर मैनुअल सारांश",
+                },
+              ],
+            },
+          ],
+        },
       },
 
       // ------------------------- CULTURE & TRADITION --------------
@@ -2683,80 +2754,202 @@ Modern Adaptations: Designers have reimagined the lehenga-choli with fusion styl
 
       // -------------------------- HOME ---------------------------
       HomeData: {
-        homeButtonName: "বিস্তারিত জানুন",
-        Home: [
-          {
-            para: `ভারতের ঐতিহাসিক এবং সাংস্কৃতিক সম্পদে গভীরভাবে প্রবেশ করুন তার সবচেয়ে বিখ্যাত বিশ্ব ঐতিহ্যস্থলগুলি অন্বেষণ করে। এই বিভাগটি ঐতিহাসিক এবং প্রাকৃতিক বিস্ময়গুলির প্রতি উৎসর্গীকৃত, যা সময়ের পরীক্ষায় টিকে আছে এবং প্রত্যেকটি তার নিজস্ব গল্প বলে। রাজবাড়ি এবং মন্দিরগুলি থেকে শুরু করে যা এক সময় রাজ্য রক্ষার কাজ করেছে।`,
-            image: heritageImg,
-            shadow: "shadow-highlight",
-            headingName: "ভারতের চিরকালীন ঐতিহ্যের উন্মোচন",
-            buttonLink: "/heritage",
-            featuringData: [
-              { featureName: "স্থানীয় ভারতীয় ঐতিহ্য" },
-              { featureName: "ইউনেস্কো-অবশেষ ভারতীয় ঐতিহ্য" },
-              { featureName: "ইউনেস্কো-তালিকাভুক্ত ভারতীয় ঐতিহ্য" },
-            ],
-          },
-          {
-            para: `ভারতের ঐতিহাসিক এবং সাংস্কৃতিক সম্পদে গভীরভাবে প্রবেশ করুন তার সবচেয়ে বিখ্যাত বিশ্ব ঐতিহ্যস্থলগুলি অন্বেষণ করে। এই বিভাগটি ঐতিহাসিক এবং প্রাকৃতিক বিস্ময়গুলির প্রতি উৎসর্গীকৃত, যা সময়ের পরীক্ষায় টিকে আছে এবং প্রত্যেকটি তার নিজস্ব গল্প বলে। রাজবাড়ি এবং মন্দিরগুলি থেকে শুরু করে যা এক সময় রাজ্য রক্ষার কাজ করেছে।`,
-            image: cultureImg,
-            shadow: "shadow-dark_secondary_text",
-            headingName: "ভারতের সংস্কৃতির জীবন্ত চিত্রকল্প অনুভব করুন",
-            buttonLink: "/culture-tradition",
-            featuringData: [
-              { featureName: "ভারতীয় সাংস্কৃতিক ক্যালেন্ডার" },
-              { featureName: "ভারতীয় সংস্কৃতির ধরণ" },
-              { featureName: "রাজ্যভিত্তিক ভারতীয় সংস্কৃতির" },
-            ],
-          },
-          {
-            para: `ভারতের ঐতিহাসিক এবং সাংস্কৃতিক সম্পদে গভীরভাবে প্রবেশ করুন তার সবচেয়ে বিখ্যাত বিশ্ব ঐতিহ্যস্থলগুলি অন্বেষণ করে। এই বিভাগটি ঐতিহাসিক এবং প্রাকৃতিক বিস্ময়গুলির প্রতি উৎসর্গীকৃত, যা সময়ের পরীক্ষায় টিকে আছে এবং প্রত্যেকটি তার নিজস্ব গল্প বলে। রাজবাড়ি এবং মন্দিরগুলি থেকে শুরু করে যা এক সময় রাজ্য রক্ষার কাজ করেছে।`,
-            image: learnImg,
-            shadow: "shadow-highlight_hover",
-            headingName:
-              "ভারতের ঐতিহ্যগুলির সমৃদ্ধ চিত্রকল্পে গভীরভাবে প্রবেশ করুন",
-            buttonLink: "/learn-Indian-culture",
-            featuringData: [
-              { featureName: "ভিন্ন ভাষা শিখুন" },
-              { featureName: "ভিন্ন খাবার শিখুন" },
-              { featureName: "ভারতীয় শিল্প শিখুন" },
-              { featureName: "ভিন্ন খেলা শিখুন" },
-            ],
-          },
-          {
-            para: `ভারতের ঐতিহাসিক এবং সাংস্কৃতিক সম্পদে গভীরভাবে প্রবেশ করুন তার সবচেয়ে বিখ্যাত বিশ্ব ঐতিহ্যস্থলগুলি অন্বেষণ করে। এই বিভাগটি ঐতিহাসিক এবং প্রাকৃতিক বিস্ময়গুলির প্রতি উৎসর্গীকৃত, যা সময়ের পরীক্ষায় টিকে আছে এবং প্রত্যেকটি তার নিজস্ব গল্প বলে। রাজবাড়ি এবং মন্দিরগুলি থেকে শুরু করে যা এক সময় রাজ্য রক্ষার কাজ করেছে।`,
-            image: exploreImg,
-            shadow: "shadow-highlight",
-            headingName: "আপনার আদর্শ ভারতীয় ভ্রমণ পরিকল্পনা করুন",
-            buttonLink: "/explore-diversity",
-            featuringData: [
-              { featureName: "ভ্রমণের বাজেট পূর্বাভাস করুন" },
-              { featureName: "ব্যক্তিগত ভ্রমণসূচি তৈরি করুন" },
-              { featureName: "নিকটতম আকর্ষণ খুঁজুন" },
-              { featureName: "প্রাচীন লিপির রূপান্তর করুন" },
-              { featureName: "ব্যক্তিগত গল্প বলুন" },
-            ],
-          },
-          {
-            para: `ভারতের ঐতিহাসিক এবং সাংস্কৃতিক সম্পদে গভীরভাবে প্রবেশ করুন তার সবচেয়ে বিখ্যাত বিশ্ব ঐতিহ্যস্থলগুলি অন্বেষণ করে। এই বিভাগটি ঐতিহাসিক এবং প্রাকৃতিক বিস্ময়গুলির প্রতি উৎসর্গীকৃত, যা সময়ের পরীক্ষায় টিকে আছে এবং প্রত্যেকটি তার নিজস্ব গল্প বলে। রাজবাড়ি এবং মন্দিরগুলি থেকে শুরু করে যা এক সময় রাজ্য রক্ষার কাজ করেছে।`,
-            image: blogsImg,
-            shadow: "shadow-dark_secondary_text",
-            headingName: "ভারতকে এক সহযাত্রী চোখে দেখুন",
-            buttonLink: "/blogs-vlogs",
-            featuringData: [
-              { featureName: "ব্লগ এবং ভ্লগ আপলোড করুন" },
-              { featureName: "বিভিন্ন বিষয়বস্তু পড়ুন/শুনুন" },
-            ],
-          },
-          {
-            para: `ভারতের ঐতিহাসিক এবং সাংস্কৃতিক সম্পদে গভীরভাবে প্রবেশ করুন তার সবচেয়ে বিখ্যাত বিশ্ব ঐতিহ্যস্থলগুলি অন্বেষণ করে। এই বিভাগটি ঐতিহাসিক এবং প্রাকৃতিক বিস্ময়গুলির প্রতি উৎসর্গীকৃত, যা সময়ের পরীক্ষায় টিকে আছে এবং প্রত্যেকটি তার নিজস্ব গল্প বলে। রাজবাড়ি এবং মন্দিরগুলি থেকে শুরু করে যা এক সময় রাজ্য রক্ষার কাজ করেছে।`,
-            image: virtualStoreImg,
-            shadow: "shadow-highlight_hover",
-            headingName: "ভারতের ঐতিহ্য আপনার ঘরে নিয়ে আসুন",
-            buttonLink: "/virtual-store",
-            featuringData: [{ featureName: "প্রাচীন পণ্য কিনুন" }],
-          },
-        ],
+        homeButtonName: "VISIT",
+
+        MulHome: {
+          HeriHome: [
+            {
+              para: `Dive deep into India’s historical and cultural wealth by exploring its most celebrated World Heritage Sites. This section is dedicated to the architectural and natural marvels that have stood the test of time, each narrating a story of its own. From the majestic forts that once guarded kingdoms to the sacred temp`,
+              image: heritageImg,
+              shadow: "shadow-highlight",
+              headingName: "Unveiling India’s Timeless Treasures",
+              buttonLink: "/heritage",
+              featuring: "Featuring",
+
+              featuringData: [
+                {
+                  featureName: "Local Indian Heritages",
+                },
+                {
+                  featureName: "UNESCO Unlisted Indian Heritages",
+                },
+                {
+                  featureName: "UNESCO Listed Indian Heritages",
+                },
+              ],
+              nRHead: "Welcome You Here!",
+              nRPara: `A warm welcome to our city! Discover the heart of India's
+                central highlands. Explore ancient temples, lush landscapes, and
+                bustling markets. Indulge in delectable local cuisine and
+                experience the warmth of our people. Have a memorable stay!`,
+              nRoptions: "Select Attraction Type",
+              op1: "Tourist Spots",
+              op2: "Restaurants",
+              op3: "Hotels",
+              op4: "Hospitals",
+              op5: "Police Stations",
+
+              nR: "Nearest Attractions",
+              dist: "Distance",
+            },
+          ],
+          StoreHome: [
+            {
+              para: `Dive deep into India’s historical and cultural wealth by exploring its most celebrated World Heritage Sites. This section is dedicated to the architectural and natural marvels that have stood the test of time, each narrating a story of its own. From the majestic forts that once guarded kingdoms to the sacred temp`,
+              image: virtualStoreImg,
+              shadow: "shadow-dark_secondary_text",
+              headingName: "Bring a Piece of India’s Heritage Home",
+              buttonLink: "/virtual-store",
+              featuringData: [
+                {
+                  featureName: "Buy Antique Products",
+                },
+                {
+                  featureName: "Sell/Promote Antique Products",
+                },
+              ],
+              proText: "Check out the local products around you",
+            },
+          ],
+          Home: [
+            {
+              para: `Dive deep into India’s historical and cultural wealth by exploring its most celebrated World Heritage Sites. This section is dedicated to the architectural and natural marvels that have stood the test of time, each narrating a story of its own. From the majestic forts that once guarded kingdoms to the sacred temp`,
+              image: cultureImg,
+              shadow: "shadow-dark_secondary_text",
+              headingName: "Experience the Living Tapestry of India’s Culture",
+              buttonLink: "/culture-tradition",
+              featuringData: [
+                {
+                  featureName: "Indian Cultural Calendar",
+                },
+                {
+                  featureName: "Types of Indian Cultures",
+                },
+                {
+                  featureName: "State-Wise Indian Cultures",
+                },
+              ],
+            },
+
+            {
+              para: `Dive deep into India’s historical and cultural wealth by exploring its most celebrated World Heritage Sites. This section is dedicated to the architectural and natural marvels that have stood the test of time, each narrating a story of its own. From the majestic forts that once guarded kingdoms to the sacred temp`,
+              image: learnImg,
+              shadow: "shadow-highlight",
+              headingName:
+                "Dive Deep into the Rich Tapestry of Indian Traditions",
+              buttonLink: "/learn-Indian-culture",
+              featuringData: [
+                {
+                  featureName: "Learn Different Languages",
+                },
+                {
+                  featureName: "Learn Different Cuisines",
+                },
+                {
+                  featureName: "Learn Different Arts",
+                },
+                {
+                  featureName: "Learn Different Sports",
+                },
+              ],
+            },
+
+            {
+              para: `Dive deep into India’s historical and cultural wealth by exploring its most celebrated World Heritage Sites. This section is dedicated to the architectural and natural marvels that have stood the test of time, each narrating a story of its own. From the majestic forts that once guarded kingdoms to the sacred temp`,
+              image: blogsImg,
+              shadow: "shadow-dark_secondary_text",
+              headingName: "Explore India Through the Eyes of Fellow Travelers",
+              buttonLink: "/blogs-vlogs",
+              featuringData: [
+                {
+                  featureName: "Upload Blogs & Vlogs",
+                },
+                {
+                  featureName: "Read/Listen Different Contents",
+                },
+              ],
+            },
+
+            {
+              para: `Dive deep into India’s historical and cultural wealth by exploring its most celebrated World Heritage Sites. This section is dedicated to the architectural and natural marvels that have stood the test of time, each narrating a story of its own. From the majestic forts that once guarded kingdoms to the sacred temp`,
+              image: exploreImg,
+              shadow: "shadow-highlight_hover",
+              headingName: "Craft Your Perfect Indian Adventure",
+              buttonLink: "/explore-diversity",
+              featuringData: [
+                {
+                  featureName: "Cultural Heritage Story Telling",
+                },
+                {
+                  featureName: "Predict Heritage Trip Budgets",
+                },
+                {
+                  featureName: "Create Personal Itinerary",
+                },
+                {
+                  featureName: "Explore Nearest Attractions",
+                },
+                {
+                  featureName: "Transcribe Ancient Scripts",
+                },
+                {
+                  featureName: "Heritage Manual Summary",
+                },
+              ],
+            },
+
+            // {
+            //   para: `Get ready to dive into the excitement! Our live contest is now live. Test your skills, showcase your talent, and stand a chance to win incredible prizes. Don't miss out on this thrilling opportunity.`,
+            //   image: blogsImg,
+            //   shadow: "shadow-highlight_hover",
+            //   headingName: "Win Big! Participate in Our Live Contest",
+            //   buttonLink: "/live-contest",
+            //   featuringData: [
+            //     {
+            //       featureName: "Content Writing Contest",
+            //     },
+            //     {
+            //       featureName: "Digital Art Contest",
+            //     },
+            //     {
+            //       featureName: "Indian Heritage and Culture Quiz Contest",
+            //     },
+            //     {
+            //       featureName: "Content Creation (Vlog) Contest",
+            //     },
+            //   ],
+            // },
+
+            // {
+            //   para: `Discover a world of possibilities at Cultural Canvas. Explore our diverse range of career opportunities and join a team of talented individuals. Start your journey today.`,
+            //   image: blogsImg,
+            //   shadow: "shadow-highlight",
+            //   headingName: "Your Next Career Adventure Starts Here",
+            //   buttonLink: "/career",
+            //   featuringData: [
+            //     {
+            //       featureName: "Career opportunity for Admins",
+            //     },
+            //     {
+            //       featureName: "Career opportunity for Blog Writers",
+            //     },
+
+            //     {
+            //       featureName: "Career opportunity for Teachers",
+            //     },
+            //     {
+            //       featureName: "Career opportunity for Digital Artists",
+            //     },
+            //     {
+            //       featureName: "Career opportunity for Sellers",
+            //     },
+            //     {
+            //       featureName: "Career opportunity for Content Creators",
+            //     },
+            //   ],
+            // },
+          ],
+        },
       },
 
       // ------------------------- CULTURE & TRADITION --------------
