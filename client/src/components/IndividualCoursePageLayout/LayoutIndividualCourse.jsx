@@ -40,9 +40,9 @@ const LayoutIndividualCourse = ({ course, courseDetails }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="bg-gradient-to-b from-background1 to-background2 dark:from-dark_background1 dark:to-dark_background2 text-primary_text dark:text-dark_primary_text py-8 px-4 md:px-16 duration-300"
+      className="bg-gradient-to-b from-background1 to-background2 dark:from-dark_background1 min-h-screen dark:to-dark_background2 text-primary_text dark:text-dark_primary_text py-8 px-4 md:px-16 duration-300"
     >
-      <div className="container mx-auto">
+      <div className="flex flex-col mx-auto">
         <motion.h1
           initial={{ y: -50 }}
           animate={{ y: 0 }}
@@ -59,20 +59,21 @@ const LayoutIndividualCourse = ({ course, courseDetails }) => {
           className="flex flex-col md:flex-row items-center justify-center gap-5 mb-12"
         >
           <MyButton2
-            classDesign="text-highlight_dark hover:text-dark_primary_text dark:text-dark_primary_text bg-background2 dark:bg-dark_background2 px-4 py-2 rounded-full shadow-md hover:shadow-lg transition duration-300"
-            buttonName1={<CiFilter className="cursor-pointer w-6 h-6" />}
+            classDesign="text-highlight_dark hover:text-dark_primary_text dark:text-dark_primary_text"
+            buttonName1={<CiFilter className="cursor-pointer sm:w-8 sm:h-8" />}
             buttonName2="Filter"
+            // buttonLink={() => setBlogsVlogsModalOpen(true)}
           />
 
-          <div className="relative flex items-center w-full md:w-auto">
+          <div className="relative flex items-center cursor-pointer pl-2 py-2 border border-highlight_dark text-highlight_dark dark:text-dark_primary_text font-searchBars text-xl tracking-wider hover:text-dark_primary_text duration-1000 rounded-3xl group hollowBorder">
+            <CiSearch className="w-8 h-8" />
             <input
               type="text"
-              placeholder="Search for Courses..."
-              className="w-full md:w-80 pl-10 pr-4 py-2 rounded-full bg-background2 dark:bg-dark_background2 text-primary_text dark:text-dark_primary_text border-2 border-highlight_hover focus:border-highlight_hover_dark outline-none transition duration-300"
-              value={searchQuery}
-              onChange={handleSearch}
+              placeholder="Search for Blogs and Vlogs..."
+              className="bg-transparent outline-none border-none w-0 pl-2 transition-all duration-700 group-hover:w-[400px] placeholder:text-dark_primary_text placeholder:font-searchBars"
+              // value={searchQuery}
+              // onChange={handleSearch}
             />
-            <CiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-highlight_dark" />
           </div>
         </motion.div>
 
@@ -95,14 +96,6 @@ const LayoutIndividualCourse = ({ course, courseDetails }) => {
                   alt={courseDetail.name}
                   className="w-full h-48 object-cover transition duration-300 transform hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
-                  <MyButton3
-                    classDesign="before:bg-highlight_hover_dark bg-highlight_hover text-dark_primary_text px-4 py-2 rounded-full shadow-md hover:shadow-lg transition duration-300"
-                    buttonName="Go To Course"
-                    buttonIcon={<CiLink className="w-5 h-5 mr-2" />}
-                    onClick={() => navigate(`${courseDetail.slug}`)}
-                  />
-                </div>
               </div>
               <h2 className="text-2xl font-bold mb-2 text-center uppercase">
                 {courseDetail.name}
@@ -121,7 +114,7 @@ const LayoutIndividualCourse = ({ course, courseDetails }) => {
                   ({courseDetail.totalRatings} ratings)
                 </span>
               </div>
-              <div className="text-center">
+              <div className=" flex flex-col items-center justify-center">
                 <MyButton3
                   classDesign="before:bg-highlight_hover_dark bg-highlight_hover text-dark_primary_text px-6 py-2 rounded-full shadow-md hover:shadow-lg transition duration-300"
                   buttonName="Go to course"

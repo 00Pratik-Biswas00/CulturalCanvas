@@ -2,7 +2,8 @@ import React from "react";
 
 const HomePageBlob = ({ diffImages }) => {
   return (
-    <div className=" order-2 lg:order-1 w-full h-full lg:w-[100%] xl:w-full relative flex items-center justify-center">
+    <div className=" order-2 lg:order-1 w-full h-full lg:w-[100%]  relative flex items-center justify-center">
+
       {/*  */}
       <svg
         id="sw-js-blob-svg"
@@ -15,8 +16,10 @@ const HomePageBlob = ({ diffImages }) => {
             {" "}
             <stop
               id="stop1"
-              stop-color="rgba(20, 137, 56, 1)"
-              offset="0%"></stop>{" "}
+              stop-color="rgb(164, 244, 189)"
+              offset="0%"
+            ></stop>{" "}
+
             <stop
               id="stop2"
               stop-color="rgba(244, 151, 56, 1)"
@@ -58,7 +61,8 @@ const HomePageBlob = ({ diffImages }) => {
         </path>{" "}
       </svg>
       <img
-        className="absolute w-[13rem] sm:w-[24rem] lg:w-[15rem] xl:w-[15rem]   z-10 object-cover rounded-full"
+        className="absolute w-[13rem] sm:w-[24rem] lg:w-[15rem] xl:w-[15rem]  z-10 object-cover rounded-full"
+
         src={diffImages}
         alt="diffImages"
       />
