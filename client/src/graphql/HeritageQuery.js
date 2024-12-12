@@ -61,6 +61,10 @@ export const GET_HERITAGE_QUERY = gql`
       type_of_heritage
       tag
       state_culture_name
+      coordinates {
+        latitude
+        longitude
+      }
     }
   }
 `;
@@ -70,6 +74,25 @@ export const GET_HERITAGES = gql`
     getHeritages {
       _id
       name
+      image {
+        url
+      }
+    }
+  }
+`;
+
+export const GET_HERITAGES_WITH_DISTANCE = gql`
+  query GetHeritagesWithDistance(
+    $currentLocation: LocationInput!
+    $state: String!
+  ) {
+    getHeritagesWithDistance(currentLocation: $currentLocation, state: $state) {
+      _id
+      slug
+      name
+      state_culture_name
+      introduction
+      distance
       image {
         url
       }

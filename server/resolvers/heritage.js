@@ -2,6 +2,27 @@ import Heritage from "../models/heritage.js";
 import slugify from "slugify";
 import { nanoid } from "nanoid";
 
+const calculateDistance = (lat1, lon1, lat2, lon2) => {
+  const R = 6371;
+  const toRadians = (deg) => (deg * Math.PI) / 180;
+
+  const dLat = toRadians(lat2 - lat1);
+  const dLon = toRadians(lon2 - lon1);
+
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(toRadians(lat1)) *
+      Math.cos(toRadians(lat2)) *
+      Math.sin(dLon / 2) *
+      Math.sin(dLon / 2);
+
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  const distanceInKm = R * c;
+
+  const distanceInMeters = Math.round(distanceInKm * 1000);
+  return distanceInMeters;
+};
+
 const heritageResolvers = {
   Query: {
     getHeritages: async () => {
@@ -18,15 +39,7 @@ const heritageResolvers = {
       try {
         console.log("Fetching heritage for slug:", slug);
 
-        // Find heritage by slug
         const heritage = await Heritage.findOne({ slug: slug });
-        // Uncomment and adjust if you need to populate related fields
-        // .populate({
-        //   path: "nearest_attractions",
-        //   select: "name image distance entry_fee slug",
-        // })
-        // .exec();
-
         if (!heritage) {
           console.warn(`Heritage with slug "${slug}" not found`);
           throw new Error(`Heritage with slug "${slug}" not found`);
@@ -37,6 +50,34 @@ const heritageResolvers = {
       } catch (error) {
         console.error("Error fetching heritage data:", error.message);
         throw new Error(`Error fetching heritage data: ${error.message}`);
+      }
+    },
+    getHeritagesWithDistance: async (_, { currentLocation, state }) => {
+      try {
+        const { latitude: currentLat, longitude: currentLon } = currentLocation;
+        const heritages = await Heritage.find({ state_culture_name: state });
+        const results = heritages
+          .map((heritage) => {
+            const { latitude, longitude } = heritage.coordinates || {};
+            const distance =
+              latitude && longitude
+                ? calculateDistance(currentLat, currentLon, latitude, longitude)
+                : null;
+
+            return {
+              ...heritage.toObject(),
+              distance,
+            };
+          })
+          .filter((heritage) => {
+            const { latitude, longitude } = heritage.coordinates || {};
+            return !(latitude === currentLat && longitude === currentLon);
+          });
+        results.sort((a, b) => a.distance - b.distance);
+        return results;
+      } catch (error) {
+        console.error("Error fetching heritages with distance:", error);
+        throw new Error("Error fetching heritages with distance");
       }
     },
   },
@@ -66,7 +107,6 @@ const heritageResolvers = {
         }).toLowerCase();
       }
       try {
-        // Format nearest attractions
         const formattedAttractions = nearest_attractions?.map((attraction) => ({
           heritage: attraction.heritage,
           distance: attraction.distance,
@@ -86,7 +126,7 @@ const heritageResolvers = {
           tag,
           state_culture_name,
           nearest_attractions: formattedAttractions,
-          createdBy: userId, // Tracking who created the heritage
+          createdBy: userId,
         });
 
         await newHeritage.save();
@@ -128,7 +168,6 @@ const heritageResolvers = {
           }).toLowerCase();
         }
 
-        // Update fields
         if (name) heritage.name = name;
         if (image) heritage.image = image;
         if (slug) heritage.slug = slug;
