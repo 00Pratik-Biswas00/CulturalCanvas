@@ -52,6 +52,7 @@ const heritageTypeDefs = gql`
     tag: HeritageTag
     state_culture_name: String
     nearest_attractions: [NearestAttraction]
+    coordinates: Coordinates
     createdAt: String
     updatedAt: String
   }
@@ -139,6 +140,33 @@ const heritageTypeDefs = gql`
     ): Boolean!
 
     deleteHeritage(id: ID!): Boolean!
+  }
+
+  input LocationInput {
+    latitude: Float!
+    longitude: Float!
+  }
+
+  type HeritageWithDistance {
+    _id: ID!
+    slug: String
+    name: String
+    image: Image
+    state_culture_name: String
+    distance: Float
+    introduction: String
+  }
+
+  type Coordinates {
+    longitude: Float
+    latitude: Float
+  }
+
+  extend type Query {
+    getHeritagesWithDistance(
+      currentLocation: LocationInput!
+      state: String
+    ): [HeritageWithDistance]
   }
 `;
 
