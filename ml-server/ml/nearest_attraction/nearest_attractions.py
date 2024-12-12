@@ -19,8 +19,7 @@ def find_nearest_places(user_location, attraction_type, radius=30000):
         "tourist_spots": '["tourism"~"attraction|museum|monument|zoo|theme_park|viewpoint"]',
         "restaurants": '["amenity"="restaurant"]',
         "hotels": '["tourism"="hotel"]',
-        "hospitals": '["amenity"="hospital"]',
-        "police_stations": '["amenity"="police"]'
+        "hospitals": '["amenity"="hospital"]'
     }
 
     if attraction_type not in attraction_types:
