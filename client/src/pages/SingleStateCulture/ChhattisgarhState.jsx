@@ -33,8 +33,7 @@ const ChhattisgarhArts = [
     artName: "Pandavani",
   },
   {
-    artImage:
-      "https://www.gosahin.com/go/p/i/1560193683_raut-nacha-dance.jpg",
+    artImage: "https://www.gosahin.com/go/p/i/1560193683_raut-nacha-dance.jpg",
     artName: "Raut Nacha",
   },
   {

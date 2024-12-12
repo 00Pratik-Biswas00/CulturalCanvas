@@ -1,5 +1,10 @@
 import Seller from "../models/seller.js";
 import User from "../models/user.js";
+import {
+  AuthenticationError,
+  UserInputError,
+  ForbiddenError,
+} from "apollo-server-express";
 import { deletePhoto, videoDelete } from "../routes/upload.js";
 
 const sellerResolvers = {
@@ -34,18 +39,12 @@ const sellerResolvers = {
   Mutation: {
     addSeller: async (_, { input }, { userId }) => {
       try {
-        if (!userId) {
-          throw new AuthenticationError(
-            "You must be logged in to apply as a seller."
-          );
-        }
-
         const newSeller = new Seller({
           ...input,
         });
 
-        await newSeller.save();
-        return true;
+        const seller = await newSeller.save();
+        return seller;
       } catch (err) {
         throw new Error("Error creating seller: " + err.message);
       }

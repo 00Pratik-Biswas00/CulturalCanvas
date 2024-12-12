@@ -10,7 +10,6 @@ const sellerTypeDefs = gql`
     address: String!
     shopAddress: String!
     biography: String!
-    background: Video
     itCertificate: Image
     idProof: Image
     category: String!
@@ -25,7 +24,6 @@ const sellerTypeDefs = gql`
     address: String!
     shopAddress: String!
     biography: String!
-    background: VideoInput
     itCertificate: ImageInput
     idProof: ImageInput
     category: String!
