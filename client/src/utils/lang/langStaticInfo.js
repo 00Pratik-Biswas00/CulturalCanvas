@@ -336,6 +336,12 @@ export const Static_Information = {
             "Celebration of the first day of the year with festivities and resolutions.",
           date: "2025-01-01",
           image: newYear,
+          location: {
+            city: null,
+            state: null,
+            lat: null,
+            lng: null,
+          },
         },
         {
           name: "Makar Sankranti",
@@ -343,6 +349,12 @@ export const Static_Information = {
             "Harvest festival celebrated with kite flying and traditional foods.",
           date: "2025-01-14",
           image: makar,
+          location: {
+            city: "Ahmedabad",
+            state: "Gujarat",
+            lat: 23.0225,
+            lng: 72.5714,
+          },
         },
         {
           name: "Pongal",
@@ -350,6 +362,12 @@ export const Static_Information = {
             "Harvest festival celebrated in Tamil Nadu with traditional rituals and feasts.",
           date: "2025-01-15",
           image: pongal,
+          location: {
+            city: "Chennai",
+            state: "Tamil Nadu",
+            lat: 13.0827,
+            lng: 80.2707,
+          },
         },
         {
           name: "Subhash Chandra Bose Jayanti",
@@ -357,6 +375,12 @@ export const Static_Information = {
             "Birth anniversary of Netaji Subhash Chandra Bose, a prominent leader in India's freedom struggle.",
           date: "2025-01-23",
           image: netaji,
+          location: {
+            city: null,
+            state: null,
+            lat: null,
+            lng: null,
+          },
         },
         {
           name: "Republic Day",
@@ -364,6 +388,12 @@ export const Static_Information = {
             "National holiday in India celebrating the adoption of the Constitution.",
           date: "2025-01-26",
           image: republic,
+          location: {
+            city: null,
+            state: null,
+            lat: null,
+            lng: null,
+          },
         },
         {
           name: "Vasant Panchami",
@@ -371,6 +401,12 @@ export const Static_Information = {
             "Festival dedicated to Goddess Saraswati, celebrating knowledge, art, and wisdom.",
           date: "2025-02-03",
           image: vasant,
+          location: {
+            city: "Kolkata",
+            state: "West Bengal",
+            lat: 22.5726,
+            lng: 88.3639,
+          },
         },
         {
           name: "Maha Shivaratri",
@@ -378,6 +414,12 @@ export const Static_Information = {
             "Dedicated to Lord Shiva, celebrated with fasting and night-long prayers.",
           date: "2025-03-01",
           image: shiv,
+          location: {
+            city: "Varanasi",
+            state: "Uttar Pradesh",
+            lat: 25.3176,
+            lng: 82.9739,
+          },
         },
         {
           name: "Holi",
@@ -385,6 +427,12 @@ export const Static_Information = {
             "The festival of colors celebrated with joy and enthusiasm.",
           date: "2025-03-13",
           image: holi,
+          location: {
+            city: null,
+            state: null,
+            lat: null,
+            lng: null,
+          },
         },
         {
           name: "Ram Navami",
@@ -392,12 +440,24 @@ export const Static_Information = {
             "Celebration of Lord Rama's birth with prayers and festivities.",
           date: "2025-04-02",
           image: ramnabami,
+          location: {
+            city: "Ayodhya",
+            state: "Uttar Pradesh",
+            lat: 26.7993,
+            lng: 82.1986,
+          },
         },
         {
           name: "Good Friday",
           description: "Commemoration of the crucifixion of Jesus Christ.",
           date: "2025-04-18",
           image: goodFriday,
+          location: {
+            city: null,
+            state: null,
+            lat: null,
+            lng: null,
+          },
         },
         {
           name: "Ambedkar Jayanti",
@@ -405,6 +465,12 @@ export const Static_Information = {
             "Birth anniversary of Dr. B.R. Ambedkar, architect of the Indian Constitution.",
           date: "2025-04-14",
           image: br,
+          location: {
+            city: null,
+            state: null,
+            lat: null,
+            lng: null,
+          },
         },
         {
           name: "Eid al-Fitr",
@@ -412,6 +478,12 @@ export const Static_Information = {
             "The conclusion of Ramadan with a festive day of prayers and feasting.",
           date: "2025-03-30",
           image: eid,
+          location: {
+            city: null,
+            state: null,
+            lat: null,
+            lng: null,
+          },
         },
         {
           name: "Buddha Purnima",
@@ -419,6 +491,12 @@ export const Static_Information = {
             "Celebration of Lord Buddha's birth, enlightenment, and death.",
           date: "2025-05-10",
           image: buddy,
+          location: {
+            city: "Bodh Gaya",
+            state: "Bihar",
+            lat: 24.6961,
+            lng: 84.9869,
+          },
         },
         {
           name: "Rath Yatra",
@@ -426,12 +504,24 @@ export const Static_Information = {
             "A chariot festival associated with Lord Jagannath in Odisha.",
           date: "2025-06-27",
           image: rath,
+          location: {
+            city: "Puri",
+            state: "Odisha",
+            lat: 19.8135,
+            lng: 85.8312,
+          },
         },
         {
           name: "Guru Purnima",
           description: "A day dedicated to spiritual and academic teachers.",
           date: "2025-07-11",
           image: rath,
+          location: {
+            city: null,
+            state: null,
+            lat: null,
+            lng: null,
+          },
         },
         {
           name: "Independence Day",
@@ -439,6 +529,12 @@ export const Static_Information = {
             "India's national holiday marking independence from British rule.",
           date: "2025-08-15",
           image: rath,
+          location: {
+            city: null,
+            state: null,
+            lat: null,
+            lng: null,
+          },
         },
         {
           name: "Raksha Bandhan",
@@ -446,6 +542,12 @@ export const Static_Information = {
             "Celebration of the bond between brothers and sisters with the tying of rakhi.",
           date: "2025-08-29",
           image: rath,
+          location: {
+            city: null,
+            state: null,
+            lat: null,
+            lng: null,
+          },
         },
         {
           name: "Janmashtami",
@@ -453,6 +555,12 @@ export const Static_Information = {
             "Celebration of the birth of Lord Krishna with fasting and midnight prayers.",
           date: "2025-08-31",
           image: rath,
+          location: {
+            city: "Mathura",
+            state: "Uttar Pradesh",
+            lat: 27.4924,
+            lng: 77.6737,
+          },
         },
         {
           name: "Ganesh Chaturthi",
@@ -460,6 +568,12 @@ export const Static_Information = {
             "Festival honoring Lord Ganesha with prayers, processions, and offerings.",
           date: "2025-09-01",
           image: rath,
+          location: {
+            city: "Mumbai",
+            state: "Maharashtra",
+            lat: 19.076,
+            lng: 72.8777,
+          },
         },
         {
           name: "Onam",
@@ -467,6 +581,12 @@ export const Static_Information = {
             "Harvest festival of Kerala celebrated with cultural events and traditional feasts.",
           date: "2025-09-08",
           image: rath,
+          location: {
+            city: "Thiruvananthapuram",
+            state: "Kerala",
+            lat: 8.5241,
+            lng: 76.9366,
+          },
         },
         {
           name: "Navratri/Durga Puja",
@@ -474,6 +594,12 @@ export const Static_Information = {
             "Nine-day festival dedicated to Goddess Durga, celebrated with dance and devotion.",
           date: "2025-10-01",
           image: rath,
+          location: {
+            city: null,
+            state: null,
+            lat: null,
+            lng: null,
+          },
         },
         {
           name: "Dussehra",
@@ -481,6 +607,12 @@ export const Static_Information = {
             "Marks the victory of Lord Rama over Ravana and symbolizes the triumph of good over evil.",
           date: "2025-10-11",
           image: rath,
+          location: {
+            city: "Mysore",
+            state: "Karnataka",
+            lat: 12.2958,
+            lng: 76.6394,
+          },
         },
         {
           name: "Valmiki Jayanti",
@@ -488,90 +620,12 @@ export const Static_Information = {
             "Commemorates the birth of Maharishi Valmiki, the author of the Ramayana.",
           date: "2025-10-17",
           image: rath,
-        },
-        {
-          name: "Karva Chauth",
-          description:
-            "Festival where married women fast for the well-being of their husbands.",
-          date: "2025-10-27",
-          image: rath,
-        },
-        {
-          name: "Diwali",
-          description:
-            "The festival of lights symbolizing the victory of light over darkness.",
-          date: "2025-10-29",
-          image: rath,
-        },
-        {
-          name: "Govardhan Puja",
-          description:
-            "A ritual offering and prayers to Govardhan Hill and Lord Krishna.",
-          date: "2025-10-30",
-          image: rath,
-        },
-        {
-          name: "Bhai Dooj",
-          description:
-            "Festival celebrating the bond between brothers and sisters.",
-          date: "2025-11-01",
-          image: rath,
-        },
-        {
-          name: "Chhath Puja",
-          description:
-            "Dedicated to the Sun God, celebrated with prayers and offerings.",
-          date: "2025-11-05",
-          image: rath,
-        },
-        {
-          name: "Children's Day",
-          description:
-            "Celebration of childhood and tribute to Jawaharlal Nehru on his birth anniversary.",
-          date: "2025-11-14",
-          image: rath,
-        },
-        {
-          name: "Guru Nanak Jayanti",
-          description:
-            "Celebrates the birth of Guru Nanak Dev Ji, the founder of Sikhism.",
-          date: "2025-11-15",
-          image: rath,
-        },
-        {
-          name: "Constitution Day",
-          description:
-            "Commemorates the adoption of the Indian Constitution in 1949.",
-          date: "2025-11-26",
-          image: rath,
-        },
-        {
-          name: "World AIDS Day",
-          description:
-            "Raising awareness and uniting people in the fight against AIDS.",
-          date: "2025-12-01",
-          image: rath,
-        },
-        {
-          name: "Indian Navy Day",
-          description:
-            "Honors the achievements of the Indian Navy during Operation Trident.",
-          date: "2025-12-04",
-          image: rath,
-        },
-        {
-          name: "Human Rights Day",
-          description:
-            "Celebrates the proclamation of the Universal Declaration of Human Rights.",
-          date: "2025-12-10",
-          image: rath,
-        },
-        {
-          name: "Christmas",
-          description:
-            "Celebration of the birth of Jesus Christ with joy, gifts, and decorations.",
-          date: "2024-12-25",
-          image: christmas,
+          location: {
+            city: null,
+            state: null,
+            lat: null,
+            lng: null,
+          },
         },
       ],
 
