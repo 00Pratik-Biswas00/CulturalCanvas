@@ -175,13 +175,13 @@ const SingleCourse = () => {
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.8 }}
-              className="mt-12"
+              className="mt-12 flex flex-col items-center justify-center"
             >
               <h2 className="text-3xl font-bold font-playfair text-center mb-8">
                 {currentHeading || "Select a video to start learning"}
               </h2>
               {currentVideo && (
-                <div className="aspect-w-16 aspect-h-9 mb-8">
+                <div className="aspect-w-16 aspect-h-9 w-[840px] h-[473px] mb-8">
                   <ReactPlayer
                     url={currentVideo}
                     width="100%"

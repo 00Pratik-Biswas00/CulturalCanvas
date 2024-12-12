@@ -108,6 +108,14 @@ const heritageSchema = new Schema(
         },
       },
     ],
+    coordinates: {
+      longitude: {
+        type: Number,
+      },
+      latitude: {
+        type: Number,
+      },
+    },
   },
   { timestamps: true }
 );
