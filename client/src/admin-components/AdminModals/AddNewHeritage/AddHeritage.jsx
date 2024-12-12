@@ -268,10 +268,8 @@ const AddHeritage = ({
               <div className="w-full">
                 <InputImageVideo
                   imageName="Animated Video:"
-                  fileType="animatedVideo"
-                  onChange={(e) =>
-                    handleImageInput(e.target.files[0], "animatedVideo")
-                  }
+                  fileType="video"
+                  onChange={(e) => handleImageInput(e.target.files[0], "video")}
                   preview={formData.animatedVideo}
                 />
               </div>
@@ -280,9 +278,7 @@ const AddHeritage = ({
                 <InputImageVideo
                   imageName="Endless Digital Art:"
                   fileType="video"
-                  onChange={(e) =>
-                    handleImageInput(e.target.files[0], "endlessDigitalArt")
-                  }
+                  onChange={(e) => handleImageInput(e.target.files[0], "video")}
                   preview={formData.endlessDigitalArt}
                 />
               </div>
@@ -292,10 +288,8 @@ const AddHeritage = ({
               <div className="w-full">
                 <InputImageVideo
                   imageName="Vlog Video:"
-                  fileType="vlogVideo"
-                  onChange={(e) =>
-                    handleImageInput(e.target.files[0], "vlogVideo")
-                  }
+                  fileType="video"
+                  onChange={(e) => handleImageInput(e.target.files[0], "video")}
                   preview={formData.vlogVideo}
                 />
               </div>

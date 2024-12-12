@@ -15,6 +15,25 @@ import festivalsImg from "./../../assets/culture/festival.avif";
 import greetingImg from "./../../assets/culture/greeting.avif";
 import weddingImg from "./../../assets/culture/wedding.avif";
 
+// calendar
+
+import newYear from "./../../assets/calendar/newYear.png";
+
+import br from "./../../assets/calendar/br.jpg";
+import eid from "./../../assets/calendar/eid.jpg";
+import goodFriday from "./../../assets/calendar/goodFriday.jpg";
+import holi from "./../../assets/calendar/holi.jpg";
+import makar from "./../../assets/calendar/makar.jpg";
+import netaji from "./../../assets/calendar/netaji.jpg";
+import pongal from "./../../assets/calendar/pongal.jpg";
+import ramnabami from "./../../assets/calendar/ramnabami.jpg";
+import republic from "./../../assets/calendar/republic.jpg";
+import shiv from "./../../assets/calendar/shiv.jpg";
+import vasant from "./../../assets/calendar/vasant.jpg";
+import buddy from "./../../assets/calendar/buddy.jpg";
+import rath from "./../../assets/calendar/rath.jpg";
+import christmas from "./../../assets/calendar/christmas.jpg";
+
 // states
 
 import assasImg from "./../../assets/states/assam.png";
@@ -316,243 +335,243 @@ export const Static_Information = {
           description:
             "Celebration of the first day of the year with festivities and resolutions.",
           date: "2025-01-01",
-          // image: newYearImg,
+          image: newYear,
         },
         {
           name: "Makar Sankranti",
           description:
             "Harvest festival celebrated with kite flying and traditional foods.",
           date: "2025-01-14",
-          // image: sankrantiImg,
+          image: makar,
         },
         {
           name: "Pongal",
           description:
             "Harvest festival celebrated in Tamil Nadu with traditional rituals and feasts.",
           date: "2025-01-15",
-          // image: pongalImg,
+          image: pongal,
         },
         {
           name: "Subhash Chandra Bose Jayanti",
           description:
             "Birth anniversary of Netaji Subhash Chandra Bose, a prominent leader in India's freedom struggle.",
           date: "2025-01-23",
-          // image: subhashChandraBoseImg,
+          image: netaji,
         },
         {
           name: "Republic Day",
           description:
             "National holiday in India celebrating the adoption of the Constitution.",
           date: "2025-01-26",
-          // image: republicDayImg,
+          image: republic,
         },
         {
           name: "Vasant Panchami",
           description:
             "Festival dedicated to Goddess Saraswati, celebrating knowledge, art, and wisdom.",
           date: "2025-02-03",
-          // image: vasantPanchamiImg,
+          image: vasant,
         },
         {
           name: "Maha Shivaratri",
           description:
             "Dedicated to Lord Shiva, celebrated with fasting and night-long prayers.",
           date: "2025-03-01",
-          // image: shivaratriImg,
+          image: shiv,
         },
         {
           name: "Holi",
           description:
             "The festival of colors celebrated with joy and enthusiasm.",
           date: "2025-03-13",
-          // image: holiImg,
+          image: holi,
         },
         {
           name: "Ram Navami",
           description:
             "Celebration of Lord Rama's birth with prayers and festivities.",
           date: "2025-04-02",
-          // image: ramNavamiImg,
+          image: ramnabami,
         },
         {
           name: "Good Friday",
           description: "Commemoration of the crucifixion of Jesus Christ.",
           date: "2025-04-18",
-          // image: goodFridayImg,
+          image: goodFriday,
         },
         {
           name: "Ambedkar Jayanti",
           description:
             "Birth anniversary of Dr. B.R. Ambedkar, architect of the Indian Constitution.",
           date: "2025-04-14",
-          // image: ambedkarJayantiImg,
+          image: br,
         },
         {
           name: "Eid al-Fitr",
           description:
             "The conclusion of Ramadan with a festive day of prayers and feasting.",
           date: "2025-03-30",
-          // image: eidImg,
+          image: eid,
         },
         {
           name: "Buddha Purnima",
           description:
             "Celebration of Lord Buddha's birth, enlightenment, and death.",
           date: "2025-05-10",
-          // image: buddhaPurnimaImg,
+          image: buddy,
         },
         {
           name: "Rath Yatra",
           description:
             "A chariot festival associated with Lord Jagannath in Odisha.",
           date: "2025-06-27",
-          // image: rathYatraImg,
+          image: rath,
         },
         {
           name: "Guru Purnima",
           description: "A day dedicated to spiritual and academic teachers.",
           date: "2025-07-11",
-          // image: guruPurnimaImg,
+          image: rath,
         },
         {
           name: "Independence Day",
           description:
             "India's national holiday marking independence from British rule.",
           date: "2025-08-15",
-          // image: independenceDayImg,
+          image: rath,
         },
         {
           name: "Raksha Bandhan",
           description:
             "Celebration of the bond between brothers and sisters with the tying of rakhi.",
           date: "2025-08-29",
-          // image: rakhiImg,
+          image: rath,
         },
         {
           name: "Janmashtami",
           description:
             "Celebration of the birth of Lord Krishna with fasting and midnight prayers.",
           date: "2025-08-31",
-          // image: janmashtamiImg,
+          image: rath,
         },
         {
           name: "Ganesh Chaturthi",
           description:
             "Festival honoring Lord Ganesha with prayers, processions, and offerings.",
           date: "2025-09-01",
-          // image: ganeshImg,
+          image: rath,
         },
         {
           name: "Onam",
           description:
             "Harvest festival of Kerala celebrated with cultural events and traditional feasts.",
           date: "2025-09-08",
-          // image: onamImg,
+          image: rath,
         },
         {
           name: "Navratri/Durga Puja",
           description:
             "Nine-day festival dedicated to Goddess Durga, celebrated with dance and devotion.",
           date: "2025-10-01",
-          // image: navratriImg,
+          image: rath,
         },
         {
           name: "Dussehra",
           description:
             "Marks the victory of Lord Rama over Ravana and symbolizes the triumph of good over evil.",
           date: "2025-10-11",
-          // image: dussehraImg,
+          image: rath,
         },
         {
           name: "Valmiki Jayanti",
           description:
             "Commemorates the birth of Maharishi Valmiki, the author of the Ramayana.",
           date: "2025-10-17",
-          // image: valmikiJayantiImg,
+          image: rath,
         },
         {
           name: "Karva Chauth",
           description:
             "Festival where married women fast for the well-being of their husbands.",
           date: "2025-10-27",
-          // image: karvaChauthImg,
+          image: rath,
         },
         {
           name: "Diwali",
           description:
             "The festival of lights symbolizing the victory of light over darkness.",
           date: "2025-10-29",
-          // image: diwaliImg,
+          image: rath,
         },
         {
           name: "Govardhan Puja",
           description:
             "A ritual offering and prayers to Govardhan Hill and Lord Krishna.",
           date: "2025-10-30",
-          // image: govardhanPujaImg,
+          image: rath,
         },
         {
           name: "Bhai Dooj",
           description:
             "Festival celebrating the bond between brothers and sisters.",
           date: "2025-11-01",
-          // image: bhaiDoojImg,
+          image: rath,
         },
         {
           name: "Chhath Puja",
           description:
             "Dedicated to the Sun God, celebrated with prayers and offerings.",
           date: "2025-11-05",
-          // image: chhathImg,
+          image: rath,
         },
         {
           name: "Children's Day",
           description:
             "Celebration of childhood and tribute to Jawaharlal Nehru on his birth anniversary.",
           date: "2025-11-14",
-          // image: childrensDayImg,
+          image: rath,
         },
         {
           name: "Guru Nanak Jayanti",
           description:
             "Celebrates the birth of Guru Nanak Dev Ji, the founder of Sikhism.",
           date: "2025-11-15",
-          // image: guruNanakImg,
+          image: rath,
         },
         {
           name: "Constitution Day",
           description:
             "Commemorates the adoption of the Indian Constitution in 1949.",
           date: "2025-11-26",
-          // image: constitutionDayImg,
+          image: rath,
         },
         {
           name: "World AIDS Day",
           description:
             "Raising awareness and uniting people in the fight against AIDS.",
           date: "2025-12-01",
-          // image: worldAidsDayImg,
+          image: rath,
         },
         {
           name: "Indian Navy Day",
           description:
             "Honors the achievements of the Indian Navy during Operation Trident.",
           date: "2025-12-04",
-          // image: navyDayImg,
+          image: rath,
         },
         {
           name: "Human Rights Day",
           description:
             "Celebrates the proclamation of the Universal Declaration of Human Rights.",
           date: "2025-12-10",
-          // image: humanRightsDayImg,
+          image: rath,
         },
         {
           name: "Christmas",
           description:
             "Celebration of the birth of Jesus Christ with joy, gifts, and decorations.",
           date: "2024-12-25",
-          // image: christmasImg,
+          image: christmas,
         },
       ],
 

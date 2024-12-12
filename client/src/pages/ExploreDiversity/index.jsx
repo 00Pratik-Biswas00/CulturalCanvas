@@ -134,7 +134,7 @@ const ExploreDiversity = () => {
             />
           </div>
 
-          <div
+          {/* <div
             className={` p-5 rounded-lg flex flex-col items-center shadow-lg shadow-gray-400 gap-5 `}
           >
             <div className="flex flex-col">
@@ -165,7 +165,7 @@ const ExploreDiversity = () => {
               buttonName={"Nearest Attractions"}
               buttonIcon={<RiMoneyRupeeCircleFill />}
             />
-          </div>
+          </div> */}
 
           <div
             className={` p-5 rounded-lg flex flex-col items-center shadow-lg shadow-gray-400 gap-5 `}

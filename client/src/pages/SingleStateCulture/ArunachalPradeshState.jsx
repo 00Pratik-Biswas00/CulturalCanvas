@@ -28,23 +28,23 @@ const AssamCuisines = [
 
 const AssamArts = [
   {
-    cuisineImage:
+    artImage:
       "https://upload.wikimedia.org/wikipedia/commons/4/48/Bihu-Dance-assam.jpg",
-    cuisineName: "Bihu Dance",
+    artName: "Bihu Dance",
   },
   {
-    cuisineImage:
+    artImage:
       "https://i0.wp.com/rotarynewsonline.org/wp-content/uploads/2019/07/545px-Satriya_dance_performance_at_Guwahati_Rabindra_Bhawan.jpg?ssl=1",
-    cuisineName: "Sattriya Dance",
+    artName: "Sattriya Dance",
   },
   {
-    cuisineImage: "https://i.ytimg.com/vi/qIhDxJP6p9A/maxresdefault.jpg",
-    cuisineName: "Japi Craft",
+    artImage: "https://i.ytimg.com/vi/qIhDxJP6p9A/maxresdefault.jpg",
+    artName: "Japi Craft",
   },
   {
-    cuisineImage:
+    artImage:
       "https://11gt01koavy9v.cdn.shift8web.com/wp-content/uploads/2023/06/assam-pottery.jpg",
-    cuisineName: "Assamese Pottery",
+    artName: "Assamese Pottery",
   },
 ];
 
