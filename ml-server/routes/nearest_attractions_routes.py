@@ -12,7 +12,7 @@ def get_attractions():
     place_lat = data.get("latitude")
     place_long = data.get("longitude")
     attraction_type = data.get("attraction")
-    radius = request.json.get('radius', 3) * 1000
+    radius = request.json.get('radius', 100) * 1000
     
     if not place_lat or not place_long or not attraction_type:
         return jsonify({"error": "Missing required parameters"}), 400

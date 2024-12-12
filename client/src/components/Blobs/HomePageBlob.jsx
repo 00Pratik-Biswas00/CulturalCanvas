@@ -2,13 +2,12 @@ import React from "react";
 
 const HomePageBlob = ({ diffImages }) => {
   return (
-    <div className=" order-2 lg:order-1 w-full h-full lg:w-[150%] xl:w-full relative flex items-center justify-center">
+    <div className=" order-2 lg:order-1 w-full h-full lg:w-[100%] xl:w-full relative flex items-center justify-center">
       {/*  */}
       <svg
         id="sw-js-blob-svg"
         viewBox="0 0 100 100"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+        xmlns="http://www.w3.org/2000/svg">
         {" "}
         <defs>
           {" "}
@@ -17,13 +16,11 @@ const HomePageBlob = ({ diffImages }) => {
             <stop
               id="stop1"
               stop-color="rgba(20, 137, 56, 1)"
-              offset="0%"
-            ></stop>{" "}
+              offset="0%"></stop>{" "}
             <stop
               id="stop2"
               stop-color="rgba(244, 151, 56, 1)"
-              offset="100%"
-            ></stop>{" "}
+              offset="100%"></stop>{" "}
           </linearGradient>{" "}
         </defs>{" "}
         <path
@@ -32,8 +29,7 @@ const HomePageBlob = ({ diffImages }) => {
           height="100%"
           transform="translate(50 50)"
           stroke-width="1"
-          stroke="url(#sw-gradient)"
-        >
+          stroke="url(#sw-gradient)">
           <animate
             attributeName="d"
             dur="10000ms"
@@ -58,12 +54,11 @@ const HomePageBlob = ({ diffImages }) => {
               
       
               
-              "
-          ></animate>
+              "></animate>
         </path>{" "}
       </svg>
       <img
-        className="absolute w-[13rem] sm:w-[24rem] lg:w-[15rem] xl:w-[18rem] 2xl:w-[24rem]  z-10 object-cover rounded-full"
+        className="absolute w-[13rem] sm:w-[24rem] lg:w-[15rem] xl:w-[15rem]   z-10 object-cover rounded-full"
         src={diffImages}
         alt="diffImages"
       />
