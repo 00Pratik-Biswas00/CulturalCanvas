@@ -20,6 +20,9 @@ const Home = () => {
   const [nearestAttractions, setNearestAttraction] = useState([]);
   const [recommendations, setRecommendations] = useState([]);
 
+  const [sortOption, setSortOption] = useState("distance"); // Default sort by distance
+  const [ratingFilter, setRatingFilter] = useState(0); // Default no filter
+
   const options = ["tourist_spots", "restaurants", "hotels", "hospitals"];
 
   const handleFlip = (index) => {
@@ -65,7 +68,10 @@ const Home = () => {
           attraction: selectedOption,
         }
       );
-      setNearestAttraction(response.data.attractions.slice(0, 8) || []);
+
+      const nearest = response.data.attractions;
+
+      setNearestAttraction(nearest || []);
     } catch (error) {
       console.error("Error fetching nearest attractions:", error);
     }
@@ -84,6 +90,21 @@ const Home = () => {
     } catch (error) {
       console.error("Error fetching recommendations:", error);
     }
+  };
+
+  const SortandFilterAttraction = async () => {
+    const sortedAndFilteredAttractions = nearestAttractions
+      .filter((attraction) => attraction.rating >= ratingFilter)
+      .sort((a, b) => {
+        if (sortOption === "distance") {
+          return a.distance - b.distance;
+        } else if (sortOption === "rating") {
+          return b.rating - a.rating;
+        }
+        return 0;
+      });
+
+    setNearestAttraction(sortedAndFilteredAttractions.slice(0, 8));
   };
 
   // Fetch user's current location
@@ -114,19 +135,23 @@ const Home = () => {
     }
   }, [userLocation]);
 
+  useEffect(() => {
+    if (nearestAttractions) {
+      SortandFilterAttraction();
+    }
+  }, [sortOption, ratingFilter]);
+
   return (
     <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-4 px-16 duration-300 flex flex-col items-center bg-contain bg-no-repeat bg-center">
       <div className="w-full flex flex-col items-center justify-center gap-20 py-5">
         {homeContent.MulHome.HeriHome.map((content, ind) => (
-          <div className="backdrop-blur-lg   relative flex flex-col gap-10  lg:justify-between px-5  lg:py-5">
+          <div className="backdrop-blur-lg relative flex flex-col gap-10  lg:justify-between px-5 lg:py-5">
             <div
               key={ind}
-              className={`relative flex flex-col lg:flex-row  lg:justify-between    `}
-            >
-              <div className="flex">
+              className={`relative flex flex-col lg:flex-row  lg:justify-between px-5   `}>
+              <>
                 {/* Text on the left, image on the right */}
-                <div className="flex flex-col z-10 items-start justify-center gap-5  w-[200%]">
-
+                <div className="flex flex-col z-10 items-start justify-center gap-5 w-[200%] ">
                   <div className=" text-4xl xl:text-5xl font-extrabold  ">
                     {content.headingName}
                   </div>
@@ -148,6 +173,7 @@ const Home = () => {
                         </div>
                       )}
 
+                    {/* <Speaker webData={content.para} /> */}
                   </div>
 
                   <MyButton1
@@ -161,9 +187,9 @@ const Home = () => {
                 <div
                   className=" absolute   flex items-center justify-center opacity-20 dark:opacity-70
                 
-                w-[18rem] md:w-[28rem] xl:w-[33rem] 2xl:w-[42rem]  
-                bottom-[3rem] md:bottom-[20rem] lg:-bottom-5 xl:-bottom-32  
-                md:left-72 lg:left-10  
+                w-[18rem] md:w-[28rem] xl:w-[20rem]  
+                bottom-[3rem] md:bottom-[20rem] lg:-bottom-5 xl:-bottom-30  
+                md:left-72 lg:left-52  
                 ">
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -191,20 +217,14 @@ const Home = () => {
                 </div>
 
                 <HomePageBlob diffImages={content.image} />
-              </div>
+              </>
             </div>
-            <div>
-              <h1 className="text-6xl font-extrabold mb-6 text-center ">
+            <div className=" flex flex-col items-start">
+              <h1 className="text-4xl font-extrabold mb-6 text-center ">
                 {content.nRHead}
               </h1>
-              <p className=" text-center mb-6 ">{content.nRPara}</p>
               <div className="flex flex-col gap-5 items-center justify-center ">
-                <label
-                  htmlFor="attraction"
-                  className="font-bold font-pangaia text-2xl">
-                  {content.nRoptions}
-                </label>
-                <select
+                {/* <select
                   className="px-3 gap-x-2 py-2 border  border-primary_text dark:border-dark_primary_text  dark:bg-shadow bg-dark_primary_text rounded-lg  focus:outline-none focus:border focus:border-highlight"
                   select
                   value={selectedOption}
@@ -213,11 +233,55 @@ const Home = () => {
                   <option value="restaurants">{content.op2}</option>
                   <option value="hotels">{content.op3}</option>
                   <option value="hospitals">{content.op4}</option>
-                  {/* ))} */}
-                </select>
+                  
+                </select> */}
+
+                <div className="grid grid-cols-4 gap-4">
+                  {options.map((option, index) => (
+                    <div
+                      key={option}
+                      className={`p-4 rounded-lg shadow-md cursor-pointer ${
+                        selectedOption === option
+                          ? "bg-highlight text-white"
+                          : "bg-dark_primary_text text-primary_text"
+                      } hover:shadow-lg`}
+                      onClick={() => setSelectedOption(option)}>
+                      <h3 className="text-center capitalize font-bold">
+                        {content[`op${index + 1}`]}{" "}
+                        {/* Dynamically fetch option labels */}
+                      </h3>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-            <div className=" grid grid-cols-3 gap-5">
+
+            <div className="flex justify-between items-center mb-5">
+              {/* Sorting Dropdown */}
+              <select
+                className="border p-2 rounded-md"
+                value={sortOption}
+                onChange={(e) => setSortOption(e.target.value)}>
+                <option value="distance">Sort by Distance</option>
+                <option value="rating">Sort by Rating</option>
+              </select>
+
+              {/* Rating Filter */}
+              <div className="flex items-center">
+                <label className="mr-2">Min Rating:</label>
+                <input
+                  type="number"
+                  min="0"
+                  max="5"
+                  step="0.1"
+                  value={ratingFilter}
+                  onChange={(e) => setRatingFilter(parseFloat(e.target.value))}
+                  className="border p-2 rounded-md w-20"
+                />
+              </div>
+            </div>
+
+            <div className=" grid grid-cols-4 gap-5">
               {nearestAttractions.map((attraction) => (
                 <div
                   className="p-4 gap-x-2 w-80 h-96 relative flex flex-col items-start justify-between rounded-xl shadow-custom-black dark:shadow-custom-white blogCards"
@@ -261,15 +325,13 @@ const Home = () => {
         ))}
 
         {homeContent.MulHome.StoreHome.map((content, ind) => (
-          <div className=" relative flex flex-col gap-20  lg:justify-between px-5  lg:py-20 w-full">
+          <div className="backdrop-blur-lg  relative flex flex-col gap-10  lg:justify-between px-5  lg:py-20">
             <div
               key={ind}
-              className={`relative flex flex-col lg:flex-row  lg:justify-between   `}
-            >
-
+              className={`relative flex flex-col lg:flex-row  lg:justify-between px-5  w-full  `}>
               <>
                 {/* Text on the left, image on the right */}
-                <div className="flex flex-col z-10 items-start justify-center gap-5 w-[200%] ">
+                <div className="flex flex-col z-10 items-start justify-center gap-5 w-[200%]">
                   <div className=" text-4xl xl:text-5xl font-extrabold  ">
                     {content.headingName}
                   </div>
@@ -303,9 +365,9 @@ const Home = () => {
                 <div
                   className=" absolute   flex items-center justify-center opacity-20 dark:opacity-70
                 
-                w-[18rem] md:w-[28rem] xl:w-[33rem] 2xl:w-[42rem]  
-                bottom-[3rem] md:bottom-[20rem] lg:-bottom-5 xl:-bottom-32  
-                md:left-72 lg:left-10  
+                w-[18rem] md:w-[28rem] xl:w-[20rem] 
+                bottom-[3rem] md:bottom-[20rem] lg:-bottom-5 xl:-bottom-30  
+                md:left-72 lg:left-52  
                 ">
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -425,14 +487,12 @@ const Home = () => {
         {homeContent.MulHome.Home.map((content, ind) => (
           <div
             key={ind}
-            className={`  relative flex  gap-20  lg:justify-between px-5  lg:py-20 w-full `}
-          >
-
+            className={`backdrop-blur-lg relative flex flex-col lg:flex-row  lg:justify-between px-5 sm:px-16 lg:py-20   `}>
             {ind % 2 === 0 ? (
               <>
                 {/* Text on the left, image on the right */}
-                <div className=" relative flex flex-col gap-20  lg:justify-between px-5  lg:py-20 w-[200%] ">
-                  <div className=" text-4xl xl:text-5xl font-extrabold   ">
+                <div className="flex flex-col z-10 items-start justify-center gap-5 w-[200%] ">
+                  <div className=" text-4xl xl:text-5xl font-extrabold  ">
                     {content.headingName}
                   </div>
                   <div className="flex flex-col gap-2  relative">
@@ -452,6 +512,8 @@ const Home = () => {
                           </div>
                         </div>
                       )}
+
+                    {/* <Speaker webData={content.para} /> */}
                   </div>
 
                   <MyButton1
@@ -465,9 +527,9 @@ const Home = () => {
                 <div
                   className=" absolute   flex items-center justify-center opacity-20 dark:opacity-70
                 
-                w-[18rem] md:w-[28rem] xl:w-[33rem] 2xl:w-[42rem]  
+                w-[18rem] md:w-[28rem] xl:w-[23rem]   
                 bottom-[3rem] md:bottom-[20rem] lg:-bottom-5 xl:-bottom-2 2xl:-bottom-5 
-                md:left-72 lg:left-32  
+                md:left-72 lg:left-52  
                 ">
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -502,7 +564,7 @@ const Home = () => {
 
                 <div
                   className=" absolute flex items-center justify-center opacity-20  dark:opacity-70  
-                  w-[20rem] sm:w-[28rem]  xl:w-[30rem] 2xl:w-[42rem] 
+                  w-[20rem] sm:w-[28rem]  xl:w-[20rem]
                  right-10 sm:right-[20rem] lg:right-20  
                  bottom-24 sm:bottom-[20rem] lg:bottom-[1rem] xl:bottom-[1rem]
  ">
@@ -532,19 +594,14 @@ const Home = () => {
                   </svg>
                 </div>
 
-                <div className=" order-1 lg:order-2 flex flex-col z-10 items-start justify-center gap-5  w-[200%]">
-                  <div className=" text-4xl xl:text-5xl font-extrabold  text-right  ">
+                <div className=" order-1 lg:order-2 flex flex-col z-10 items-end justify-center gap-5 w-[200%] ">
+                  <div className=" text-4xl xl:text-5xl font-extrabold text-right  ">
                     {content.headingName}
                   </div>
                   <div className="flex flex-col gap-2  relative">
-                    {/* <p className=" text-right  font-lato">{content.para}</p> */}
                     {Array.isArray(content.featuringData) &&
                       content.featuringData.length > 0 && (
                         <div>
-                          <h1 className="flex gap-1 items-center justify-end pb-2 font-semibold text-lg">
-                            <span>Featuring </span>{" "}
-                            <MdOutlineKeyboardDoubleArrowRight className="w-5 h-5 mt-[0.28rem]" />
-                          </h1>
                           <div className="flex  justify-end flex-wrap gap-x-20 gap-y-2">
                             {content.featuringData.map((con, i) => (
                               <div key={i} className="flex gap-1 items-center">
