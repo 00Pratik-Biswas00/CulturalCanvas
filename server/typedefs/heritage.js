@@ -125,6 +125,9 @@ const heritageTypeDefs = gql`
       part1: [DescriptionInput]
       type_of_heritage: HeritageType
       tag: HeritageTag
+      endlessDigitalArt: VideoInput
+      animatedVideo: VideoInput
+      vlogVideo: VideoInput
       state_culture_name: String
       nearest_attractions: [NearestAttractionInput]
       police_helpline: String

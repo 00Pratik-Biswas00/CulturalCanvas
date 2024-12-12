@@ -43,7 +43,10 @@ import WestBengalState from "./pages/SingleStateCulture/WestBengalState";
 import ChhattisgarhState from "./pages/SingleStateCulture/ChhattisgarhState";
 import BiharState from "./pages/SingleStateCulture/BiharState";
 import ArunachalPradeshState from "./pages/SingleStateCulture/ArunachalPradeshState";
+import GoaState from "./pages/SingleStateCulture/GoaState";
 import AndhraPradeshState from "./pages/SingleStateCulture/AndhraPradeshState";
+import GuajratState from "./pages/SingleStateCulture/GujaratState";
+import HaryanaState from "./pages/SingleStateCulture/HaryanaState";
 import SingleBlogVlog from "./pages/SingleBlogVlog";
 import UploadBlogVlog from "./pages/UploadBlogVlog/UploadBlogVlog";
 import NearestAttractions from "./pages/ExploreDiversity/NearestAttractions";
@@ -81,6 +84,7 @@ import BlogContest from "./pages/Contest/BlogContest";
 import Settings from "./components/Settings/Settings";
 import { SpeakerProvider } from "./components/SpeakerContext/SpeakerContext";
 import SingleProduct from "./pages/VirtualStore/SingleProduct";
+import MaharashtraState from "./pages/SingleStateCulture/MaharastraState";
 
 // new additions
 
@@ -321,7 +325,19 @@ function App() {
                 path="/culture-tradition/west-bengal"
                 element={<WestBengalState />}
               />
-
+              <Route
+                path="/culture-tradition/maharastra"
+                element={<MaharashtraState />}
+              />
+              <Route
+                path="/culture-tradition/gujarat"
+                element={<GuajratState />}
+              />
+              <Route
+                path="/culture-tradition/haryana"
+                element={<HaryanaState />}
+              />
+              <Route path="/culture-tradition/goa" element={<GoaState />} />
               {/*  ---------------- Learning Courses  ---------------- */}
               <Route
                 path="/learn-Indian-culture"

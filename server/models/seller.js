@@ -21,13 +21,6 @@ const sellerSchema = new Schema(
       type: String,
       required: true,
     },
-    background: {
-      ETag: String,
-      ServerSideEncryption: String,
-      Location: String,
-      Key: String,
-      Bucket: String,
-    },
     itCertificate: { url: String, public_id: String },
     idProof: { url: String, public_id: String },
     category: {
