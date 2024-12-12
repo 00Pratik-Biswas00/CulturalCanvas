@@ -43,17 +43,14 @@ const ExploreDiversity = () => {
             <h2 className="text-3xl font-extrabold text-center uppercase">
               Want personalized travel plans?{" "}
             </h2>
-            <p className="">
-              Planning a heritage tour in India can be overwhelming, but with
-              our user-friendly tool, you can effortlessly create a customized
-              itinerary tailored to your specific interests and budget.
+            <p className=" text-center">
+              Tired of generic travel itineraries? Let us curate a personalized
+              travel experience just for you. From exploring hidden gems to
+              indulging in local cuisine, we've got you covered.
               <br />
               <br />
               <b>
-                <em>
-                  Embark on a journey of discovery with a personalized itinerary
-                  designed just for you.
-                </em>
+                <em>Your dream vacation, personalized.</em>
               </b>
             </p>
 
@@ -80,18 +77,14 @@ const ExploreDiversity = () => {
               <img src={story} alt=".." className="w-full h-full rounded-md" />
             </div>
             <h2 className="text-3xl font-extrabold text-center uppercase">
-              Story Telling{" "}
+              Image To Story Telling{" "}
             </h2>
-            <p className="">
-              Planning a heritage tour in India can be exciting, but the cost
-              can sometimes be a mystery. With our easy-to-use tool, you can
-              quickly estimate the potential expenses for your trip. <br />{" "}
-              <br />{" "}
+            <p className=" text-center">
+              Transform your images into captivating stories. Our AI-powered
+              tool can analyze your photos, identify key moments, and generate
+              engaging narratives. <br /> <br />{" "}
               <em>
-                <b>
-                  Get started now and plan your dream Indian heritage tour with
-                  confidence!
-                </b>
+                <b>Your photos, your stories.</b>
               </em>
             </p>
 
@@ -116,7 +109,7 @@ const ExploreDiversity = () => {
             <h2 className="text-3xl font-extrabold text-center uppercase">
               No idea how much it will cost?{" "}
             </h2>
-            <p className="">
+            <p className=" text-center">
               Planning a heritage tour in India can be exciting, but the cost
               can sometimes be a mystery. With our easy-to-use tool, you can
               quickly estimate the potential expenses for your trip. <br />{" "}
@@ -154,16 +147,11 @@ const ExploreDiversity = () => {
             <h2 className="text-3xl font-extrabold text-center uppercase">
               Want to know what is near to you?{" "}
             </h2>
-            <p className="">
-              Planning a heritage tour in India can be exciting, but the cost
-              can sometimes be a mystery. With our easy-to-use tool, you can
-              quickly estimate the potential expenses for your trip. <br />{" "}
-              <br />{" "}
+            <p className=" text-center">
+              Discover the world around you with our location-based search. Find
+              nearby restaurants, shops, and attractions. <br /> <br />{" "}
               <em>
-                <b>
-                  Get started now and plan your dream Indian heritage tour with
-                  confidence!
-                </b>
+                <b>Your local guide, always at your fingertips.</b>
               </em>
             </p>
 
@@ -188,16 +176,12 @@ const ExploreDiversity = () => {
             <h2 className="text-3xl font-extrabold text-center uppercase">
               RAG Manual Summary{" "}
             </h2>
-            <p className="">
-              Planning a heritage tour in India can be exciting, but the cost
-              can sometimes be a mystery. With our easy-to-use tool, you can
-              quickly estimate the potential expenses for your trip. <br />{" "}
+            <p className=" text-center">
+              Simplify your manual reading experience with our RAG summaries. We
+              condense complex manuals into easy-to-understand summaries. <br />{" "}
               <br />{" "}
               <em>
-                <b>
-                  Get started now and plan your dream Indian heritage tour with
-                  confidence!
-                </b>
+                <b>Your manual, simplified.</b>
               </em>
             </p>
 

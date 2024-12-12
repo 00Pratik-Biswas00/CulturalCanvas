@@ -407,9 +407,9 @@ const SingleStateCulture = ({
                 {word.split("").map((letter, letterIndex) => (
                   <motion.h1
                     key={letterIndex}
-                    className={`text-7xl bg-black bg-opacity-70 px-2 pb-2 mb-5 rounded-xl font-extrabold text-dark_primary_text font-pangaia uppercase`}
+                    className={`text-7xl bg-black bg-opacity-70 px-2 pb-2 mb-5 rounded-xl font-extrabold text-dark_primary_text font-pangaia uppercase `}
                     initial={{ rotate: letterIndex % 2 === 0 ? -10 : 10 }}
-                    animate={{ rotate: 0 }}
+                    // animate={{ rotate: 0 }}
                     transition={{ duration: 0.5, delay: letterIndex * 0.1 }}
                   >
                     {letter}
@@ -479,7 +479,7 @@ const SingleStateCulture = ({
             </p>
           </div>
 
-          <div className="relative flex flex-col md:flex-row gap-10 items-center">
+          <div className="relative flex flex-col md:flex-row gap-20 items-center">
             <motion.img
               src={stateImg}
               alt="state image"
@@ -495,14 +495,16 @@ const SingleStateCulture = ({
                 </p>
                 <Speaker webData={stateHistory} />
               </div>
-              <a
-                className="bg-highlight hover:bg-highlight_dark duration-500 px-5 py-2 rounded-full font-bold text-center hover:scale-105 transition-transform"
-                href={stateHistoryVideo}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {commonStaticNames.buttonWantToKnowMore} 🔗
-              </a>
+              <div className="flex items-center justify-center">
+                <a
+                  className="bg-highlight hover:bg-highlight_dark duration-500 px-5 py-2 rounded-3xl font-bold text-center hover:scale-105 transition-transform"
+                  href={stateHistoryVideo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {commonStaticNames.buttonWantToKnowMore} 🔗
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -599,7 +601,7 @@ const SingleStateCulture = ({
             </p>
           </div>
 
-          <div className="relative flex flex-col md:flex-row gap-10 items-center">
+          <div className="relative flex flex-col md:flex-row gap-20 items-center">
             <motion.img
               src={languageImg}
               alt="Language"

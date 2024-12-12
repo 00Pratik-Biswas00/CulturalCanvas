@@ -79,51 +79,50 @@ const RAGSummary = () => {
   return (
     <section
       style={{ backgroundImage: `url(${bgImg}) ` }}
-      className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-4 px-16 duration-300 flex flex-col items-center bg-contain bg-no-repeat bg-center">
+      className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-4 px-16 duration-300 flex flex-col items-center bg-contain bg-no-repeat bg-center"
+    >
       <div className="flex items-start justify-center gap-10 p-8 my-8 rounded-xl shadow-custom-black dark:shadow-custom-white blogCards">
         <div className="flex flex-col gap-5">
-          <h1 className="text-4xl font-extrabold text-center">
+          <h1 className="text-5xl font-extrabold text-center">
             Upload Your Manual and Ask Your Doubts
           </h1>
-          <p className="text-center">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-            quae eos quod similique earum commodi, expedita ab quas nulla atque
-            molestias, architecto aliquid quia, odit voluptates fugit neque
-            sapiente debitis? architecto aliquid quia, odit voluptates fugit
-            neque sapiente debitis?
+          <p className="text-center text-lg font-playfair">
+            Stuck on a manual? Let's clear it up! Upload your manual, ask your
+            questions, and get expert answers. It's that simple.
           </p>
-
           <InputImageVideo
+            imageName={"Upload your pdf here:"}
             required
             fileType="pdf"
             onChange={handleFileUpload}
           />
-
-          <MyButton4
-            classDesign={
-              "bg-highlight_dark before:bg-highlight  text-dark_primary_text "
-            }
-            buttonName={"Generate a Short Summary"}
-            bType="submit"
-            onClick={() => handleQuestionSubmit(true)}
-          />
-
+          <div className="flex flex-col items-start">
+            <MyButton4
+              classDesign={
+                "bg-highlight_dark before:bg-highlight  text-dark_primary_text "
+              }
+              buttonName={"Generate a Short Summary"}
+              bType="submit"
+              onClick={() => handleQuestionSubmit(true)}
+            />
+          </div>
           {summary && (
             <div className="mt-8 p-4 border rounded-lg bg-gray-100 dark:bg-gray-800">
               <h2 className="font-bold text-xl">Summary of the Manual:</h2>
               <p>{summary.answer}</p>
             </div>
           )}
-
-          <InputComponent
-            iType={"text"}
-            iName={"Ask your doubt here"}
-            required={true}
-            value={question}
-            onChange={handleQuestionChange}
-          />
-
-          <div className=" flex flex-col items-center justify-center">
+          <div className="flex flex-col gap-3">
+            <label className="font-bold text-xl ">Q & A Section: </label>
+            <InputComponent
+              iType={"text"}
+              iName={"Ask your doubt here"}
+              required={true}
+              value={question}
+              onChange={handleQuestionChange}
+            />
+          </div>
+          <div className=" flex flex-col items-start justify-atitems-start">
             <MyButton4
               classDesign={
                 "bg-highlight_dark before:bg-highlight  text-dark_primary_text "
@@ -132,8 +131,8 @@ const RAGSummary = () => {
               bType="submit"
               onClick={() => handleQuestionSubmit()}
             />
-          </div>z
-
+          </div>
+          z
           {response && (
             <div className="mt-8 p-4 border rounded-lg bg-gray-100 dark:bg-gray-800">
               <h2 className="font-bold text-xl">Response from RAG Agent:</h2>
