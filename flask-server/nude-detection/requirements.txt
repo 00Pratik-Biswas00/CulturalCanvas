@@ -1,4 +1,0 @@
-streamlit==1.27.0
-opencv-python-headless
-onnxruntime
-numpy

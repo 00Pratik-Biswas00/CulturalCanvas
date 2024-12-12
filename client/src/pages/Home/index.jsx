@@ -20,13 +20,7 @@ const Home = () => {
   const [nearestAttractions, setNearestAttraction] = useState([]);
   const [recommendations, setRecommendations] = useState([]);
 
-  const options = [
-    "tourist_spots",
-    "restaurants",
-    "hotels",
-    "hospitals",
-    "police_stations",
-  ];
+  const options = ["tourist_spots", "restaurants", "hotels", "hospitals"];
 
   const handleFlip = (index) => {
     setFlippedCard(index);
@@ -132,6 +126,7 @@ const Home = () => {
               <div className="flex">
                 {/* Text on the left, image on the right */}
                 <div className="flex flex-col z-10 items-start justify-center gap-5  w-[200%]">
+
                   <div className=" text-4xl xl:text-5xl font-extrabold  ">
                     {content.headingName}
                   </div>
@@ -152,6 +147,7 @@ const Home = () => {
                           </div>
                         </div>
                       )}
+
                   </div>
 
                   <MyButton1
@@ -168,8 +164,7 @@ const Home = () => {
                 w-[18rem] md:w-[28rem] xl:w-[33rem] 2xl:w-[42rem]  
                 bottom-[3rem] md:bottom-[20rem] lg:-bottom-5 xl:-bottom-32  
                 md:left-72 lg:left-10  
-                "
-                >
+                ">
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#148938"
@@ -185,8 +180,7 @@ const Home = () => {
                 w-[15rem] 
                 md:right-[28rem] lg:right-[18rem] xl:right-[23rem] 2xl:right-[28rem]  
                 -top-5 
-                "
-                >
+                ">
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#f49738"
@@ -207,59 +201,62 @@ const Home = () => {
               <div className="flex flex-col gap-5 items-center justify-center ">
                 <label
                   htmlFor="attraction"
-                  className="font-bold font-pangaia text-2xl"
-                >
+                  className="font-bold font-pangaia text-2xl">
                   {content.nRoptions}
                 </label>
                 <select
                   className="px-3 gap-x-2 py-2 border  border-primary_text dark:border-dark_primary_text  dark:bg-shadow bg-dark_primary_text rounded-lg  focus:outline-none focus:border focus:border-highlight"
                   select
                   value={selectedOption}
-                  onChange={handleChange}
-                >
+                  onChange={handleChange}>
                   <option value="tourist_spots">{content.op1}</option>
                   <option value="restaurants">{content.op2}</option>
                   <option value="hotels">{content.op3}</option>
                   <option value="hospitals">{content.op4}</option>
-                  <option value="police_stations">{content.op5}</option>
                   {/* ))} */}
                 </select>
               </div>
             </div>
-            {nearestAttractions && (
-              <div className="flex flex-col gap-5 relative items-center justify-center py-5 ">
-                <h1 className=" font-bold font-pangaia text-2xl">
-                  {content.nR}{" "}
-                </h1>
-                <div className="p-4 grid grid-cols-4 gap-9 text-lg ">
-                  {nearestAttractions.map((attraction) => (
-                    <div
-                      className="p-4 gap-x-5 relative flex items-center justify-between rounded-xl  shadow-custom-black  dark:shadow-custom-white   blogCards "
-                      key={attraction.name}
-                    >
-                      <div>
-                        <h3 className=" text-xl capitalize font-playfair">
-                          {attraction.name}
-                        </h3>
-                        <p>
-                          <b> {content.dist}</b>{" "}
-                          {attraction.distance.toFixed(2)} km
-                        </p>
-                      </div>
+            <div className=" grid grid-cols-3 gap-5">
+              {nearestAttractions.map((attraction) => (
+                <div
+                  className="p-4 gap-x-2 w-80 h-96 relative flex flex-col items-start justify-between rounded-xl shadow-custom-black dark:shadow-custom-white blogCards"
+                  key={attraction.name}>
+                  {/* Attraction Image */}
+                  <img
+                    src={attraction.photo_url}
+                    alt={attraction.name}
+                    className="w-full h-40 object-cover rounded-xl mb-3"
+                  />
 
-                      <a
-                        href={attraction.link}
-                        target="_blank"
-                        rel="noreferrer"
-                        className=" bg-slate-500 animate-pulse p-2"
-                      >
-                        <FaMapMarkerAlt className=" w-7 h-7" />
-                      </a>
-                    </div>
-                  ))}
+                  {/* Attraction Details */}
+                  <div className="w-full">
+                    <h3 className="text-xl capitalize font-playfair">
+                      {attraction.name}
+                    </h3>
+                    <p className="text-sm text-gray-600">
+                      {attraction.address}
+                    </p>
+                    <p className="mt-1">
+                      <b>{content.dist}</b> {attraction.distance.toFixed(2)} km
+                    </p>
+                    <p className="text-yellow-500 font-bold">
+                      Rating: {attraction.rating} ★
+                    </p>
+                  </div>
+
+                  {/* Map Link Button */}
+                  <a
+                    href={attraction.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-3 bg-slate-500 hover:bg-slate-600 text-white p-2 rounded-md flex items-center justify-center w-full">
+                    <FaMapMarkerAlt className="w-5 h-5 mr-2" />
+                    View on Map
+                  </a>
                 </div>
-              </div>
-            )}
+              ))}
+            </div>
           </div>
         ))}
 
@@ -269,6 +266,7 @@ const Home = () => {
               key={ind}
               className={`relative flex flex-col lg:flex-row  lg:justify-between   `}
             >
+
               <>
                 {/* Text on the left, image on the right */}
                 <div className="flex flex-col z-10 items-start justify-center gap-5 w-[200%] ">
@@ -308,8 +306,7 @@ const Home = () => {
                 w-[18rem] md:w-[28rem] xl:w-[33rem] 2xl:w-[42rem]  
                 bottom-[3rem] md:bottom-[20rem] lg:-bottom-5 xl:-bottom-32  
                 md:left-72 lg:left-10  
-                "
-                >
+                ">
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#148938"
@@ -325,8 +322,7 @@ const Home = () => {
                 w-[15rem] 
                 md:right-[28rem] lg:right-[18rem] xl:right-[23rem] 2xl:right-[28rem]  
                 -top-5 
-                "
-                >
+                ">
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#f49738"
@@ -355,8 +351,7 @@ const Home = () => {
                           flippedCard === index ? "rotate-y-180" : ""
                         } transition-transform duration-700`}
                         onMouseEnter={() => handleMouseEnter(index)}
-                        onMouseLeave={handleMouseLeave}
-                      >
+                        onMouseLeave={handleMouseLeave}>
                         {flippedCard !== index ? (
                           <div className="flex flex-col gap-5 items-center justify-center p-3">
                             {hoveredCard === index ? (
@@ -377,8 +372,7 @@ const Home = () => {
 
                             <button
                               onClick={() => handleFlip(index)}
-                              className={`relative group overflow-hidden px-6 h-12 rounded-full flex space-x-2 items-center bg-gradient-to-r from-[#193c70e9] to-[#1489386c] hover:to-[#174926] `}
-                            >
+                              className={`relative group overflow-hidden px-6 h-12 rounded-full flex space-x-2 items-center bg-gradient-to-r from-[#193c70e9] to-[#1489386c] hover:to-[#174926] `}>
                               <span className="relative text-base text-dark_primary_text">
                                 NEXT
                               </span>
@@ -390,8 +384,7 @@ const Home = () => {
                                   fill="none"
                                   viewBox="0 0 24 24"
                                   stroke="currentColor"
-                                  stroke-width="2"
-                                >
+                                  stroke-width="2">
                                   <path
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
@@ -408,8 +401,7 @@ const Home = () => {
                                 <h2 className="namex">{product.name}</h2>
                                 <a
                                   href="/virtual-store/6759c6385204dcbaadf3fc09"
-                                  className="buyx"
-                                >
+                                  className="buyx">
                                   Buy
                                 </a>
                                 <div className="circlex"></div>
@@ -435,6 +427,7 @@ const Home = () => {
             key={ind}
             className={`  relative flex  gap-20  lg:justify-between px-5  lg:py-20 w-full `}
           >
+
             {ind % 2 === 0 ? (
               <>
                 {/* Text on the left, image on the right */}
@@ -475,8 +468,7 @@ const Home = () => {
                 w-[18rem] md:w-[28rem] xl:w-[33rem] 2xl:w-[42rem]  
                 bottom-[3rem] md:bottom-[20rem] lg:-bottom-5 xl:-bottom-2 2xl:-bottom-5 
                 md:left-72 lg:left-32  
-                "
-                >
+                ">
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#148938"
@@ -492,8 +484,7 @@ const Home = () => {
                 w-[15rem] 
                 md:right-[28rem] lg:right-[18rem] xl:right-[23rem] 2xl:right-[30rem]  
                 -top-5 
-                "
-                >
+                ">
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#f49738"
@@ -514,8 +505,7 @@ const Home = () => {
                   w-[20rem] sm:w-[28rem]  xl:w-[30rem] 2xl:w-[42rem] 
                  right-10 sm:right-[20rem] lg:right-20  
                  bottom-24 sm:bottom-[20rem] lg:bottom-[1rem] xl:bottom-[1rem]
- "
-                >
+ ">
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#f49738"
@@ -532,8 +522,7 @@ const Home = () => {
                  md:left-[28rem] lg:left-[18rem] xl:left-[23rem] 2xl:left-[30rem]
                 
                  -top-10
-                 "
-                >
+                 ">
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#148938"
