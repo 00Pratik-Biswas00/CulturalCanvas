@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import { FaLocationDot } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
-function PlaceCardItem({ place }) {
+function PlaceCardItem({ place, index }) {
   const [photoUrl, setPhotoUrl] = useState();
 
   useEffect(() => {
@@ -25,6 +25,7 @@ function PlaceCardItem({ place }) {
       setPhotoUrl(PhotoUrl);
     });
   };
+
   return (
     <div>
       <Link
@@ -36,7 +37,14 @@ function PlaceCardItem({ place }) {
         }
         target="_blank"
       >
-        <div className="my-4  px-3 py-1 gap-3 border rounded-lg flex flex-cols-2 hover:scale-105 transition-all hover:shadow-md cursor-pointer duration-500 ">
+        <div className="my-4 px-3 py-1 gap-3 border rounded-lg flex flex-cols-2 hover:scale-105 transition-all hover:shadow-md cursor-pointer duration-500">
+          <div>
+            <h1 className="px-3 rounded-full text-4xl bg-slate-500 text-white flex flex-col items-start justify-normal">
+              {index + 1}
+            </h1>{" "}
+          </div>
+
+          {/* Dynamic Card Number */}
           <div className="py-2 ">
             <img
               src={photoUrl ? photoUrl : "/public/road-trip-vacation.jpg"}
@@ -48,11 +56,11 @@ function PlaceCardItem({ place }) {
               {place.time}
             </h2>
             <h2 className="font-bold">{place.placeName}</h2>
-            <p className="text-sm ">{place.placeDetails}</p>
+            <p className="text-sm">{place.placeDetails}</p>
             <h2 className="text-highlight text-sm">{place.ticketPricing}</h2>
             <h2 className="text-sm text-yellow-500">⭐{place.rating}</h2>
           </div>
-          <div className=" py-2">
+          <div className="py-2">
             <FaLocationDot />
           </div>
         </div>

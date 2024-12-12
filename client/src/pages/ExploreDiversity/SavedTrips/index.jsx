@@ -24,7 +24,7 @@ function SavedTrips() {
   console.log("OnGenerateTrip called"); // Debugging
 
   return (
-    <div className="relative px-5  sm:px-10 md:px-32 lg:px-56 duration-300 bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-6 flex flex-col gap-2">
+    <div className="relative px-5  sm:px-10 md:px-32 lg:px-56 duration-300 bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-6 flex flex-col gap-2 min-h-screen">
       <h2 className="font-bold text-3xl">Saved Trips 🗺️</h2>{" "}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-7 gap-y-10 my-3">
         {userTrips?.length > 0
