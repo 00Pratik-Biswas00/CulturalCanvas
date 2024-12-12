@@ -10,7 +10,8 @@ import weddingImg from "../assets/culture/wedding.avif";
 // courses
 
 import BengaliLangImg from "../assets/courses/BengaliLang.png";
-import eng from "../assets/courses/BengaliLang.png";
+import eng from "../assets/courses/eng.png";
+import hindi from "../assets/courses/hindi.png";
 
 // states
 
@@ -306,13 +307,13 @@ export const dummyData = {
       buttonLink: "/learn-Indian-culture/language/bengali",
     },
     {
-      image: BengaliLangImg,
+      image: eng,
       description: "Want to learn more about this Language? Check Below",
       name: "ENGLISH",
       buttonLink: "/learn-Indian-culture/language/english",
     },
     {
-      image: BengaliLangImg,
+      image: hindi,
       description: "Want to learn more about this Language? Check Below",
       name: "HINDI (हिंदी)",
       buttonLink: "/learn-Indian-culture/language/hindi",
