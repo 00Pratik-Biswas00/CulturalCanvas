@@ -170,15 +170,15 @@ const Header = ({ open, setOpen }) => {
       </div>
 
       <div className="hidden lg:flex items-center justify-center space-x-5">
-        <div className="flex space-x-4 font-ubuntu font-medium text-sm uppercase">
+        <div className="flex space-x-7 font-ubuntu font-medium ">
           {routeContent.map((routes, ind) => (
             <NavLink
               key={ind}
               to={routes.route_link}
               className={({ isActive }) =>
                 isActive
-                  ? "text-highlight_hover dark:text-dark_primary_text uppercase "
-                  : " text-dark_secondary_text dark:text-highlight hover:text-highlight_hover dark:hover:text-highlight_hover header_links transition-transform duration-500 ease transform hover:scale-110"
+                  ? "text-highlight_hover dark:text-dark_primary_text  "
+                  : " text-dark_secondary_text dark:text-highlight hover:text-highlight_hover dark:hover:text-highlight_hover header_links transition-transform duration-500 ease transform hover:scale-110 "
               }
               end
               onClick={handleNavLinkClick}

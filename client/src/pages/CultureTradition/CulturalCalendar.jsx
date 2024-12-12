@@ -90,7 +90,7 @@ const CulturalCalendar = () => {
   return (
     <div>
       <h1 className="text-6xl tracking-wider font-extrabold font-gallient py-3 text-center">
-        Cultural Calendar
+        📆Cultural Calendar of India
       </h1>
       <div className="flex justify-center gap-16 px-5 py-7">
         <div className="flex flex-col items-center justify-center">
