@@ -127,8 +127,7 @@ const Home = () => {
           <div className="backdrop-blur-lg shadow-md shadow-highlight bg-opacity-80    rounded-b-[3rem]  relative flex flex-col gap-20  lg:justify-between px-5 sm:px-16 lg:py-20">
             <div
               key={ind}
-              className={`relative flex flex-col lg:flex-row  lg:justify-between px-5   `}
-            >
+              className={`relative flex flex-col lg:flex-row  lg:justify-between px-5   `}>
               <>
                 {/* Text on the left, image on the right */}
                 <div className="flex flex-col z-10 items-start justify-center gap-5 ">
@@ -174,8 +173,7 @@ const Home = () => {
                 w-[18rem] md:w-[28rem] xl:w-[33rem] 2xl:w-[42rem]  
                 bottom-[3rem] md:bottom-[20rem] lg:-bottom-5 xl:-bottom-32  
                 md:left-72 lg:left-10  
-                "
-                >
+                ">
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#148938"
@@ -191,8 +189,7 @@ const Home = () => {
                 w-[15rem] 
                 md:right-[28rem] lg:right-[18rem] xl:right-[23rem] 2xl:right-[28rem]  
                 -top-5 
-                "
-                >
+                ">
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#f49738"
@@ -206,23 +203,21 @@ const Home = () => {
               </>
             </div>
             <div>
-              <h1 className="text-6xl font-extrabold mb-6 text-center ">
+              <h1 className="text-6xl font-extrabold mb-3 text-center ">
                 {content.nRHead}
               </h1>
               <p className=" text-center mb-6 ">{content.nRPara}</p>
-              <div className="flex flex-col gap-5 items-center justify-center ">
+              <div className="flex  gap-5 items-center justify-center ">
                 <label
                   htmlFor="attraction"
-                  className="font-bold font-pangaia text-2xl"
-                >
-                  {content.nRoptions}
+                  className="font-bold font-pangaia text-2xl">
+                  {content.nRoptions}:
                 </label>
                 <select
                   className="px-3 gap-x-2 py-2 border  border-primary_text dark:border-dark_primary_text  dark:bg-shadow bg-dark_primary_text rounded-lg  focus:outline-none focus:border focus:border-highlight"
                   select
                   value={selectedOption}
-                  onChange={handleChange}
-                >
+                  onChange={handleChange}>
                   <option value="tourist_spots">{content.op1}</option>
                   <option value="restaurants">{content.op2}</option>
                   <option value="hotels">{content.op3}</option>
@@ -233,7 +228,7 @@ const Home = () => {
               </div>
             </div>
             {nearestAttractions && (
-              <div className="flex flex-col gap-5 relative items-center justify-center py-5 ">
+              <div className="flex flex-col gap-5 relative items-center justify-center py-3 ">
                 <h1 className=" font-bold font-pangaia text-2xl">
                   {content.nR}{" "}
                 </h1>
@@ -241,8 +236,7 @@ const Home = () => {
                   {nearestAttractions.map((attraction) => (
                     <div
                       className="p-4 gap-x-5 relative flex items-center justify-between rounded-xl  shadow-custom-black  dark:shadow-custom-white   blogCards "
-                      key={attraction.name}
-                    >
+                      key={attraction.name}>
                       <div>
                         <h3 className=" text-xl capitalize font-playfair">
                           {attraction.name}
@@ -257,8 +251,7 @@ const Home = () => {
                         href={attraction.link}
                         target="_blank"
                         rel="noreferrer"
-                        className=" bg-slate-500 animate-pulse p-2"
-                      >
+                        className=" bg-slate-500 animate-pulse p-2 rounded-full">
                         <FaMapMarkerAlt className=" w-7 h-7" />
                       </a>
                     </div>
@@ -273,8 +266,7 @@ const Home = () => {
           <div className="backdrop-blur-lg shadow-md shadow-dark_secondary_text bg-opacity-80    rounded-b-[3rem]  relative flex flex-col gap-20  lg:justify-between px-5 sm:px-16 lg:py-20">
             <div
               key={ind}
-              className={`relative flex flex-col lg:flex-row  lg:justify-between px-5   `}
-            >
+              className={`relative flex flex-col lg:flex-row  lg:justify-between px-5   `}>
               <>
                 {/* Text on the left, image on the right */}
                 <div className="flex flex-col z-10 items-start justify-center gap-5 ">
@@ -320,8 +312,7 @@ const Home = () => {
                 w-[18rem] md:w-[28rem] xl:w-[33rem] 2xl:w-[42rem]  
                 bottom-[3rem] md:bottom-[20rem] lg:-bottom-5 xl:-bottom-32  
                 md:left-72 lg:left-10  
-                "
-                >
+                ">
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#148938"
@@ -337,8 +328,7 @@ const Home = () => {
                 w-[15rem] 
                 md:right-[28rem] lg:right-[18rem] xl:right-[23rem] 2xl:right-[28rem]  
                 -top-5 
-                "
-                >
+                ">
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#f49738"
@@ -367,8 +357,7 @@ const Home = () => {
                           flippedCard === index ? "rotate-y-180" : ""
                         } transition-transform duration-700`}
                         onMouseEnter={() => handleMouseEnter(index)}
-                        onMouseLeave={handleMouseLeave}
-                      >
+                        onMouseLeave={handleMouseLeave}>
                         {flippedCard !== index ? (
                           <div className="flex flex-col gap-5 items-center justify-center p-3">
                             {hoveredCard === index ? (
@@ -389,8 +378,7 @@ const Home = () => {
 
                             <button
                               onClick={() => handleFlip(index)}
-                              className={`relative group overflow-hidden px-6 h-12 rounded-full flex space-x-2 items-center bg-gradient-to-r from-[#193c70e9] to-[#1489386c] hover:to-[#174926] `}
-                            >
+                              className={`relative group overflow-hidden px-6 h-12 rounded-full flex space-x-2 items-center bg-gradient-to-r from-[#193c70e9] to-[#1489386c] hover:to-[#174926] `}>
                               <span className="relative text-base text-dark_primary_text">
                                 NEXT
                               </span>
@@ -402,8 +390,7 @@ const Home = () => {
                                   fill="none"
                                   viewBox="0 0 24 24"
                                   stroke="currentColor"
-                                  stroke-width="2"
-                                >
+                                  stroke-width="2">
                                   <path
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
@@ -420,8 +407,7 @@ const Home = () => {
                                 <h2 className="namex">{product.name}</h2>
                                 <a
                                   href="/virtual-store/6759c6385204dcbaadf3fc09"
-                                  className="buyx"
-                                >
+                                  className="buyx">
                                   Buy
                                 </a>
                                 <div className="circlex"></div>
@@ -445,8 +431,7 @@ const Home = () => {
         {homeContent.MulHome.Home.map((content, ind) => (
           <div
             key={ind}
-            className={`backdrop-blur-lg shadow-md ${content.shadow} bg-opacity-80    rounded-b-[3rem]  relative flex flex-col lg:flex-row  lg:justify-between px-5 sm:px-16 lg:py-20   `}
-          >
+            className={`backdrop-blur-lg shadow-md ${content.shadow} bg-opacity-80    rounded-b-[3rem]  relative flex flex-col lg:flex-row  lg:justify-between px-5 sm:px-16 lg:py-20   `}>
             {ind % 2 === 0 ? (
               <>
                 {/* Text on the left, image on the right */}
@@ -493,8 +478,7 @@ const Home = () => {
                 w-[18rem] md:w-[28rem] xl:w-[33rem] 2xl:w-[42rem]  
                 bottom-[3rem] md:bottom-[20rem] lg:-bottom-5 xl:-bottom-2 2xl:-bottom-5 
                 md:left-72 lg:left-32  
-                "
-                >
+                ">
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#148938"
@@ -510,8 +494,7 @@ const Home = () => {
                 w-[15rem] 
                 md:right-[28rem] lg:right-[18rem] xl:right-[23rem] 2xl:right-[30rem]  
                 -top-5 
-                "
-                >
+                ">
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#f49738"
@@ -532,8 +515,7 @@ const Home = () => {
                   w-[20rem] sm:w-[28rem]  xl:w-[30rem] 2xl:w-[42rem] 
                  right-10 sm:right-[20rem] lg:right-20  
                  bottom-24 sm:bottom-[20rem] lg:bottom-[1rem] xl:bottom-[1rem]
- "
-                >
+ ">
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#f49738"
@@ -550,8 +532,7 @@ const Home = () => {
                  md:left-[28rem] lg:left-[18rem] xl:left-[23rem] 2xl:left-[30rem]
                 
                  -top-10
-                 "
-                >
+                 ">
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#148938"
