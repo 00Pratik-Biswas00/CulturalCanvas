@@ -10,6 +10,7 @@ import weddingImg from "../assets/culture/wedding.avif";
 // courses
 
 import BengaliLangImg from "../assets/courses/BengaliLang.png";
+import eng from "../assets/courses/BengaliLang.png";
 
 // states
 
