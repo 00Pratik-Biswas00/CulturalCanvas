@@ -124,26 +124,22 @@ const Home = () => {
     <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-4 px-16 duration-300 flex flex-col items-center bg-contain bg-no-repeat bg-center">
       <div className="w-full flex flex-col items-center justify-center gap-20 py-5">
         {homeContent.MulHome.HeriHome.map((content, ind) => (
-          <div className="backdrop-blur-lg shadow-md shadow-highlight bg-opacity-80    rounded-b-[3rem]  relative flex flex-col gap-20  lg:justify-between px-5 sm:px-16 lg:py-20">
+          <div className="backdrop-blur-lg   relative flex flex-col gap-10  lg:justify-between px-5  lg:py-5">
             <div
               key={ind}
-              className={`relative flex flex-col lg:flex-row  lg:justify-between px-5   `}
+              className={`relative flex flex-col lg:flex-row  lg:justify-between    `}
             >
-              <>
+              <div className="flex">
                 {/* Text on the left, image on the right */}
-                <div className="flex flex-col z-10 items-start justify-center gap-5 ">
-                  <div className=" text-5xl xl:text-7xl font-extrabold  ">
+                <div className="flex flex-col z-10 items-start justify-center gap-5  w-[200%]">
+                  <div className=" text-4xl xl:text-5xl font-extrabold  ">
                     {content.headingName}
                   </div>
                   <div className="flex flex-col gap-2  relative">
-                    <p className="  font-lato">{content.para}</p>
+                    {/* <p className="  font-lato">{content.para}</p> */}
                     {Array.isArray(content.featuringData) &&
                       content.featuringData.length > 0 && (
                         <div>
-                          <h1 className="flex gap-1 items-center pb-2 font-semibold text-lg">
-                            <span> {content.featuring}</span>{" "}
-                            <MdOutlineKeyboardDoubleArrowRight className="w-5 h-5 mt-[0.28rem]" />
-                          </h1>
                           <div className="flex flex-wrap gap-x-20 gap-y-2">
                             {content.featuringData.map((con, i) => (
                               <div key={i} className="flex gap-1 items-center">
@@ -156,8 +152,6 @@ const Home = () => {
                           </div>
                         </div>
                       )}
-
-                    <Speaker webData={content.para} />
                   </div>
 
                   <MyButton1
@@ -203,7 +197,7 @@ const Home = () => {
                 </div>
 
                 <HomePageBlob diffImages={content.image} />
-              </>
+              </div>
             </div>
             <div>
               <h1 className="text-6xl font-extrabold mb-6 text-center ">
@@ -270,26 +264,22 @@ const Home = () => {
         ))}
 
         {homeContent.MulHome.StoreHome.map((content, ind) => (
-          <div className="backdrop-blur-lg shadow-md shadow-dark_secondary_text bg-opacity-80    rounded-b-[3rem]  relative flex flex-col gap-20  lg:justify-between px-5 sm:px-16 lg:py-20">
+          <div className=" relative flex flex-col gap-20  lg:justify-between px-5  lg:py-20 w-full">
             <div
               key={ind}
-              className={`relative flex flex-col lg:flex-row  lg:justify-between px-5   `}
+              className={`relative flex flex-col lg:flex-row  lg:justify-between   `}
             >
               <>
                 {/* Text on the left, image on the right */}
-                <div className="flex flex-col z-10 items-start justify-center gap-5 ">
-                  <div className=" text-5xl xl:text-7xl font-extrabold  ">
+                <div className="flex flex-col z-10 items-start justify-center gap-5 w-[200%] ">
+                  <div className=" text-4xl xl:text-5xl font-extrabold  ">
                     {content.headingName}
                   </div>
                   <div className="flex flex-col gap-2  relative">
-                    <p className="  font-lato">{content.para}</p>
+                    {/* <p className="  font-lato">{content.para}</p> */}
                     {Array.isArray(content.featuringData) &&
                       content.featuringData.length > 0 && (
                         <div>
-                          <h1 className="flex gap-1 items-center pb-2 font-semibold text-lg">
-                            <span> {content.featuring}</span>{" "}
-                            <MdOutlineKeyboardDoubleArrowRight className="w-5 h-5 mt-[0.28rem]" />
-                          </h1>
                           <div className="flex flex-wrap gap-x-20 gap-y-2">
                             {content.featuringData.map((con, i) => (
                               <div key={i} className="flex gap-1 items-center">
@@ -302,8 +292,6 @@ const Home = () => {
                           </div>
                         </div>
                       )}
-
-                    <Speaker webData={content.para} />
                   </div>
 
                   <MyButton1
@@ -445,24 +433,20 @@ const Home = () => {
         {homeContent.MulHome.Home.map((content, ind) => (
           <div
             key={ind}
-            className={`backdrop-blur-lg shadow-md ${content.shadow} bg-opacity-80    rounded-b-[3rem]  relative flex flex-col lg:flex-row  lg:justify-between px-5 sm:px-16 lg:py-20   `}
+            className={`  relative flex  gap-20  lg:justify-between px-5  lg:py-20 w-full `}
           >
             {ind % 2 === 0 ? (
               <>
                 {/* Text on the left, image on the right */}
-                <div className="flex flex-col z-10 items-start justify-center gap-5 ">
-                  <div className=" text-5xl xl:text-7xl font-extrabold  ">
+                <div className=" relative flex flex-col gap-20  lg:justify-between px-5  lg:py-20 w-[200%] ">
+                  <div className=" text-4xl xl:text-5xl font-extrabold   ">
                     {content.headingName}
                   </div>
                   <div className="flex flex-col gap-2  relative">
-                    <p className="  font-lato">{content.para}</p>
+                    {/* <p className="  font-lato">{content.para}</p> */}
                     {Array.isArray(content.featuringData) &&
                       content.featuringData.length > 0 && (
                         <div>
-                          <h1 className="flex gap-1 items-center pb-2 font-semibold text-lg">
-                            <span> {content.featuring}</span>{" "}
-                            <MdOutlineKeyboardDoubleArrowRight className="w-5 h-5 mt-[0.28rem]" />
-                          </h1>
                           <div className="flex flex-wrap gap-x-20 gap-y-2">
                             {content.featuringData.map((con, i) => (
                               <div key={i} className="flex gap-1 items-center">
@@ -475,8 +459,6 @@ const Home = () => {
                           </div>
                         </div>
                       )}
-
-                    <Speaker webData={content.para} />
                   </div>
 
                   <MyButton1
@@ -561,12 +543,12 @@ const Home = () => {
                   </svg>
                 </div>
 
-                <div className=" order-1 lg:order-2 flex flex-col z-10 items-end justify-center gap-5 ">
-                  <div className=" text-5xl xl:text-7xl font-extrabold text-right  ">
+                <div className=" order-1 lg:order-2 flex flex-col z-10 items-start justify-center gap-5  w-[200%]">
+                  <div className=" text-4xl xl:text-5xl font-extrabold  text-right  ">
                     {content.headingName}
                   </div>
                   <div className="flex flex-col gap-2  relative">
-                    <p className=" text-right  font-lato">{content.para}</p>
+                    {/* <p className=" text-right  font-lato">{content.para}</p> */}
                     {Array.isArray(content.featuringData) &&
                       content.featuringData.length > 0 && (
                         <div>
@@ -586,7 +568,6 @@ const Home = () => {
                           </div>
                         </div>
                       )}
-                    <Speaker webData={content.para} />
                   </div>
                   <MyButton1
                     classDesign={
