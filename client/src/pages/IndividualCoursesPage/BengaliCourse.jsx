@@ -16,7 +16,6 @@ const BengaliCourse = () => {
         (course) => course.courseCategory.language === "Bengali"
       );
       setCourses(bengaliCourses);
-      console.log(bengaliCourses);
     }
   }, [data]);
 
