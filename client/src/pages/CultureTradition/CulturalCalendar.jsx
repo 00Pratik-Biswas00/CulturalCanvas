@@ -3,6 +3,7 @@ import "react-calendar/dist/Calendar.css";
 import { useState, useEffect } from "react";
 import { format } from "date-fns";
 import { useTranslation } from "react-i18next";
+import MapComponent from "../../components/MapComponent";
 
 const CulturalCalendar = () => {
   const { t } = useTranslation();
@@ -88,11 +89,35 @@ const CulturalCalendar = () => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col gap-">
       <h1 className="text-6xl tracking-wider font-extrabold font-gallient py-3 text-center">
         📆Cultural Calendar of India
       </h1>
-      <div className="flex justify-center gap-16 px-5 py-7">
+      <div className="flex flex-col gap-5">
+        {/* Countdown for the closest festival */}
+        {closestFestival && timeLeft && (
+          <div className="p-4 bg-background2 dark:bg-dark_background2 rounded-xl shadow-custom-orange flex items-center justify-center gap-20">
+            <div className="flex flex-col items-start  gap-5">
+              <h2 className="text-3xl font-extrabold font-playfair">
+                Upcoming Festival: {closestFestival.name}
+              </h2>
+              <p>{closestFestival.description}</p>
+              <div className="text-2xl font-pangaia">
+                ⏱️<b>Countdown: </b> {timeLeft.days}d {timeLeft.hours}h{" "}
+                {timeLeft.minutes}m {timeLeft.seconds}s
+              </div>
+            </div>
+
+            <img
+              src={closestFestival.image}
+              alt={closestFestival.name}
+              className="w-[25rem] h-[14.063rem] rounded-xl"
+            />
+          </div>
+        )}
+      </div>
+
+      <div className="flex gap-5 mt-10">
         <div className="flex flex-col items-center justify-center">
           <Calendar
             className="bg-background1 dark:bg-dark_background1 shadow-custom-black dark:shadow-custom-white text-primary_text dark:text-dark_primary_text font-bold rounded-xl"
@@ -133,28 +158,7 @@ const CulturalCalendar = () => {
           )}
         </div>
 
-        <div>
-          {/* Countdown for the closest festival */}
-          {closestFestival && timeLeft && (
-            <div className="p-4 bg-background2 dark:bg-dark_background2 rounded-xl shadow-custom-orange flex flex-col items-center justify-center gap-5">
-              <div className="flex flex-col gap-2 items-center">
-                <h2 className="text-2xl font-bold font-playfair">
-                  Upcoming Festival: {closestFestival.name}
-                </h2>
-                <p>{closestFestival.description}</p>
-              </div>
-              <img
-                src={closestFestival.image}
-                alt={closestFestival.name}
-                className="w-[25rem] h-[14.063rem] rounded-xl"
-              />
-              <div className="text-xl font-pangaia">
-                <b>Countdown: </b> {timeLeft.days}d {timeLeft.hours}h{" "}
-                {timeLeft.minutes}m {timeLeft.seconds}s
-              </div>
-            </div>
-          )}
-        </div>
+        <MapComponent festivals={festival} />
       </div>
     </div>
   );
