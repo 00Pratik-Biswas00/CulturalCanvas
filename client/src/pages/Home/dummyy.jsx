@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { FaMapMarkerAlt } from "react-icons/fa";
+import React from "react";
 import { useTranslation } from "react-i18next";
 import MyButton1 from "../../components/Buttons/MyButton1";
 import HomePageBlob from "../../components/Blobs/HomePageBlob";
@@ -11,241 +9,15 @@ import Speaker from "../../components/Settings/Speaker";
 const Home = () => {
   const { t } = useTranslation();
   const homeContent = t("HomeData", { returnObjects: true });
-  const [hoveredCard, setHoveredCard] = useState(null);
-  const [visibleCount, setVisibleCount] = useState(6);
-  const [flippedCard, setFlippedCard] = useState(null);
-
-  const [selectedOption, setSelectedOption] = useState("tourist_spots");
-  const [userLocation, setUserLocation] = useState(null);
-  const [nearestAttractions, setNearestAttraction] = useState([]);
-  const [recommendations, setRecommendations] = useState([]);
-
-  const options = [
-    "tourist_spots",
-    "restaurants",
-    "hotels",
-    "hospitals",
-    "police_stations",
-  ];
-
-  const handleFlip = (index) => {
-    setFlippedCard(index);
-  };
-
-  const handleUnflip = () => {
-    setFlippedCard(null);
-  };
-
-  const handleMouseEnter = (index) => {
-    setHoveredCard(index);
-  };
-
-  const handleMouseLeave = () => {
-    setHoveredCard(null);
-  };
-
-  const updateVisibleCount = () => {
-    let count;
-    if (window.innerWidth >= 1280) {
-      count = 6;
-    } else if (window.innerWidth >= 768) {
-      count = 4;
-    } else {
-      count = 2;
-    }
-    setVisibleCount(count);
-    setInitialVisibleCount(count);
-  };
-
-  const handleChange = (event) => {
-    setSelectedOption(event.target.value);
-  };
-
-  const fetchNearestAttractions = async () => {
-    try {
-      const response = await axios.post(
-        "http://127.0.0.1:8000/api/find-attractions",
-        {
-          latitude: userLocation.latitude,
-          longitude: userLocation.longitude,
-          attraction: selectedOption,
-        }
-      );
-      setNearestAttraction(response.data.attractions || []);
-    } catch (error) {
-      console.error("Error fetching nearest attractions:", error);
-    }
-  };
-
-  const fetchRecommendations = async () => {
-    try {
-      const response = await axios.post(
-        "http://127.0.0.1:8000/api/recommend-products",
-        {
-          latitude: userLocation.latitude,
-          longitude: userLocation.longitude,
-        }
-      );
-      setRecommendations(response.data.recommendations || []);
-    } catch (error) {
-      console.error("Error fetching recommendations:", error);
-    }
-  };
-
-  // Fetch user's current location
-  useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const { latitude, longitude } = position.coords;
-          setUserLocation({ latitude, longitude });
-        },
-        (error) => {
-          console.error("Error getting location:", error);
-        }
-      );
-    }
-  }, []);
-
-  // Fetch recommendations from the backend when user location is available
-  useEffect(() => {
-    if (userLocation) {
-      fetchNearestAttractions();
-    }
-  }, [userLocation, selectedOption]);
-
-  useEffect(() => {
-    if (userLocation) {
-      fetchRecommendations();
-    }
-  }, [userLocation]);
 
   return (
-    <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-4 px-16 duration-300 flex flex-col items-center bg-contain bg-no-repeat bg-center">
-      <div>
-        <h1 className="text-6xl font-extrabold mb-6 text-center ">
-          Welcome You Here!
-        </h1>
-        <p className=" text-center mb-6 ">
-          A warm welcome to our city! Discover the heart of India's central
-          highlands. Explore ancient temples, lush landscapes, and bustling
-          markets. Indulge in delectable local cuisine and experience the warmth
-          of our people. Have a memorable stay!
-        </p>
-        <div className="flex flex-col gap-5 items-center justify-center ">
-          <label
-            htmlFor="attraction"
-            className="font-bold font-pangaia text-2xl">
-            Select Attraction Type
-          </label>
-          <select
-            className="px-3 gap-x-2 py-2 border  border-primary_text dark:border-dark_primary_text  dark:bg-shadow bg-dark_primary_text rounded-lg  focus:outline-none focus:border focus:border-highlight"
-            select
-            value={selectedOption}
-            onChange={handleChange}>
-            <option value="tourist_spots">Tourist Spots</option>
-            <option value="restaurants">Restaurants</option>
-            <option value="hotels">Hotels</option>
-            <option value="hospitals">Hospitals</option>
-            <option value="police_stations">Police Stations</option>
-            {/* ))} */}
-          </select>
-        </div>
-      </div>
-      {nearestAttractions && (
-        <div className="flex flex-col gap-5 relative items-center justify-center py-5 ">
-          <h1 className=" font-bold font-pangaia text-2xl">
-            Nearest Attractions{" "}
-          </h1>
-          <div className="p-4 grid grid-cols-4 gap-9 text-lg ">
-            {nearestAttractions.map((attraction) => (
-              <div
-                className="p-4 gap-x-5 relative flex items-center justify-between rounded-xl  shadow-custom-black  dark:shadow-custom-white   blogCards "
-                key={attraction.name}>
-                <div>
-                  <h3 className=" text-xl capitalize font-playfair">
-                    {attraction.name}
-                  </h3>
-                  <p>
-                    <b> Distance:</b> {attraction.distance.toFixed(2)} km
-                  </p>
-                </div>
-
-                <a href={attraction.link} target="_blank" rel="noreferrer">
-                  <FaMapMarkerAlt className=" w-7 h-7" />
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {recommendations && (
-        <div className="flex flex-col gap-5 relative items-center justify-center py-5 ">
-          <h1 className=" font-bold font-pangaia text-2xl">
-            Check out the local products around you{" "}
-          </h1>
-          <div className="grid xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 lg:gap-12 gap-8 sm:gap-10 pt-5">
-            {recommendations.slice(0, visibleCount).map((product, index) => (
-              <div
-                key={index}
-                className={`relative rounded-lg overflow-hidden flex flex-col items-center justify-center shadow-lg cursor-pointer ${
-                  flippedCard === index ? "rotate-y-180" : ""
-                } transition-transform duration-700`}
-                onMouseEnter={() => handleMouseEnter(index)}
-                onMouseLeave={handleMouseLeave}>
-                {flippedCard !== index ? (
-                  <>
-                    {hoveredCard === index ? (
-                      <video
-                        src={product.video.url}
-                        autoPlay
-                        loop
-                        className="w-full h-full"
-                      />
-                    ) : (
-                      <img
-                        src={product.image.url}
-                        alt={product.name}
-                        className="w-[20rem] h-[20rem]"
-                      />
-                    )}
-
-                    <div className="p-3">
-                      <button onClick={() => handleFlip(index)}>NEXT</button>
-                    </div>
-                  </>
-                ) : (
-                  <div className="back absolute inset-0 flex flex-col justify-center items-center bg-background2 rounded-lg">
-                    <div className="containerx">
-                      <div className="boxx">
-                        <h2 className="namex">{product.name}</h2>
-                        <a
-                          href="/virtual-store/6759c6385204dcbaadf3fc09"
-                          className="buyx">
-                          Buy
-                        </a>
-                        <div className="circlex"></div>
-                        <img
-                          src={product.image.url}
-                          alt="Product"
-                          className="productx w-52 h-52"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      <div className="w-full flex flex-col items-center justify-center gap-20 py-5">
+    <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-10 duration-500">
+      <div className="w-full flex flex-col items-center justify-center gap-20">
         {homeContent.Home.map((content, ind) => (
           <div
             key={ind}
-            className={`backdrop-blur-lg shadow-md ${content.shadow} bg-opacity-80    rounded-b-[3rem]  relative flex flex-col lg:flex-row  lg:justify-between px-5 sm:px-16 lg:py-10   `}>
+            className={`backdrop-blur-lg shadow-md ${content.shadow} bg-opacity-80    rounded-b-[3rem]  relative flex flex-col lg:flex-row  lg:justify-between px-5 sm:px-16 lg:py-10   `}
+          >
             {ind % 2 === 0 ? (
               <>
                 {/* Text on the left, image on the right */}
@@ -292,7 +64,8 @@ const Home = () => {
                 w-[18rem] md:w-[28rem] xl:w-[33rem] 2xl:w-[42rem]  
                 bottom-[3rem] md:bottom-[20rem] lg:-bottom-5 xl:-bottom-2 2xl:-bottom-5 
                 md:left-72 lg:left-32  
-                ">
+                "
+                >
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#148938"
@@ -308,7 +81,8 @@ const Home = () => {
                 w-[15rem] 
                 md:right-[28rem] lg:right-[18rem] xl:right-[23rem] 2xl:right-[30rem]  
                 -top-5 
-                ">
+                "
+                >
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#f49738"
@@ -329,7 +103,8 @@ const Home = () => {
                   w-[20rem] sm:w-[28rem]  xl:w-[30rem] 2xl:w-[42rem] 
                  right-10 sm:right-[20rem] lg:right-20  
                  bottom-24 sm:bottom-[20rem] lg:bottom-[1rem] xl:bottom-[1rem]
- ">
+ "
+                >
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#f49738"
@@ -346,7 +121,8 @@ const Home = () => {
                  md:left-[28rem] lg:left-[18rem] xl:left-[23rem] 2xl:left-[30rem]
                 
                  -top-10
-                 ">
+                 "
+                >
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#148938"

@@ -255,8 +255,7 @@ const VirtualStore = () => {
 
                 <button
                   onClick={() => handleFlip(index)}
-                  className={`relative group overflow-hidden px-6 h-12 rounded-full flex space-x-2 items-center bg-gradient-to-r from-[#193c70e9] to-[#1489386c] hover:to-[#174926] `}
-                >
+                  className={`relative group overflow-hidden px-6 h-12 rounded-full flex space-x-2 items-center bg-gradient-to-r from-[#193c70e9] to-[#1489386c] hover:to-[#174926] `}>
                   <span className="relative text-base text-dark_primary_text">
                     NEXT
                   </span>
@@ -268,8 +267,7 @@ const VirtualStore = () => {
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
-                      stroke-width="2"
-                    >
+                      stroke-width="2">
                       <path
                         stroke-linecap="round"
                         stroke-linejoin="round"
@@ -283,11 +281,10 @@ const VirtualStore = () => {
               <div className="back absolute inset-0 flex flex-col justify-center items-center rounded-lg">
                 <div className="containerx">
                   <div className="boxx">
-                    <h2 className="namex">Khadi Kurti</h2>
+                    <h2 className="namex">Dhokara</h2>
                     <a
                       href="/virtual-store/6759c6385204dcbaadf3fc09"
-                      className="buyx"
-                    >
+                      className="buyx">
                       Buy
                     </a>
                     <div className="circlex"></div>
