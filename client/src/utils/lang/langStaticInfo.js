@@ -1476,29 +1476,29 @@ Modern Adaptations: Designers have reimagined the lehenga-choli with fusion styl
         languageCourse: "/learn-Indian-culture/assamese-course",
         artsDetails: [
           {
-            cuisineImage:
+            artImage:
               "https://clickstory.in/wp-content/uploads/2016/09/kuchipudi-dancedrama.jpg",
-            cuisineName: "Kuchipudi Dance",
+            artName: "Kuchipudi Dance",
           },
           {
-            cuisineImage:
+            artImage:
               "https://th-i.thgim.com/public/news/national/andhra-pradesh/x13dlp/article29128160.ece/alternates/FREE_1200/19VJPAGEBURRAKATHA",
-            cuisineName: "Burrakatha (Folk Storytelling)",
+            artName: "Burrakatha (Folk Storytelling)",
           },
           {
-            cuisineImage:
+            artImage:
               "https://upload.wikimedia.org/wikipedia/commons/8/83/Hanuman_and_Ravana_in_Tholu_Bommalata%2C_the_shadow_puppet_tradition_of_Andhra_Pradesh%2C_India.JPG",
-            cuisineName: "Tholu Bommalata (Shadow Puppetry)",
+            artName: "Tholu Bommalata (Shadow Puppetry)",
           },
           {
-            cuisineImage:
+            artImage:
               "https://www.gktoday.in/wp-content/uploads/2023/03/perini.jpg",
-            cuisineName: "Perini Sivatandavam (Warrior Dance)",
+            artName: "Perini Sivatandavam (Warrior Dance)",
           },
           {
-            cuisineImage:
+            artImage:
               "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXW-G-4yR3Od2c5UHHR-JkebFMv_1EJjyaqND3Cw6YKu4LJRhnN2OFc5uzSVvY9-JL8VmseRpfwfj1a_CfIsMH-nlxataeakhxD0B2dffsRITHivN9Sv43zI2huLj72ZHHfJ-961ID4-M/s1600/kuchipudi-dance-410_m.jpg",
-            cuisineName: "Veeranatyam (Dance of Warriors)",
+            artName: "Veeranatyam (Dance of Warriors)",
           },
         ],
         artsCourse: "/learn-Indian-culture/assam-art-course",
