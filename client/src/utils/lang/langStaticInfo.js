@@ -174,24 +174,24 @@ export const Static_Information = {
               },
             ],
           },
-          {
-            para: `Dive deep into India’s historical and cultural wealth by exploring its most celebrated World Heritage Sites. This section is dedicated to the architectural and natural marvels that have stood the test of time, each narrating a story of its own. From the majestic forts that once guarded kingdoms to the sacred temp`,
-            image: cultureImg,
-            shadow: "shadow-dark_secondary_text",
-            headingName: "Experience the Living Tapestry of India’s Culture",
-            buttonLink: "/culture-tradition",
-            featuringData: [
-              {
-                featureName: "Indian Cultural Calendar",
-              },
-              {
-                featureName: "Types of Indian Cultures",
-              },
-              {
-                featureName: "State-Wise Indian Cultures",
-              },
-            ],
-          },
+          // {
+          //   para: `Dive deep into India’s historical and cultural wealth by exploring its most celebrated World Heritage Sites. This section is dedicated to the architectural and natural marvels that have stood the test of time, each narrating a story of its own. From the majestic forts that once guarded kingdoms to the sacred temp`,
+          //   image: cultureImg,
+          //   shadow: "shadow-dark_secondary_text",
+          //   headingName: "Experience the Living Tapestry of India’s Culture",
+          //   buttonLink: "/culture-tradition",
+          //   featuringData: [
+          //     {
+          //       featureName: "Indian Cultural Calendar",
+          //     },
+          //     {
+          //       featureName: "Types of Indian Cultures",
+          //     },
+          //     {
+          //       featureName: "State-Wise Indian Cultures",
+          //     },
+          //   ],
+          // },
           // {
           //   para: `Dive deep into India’s historical and cultural wealth by exploring its most celebrated World Heritage Sites. This section is dedicated to the architectural and natural marvels that have stood the test of time, each narrating a story of its own. From the majestic forts that once guarded kingdoms to the sacred temp`,
           //   image: exploreImg,

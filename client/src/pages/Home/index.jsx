@@ -276,6 +276,64 @@ const Home = () => {
             )}
           </div>
         ))}
+
+        <div>
+        <h1 className="text-6xl font-extrabold mb-6 text-center ">
+          Welcome You Here!
+        </h1>
+        <p className=" text-center mb-6 ">
+          A warm welcome to our city! Discover the heart of India's central
+          highlands. Explore ancient temples, lush landscapes, and bustling
+          markets. Indulge in delectable local cuisine and experience the warmth
+          of our people. Have a memorable stay!
+        </p>
+        <div className="flex flex-col gap-5 items-center justify-center ">
+          <label
+            htmlFor="attraction"
+            className="font-bold font-pangaia text-2xl">
+            Select Attraction Type
+          </label>
+          <select
+            className="px-3 gap-x-2 py-2 border  border-primary_text dark:border-dark_primary_text  dark:bg-shadow bg-dark_primary_text rounded-lg  focus:outline-none focus:border focus:border-highlight"
+            select
+            value={selectedOption}
+            onChange={handleChange}>
+            <option value="tourist_spots">Tourist Spots</option>
+            <option value="restaurants">Restaurants</option>
+            <option value="hotels">Hotels</option>
+            <option value="hospitals">Hospitals</option>
+            <option value="police_stations">Police Stations</option>
+            {/* ))} */}
+          </select>
+        </div>
+      </div>
+      {nearestAttractions && (
+        <div className="flex flex-col gap-5 relative items-center justify-center py-5 ">
+          <h1 className=" font-bold font-pangaia text-2xl">
+            Nearest Attractions{" "}
+          </h1>
+          <div className="p-4 grid grid-cols-4 gap-9 text-lg ">
+            {nearestAttractions.map((attraction) => (
+              <div
+                className="p-4 gap-x-5 relative flex items-center justify-between rounded-xl  shadow-custom-black  dark:shadow-custom-white   blogCards "
+                key={attraction.name}>
+                <div>
+                  <h3 className=" text-xl capitalize font-playfair">
+                    {attraction.name}
+                  </h3>
+                  <p>
+                    <b> Distance:</b> {attraction.distance.toFixed(2)} km
+                  </p>
+                </div>
+
+                <a href={attraction.link} target="_blank" rel="noreferrer">
+                  <FaMapMarkerAlt className=" w-7 h-7" />
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
       </div>
 
       <div>
