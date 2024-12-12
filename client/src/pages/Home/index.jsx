@@ -7,7 +7,7 @@ import HomePageBlob from "../../components/Blobs/HomePageBlob";
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 import { IoCheckmarkDoneCircle } from "react-icons/io5";
 import Speaker from "../../components/Settings/Speaker";
-
+import vid1 from "../../assets/store/a.mp4";
 const Home = () => {
   const { t } = useTranslation();
   const homeContent = t("HomeData", { returnObjects: true });
@@ -71,7 +71,7 @@ const Home = () => {
           attraction: selectedOption,
         }
       );
-      setNearestAttraction(response.data.attractions || []);
+      setNearestAttraction(response.data.attractions.slice(0, 8) || []);
     } catch (error) {
       console.error("Error fetching nearest attractions:", error);
     }
@@ -122,125 +122,6 @@ const Home = () => {
 
   return (
     <section className="bg-background1 dark:bg-dark_background1 text-primary_text dark:text-dark_primary_text py-4 px-16 duration-300 flex flex-col items-center bg-contain bg-no-repeat bg-center">
-      <div>
-        <h1 className="text-6xl font-extrabold mb-6 text-center ">
-          Welcome You Here!
-        </h1>
-        <p className=" text-center mb-6 ">
-          A warm welcome to our city! Discover the heart of India's central
-          highlands. Explore ancient temples, lush landscapes, and bustling
-          markets. Indulge in delectable local cuisine and experience the warmth
-          of our people. Have a memorable stay!
-        </p>
-        <div className="flex flex-col gap-5 items-center justify-center ">
-          <label
-            htmlFor="attraction"
-            className="font-bold font-pangaia text-2xl">
-            Select Attraction Type
-          </label>
-          <select
-            className="px-3 gap-x-2 py-2 border  border-primary_text dark:border-dark_primary_text  dark:bg-shadow bg-dark_primary_text rounded-lg  focus:outline-none focus:border focus:border-highlight"
-            select
-            value={selectedOption}
-            onChange={handleChange}>
-            <option value="tourist_spots">Tourist Spots</option>
-            <option value="restaurants">Restaurants</option>
-            <option value="hotels">Hotels</option>
-            <option value="hospitals">Hospitals</option>
-            <option value="police_stations">Police Stations</option>
-            {/* ))} */}
-          </select>
-        </div>
-      </div>
-      {nearestAttractions && (
-        <div className="flex flex-col gap-5 relative items-center justify-center py-5 ">
-          <h1 className=" font-bold font-pangaia text-2xl">
-            Nearest Attractions{" "}
-          </h1>
-          <div className="p-4 grid grid-cols-4 gap-9 text-lg ">
-            {nearestAttractions.map((attraction) => (
-              <div
-                className="p-4 gap-x-5 relative flex items-center justify-between rounded-xl  shadow-custom-black  dark:shadow-custom-white   blogCards "
-                key={attraction.name}>
-                <div>
-                  <h3 className=" text-xl capitalize font-playfair">
-                    {attraction.name}
-                  </h3>
-                  <p>
-                    <b> Distance:</b> {attraction.distance.toFixed(2)} km
-                  </p>
-                </div>
-
-                <a href={attraction.link} target="_blank" rel="noreferrer">
-                  <FaMapMarkerAlt className=" w-7 h-7" />
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {recommendations && (
-        <div className="flex flex-col gap-5 relative items-center justify-center py-5 ">
-          <h1 className=" font-bold font-pangaia text-2xl">
-            Check out the local products around you{" "}
-          </h1>
-          <div className="grid xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 lg:gap-12 gap-8 sm:gap-10 pt-5">
-            {recommendations.slice(0, visibleCount).map((product, index) => (
-              <div
-                key={index}
-                className={`relative rounded-lg overflow-hidden flex flex-col items-center justify-center shadow-lg cursor-pointer ${
-                  flippedCard === index ? "rotate-y-180" : ""
-                } transition-transform duration-700`}
-                onMouseEnter={() => handleMouseEnter(index)}
-                onMouseLeave={handleMouseLeave}>
-                {flippedCard !== index ? (
-                  <>
-                    {hoveredCard === index ? (
-                      <video
-                        src={product.video.url}
-                        autoPlay
-                        loop
-                        className="w-full h-full"
-                      />
-                    ) : (
-                      <img
-                        src={product.image.url}
-                        alt={product.name}
-                        className="w-[20rem] h-[20rem]"
-                      />
-                    )}
-
-                    <div className="p-3">
-                      <button onClick={() => handleFlip(index)}>NEXT</button>
-                    </div>
-                  </>
-                ) : (
-                  <div className="back absolute inset-0 flex flex-col justify-center items-center bg-background2 rounded-lg">
-                    <div className="containerx">
-                      <div className="boxx">
-                        <h2 className="namex">{product.name}</h2>
-                        <a
-                          href="/virtual-store/6759c6385204dcbaadf3fc09"
-                          className="buyx">
-                          Buy
-                        </a>
-                        <div className="circlex"></div>
-                        <img
-                          src={product.image.url}
-                          alt="Product"
-                          className="productx w-52 h-52"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
       <div className="w-full flex flex-col items-center justify-center gap-20 py-5">
         {homeContent.Home.map((content, ind) => (
           <div
@@ -396,6 +277,146 @@ const Home = () => {
           </div>
         ))}
       </div>
+
+      <div>
+        <h1 className="text-6xl font-extrabold mb-6 text-center ">
+          Welcome You Here!
+        </h1>
+        <p className=" text-center mb-6 ">
+          A warm welcome to our city! Discover the heart of India's central
+          highlands. Explore ancient temples, lush landscapes, and bustling
+          markets. Indulge in delectable local cuisine and experience the warmth
+          of our people. Have a memorable stay!
+        </p>
+        <div className="flex flex-col gap-5 items-center justify-center ">
+          <label
+            htmlFor="attraction"
+            className="font-bold font-pangaia text-2xl">
+            Select Attraction Type
+          </label>
+          <select
+            className="px-3 gap-x-2 py-2 border  border-primary_text dark:border-dark_primary_text  dark:bg-shadow bg-dark_primary_text rounded-lg  focus:outline-none focus:border focus:border-highlight"
+            select
+            value={selectedOption}
+            onChange={handleChange}>
+            <option value="tourist_spots">Tourist Spots</option>
+            <option value="restaurants">Restaurants</option>
+            <option value="hotels">Hotels</option>
+            <option value="hospitals">Hospitals</option>
+            <option value="police_stations">Police Stations</option>
+            {/* ))} */}
+          </select>
+        </div>
+      </div>
+      {nearestAttractions && (
+        <div className="flex flex-col gap-5 relative items-center justify-center py-5 ">
+          <h1 className=" font-bold font-pangaia text-2xl">
+            Nearest Attractions{" "}
+          </h1>
+          <div className="p-4 grid grid-cols-4 gap-9 text-lg ">
+            {nearestAttractions.map((attraction) => (
+              <div
+                className="p-4 gap-x-5 relative flex items-center justify-between rounded-xl  shadow-custom-black  dark:shadow-custom-white   blogCards "
+                key={attraction.name}>
+                <div>
+                  <h3 className=" text-xl capitalize font-playfair">
+                    {attraction.name}
+                  </h3>
+                  <p>
+                    <b> Distance:</b> {attraction.distance.toFixed(2)} km
+                  </p>
+                </div>
+
+                <a href={attraction.link} target="_blank" rel="noreferrer">
+                  <FaMapMarkerAlt className=" w-7 h-7" />
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {recommendations && (
+        <div className="flex flex-col gap-5 relative items-center justify-center py-5 ">
+          <h1 className=" font-bold font-pangaia text-2xl">
+            Check out the local products around you{" "}
+          </h1>
+          <div className="grid xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 lg:gap-12 gap-8 sm:gap-10 pt-5">
+            {recommendations.slice(0, visibleCount).map((product, index) => (
+              <div
+                key={index}
+                className={`relative rounded-lg overflow-hidden flex flex-col items-center justify-center shadow-lg cursor-pointer ${
+                  flippedCard === index ? "rotate-y-180" : ""
+                } transition-transform duration-700`}
+                onMouseEnter={() => handleMouseEnter(index)}
+                onMouseLeave={handleMouseLeave}>
+                {flippedCard !== index ? (
+                  <div className="flex flex-col gap-5 items-center justify-center p-3">
+                    {hoveredCard === index ? (
+                      <video
+                        // src={product.video.url}
+                        src={vid1}
+                        autoPlay
+                        loop
+                        className="w-full h-full"
+                      />
+                    ) : (
+                      <img
+                        src={product.image.url}
+                        alt={product.name}
+                        className="w-[20rem] h-[20rem]"
+                      />
+                    )}
+
+                    <button
+                      onClick={() => handleFlip(index)}
+                      className={`relative group overflow-hidden px-6 h-12 rounded-full flex space-x-2 items-center bg-gradient-to-r from-[#193c70e9] to-[#1489386c] hover:to-[#174926] `}>
+                      <span className="relative text-base text-dark_primary_text">
+                        NEXT
+                      </span>
+                      <div className="flex items-center -space-x-3 translate-x-3">
+                        <div className="w-2.5 h-[1.6px] rounded bg-white origin-left scale-x-0 transition duration-300 group-hover:scale-x-100"></div>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5 stroke-white -translate-x-2 transition duration-300 group-hover:translate-x-0"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          stroke-width="2">
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M9 5l7 7-7 7"
+                          />
+                        </svg>
+                      </div>
+                    </button>
+                  </div>
+                ) : (
+                  <div className="back absolute inset-0 flex flex-col justify-center items-center bg-background2 rounded-lg">
+                    <div className="containerx">
+                      <div className="boxx">
+                        <h2 className="namex">{product.name}</h2>
+                        <a
+                          href="/virtual-store/6759c6385204dcbaadf3fc09"
+                          className="buyx">
+                          Buy
+                        </a>
+                        <div className="circlex"></div>
+                        <img
+                          src={product.image.url}
+                          alt="Product"
+                          className="productx w-52 h-52"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </section>
   );
 };
