@@ -10,6 +10,12 @@ export const GET_ALL_FESTIVALS_QUERY = gql`
         url
         public_id
       }
+      location {
+        city
+        state
+        lat
+        lng
+      }
     }
   }
 `;

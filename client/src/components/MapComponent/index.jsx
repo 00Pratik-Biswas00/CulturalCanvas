@@ -6,7 +6,11 @@ const AutoZoom = ({ festivals }) => {
   const map = useMap();
 
   useEffect(() => {
-    if (festivals.length > 0) {
+    if (
+      festivals.length > 0 &&
+      festivals[0].location.lat &&
+      festivals[0].location.lng // Corrected property from `long` to `lng`
+    ) {
       // Get the first festival's location
       const { lat, lng } = festivals[0].location;
       map.setView([lat, lng], 10); // Centered on the location with zoom level 10
@@ -26,22 +30,28 @@ const MapComponent = ({ festivals }) => {
     <MapContainer
       center={defaultPosition}
       zoom={4}
-      style={{ height: "500px", width: "100%" }}>
+      style={{ height: "500px", width: "100%" }}
+    >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
       <AutoZoom festivals={festivals} />
 
-      {festivals.map((festival) => (
-        <Marker
-          key={festival.name}
-          position={[festival.location.lat, festival.location.lng]}>
-          <Popup>
-            <strong>{festival.name}</strong>
-            <br />
-            {festival.location.city}, {festival.location.state}
-          </Popup>
-        </Marker>
-      ))}
+      {festivals.map(
+        (festival) =>
+          festival.location.lat &&
+          festival.location.lng && (
+            <Marker
+              key={festival.name}
+              position={[festival.location.lat, festival.location.lng]}
+            >
+              <Popup>
+                <strong>{festival.name}</strong>
+                <br />
+                {festival.location.city}, {festival.location.state}
+              </Popup>
+            </Marker>
+          )
+      )}
     </MapContainer>
   );
 };
