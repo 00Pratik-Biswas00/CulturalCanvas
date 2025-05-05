@@ -148,7 +148,8 @@ const Home = () => {
           <div className="backdrop-blur-lg relative flex flex-col gap-10  lg:justify-between px-5 lg:py-5">
             <div
               key={ind}
-              className={`relative flex flex-col lg:flex-row  lg:justify-between px-5   `}>
+              className={`relative flex flex-col lg:flex-row  lg:justify-between px-5   `}
+            >
               <>
                 {/* Text on the left, image on the right */}
                 <div className="flex flex-col z-10 items-start justify-center gap-5 w-[200%] ">
@@ -190,7 +191,8 @@ const Home = () => {
                 w-[18rem] md:w-[28rem] xl:w-[20rem]  
                 bottom-[3rem] md:bottom-[20rem] lg:-bottom-5 xl:-bottom-30  
                 md:left-72 lg:left-52  
-                ">
+                "
+                >
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#148938"
@@ -206,7 +208,8 @@ const Home = () => {
                 w-[15rem] 
                 md:right-[28rem] lg:right-[18rem] xl:right-[23rem] 2xl:right-[28rem]  
                 -top-5 
-                ">
+                "
+                >
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#f49738"
@@ -245,7 +248,8 @@ const Home = () => {
                           ? "bg-highlight text-white"
                           : "bg-dark_primary_text text-primary_text"
                       } hover:shadow-lg`}
-                      onClick={() => setSelectedOption(option)}>
+                      onClick={() => setSelectedOption(option)}
+                    >
                       <h3 className="text-center capitalize font-bold">
                         {content[`op${index + 1}`]}{" "}
                         {/* Dynamically fetch option labels */}
@@ -261,7 +265,8 @@ const Home = () => {
               <select
                 className="border p-2 rounded-md"
                 value={sortOption}
-                onChange={(e) => setSortOption(e.target.value)}>
+                onChange={(e) => setSortOption(e.target.value)}
+              >
                 <option value="distance">Sort by Distance</option>
                 <option value="rating">Sort by Rating</option>
               </select>
@@ -285,7 +290,8 @@ const Home = () => {
               {nearestAttractions.map((attraction) => (
                 <div
                   className="p-4 gap-x-2 w-80 h-96 relative flex flex-col items-start justify-between rounded-xl shadow-custom-black dark:shadow-custom-white blogCards"
-                  key={attraction.name}>
+                  key={attraction.name}
+                >
                   {/* Attraction Image */}
                   <img
                     src={attraction.photo_url}
@@ -314,7 +320,8 @@ const Home = () => {
                     href={attraction.link}
                     target="_blank"
                     rel="noreferrer"
-                    className="mt-3 bg-slate-500 hover:bg-slate-600 text-white p-2 rounded-md flex items-center justify-center w-full">
+                    className="mt-3 bg-slate-500 hover:bg-slate-600 text-white p-2 rounded-md flex items-center justify-center w-full"
+                  >
                     <FaMapMarkerAlt className="w-5 h-5 mr-2" />
                     View on Map
                   </a>
@@ -328,7 +335,8 @@ const Home = () => {
           <div className="backdrop-blur-lg  relative flex flex-col gap-10  lg:justify-between px-5  lg:py-20">
             <div
               key={ind}
-              className={`relative flex flex-col lg:flex-row  lg:justify-between px-5  w-full  `}>
+              className={`relative flex flex-col lg:flex-row  lg:justify-between px-5  w-full  `}
+            >
               <>
                 {/* Text on the left, image on the right */}
                 <div className="flex flex-col z-10 items-start justify-center gap-5 w-[200%]">
@@ -368,7 +376,8 @@ const Home = () => {
                 w-[18rem] md:w-[28rem] xl:w-[20rem] 
                 bottom-[3rem] md:bottom-[20rem] lg:-bottom-5 xl:-bottom-30  
                 md:left-72 lg:left-52  
-                ">
+                "
+                >
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#148938"
@@ -384,7 +393,8 @@ const Home = () => {
                 w-[15rem] 
                 md:right-[28rem] lg:right-[18rem] xl:right-[23rem] 2xl:right-[28rem]  
                 -top-5 
-                ">
+                "
+                >
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#f49738"
@@ -413,7 +423,8 @@ const Home = () => {
                           flippedCard === index ? "rotate-y-180" : ""
                         } transition-transform duration-700`}
                         onMouseEnter={() => handleMouseEnter(index)}
-                        onMouseLeave={handleMouseLeave}>
+                        onMouseLeave={handleMouseLeave}
+                      >
                         {flippedCard !== index ? (
                           <div className="flex flex-col gap-5 items-center justify-center p-3">
                             {hoveredCard === index ? (
@@ -434,7 +445,8 @@ const Home = () => {
 
                             <button
                               onClick={() => handleFlip(index)}
-                              className={`relative group overflow-hidden px-6 h-12 rounded-full flex space-x-2 items-center bg-gradient-to-r from-[#193c70e9] to-[#1489386c] hover:to-[#174926] `}>
+                              className={`relative group overflow-hidden px-6 h-12 rounded-full flex space-x-2 items-center bg-gradient-to-r from-[#193c70e9] to-[#1489386c] hover:to-[#174926] `}
+                            >
                               <span className="relative text-base text-dark_primary_text">
                                 NEXT
                               </span>
@@ -446,7 +458,8 @@ const Home = () => {
                                   fill="none"
                                   viewBox="0 0 24 24"
                                   stroke="currentColor"
-                                  stroke-width="2">
+                                  stroke-width="2"
+                                >
                                   <path
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
@@ -463,7 +476,8 @@ const Home = () => {
                                 <h2 className="namex">{product.name}</h2>
                                 <a
                                   href="/virtual-store/6759c6385204dcbaadf3fc09"
-                                  className="buyx">
+                                  className="buyx"
+                                >
                                   Buy
                                 </a>
                                 <div className="circlex"></div>
@@ -487,7 +501,8 @@ const Home = () => {
         {homeContent.MulHome.Home.map((content, ind) => (
           <div
             key={ind}
-            className={`backdrop-blur-lg relative flex flex-col lg:flex-row  lg:justify-between px-5 sm:px-16 lg:py-20   `}>
+            className={`backdrop-blur-lg relative flex flex-col lg:flex-row  lg:justify-between px-5 sm:px-16 lg:py-20   `}
+          >
             {ind % 2 === 0 ? (
               <>
                 {/* Text on the left, image on the right */}
@@ -524,13 +539,15 @@ const Home = () => {
                     buttonName={homeContent.homeButtonName}
                   />
                 </div>
+
                 <div
                   className=" absolute   flex items-center justify-center opacity-20 dark:opacity-70
                 
                 w-[18rem] md:w-[28rem] xl:w-[23rem]   
                 bottom-[3rem] md:bottom-[20rem] lg:-bottom-5 xl:-bottom-2 2xl:-bottom-5 
                 md:left-72 lg:left-52  
-                ">
+                "
+                >
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#148938"
@@ -546,7 +563,8 @@ const Home = () => {
                 w-[15rem] 
                 md:right-[28rem] lg:right-[18rem] xl:right-[23rem] 2xl:right-[30rem]  
                 -top-5 
-                ">
+                "
+                >
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#f49738"
@@ -567,7 +585,8 @@ const Home = () => {
                   w-[20rem] sm:w-[28rem]  xl:w-[20rem]
                  right-10 sm:right-[20rem] lg:right-20  
                  bottom-24 sm:bottom-[20rem] lg:bottom-[1rem] xl:bottom-[1rem]
- ">
+ "
+                >
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#f49738"
@@ -584,7 +603,8 @@ const Home = () => {
                  md:left-[28rem] lg:left-[18rem] xl:left-[23rem] 2xl:left-[30rem]
                 
                  -top-10
-                 ">
+                 "
+                >
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill="#148938"

@@ -178,7 +178,7 @@ const Header = ({ open, setOpen }) => {
               className={({ isActive }) =>
                 isActive
                   ? "text-highlight_hover dark:text-dark_primary_text  "
-                  : " text-dark_secondary_text dark:text-highlight hover:text-highlight_hover dark:hover:text-highlight_hover header_links transition-transform duration-500 ease transform hover:scale-110 "
+                  : " text-dark_secondary_text dark:text-highlight hover:text-highlight_hover dark:hover:text-highlight_hover header_links transition-transform duration-700 ease transform hover:scale-110 "
               }
               end
               onClick={handleNavLinkClick}
