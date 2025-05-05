@@ -136,18 +136,18 @@ export const Static_Information = {
           route_link: "/blogs-vlogs",
           route_name: "Blogs & Vlogs",
         },
-        // {
-        //   route_link: "/live-contest",
-        //   route_name: "Live Contest",
-        // },
-        // {
-        //   route_link: "/career",
-        //   route_name: "Career",
-        // },
-        // {
-        //   route_link: "/virtual-store",
-        //   route_name: "Store",
-        // },
+        {
+          route_link: "/live-contest",
+          route_name: "Live Contest",
+        },
+        {
+          route_link: "/career",
+          route_name: "Career",
+        },
+        {
+          route_link: "/virtual-store",
+          route_name: "Store",
+        },
       ],
       // -------------------------- HOME ---------------------------
       HomeData: {
