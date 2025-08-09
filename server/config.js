@@ -2,7 +2,13 @@ import mongoose from "mongoose";
 import cloudinary from "cloudinary";
 import AWS from "aws-sdk";
 import nodemailer from "nodemailer";
+import redis from "redis";
 import "dotenv/config";
+
+export const redisClient = redis.createClient(
+  process.env.REDIS_PORT,
+  process.env.REDIS_HOST
+);
 
 const connect = async () => {
   try {
@@ -21,6 +27,18 @@ const connect = async () => {
       api_key: process.env.CLOUDINARY_API_KEY,
       api_secret: process.env.CLOUDINARY_API_SECRET,
     });
+
+    // redisClient.on("error", (error) => {
+    //   console.error("Redis connection error:", error);
+    //   process.exit(1);
+    // });
+
+    // redisClient.on("ready", () => {
+    //   console.log("Redis connection ready.");
+    // });
+
+    // await redisClient.connect();
+    // console.log("Redis connection successful.");
   } catch (error) {
     console.error("MongoDB connection failed:", error);
     process.exit(1);

@@ -31,6 +31,15 @@ const blogTypeDefs = gql`
     updatedAt: String!
   }
 
+  type Blogs {
+    id: ID!
+    title: String!
+    author: User!
+    verified: Boolean!
+    image: Image
+    contentType: String!
+  }
+
   input VideoInput {
     ETag: String
     ServerSideEncryption: String
@@ -51,17 +60,24 @@ const blogTypeDefs = gql`
     video: VideoInput
     state: String!
     city: String!
-   
+
     originLocation: String!
     contentType: String!
     contentCategory: String!
   }
 
+  type PaginatedBlogs {
+    blogs: [Blogs!]!
+    total: Int!
+    totalPages: Int!
+    currentPage: Int!
+  }
+
   type Query {
-    getBlogs: [Blog!]!
+    getBlogs(page: Int = 1, limit: Int = 10): PaginatedBlogs
     getBlog(id: ID!): Blog
-    getUnverifiedBlogs: [Blog!]!
-    getTHCrossedBlogs: [Blog!]!
+    getUnverifiedBlogs(page: Int = 1, limit: Int = 10): PaginatedBlogs!
+    getTHCrossedBlogs(page: Int = 1, limit: Int = 10): PaginatedBlogs
   }
 
   type Mutation {

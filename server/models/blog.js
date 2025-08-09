@@ -1,4 +1,4 @@
- import mongoose from "mongoose";
+import mongoose from "mongoose";
 
 const { Schema } = mongoose;
 
@@ -53,5 +53,8 @@ const blogSchema = new Schema(
   },
   { timestamps: true }
 );
+
+blogSchema.index({ verified: 1, createdAt: -1 });
+blogSchema.index({ contentCategory: 1, "likes.1": 1, createdAt: -1 });
 
 export default mongoose.model("Blog", blogSchema);
